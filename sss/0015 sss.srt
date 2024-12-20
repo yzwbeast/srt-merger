@@ -1,0 +1,3907 @@
+1
+00:00:00,270 --> 00:00:03,390
+Hey, welcome back to 100 Days of Code.
+
+2
+00:00:03,990 --> 00:00:11,090
+This is Angela from the App Brewery, and today is day 15 where we're going to set up our local development
+
+3
+00:00:11,160 --> 00:00:15,780
+environment for Python and we're going to be building a Coffee Machine project.
+
+4
+00:00:16,470 --> 00:00:17,850
+So when we designed the course,
+
+5
+00:00:17,850 --> 00:00:23,390
+we really wanted you to get up and running as fast as possible and start coding straight away.
+
+6
+00:00:23,880 --> 00:00:30,150
+But as our project gets more and more complex, then it's really important to start thinking about setting
+
+7
+00:00:30,150 --> 00:00:32,250
+up a proper development environment.
+
+8
+00:00:32,880 --> 00:00:38,760
+Now, if you were a chef, then you need really sharp knives. And as a programmer, you need a good development
+
+9
+00:00:38,760 --> 00:00:39,440
+environment.
+
+10
+00:00:39,660 --> 00:00:43,680
+In today's lesson, I'm going to show you how to set up my favorite IDE,
+
+11
+00:00:44,220 --> 00:00:48,000
+and the IDE stands for Integrated Development Environment.
+
+12
+00:00:48,690 --> 00:00:53,430
+This is a piece of software that will help you as you're creating your code,
+
+13
+00:00:53,730 --> 00:00:59,550
+and it's going to do a whole bunch of things for you including things like linting your code, finding
+
+14
+00:00:59,550 --> 00:01:06,270
+errors in it, giving you guidance on your coding style, helping you debug issues, just making life
+
+15
+00:01:06,270 --> 00:01:09,630
+easier for you as you start writing more and more code.
+
+16
+00:01:10,260 --> 00:01:14,120
+This is the moment where you're graduating from a newbie developer.
+
+17
+00:01:14,220 --> 00:01:20,280
+It's like as if you've gone into the mountains, you've fetched water for this old sensei for like 20
+
+18
+00:01:20,280 --> 00:01:23,310
+years and finally he's going to show you how to use a sword.
+
+19
+00:01:24,030 --> 00:01:27,030
+This is going to be the equivalent of our sword.
+
+20
+00:01:27,630 --> 00:01:32,400
+Now, in terms of development environment, there's actually a whole bunch to choose from.
+
+21
+00:01:32,880 --> 00:01:36,340
+And you might have heard of some of these like Jupiter or Spider,
+
+22
+00:01:36,360 --> 00:01:36,640
+VS
+
+23
+00:01:36,660 --> 00:01:40,200
+Code and some of them we've already used like Thonny.
+
+24
+00:01:40,920 --> 00:01:44,910
+But the one that we're going to use is something called PyCharm.
+
+25
+00:01:45,330 --> 00:01:51,510
+And this is an Intelligent Development Environment, an IDE, that is specialized for Python.
+
+26
+00:01:52,020 --> 00:01:58,590
+The tool has been sharpened especially for python coding, and it's what the professionals use. In
+
+27
+00:01:58,590 --> 00:01:59,520
+the coming lessons,
+
+28
+00:01:59,520 --> 00:02:01,860
+we're going to get really familiar with this tool.
+
+29
+00:02:02,040 --> 00:02:08,389
+And gradually, I want to show you how it can help you become a better and more productive developer.
+
+30
+00:02:09,180 --> 00:02:14,820
+But before we can get started installing PyCharm, we first have to get the latest version of Python
+
+31
+00:02:15,090 --> 00:02:17,220
+installed on your computer.
+
+32
+00:02:18,120 --> 00:02:25,110
+In the course resources, you can go ahead and find the download link for Python. Then once you're
+
+33
+00:02:25,110 --> 00:02:29,230
+there, it should automatically detect your current operating system.
+
+34
+00:02:29,790 --> 00:02:36,840
+So here I am on Windows and it says download the latest version for Windows. And then if you click on
+
+35
+00:02:36,840 --> 00:02:41,250
+the big download button, it'll ensure that you get the latest version of Python.
+
+36
+00:02:41,820 --> 00:02:46,260
+Now, it's actually a very small file, so it shouldn't take very long to download.
+
+37
+00:02:47,070 --> 00:02:51,510
+And once it's complete, go ahead and open up that .exe file.
+
+38
+00:02:52,320 --> 00:02:59,760
+Now, go ahead and make sure that the checkbox for Add Python 3.8 to Path is checked and
+
+39
+00:02:59,760 --> 00:03:01,890
+then leave everything else as it is
+
+40
+00:03:01,890 --> 00:03:08,740
+and click on Install now. And make sure that you have admin privileges while you're installing
+
+41
+00:03:09,390 --> 00:03:15,870
+so you have to be logged on as the administrator. And say yes to any of the prompts.
+
+42
+00:03:16,140 --> 00:03:22,590
+Now, installation should only take a few minutes. And once it's done, you might get a hint here saying
+
+43
+00:03:22,590 --> 00:03:25,260
+"Disable path length limit."
+
+44
+00:03:25,830 --> 00:03:28,710
+If you see that, then go ahead and click on it.
+
+45
+00:03:30,540 --> 00:03:37,610
+And again, say yes for allow. And then you're done and you can close off the wizard. If you're on a Mac,
+
+46
+00:03:37,650 --> 00:03:39,840
+the process is virtually identical.
+
+47
+00:03:40,290 --> 00:03:46,860
+Once you head over to the link from the course resources, you should see it automatically, let's you download
+
+48
+00:03:46,860 --> 00:03:48,330
+the latest version for Mac.
+
+49
+00:03:48,870 --> 00:03:53,520
+And once the download is complete, you can go through the wizard clicking
+
+50
+00:03:53,520 --> 00:03:59,280
+continue agreeing to everything that they ask you to agree and click install.
+
+51
+00:04:00,350 --> 00:04:06,200
+And again, you'll need to be on the administrator account and type in your password to allow Python
+
+52
+00:04:06,200 --> 00:04:13,430
+to be installed on your computer. Once installation is completed, it should open up this folder and
+
+53
+00:04:13,430 --> 00:04:19,100
+you should see Python 3.8 or a later version like 3.9 or 3.10.
+
+54
+00:04:19,519 --> 00:04:25,250
+But as long as you see this, then you've been successful and you can delete the installer from your
+
+55
+00:04:25,250 --> 00:04:25,890
+computer.
+
+56
+00:04:26,570 --> 00:04:32,990
+So now you should have successfully installed Python onto your computer, and we're ready to proceed to
+
+57
+00:04:32,990 --> 00:04:36,050
+the next step. Head over to the next lesson
+
+58
+00:04:36,050 --> 00:04:38,330
+and we're going to download and install PyCharm.
+
+
+59
+00:00:00,390 --> 00:00:04,440
+So you should have now successfully installed Python onto your computer,
+
+60
+00:00:04,830 --> 00:00:06,870
+and we're ready to proceed to the next step,
+
+61
+00:00:06,930 --> 00:00:11,220
+which is to download PyCharm. Again, in the course resources,
+
+62
+00:00:11,250 --> 00:00:16,140
+you'll find a link to the home page to download PyCharm.
+
+63
+00:00:16,710 --> 00:00:18,480
+And once you get to this page,
+
+64
+00:00:18,510 --> 00:00:23,510
+you should click on the download button and this takes you to the options page.
+
+65
+00:00:23,820 --> 00:00:27,210
+Now, here, it should automatically select your system.
+
+66
+00:00:27,540 --> 00:00:29,760
+So currently I'm on a Windows computer,
+
+67
+00:00:30,060 --> 00:00:33,090
+and it's automatically selected the Windows tab.
+
+68
+00:00:33,330 --> 00:00:36,960
+And you can click on the system requirements to make sure that your computer is
+
+69
+00:00:36,960 --> 00:00:41,760
+compatible. And you can also take a look at the installation instructions,
+
+70
+00:00:41,820 --> 00:00:44,820
+which is pretty simple. It's basically download and run.
+
+71
+00:00:45,270 --> 00:00:47,490
+So there's two versions of PyCharm;
+
+72
+00:00:47,580 --> 00:00:49,830
+the professional and the community version.
+
+73
+00:00:50,220 --> 00:00:53,760
+You're going to select the community version because it's completely free and
+
+74
+00:00:53,760 --> 00:00:54,870
+open source to use.
+
+75
+00:00:55,290 --> 00:00:58,680
+The professional version has a free trial and after that you'll have to pay for
+
+76
+00:00:58,680 --> 00:01:02,880
+it, but the community version already has all of the features that we need
+
+77
+00:01:03,060 --> 00:01:07,200
+and more. Once you click on download, that will take a little while,
+
+78
+00:01:07,410 --> 00:01:11,970
+anywhere between 5 to 10 minutes. So while you're waiting for that to run,
+
+79
+00:01:12,060 --> 00:01:13,920
+you can head over to the next lesson
+
+80
+00:01:14,190 --> 00:01:17,490
+and I'll talk about some of the features of PyCharm that we can look forward
+
+81
+00:01:17,490 --> 00:01:22,230
+to. Now, if you are on a Mac, the process is pretty much the same.
+
+82
+00:01:22,290 --> 00:01:25,380
+So head over to the link that's in the course resources,
+
+83
+00:01:25,770 --> 00:01:30,540
+click on download and download the community version of PyCharm.
+
+84
+00:01:31,320 --> 00:01:34,920
+Now, if you're a Linux user, you can also toggle to the Linux tab.
+
+85
+00:01:35,430 --> 00:01:36,270
+And while your here,
+
+86
+00:01:36,270 --> 00:01:39,720
+you can look at the system requirements and the installation instructions.
+
+87
+00:01:40,500 --> 00:01:44,310
+Once you are ready, go ahead and click on the download button for the community
+
+88
+00:01:44,310 --> 00:01:48,630
+edition, which is free and open-source, and then download will begin.
+
+89
+00:01:49,170 --> 00:01:52,140
+And again, it'll take anywhere between 5 to 10 minutes.
+
+90
+00:01:52,230 --> 00:01:56,310
+So let it download and head over to the next lesson where I want to show you
+
+91
+00:01:56,310 --> 00:01:58,260
+some of the great features of PyCharm.
+
+
+92
+00:00:00,480 --> 00:00:05,480
+Up until now we've been using Repl.it as our code editor and Repl.it has a
+
+93
+00:00:06,330 --> 00:00:11,330
+number of great features like how easy it is to share code and to fork copies of
+
+94
+00:00:12,720 --> 00:00:17,370
+the same code so that you can always get the starting code and the final code.
+
+95
+00:00:18,120 --> 00:00:21,090
+But Repl.it does have its limitations.
+
+96
+00:00:21,600 --> 00:00:26,600
+And as you're becoming more and more advanced and you start building more
+
+97
+00:00:26,610 --> 00:00:31,380
+complex projects, you'll start to feel the constraints of a simple text editor
+
+98
+00:00:31,410 --> 00:00:36,390
+like Repl.it. Now PyCharm is a tool that's used by professionals.
+
+99
+00:00:36,900 --> 00:00:41,280
+And I want to show you a couple of features so that you can see firsthand why
+
+100
+00:00:41,280 --> 00:00:44,340
+PyCharm is so popular with Python developers.
+
+101
+00:00:44,640 --> 00:00:48,450
+And the first thing I really like about it is also a very, very basic thing,
+
+102
+00:00:48,840 --> 00:00:53,040
+it's spellcheck for the English words that you use in your code.
+
+103
+00:00:53,610 --> 00:00:55,710
+This just means that while you're writing code,
+
+104
+00:00:55,710 --> 00:00:59,970
+you are creating names for your variables, creating your keys, your values,
+
+105
+00:01:00,450 --> 00:01:05,160
+or your print statements, that it makes sure that the English that you write,
+
+106
+00:01:05,160 --> 00:01:09,060
+the parts that's not actually code, is actually spell-checked
+
+107
+00:01:09,240 --> 00:01:12,330
+and you won't believe how many times this will save your skin.
+
+108
+00:01:13,050 --> 00:01:15,840
+Here's an example, something that's really,
+
+109
+00:01:15,840 --> 00:01:19,380
+really sensitive to spelling is a dictionary.
+
+110
+00:01:19,770 --> 00:01:24,770
+We all know that when we're using a dictionary and let's say we wanted to print
+
+111
+00:01:26,100 --> 00:01:31,100
+one of the values from our dictionary. We're taking our contacts and getting hold
+
+112
+00:01:31,860 --> 00:01:36,720
+of James's details, and then we're trying to get hold of his phone number.
+
+113
+00:01:37,170 --> 00:01:40,230
+Now, if you type this wrong, for example,
+
+114
+00:01:40,230 --> 00:01:44,910
+if I wrote phone number without an 'e', and I try to run this,
+
+115
+00:01:45,090 --> 00:01:47,100
+then you'll see, I get an error.
+
+116
+00:01:47,610 --> 00:01:52,050
+But the spell check should already alert you to the issue before you even hit
+
+117
+00:01:52,050 --> 00:01:55,590
+run. See how this is underlined with a squiggle
+
+118
+00:01:55,890 --> 00:01:58,890
+and it tells you that there's a typo in the word phon,
+
+119
+00:01:59,310 --> 00:02:02,610
+and you can click change to phone maybe.
+
+120
+00:02:03,360 --> 00:02:06,300
+And it's just a subtle hint to say, 'Hey,
+
+121
+00:02:06,570 --> 00:02:10,800
+I think maybe you got that wrong. Just DoubleCheck.' And indeed,
+
+122
+00:02:10,830 --> 00:02:11,970
+once we fix that,
+
+123
+00:02:12,270 --> 00:02:16,290
+then we get rid of all our issues and everything works perfectly.
+
+124
+00:02:17,070 --> 00:02:22,070
+The next feature that I really like is having more space to develop.
+
+125
+00:02:23,370 --> 00:02:25,140
+What do I mean by this? Well,
+
+126
+00:02:25,200 --> 00:02:29,940
+very often we actually tend to have more than one code file, right?
+
+127
+00:02:30,210 --> 00:02:30,840
+For example,
+
+128
+00:02:30,840 --> 00:02:35,840
+let's say that we moved our contacts into this data file and we imported it
+
+129
+00:02:37,200 --> 00:02:38,033
+instead.
+
+130
+00:02:38,460 --> 00:02:42,870
+So it will say from data import contacts.
+
+131
+00:02:43,590 --> 00:02:48,590
+And now when I want to code things up and I want to get hold of certain things,
+
+132
+00:02:49,350 --> 00:02:51,840
+for example I want to get Jenny's email,
+
+133
+00:02:53,190 --> 00:02:57,300
+then ideally I would want to see this side by side,
+
+134
+00:02:57,300 --> 00:02:59,500
+right? In PyCharm
+
+135
+00:02:59,710 --> 00:03:03,190
+all you have to do to split the screen is just right
+
+136
+00:03:03,190 --> 00:03:06,640
+click on the file and then say split and move right.
+
+137
+00:03:07,390 --> 00:03:10,990
+And now all of a sudden you can see both sides at once.
+
+138
+00:03:11,230 --> 00:03:16,120
+This means it so much easier to refer to some other piece of code when you're
+
+139
+00:03:16,120 --> 00:03:16,953
+developing.
+
+140
+00:03:17,020 --> 00:03:22,020
+So here I can now easily see that the key for Jenny has a capital J,
+
+141
+00:03:22,540 --> 00:03:24,430
+so I have to tap into my contacts,
+
+142
+00:03:24,730 --> 00:03:28,600
+tap into the key Jenny and then get hold of her email.
+
+143
+00:03:29,020 --> 00:03:34,020
+This split-screen comes in really handy as your code gets more complex and
+
+144
+00:03:34,330 --> 00:03:35,890
+there's more and more files.
+
+145
+00:03:37,240 --> 00:03:42,240
+And now another advanced feature of an IDE compared to a simple text editor like
+
+146
+00:03:43,300 --> 00:03:46,630
+Repl.it is a built-in linter.
+
+147
+00:03:47,020 --> 00:03:52,020
+So what is a linter? Well, a linter in real life, is something that picks off a
+
+148
+00:03:52,510 --> 00:03:53,470
+little bits of dust,
+
+149
+00:03:53,470 --> 00:03:58,470
+bits of lint from your clothing, and in Programming it's something that picks out
+
+150
+00:04:00,370 --> 00:04:05,370
+bits of code that you've written that might not be in accordance to the style
+
+151
+00:04:05,770 --> 00:04:10,540
+guide. When we're writing code and we're trying to decide, well,
+
+152
+00:04:10,570 --> 00:04:15,430
+how many spaces do I leave between things, do I use tabs or spaces,
+
+153
+00:04:15,790 --> 00:04:17,680
+what is the maximum line length,
+
+154
+00:04:18,010 --> 00:04:22,720
+all of these sort of things that maybe won't break your program per se,
+
+155
+00:04:23,140 --> 00:04:27,550
+but it will mean that your program might look different from somebody else's
+
+156
+00:04:27,880 --> 00:04:31,630
+and you just want to know what is the convention so that you can keep your code
+
+157
+00:04:31,630 --> 00:04:34,480
+consistent with other Python developers. Well,
+
+158
+00:04:34,480 --> 00:04:36,760
+this is what a style guide is for.
+
+159
+00:04:37,030 --> 00:04:41,650
+And the style guide that most Python developers will abide by is something
+
+160
+00:04:41,650 --> 00:04:43,000
+called PEP 8.
+
+161
+00:04:43,600 --> 00:04:47,560
+And we've already seen this when we were talking about tabs versus spaces.
+
+162
+00:04:47,860 --> 00:04:48,460
+For example,
+
+163
+00:04:48,460 --> 00:04:53,460
+the guidance is that an indentation should have four spaces, and indeed it should
+
+164
+00:04:55,360 --> 00:04:57,970
+be spaces over tabs.
+
+165
+00:04:58,540 --> 00:05:02,020
+And then there are other things like what's the maximum line length
+
+166
+00:05:02,050 --> 00:05:04,630
+so that your lines of code don't become really,
+
+167
+00:05:04,630 --> 00:05:09,630
+really long and difficult to read, or things like how many blank lines should
+
+168
+00:05:09,970 --> 00:05:14,970
+there between functions and variables in your code and all sorts of things.
+
+169
+00:05:15,340 --> 00:05:20,340
+This is a very long document and it's actually very difficult to read all of it
+
+170
+00:05:21,160 --> 00:05:24,040
+and remember all of it while you're in the middle of coding.
+
+171
+00:05:24,550 --> 00:05:28,030
+But luckily for us, if we're using PyCharm,
+
+172
+00:05:28,300 --> 00:05:33,070
+it automatically applies those rules and guidance to our code
+
+173
+00:05:33,430 --> 00:05:36,130
+and lints our code. For example,
+
+174
+00:05:36,130 --> 00:05:39,250
+if I was to create a function called my_function,
+
+175
+00:05:40,030 --> 00:05:41,290
+and inside here
+
+176
+00:05:41,320 --> 00:05:45,280
+I've just got two inputs, n1 and n2,
+
+177
+00:05:45,820 --> 00:05:50,560
+and then it calculates the total by adding n1 to n2,
+
+178
+00:05:51,220 --> 00:05:55,210
+and it returns the total as an output. Now,
+
+179
+00:05:55,420 --> 00:05:59,870
+at a later point, I decide to call my function, passing in some numbers,
+
+180
+00:05:59,900 --> 00:06:03,470
+maybe say 4 and 5. Now firstly,
+
+181
+00:06:03,500 --> 00:06:08,500
+notice how I've got some light yellow squiggly lines under both of these lines.
+
+182
+00:06:09,200 --> 00:06:12,320
+And when I hover over it, so I don't have to click on it.
+
+183
+00:06:12,350 --> 00:06:16,400
+I just keep my cursor on top of the line which has the squiggles,
+
+184
+00:06:16,820 --> 00:06:17,390
+you can see
+
+185
+00:06:17,390 --> 00:06:22,390
+it tells me that PEP 8 guidance specifies that there should be two blank lines
+
+186
+00:06:23,210 --> 00:06:25,550
+after a class or function definition,
+
+187
+00:06:25,970 --> 00:06:28,370
+but instead it only found one.
+
+188
+00:06:28,880 --> 00:06:32,510
+So basically what it's trying to say is that the style guide says that there
+
+189
+00:06:32,510 --> 00:06:37,510
+should be two lines after and before each of your functions so that everything
+
+190
+00:06:38,450 --> 00:06:43,430
+is more spaced out and easier to read. And here, when I hover over it,
+
+191
+00:06:43,760 --> 00:06:47,150
+you can see it says there's missing white space after the comma.
+
+192
+00:06:47,570 --> 00:06:50,960
+So the style guide says that every time you use a comma in your code,
+
+193
+00:06:51,290 --> 00:06:54,920
+you should always have a space. This way again
+
+194
+00:06:54,920 --> 00:06:59,000
+it's easier to read and it keeps your code consistent with other Python
+
+195
+00:06:59,000 --> 00:07:01,460
+developers so that when people look at your code,
+
+196
+00:07:01,610 --> 00:07:04,700
+they can see that you're following the standard conventions.
+
+197
+00:07:05,210 --> 00:07:09,260
+But remember that this does not affect how your code runs.
+
+198
+00:07:09,650 --> 00:07:13,610
+Even with all of these suggestions and these style guide rule breaks,
+
+199
+00:07:13,940 --> 00:07:17,420
+it doesn't actually mean my code won't work. If I run it,
+
+200
+00:07:17,540 --> 00:07:21,350
+you can see that it works perfectly without any errors.
+
+201
+00:07:21,770 --> 00:07:26,770
+And it's only a matter of keeping your code tidy and keeping it in line with the
+
+202
+00:07:27,260 --> 00:07:30,890
+conventions that Python developers have set out. Now,
+
+203
+00:07:30,920 --> 00:07:35,920
+another advanced feature of an IDE compared to a text editor is the ability to
+
+204
+00:07:36,650 --> 00:07:38,270
+view your local history.
+
+205
+00:07:39,080 --> 00:07:42,980
+What that means is I can go to show history
+
+206
+00:07:43,550 --> 00:07:47,030
+and just as if you were in a browser, you can see your browsing history,
+
+207
+00:07:47,360 --> 00:07:50,450
+well here you can see all of your coding history.
+
+208
+00:07:50,810 --> 00:07:55,640
+So you can scroll back all the way in the last 12 hours and see the edits that
+
+209
+00:07:55,640 --> 00:08:00,230
+you've made. For example, at thirteen past four today,
+
+210
+00:08:00,650 --> 00:08:05,030
+I created this brand new function. So this is the current file
+
+211
+00:08:05,090 --> 00:08:08,150
+and this is what it looked like at that moment in time.
+
+212
+00:08:08,810 --> 00:08:11,390
+Now scrolling forward into the future,
+
+213
+00:08:11,600 --> 00:08:16,600
+the next thing I did was I added a new function call here and I added some space
+
+214
+00:08:17,540 --> 00:08:18,373
+here.
+
+215
+00:08:18,500 --> 00:08:23,000
+So if you've had some sort of catastrophic events and you realize that you've
+
+216
+00:08:23,000 --> 00:08:25,070
+really messed up, you've deleted everything,
+
+217
+00:08:25,370 --> 00:08:29,810
+you can always scroll back to previous time points and simply just copy and
+
+218
+00:08:29,810 --> 00:08:30,643
+paste the code.
+
+219
+00:08:30,920 --> 00:08:35,059
+Or you can revert back to that particular time point.
+
+220
+00:08:35,690 --> 00:08:40,340
+Can you imagine if you are writing your essay and the number of times I have
+
+221
+00:08:40,340 --> 00:08:43,309
+lost my essay because my computer is crashed.
+
+222
+00:08:43,760 --> 00:08:48,500
+Imagine if you had this ability to just scroll back in time and find one
+
+223
+00:08:48,500 --> 00:08:52,910
+snapshot that you liked and then revert everything back to that moment in time,
+
+224
+00:08:53,450 --> 00:08:55,830
+how powerful could that be? Well,
+
+225
+00:08:55,860 --> 00:08:59,820
+you now have that in your hands with local history in PyCharm.
+
+226
+00:09:00,480 --> 00:09:05,130
+Now another really handy feature is the ability to view the structure of your
+
+227
+00:09:05,130 --> 00:09:08,610
+code. Instead of going to the project navigation,
+
+228
+00:09:08,640 --> 00:09:11,130
+if I click on this structure pane here
+
+229
+00:09:11,580 --> 00:09:16,580
+you can see that it breaks down my code into all of the variables and all of the
+
+230
+00:09:16,860 --> 00:09:21,180
+functions. That means that my function could be declared, you know,
+
+231
+00:09:21,210 --> 00:09:24,270
+many hundreds of lines somewhere else,
+
+232
+00:09:24,630 --> 00:09:28,080
+and I'm scrolling around and I'm trying to find it.
+
+233
+00:09:28,410 --> 00:09:32,490
+All I have to do is look at well, here's my function,
+
+234
+00:09:32,730 --> 00:09:33,690
+and if I click on it
+
+235
+00:09:33,930 --> 00:09:37,860
+it takes me straight there and I can now edit it if I wish.
+
+236
+00:09:38,130 --> 00:09:41,040
+And if I needed the variable jenny_email, well
+
+237
+00:09:41,040 --> 00:09:42,630
+it takes me straight there as well.
+
+238
+00:09:42,750 --> 00:09:46,650
+Once you start having lots and lots of variables and lots of lots of functions,
+
+239
+00:09:47,010 --> 00:09:48,570
+this is a lifesaver.
+
+240
+00:09:49,320 --> 00:09:53,280
+Now there's a lot of other features that I'm going to show you that PyCharm
+
+241
+00:09:53,290 --> 00:09:56,250
+can do, but I want to do it gradually. For now
+
+242
+00:09:56,310 --> 00:09:58,380
+here's the last tip on PyCharm.
+
+243
+00:09:58,980 --> 00:10:03,980
+Whenever you create a variable or a function name and you end up using it in
+
+244
+00:10:04,740 --> 00:10:06,900
+lots of places, so for example
+
+245
+00:10:06,900 --> 00:10:11,340
+you might call my_function here and then you might call my_function again
+
+246
+00:10:11,340 --> 00:10:15,270
+passing in some different parameters at some later point in time.
+
+247
+00:10:15,810 --> 00:10:17,700
+And then you decide that actually,
+
+248
+00:10:18,120 --> 00:10:21,000
+I really don't like the way that I've named that function.
+
+249
+00:10:21,420 --> 00:10:26,420
+It would make so much more sense if it was called add instead because it returns
+
+250
+00:10:26,970 --> 00:10:31,500
+the total right? If I was to do this manually in a code editor,
+
+251
+00:10:31,500 --> 00:10:32,880
+I would have to go add,
+
+252
+00:10:33,150 --> 00:10:37,530
+and then all of these lines will break and I have to find all of them and then
+
+253
+00:10:37,530 --> 00:10:40,050
+change them manually. And that's very painful.
+
+254
+00:10:40,590 --> 00:10:43,890
+So instead, what you can do in PyCharm is you can
+
+255
+00:10:43,980 --> 00:10:48,980
+right-click on the name of your function or your variable, go to refactor -> rename.
+
+256
+00:10:50,790 --> 00:10:55,590
+And now it will find all of the places where this function is created,
+
+257
+00:10:55,620 --> 00:10:59,100
+where it's called, and you can now change it everywhere.
+
+258
+00:10:59,490 --> 00:11:01,080
+So click refactor,
+
+259
+00:11:01,560 --> 00:11:06,560
+and it's now found the function that needs to be renamed and also all the places
+
+260
+00:11:07,440 --> 00:11:10,770
+where it's used. So it's used in two places, here
+
+261
+00:11:10,770 --> 00:11:13,140
+on line 11 and here on line 14.
+
+262
+00:11:13,560 --> 00:11:18,560
+So now I click do refactor and what'll happen is it'll change all the places where
+
+263
+00:11:20,250 --> 00:11:22,590
+it occurs. And it's much,
+
+264
+00:11:22,590 --> 00:11:26,160
+much safer than say just using find and replace.
+
+265
+00:11:26,520 --> 00:11:30,420
+Let's say that I had a print statement here that said, um,
+
+266
+00:11:30,450 --> 00:11:33,090
+my_function is a function.
+
+267
+00:11:33,990 --> 00:11:37,110
+And if I used find and replace where I just say, well,
+
+268
+00:11:37,110 --> 00:11:42,110
+my_function now equals add and I click on replace all,
+
+269
+00:11:42,420 --> 00:11:47,160
+it's going to now change it in all the places. But on the other hand,
+
+270
+00:11:47,160 --> 00:11:49,020
+if I use refactor -> rename,
+
+271
+00:11:49,590 --> 00:11:54,590
+then it's going to be intelligent enough to know that this print statement is
+
+272
+00:11:55,000 --> 00:11:55,470
+just
+
+273
+00:11:55,470 --> 00:11:57,630
+text whereas the places 
+
+274
+00:11:57,630 --> 00:12:02,630
+where my function is used and the places where my function is declared,
+
+275
+00:12:02,880 --> 00:12:05,640
+that is what I want to refactor and rename.
+
+276
+00:12:05,820 --> 00:12:09,090
+And it leaves all of the innocent bystanders alone.
+
+277
+00:12:10,080 --> 00:12:15,080
+There's a lot of really exciting things yet to come as we start getting used to
+
+278
+00:12:15,120 --> 00:12:18,540
+using PyCharm. But as with any new tool,
+
+279
+00:12:18,840 --> 00:12:22,530
+you'll spend a little bit of time getting up and running with it and getting
+
+280
+00:12:22,530 --> 00:12:26,190
+used to using it. Now, when I was in primary school,
+
+281
+00:12:26,520 --> 00:12:31,520
+I still remember the moment when I got to graduate from writing with pencils
+
+282
+00:12:32,220 --> 00:12:35,640
+to writing with a Berol handwriting pen.
+
+283
+00:12:36,150 --> 00:12:41,150
+And it was a really significant moment in my life when I was allowed to write
+
+284
+00:12:41,250 --> 00:12:46,230
+with the adult tools. So this is kind of what's happening right here.
+
+285
+00:12:46,560 --> 00:12:48,270
+We're graduating to PyCharm.
+
+286
+00:12:48,510 --> 00:12:52,320
+It's going to take a little bit of getting used to and learning our ropes,
+
+287
+00:12:52,620 --> 00:12:55,170
+but it's going to take us closer to our goals.
+
+288
+00:12:55,710 --> 00:13:00,300
+Hopefully by now, PyCharm should have now downloaded and you're ready to head
+
+289
+00:13:00,300 --> 00:13:03,450
+over to the next lesson where we're going to install it.
+
+
+290
+00:00:00,480 --> 00:00:02,430
+Now that you've downloaded PyCharm,
+
+291
+00:00:02,490 --> 00:00:07,320
+we're ready to go ahead and install it onto your computer. Now this video,
+
+292
+00:00:07,350 --> 00:00:11,280
+I'm going to go through all the steps for installing and setting up PyCharm on
+
+293
+00:00:11,280 --> 00:00:13,740
+Windows. If you're on a Mac system,
+
+294
+00:00:13,890 --> 00:00:18,210
+then go ahead and skip this lesson and you'll find the walkthrough on the next
+
+295
+00:00:18,210 --> 00:00:20,970
+lesson. Once you download has completed,
+
+296
+00:00:21,000 --> 00:00:23,370
+go ahead and click on the exe file
+
+297
+00:00:23,490 --> 00:00:27,780
+if you're running on Windows. And then you're just going to go ahead and follow
+
+298
+00:00:27,840 --> 00:00:32,729
+the wizard. And if you want to have an icon on your desktop, check the checkbox
+
+299
+00:00:32,729 --> 00:00:36,750
+to add the launcher, and then go ahead and click next.
+
+300
+00:00:37,710 --> 00:00:42,710
+Now leave everything as the default and click install. Installation should only
+
+301
+00:00:43,530 --> 00:00:46,830
+take a couple of minutes. And once it's done,
+
+302
+00:00:46,860 --> 00:00:49,020
+you can go ahead and click finish.
+
+303
+00:00:49,440 --> 00:00:54,440
+Now, you can double click on the icon to open up the program and the first time
+
+304
+00:00:55,140 --> 00:00:59,370
+you do so you'll need to agree to the privacy policy and choose whether if you
+
+305
+00:00:59,370 --> 00:01:03,960
+want to share data with them. Now you get to pick your UI style,
+
+306
+00:01:04,019 --> 00:01:06,030
+either dark mode or light mode,
+
+307
+00:01:06,900 --> 00:01:09,900
+and then you can skip all the rest of the setup.
+
+308
+00:01:11,040 --> 00:01:15,750
+Now to test it out, go ahead and create a new project and name it
+
+309
+00:01:15,780 --> 00:01:20,370
+whatever you want. But the really important thing is to click the Project
+
+310
+00:01:20,370 --> 00:01:25,370
+Interpreter drop-down and under base interpreter that you select the latest
+
+311
+00:01:26,190 --> 00:01:28,650
+version of Python that you just installed,
+
+312
+00:01:28,980 --> 00:01:33,480
+which in my case is Python 38, which stands for 3.8.
+
+313
+00:01:34,110 --> 00:01:37,530
+It will take a few moments before your project gets set up.
+
+314
+00:01:38,100 --> 00:01:41,190
+And once it does, you might see 
+
+315
+00:01:41,190 --> 00:01:45,090
+a little popup that says something about Windows Defender.
+
+316
+00:01:45,690 --> 00:01:46,710
+If you see this,
+
+317
+00:01:46,740 --> 00:01:51,360
+then go ahead and click fix and click configure automatically.
+
+318
+00:01:51,810 --> 00:01:54,690
+If you don't see this pop up, then don't worry about it.
+
+319
+00:01:55,350 --> 00:02:00,350
+Now you can go ahead and right-click on your project folder and select new,
+
+320
+00:02:02,910 --> 00:02:06,960
+and then new file. Now we're going to create a new file,
+
+321
+00:02:07,020 --> 00:02:11,430
+which is going to be called main.py. And in this file,
+
+322
+00:02:11,460 --> 00:02:16,200
+we're going to test it out just by writing a hello world that will get printed
+
+323
+00:02:16,230 --> 00:02:19,500
+to the console. And once you're done,
+
+324
+00:02:19,530 --> 00:02:24,530
+then go ahead and click on Run and then select the main.py file to run.
+
+325
+00:02:26,280 --> 00:02:30,480
+And the console should now popup and you should see hello world printed.
+
+326
+00:02:31,290 --> 00:02:31,950
+That's it.
+
+327
+00:02:31,950 --> 00:02:35,880
+You're ready to start working with PyCharm and you should be able to use it in
+
+328
+00:02:35,880 --> 00:02:37,560
+the same way that you used Repl.it.
+
+
+329
+00:00:00,090 --> 00:00:00,930
+In this video,
+
+330
+00:00:00,960 --> 00:00:05,100
+I'm going to walk through the process to install PyCharm on Mac. Now,
+
+331
+00:00:05,100 --> 00:00:08,880
+if you're on a Windows computer and you've already installed PyCharm,
+
+332
+00:00:08,940 --> 00:00:10,290
+then you can skip this video.
+
+333
+00:00:10,890 --> 00:00:13,860
+So you should have now downloaded the PyCharm installer.
+
+334
+00:00:14,250 --> 00:00:17,820
+So go ahead and open up the DMG file. Now,
+
+335
+00:00:17,820 --> 00:00:22,680
+when you see this window, drag the icon for PyCharm into the applications
+
+336
+00:00:22,680 --> 00:00:26,730
+folder. And now you can go to spotlight and search for PyCharm.
+
+337
+00:00:27,360 --> 00:00:30,930
+Then go ahead and click on it to open it up. Now,
+
+338
+00:00:30,960 --> 00:00:35,960
+make sure that you have admin privileges and go ahead and say open. And then
+
+339
+00:00:36,240 --> 00:00:40,680
+agree to the privacy policy and decide if you want to share data with them or
+
+340
+00:00:40,680 --> 00:00:44,310
+not. Now you can select never used 
+
+341
+00:00:44,310 --> 00:00:46,410
+PyCharm and click next.
+
+342
+00:00:46,980 --> 00:00:51,480
+Then you can pick between dark theme or light theme and click next.
+
+343
+00:00:52,050 --> 00:00:56,160
+And then go ahead and click on skip remaining and set defaults.
+
+344
+00:00:57,630 --> 00:01:01,860
+Now we can go ahead and create our first project in PyCharm.
+
+345
+00:01:02,730 --> 00:01:04,620
+Name your project whatever you want,
+
+346
+00:01:05,069 --> 00:01:10,070
+but it's really important that you click on this drop-down to check that your
+
+347
+00:01:10,140 --> 00:01:15,140
+project interpreter, and especially the base interpreter, is set to the latest
+
+348
+00:01:16,020 --> 00:01:20,820
+version of Python that you installed, which in my case is Python 3.8.
+
+349
+00:01:22,080 --> 00:01:24,750
+Now, if you're running on a Mac or a Linux,
+
+350
+00:01:24,900 --> 00:01:28,200
+you might see several versions of Python in that dropdown list.
+
+351
+00:01:28,560 --> 00:01:32,670
+So make sure that you select the latest version that you installed and then
+
+352
+00:01:32,670 --> 00:01:36,810
+click next. Once it has configured and created your new project,
+
+353
+00:01:37,110 --> 00:01:38,310
+this is what you should see.
+
+354
+00:01:38,970 --> 00:01:42,600
+And now you're going to go into your project folder, right-click on it,
+
+355
+00:01:42,960 --> 00:01:47,130
+and then go to new -> file. Now on a Mac, right
+
+356
+00:01:47,130 --> 00:01:49,800
+click is also the same as control clicking.
+
+357
+00:01:49,830 --> 00:01:54,120
+So you could hold down the control key and then click on the project folder.
+
+358
+00:01:54,480 --> 00:01:56,610
+And again, choose new, and then file.
+
+359
+00:01:57,240 --> 00:02:01,500
+And the file we're going to create is going to be our main.py. Now,
+
+360
+00:02:01,530 --> 00:02:05,760
+inside here, all that we're going to do is just print hello world.
+
+361
+00:02:07,410 --> 00:02:10,680
+And we're going to run this code and make sure that it works.
+
+362
+00:02:11,009 --> 00:02:16,010
+So go to run and then click on this run button and select the main Python file
+
+363
+00:02:18,780 --> 00:02:23,280
+as the one you want to run and then down here, you should see the run tab
+
+364
+00:02:23,340 --> 00:02:24,690
+pop up all of a sudden,
+
+365
+00:02:25,200 --> 00:02:29,400
+and you should see your hello world printed in the console.
+
+366
+00:02:30,630 --> 00:02:33,690
+And then it'll say process finished with exit code zero,
+
+367
+00:02:33,930 --> 00:02:35,700
+zero is a success,
+
+368
+00:02:36,030 --> 00:02:40,380
+and that means you're now all set up and you're ready to start using PyCharm
+
+369
+00:02:40,740 --> 00:02:43,680
+as if it were any other Python editor.
+
+370
+00:02:44,160 --> 00:02:47,760
+So anything that you've done in Repl.it you can now do in PyCharm.
+
+371
+00:02:48,120 --> 00:02:52,650
+You can create new files, you can write the files and you can run those files.
+
+
+372
+00:00:00,360 --> 00:00:02,850
+Now you should have PyCharm up and running,
+
+373
+00:00:03,030 --> 00:00:05,939
+and we're finally ready to tackle today's project,
+
+374
+00:00:06,240 --> 00:00:10,110
+which we're going to write in PyCharm. You've just been hired.
+
+375
+00:00:10,200 --> 00:00:14,250
+Congratulations, but first there's the matter of coffee.
+
+376
+00:00:14,790 --> 00:00:18,750
+We all know that programmers can't work unless they're loaded up on coffee.
+
+377
+00:00:19,260 --> 00:00:24,180
+So your company has asked you to create the code for a coffee machine.
+
+378
+00:00:25,050 --> 00:00:29,310
+Now you, very cleverly, go online and look at the other coffee machines.
+
+379
+00:00:29,580 --> 00:00:34,380
+And you notice that it only costs $230 to buy a coffee machine,
+
+380
+00:00:34,860 --> 00:00:38,310
+but you're not going to cheat. You're going to create everything from scratch.
+
+381
+00:00:38,910 --> 00:00:42,960
+And luckily we don't actually have to build the hardware because we're programmers,
+
+382
+00:00:42,990 --> 00:00:43,740
+right?
+
+383
+00:00:43,740 --> 00:00:48,740
+But we're going to use this real-life coffee machine as the inspiration for our
+
+384
+00:00:49,170 --> 00:00:53,670
+virtual coffee machine, noting the features and the capabilities.
+
+385
+00:00:54,330 --> 00:00:58,770
+So what does it say? I found some wonderful graphics on here
+
+386
+00:00:59,130 --> 00:01:02,130
+which tells me that they're three hot flavors
+
+387
+00:01:02,640 --> 00:01:07,170
+which I'm guessing are these three buttons, it's coins operate
+
+388
+00:01:07,830 --> 00:01:12,720
+which I think they mean it's coin operated, and there's not much else that it can
+
+389
+00:01:12,720 --> 00:01:13,530
+do.
+
+390
+00:01:13,530 --> 00:01:18,510
+Let's take this example and we're going to make a digital version of it.
+
+391
+00:01:18,510 --> 00:01:20,880
+We're going to create our own coffee machine.
+
+392
+00:01:21,330 --> 00:01:25,830
+And the first step we need to replicate is the ability to make three hot
+
+393
+00:01:25,830 --> 00:01:30,210
+flavors. So the flavors we're going to make are 1. espresso,
+
+394
+00:01:30,420 --> 00:01:33,750
+2. latte, and 3. cappuccino. Here
+
+395
+00:01:33,750 --> 00:01:36,870
+are the recipes for these three types of drinks.
+
+396
+00:01:37,410 --> 00:01:40,140
+Each of them requires a different quantity of water,
+
+397
+00:01:40,260 --> 00:01:43,470
+a different quantity of coffee and a different quantity of milk.
+
+398
+00:01:43,920 --> 00:01:46,770
+And they also each half a different price.
+
+399
+00:01:47,520 --> 00:01:51,360
+We're going to be modeling all this data in our coffee machine program as well.
+
+400
+00:01:52,430 --> 00:01:55,040
+But luckily for you in the starting code,
+
+401
+00:01:55,100 --> 00:01:58,250
+I've already included all of this data inside a dictionary.
+
+402
+00:01:58,550 --> 00:02:00,170
+So you don't have to remember this,
+
+403
+00:02:00,470 --> 00:02:03,530
+although it might help if you're at home and you decided that you really wanted
+
+404
+00:02:03,530 --> 00:02:07,520
+a latte instead of your usual black coffee. Now, in addition,
+
+405
+00:02:07,520 --> 00:02:10,820
+the coffee machine has some resources that it has to manage.
+
+406
+00:02:11,180 --> 00:02:14,390
+So it starts out with 300ml of water in the tank,
+
+407
+00:02:14,630 --> 00:02:18,050
+200ml of milk and 100 grams of coffee.
+
+408
+00:02:18,530 --> 00:02:22,970
+The second feature of our coffee machine is that it's coin operated.
+
+409
+00:02:23,450 --> 00:02:28,450
+So we're going to be using American coins and they have four types of coins:
+
+410
+00:02:29,060 --> 00:02:31,760
+the penny, the nickel, the dime, and the quarter.
+
+411
+00:02:32,330 --> 00:02:34,520
+They used to also have the dollar as a coin
+
+412
+00:02:34,910 --> 00:02:38,000
+but a few years ago they stopped minting that. So we're not going to count it
+
+413
+00:02:38,120 --> 00:02:40,370
+and it probably means one less if statement for us.
+
+414
+00:02:40,880 --> 00:02:45,680
+Notice what each of these coins are worth. The penny is worth a cent,
+
+415
+00:02:46,040 --> 00:02:49,010
+the nickel worth 5 cents and the dime 10 cents,
+
+416
+00:02:49,040 --> 00:02:51,200
+and the quarter is a quarter of a dollar.
+
+417
+00:02:51,650 --> 00:02:56,650
+These represented in decimal values would look something like this.
+
+418
+00:02:57,920 --> 00:03:02,620
+Now here's the important part. Let's think about what our program requirements are
+
+419
+00:03:02,650 --> 00:03:05,080
+if we break it down one.
+
+420
+00:03:05,230 --> 00:03:08,050
+1. We need our coffee machine to be able to print a report.
+
+421
+00:03:08,440 --> 00:03:11,680
+It needs to be able to tell us what resources it has left,
+
+422
+00:03:11,710 --> 00:03:14,470
+how much water has left, how much milk, et cetera.
+
+423
+00:03:14,980 --> 00:03:18,430
+If you head over to the completed version of the coffee machine,
+
+424
+00:03:18,790 --> 00:03:21,190
+the link is in the course resources,
+
+425
+00:03:21,610 --> 00:03:25,780
+and you can go ahead and try out the final version of the coffee machine.
+
+426
+00:03:26,500 --> 00:03:31,500
+So let's say that we wanted a report on all the resources that the machine has.
+
+427
+00:03:31,990 --> 00:03:36,970
+All we have to do is type report, and we can see all the resources we have.
+
+428
+00:03:37,600 --> 00:03:40,030
+Now, in addition to being able to print a report,
+
+429
+00:03:40,420 --> 00:03:45,400
+we also want to be able to check that the resources are sufficient when the user
+
+430
+00:03:45,400 --> 00:03:50,380
+orders a drink. Now let's say that the user decided to order a latte.
+
+431
+00:03:50,950 --> 00:03:55,950
+It asks me to insert some coins and then it gives me the change and it gives me
+
+432
+00:03:56,530 --> 00:03:59,650
+the latte. But now if I check the report,
+
+433
+00:04:00,010 --> 00:04:03,520
+I can see that I've only got a hundred mils of water left.
+
+434
+00:04:03,910 --> 00:04:08,470
+And I know from the previous slide that a latte and a cappuccino is going to
+
+435
+00:04:08,470 --> 00:04:12,370
+need more than that amount of water. So let's see what happens
+
+436
+00:04:12,400 --> 00:04:16,510
+if I go ahead and order a cappuccino. It says, sorry,
+
+437
+00:04:16,510 --> 00:04:17,800
+there's not enough water.
+
+438
+00:04:18,279 --> 00:04:23,280
+So our program is able to look through all the resources that the machine has,
+
+439
+00:04:24,340 --> 00:04:29,340
+checks it against the recipe of the drink that we're trying to make, and tells the
+
+440
+00:04:29,890 --> 00:04:34,270
+user if there is insufficient water or if there's insufficient milk,
+
+441
+00:04:34,630 --> 00:04:37,390
+and as long as one of the resources is insufficient,
+
+442
+00:04:37,630 --> 00:04:42,580
+then it can't make the drink and it gives the feedback to the user. Now,
+
+443
+00:04:42,610 --> 00:04:43,720
+as you saw before,
+
+444
+00:04:44,140 --> 00:04:48,550
+our program also needs to be able to process coins because our machine is coin
+
+445
+00:04:48,580 --> 00:04:49,413
+operated.
+
+446
+00:04:50,170 --> 00:04:54,610
+So no fancy contactless payments or pay with your Apple watch, none of that.
+
+447
+00:04:54,700 --> 00:04:57,910
+We've only got coins. When we order something,
+
+448
+00:04:58,690 --> 00:05:01,090
+it should ask us to insert coins.
+
+449
+00:05:01,630 --> 00:05:04,810
+And it's going to ask for the quantity of each type of coin.
+
+450
+00:05:05,260 --> 00:05:09,490
+So let's say that I insert one of each, then in this case,
+
+451
+00:05:09,580 --> 00:05:14,580
+there's actually not enough money to cover my drink and it refunds the money and
+
+452
+00:05:14,740 --> 00:05:19,630
+doesn't give me a drink. But on the other hand, if I do insert enough money,
+
+453
+00:05:20,410 --> 00:05:25,150
+then it should be able to calculate how much money all of these coins are worth
+
+454
+00:05:25,570 --> 00:05:29,530
+and then calculate the amount of change based on the cost of my drink.
+
+455
+00:05:30,010 --> 00:05:34,480
+And then it should hand me my drink and tell me to enjoy. So,
+
+456
+00:05:34,510 --> 00:05:37,720
+in addition to being able to process the four types of coins,
+
+457
+00:05:37,750 --> 00:05:41,560
+calculating the actual monetary value based on the number of points,
+
+458
+00:05:41,860 --> 00:05:44,500
+it should also check that the transaction is successful.
+
+459
+00:05:44,530 --> 00:05:49,530
+That the user didn't try to hoodwink us by not giving enough coins and asking
+
+460
+00:05:49,540 --> 00:05:53,080
+for a drink. So if they haven't inserted enough coins,
+
+461
+00:05:53,350 --> 00:05:55,780
+then we're just going to refund them and tell them, sorry
+
+462
+00:05:55,780 --> 00:05:58,970
+that's not enough money, and not give them their drink.
+
+463
+00:05:59,390 --> 00:06:02,150
+But if the transaction was successful,
+
+464
+00:06:02,450 --> 00:06:07,040
+then we're going to make the coffee. And in the process of making the coffee,
+
+465
+00:06:07,280 --> 00:06:09,560
+we're going to have to deduct the resources.
+
+466
+00:06:10,070 --> 00:06:12,680
+Notice how every time we make a drink,
+
+467
+00:06:12,710 --> 00:06:16,670
+say in this time we made a latte and previous to the latte,
+
+468
+00:06:16,700 --> 00:06:20,300
+we have 300 mills of milk. But after the latte,
+
+469
+00:06:20,330 --> 00:06:24,110
+when we asked for the report, you can see that the water has been reduced,
+
+470
+00:06:24,110 --> 00:06:25,190
+the milk has been reduced,
+
+471
+00:06:25,220 --> 00:06:28,840
+the coffee has been reduced and the money has been put into the coffer.
+
+472
+00:06:29,690 --> 00:06:32,150
+This program, even though it seems simple,
+
+473
+00:06:32,180 --> 00:06:35,240
+just a simple digital version of a coffee machine,
+
+474
+00:06:35,720 --> 00:06:38,420
+it actually has quite a few requirements.
+
+475
+00:06:38,960 --> 00:06:43,960
+So I recommend that you look at the screen and try to see how each of the
+
+476
+00:06:44,510 --> 00:06:49,510
+requirements work by having a play around with the final version of the code. Now
+
+477
+00:06:51,080 --> 00:06:56,080
+I've created a detailed program specification for you as a PDF file
+
+478
+00:06:56,690 --> 00:06:59,510
+which you can download in the course resources.
+
+479
+00:06:59,930 --> 00:07:04,520
+And this goes into a lot more details on each of those points. For example,
+
+480
+00:07:04,520 --> 00:07:08,360
+what should the prompt print in the beginning of the program,
+
+481
+00:07:08,810 --> 00:07:12,020
+and then how to turn the machine off,
+
+482
+00:07:12,410 --> 00:07:17,410
+how to print the reports and how each of those points should work in detail.
+
+483
+00:07:19,010 --> 00:07:23,780
+Go ahead and download this and make sure you read each of the sections and test
+
+484
+00:07:23,780 --> 00:07:27,620
+it out in the final working version of the project.
+
+485
+00:07:28,730 --> 00:07:29,810
+Once you're ready,
+
+486
+00:07:29,870 --> 00:07:34,760
+you can go ahead and head over to the starting version of the code. And again,
+
+487
+00:07:34,760 --> 00:07:36,560
+I'm sharing this using Repl.it,
+
+488
+00:07:36,830 --> 00:07:39,560
+but I want you to copy everything that's in here,
+
+489
+00:07:39,650 --> 00:07:42,290
+there's only one file the main.py file,
+
+490
+00:07:43,010 --> 00:07:48,010
+and I want you to create a new project using PyCharm and call it coffee
+
+491
+00:07:48,410 --> 00:07:48,880
+machine,
+
+492
+00:07:48,880 --> 00:07:49,713
+Right?
+
+493
+00:07:51,940 --> 00:07:56,920
+And then create a new file inside your project called main.py,
+
+494
+00:07:58,750 --> 00:08:03,550
+and then paste all of the starting code into your main.py.
+
+495
+00:08:04,060 --> 00:08:08,260
+And now you are going to code inside this file. And once you're ready,
+
+496
+00:08:08,290 --> 00:08:13,210
+you're going to click run and you'll be able to run this main.py down here
+
+497
+00:08:13,510 --> 00:08:16,750
+and this will act as your console. Now,
+
+498
+00:08:16,750 --> 00:08:19,750
+one really handy feature of 
+
+499
+00:08:19,750 --> 00:08:23,020
+PyCharm is something called to-do tracking.
+
+500
+00:08:23,830 --> 00:08:28,780
+Whereas previously in Repl.it I've been creating to-dos and you've been able to
+
+501
+00:08:28,780 --> 00:08:33,280
+view them. But if I have lots of to-dos in different places,
+
+502
+00:08:33,580 --> 00:08:35,409
+you can't actually see all of them at once.
+
+503
+00:08:35,409 --> 00:08:37,419
+You have to scroll through the file looking for them.
+
+504
+00:08:37,960 --> 00:08:39,850
+But in a professional tool,
+
+505
+00:08:40,120 --> 00:08:45,070
+we actually have something called to-do tracking and its a tab that's down here.
+
+506
+00:08:45,940 --> 00:08:49,210
+So if I go ahead and take some of these program requirements,
+
+507
+00:08:49,510 --> 00:08:52,540
+I can put them in as to-dos. To create a
+
+508
+00:08:52,540 --> 00:08:57,540
+to-do you have to follow the syntax. First is a pound sign
+
+509
+00:08:58,320 --> 00:09:03,320
+and then we write TODO in all caps, and notice how that's just changed color just
+
+510
+00:09:03,570 --> 00:09:06,690
+now, and now you can see in the todo tab,
+
+511
+00:09:06,720 --> 00:09:08,640
+it's found one todo item.
+
+512
+00:09:09,420 --> 00:09:12,930
+Now we can write todo number one
+
+513
+00:09:13,530 --> 00:09:17,970
+and this is to print a report of all the coffee machine resources.
+
+514
+00:09:19,080 --> 00:09:23,010
+Now let's say that I created a todo somewhere else, right?
+
+515
+00:09:23,040 --> 00:09:24,630
+Like all the way up here,
+
+516
+00:09:25,770 --> 00:09:30,770
+check that the resources are sufficient to make the drink order. And notice how
+
+517
+00:09:31,620 --> 00:09:34,620
+they're completely in different places in a different order.
+
+518
+00:09:34,920 --> 00:09:38,490
+But every time I create one of these todos using this format,
+
+519
+00:09:38,520 --> 00:09:39,810
+it will get picked up in the
+
+520
+00:09:39,810 --> 00:09:43,500
+todo tab. And you can go ahead and see where they live.
+
+521
+00:09:43,860 --> 00:09:47,370
+So it's found two items inside our main.py
+
+522
+00:09:47,850 --> 00:09:51,390
+and you can see that this one is todo one, this one is todo two.
+
+523
+00:09:51,690 --> 00:09:52,770
+And when you click on them,
+
+524
+00:09:52,860 --> 00:09:55,500
+they'll take you to the correct places in your code.
+
+525
+00:09:56,460 --> 00:10:01,460
+Use this to break down the problem into smaller problems that you can solve one
+
+526
+00:10:01,530 --> 00:10:02,310
+by one,
+
+527
+00:10:02,310 --> 00:10:06,720
+just as you've done before and try to see if you can complete this project.
+
+528
+00:10:07,500 --> 00:10:11,100
+Just the word of warning: this project is quite ambitious.
+
+529
+00:10:11,400 --> 00:10:14,130
+But you've now got professional tools to help you,
+
+530
+00:10:14,520 --> 00:10:17,850
+and you've got a lot more skill under your belt.
+
+531
+00:10:18,390 --> 00:10:22,680
+So give this problem at least an hour to work on it and make sure that you
+
+532
+00:10:22,680 --> 00:10:27,180
+satisfy all the criteria that's set out in the program requirements
+
+533
+00:10:27,270 --> 00:10:32,270
+and also that your program works exactly the same as the final version of the
+
+534
+00:10:33,690 --> 00:10:34,500
+coffee machine.
+
+
+535
+00:00:00,150 --> 00:00:00,540
+Now,
+
+536
+00:00:00,540 --> 00:00:05,540
+there are so many possible solutions to create this coffee machine program
+
+537
+00:00:05,760 --> 00:00:10,760
+satisfying all the requirements. And the way that you code it up is essentially
+
+538
+00:00:12,000 --> 00:00:13,080
+your choice, right?
+
+539
+00:00:13,440 --> 00:00:17,970
+Whether if you decide to use a while loop or use a for loop or create a
+
+540
+00:00:17,970 --> 00:00:21,540
+different data structure, there are endless possibilities.
+
+541
+00:00:21,840 --> 00:00:25,320
+What I'm going to show you now is just one of those possibilities.
+
+542
+00:00:25,890 --> 00:00:29,790
+And what's really important is you don't feel like you've done it wrong
+
+543
+00:00:29,790 --> 00:00:33,120
+just because it's different to mine. As long as it works
+
+544
+00:00:33,120 --> 00:00:36,900
+the way that you expect it to, then consider yourself successful.
+
+545
+00:00:37,650 --> 00:00:41,520
+The first thing I'm going to do is create a new project in PyCharm,
+
+546
+00:00:41,910 --> 00:00:46,740
+and I'm going to call my project coffee machine. Again,
+
+547
+00:00:46,770 --> 00:00:51,570
+making sure that I've got the latest version of Python as the interpreter I'll
+
+548
+00:00:51,570 --> 00:00:52,403
+click
+
+549
+00:00:52,490 --> 00:00:53,323
+create.
+
+550
+00:00:54,860 --> 00:00:58,700
+Now that the first thing I'm going to do here is right-click on this and create
+
+551
+00:00:58,730 --> 00:01:02,210
+a new file, which is going to be my main.py.
+
+552
+00:01:02,810 --> 00:01:07,160
+And then I'm going to go to my starting project in Repl.it and I'm just going to
+
+553
+00:01:07,160 --> 00:01:12,160
+copy everything there is over here and paste it into this main.py.
+
+554
+00:01:13,370 --> 00:01:18,370
+Now you might find the font of your code or of PyCharm a little bit too big or
+
+555
+00:01:19,190 --> 00:01:21,350
+too small. If that's the case,
+
+556
+00:01:21,350 --> 00:01:26,350
+you can just go into preferences and change the appearance and the font to a
+
+557
+00:01:27,830 --> 00:01:30,680
+different size. And this is for the user interface.
+
+558
+00:01:31,130 --> 00:01:35,210
+And if you want to change the font of the editor, then you can go here,
+
+559
+00:01:35,270 --> 00:01:38,120
+go to font and then change that size here.
+
+560
+00:01:38,600 --> 00:01:41,810
+I've tried to make it as large as possible so that when you were looking at this
+
+561
+00:01:41,810 --> 00:01:46,100
+video on an iPad or an iPhone, all the code still be readable.
+
+562
+00:01:46,460 --> 00:01:48,230
+But of course, normally when you're coding,
+
+563
+00:01:48,230 --> 00:01:52,250
+you'd probably want to fit more lines into the same screen,
+
+564
+00:01:52,730 --> 00:01:56,300
+but it's not good to strain your eyes. So try to strike a balance there.
+
+565
+00:01:57,110 --> 00:02:00,800
+Now I'm going to collapse that sidebar because I'm going to be coding entirely
+
+566
+00:02:00,800 --> 00:02:01,880
+in this one file.
+
+567
+00:02:02,510 --> 00:02:06,080
+Now notice that the beginning we get given a menu,
+
+568
+00:02:07,070 --> 00:02:11,210
+and this is a dictionary which contains three entries.
+
+569
+00:02:11,690 --> 00:02:15,050
+And each of those entries have a name of a drink,
+
+570
+00:02:15,140 --> 00:02:16,820
+espresso, latte and cappuccino.
+
+571
+00:02:17,210 --> 00:02:21,140
+And then each of them have a value that holds a bunch of data,
+
+572
+00:02:21,500 --> 00:02:24,650
+including the ingredients that are required to make that drink
+
+573
+00:02:24,980 --> 00:02:29,840
+and also the price of the drink. Now there's also a resources dictionary,
+
+574
+00:02:29,870 --> 00:02:32,900
+which holds the resources of the coffee machine.
+
+575
+00:02:33,740 --> 00:02:36,440
+Now that we've got all of that, then we're ready to go.
+
+576
+00:02:37,070 --> 00:02:39,740
+I'm going to tackle these requirements one by one.
+
+577
+00:02:40,370 --> 00:02:43,670
+And the first one says to prompt the user by asking,
+
+578
+00:02:43,700 --> 00:02:46,880
+what would you like? Espresso, latte or cappuccino.
+
+579
+00:02:46,880 --> 00:02:51,880
+So I'm actually gonna just straight up copy this line and put that into an
+
+580
+00:02:51,950 --> 00:02:55,730
+input. This is going to be saved into some sort of variable,
+
+581
+00:02:55,730 --> 00:02:57,140
+which I'll name choice.
+
+582
+00:02:58,550 --> 00:03:03,010
+Now it tells me that the prompt should show every time action has completed.
+
+583
+00:03:03,280 --> 00:03:03,820
+For example,
+
+584
+00:03:03,820 --> 00:03:07,660
+once the drink is dispensed and it should show again and again and again.
+
+585
+00:03:07,930 --> 00:03:11,970
+So that means we probably going to have to embed this input in some sort of while
+
+586
+00:03:11,970 --> 00:03:16,270
+loop. So I'm just gonna say for now while something is true,
+
+587
+00:03:16,570 --> 00:03:20,110
+then keep asking for this prompt. Right now
+
+588
+00:03:20,140 --> 00:03:25,140
+if we decide to go and run this code where we go to run and then click on this
+
+589
+00:03:25,540 --> 00:03:29,140
+button and then select the main.py to run,
+
+590
+00:03:29,800 --> 00:03:33,790
+then you can see that it asks me what would you like? And if I've put an input,
+
+591
+00:03:33,880 --> 00:03:36,910
+it'll keep asking me until eternity, basically,
+
+592
+00:03:36,910 --> 00:03:40,870
+because that there's currently no way of turning that true into a false.
+
+593
+00:03:41,740 --> 00:03:43,720
+So let's take a look at the next requirement.
+
+594
+00:03:43,900 --> 00:03:48,010
+We should be able to turn off the coffee machine by entering off into the prompt.
+
+595
+00:03:48,610 --> 00:03:50,290
+For maintainers of the coffee machine,
+
+596
+00:03:50,290 --> 00:03:54,160
+they can use off as the secret word to turn off the machine and your code should
+
+597
+00:03:54,160 --> 00:03:58,450
+end execution when this happens. So when somebody wants to buy coffee,
+
+598
+00:03:58,480 --> 00:04:03,160
+this is the line that they see. But when a maintenance guy comes along,
+
+599
+00:04:03,160 --> 00:04:05,140
+then they should be able to enter something.
+
+600
+00:04:05,500 --> 00:04:08,290
+And if this choice happens to equal the secret code,
+
+601
+00:04:08,590 --> 00:04:13,090
+which is off, then in this case we should stop the while loop and exit.
+
+602
+00:04:13,510 --> 00:04:18,510
+So that gives us a way of changing this true into some other form of variable,
+
+603
+00:04:18,870 --> 00:04:22,320
+right? So we could create a new variable code is_on,
+
+604
+00:04:22,650 --> 00:04:27,180
+start it off as true and while the machine is on,
+
+605
+00:04:27,510 --> 00:04:31,530
+then it should continue to loop through and ask the user for their choice.
+
+606
+00:04:31,890 --> 00:04:35,280
+But if the choice happens to be off, then we're going to turn
+
+607
+00:04:35,280 --> 00:04:39,060
+that is_on into false. Now,
+
+608
+00:04:39,060 --> 00:04:40,650
+if we run our code again,
+
+609
+00:04:40,650 --> 00:04:44,790
+so now that you've run it once you can either stop it or you can rerun it,
+
+610
+00:04:45,390 --> 00:04:49,770
+and now it's going to stop your existing code and rerun the code.
+
+611
+00:04:50,040 --> 00:04:52,140
+So if you don't want to see this dialogue every time,
+
+612
+00:04:52,170 --> 00:04:55,230
+then just check this box and then click stop and rerun.
+
+613
+00:04:55,950 --> 00:05:00,950
+So now if we make a selection or we say something basically anything other than
+
+614
+00:05:01,380 --> 00:05:02,970
+the key word, which is off,
+
+615
+00:05:03,240 --> 00:05:06,810
+it's going to loop back and forth and keep prompting us.
+
+616
+00:05:07,170 --> 00:05:12,170
+But if I say off, then the machine turns off and you can see that I've now exited
+
+617
+00:05:12,870 --> 00:05:16,920
+the program. Now we've tackled 1 and 2.  
+
+618
+00:05:16,950 --> 00:05:21,930
+Let's go on to number 3. When the user enters the keyword report to
+
+619
+00:05:21,930 --> 00:05:24,600
+the prompt, another secret word, a report
+
+620
+00:05:24,630 --> 00:05:28,410
+should be generated that shows the current resource values. For example,
+
+621
+00:05:28,410 --> 00:05:33,150
+water, milk, coffee, and money. So how can we do that? Well, firstly,
+
+622
+00:05:33,180 --> 00:05:36,360
+we don't actually have a variable that holds the amount of money.
+
+623
+00:05:36,690 --> 00:05:37,950
+So let's create something,
+
+624
+00:05:37,950 --> 00:05:41,940
+let's call it profit maybe and set it to equal zero to begin with.
+
+625
+00:05:42,240 --> 00:05:44,790
+Our machine has an empty money box in the beginning.
+
+626
+00:05:45,390 --> 00:05:48,720
+So now we have to check to see, well, elif
+
+627
+00:05:48,750 --> 00:05:52,590
+the choice was equal to report. Well, in this case,
+
+628
+00:05:52,620 --> 00:05:57,620
+we have to generate a report and the report is basically going to print all the
+
+629
+00:05:58,820 --> 00:06:00,500
+values of these resources.
+
+630
+00:06:01,010 --> 00:06:06,010
+So I'm simply going to copy the expected output and I'm going to paste it here.
+
+631
+00:06:07,550 --> 00:06:12,080
+And then we can try and turn that into print statements,
+
+632
+00:06:12,170 --> 00:06:16,220
+making it a dynamic instead of hard-coded. In my case,
+
+633
+00:06:16,220 --> 00:06:19,670
+I want to add print in front of all of these lines.
+
+634
+00:06:19,790 --> 00:06:23,990
+And previously we've been doing this just by writing it one by one,
+
+635
+00:06:23,990 --> 00:06:25,970
+and then maybe we could copy and paste it.
+
+636
+00:06:26,330 --> 00:06:30,890
+But let me show you a quick tip that you can do in PyCharm. If you're on Windows,
+
+637
+00:06:30,920 --> 00:06:35,510
+hold down the alt and the shift key on your keyboard. If you are on a Mac,
+
+638
+00:06:35,540 --> 00:06:37,790
+hold down the option and the shift key.
+
+639
+00:06:38,300 --> 00:06:42,710
+Now click at the beginning and hold and drag down.
+
+640
+00:06:43,580 --> 00:06:45,470
+So if that doesn't work, try out a few times,
+
+641
+00:06:45,470 --> 00:06:49,400
+you'll get the hang of it eventually. But notice how I've now got four cursors
+
+642
+00:06:49,520 --> 00:06:52,580
+and that means when I write print, check this out.
+
+643
+00:06:53,870 --> 00:06:54,703
+Isn't that cool?
+
+644
+00:06:55,550 --> 00:06:59,780
+I've managed to write on four lines at once because I need that repeat
+
+645
+00:06:59,780 --> 00:07:03,980
+functionality and this is a way of doing multiline editing.
+
+646
+00:07:04,190 --> 00:07:07,910
+Remember that shortcut and use it in the future if you find it useful.
+
+647
+00:07:08,480 --> 00:07:13,430
+So I'm actually going to change this all into fstrings because I want to change
+
+648
+00:07:13,460 --> 00:07:16,160
+these numbers instead of being hard-coded,
+
+649
+00:07:16,490 --> 00:07:19,700
+I want to insert them into here using the curly braces.
+
+650
+00:07:20,210 --> 00:07:23,120
+The water is stored under resources,
+
+651
+00:07:23,510 --> 00:07:26,270
+and then it's in the key called water.
+
+652
+00:07:27,830 --> 00:07:31,670
+And now notice how I've got a outer double quote,
+
+653
+00:07:31,910 --> 00:07:33,770
+so I can't have an inner double quote.
+
+654
+00:07:33,770 --> 00:07:37,100
+So I'm going to change this into single quotes instead,
+
+655
+00:07:38,960 --> 00:07:42,530
+like, so. And I'm going to do the same for milk and coffee.
+
+656
+00:07:44,420 --> 00:07:48,590
+So now I've added the water, milk, and coffee into my print statement.
+
+657
+00:07:48,620 --> 00:07:50,990
+All I have left is the money.
+
+658
+00:07:51,230 --> 00:07:56,230
+So let's delete the value and let's insert that profit into here.
+
+659
+00:07:57,020 --> 00:08:00,170
+Now let's run our code again and let's check it out.
+
+660
+00:08:00,650 --> 00:08:05,650
+If I type report it should now give me a report of all the current values and
+
+661
+00:08:06,140 --> 00:08:10,130
+money is equal to $0 because that's what we start off with.
+
+662
+00:08:11,120 --> 00:08:14,540
+We're now ready to tackle number 4. Here
+
+663
+00:08:14,570 --> 00:08:19,370
+we have to check that when the user chooses a drink, we're going to check
+
+664
+00:08:19,370 --> 00:08:23,360
+if there are enough resources to make that particular drink they chose.
+
+665
+00:08:23,690 --> 00:08:26,630
+For example, if a latte requires 200 ml of water
+
+666
+00:08:26,930 --> 00:08:29,390
+but there's only 100ml left in the machine,
+
+667
+00:08:29,750 --> 00:08:32,960
+it should not make the drink because it actually can't make the drink
+
+668
+00:08:33,289 --> 00:08:37,390
+and it's going to print out, 'Sorry, there's not enough water' or not enough milk,
+
+669
+00:08:37,440 --> 00:08:39,320
+not enough coffee, whatever it may be.
+
+670
+00:08:39,770 --> 00:08:42,350
+So let's tackle this particular checkpoint.
+
+671
+00:08:43,909 --> 00:08:48,650
+Now that I've got the if choices equal off, if choice equals report.
+
+672
+00:08:48,980 --> 00:08:50,990
+Now, if it's not either of those,
+
+673
+00:08:51,020 --> 00:08:54,080
+then they're probably going to be entering the name of a drink.
+
+674
+00:08:54,380 --> 00:08:56,820
+So let's catch that using an else statement.
+
+675
+00:08:57,480 --> 00:08:59,430
+And then inside this else statement
+
+676
+00:08:59,430 --> 00:09:04,350
+I'm going to get hold of the particular drink that they ordered by tapping into
+
+677
+00:09:04,350 --> 00:09:09,120
+our menu dictionary and then using that choice they typed in as the key.
+
+678
+00:09:09,630 --> 00:09:14,190
+Let's say that the particular drink that they chose is equal to menu
+
+679
+00:09:14,610 --> 00:09:18,480
+and then the key is of course going to be the choice.
+
+680
+00:09:18,930 --> 00:09:23,930
+So now if I just print this drink and I run my code..
+
+681
+00:09:24,270 --> 00:09:29,270
+So the shortcut for running is actually holding down the control and R and now
+
+682
+00:09:29,730 --> 00:09:34,200
+it can go down here and you can see it's asking me for what I would like,
+
+683
+00:09:34,230 --> 00:09:38,010
+so I'm going to choose latte. And what's going to be printed
+
+684
+00:09:38,040 --> 00:09:43,040
+is the latte entry in my recipes dictionary up here, so this particular
+
+685
+00:09:44,010 --> 00:09:44,843
+value.
+
+686
+00:09:46,050 --> 00:09:50,070
+Now that I've got this value stored inside a variable called drink,
+
+687
+00:09:50,340 --> 00:09:55,340
+well then I can tap into its ingredients and loop through each of the ingredients
+
+688
+00:09:56,160 --> 00:10:00,600
+comparing it against the resources and seeing if there's enough.
+
+689
+00:10:00,990 --> 00:10:04,680
+Now this is a little bit of functionality that should probably be self-
+
+690
+00:10:04,680 --> 00:10:07,950
+contained. So instead of just printing the drink,
+
+691
+00:10:07,950 --> 00:10:11,520
+I'm actually going to create a new function. So up here,
+
+692
+00:10:11,520 --> 00:10:15,930
+I'm going to create a new function with our def and I'm going to call it is_
+
+693
+00:10:15,960 --> 00:10:17,940
+resource_sufficient.
+
+694
+00:10:20,370 --> 00:10:25,370
+And this is_resource_efficient is going to take the order ingredients as a
+
+695
+00:10:27,180 --> 00:10:29,910
+input and then it's going to work on that.
+
+696
+00:10:29,910 --> 00:10:34,860
+So if we want to call that function and pass in the order ingredients we'll have
+
+697
+00:10:34,860 --> 00:10:36,930
+to call is_resource_efficient
+
+698
+00:10:37,410 --> 00:10:42,410
+and then the other ingredients will be from the drink and then getting hold of
+
+699
+00:10:43,350 --> 00:10:46,470
+the values under the key ingredients.
+
+700
+00:10:48,860 --> 00:10:49,580
+All right.
+
+701
+00:10:49,580 --> 00:10:54,350
+So under this particular key, it will fetch this particular dictionary.
+
+702
+00:10:54,710 --> 00:10:58,880
+And this is the dictionary that's going to be passed over to this function as
+
+703
+00:10:58,880 --> 00:10:59,713
+the input.
+
+704
+00:11:00,140 --> 00:11:04,130
+So now that we have a hold of a dictionary with all the ingredients that are
+
+705
+00:11:04,130 --> 00:11:06,950
+required and the amount of each ingredient,
+
+706
+00:11:07,250 --> 00:11:09,950
+we can now compare it against our resources
+
+707
+00:11:09,980 --> 00:11:14,980
+which is a very similar dictionary with the resources and the amount that's left
+
+708
+00:11:15,800 --> 00:11:16,633
+in the machine.
+
+709
+00:11:17,750 --> 00:11:22,750
+We can loop through the order ingredients and for each of the items in the
+
+710
+00:11:23,720 --> 00:11:24,380
+ingredients,
+
+711
+00:11:24,380 --> 00:11:29,380
+we're going to check to see if the order ingredients at that particular key,
+
+712
+00:11:30,080 --> 00:11:35,080
+so this is getting hold of the value, is greater than or equal to the resources
+
+713
+00:11:37,700 --> 00:11:41,090
+using the same particular key. For example,
+
+714
+00:11:41,090 --> 00:11:43,580
+if we were looking at the first example,
+
+715
+00:11:43,940 --> 00:11:46,580
+the item would be equal to water.
+
+716
+00:11:47,090 --> 00:11:51,020
+So if we fetch the value from order ingredients
+
+717
+00:11:51,050 --> 00:11:54,010
+with the key of water, we should get of 200.
+
+718
+00:11:54,460 --> 00:11:59,460
+And we would now test to see if 200 is greater than or equal to the 300 that
+
+719
+00:12:02,110 --> 00:12:05,050
+we have under the resources. Well, in this case,
+
+720
+00:12:05,080 --> 00:12:09,370
+then we should probably tell the user that we actually can't make it.
+
+721
+00:12:09,370 --> 00:12:14,370
+So let's put an if statement there and I'm going to use this same string here to
+
+722
+00:12:15,880 --> 00:12:16,713
+print it out.
+
+723
+00:12:18,340 --> 00:12:22,000
+Now notice when I pasted that string in and
+
+724
+00:12:22,000 --> 00:12:27,000
+it has the double quotes from the PDF file here that it's actually not being
+
+725
+00:12:27,910 --> 00:12:29,740
+recognized and I'm getting an error here.
+
+726
+00:12:30,220 --> 00:12:33,820
+And the important thing to know is that there's a difference between decorative
+
+727
+00:12:33,820 --> 00:12:35,260
+double quotes, like these,
+
+728
+00:12:35,320 --> 00:12:38,680
+which looked different for the beginning quote and the end quote.
+
+729
+00:12:39,130 --> 00:12:43,060
+And then there are Programming double quotes which look like this,
+
+730
+00:12:43,060 --> 00:12:44,770
+so I'm going to select this whole line
+
+731
+00:12:45,070 --> 00:12:50,070
+and I'm going to add a double quote and notice how they look identical from the
+
+732
+00:12:50,260 --> 00:12:54,550
+front and the back. So now it's going to print, Sorry
+
+733
+00:12:54,550 --> 00:12:56,050
+there is not enough.
+
+734
+00:12:56,140 --> 00:12:59,560
+And the enough of what? It's going to be
+
+735
+00:12:59,590 --> 00:13:01,990
+the item that we're currently looping through.
+
+736
+00:13:02,500 --> 00:13:04,210
+So let's change that to an fstring
+
+737
+00:13:04,540 --> 00:13:08,080
+which makes that an active piece of code that's going to be inserted.
+
+738
+00:13:08,980 --> 00:13:09,880
+And in this case,
+
+739
+00:13:09,910 --> 00:13:14,530
+we're going to return false because there is not enough resources.
+
+740
+00:13:14,980 --> 00:13:16,210
+But otherwise,
+
+741
+00:13:16,450 --> 00:13:21,130
+if we managed to get to the end of the for loop and we still haven't returned or
+
+742
+00:13:21,130 --> 00:13:25,420
+exited the function by returning false, then in this case
+
+743
+00:13:25,450 --> 00:13:26,560
+we can return true.
+
+744
+00:13:26,980 --> 00:13:30,520
+So if this particular logic is a little bit confusing for you,
+
+745
+00:13:30,520 --> 00:13:35,080
+you could have something like, like this.
+
+746
+00:13:35,110 --> 00:13:39,730
+So you have is_enough = true, and you could change is_enough
+
+747
+00:13:41,380 --> 00:13:42,640
+to false.
+
+748
+00:13:42,910 --> 00:13:46,810
+If any of the order ingredients are greater than the resources.
+
+749
+00:13:47,380 --> 00:13:51,250
+And finally at the end, you could return is_enough.
+
+750
+00:13:51,460 --> 00:13:55,630
+So basically it stays true unless one of these if statements gets activated.
+
+751
+00:13:56,800 --> 00:14:01,540
+But for simplicity sake, I'm actually just going to keep it simple like this.
+
+752
+00:14:02,140 --> 00:14:04,720
+And we're now ready to receive that result here
+
+753
+00:14:05,140 --> 00:14:07,270
+so we can put an if statement here.
+
+754
+00:14:07,390 --> 00:14:10,630
+If the resources are sufficient for the drink,
+
+755
+00:14:11,080 --> 00:14:14,800
+then we can proceed to continue to the next step.
+
+756
+00:14:15,970 --> 00:14:18,580
+The next step is to process coins.
+
+757
+00:14:18,730 --> 00:14:21,820
+The user's going to be asked for the number of quarters
+
+758
+00:14:21,820 --> 00:14:24,070
+they have, the number of dimes, nickels, and pennies,
+
+759
+00:14:24,460 --> 00:14:26,950
+and you have to remember their values.
+
+760
+00:14:26,980 --> 00:14:31,000
+So if you're from the US this shouldn't be a problem. But if you're like me
+
+761
+00:14:31,030 --> 00:14:33,610
+somebody who's not from the US, um,
+
+762
+00:14:33,640 --> 00:14:36,940
+I actually find it really confusing when I go to the States.
+
+763
+00:14:37,450 --> 00:14:41,860
+I always think that the larger coin, that the nickel, should be worth more than
+
+764
+00:14:41,860 --> 00:14:44,200
+the dime, but I think it was just me being silly.
+
+765
+00:14:45,070 --> 00:14:49,570
+So we're going to ask the user to insert some coins, we're going to process it
+
+766
+00:14:49,630 --> 00:14:52,340
+and then we're going to calculate the total value of the coins
+
+767
+00:14:52,340 --> 00:14:54,590
+they inserted. That, to me,
+
+768
+00:14:54,590 --> 00:14:57,440
+sounds like it should be a separate function as well.
+
+769
+00:14:58,040 --> 00:15:02,120
+So let's create another function here, which I'm going to call process_coins.
+
+770
+00:15:04,130 --> 00:15:06,410
+And this is not going to take any input,
+
+771
+00:15:06,470 --> 00:15:10,610
+but it is going to return the total value of the coins inserted.
+
+772
+00:15:11,270 --> 00:15:13,310
+Now, how do we process coins? Well,
+
+773
+00:15:13,310 --> 00:15:18,310
+first we can print to ask them to please insert coins.
+
+774
+00:15:19,340 --> 00:15:23,780
+And then afterwards, we're going to somehow calculate a total, right?
+
+775
+00:15:23,810 --> 00:15:25,940
+This is the variable that we're going to keep track of
+
+776
+00:15:26,270 --> 00:15:29,150
+and we're going to return as the output of this function.
+
+777
+00:15:29,930 --> 00:15:34,160
+The total is going to be calculated based on the four types of coins.
+
+778
+00:15:34,670 --> 00:15:38,600
+So the first question we're going to ask them is how many quarters?
+
+779
+00:15:40,700 --> 00:15:43,670
+And this of course is going to be a whole number,
+
+780
+00:15:43,670 --> 00:15:46,910
+so we're going to turn it from a string into an integer.
+
+781
+00:15:47,570 --> 00:15:51,860
+And we know that each quarter is worth 0.25
+
+782
+00:15:51,860 --> 00:15:53,090
+of a dollar,
+
+783
+00:15:53,390 --> 00:15:57,470
+so we can multiply the number of quarters by 0.25
+
+784
+00:15:57,770 --> 00:15:59,720
+and then we'll get the monetary value.
+
+785
+00:16:01,190 --> 00:16:06,190
+Now we'll need to do the same thing for a bunch of other coins.
+
+786
+00:16:06,980 --> 00:16:09,860
+So instead of quarters, this is going to be dimes,
+
+787
+00:16:10,130 --> 00:16:14,690
+and then it's going to be nickels and finally,
+
+788
+00:16:14,690 --> 00:16:18,920
+it's going to be pennies. Dimes are worth 10 cents,
+
+789
+00:16:19,310 --> 00:16:21,380
+nickels are worth 5 cents,
+
+790
+00:16:22,010 --> 00:16:26,030
+and pennies are worth 1 cent. Now,
+
+791
+00:16:26,060 --> 00:16:30,950
+instead of just setting the totals of each of these values, every subsequent one
+
+792
+00:16:30,980 --> 00:16:32,240
+other than the first one
+
+793
+00:16:32,240 --> 00:16:35,810
+which remember creates this variable and sets its value,
+
+794
+00:16:36,230 --> 00:16:41,230
+every other one is just going to be added to the current value like this.
+
+795
+00:16:42,620 --> 00:16:44,840
+So now at the very end of all of this,
+
+796
+00:16:44,870 --> 00:16:48,260
+we're going to return the total as the output.
+
+797
+00:16:48,740 --> 00:16:52,850
+And whenever you have something that returns like both of these functions,
+
+798
+00:16:53,210 --> 00:16:56,960
+you should probably be adding a docstring. So in this case,
+
+799
+00:16:56,960 --> 00:16:58,280
+this returns
+
+800
+00:16:58,280 --> 00:17:02,870
+the total calculated from coins
+
+801
+00:17:02,870 --> 00:17:06,349
+inserted. And in this case,
+
+802
+00:17:06,380 --> 00:17:11,380
+what happens is it returns true when order can be made and false
+
+803
+00:17:15,500 --> 00:17:19,130
+if ingredients are insufficient.
+
+804
+00:17:20,990 --> 00:17:25,160
+Now let's call this function that we created, process_coins.
+
+805
+00:17:25,849 --> 00:17:28,310
+If there's enough resources to make the drink,
+
+806
+00:17:28,339 --> 00:17:31,520
+then the next step is to actually ask them for the money.
+
+807
+00:17:31,820 --> 00:17:34,820
+So here is where we're going to call process coins.
+
+808
+00:17:35,450 --> 00:17:40,400
+And notice when I write this and I hover over it, you can see that docstring
+
+809
+00:17:40,400 --> 00:17:43,700
+we just wrote, returns the total from coins inserted.
+
+810
+00:17:44,990 --> 00:17:47,180
+That means this is going to return
+
+811
+00:17:47,330 --> 00:17:52,110
+and we need to capture the user's payment in this variable.
+
+812
+00:17:52,110 --> 00:17:56,760
+So this returns the output replaces this function call,
+
+813
+00:17:57,060 --> 00:18:01,230
+and then it gets saved inside this variable called payment. Now,
+
+814
+00:18:01,230 --> 00:18:05,340
+what are we going to do with this payment? Well, that goes onto the next step,
+
+815
+00:18:05,790 --> 00:18:08,970
+which is to check that the transaction was successful.
+
+816
+00:18:09,270 --> 00:18:13,380
+So we have to make sure that the user has inserted enough money to actually
+
+817
+00:18:13,380 --> 00:18:18,060
+purchase the drink they wanted. But each drink of course has a different price.
+
+818
+00:18:18,330 --> 00:18:22,920
+So if the user inserts enough money, then we're going to give them some change.
+
+819
+00:18:23,250 --> 00:18:26,910
+But if they haven't inserted enough money, then we're going to say, sorry,
+
+820
+00:18:26,910 --> 00:18:29,460
+that's not enough money. And the money is refunded.
+
+821
+00:18:30,240 --> 00:18:33,990
+But if they have inserted enough money then the cost of the drink is going to be
+
+822
+00:18:33,990 --> 00:18:38,700
+added to the machine as the profit. So the next time when we trigger the report,
+
+823
+00:18:38,730 --> 00:18:42,570
+then we're going to get to see the increase in the monetary value.
+
+824
+00:18:44,010 --> 00:18:44,490
+Again,
+
+825
+00:18:44,490 --> 00:18:48,900
+let's create a new function and let's get rid of some of these squiggly lines by
+
+826
+00:18:48,900 --> 00:18:51,630
+adding enough spaces in between the functions.
+
+827
+00:18:52,530 --> 00:18:56,370
+This one I'm going to call is_transaction_successful,
+
+828
+00:18:58,290 --> 00:19:00,810
+because that's basically what we're going to be checking.
+
+829
+00:19:01,380 --> 00:19:03,990
+And it's going to take two inputs.
+
+830
+00:19:04,110 --> 00:19:08,520
+It's going to take a input in terms of the amount of money that was received,
+
+831
+00:19:09,180 --> 00:19:14,130
+and it's also going to have another input, which is cost of the drink.
+
+832
+00:19:15,060 --> 00:19:20,060
+This function's goal is to return true when the payment is accepted or it's
+
+833
+00:19:24,570 --> 00:19:25,980
+going to return false
+
+834
+00:19:26,370 --> 00:19:29,610
+if the money is insufficient.
+
+835
+00:19:29,630 --> 00:19:30,463
+Uhm
+
+836
+00:19:32,390 --> 00:19:36,410
+Notice how there's this line to the right here of your editor.
+
+837
+00:19:36,890 --> 00:19:41,890
+Basically what happens is if you have a line of code that's a little bit too
+
+838
+00:19:41,930 --> 00:19:45,320
+long past the recommendation from PEP 8,
+
+839
+00:19:45,650 --> 00:19:50,150
+you can see that PEP 8 recommends that a line should not be longer than 120
+
+840
+00:19:50,150 --> 00:19:50,983
+characters
+
+841
+00:19:51,140 --> 00:19:54,650
+because it's very hard to read for somebody scrolling around like this.
+
+842
+00:19:54,980 --> 00:19:55,880
+So in this case,
+
+843
+00:19:55,880 --> 00:20:00,020
+they would want you to put it onto a new line so that you don't have to scroll
+
+844
+00:20:00,020 --> 00:20:03,500
+and you can see it all on the same screen. But in our case,
+
+845
+00:20:03,500 --> 00:20:07,520
+this is not a problem because we have not exceeded the line length 
+
+846
+00:20:07,520 --> 00:20:08,353
+recommendation.
+
+847
+00:20:09,590 --> 00:20:13,790
+So how are you going to check if the transaction is successful?
+
+848
+00:20:14,420 --> 00:20:14,690
+Well,
+
+849
+00:20:14,690 --> 00:20:19,690
+if the money received is greater or equal to the cost of the drink, well in this case
+
+850
+00:20:21,770 --> 00:20:26,300
+that means we should return true, right? The transaction is successful.
+
+851
+00:20:26,990 --> 00:20:30,530
+And if it's not the case, if it's the opposite case,
+
+852
+00:20:30,860 --> 00:20:34,160
+then we're going to print, Sorry that's not enough money.
+
+853
+00:20:34,220 --> 00:20:36,380
+And the money is refunded to them.
+
+854
+00:20:36,620 --> 00:20:37,453
+Right.
+
+855
+00:20:39,590 --> 00:20:44,420
+So let's print that here. And we're also going to return false.
+
+856
+00:20:44,960 --> 00:20:48,340
+Remember that the return has to be the last thing in your function.
+
+857
+00:20:48,400 --> 00:20:52,420
+If you put this above the print statement then the print statement will never
+
+858
+00:20:52,420 --> 00:20:55,840
+get called, and that's why you have this highlight. And if you click on it,
+
+859
+00:20:55,840 --> 00:20:58,810
+you can see that it tells you this code is unreachable.
+
+860
+00:21:00,520 --> 00:21:04,780
+So there's a lot of these little hints and tips that really help you when you're
+
+861
+00:21:04,780 --> 00:21:05,613
+developing.
+
+862
+00:21:06,340 --> 00:21:10,990
+But if the user has inserted enough money then the cost of the drink should be
+
+863
+00:21:10,990 --> 00:21:15,310
+added to the machine as the profit so that we can see it in the next time report
+
+864
+00:21:15,310 --> 00:21:16,143
+is triggered.
+
+865
+00:21:16,420 --> 00:21:21,420
+So this means that if this money_received is greater or equal to the drink cost,
+
+866
+00:21:22,420 --> 00:21:27,420
+then we're going to add to this variable called profit that we have up here,
+
+867
+00:21:28,870 --> 00:21:30,340
+which starts out at zero,
+
+868
+00:21:30,580 --> 00:21:34,420
+but we're going to add the drinks cost to profit.
+
+869
+00:21:34,720 --> 00:21:37,600
+So we're going to say profit += drink_cost.
+
+870
+00:21:38,110 --> 00:21:41,740
+And now you'll see an error under the profit
+
+871
+00:21:42,070 --> 00:21:45,100
+because this is acting inside
+
+872
+00:21:45,130 --> 00:21:50,130
+a local scope and profit is outside in the global scope.
+
+873
+00:21:50,830 --> 00:21:54,550
+So in order to reach it, we have to say global profit.
+
+874
+00:21:56,260 --> 00:22:01,260
+And the final part of checking the transaction is seeing if the user has
+
+875
+00:22:01,420 --> 00:22:06,070
+inserted too much money then the machine is going to offer change. For example,
+
+876
+00:22:06,340 --> 00:22:11,080
+here is however many dollars in change and the change should be rounded to two
+
+877
+00:22:11,080 --> 00:22:15,760
+decimal places. Again, it's going to be inside this if statement.
+
+878
+00:22:16,420 --> 00:22:21,130
+So the change is going to be equal to the amount of money received,
+
+879
+00:22:21,430 --> 00:22:23,740
+subtracting the drink cost.
+
+880
+00:22:24,280 --> 00:22:27,430
+And this of course could be any number of decimal places.
+
+881
+00:22:28,060 --> 00:22:30,040
+So we can use the round function
+
+882
+00:22:30,040 --> 00:22:34,150
+which you've seen a long time ago to round this number
+
+883
+00:22:34,510 --> 00:22:38,230
+and the second input is the number of decimal places.
+
+884
+00:22:39,310 --> 00:22:43,270
+So if you just hover over the function name, then you can see the docs come up
+
+885
+00:22:43,720 --> 00:22:48,670
+and this function is basically going to around a number to a given precision in
+
+886
+00:22:48,670 --> 00:22:52,840
+decimal digits. So the first is the number you want to round,
+
+887
+00:22:53,140 --> 00:22:57,850
+and the second is the number of digits that you want after the dot
+
+888
+00:22:57,880 --> 00:23:02,080
+basically. Now that we've gotten hold of the change,
+
+889
+00:23:02,110 --> 00:23:05,260
+we're going to print and tell the user,
+
+890
+00:23:05,440 --> 00:23:09,730
+basically, here is this many dollars in change.
+
+891
+00:23:11,260 --> 00:23:14,860
+And of course I have to add an F to activate that fstring.
+
+892
+00:23:16,570 --> 00:23:21,010
+So now we're ready to call is_transaction_successful
+
+893
+00:23:21,550 --> 00:23:25,630
+and we're going to pass in the money_received and the drink_cost.
+
+894
+00:23:26,050 --> 00:23:30,280
+So the money_received is, of course, going to be the payment from the previous step
+
+895
+00:23:30,730 --> 00:23:35,530
+that was calculated from all the coins and the drink_cost is going to be based
+
+896
+00:23:35,530 --> 00:23:38,650
+on the drink and it's under the key cost,
+
+897
+00:23:38,980 --> 00:23:43,750
+which we can confirm up here. So the drink is this dictionary,
+
+898
+00:23:44,080 --> 00:23:46,550
+and then there's the ingredients and the cost.
+
+899
+00:23:48,760 --> 00:23:49,030
+Right.
+
+900
+00:23:49,030 --> 00:23:54,030
+Let's rerun our code and let's test it out with something. Let's say
+
+901
+00:23:54,070 --> 00:23:57,100
+I want a latte. Please insert coins.
+
+902
+00:23:57,280 --> 00:24:02,170
+Let's say we tried to insert insufficient coins.
+
+903
+00:24:03,700 --> 00:24:07,150
+It tells us, sorry, that's not enough money. Money is refunded.
+
+904
+00:24:07,660 --> 00:24:11,020
+But let's try giving it enough coins this time.
+
+905
+00:24:13,750 --> 00:24:14,950
+And in this case,
+
+906
+00:24:14,980 --> 00:24:19,980
+it accepts it and it tells us here's $2.42 in change rounded to two decimal places,
+
+907
+00:24:21,700 --> 00:24:25,570
+and we're ready to take another drink. So now if we hit report,
+
+908
+00:24:25,630 --> 00:24:30,630
+you can see that we've now earned some money in our machine and all our code is
+
+909
+00:24:30,730 --> 00:24:32,440
+working as expected.
+
+910
+00:24:33,550 --> 00:24:37,450
+So we're now ready to tackle the final part, which is to make coffee.
+
+911
+00:24:38,050 --> 00:24:42,580
+If the transaction is successful and there are enough resources to make the
+
+912
+00:24:42,580 --> 00:24:42,880
+drinks
+
+913
+00:24:42,880 --> 00:24:47,350
+the user selected, then the ingredients to make the drink should be deducted from
+
+914
+00:24:47,350 --> 00:24:51,010
+the coffee machine's resources. For example, before I purchased a latte
+
+915
+00:24:51,070 --> 00:24:52,660
+I have 300ml of water.
+
+916
+00:24:53,050 --> 00:24:57,010
+After I purchased the latte that gets reduced by 200 to 100,
+
+917
+00:24:57,340 --> 00:25:00,520
+and the same happens to the other ingredient values.
+
+918
+00:25:00,790 --> 00:25:04,750
+But of course the money goes up because I've already taken payment in the
+
+919
+00:25:04,750 --> 00:25:08,770
+previous step. Let's take this into an if statement
+
+920
+00:25:08,800 --> 00:25:13,800
+because remember this function returns true when the payment is accepted or false
+
+921
+00:25:14,440 --> 00:25:15,820
+if their money is insufficient.
+
+922
+00:25:16,240 --> 00:25:19,510
+So this is where we're going to call on next function
+
+923
+00:25:19,540 --> 00:25:23,740
+which is to make coffee. So let's create
+
+924
+00:25:23,770 --> 00:25:27,940
+make_coffee. In order to make coffee
+
+925
+00:25:27,940 --> 00:25:32,940
+we need to know the drink name so that we can tell the user here's your
+
+926
+00:25:33,910 --> 00:25:34,810
+particular drink.
+
+927
+00:25:35,230 --> 00:25:39,130
+And it will also need to have the order ingredients.
+
+928
+00:25:40,060 --> 00:25:45,060
+The goal of this function is to deduct the required ingredients from the
+
+929
+00:25:46,960 --> 00:25:49,660
+resources. In order to do that,
+
+930
+00:25:49,840 --> 00:25:54,840
+we're going to get hold of the order ingredients and we're going to loop
+
+931
+00:25:55,900 --> 00:26:00,730
+through them. So for each of the items in the order_ingredients,
+
+932
+00:26:01,630 --> 00:26:05,770
+we're going to look inside the resources for that particular item
+
+933
+00:26:06,220 --> 00:26:10,570
+and we're going to subtract the amount that's in the order_ingredients.
+
+934
+00:26:11,620 --> 00:26:14,410
+And once all of that is done, so the for loop
+
+935
+00:26:14,440 --> 00:26:19,440
+ends, then we can print and we can even add an emoji to this.
+
+936
+00:26:21,160 --> 00:26:21,993
+Right.
+
+937
+00:26:22,390 --> 00:26:22,930
+On a Mac
+
+938
+00:26:22,930 --> 00:26:27,850
+you can insert an emoji by going to edit, emoji, and symbols. On Windows
+
+939
+00:26:27,850 --> 00:26:32,560
+the easiest thing to do is to just search Google for a coffee emoji
+
+940
+00:26:32,890 --> 00:26:35,200
+and then copy and paste it into your code.
+
+941
+00:26:35,860 --> 00:26:40,060
+So now let's call make_coffee here and notice how
+
+942
+00:26:40,240 --> 00:26:42,940
+if we are here the machine is on
+
+943
+00:26:44,250 --> 00:26:47,610
+and it's not any of these other previous choices,
+
+944
+00:26:48,270 --> 00:26:52,530
+and then the resource is sufficient and the transaction is successful.
+
+945
+00:26:52,560 --> 00:26:57,560
+These are all the steps that it took us to get to this particular stage in our
+
+946
+00:26:57,630 --> 00:26:58,463
+code.
+
+947
+00:26:58,680 --> 00:27:02,790
+So now we're going to make the coffee and we're going to pass in two things.
+
+948
+00:27:02,820 --> 00:27:06,900
+So let's just see the prompt again. We need to give the drink name
+
+949
+00:27:06,960 --> 00:27:11,960
+which is going to be the choice that the user entered, and the order ingredients
+
+950
+00:27:12,060 --> 00:27:16,260
+which is going to come from the drink and it's under the key ingredients.
+
+951
+00:27:17,700 --> 00:27:21,810
+So now we're ready to test and run our code once more.
+
+952
+00:27:22,230 --> 00:27:26,340
+Let's say, I want a latte and I'm going to insert lots of money.
+
+953
+00:27:27,180 --> 00:27:31,200
+And now I have my latte. If I hit report,
+
+954
+00:27:31,350 --> 00:27:36,150
+you should be able to see that a bunch of resources were subtracted and the
+
+955
+00:27:36,150 --> 00:27:40,800
+money is increased. If I try to order another latte,
+
+956
+00:27:40,830 --> 00:27:45,750
+it should fail because there is not enough water and there's not enough milk.
+
+957
+00:27:46,620 --> 00:27:51,030
+You can see that it's not going to let me go through as long as one of the
+
+958
+00:27:51,030 --> 00:27:52,770
+ingredients is not enough.
+
+959
+00:27:54,390 --> 00:27:59,070
+So we've now managed to fulfill all of the requirements of our coffee machine
+
+960
+00:27:59,100 --> 00:28:00,450
+program. Now,
+
+961
+00:28:00,450 --> 00:28:04,620
+this probably a lot more complexity that you could add to your coffee machine,
+
+962
+00:28:05,010 --> 00:28:10,010
+but basically what I wanted to show you today is how you would program something
+
+963
+00:28:11,160 --> 00:28:12,660
+that exists in real life,
+
+964
+00:28:12,690 --> 00:28:17,690
+like a coffee machine and even something that seems as simple as a coffee
+
+965
+00:28:18,030 --> 00:28:20,760
+machine. It can lead to a lot of errors,
+
+966
+00:28:20,790 --> 00:28:25,080
+a lot of bugs and a lot of anguish, but its good.
+
+967
+00:28:25,080 --> 00:28:26,370
+The more that you struggle,
+
+968
+00:28:26,670 --> 00:28:31,170
+the closer you get towards your goals. And the clearer the role of the function,
+
+969
+00:28:31,560 --> 00:28:35,100
+the easier it will be for you to untangle the logic.
+
+970
+00:28:36,480 --> 00:28:39,990
+If you want to take a look at the completed code that I've written in this
+
+971
+00:28:39,990 --> 00:28:40,823
+lesson,
+
+972
+00:28:40,860 --> 00:28:45,000
+then simply head over to the link that's in the resources and you'll be able to
+
+973
+00:28:45,000 --> 00:28:45,720
+see it in
+
+974
+00:28:45,720 --> 00:28:50,700
+Repl.it. Make sure that you've managed to fix any issues in your code
+
+975
+00:28:51,060 --> 00:28:56,060
+and that it runs exactly the same way as expected in the program requirements.
+
+

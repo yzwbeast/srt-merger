@@ -1,0 +1,4589 @@
+
+1
+00:00:00,790 --> 00:00:05,500
+Hey guys, welcome to Day 8 of a 100 Days of Code.
+
+2
+00:00:05,890 --> 00:00:10,240
+And today we're going to be looking at functions that allow you to give them
+
+3
+00:00:10,270 --> 00:00:14,800
+inputs. And once we've learned all of that and we've grasped it,
+
+4
+00:00:15,070 --> 00:00:18,520
+then we're going to be building a cipher program.
+
+5
+00:00:18,820 --> 00:00:21,610
+And the cipher program is called Caesar cipher.
+
+6
+00:00:22,150 --> 00:00:27,100
+So Caesar cipher is a really quite ancient type of encryption.
+
+7
+00:00:27,640 --> 00:00:29,980
+So the story goes that, um,
+
+8
+00:00:30,010 --> 00:00:34,660
+when Caesar wanted to send highly sensitive military messages,
+
+9
+00:00:34,930 --> 00:00:39,930
+he would encode his message so that each letter would be shifted by a
+
+10
+00:00:40,150 --> 00:00:41,260
+predetermined amount.
+
+11
+00:00:41,800 --> 00:00:46,800
+So let's say that we wanted to encode the letter "A" and we shift it by three,
+
+12
+00:00:47,710 --> 00:00:47,910
+well
+
+13
+00:00:47,910 --> 00:00:52,910
+then A becomes D, B becomes E and so on and so forth.
+
+14
+00:00:54,250 --> 00:00:56,800
+And this is what the final version will look like.
+
+15
+00:00:57,130 --> 00:00:59,200
+Let's go ahead and encode something.
+
+16
+00:00:59,740 --> 00:01:03,310
+So I'm going to type encode to start encrypting a message.
+
+17
+00:01:03,760 --> 00:01:07,210
+And then I'm going to type my message with no spaces in between.
+
+18
+00:01:08,560 --> 00:01:10,660
+And then I'm going to give it a shift number.
+
+19
+00:01:10,690 --> 00:01:12,130
+So this is going to be a number that
+
+20
+00:01:12,160 --> 00:01:15,700
+the recipient and I are going to agree on so that we know how to decode the
+
+21
+00:01:15,700 --> 00:01:17,920
+message. Let's put that at nine.
+
+22
+00:01:18,550 --> 00:01:21,460
+And then it's going to give us the encoded results
+
+23
+00:01:21,520 --> 00:01:23,230
+which is something like this.
+
+24
+00:01:23,290 --> 00:01:26,440
+And this will be the message that I'm going to transmit to my friend,
+
+25
+00:01:26,500 --> 00:01:28,780
+either through a letter or through an email
+
+26
+00:01:29,080 --> 00:01:31,780
+and it means that whenever somebody comes across this message
+
+27
+00:01:32,050 --> 00:01:35,350
+they won't really know what's going on unless they knew the shift number.
+
+28
+00:01:35,890 --> 00:01:40,150
+So let's say that I am my friend. I've just received this message.
+
+29
+00:01:40,630 --> 00:01:45,340
+And I'm going to go ahead and type yes to go again
+
+30
+00:01:45,430 --> 00:01:48,640
+and in this case, I'm going to decode instead of encoding.
+
+31
+00:01:49,090 --> 00:01:52,030
+And then I'm going to paste the message and hit enter.
+
+32
+00:01:52,510 --> 00:01:56,920
+And of course, the shift number is nine and now I have the decoded results
+
+33
+00:01:57,190 --> 00:02:01,720
+which I can read and understand. By the end of today,
+
+34
+00:02:01,720 --> 00:02:04,030
+you would have learned about functions with input,
+
+35
+00:02:04,300 --> 00:02:08,020
+you'll know what the difference is between arguments and parameters.
+
+36
+00:02:08,590 --> 00:02:11,050
+Once you're ready, once you're loaded up on coffee,
+
+37
+00:02:11,290 --> 00:02:13,960
+then head over to the next lesson and let's get started.
+
+1
+00:00:00,490 --> 00:00:03,850
+To get started we're going to learn more about functions.
+
+2
+00:00:04,330 --> 00:00:09,330
+And previously we learned that functions are a really handy way of taking a
+
+3
+00:00:10,540 --> 00:00:15,540
+complex set of instructions and packaging them together inside a block of code
+
+4
+00:00:17,470 --> 00:00:19,540
+that has a name given to it.
+
+5
+00:00:20,080 --> 00:00:24,580
+And when we need all of the lines of code that's packaged inside this
+
+6
+00:00:24,580 --> 00:00:25,390
+function,
+
+7
+00:00:25,390 --> 00:00:30,390
+all we have to do at any point later on in our code is just to call the function
+
+8
+00:00:30,940 --> 00:00:34,030
+by typing its name and then a set of parentheses.
+
+9
+00:00:34,750 --> 00:00:36,760
+And when this line of code is run,
+
+10
+00:00:37,030 --> 00:00:41,440
+it's going to search for where this function is defined, which is up here,
+
+11
+00:00:41,830 --> 00:00:45,490
+and then it's going to execute all the lines of code that are contained within
+
+12
+00:00:45,490 --> 00:00:49,330
+it. Now it's been a little while since we've seen functions.
+
+13
+00:00:49,390 --> 00:00:54,390
+So I want you to go ahead and find the starting replit for day 8
+
+14
+00:00:55,030 --> 00:00:56,470
+which is at this URL
+
+15
+00:00:56,680 --> 00:01:01,270
+and then fork it to create your own copy. To begin,
+
+16
+00:01:01,330 --> 00:01:04,569
+I want you to create a new function called greet,
+
+17
+00:01:05,110 --> 00:01:08,110
+and I want you to give it three lines of print statements,
+
+18
+00:01:08,350 --> 00:01:12,220
+telling it to do three things. And finally, once you're done,
+
+19
+00:01:12,250 --> 00:01:16,630
+go ahead and call the function so that it gets executed in the console.
+
+20
+00:01:16,900 --> 00:01:20,560
+So pause the video and give that a go. All right.
+
+21
+00:01:20,560 --> 00:01:23,770
+So to create a function, we of course need a def keyword.
+
+22
+00:01:24,130 --> 00:01:26,710
+And we know it's a keyword, because as soon as we type it,
+
+23
+00:01:26,770 --> 00:01:30,790
+it changes to the blue color. And after the key word,
+
+24
+00:01:30,850 --> 00:01:35,170
+we get to give our function a name. So in my case, it's called greet.
+
+25
+00:01:35,860 --> 00:01:40,630
+Now after the greet, we add a set of parentheses after the name of the function.
+
+26
+00:01:41,530 --> 00:01:42,363
+Finally,
+
+27
+00:01:42,430 --> 00:01:47,430
+we add a colon and we enter into the block of code because we're indented over.
+
+28
+00:01:48,880 --> 00:01:49,390
+Now,
+
+29
+00:01:49,390 --> 00:01:52,840
+the first thing I'm going to do is to create a print statement that just says
+
+30
+00:01:52,840 --> 00:01:55,720
+Hello. And then I'm going to say, well,
+
+31
+00:01:56,200 --> 00:02:00,460
+how do you do? Nobody in England actually says this,
+
+32
+00:02:00,790 --> 00:02:04,990
+but I always see it in the learn English books, which is quite funny.
+
+33
+00:02:05,440 --> 00:02:07,120
+I think people will give you a very strange look
+
+34
+00:02:07,150 --> 00:02:11,980
+if you go to somebody at the bakery and say, well, how do you do? But anyways,
+
+35
+00:02:12,880 --> 00:02:16,600
+now finally, we're going to add a final print statement,
+
+36
+00:02:17,050 --> 00:02:21,670
+keeping in line with the Britishness of my function,
+
+37
+00:02:22,090 --> 00:02:23,710
+going to ask about the weather.
+
+38
+00:02:24,940 --> 00:02:29,770
+Now this line, on the other hand, is something that you will often hear a British
+
+39
+00:02:29,770 --> 00:02:32,080
+people say. They're obsessed about the weather,
+
+40
+00:02:32,350 --> 00:02:34,750
+mostly because it's terrible all the time.
+
+41
+00:02:35,500 --> 00:02:37,930
+So now that we've created our function,
+
+42
+00:02:37,930 --> 00:02:42,100
+it's time to actually trigger the function or what we see in programming lingo,
+
+43
+00:02:42,400 --> 00:02:43,540
+call the function.
+
+44
+00:02:43,900 --> 00:02:48,100
+And we do that by calling the name of the function and then adding a set of
+
+45
+00:02:48,100 --> 00:02:51,940
+parentheses. And now once the code reaches line six
+
+46
+00:02:51,970 --> 00:02:55,750
+it's going to search for this greet function, which it'll find over here
+
+47
+00:02:56,050 --> 00:02:59,590
+and then it's going to carry out each of the lines of code one by one.
+
+48
+00:03:00,040 --> 00:03:04,000
+So let's run the code and you should see each of the three print statements
+
+49
+00:03:04,060 --> 00:03:06,730
+being called. So that's pretty simple.
+
+50
+00:03:08,470 --> 00:03:12,100
+Notice that every single time I call the greet function,
+
+51
+00:03:12,640 --> 00:03:15,190
+it's going to do the same thing, right?
+
+52
+00:03:15,190 --> 00:03:19,630
+It's just going to print out those three lines of code. Now, in reality,
+
+53
+00:03:19,630 --> 00:03:24,630
+it's very rare that you'll want to repeat the same instructions every single
+
+54
+00:03:24,790 --> 00:03:28,090
+time when you call a function. It would be nice, wouldn't it,
+
+55
+00:03:28,110 --> 00:03:33,110
+if we could modify some of the parts of the code inside the function and allow
+
+56
+00:03:34,030 --> 00:03:36,790
+for a little bit of variation. For example,
+
+57
+00:03:36,790 --> 00:03:40,600
+it would be nice if we could greet somebody by the name so that it could say,
+
+58
+00:03:40,900 --> 00:03:45,580
+hello Angela, instead of just, hello. How do you do Angela?
+
+59
+00:03:45,910 --> 00:03:49,480
+So that it could change each time I call this function.
+
+60
+00:03:49,570 --> 00:03:53,860
+Maybe next time it will be, how do you do Jack Bauer, et cetera.
+
+61
+00:03:54,130 --> 00:03:58,390
+So how can we achieve this kind of functionality? Well,
+
+62
+00:03:58,390 --> 00:04:01,600
+we need to look more closely at these parentheses.
+
+63
+00:04:02,200 --> 00:04:07,200
+Now what we can do is we can actually add the name of a variable inside those
+
+64
+00:04:08,800 --> 00:04:12,520
+parentheses to start giving our functions some inputs.
+
+65
+00:04:12,970 --> 00:04:17,079
+So let's say that there's a variable called something that's going to be passed
+
+66
+00:04:17,110 --> 00:04:22,110
+to my function. And this something can then be used inside this block of code,
+
+67
+00:04:24,610 --> 00:04:25,443
+this function.
+
+68
+00:04:25,900 --> 00:04:30,520
+And I could do something with it. Now in order to actually pass this value
+
+69
+00:04:30,520 --> 00:04:35,380
+when I call my function, I have to add the data inside the parentheses.
+
+70
+00:04:35,650 --> 00:04:39,910
+So let's say I decide to pass 123 over, well
+
+71
+00:04:39,910 --> 00:04:43,120
+in this case, when this line of code gets triggered,
+
+72
+00:04:43,570 --> 00:04:46,990
+the computer is going to search for where this function is declared,
+
+73
+00:04:47,020 --> 00:04:51,940
+which is up here, and then it's going to pass over this piece of data,
+
+74
+00:04:52,300 --> 00:04:56,080
+123, over to this variable called something.
+
+75
+00:04:56,620 --> 00:05:00,940
+So now, effectively, inside this function called my_function,
+
+76
+00:05:01,240 --> 00:05:05,680
+we now have a variable called something that's equal to 123
+
+77
+00:05:06,400 --> 00:05:11,400
+and that can then be used inside the block of code to do something with that
+
+78
+00:05:11,410 --> 00:05:12,243
+piece of data.
+
+79
+00:05:14,470 --> 00:05:18,220
+Now it's a bit like plugging in a USB stick into a computer.
+
+80
+00:05:18,790 --> 00:05:21,100
+If we took a different piece of input,
+
+81
+00:05:21,190 --> 00:05:25,450
+we would end up with a different file being shown by the computer.
+
+82
+00:05:25,900 --> 00:05:30,900
+So this means the computer can do something different depending on the input that
+
+83
+00:05:31,390 --> 00:05:33,880
+we give it. And if we change that input,
+
+84
+00:05:34,000 --> 00:05:36,280
+then it will receive a different piece of data.
+
+85
+00:05:37,180 --> 00:05:39,700
+So in addition to a simple function,
+
+86
+00:05:39,730 --> 00:05:43,060
+we can also create a function that allows for input.
+
+87
+00:05:44,140 --> 00:05:49,140
+And to do that you saw earlier on the syntax is again the same as before we use
+
+88
+00:05:49,690 --> 00:05:51,940
+a Def to create the function.
+
+89
+00:05:52,360 --> 00:05:56,230
+And then let's just give it a slightly different name to differentiate it with
+
+90
+00:05:56,230 --> 00:05:59,150
+the previous function, greet_with_name.
+
+91
+00:05:59,720 --> 00:06:03,650
+And then inside the parentheses, instead of leaving it blank,
+
+92
+00:06:03,890 --> 00:06:07,550
+we get to create the name of the variable that's going to be passed over.
+
+93
+00:06:08,000 --> 00:06:12,170
+So let's just call it name because that describes the data that's going to be
+
+94
+00:06:12,170 --> 00:06:15,770
+received. It's going to be the name of the person that I wish to greet.
+
+95
+00:06:16,340 --> 00:06:21,140
+So now let's add a colon and finally we can create our print statements.
+
+96
+00:06:21,740 --> 00:06:25,640
+So I'm just going to copy these print statements from above and now,
+
+97
+00:06:25,670 --> 00:06:30,530
+instead of having these names hard coded in here, I'm going to delete it
+
+98
+00:06:30,680 --> 00:06:35,680
+and I'm going to replace those names with the value of this variable.
+
+99
+00:06:36,110 --> 00:06:40,130
+So I'm going to put it in using an fstring like this,
+
+100
+00:06:40,580 --> 00:06:43,250
+and then I'm going to do the same down here.
+
+101
+00:06:46,740 --> 00:06:47,573
+Right?
+
+102
+00:06:47,910 --> 00:06:49,740
+When we actually call this function,
+
+103
+00:06:49,770 --> 00:06:53,430
+it's also going to be a little bit different from previously on line six.
+
+104
+00:06:53,970 --> 00:06:57,180
+So now firstly, the name of the function has changed.
+
+105
+00:06:57,630 --> 00:07:02,630
+But notice how it's expecting some sort of input inside the parentheses.
+
+106
+00:07:03,120 --> 00:07:05,640
+And it tells me that it wants to receive a name.
+
+107
+00:07:06,180 --> 00:07:10,830
+It's when we call the function that we actually pass over the piece of data
+
+108
+00:07:10,860 --> 00:07:15,570
+that's going to be stored inside this variable. Let's give it my own name,
+
+109
+00:07:15,900 --> 00:07:19,110
+Angela. And now when I hit run,
+
+110
+00:07:19,470 --> 00:07:21,420
+I want you to predict what's going to happen,
+
+111
+00:07:21,450 --> 00:07:23,190
+what's actually going to be printed.
+
+112
+00:07:23,400 --> 00:07:28,400
+So let's go ahead and comment out the previous line of code and now run our code.
+
+113
+00:07:30,240 --> 00:07:34,020
+And you should see that it says, hello Angela, how do you do Angela.?
+
+114
+00:07:34,020 --> 00:07:38,610
+So this piece of data has basically been inserted under this variable name
+
+115
+00:07:38,910 --> 00:07:42,810
+and then it's been put into both of these print statements. Now,
+
+116
+00:07:42,810 --> 00:07:47,100
+if I go ahead and call this function with a different piece of data,
+
+117
+00:07:47,760 --> 00:07:49,230
+say a different name,
+
+118
+00:07:49,650 --> 00:07:54,060
+then it's going to use that piece of data to modify this function
+
+119
+00:07:54,300 --> 00:07:56,580
+so it does something a little bit different.
+
+120
+00:07:57,090 --> 00:08:02,010
+So this way we can create one function that carries out some instructions,
+
+121
+00:08:02,310 --> 00:08:06,240
+but every time we execute it, it gets a modify it a little bit
+
+122
+00:08:06,510 --> 00:08:08,340
+by changing the inputs.
+
+123
+00:08:09,360 --> 00:08:11,760
+When we're talking about functions with inputs,
+
+124
+00:08:12,030 --> 00:08:13,950
+there's two things that we're working with
+
+125
+00:08:13,980 --> 00:08:16,200
+that's really important to differentiate.
+
+126
+00:08:17,190 --> 00:08:22,170
+So we know that when we call this function and we pass over this piece of data,
+
+127
+00:08:22,500 --> 00:08:23,460
+effectively
+
+128
+00:08:23,490 --> 00:08:28,490
+we're creating a new variable called something and we're setting it to equal this
+
+129
+00:08:28,860 --> 00:08:33,030
+piece of data that we're passing it. Now in programming lingo,
+
+130
+00:08:33,059 --> 00:08:38,059
+you'll hear this being referred to as the parameter and this piece of data
+
+131
+00:08:38,460 --> 00:08:42,240
+being referred to as the argument. Now,
+
+132
+00:08:42,240 --> 00:08:45,000
+the argument is the actual piece of data
+
+133
+00:08:45,030 --> 00:08:49,110
+that's going to be passed over to this function when it's being called.
+
+134
+00:08:49,560 --> 00:08:52,920
+Whereas the parameter is the name of that data
+
+135
+00:08:53,340 --> 00:08:57,990
+and we use the parameter inside the function to refer to it and to do things
+
+136
+00:08:57,990 --> 00:09:01,620
+with it. Now very often on the internet when you come across
+
+137
+00:09:01,620 --> 00:09:03,090
+somebody explaining something
+
+138
+00:09:03,090 --> 00:09:06,060
+be it on Stack Overflow or in some piece of documentation,
+
+139
+00:09:06,420 --> 00:09:09,600
+you'll hear them referring to these two types of things,
+
+140
+00:09:09,600 --> 00:09:11,550
+the parameter and the argument.
+
+141
+00:09:12,090 --> 00:09:15,930
+So if you need to, come back to this lesson and remind yourself the difference
+
+142
+00:09:15,930 --> 00:09:17,160
+between those two things.
+
+143
+00:09:17,550 --> 00:09:20,550
+The parameter is the name of the data that's being passed in,
+
+144
+00:09:20,850 --> 00:09:24,990
+the argument is the actual value of the data. Now,
+
+145
+00:09:25,020 --> 00:09:28,770
+sometimes people also get confused on the internet between these two words,
+
+146
+00:09:29,040 --> 00:09:32,010
+but as long as you know what they means, then you'll be in a good place.
+
+1
+00:00:00,310 --> 00:00:01,420
+In the last lesson,
+
+2
+00:00:01,450 --> 00:00:06,450
+we saw a very simple form of a function that allows for an input.
+
+3
+00:00:07,360 --> 00:00:08,470
+Now in this lesson,
+
+4
+00:00:08,500 --> 00:00:13,150
+I want to take it even further and I want to create a function that allows for
+
+5
+00:00:13,150 --> 00:00:14,650
+multiple inputs.
+
+6
+00:00:15,370 --> 00:00:19,390
+So let's comment out of the previous line of code and let's create a new comment,
+
+7
+00:00:19,720 --> 00:00:21,490
+functions with more than one input.
+
+8
+00:00:22,840 --> 00:00:27,310
+And I'm going to create a new function called greet_with.
+
+9
+00:00:28,000 --> 00:00:31,660
+And in this case, it's going to take two parameters.
+
+10
+00:00:31,960 --> 00:00:36,460
+It's going to be name and location. If you remember,
+
+11
+00:00:36,460 --> 00:00:40,840
+this is how we added a parameter previously. Now, as a challenge,
+
+12
+00:00:40,870 --> 00:00:45,310
+I want you to quickly think about how you might add two parameters,
+
+13
+00:00:45,340 --> 00:00:49,540
+one's called name and one's called location, into this function
+
+14
+00:00:49,540 --> 00:00:52,450
+declaration. Pause the video, have a brief think,
+
+15
+00:00:52,600 --> 00:00:55,420
+and then we'll go through it together. All right.
+
+16
+00:00:55,420 --> 00:00:58,600
+So we know that if we wanted to add one parameter name,
+
+17
+00:00:58,660 --> 00:01:02,740
+then this is how we would do it. We would just add it inside the parentheses.
+
+18
+00:01:03,490 --> 00:01:06,070
+Now, if we wanted to have more than one parameter,
+
+19
+00:01:06,520 --> 00:01:11,520
+all we have to do is just add a comma and then add the second parameter which we
+
+20
+00:01:11,860 --> 00:01:13,720
+said was going to be called location.
+
+21
+00:01:14,290 --> 00:01:18,190
+So now this particular function is going to take two inputs,
+
+22
+00:01:18,190 --> 00:01:22,360
+the name and the location. And then inside this function,
+
+23
+00:01:22,390 --> 00:01:27,130
+we're going to use the name to print something like hello name,
+
+24
+00:01:28,000 --> 00:01:29,980
+and then we're going to print and ask them,
+
+25
+00:01:30,400 --> 00:01:34,540
+what is it like in their particular location.
+
+26
+00:01:35,140 --> 00:01:39,850
+See if you can modify this to use the actual parameters and to replace them with
+
+27
+00:01:39,850 --> 00:01:44,800
+print statements so that we use these parameters inside of our function.
+
+28
+00:01:45,100 --> 00:01:48,640
+Pause the video now and give that a go. All right.
+
+29
+00:01:48,640 --> 00:01:53,260
+So essentially we want to create a print statement here and print statements
+
+30
+00:01:53,320 --> 00:01:57,400
+print strings so we have to add some quotation marks around that text.
+
+31
+00:01:57,880 --> 00:01:58,810
+And then finally,
+
+32
+00:01:58,810 --> 00:02:03,810
+I'm going to use a fstring to replace this parameter name inside this string so
+
+33
+00:02:06,850 --> 00:02:11,350
+that the data that gets passed in gets replaced here, and it says,
+
+34
+00:02:11,380 --> 00:02:13,210
+hello, whatever their name is.
+
+35
+00:02:13,870 --> 00:02:16,270
+And then I'm just going to do the same thing over here
+
+36
+00:02:20,230 --> 00:02:23,890
+and notice that with replit and a lot of other text editors,
+
+37
+00:02:23,890 --> 00:02:26,860
+you can simply highlight a word or highlight or a sentence,
+
+38
+00:02:27,100 --> 00:02:32,100
+and then use the open curly brace to actually add brace around both sides of the
+
+39
+00:02:33,340 --> 00:02:37,750
+word. And you'll notice that I did the same thing with the quotation marks.
+
+40
+00:02:37,750 --> 00:02:41,170
+So it highlight the whole sentence and then hit the double-quote key
+
+41
+00:02:41,440 --> 00:02:45,400
+and it will keep adding quotes around both sides of your highlight.
+
+42
+00:02:46,570 --> 00:02:48,160
+But I only actually need one.
+
+43
+00:02:48,700 --> 00:02:51,880
+So that is our function completed.
+
+44
+00:02:52,480 --> 00:02:56,230
+And now it means I can call this function by calling greet_with,
+
+45
+00:02:56,710 --> 00:03:00,880
+and it's going to prompt me to add both of these inputs.
+
+46
+00:03:01,390 --> 00:03:04,870
+And the first piece of data is going to be the name
+
+47
+00:03:04,990 --> 00:03:09,610
+and you can see it's giving you a hint by underlining the name of the parameter
+
+48
+00:03:09,610 --> 00:03:12,550
+here. And let's put Jack Bauer
+
+49
+00:03:14,170 --> 00:03:18,790
+and then we can add the second piece of data and separate it with a comma.
+
+50
+00:03:19,270 --> 00:03:23,020
+And now you can see this underline has moved to the location parameter.
+
+51
+00:03:23,080 --> 00:03:25,810
+So again, a hint as to what kind of data it wants.
+
+52
+00:03:26,260 --> 00:03:29,950
+So let's say that Jack Bauer is nowhere. Now,
+
+53
+00:03:29,950 --> 00:03:31,750
+if we go ahead and run this code,
+
+54
+00:03:31,840 --> 00:03:36,550
+then you'll see that it's going to print hello and replace name with Jack Bauer.
+
+55
+00:03:36,910 --> 00:03:40,120
+And then what is it like in nowhere? So no
+
+56
+00:03:40,120 --> 00:03:42,100
+where gets replaced with this location.
+
+57
+00:03:42,700 --> 00:03:47,700
+So that means that you can now put in as many pieces of inputs as you want and
+
+58
+00:03:48,070 --> 00:03:53,070
+modify the functionality of your function to make your function do different
+
+59
+00:03:53,980 --> 00:03:57,850
+things each time. Now here's a question.
+
+60
+00:03:58,390 --> 00:04:02,620
+What happens if I call the same function greet_with,
+
+61
+00:04:03,070 --> 00:04:06,760
+but I switch the order of the data that I give it.
+
+62
+00:04:07,210 --> 00:04:10,660
+So let's say the first piece of data I give it is nowhere,
+
+63
+00:04:11,320 --> 00:04:14,980
+and then the second piece of data is Jack Bauer.
+
+64
+00:04:15,370 --> 00:04:19,690
+So we've just switched the order of these pieces of data. Now,
+
+65
+00:04:19,750 --> 00:04:21,279
+what do you expect to happen?
+
+66
+00:04:21,640 --> 00:04:25,450
+Pause for a moment and have a think about what you expect to be printed in here
+
+67
+00:04:25,990 --> 00:04:29,080
+and then continue. All right,
+
+68
+00:04:29,080 --> 00:04:34,080
+so let's click run and you can see that it's now complete nonsense.
+
+69
+00:04:34,840 --> 00:04:39,430
+Hello, nowhere. What is it like in Jack Bauer? And what actually happened here
+
+70
+00:04:39,640 --> 00:04:44,350
+is it takes the position of the data, looks at both of these arguments,
+
+71
+00:04:44,710 --> 00:04:47,620
+and the first argument gets assigned to the first parameter
+
+72
+00:04:47,950 --> 00:04:51,940
+the second argument gets assigned at the second parameter. So in this case,
+
+73
+00:04:51,970 --> 00:04:55,960
+when it's actually gone in here, name is now equal to nowhere,
+
+74
+00:04:55,990 --> 00:05:00,990
+which is why this line printed thi.sAand Jack Bauer is now assigned to location
+
+75
+00:05:01,570 --> 00:05:06,520
+which is why it printed this second line like so. And in Python programming,
+
+76
+00:05:06,550 --> 00:05:11,550
+this is called a positional argument because when we call the function,
+
+77
+00:05:11,950 --> 00:05:16,950
+we haven't specified anywhere which particular parameter we want to associate
+
+78
+00:05:17,800 --> 00:05:21,910
+these pieces of data with. So it's just gone and looked at the position.
+
+79
+00:05:22,030 --> 00:05:26,290
+Now this is the default way of calling functions, because on one hand,
+
+80
+00:05:26,320 --> 00:05:27,640
+when you're typing out the code,
+
+81
+00:05:27,670 --> 00:05:32,020
+you get the hints here as to which piece of data you need to enter.
+
+82
+00:05:32,470 --> 00:05:37,360
+But also you can refer to the function and look at the order of the parameters.
+
+83
+00:05:38,260 --> 00:05:42,610
+Even if we had more inputs, let's say in this case, we had a,
+
+84
+00:05:42,610 --> 00:05:47,380
+b and c, and we put the arguments one, two and three,
+
+85
+00:05:47,740 --> 00:05:51,310
+then it means that our variables that gets created
+
+86
+00:05:51,310 --> 00:05:52,840
+will be a equals one,
+
+87
+00:05:53,260 --> 00:05:56,950
+b equals two and c equals three.
+
+88
+00:05:59,060 --> 00:06:03,590
+Now, if we switch around the order of the arguments in the function call,
+
+89
+00:06:04,250 --> 00:06:08,600
+now what will happen is a is going to be equal to the first argument.
+
+90
+00:06:08,600 --> 00:06:13,600
+So a is now equal to three, b as equal to the second argument and c is equal to
+
+91
+00:06:13,640 --> 00:06:18,560
+the third argument. So it might be doing slightly unpredictable things in here.
+
+92
+00:06:19,010 --> 00:06:22,730
+So whenever you're creating code and you're using these positional arguments,
+
+93
+00:06:23,030 --> 00:06:25,700
+and you're just inserting the data one by one like this,
+
+94
+00:06:26,000 --> 00:06:28,250
+and it does something completely unexpected,
+
+95
+00:06:28,340 --> 00:06:32,990
+then be sure to check your positioning and to make sure that it matches with the
+
+96
+00:06:32,990 --> 00:06:36,770
+position of the parameters. Now,
+
+97
+00:06:36,800 --> 00:06:41,180
+what if you wanted to be more clear when you actually call the function
+
+98
+00:06:41,210 --> 00:06:44,690
+so you don't ever encounter this problem? Well,
+
+99
+00:06:44,690 --> 00:06:49,340
+you could use something called keyword arguments instead. So now,
+
+100
+00:06:49,370 --> 00:06:53,300
+instead of just adding the arguments into the function call like this,
+
+101
+00:06:53,690 --> 00:06:58,690
+we can actually add each of the parameter names and an equal sign to say that
+
+102
+00:06:58,880 --> 00:07:00,260
+the first parameter a
+
+103
+00:07:00,260 --> 00:07:04,730
+should be equal to one, b should be equal to two and c equals to three.
+
+104
+00:07:05,300 --> 00:07:07,940
+And now when we actually change the order around,
+
+105
+00:07:07,970 --> 00:07:09,830
+it doesn't matter how we order it,
+
+106
+00:07:10,160 --> 00:07:14,540
+it still going to abide by these bindings. So c
+
+107
+00:07:14,540 --> 00:07:17,180
+will still be three and a will still be one. 
+
+108
+00:07:18,830 --> 00:07:22,160
+As a challenge, I want you to take this previous function,
+
+109
+00:07:22,640 --> 00:07:24,710
+greet_with_name and location,
+
+110
+00:07:24,950 --> 00:07:29,120
+and I want you to call this function down here, but this time,
+
+111
+00:07:29,150 --> 00:07:33,650
+instead of using positional arguments, I want you to use keyword arguments.
+
+112
+00:07:34,160 --> 00:07:36,860
+So pause the video and try and give that a go.
+
+113
+00:07:39,770 --> 00:07:42,620
+All right. So when we call the function, we still use the name.
+
+114
+00:07:42,650 --> 00:07:46,610
+So it's greet_with, so everything up to the first parentheses is the name.
+
+115
+00:07:47,150 --> 00:07:50,750
+And then we add in each of these parameter names,
+
+116
+00:07:51,410 --> 00:07:56,180
+and then we add an equal sign and finally, we give it the actual value.
+
+117
+00:07:56,240 --> 00:07:57,620
+So let's say Angela,
+
+118
+00:07:57,800 --> 00:08:02,690
+and then the location is going to be equal to London.
+
+119
+00:08:03,710 --> 00:08:05,030
+Now, when I hit run,
+
+120
+00:08:05,090 --> 00:08:09,200
+you can see it does pretty much the same as before. It puts Angela into the name,
+
+121
+00:08:09,260 --> 00:08:13,940
+London into location. But this time if I switch the order around it
+
+122
+00:08:14,000 --> 00:08:17,330
+no longer matters. And when I hit run again,
+
+123
+00:08:17,360 --> 00:08:19,550
+you can see it does exactly the same thing,
+
+124
+00:08:19,970 --> 00:08:24,470
+because it now knows which argument is associated with which parameter.
+
+125
+00:08:25,400 --> 00:08:27,500
+So this can make your code less error prone
+
+126
+00:08:27,770 --> 00:08:30,230
+but it does make each line of code longer.
+
+127
+00:08:30,620 --> 00:08:35,620
+I recommend using your judgment to figure out when you want to use which type of
+
+128
+00:08:35,900 --> 00:08:39,679
+argument and depending on the need, you can pick between these two.
+
+129
+00:08:41,210 --> 00:08:46,070
+Now in the next lesson, I've got a coding exercise for you to put into practice
+
+130
+00:08:46,340 --> 00:08:48,020
+everything that you've learned so far.
+
+131
+00:08:48,260 --> 00:08:51,110
+Head over there when you're ready and let's give it a go.
+
+1
+00:00:00,750 --> 00:00:03,060
+All right. So in today's coding challenge,
+
+2
+00:00:03,090 --> 00:00:05,250
+we're going to do a little bit of wall painting.
+
+3
+00:00:05,850 --> 00:00:10,850
+And the idea is we're going to create a program that helps us calculate how many
+
+4
+00:00:11,220 --> 00:00:16,219
+cans of paint we need to buy for a given surface area of wall.
+
+5
+00:00:17,220 --> 00:00:19,320
+The maths involved is very simple
+
+6
+00:00:19,350 --> 00:00:22,110
+and I'm going to talk you through it if you're not confident with maths.
+
+7
+00:00:22,500 --> 00:00:26,370
+But essentially we want it to be able to use our inputs
+
+8
+00:00:26,640 --> 00:00:31,380
+to modify our function so that it does something every single time we use it.
+
+9
+00:00:32,430 --> 00:00:37,410
+Go ahead and click on day 8.1 area calculation,
+
+10
+00:00:38,040 --> 00:00:42,510
+and we're going to complete this coding challenge. So firstly,
+
+11
+00:00:42,510 --> 00:00:46,290
+you'll notice that down here on lines, 10, 11, 12, and 13,
+
+12
+00:00:46,710 --> 00:00:50,160
+I've got some code that's going to help us check your solution.
+
+13
+00:00:50,700 --> 00:00:55,700
+And we're going to use your function to actually calculate the number of cans of
+
+14
+00:00:56,820 --> 00:00:57,810
+paint we need to buy.
+
+15
+00:00:58,470 --> 00:01:02,970
+You're basically painting a wall and the instructions on the paint cans says that
+
+16
+00:01:02,970 --> 00:01:03,803
+one can
+
+17
+00:01:04,110 --> 00:01:09,110
+can cover five square meters of wall. Given any height and any width, your
+
+18
+00:01:10,500 --> 00:01:15,360
+program needs to calculate how many cans of paint you need to buy. The maths,
+
+19
+00:01:15,570 --> 00:01:17,040
+as I say, is pretty simple.
+
+20
+00:01:17,070 --> 00:01:21,150
+All you have to do is multiply the height by the width to get the area of the
+
+21
+00:01:21,150 --> 00:01:25,290
+wall, and then you simply divided by the coverage per can.
+
+22
+00:01:25,860 --> 00:01:28,340
+We said that five square meters per can, so
+
+23
+00:01:28,350 --> 00:01:30,750
+it means you are always going to be dividing by five.
+
+24
+00:01:31,230 --> 00:01:35,250
+So let's say that we had a wall which was two meters high and four meters wide,
+
+25
+00:01:35,700 --> 00:01:39,150
+and the coverage, as always, is going to be equal to five.
+
+26
+00:01:40,020 --> 00:01:43,800
+Then the calculation would be a simple as 2 x 4 divided by 5,
+
+27
+00:01:43,830 --> 00:01:48,210
+which is 1.6. So we need 1.6 cans of paint,
+
+28
+00:01:48,540 --> 00:01:52,050
+but because you can't buy 0.6 can of a paint,
+
+29
+00:01:52,470 --> 00:01:56,460
+I've tried this in the store. They said no and they told me to go away.
+
+30
+00:01:57,300 --> 00:02:02,300
+So we actually have to round up to the nearest whole number.
+
+31
+00:02:03,240 --> 00:02:06,870
+So in this case, we need to buy two cans. Now,
+
+32
+00:02:06,900 --> 00:02:10,830
+the really important thing to draw your attention to is down here
+
+33
+00:02:10,860 --> 00:02:13,350
+I actually call the function.
+
+34
+00:02:13,770 --> 00:02:18,750
+So I'm calling the function and I'm giving in some named arguments.
+
+35
+00:02:19,080 --> 00:02:23,520
+So this is really, really important. If you review the previous lessons,
+
+36
+00:02:23,580 --> 00:02:27,870
+then you should know what name you need to give your function and what
+
+37
+00:02:27,870 --> 00:02:32,870
+name you need to give the parameters for the code to actually work without any
+
+38
+00:02:32,970 --> 00:02:37,950
+errors. Remember to take a look at the example inputs down here
+
+39
+00:02:37,980 --> 00:02:42,980
+and example output because you need to print out something along these lines.
+
+40
+00:02:43,650 --> 00:02:48,300
+So it should say you'll need X cans of paint depending on your calculation.
+
+41
+00:02:48,870 --> 00:02:52,920
+And finally, if you need a hint as to how to round up a number,
+
+42
+00:02:53,250 --> 00:02:57,180
+then you can either go ahead and Google for it, use Stack Overflow,
+
+43
+00:02:57,240 --> 00:03:01,540
+that's probably the best way, or you could give it a guess. And finally,
+
+44
+00:03:01,540 --> 00:03:02,680
+if you really get stuck,
+
+45
+00:03:02,710 --> 00:03:06,640
+take a look at the hint section. And once you're done,
+
+46
+00:03:06,700 --> 00:03:10,060
+then come back over here and we'll walk through the solution together.
+
+47
+00:03:10,600 --> 00:03:14,080
+Pause the video now and go ahead and complete this coding exercise.
+
+48
+00:03:21,750 --> 00:03:22,380
+Yeah.
+
+49
+00:03:22,380 --> 00:03:25,560
+All right. So, did you manage to get that right? If not,
+
+50
+00:03:25,710 --> 00:03:28,410
+take a look at this video and then once you're done,
+
+51
+00:03:28,620 --> 00:03:33,090
+take a look at the solution code and try to compare against your code to see if
+
+52
+00:03:33,090 --> 00:03:37,110
+there were any errors that you made. Now, this challenge is pretty doable.
+
+53
+00:03:37,470 --> 00:03:42,470
+All we have to do is to create our function and we create any function using def.
+
+54
+00:03:43,500 --> 00:03:46,830
+And how do we know what name to give this function? Well,
+
+55
+00:03:46,830 --> 00:03:49,950
+we take a look at where the function was called down here,
+
+56
+00:03:50,520 --> 00:03:53,850
+and you can see that it's called paint_calc.
+
+57
+00:03:54,240 --> 00:03:56,910
+So this is what we have to give our function as the name.
+
+58
+00:03:57,630 --> 00:04:02,370
+And then we of course have our parentheses, our colon, and then inside here,
+
+59
+00:04:02,400 --> 00:04:04,920
+we're going to do all the calculations. Now,
+
+60
+00:04:04,920 --> 00:04:09,030
+the next thing we have to look at is what name we should give our parameters.
+
+61
+00:04:09,510 --> 00:04:12,540
+And you can see I've got named arguments here.
+
+62
+00:04:12,930 --> 00:04:17,820
+So that means each of these are going to be the names of the parameters; height,
+
+63
+00:04:18,300 --> 00:04:19,950
+width, and cover.
+
+64
+00:04:20,459 --> 00:04:25,460
+So the parameters are going to go inside the parentheses height, width, and cover.
+
+65
+00:04:27,060 --> 00:04:31,620
+And it's only if we actually spell these parameters exactly the same as what we've
+
+66
+00:04:31,620 --> 00:04:35,280
+got down here in the arguments will our code actually work.
+
+67
+00:04:36,780 --> 00:04:41,160
+Now let's go ahead and take the height and multiply it by the width to get the
+
+68
+00:04:41,160 --> 00:04:45,240
+area. So area = height * width.
+
+69
+00:04:46,440 --> 00:04:50,460
+And then with that area, we can divide it by the coverage per can.
+
+70
+00:04:50,520 --> 00:04:55,520
+So let's call it num_of_cans = area
+
+71
+00:04:55,890 --> 00:04:57,720
+/ cover.
+
+72
+00:05:00,000 --> 00:05:04,560
+And now remember that this is going to be a decimal number occasionally like
+
+73
+00:05:04,560 --> 00:05:05,393
+here,
+
+74
+00:05:05,520 --> 00:05:09,780
+and we have two round it up to the next whole number.
+
+75
+00:05:10,410 --> 00:05:14,370
+If we take a look at this particular Stack Overflow,
+
+76
+00:05:15,480 --> 00:05:18,540
+you can see that the question is exactly what we want, right?
+
+77
+00:05:18,540 --> 00:05:22,620
+How do you round up a number in Python? And if you did some Googling,
+
+78
+00:05:22,620 --> 00:05:26,730
+then this might have been the Stack Overflow question you would have landed on.
+
+79
+00:05:27,360 --> 00:05:32,220
+And essentially it tells us you have to import maths, and from the math module,
+
+80
+00:05:32,230 --> 00:05:36,180
+you use a function called ceiling. And then inside the parentheses,
+
+81
+00:05:36,270 --> 00:05:39,390
+you put in the inputs. To do that,
+
+82
+00:05:39,420 --> 00:05:41,280
+we first import math.
+
+83
+00:05:42,690 --> 00:05:47,690
+It's math without the 's.' And then we can call it a math.ceil and wrap this
+
+84
+00:05:50,130 --> 00:05:52,110
+result around the parentheses.
+
+85
+00:05:52,410 --> 00:05:56,250
+So this is going to take the result here from a decimal number to
+
+86
+00:05:56,250 --> 00:05:59,510
+a whole number by rounding it up to the ceiling.
+
+87
+00:06:00,260 --> 00:06:03,380
+So now we're finally ready to give our output,
+
+88
+00:06:03,410 --> 00:06:05,660
+so we're going to do that by printing it.
+
+89
+00:06:05,660 --> 00:06:09,560
+So we're going to print and I'm definitely going to need an f-string.
+
+90
+00:06:09,560 --> 00:06:13,040
+So I'm going to put an F in there and paste this string.
+
+91
+00:06:13,340 --> 00:06:16,430
+And instead of having the hard-coded five here,
+
+92
+00:06:16,940 --> 00:06:20,630
+I'm going to put in the num_of_cans instead.
+
+93
+00:06:21,500 --> 00:06:26,500
+So now when this line of code on line 17 calls
+
+94
+00:06:27,050 --> 00:06:31,310
+paint_calc passing in each of these arguments,
+
+95
+00:06:32,210 --> 00:06:37,210
+then it's going to be able to run this function here and print out how many cans
+
+96
+00:06:38,180 --> 00:06:42,830
+of paint I'll need. Now, all we have to do is test our code.
+
+97
+00:06:43,010 --> 00:06:46,490
+So let's hit run and let's put in a random height.
+
+98
+00:06:46,490 --> 00:06:50,930
+Let's say it's five meters high and three meters wide.
+
+99
+00:06:51,560 --> 00:06:54,050
+And it tells us that we need three cans of paint.
+
+100
+00:06:54,560 --> 00:06:57,890
+So five by three,
+
+101
+00:06:57,890 --> 00:06:59,750
+the area is 15 square meters,
+
+102
+00:07:00,140 --> 00:07:03,860
+15 divided by five is three. Now,
+
+103
+00:07:03,860 --> 00:07:05,960
+what if we had a decimal number?
+
+104
+00:07:06,290 --> 00:07:10,430
+Let's say we had a height of 7 and a width of 13.
+
+105
+00:07:11,180 --> 00:07:14,060
+Then in this case, it tells us we need 19 cans.
+
+106
+00:07:14,120 --> 00:07:19,120
+So 7 times 13 is 91. 91 divided by 5 is 18.2 and 18.2
+
+107
+00:07:22,010 --> 00:07:23,900
+round it up is 19.
+
+108
+00:07:24,680 --> 00:07:29,330
+And we've now completed this challenge. Did you manage to get it right?
+
+109
+00:07:29,660 --> 00:07:34,660
+If not, be sure to watch this video and see if you can go back and fix your code
+
+110
+00:07:35,150 --> 00:07:39,560
+and you can compare it against the solution code I've got here by going to this
+
+111
+00:07:39,590 --> 00:07:40,580
+link right here.
+
+112
+00:07:42,260 --> 00:07:46,220
+And once you're done, head over to the next lesson where I've got a slightly
+
+113
+00:07:46,220 --> 00:07:48,170
+harder coding challenge for you.
+
+1
+00:00:00,330 --> 00:00:07,950
+All right, so in the next coding exercise, we're going to be building a prime number checker. And a
+
+2
+00:00:07,950 --> 00:00:15,030
+prime number, just to remind you, is a number that is only divisible by one and itself.
+
+3
+00:00:15,720 --> 00:00:22,350
+So, for example, two is a prime number because it can only be divided by one and two.
+
+4
+00:00:23,010 --> 00:00:24,600
+Three is also a prime number,
+
+5
+00:00:24,630 --> 00:00:29,100
+similarly, it can only be split into three equal sized chunks.
+
+6
+00:00:29,550 --> 00:00:35,700
+But four, however, is not a prime number because while it can be divided by one and four, it can
+
+7
+00:00:35,700 --> 00:00:37,350
+also be divided by two.
+
+8
+00:00:37,620 --> 00:00:44,100
+So two times two is four. Essentially a prime number is a number that can't be broken to smaller
+
+9
+00:00:44,100 --> 00:00:46,230
+parts other than one and itself.
+
+10
+00:00:46,950 --> 00:00:54,240
+And it's this property of prime numbers that makes them really useful to everything from cicadas to
+
+11
+00:00:54,240 --> 00:00:58,440
+Bitcoin and also encryption in the computer world.
+
+12
+00:00:59,280 --> 00:01:05,820
+So if you head over to day 8.2 prime number checker, you'll see the starting code including
+
+13
+00:01:05,820 --> 00:01:08,840
+the number that we're going to be sending over and checking.
+
+14
+00:01:09,270 --> 00:01:16,200
+And then, of course, the line eleven where we actually call this function and pass over the number. So
+
+15
+00:01:16,320 --> 00:01:19,960
+this part is really important when you are creating your function.
+
+16
+00:01:20,610 --> 00:01:26,370
+The idea is that you're going to be creating a function here that checks whether if the number that's
+
+17
+00:01:26,370 --> 00:01:29,930
+passed in is a prime number or not.
+
+18
+00:01:30,450 --> 00:01:36,180
+And if you take a look at this chart, then you'll see all the prime numbers up to 100 highlighted in
+
+19
+00:01:36,180 --> 00:01:36,640
+yellow.
+
+20
+00:01:37,440 --> 00:01:39,410
+There's a couple of things you need to remember.
+
+21
+00:01:39,600 --> 00:01:44,120
+One is that you'll probably need to use the modulus, which we've seen before.
+
+22
+00:01:44,670 --> 00:01:49,090
+And if you can't remember how to use that, then take a look at this link.
+
+23
+00:01:49,710 --> 00:01:54,900
+Now, the second thing is that make sure that you name your function and parameters the same as what
+
+24
+00:01:54,900 --> 00:01:57,390
+you see here where it's called.
+
+25
+00:01:58,020 --> 00:02:05,040
+And finally, try to use the same wording as the example outputs, namely, if it is a prime number print
+
+26
+00:02:05,490 --> 00:02:08,430
+"It's a prime number." in this exact wording.
+
+27
+00:02:08,759 --> 00:02:14,310
+And if it's not a prime number, then print "It's not a prime number." with this exact wording.
+
+28
+00:02:15,360 --> 00:02:21,150
+And finally, if you're still not quite sure how prime numbers work, then be sure to check out the
+
+29
+00:02:21,150 --> 00:02:22,200
+Wikipedia page.
+
+30
+00:02:22,470 --> 00:02:29,340
+And if your first language is not English, then be sure to switch to your native language just to know
+
+31
+00:02:29,610 --> 00:02:33,480
+what it is because I know it's called different things in different languages.
+
+32
+00:02:34,920 --> 00:02:35,910
+Pause the video,
+
+33
+00:02:36,180 --> 00:02:40,890
+have a good think about this and see if you can solve this problem.
+
+34
+00:02:44,690 --> 00:02:48,920
+All right, so let's think about how we might tackle this. The first thing I'm going to do is I'm going
+
+35
+00:02:48,920 --> 00:02:54,950
+to create a new function called prime_checker to be in line with this line, because I'm calling a
+
+36
+00:02:54,950 --> 00:02:56,270
+function called prime_checker
+
+37
+00:02:56,660 --> 00:03:00,800
+and then I'm passing in an argument to the parameter called number.
+
+38
+00:03:01,430 --> 00:03:06,740
+So now that we've created our function, the next step is to figure out, well, what do we do in this
+
+39
+00:03:06,740 --> 00:03:07,190
+function?
+
+40
+00:03:07,730 --> 00:03:14,840
+Now, I mentioned that every prime number can only be cleanly divided by itself and one.
+
+41
+00:03:15,290 --> 00:03:21,540
+So that means that if it's divided by any other number other than these, it will have a remainder.
+
+42
+00:03:22,100 --> 00:03:28,360
+So we know that we can use the modulus to check what the remainder is of a division.
+
+43
+00:03:28,910 --> 00:03:37,910
+So we know that, for example, if we divide six by two, then it equals three with no remainder because
+
+44
+00:03:37,910 --> 00:03:44,750
+six is divided into two three times, while seven divided by two equals one because there's a remainder
+
+45
+00:03:44,750 --> 00:03:50,320
+of one, because two times three is six and then six plus one makes seven.
+
+46
+00:03:51,080 --> 00:04:00,020
+So we can use the modulus to check whether if the number that we're passing in here can be divided by
+
+47
+00:04:00,050 --> 00:04:02,610
+all the numbers all the way down to two.
+
+48
+00:04:03,410 --> 00:04:11,570
+So, for example, if number was equal to seven, well, then what we would want to do is we would want
+
+49
+00:04:11,570 --> 00:04:20,450
+to do seven divided by two and then see if there is any remainder, and then seven divided by three and
+
+50
+00:04:20,450 --> 00:04:25,480
+see if there was any remainder, and then seven divided by four...
+
+51
+00:04:25,520 --> 00:04:30,740
+and then we just go up two, three, four, five, and six.
+
+52
+00:04:31,040 --> 00:04:37,740
+And now we've basically divided seven by all the possible values other than one and seven.
+
+53
+00:04:38,510 --> 00:04:45,470
+So if any of these has zero as the remainder, then it means that it does cleanly divide by one of these
+
+54
+00:04:45,470 --> 00:04:48,440
+numbers, which means that it's actually not a prime number.
+
+55
+00:04:49,550 --> 00:04:57,230
+But if all of these have a remainder, then that means seven is a prime number, which we already know
+
+56
+00:04:57,230 --> 00:04:59,260
+it is because we can see it on this graph.
+
+57
+00:04:59,720 --> 00:05:07,220
+So how can we go through this process of getting this number divided by numbers starting from two
+
+58
+00:05:07,220 --> 00:05:11,030
+all the way going up to the number minus one?
+
+59
+00:05:11,270 --> 00:05:14,380
+Well, we could simply just use a for loop, right?
+
+60
+00:05:14,780 --> 00:05:22,700
+So we create a for loop and say for i which is going to be this number that we're going to divide
+
+61
+00:05:22,700 --> 00:05:24,440
+by, in,
+
+62
+00:05:24,890 --> 00:05:28,760
+and that number is going to be a range of numbers.
+
+63
+00:05:28,910 --> 00:05:33,470
+And the range starts from two because we're not going to divide it by one.
+
+64
+00:05:33,470 --> 00:05:39,680
+We already know that all numbers can be divided by one. And we're going to put the range all the way
+
+65
+00:05:39,680 --> 00:05:41,520
+up to the number.
+
+66
+00:05:42,350 --> 00:05:48,380
+So now inside this for loop, we can start doing our divisions. So we could take the number and we can
+
+67
+00:05:48,380 --> 00:05:51,740
+use the modulo operator to divide it by i.
+
+68
+00:05:52,220 --> 00:06:00,580
+So it's exactly the same as each of these lines of division. If number divided by i is equal to zero,
+
+69
+00:06:00,590 --> 00:06:06,350
+so if it divides cleanly, well, then in this case, it's clearly not a prime,
+
+70
+00:06:06,350 --> 00:06:14,720
+right? Because if that number that we get passed in can be divided by any of the numbers between two
+
+71
+00:06:14,720 --> 00:06:21,600
+and number minus one cleanly with no remainder, then that means it's not a prime number.
+
+72
+00:06:22,220 --> 00:06:30,950
+However, if we get to the very end of our for loop and this if statement was never triggered, well,
+
+73
+00:06:30,950 --> 00:06:33,650
+then that means this is a prime number.
+
+74
+00:06:34,910 --> 00:06:37,820
+So how can we represent this with our code?
+
+75
+00:06:38,420 --> 00:06:43,900
+Well, we could create a variable called is_prime and set it to true.
+
+76
+00:06:44,540 --> 00:06:48,510
+If this if statement gets triggered, then we switch
+
+77
+00:06:48,530 --> 00:06:51,000
+this is_prime to false.
+
+78
+00:06:51,560 --> 00:06:55,980
+And finally, once we get to the end of the for loop, we can go ahead and check
+
+79
+00:06:56,000 --> 00:07:00,400
+well, is is_prime true or is it false?
+
+80
+00:07:00,920 --> 00:07:07,370
+And this expression is basically the same as just typing this because this is going to be true or false.
+
+81
+00:07:07,550 --> 00:07:15,020
+And if it's true, then we get to step into this block and we're going to print from this example output
+
+82
+00:07:15,020 --> 00:07:23,090
+and say that it is a prime number. But else or otherwise, then we're going to print the opposite
+
+83
+00:07:23,280 --> 00:07:26,360
+where  we say it's not a prime number.
+
+84
+00:07:27,870 --> 00:07:28,630
+There you have it.
+
+85
+00:07:28,650 --> 00:07:38,040
+This is the simplest way of checking whether if a number is a prime number. And all it does is it checks
+
+86
+00:07:38,040 --> 00:07:41,790
+through all of the numbers between two and the number.
+
+87
+00:07:42,120 --> 00:07:47,220
+And if it's divisible by any of those numbers, well, then it's not a prime.
+
+88
+00:07:48,000 --> 00:07:54,420
+Now, out there in the real world, there's a lot of other ways that you could implement this function.
+
+89
+00:07:54,900 --> 00:08:00,570
+And there's more efficient ways, there's faster ways and there's lots of algorithms that mathematicians
+
+90
+00:08:00,570 --> 00:08:04,350
+have come up with in the past. Now for our case,
+
+91
+00:08:04,530 --> 00:08:12,030
+what I'm really interested in is that you understand how inputs work and how you can use the argument
+
+92
+00:08:12,030 --> 00:08:18,420
+that's passed in to the parameter inside your function in order to do something with it.
+
+93
+00:08:18,960 --> 00:08:24,780
+As long as that's clear to you, then that means we can continue in the course and I can rely on the
+
+94
+00:08:24,780 --> 00:08:31,050
+fact that this code or this code will not throw you off and you'll know exactly what's going on when
+
+95
+00:08:31,050 --> 00:08:38,100
+it's being used inside the block of code and when it's being passed over into a block of code.
+
+96
+00:08:38,700 --> 00:08:43,980
+In the next lesson, we're going to be putting all of our knowledge that we learned into practice and
+
+97
+00:08:43,980 --> 00:08:48,100
+we're going to get started building our final project, the Caesar cipher.
+
+98
+00:08:48,390 --> 00:08:50,550
+So for all of that and more,
+
+99
+00:08:50,580 --> 00:08:51,270
+I'll see you there.
+
+1
+00:00:00,520 --> 00:00:04,480
+All right. It's finally time to tackle our final project,
+
+2
+00:00:04,540 --> 00:00:07,930
+the Caesar Cipher. As I mentioned before,
+
+3
+00:00:08,109 --> 00:00:13,060
+Caesar Cipher is this way of encoding text that,
+
+4
+00:00:13,090 --> 00:00:16,870
+um, was seen as early as during the times of Julius Caesar.
+
+5
+00:00:17,110 --> 00:00:20,170
+So when he had these top secret military messages,
+
+6
+00:00:20,560 --> 00:00:25,560
+what he would do is he would shift each letter of the alphabet by a certain
+
+7
+00:00:26,830 --> 00:00:30,790
+predetermined amount. I want to show you quickly how this works.
+
+8
+00:00:31,270 --> 00:00:36,270
+So we've got the alphabet here and let's say we wanted to encode the letter E. So
+
+9
+00:00:36,970 --> 00:00:40,750
+now we can line up the alphabet with a new set of alphabet.
+
+10
+00:00:41,260 --> 00:00:42,430
+And at the moment,
+
+11
+00:00:42,490 --> 00:00:47,490
+the shift is zero because the top alphabet and the bottom alphabet are lined up
+
+12
+00:00:47,860 --> 00:00:52,840
+with a zero difference. Now, let's say that we had a shift of one. Well,
+
+13
+00:00:52,840 --> 00:00:57,700
+then the alphabet moves to the left and A becomes B, B become C et cetera.
+
+14
+00:00:58,090 --> 00:01:02,710
+And we can keep going until we get to the amount of shift that we wanted.
+
+15
+00:01:03,010 --> 00:01:07,060
+So let's say we're going to encode all of our text with the shift of three.
+
+16
+00:01:07,480 --> 00:01:11,980
+Well, then E becomes H, F becomes I, G becomes J et cetera,
+
+17
+00:01:12,250 --> 00:01:13,660
+and so on and so forth.
+
+18
+00:01:14,020 --> 00:01:17,920
+And they've actually discovered these artifacts from ages ago
+
+19
+00:01:17,920 --> 00:01:21,580
+where people have created these sort of dials.
+
+20
+00:01:22,060 --> 00:01:27,060
+And by simply rotating the dial to a certain amount of shift,
+
+21
+00:01:27,400 --> 00:01:29,620
+then you can line up the letters with each other.
+
+22
+00:01:29,950 --> 00:01:34,510
+So A becomes N and Z becomes O and so on and so forth.
+
+23
+00:01:34,750 --> 00:01:38,050
+And this is a way that people actually encoded top secret messages.
+
+24
+00:01:38,830 --> 00:01:40,750
+By the end of this day,
+
+25
+00:01:40,960 --> 00:01:45,070
+you will have also built a digital form of the Caesar cipher.
+
+26
+00:01:45,730 --> 00:01:50,440
+And all you have to do is to type encode to start encoding a message.
+
+27
+00:01:50,830 --> 00:01:53,380
+Let's say something like Hello World.
+
+28
+00:01:54,130 --> 00:01:57,580
+And once we hit enter, we get to type the shift number,
+
+29
+00:01:57,910 --> 00:01:59,710
+which I'm just gonna choose a random one,
+
+30
+00:02:00,100 --> 00:02:02,980
+and it gives us the encoded result.
+
+31
+00:02:03,460 --> 00:02:08,460
+So now if I take this encoded results and I go ahead and type yes,
+
+32
+00:02:08,800 --> 00:02:10,570
+to restart my program,
+
+33
+00:02:10,870 --> 00:02:15,340
+and I'm going to use the decode function to decode my message.
+
+34
+00:02:16,180 --> 00:02:18,820
+Now, when I use the same shift number,
+
+35
+00:02:19,450 --> 00:02:22,600
+then I should be able to get back the decoded result.
+
+36
+00:02:23,050 --> 00:02:26,470
+So if there's people monitoring your phone, or you're trying to throw a message to
+
+37
+00:02:26,470 --> 00:02:28,000
+your friend in a paper ball,
+
+38
+00:02:28,330 --> 00:02:33,330
+then this is an easy way to ensure that if your message was intercepted then it
+
+39
+00:02:33,430 --> 00:02:37,480
+won't be understood by the other person. Once you're ready,
+
+40
+00:02:37,510 --> 00:02:42,510
+let's get started by heading over to repl.it/@appbrewery/caesar
+
+41
+00:02:42,940 --> 00:02:47,320
+-cipher-1-start. And this contains the starting code for this project
+
+42
+00:02:47,710 --> 00:02:49,480
+and this is part one of four.
+
+43
+00:02:49,960 --> 00:02:54,520
+So here I've already saved you the laborious task of typing out all the letters
+
+44
+00:02:54,520 --> 00:02:57,790
+in the alphabet and they're stores in a single list.
+
+45
+00:02:58,390 --> 00:03:01,600
+Now I've also got three inputs.
+
+46
+00:03:01,750 --> 00:03:03,820
+So this is what the user is going to type in.
+
+47
+00:03:03,850 --> 00:03:06,610
+They're gonna type in encode or decode,
+
+48
+00:03:06,760 --> 00:03:10,630
+and that's gonna be saved to the direction. Tey're going to type them message
+
+49
+00:03:10,660 --> 00:03:12,730
+which is going to be changed to lower case
+
+50
+00:03:13,090 --> 00:03:15,850
+and this is going to be saved in text, and finally,
+
+51
+00:03:15,850 --> 00:03:17,800
+they're going to input a shift number
+
+52
+00:03:18,130 --> 00:03:22,180
+which is going to be converted to an integer and saved inside this variable
+
+53
+00:03:22,180 --> 00:03:27,040
+called shift. So if you want to, have a run of the program as it is right now,
+
+54
+00:03:27,280 --> 00:03:30,970
+so that you fully understand what's actually going on before you get started.
+
+55
+00:03:31,390 --> 00:03:33,880
+And remember, don't change any of the code above,
+
+56
+00:03:34,210 --> 00:03:37,150
+but instead tackle the to-dos one by one.
+
+57
+00:03:37,750 --> 00:03:40,330
+The first step is to create a function called encrypt
+
+58
+00:03:40,570 --> 00:03:45,430
+that's going to take this text that the user typed in and the shift that they
+
+59
+00:03:45,430 --> 00:03:47,260
+typed in as inputs.
+
+60
+00:03:48,100 --> 00:03:51,310
+And this is going to use what you learned about functions with inputs,
+
+61
+00:03:51,340 --> 00:03:52,780
+from today's lessons.
+
+62
+00:03:53,530 --> 00:03:58,000
+And then once you're done with that, step 2 is to go inside the encrypt
+
+63
+00:03:58,000 --> 00:04:03,000
+function that you just created and shift each letter of the text forwards by the
+
+64
+00:04:05,650 --> 00:04:09,870
+shift amount. So, again, as we saw before a shift of one,
+
+65
+00:04:09,880 --> 00:04:11,860
+a shifter of two, a shift of three,
+
+66
+00:04:12,100 --> 00:04:15,310
+basically just moves the characters forward
+
+67
+00:04:15,340 --> 00:04:19,060
+so that each letter of the alphabet becomes a letter of the alphabet much
+
+68
+00:04:19,089 --> 00:04:23,830
+further down the line. Let's say that the user entered the text
+
+69
+00:04:23,860 --> 00:04:27,370
+Hello and if we tried a shift of five,
+
+70
+00:04:27,640 --> 00:04:31,000
+then the end result should be mjqqt
+
+71
+00:04:31,450 --> 00:04:35,530
+and the printed output from this function should say something like the encoded
+
+72
+00:04:35,530 --> 00:04:38,770
+text is this. And finally,
+
+73
+00:04:38,770 --> 00:04:42,880
+you're going to call the encrypt function and then pass in the user inputs from
+
+74
+00:04:42,880 --> 00:04:43,713
+over here
+
+75
+00:04:43,900 --> 00:04:48,190
+and you should be able to test the code and encrypt a message and see something
+
+76
+00:04:48,190 --> 00:04:52,480
+like this happen. Pause the video now, have a look through the starting code,
+
+77
+00:04:52,720 --> 00:04:53,830
+and once you're ready,
+
+78
+00:04:53,980 --> 00:04:57,250
+go ahead and tackle it and then come back and we'll go through the solution
+
+79
+00:04:57,250 --> 00:05:02,200
+together. Good luck. All right.
+
+80
+00:05:02,200 --> 00:05:07,200
+So I'm gonna fork a copy of the starting file and tackle to-do number one,
+
+81
+00:05:07,930 --> 00:05:12,930
+which is to create a function which is done using Def and it's called encrypt.
+
+82
+00:05:14,020 --> 00:05:18,250
+And this function is going to take two inputs. So inside the parentheses,
+
+83
+00:05:18,580 --> 00:05:22,300
+I'm going to put two parameters. Now you can,
+
+84
+00:05:22,300 --> 00:05:26,110
+of course use the same word as the inputs that you're going to put into it.
+
+85
+00:05:26,380 --> 00:05:28,000
+But in an ideal world,
+
+86
+00:05:28,000 --> 00:05:31,600
+you try to not confuse yourself between the arguments and the parameters.
+
+87
+00:05:31,900 --> 00:05:34,690
+So I'm going to call this plain_text,
+
+88
+00:05:34,840 --> 00:05:37,570
+this first parameter and the second parameter
+
+89
+00:05:37,600 --> 00:05:41,230
+I'm going to call it shift_amount. Now, of course, at a later date,
+
+90
+00:05:41,230 --> 00:05:43,330
+when we're sending the input to this function,
+
+91
+00:05:43,570 --> 00:05:47,860
+we're going to be sending the text to plain_text and shift to shift_amount.
+
+92
+00:05:48,460 --> 00:05:53,460
+Keeping the names of the argument and the parameter different will help us
+
+93
+00:05:54,430 --> 00:05:59,430
+later on to see which one is which. The next step is to go inside the encrypt
+
+94
+00:06:00,200 --> 00:06:03,410
+function, which of course means indenting by one,
+
+95
+00:06:03,710 --> 00:06:08,710
+we're going to shift each letter of the text forwards in the alphabet by the
+
+96
+00:06:08,930 --> 00:06:11,450
+shift amount, and then print the encrypted text.
+
+97
+00:06:12,020 --> 00:06:15,230
+This is going to be the challenging part of this whole exercise.
+
+98
+00:06:15,740 --> 00:06:18,020
+But essentially if we think about the problem,
+
+99
+00:06:18,050 --> 00:06:22,940
+what we want to do is we want to take each letter in the plain text.
+
+100
+00:06:23,000 --> 00:06:26,060
+So let's say all plain text is equal to hello.
+
+101
+00:06:26,540 --> 00:06:31,540
+Then we're going to take each of these letters in turn and then shift it up in
+
+102
+00:06:31,790 --> 00:06:36,290
+the alphabet by the shift amount. So let's say for example,
+
+103
+00:06:36,290 --> 00:06:39,800
+our shift amount was five and our plain text was hello,
+
+104
+00:06:40,340 --> 00:06:43,670
+the first thing we're going to do is we're going to take the H which is over
+
+105
+00:06:43,670 --> 00:06:48,440
+here, and then we're going to shift it up by five. So one, two, three, four,
+
+106
+00:06:48,680 --> 00:06:49,220
+five,
+
+107
+00:06:49,220 --> 00:06:54,220
+and we're going to turn it into an M. We can start off by writing a for loop that
+
+108
+00:06:54,380 --> 00:06:58,520
+loops through each of the letters in the plain text input.
+
+109
+00:06:59,270 --> 00:07:04,270
+And then we can take each of these letters and work out its position in the
+
+110
+00:07:05,390 --> 00:07:06,620
+alphabet list here.
+
+111
+00:07:07,340 --> 00:07:10,820
+And we can do that by using the index method.
+
+112
+00:07:11,030 --> 00:07:15,140
+So we can tap into a list, write .index,
+
+113
+00:07:15,470 --> 00:07:18,470
+and then put in the value that we want to get the index for
+
+114
+00:07:18,800 --> 00:07:23,720
+and we should be able to get that as the result. So back over here,
+
+115
+00:07:23,750 --> 00:07:24,890
+we're going to say,
+
+116
+00:07:25,010 --> 00:07:29,030
+alphabet, is the list, .index
+
+117
+00:07:29,360 --> 00:07:33,560
+and then inside the parentheses, we can put in our letter.
+
+118
+00:07:34,070 --> 00:07:39,070
+So we want to find out the index of the letter that we're looping through in
+
+119
+00:07:39,410 --> 00:07:43,430
+this alphabet up here. And once we've gotten a hold of that,
+
+120
+00:07:43,460 --> 00:07:47,180
+we're gonna save it into a variable called position.
+
+121
+00:07:48,410 --> 00:07:52,790
+Now, once we've got that, then we're going to calculate the new position.
+
+122
+00:07:54,050 --> 00:07:57,320
+Now the new position is just going to be the previous position,
+
+123
+00:07:57,350 --> 00:08:02,270
+which is going to be a number, and then plus the shift amount.
+
+124
+00:08:03,230 --> 00:08:06,170
+So while we're going through this code, let's look at this word
+
+125
+00:08:06,260 --> 00:08:11,260
+H. So the first time the loop runs letter's going to be equal to H, position is
+
+126
+00:08:11,330 --> 00:08:15,920
+going to be equal to zero one, two, three, four, five, six, seven.
+
+127
+00:08:16,610 --> 00:08:18,620
+And then the shift amount is five,
+
+128
+00:08:18,650 --> 00:08:21,620
+so seven plus five is going to be 12.
+
+129
+00:08:21,950 --> 00:08:24,680
+So now the new position is going to be 12,
+
+130
+00:08:25,070 --> 00:08:29,150
+and we can tap into the alphabet list at position 12,
+
+131
+00:08:30,410 --> 00:08:33,320
+so seven, eight, nine, ten, eleven, twelve,
+
+132
+00:08:33,409 --> 00:08:36,289
+and get hold of the value at that position.
+
+133
+00:08:37,520 --> 00:08:42,520
+So we can say that new_letter is equal to the alphabet at the new_position.
+
+134
+00:08:47,240 --> 00:08:50,120
+And now once we've got this new_letter,
+
+135
+00:08:50,210 --> 00:08:55,040
+we can create a empty string here which we'll call the ciphertext
+
+136
+00:08:56,160 --> 00:09:00,330
+which is going to be the encoded text. And it starts out being an empty string
+
+137
+00:09:00,810 --> 00:09:03,600
+and then once we've gotten each of the new letters,
+
+138
+00:09:03,870 --> 00:09:08,160
+we're going to add it to the cipher text. Now,
+
+139
+00:09:08,160 --> 00:09:12,750
+the final thing we have to do inside this encrypt function is once the
+
+140
+00:09:12,750 --> 00:09:14,340
+for loop has run its course,
+
+141
+00:09:14,730 --> 00:09:19,260
+and we've added all of the new letters into the cipher text,
+
+142
+00:09:19,530 --> 00:09:24,180
+then at this point, it's a good idea to print out the output.
+
+143
+00:09:24,600 --> 00:09:27,570
+And it tells us that we should say something like this,
+
+144
+00:09:27,870 --> 00:09:32,340
+where we replace this final thing with the actual encoded text,
+
+145
+00:09:32,400 --> 00:09:35,250
+which has of course, called a cipher text in our case.
+
+146
+00:09:35,910 --> 00:09:38,250
+Now let's just make that into an fstring
+
+147
+00:09:38,250 --> 00:09:43,080
+so that it'll insert it when it runs and we're ready to tackle the last to-do. So
+
+148
+00:09:43,080 --> 00:09:43,620
+here,
+
+149
+00:09:43,620 --> 00:09:47,850
+we're going to call the encrypt function and we're going to pass in all of the
+
+150
+00:09:47,850 --> 00:09:48,750
+user inputs.
+
+151
+00:09:49,140 --> 00:09:53,850
+So it remember that our parameter names are plain text and shift amount.
+
+152
+00:09:54,270 --> 00:09:57,840
+So I'm actually going to use the keyword arguments, so I'm going to say
+
+153
+00:09:57,870 --> 00:10:02,870
+plain text is equal to the text that the user has typed in.
+
+154
+00:10:04,650 --> 00:10:07,380
+And then on the next argument,
+
+155
+00:10:07,530 --> 00:10:12,530
+I'm going to say the shift amount is equal to the shift that the user has typed
+
+156
+00:10:13,440 --> 00:10:14,273
+in.
+
+157
+00:10:17,100 --> 00:10:21,870
+So now we're ready to test our code and let's take a look at what happens.
+
+158
+00:10:22,290 --> 00:10:27,290
+So I'm going to use this example that we've done here by trying to encode hello
+
+159
+00:10:27,870 --> 00:10:31,980
+with the shift of five. Now the first thing that we type, the direction,
+
+160
+00:10:32,010 --> 00:10:35,820
+doesn't actually matter because it's not being used anywhere in our code,
+
+161
+00:10:36,000 --> 00:10:39,060
+at least not yet. So you can type anything you want,
+
+162
+00:10:39,060 --> 00:10:43,380
+I'm just going to type encode. And then the message is going to be hello.
+
+163
+00:10:44,310 --> 00:10:47,790
+And the shift number is going to be five.
+
+164
+00:10:48,390 --> 00:10:52,500
+And now it tells us that the encoded text is mjqqt,
+
+165
+00:10:52,830 --> 00:10:55,410
+which matches with the expected output.
+
+166
+00:10:55,990 --> 00:11:00,430
+You might think that we're done, right? This is perfect. This is great
+
+167
+00:11:00,430 --> 00:11:03,850
+and we've completed this entire exercise.
+
+168
+00:11:04,390 --> 00:11:07,600
+But lets consider a different scenario.
+
+169
+00:11:08,200 --> 00:11:13,200
+What happens if we tried to encode a word that had letters that were really
+
+170
+00:11:15,190 --> 00:11:17,200
+close to the end of the alphabet?
+
+171
+00:11:17,770 --> 00:11:22,360
+Let's say that we wanted to encode the message zulu.
+
+172
+00:11:23,320 --> 00:11:26,590
+Now I'm only doing that because if there's a z in that word, of course.
+
+173
+00:11:27,100 --> 00:11:29,380
+And we wanted to shift it by five.
+
+174
+00:11:29,560 --> 00:11:32,620
+Now let's think of what's going to happen right? In our code,
+
+175
+00:11:32,620 --> 00:11:36,130
+we're going to take each of the letters, we're going to take z first
+
+176
+00:11:36,490 --> 00:11:41,490
+and then we're going to get its position in the alphabet and add the shift
+
+177
+00:11:41,530 --> 00:11:45,430
+amount to the position to get the new position.
+
+178
+00:11:45,910 --> 00:11:50,620
+Now, this is already at the end of the alphabet. So if this number
+
+179
+00:11:50,620 --> 00:11:52,150
+which is going to be 25,
+
+180
+00:11:52,180 --> 00:11:57,180
+because there's 26 letters in the alphabet and we start the position at zero.
+
+181
+00:11:57,820 --> 00:12:01,210
+So this plus five is going to be 30.
+
+182
+00:12:01,750 --> 00:12:06,580
+And what happens when we try to get the 30th item from the alphabet? Well,
+
+183
+00:12:06,610 --> 00:12:07,900
+you'll find out when I hit enter.
+
+184
+00:12:08,350 --> 00:12:13,350
+We get an index error and it tells us that list index out of range, and it
+
+185
+00:12:13,690 --> 00:12:16,240
+occurred on line 15.
+
+186
+00:12:16,660 --> 00:12:20,710
+So just as we predicted, this does not exist.
+
+187
+00:12:21,100 --> 00:12:25,510
+We have to try and tackle this right? So if you haven't thought about this,
+
+188
+00:12:25,630 --> 00:12:29,440
+this is the time to think about how can you solve this problem.
+
+189
+00:12:30,160 --> 00:12:35,160
+I want you to pause for a moment and try to see if you can fix it.
+
+190
+00:12:39,480 --> 00:12:39,870
+All right.
+
+191
+00:12:39,870 --> 00:12:44,870
+So we know that this has a fixed length and what we want to happen when we have
+
+192
+00:12:46,470 --> 00:12:51,470
+a letter towards the end that we need to encode is to loop back to the beginning
+
+193
+00:12:51,720 --> 00:12:54,360
+of the alphabet. So to solve this,
+
+194
+00:12:54,600 --> 00:12:59,600
+all we have to do is just to copy the existing letters in the alphabet and then
+
+195
+00:13:00,450 --> 00:13:02,610
+just duplicate it once more.
+
+196
+00:13:03,120 --> 00:13:08,120
+So this means that if we find a letter that's z and it needs to be shifted up
+
+197
+00:13:08,190 --> 00:13:13,020
+by five letters, it's going to continue until it gets to e.
+
+198
+00:13:13,650 --> 00:13:14,010
+Now,
+
+199
+00:13:14,010 --> 00:13:19,010
+the really wonderful thing about this index function is it's going to give you the
+
+200
+00:13:19,080 --> 00:13:21,510
+first index that it finds.
+
+201
+00:13:21,960 --> 00:13:26,370
+So if we're looking for the letter a, it's going to give you the index zero
+
+202
+00:13:26,670 --> 00:13:28,080
+and then it's going to stop.
+
+203
+00:13:28,170 --> 00:13:33,170
+It's not going to look for all the indices and find this one at position 26.
+
+204
+00:13:33,690 --> 00:13:36,690
+So it means the our code will now work
+
+205
+00:13:37,020 --> 00:13:41,670
+even if we have a word that have a lot of letters towards the end of the
+
+206
+00:13:41,670 --> 00:13:44,970
+alphabet. Let's go ahead and give it a spin,
+
+207
+00:13:46,100 --> 00:13:46,890
+Right?
+
+208
+00:13:46,890 --> 00:13:51,240
+Let's type encode. And our message is again,
+
+209
+00:13:51,510 --> 00:13:55,140
+zulu. And we hit enter.
+
+210
+00:13:55,800 --> 00:14:00,300
+And then we have a shift number of five and we get our encoded text.
+
+211
+00:14:00,540 --> 00:14:03,810
+z becomes one, two, three, four,
+
+212
+00:14:03,810 --> 00:14:08,250
+five, it becomes e, and u, one, two, three, four,
+
+213
+00:14:08,250 --> 00:14:12,870
+five, becomes z. So now we've solved that small bug.
+
+214
+00:14:14,520 --> 00:14:17,280
+Now there's a lot of other ways that you could have solved this bug,
+
+215
+00:14:17,310 --> 00:14:21,960
+but I think this is the easiest way without disturbing our logic here and not
+
+216
+00:14:21,960 --> 00:14:24,330
+making our function even longer.
+
+217
+00:14:25,110 --> 00:14:29,310
+If you had any problems with your code, then this is the time to go back and fix
+
+218
+00:14:29,310 --> 00:14:33,630
+it and make sure that you really understand everything that's going on here
+
+219
+00:14:33,930 --> 00:14:37,530
+before you move on to the next lesson. But once you're ready,
+
+220
+00:14:37,770 --> 00:14:41,160
+I'll see you on the next lesson where we're going to decrypt our code.
+
+1
+00:00:00,780 --> 00:00:05,110
+All right. So now that we've managed to get our program to encode some text,
+
+2
+00:00:05,470 --> 00:00:07,960
+it's time to do the opposite direction,
+
+3
+00:00:07,990 --> 00:00:12,990
+which is how do we get our program to be able to decode a piece of text based on
+
+4
+00:00:13,210 --> 00:00:14,043
+a shift number.
+
+5
+00:00:14,470 --> 00:00:19,470
+So let's say that we try to decode the letter G and we had a shift number of
+
+6
+00:00:19,690 --> 00:00:21,760
+three. Well, in this case,
+
+7
+00:00:21,790 --> 00:00:26,790
+we actually have to work backward and shift backward in the alphabet in order
+
+8
+00:00:27,700 --> 00:00:31,960
+to get the letter that's three spaces previously.
+
+9
+00:00:32,320 --> 00:00:33,070
+So in this case,
+
+10
+00:00:33,070 --> 00:00:37,510
+that would be D. Go ahead and head over to caesar-
+
+11
+00:00:37,510 --> 00:00:41,860
+cipher-2-start and fork your own copy of it.
+
+12
+00:00:43,000 --> 00:00:46,720
+Alright, so we've got all the code that we had at the end of part one,
+
+13
+00:00:47,170 --> 00:00:50,170
+but now we have to create the decrypt function.
+
+14
+00:00:50,890 --> 00:00:52,960
+And the decrypt function is again
+
+15
+00:00:52,960 --> 00:00:57,960
+going to take the text that the user inputted and the shift number,
+
+16
+00:00:58,810 --> 00:01:02,050
+and both of these are going to go into the function as inputs.
+
+17
+00:01:02,710 --> 00:01:04,599
+And then inside the function,
+
+18
+00:01:04,660 --> 00:01:09,660
+we're going to shift each letter of the text backward in the alphabet
+
+19
+00:01:10,000 --> 00:01:12,100
+by the shift amount. For example,
+
+20
+00:01:12,220 --> 00:01:17,220
+if we started out with this code and we needed to shift each letter by five,
+
+21
+00:01:17,980 --> 00:01:22,450
+then we end up with the plain text, hello. And finally,
+
+22
+00:01:22,510 --> 00:01:24,430
+our function needs to print
+
+23
+00:01:24,700 --> 00:01:29,700
+the decoded text is, depending on what it is that we actually got. Finally,
+
+24
+00:01:30,760 --> 00:01:32,440
+in to-do part three,
+
+25
+00:01:32,770 --> 00:01:35,830
+we're going to use that direction
+
+26
+00:01:35,830 --> 00:01:40,660
+variable that we ignored previously, where we ask the user to type encode
+
+27
+00:01:40,720 --> 00:01:44,050
+if they want to encrypt and decode if they want to decrypt.
+
+28
+00:01:44,650 --> 00:01:49,450
+And then we're going to use an if statement here to check which one they chose,
+
+29
+00:01:49,930 --> 00:01:54,280
+and then we're going to call the corresponding function based on that direction.
+
+30
+00:01:54,760 --> 00:01:57,580
+And once you've completed all three to-dos,
+
+31
+00:01:57,670 --> 00:02:02,050
+you should be able to run your program and encode a message
+
+32
+00:02:03,340 --> 00:02:06,970
+as well as decode a message when you hit run again,
+
+33
+00:02:09,460 --> 00:02:10,293
+like that.
+
+34
+00:02:10,990 --> 00:02:15,340
+Have a think about how you might tackle each of the three to-dos and then pause
+
+35
+00:02:15,340 --> 00:02:16,630
+the video and give it a go.
+
+36
+00:02:21,380 --> 00:02:25,850
+All right. So how did that go? The first part should be quite easy.
+
+37
+00:02:26,150 --> 00:02:29,870
+All we have to do is define a new function called decrypt
+
+38
+00:02:30,410 --> 00:02:35,270
+and this decrypt is going to take the same inputs as our encrypt,
+
+39
+00:02:35,450 --> 00:02:39,710
+which is the text and the shift that the user entered.
+
+40
+00:02:40,220 --> 00:02:41,030
+But again,
+
+41
+00:02:41,030 --> 00:02:45,020
+I'm going to use some different parameter names to be able to differentiate the
+
+42
+00:02:45,020 --> 00:02:47,540
+arguments and the parameter. So in this case,
+
+43
+00:02:47,540 --> 00:02:51,080
+because the text that I'm getting is going to be scrambled,
+
+44
+00:02:51,380 --> 00:02:53,990
+I'm going to call the first parameter cipher_text,
+
+45
+00:02:54,620 --> 00:02:58,520
+and the second parameter I'll call it again, the shift amount.
+
+46
+00:02:59,170 --> 00:03:03,640
+Now, after a colon, I'm done with to-do 1. Now let's move on to
+
+47
+00:03:03,640 --> 00:03:04,630
+to-do 2.
+
+48
+00:03:05,950 --> 00:03:09,520
+So here I have to be inside the decrypt function,
+
+49
+00:03:09,580 --> 00:03:11,950
+so indented inside of the function,
+
+50
+00:03:12,550 --> 00:03:17,230
+and then I'm going to shift each letter of the ciphertext backward in the
+
+51
+00:03:17,230 --> 00:03:19,390
+alphabet by the shift amount
+
+52
+00:03:19,630 --> 00:03:23,110
+and then print out the decrypted text. To  do that I'm again
+
+53
+00:03:23,110 --> 00:03:24,310
+going to need a for loop,
+
+54
+00:03:24,880 --> 00:03:28,990
+and I'm going to loop through each letter in the cipher text.
+
+55
+00:03:29,710 --> 00:03:31,810
+And for each of those letters,
+
+56
+00:03:31,870 --> 00:03:36,870
+what I want to do is I want to get hold of the position that they are in the
+
+57
+00:03:37,390 --> 00:03:41,530
+alphabet. So I'm gonna check the alphabet and then use again,
+
+58
+00:03:41,530 --> 00:03:43,210
+that index function
+
+59
+00:03:43,630 --> 00:03:46,570
+and then tap into the position of the letter.
+
+60
+00:03:47,950 --> 00:03:51,940
+Once I've got the position, I'm going to define the new position
+
+61
+00:03:52,360 --> 00:03:55,570
+which is going to be the current position. Now,
+
+62
+00:03:55,600 --> 00:03:58,420
+remember, we're moving backwards in the alphabet now.
+
+63
+00:03:58,450 --> 00:04:02,680
+So I'm going to subtract the shift amount from the position.
+
+64
+00:04:03,520 --> 00:04:04,720
+Once that's done,
+
+65
+00:04:04,780 --> 00:04:09,220
+I can define a blank variable called plain text,
+
+66
+00:04:09,640 --> 00:04:11,770
+which is just going to be an empty string.
+
+67
+00:04:12,400 --> 00:04:15,790
+And once I've gotten hold of each of the new positions,
+
+68
+00:04:16,149 --> 00:04:21,149
+I can add to that plain text by tapping into the alphabet and then getting hold
+
+69
+00:04:22,780 --> 00:04:27,400
+of the letter at the new position. So now finally,
+
+70
+00:04:27,400 --> 00:04:29,230
+once that for loop's completed,
+
+71
+00:04:29,470 --> 00:04:34,470
+then I can print out the results and I'm going to use the same sort of output
+
+72
+00:04:34,660 --> 00:04:37,150
+structure as I've got in the example.
+
+73
+00:04:37,780 --> 00:04:42,780
+And we're going to replace that hardcoded text with the plain text that we've
+
+74
+00:04:43,420 --> 00:04:45,280
+decrypted. And finally,
+
+75
+00:04:45,280 --> 00:04:49,420
+I just have to turn this into an fstring so that it actually gets inserted.
+
+76
+00:04:49,990 --> 00:04:54,130
+Now, the last thing I have to do is the to-do number three.
+
+77
+00:04:54,640 --> 00:04:58,300
+So here we're actually gonna check the direction variable.
+
+78
+00:04:58,930 --> 00:05:02,890
+And we're going to see that if it's equal to encode, well
+
+79
+00:05:02,890 --> 00:05:07,180
+then we're going to call that encrypt method that we had previously,
+
+80
+00:05:07,570 --> 00:05:11,410
+so indented inside the if statement. But else
+
+81
+00:05:11,440 --> 00:05:16,180
+if the direction was actually equal to decode, well
+
+82
+00:05:16,180 --> 00:05:20,740
+in this case, we're going to call our newly created decrypt function.
+
+83
+00:05:21,280 --> 00:05:26,280
+And we're going to pass in the cipher text as the text and the shift amount is
+
+84
+00:05:27,970 --> 00:05:31,360
+going to be equal to the shift. So once again,
+
+85
+00:05:31,480 --> 00:05:34,390
+these arguments come from up here
+
+86
+00:05:34,450 --> 00:05:37,180
+when we ask the user to input those values.
+
+87
+00:05:37,780 --> 00:05:41,890
+And now it should go over to the decrypt function and do everything that's
+
+88
+00:05:41,890 --> 00:05:43,630
+inside to decrypt the text.
+
+89
+00:05:44,110 --> 00:05:47,980
+So now let's give our program a run and just make sure that it works as
+
+90
+00:05:47,980 --> 00:05:52,240
+expected. So I'm going to encode our message hello,
+
+91
+00:05:53,020 --> 00:05:56,530
+shift it by five, and then I'm going to run it again.
+
+92
+00:05:56,930 --> 00:05:59,540
+And I'm going to try and decode this message now.
+
+93
+00:06:00,950 --> 00:06:05,450
+So I'm going to type decode and I'm going to paste in that message we had before
+
+94
+00:06:06,140 --> 00:06:08,600
+and type the same shift number
+
+95
+00:06:09,020 --> 00:06:11,810
+and now we've got our text decoded.
+
+96
+00:06:12,590 --> 00:06:16,310
+So that's how you solve step 2 of our project.
+
+97
+00:06:16,970 --> 00:06:20,690
+Have a review of the code here and once you're ready,
+
+98
+00:06:20,810 --> 00:06:25,040
+head over to the next lesson and we're going to cover part 3 of the Caeser
+
+99
+00:06:25,040 --> 00:06:29,060
+cipher. So for all of that, and more, I'll see you on the next lesson.
+
+1
+00:00:00,360 --> 00:00:04,440
+All right. So now that we can encrypt and decrypt our messages, well,
+
+2
+00:00:04,440 --> 00:00:08,010
+you might be asking, well, what else is there? We've completed the project,
+
+3
+00:00:08,010 --> 00:00:11,670
+right? Well, let's think about how we can improve our code.
+
+4
+00:00:12,300 --> 00:00:17,070
+Because if you take a look at the encrypt and decrypt functions,
+
+5
+00:00:17,460 --> 00:00:21,510
+you'll notice that a lot of the things that they're doing in it are very
+
+6
+00:00:21,510 --> 00:00:25,620
+similar, right? We've got some piece of empty string to begin with,
+
+7
+00:00:25,890 --> 00:00:30,890
+we loop through each of the letters in the text that we get passed over and we
+
+8
+00:00:31,470 --> 00:00:35,040
+get the position from the alphabet, get a new position,
+
+9
+00:00:35,280 --> 00:00:38,550
+and then add the new letter to that empty string.
+
+10
+00:00:39,390 --> 00:00:44,390
+Your challenge in this part of the Caesar cipher project is to combine the
+
+11
+00:00:45,720 --> 00:00:50,720
+encrypt and decrypt functions into a single function called Cesar.
+
+12
+00:00:52,140 --> 00:00:56,310
+And we're going to get rid of these if and elif statements,
+
+13
+00:00:56,700 --> 00:01:01,170
+and we're going to get rid of two functions that are overlapping.
+
+14
+00:01:01,230 --> 00:01:05,790
+And instead, we're just going to have a single function and we're going to call
+
+15
+00:01:05,790 --> 00:01:10,350
+it just once passing over text, shift, and direction.
+
+16
+00:01:10,800 --> 00:01:15,690
+So it's going to have three inputs and it's going to save us a lot of repetition
+
+17
+00:01:15,720 --> 00:01:16,553
+in our code.
+
+18
+00:01:17,130 --> 00:01:22,130
+Have a think about what you learned about functions with inputs and see if you
+
+19
+00:01:22,170 --> 00:01:26,040
+can complete this challenge. So pause the video now and give it a go.
+
+20
+00:01:29,720 --> 00:01:30,553
+Okay.
+
+21
+00:01:31,130 --> 00:01:31,430
+All right.
+
+22
+00:01:31,430 --> 00:01:36,350
+So, let's first create a new function and we're going to call it caesar.
+
+23
+00:01:37,520 --> 00:01:40,970
+This function is going to take three inputs this time.
+
+24
+00:01:41,300 --> 00:01:45,080
+Not only is it going to get the text, the shift,
+
+25
+00:01:45,290 --> 00:01:47,180
+but it's also going to get the direction.
+
+26
+00:01:47,930 --> 00:01:52,930
+So I'm going to call the first parameter start_text because we could be passed
+
+27
+00:01:53,240 --> 00:01:58,070
+the plain text or the cipher text. So let's just set it as the start text.
+
+28
+00:01:58,610 --> 00:02:00,260
+The next one I'm going to call the same
+
+29
+00:02:00,260 --> 00:02:03,620
+so I'm going to call it shift_amount. And then the last one
+
+30
+00:02:03,620 --> 00:02:08,389
+which is the direction, in order to differentiate it from this direction,
+
+31
+00:02:08,720 --> 00:02:10,280
+I'm going to make it a little bit longer.
+
+32
+00:02:10,430 --> 00:02:12,950
+So I'm going to call it the cipher_direction.
+
+33
+00:02:14,360 --> 00:02:16,640
+And now after a colon,
+
+34
+00:02:16,700 --> 00:02:21,700
+we're done with defining our function and we can start figuring out how we can
+
+35
+00:02:21,800 --> 00:02:25,580
+combine these two functions together. We know in both of them,
+
+36
+00:02:25,580 --> 00:02:29,270
+we need some sort of way of storing a piece of text
+
+37
+00:02:29,570 --> 00:02:31,070
+which starts out as empty
+
+38
+00:02:31,340 --> 00:02:35,720
+and then it ends up being the entire encrypted or decrypted text.
+
+39
+00:02:36,260 --> 00:02:41,260
+Let's create a new variable called end_text to contrast with a start_text.
+
+40
+00:02:42,680 --> 00:02:45,110
+And we started out as a empty string.
+
+41
+00:02:45,890 --> 00:02:48,500
+Now, the next thing we have to do is identical.
+
+42
+00:02:48,500 --> 00:02:51,950
+We have to loop through this text that we get passed over.
+
+43
+00:02:52,310 --> 00:02:57,310
+So let's create a for loop; for each letter in the start_text,
+
+44
+00:02:57,530 --> 00:03:00,640
+we're going to do something with each those letters. Namely,
+
+45
+00:03:00,640 --> 00:03:04,090
+we're going to get hold of the position of the letter in the alphabet.
+
+46
+00:03:05,230 --> 00:03:09,820
+So this line of code is actually identical across the two functions; position
+
+47
+00:03:09,820 --> 00:03:14,820
+equals alphabet using the index function to get hold of the index of the letter
+
+48
+00:03:16,870 --> 00:03:18,430
+that we're currently looping through.
+
+49
+00:03:19,330 --> 00:03:23,920
+The next part is a little bit tricky because on one hand when we're encrypting text,
+
+50
+00:03:24,250 --> 00:03:28,480
+we're shifting that position upwards by adding the shift amount.
+
+51
+00:03:29,020 --> 00:03:31,420
+But on the other hand, when we're decrypting,
+
+52
+00:03:31,690 --> 00:03:34,510
+we're subtracting the shift amount from the position.
+
+53
+00:03:35,440 --> 00:03:39,700
+So one way of doing this is, of course, by using an if statement. So you could
+
+54
+00:03:39,700 --> 00:03:44,700
+check if the cipher_direction was equal to encode. Well then in this case,
+
+55
+00:03:47,440 --> 00:03:52,440
+the new position is going to be equal to position plus the shift_amount.
+
+56
+00:03:54,220 --> 00:03:56,170
+And then you could do the else statement.
+
+57
+00:03:56,710 --> 00:04:00,250
+But there's actually an even easier way of doing this.
+
+58
+00:04:00,670 --> 00:04:05,620
+We can just check for if the cipher direction was decode.
+
+59
+00:04:06,370 --> 00:04:11,370
+And in this case, we take the shift amount and we multiply it by minus one.
+
+60
+00:04:14,530 --> 00:04:17,800
+So remember this line of code is exactly the same as
+
+61
+00:04:18,089 --> 00:04:21,870
+this, but it's just way more succinct.
+
+62
+00:04:22,560 --> 00:04:24,690
+And now outside the if statement,
+
+63
+00:04:24,840 --> 00:04:29,840
+we can define our new position and set it to equal the previous position plus
+
+64
+00:04:32,280 --> 00:04:33,810
+the shift amount.
+
+65
+00:04:34,710 --> 00:04:39,710
+And the reason why this works is because let's say that we had a shift amount of
+
+66
+00:04:40,530 --> 00:04:45,530
+five and we wanted to encode our text, well the new position is obviously going
+
+67
+00:04:46,920 --> 00:04:50,460
+to be previous position plus five. Now on the other hand,
+
+68
+00:04:50,460 --> 00:04:52,710
+if we were decoding, well this
+
+69
+00:04:52,710 --> 00:04:57,710
+if statement is going to trip and our five multiplied by minus one becomes minus
+
+70
+00:05:00,720 --> 00:05:05,370
+five. So now when we add -5 to
+
+71
+00:05:05,370 --> 00:05:06,510
+the previous position,
+
+72
+00:05:06,630 --> 00:05:10,920
+so let's say the previous position was 12 plus -5,
+
+73
+00:05:11,250 --> 00:05:16,170
+then a quick check with a calculator should get you a 7.
+
+74
+00:05:16,830 --> 00:05:19,860
+It's exactly the same as subtraction.
+
+75
+00:05:20,850 --> 00:05:22,920
+So now that we've gotten over that hurdle,
+
+76
+00:05:23,640 --> 00:05:28,640
+all we have to do is to tap into our end_text and to add to it by getting hold
+
+77
+00:05:30,210 --> 00:05:33,300
+of the letter at the new position
+
+78
+00:05:34,800 --> 00:05:38,940
+in the alphabet. And finally, once all of that's done,
+
+79
+00:05:38,970 --> 00:05:41,700
+we of course need to print the results.
+
+80
+00:05:42,480 --> 00:05:47,480
+Notice how previously we said the encoded text is and the decoded text is,
+
+81
+00:05:48,780 --> 00:05:52,740
+well, let's copy this string and paste it in here.
+
+82
+00:05:53,190 --> 00:05:57,800
+How can we change this part to be dynamic,
+
+83
+00:05:57,950 --> 00:05:59,960
+so depending on the cipher direction,
+
+84
+00:06:00,530 --> 00:06:04,790
+and then this part is easy because we can just replace it with the end_
+
+85
+00:06:04,790 --> 00:06:05,623
+text.
+
+86
+00:06:06,110 --> 00:06:10,370
+So one way is, remember that when the user is typing in the direction,
+
+87
+00:06:10,670 --> 00:06:15,670
+they're typing in either encode or decode. So we can delete everything other than
+
+88
+00:06:15,770 --> 00:06:20,770
+that 'd' and then dynamically insert the cipher direction that we get passed.
+
+89
+00:06:25,130 --> 00:06:27,620
+And now if we make that an fstring,
+
+90
+00:06:27,920 --> 00:06:32,920
+it should be able to insert encoded text is whatever the end text is, or 
+
+91
+00:06:35,870 --> 00:06:36,590
+decoded
+
+92
+00:06:36,590 --> 00:06:41,590
+text is whatever it may be. Now we can go ahead and delete both of these
+
+93
+00:06:42,320 --> 00:06:43,153
+functions
+
+94
+00:06:43,640 --> 00:06:48,640
+and also this if statement and we can tackle to-do number two
+
+95
+00:06:50,570 --> 00:06:53,930
+and we can simply just call the Caesar function
+
+96
+00:06:54,410 --> 00:06:59,180
+passing over the start_text as the text the user inputted,
+
+97
+00:06:59,510 --> 00:07:03,440
+the shift_amount as the shift that they inputted,
+
+98
+00:07:03,770 --> 00:07:08,770
+and finally, the cypher direction as the direction that they inputted.
+
+99
+00:07:09,740 --> 00:07:12,350
+Now, we've cut down our code by a lot
+
+100
+00:07:12,530 --> 00:07:17,180
+and we've gotten rid of all the repeated bits of code and we've used what we've
+
+101
+00:07:17,180 --> 00:07:22,180
+learned about functions with inputs to vastly simplify our code.
+
+102
+00:07:23,360 --> 00:07:26,780
+We're getting the same function to do repeated actions,
+
+103
+00:07:27,080 --> 00:07:30,110
+but depending on the different inputs,
+
+104
+00:07:30,650 --> 00:07:33,230
+it does something completely different.
+
+105
+00:07:34,040 --> 00:07:38,390
+So now let's give our code a run and let's just make sure that everything works.
+
+106
+00:07:38,930 --> 00:07:39,800
+Encoding.
+
+107
+00:07:43,420 --> 00:07:44,253
+Okay.
+
+108
+00:07:45,820 --> 00:07:47,110
+And decoding.
+
+109
+00:07:48,910 --> 00:07:53,910
+So there's a bit of an issue there because when we get our decoded result back,
+
+110
+00:07:54,280 --> 00:07:58,930
+it says holvo instead of hello. So what's going on here?
+
+111
+00:07:59,860 --> 00:08:04,030
+Well, in my code that I wrote for the Caesar function,
+
+112
+00:08:04,390 --> 00:08:09,130
+I've accidentally introduced a bug. And as programmers,
+
+113
+00:08:09,190 --> 00:08:13,600
+none of us are free from this fault. We create bugs, but then we fix them.
+
+114
+00:08:14,350 --> 00:08:17,110
+So why don't you use this as a good debugging opportunity?
+
+115
+00:08:17,680 --> 00:08:19,210
+If you've been typing along with me,
+
+116
+00:08:19,510 --> 00:08:24,340
+I want you to take a look at the code or take a look at the screen and see if
+
+117
+00:08:24,340 --> 00:08:29,080
+you can figure out what is causing this aberrant decoded result.
+
+118
+00:08:29,560 --> 00:08:32,409
+Why are we getting holvo back instead of hello?
+
+119
+00:08:33,250 --> 00:08:37,900
+Where is the problem in our logic in our code?
+
+120
+00:08:38,409 --> 00:08:43,090
+See if you can solve this and fix the code so that we get back the decoded
+
+121
+00:08:43,090 --> 00:08:46,960
+results of hello. Pause the video and give that a go.
+
+122
+00:08:50,560 --> 00:08:51,310
+All right.
+
+123
+00:08:51,310 --> 00:08:52,570
+So this bug,
+
+124
+00:08:52,900 --> 00:08:57,120
+if we think about the logic, is caused because our
+
+125
+00:08:57,180 --> 00:09:02,180
+if statement where we check the cipher_direction and change the shift_amount
+
+126
+00:09:02,430 --> 00:09:04,320
+by multiplying it by minus one,
+
+127
+00:09:04,920 --> 00:09:08,130
+this line of code lives inside the for loop.
+
+128
+00:09:08,790 --> 00:09:13,470
+And we know about for loops that it's going to keep going again and again.
+
+129
+00:09:14,070 --> 00:09:18,420
+So for every letter in the start_text of which there are five,
+
+130
+00:09:19,080 --> 00:09:23,940
+every single time, this code is going to get executed and the cipher direction
+
+131
+00:09:23,940 --> 00:09:28,620
+is always decode so we keep multiplying that shift amount by minus one.
+
+132
+00:09:29,250 --> 00:09:31,890
+So the first one becomes decode,
+
+133
+00:09:31,950 --> 00:09:36,000
+the next one becomes encode, decode, encode, decode.
+
+134
+00:09:36,270 --> 00:09:39,960
+And that's why we're getting some parts of our hello back, but the 'o'
+
+135
+00:09:39,990 --> 00:09:43,440
+and the 'v' are the parts that are not right.
+
+136
+00:09:44,190 --> 00:09:48,240
+So in order to fix this, all we have to do is take our
+
+137
+00:09:48,270 --> 00:09:53,010
+if statement out of the for loop, put it before
+
+138
+00:09:53,250 --> 00:09:54,780
+the for loop right here.
+
+139
+00:09:55,380 --> 00:10:00,120
+And now if we run this again and we try to decode the same message,
+
+140
+00:10:00,150 --> 00:10:04,230
+so that was mjqqt, and we use the same shift number,
+
+141
+00:10:04,770 --> 00:10:09,150
+but now we get back the correct decoded results. Brilliant.
+
+142
+00:10:09,300 --> 00:10:11,910
+So did you manage to get that right? Don't worry
+
+143
+00:10:11,910 --> 00:10:15,750
+if you use a slightly different way of coding this logic up.
+
+144
+00:10:16,110 --> 00:10:17,340
+It really doesn't matter
+
+145
+00:10:17,340 --> 00:10:21,990
+as long as you managed to get it to work in the end and combine the two functions
+
+146
+00:10:21,990 --> 00:10:25,890
+into one. Once you're happy with step three,
+
+147
+00:10:26,220 --> 00:10:29,400
+head over to the next lesson and we'll tackle the final part
+
+148
+00:10:29,400 --> 00:10:31,500
+part four of the Caesar cipher
+
+149
+00:10:31,690 --> 00:10:35,460
+where we complete our project. For all of that, and more,
+
+150
+00:10:35,550 --> 00:10:36,600
+I'll see you on the next lesson.
+
+1
+00:00:00,300 --> 00:00:06,689
+All right, we're about to cross the finish line. We're onto the last part of our Caesar cipher
+
+2
+00:00:06,720 --> 00:00:10,630
+and we're going to complete it in this lesson. First
+
+3
+00:00:10,950 --> 00:00:16,440
+go ahead and fork your own copy of part four of the Caesar cipher starting code.
+
+4
+00:00:16,840 --> 00:00:20,670
+And notice, firstly, we've got an extra file here called art.
+
+5
+00:00:21,090 --> 00:00:26,370
+And this, if you expand it fully, you should see an ASCII art of our logo.
+
+6
+00:00:27,880 --> 00:00:33,880
+Now, what we want to be able to do in this lesson is just to tidy up some of the loose ends, improve
+
+7
+00:00:33,880 --> 00:00:40,260
+the user experience and fix some of the bugs that you may or may not be aware of. To-do
+
+8
+00:00:40,270 --> 00:00:47,710
+#1 tells us to import and print the logo from art.py and this is going to show up when we first
+
+9
+00:00:47,710 --> 00:00:49,690
+load up our program like this.
+
+10
+00:00:51,210 --> 00:00:57,720
+Next, we're going to tackle this one. One of the things we haven't really thought about is if the
+
+11
+00:00:57,720 --> 00:01:04,830
+user enters a shift number that's actually really, really large like 100, then we're actually going
+
+12
+00:01:04,830 --> 00:01:06,750
+to run out of letters in our alphabet.
+
+13
+00:01:07,140 --> 00:01:10,320
+And so we're going to use what you've learnt before
+
+14
+00:01:10,500 --> 00:01:16,810
+and it might take a little bit of thinking around this to fix this particular bug right here.
+
+15
+00:01:17,670 --> 00:01:24,870
+And once you've done that, then we move on to over here and we think about what to do if the user wanted
+
+16
+00:01:24,870 --> 00:01:28,340
+to type a number, a symbol or a space.
+
+17
+00:01:28,680 --> 00:01:32,880
+So we want to preserve the symbols, space, or number that they typed in
+
+18
+00:01:33,240 --> 00:01:39,440
+and we're only going to use our cipher on the rest of the message,
+
+19
+00:01:39,480 --> 00:01:44,040
+so only the alphabetical letters. And everything else we're going to leave the same.
+
+20
+00:01:44,160 --> 00:01:51,450
+So, for example, if we had the text meet me at 3, then the end_text will keep the spaces where
+
+21
+00:01:51,450 --> 00:01:54,480
+they were, keep the numbers where they were.
+
+22
+00:01:54,630 --> 00:01:59,670
+And also if there were any symbols, we would also keep that in our final end_text.
+
+23
+00:02:00,030 --> 00:02:02,840
+And it's only the letters which will get scrambled.
+
+24
+00:02:03,990 --> 00:02:10,680
+And then finally, to-do #4, we're going to figure out how to ask the user if they want to
+
+25
+00:02:10,680 --> 00:02:12,360
+restart the cipher program.
+
+26
+00:02:12,900 --> 00:02:19,530
+So notice how in the final version, when we run this once, we can actually type yes
+
+27
+00:02:19,740 --> 00:02:20,550
+to go again.
+
+28
+00:02:21,030 --> 00:02:27,270
+This way we can keep encoding and decoding as much as we want until we're actually done when we can
+
+29
+00:02:27,270 --> 00:02:28,050
+type no
+
+30
+00:02:28,290 --> 00:02:29,400
+and it says goodbye
+
+31
+00:02:29,430 --> 00:02:31,320
+and that's the end of the code.
+
+32
+00:02:32,040 --> 00:02:37,740
+What we want to be able to do is instead of having to run our code again and again, we're going to
+
+33
+00:02:37,740 --> 00:02:42,690
+figure out a way of getting our code to be rerun
+
+34
+00:02:43,140 --> 00:02:51,990
+if the user typed yes to this question. And if they typed no, then and only then do we actually end
+
+35
+00:02:51,990 --> 00:02:52,740
+the program.
+
+36
+00:02:53,610 --> 00:02:58,440
+It might take a little bit of thinking to figure out how to solve all of these to-dos.
+
+37
+00:02:58,890 --> 00:03:04,380
+But once you're ready, if you're up for the challenge, then pause the video now and give it a go.
+
+38
+00:03:07,050 --> 00:03:12,390
+All right, so let's tackle them one by one. The first one you've already done before.
+
+39
+00:03:12,480 --> 00:03:15,930
+All it needs is to import the art file.
+
+40
+00:03:16,410 --> 00:03:25,380
+And if we want to be able to use the logo variable inside the art file, this one, then we can also
+
+41
+00:03:25,380 --> 00:03:30,900
+simply just write from art import logo.
+
+42
+00:03:32,310 --> 00:03:35,720
+So now we can print this logo right here.
+
+43
+00:03:37,880 --> 00:03:46,040
+So that's to-do #1 completed, now let's do the next one. This one requires us to figure out some
+
+44
+00:03:46,040 --> 00:03:53,150
+sort of clever solution so that when a user enters a shift that's greater than the number of letters
+
+45
+00:03:53,480 --> 00:03:54,530
+in the alphabet
+
+46
+00:03:55,500 --> 00:04:01,620
+over here, we have some sort of way of getting it back within the range of 0 to 25.
+
+47
+00:04:02,590 --> 00:04:09,940
+And I want you to see what happens when I type a message and I put a shift that's really large. You
+
+48
+00:04:09,940 --> 00:04:17,519
+can see we get an index out of range error because there is no letter at position 77 from the alphabet.
+
+49
+00:04:17,920 --> 00:04:23,110
+So that's why this line 14 over here actually breaks down.
+
+50
+00:04:24,730 --> 00:04:31,000
+If you have trouble with this, I gave you a hint where I wanted you to think about how you can use
+
+51
+00:04:31,000 --> 00:04:31,840
+the modulus.
+
+52
+00:04:32,410 --> 00:04:42,130
+So if we take 45 and we use the modulus operator to divide 45 by 26, which is the total number of letters
+
+53
+00:04:42,130 --> 00:04:46,000
+in the alphabet, then we should end up with the remainder.
+
+54
+00:04:46,690 --> 00:04:53,110
+Now, if you imagine we're dividing 45 by 26, then 26 goes into 45 once,
+
+55
+00:04:53,350 --> 00:04:57,910
+so we will get one, but we will have a remainder of 19.
+
+56
+00:04:58,510 --> 00:05:00,990
+So this is what we get from the modulus.
+
+57
+00:05:01,030 --> 00:05:05,080
+We would get the result to be 19, which is just the remainder.
+
+58
+00:05:05,680 --> 00:05:13,030
+And effectively, what this code does is it's going to divide a number by 26 as many times as needed
+
+59
+00:05:13,330 --> 00:05:19,690
+until we get to the final point where it can no longer be divided fully and we end up with a remainder.
+
+60
+00:05:20,020 --> 00:05:27,470
+And that remainder allows us to shift the shift number that's entered into something that fits in with
+
+61
+00:05:27,470 --> 00:05:30,850
+the number of letters of the alphabet that we have in here.
+
+62
+00:05:31,060 --> 00:05:37,630
+So then our code that we would have here is to modify the shift by taking the shift that the user entered
+
+63
+00:05:37,630 --> 00:05:45,700
+up here and then using the modulus to divide it by 26 as many times as needed until we get the remainder.
+
+64
+00:05:45,940 --> 00:05:53,050
+So now if we test this out, you can see that no matter how long my shift number is, let's try 87, we're
+
+65
+00:05:53,050 --> 00:05:59,880
+always going to get a result back because it's shifting that number down to fit within our alphabet.
+
+66
+00:06:00,280 --> 00:06:03,110
+And once you're done, let's move on to to-do #3.
+
+67
+00:06:03,820 --> 00:06:11,800
+So here we want to be able to allow any number, symbol or space, basically anything that's not within
+
+68
+00:06:11,800 --> 00:06:16,410
+the alphabet to go through and end up in the end_text.
+
+69
+00:06:16,900 --> 00:06:23,500
+But if it is one of the letters inside this list alphabet, then and only then do we actually want to
+
+70
+00:06:23,500 --> 00:06:25,750
+do the shifting and encoding.
+
+71
+00:06:26,620 --> 00:06:33,210
+In order to achieve this, we should probably use an if statement to say if the char...
+
+72
+00:06:33,970 --> 00:06:40,060
+So notice how I've changed the for loop to instead of writing for letter in start_text which kind
+
+73
+00:06:40,060 --> 00:06:46,270
+of assumes that everything in the start_text is a letter, to char which stands for character instead
+
+74
+00:06:46,600 --> 00:06:51,460
+because a character could be a number, could be a symbol, could be a letter, could be space.
+
+75
+00:06:52,060 --> 00:07:00,100
+And then once we get hold of the char or the character, we're going to check to see if the char is
+
+76
+00:07:00,100 --> 00:07:01,960
+in the alphabet.
+
+77
+00:07:03,220 --> 00:07:11,200
+So if it is indeed one of these letters and not some other random character, well then and only then
+
+78
+00:07:11,200 --> 00:07:15,430
+do we actually want this code to be executed.
+
+79
+00:07:16,860 --> 00:07:24,840
+So let me just make sure all the indentation is correct. And if it's not inside the alphabet, so else,
+
+80
+00:07:25,260 --> 00:07:33,120
+well then, in this case, we actually want to make the end_text append the actual character,
+
+81
+00:07:33,150 --> 00:07:35,370
+so without any modification.
+
+82
+00:07:36,570 --> 00:07:43,860
+Now, if we test this code by running it, so let's go ahead and encode. And I'm going to encode something
+
+83
+00:07:43,860 --> 00:07:51,120
+like Hello123%^ 321.
+
+84
+00:07:51,450 --> 00:08:01,260
+And now when I hit enter and I give it a shift, then you can see that the encoded result has all the
+
+85
+00:08:01,260 --> 00:08:07,020
+letters, all the things are in that list, the alphabet encoded.
+
+86
+00:08:07,530 --> 00:08:14,010
+But everything else, the numbers and the symbols are all left as they are, because more often than
+
+87
+00:08:14,010 --> 00:08:19,440
+not, your user might want to write a message like meet me at five or something, something exclamation
+
+88
+00:08:19,440 --> 00:08:19,850
+mark.
+
+89
+00:08:20,130 --> 00:08:23,910
+And this is just a very simple way of making it work.
+
+90
+00:08:24,600 --> 00:08:27,870
+Now, of course, there's a lot of other ways that you could have solved this.
+
+91
+00:08:28,320 --> 00:08:34,710
+So you could have, in fact, added a whole bunch of symbols and numbers and space and other characters
+
+92
+00:08:35,070 --> 00:08:36,510
+to this list
+
+93
+00:08:36,659 --> 00:08:43,440
+And instead of calling it alphabet, it could have been the characters list and then you could have
+
+94
+00:08:43,440 --> 00:08:44,910
+encoded all of that.
+
+95
+00:08:45,360 --> 00:08:51,600
+But that's actually not what the toO-do asks for. It wants us to let through the numbers, symbols, space
+
+96
+00:08:51,900 --> 00:08:54,540
+and only encode the letters.
+
+97
+00:08:56,350 --> 00:09:02,770
+So now all we have left is the last to-do, and this is probably going to be the most difficult one out
+
+98
+00:09:02,770 --> 00:09:11,800
+of the lot. What we want to do here is we want to be able to ask the user whether if they want to go
+
+99
+00:09:11,800 --> 00:09:20,320
+again, so whether if they want to encode or decode another message. And what happens in the final version,
+
+100
+00:09:20,320 --> 00:09:25,870
+the completed version of the app, is if we encode a message
+
+101
+00:09:27,000 --> 00:09:34,020
+and we get the result back, it doesn't just end, it doesn't exit because otherwise you would see that
+
+102
+00:09:34,020 --> 00:09:35,870
+message down here run again.
+
+103
+00:09:36,330 --> 00:09:41,810
+Instead it continues and it asks us, well, do you want to go again? So we could write
+
+104
+00:09:41,820 --> 00:09:42,320
+yes.
+
+105
+00:09:42,750 --> 00:09:46,050
+And it lets us again encode or decode a message.
+
+106
+00:09:47,190 --> 00:09:53,910
+We can basically go on and on and on and repeating this program until we want to exit.
+
+107
+00:09:54,570 --> 00:10:01,890
+And it's at that point when we can no longer type anything into our program and our code ends and we'd
+
+108
+00:10:01,890 --> 00:10:04,820
+have to run the whole thing again in order to use it again.
+
+109
+00:10:06,370 --> 00:10:14,350
+So at the moment, the part of our code that actually needs to be repeated if the user wanted to restart
+
+110
+00:10:14,350 --> 00:10:16,850
+it is actually just this part.
+
+111
+00:10:17,290 --> 00:10:21,070
+So the first thing I'm going to do is I'm actually going to shrink it down a bit.
+
+112
+00:10:21,370 --> 00:10:28,390
+And now all we're left with is 1, 2, 3, 4, 5 lines of code which needs repeat if
+
+113
+00:10:28,390 --> 00:10:31,670
+we're going to get the user to reuse the Caesar cipher.
+
+114
+00:10:32,350 --> 00:10:37,260
+What if we go ahead and indent this and put it inside a while loop?
+
+115
+00:10:37,780 --> 00:10:40,990
+What are we going to check to make sure that our loop continues?
+
+116
+00:10:41,500 --> 00:10:48,440
+Well, we could create a flag called should_continue and we start this out to be true.
+
+117
+00:10:49,060 --> 00:10:56,320
+And then while this is still true, we continue to keep looping through this so that the user gets to
+
+118
+00:10:56,530 --> 00:11:02,180
+input a new direction, new text, new shift and call the Caesar cipher on that again.
+
+119
+00:11:02,980 --> 00:11:04,970
+When should we stop it though?
+
+120
+00:11:04,990 --> 00:11:12,340
+Well, if at the end of deciphering or encoding their message, we ask them a question, something like
+
+121
+00:11:12,340 --> 00:11:12,670
+type
+
+122
+00:11:12,670 --> 00:11:13,060
+yes
+
+123
+00:11:13,060 --> 00:11:15,580
+if you want to go again or type no
+
+124
+00:11:15,580 --> 00:11:19,810
+if you don't want to, we could put that inside an input.
+
+125
+00:11:20,900 --> 00:11:28,580
+Like so. And we can save their answer inside a variable. Let's just call that result. So now we can
+
+126
+00:11:28,580 --> 00:11:30,040
+use an if statement to check
+
+127
+00:11:30,050 --> 00:11:33,500
+well, if the results is equal to no,
+
+128
+00:11:33,890 --> 00:11:39,830
+so when they actually want to stop and they want to exit the while loop, well, at this point we can
+
+129
+00:11:39,830 --> 00:11:40,430
+switch
+
+130
+00:11:40,430 --> 00:11:42,730
+that should_continue to false.
+
+131
+00:11:43,220 --> 00:11:48,740
+And once that's done, then this means that this while loop, when it checks it, this is going to be
+
+132
+00:11:48,740 --> 00:11:51,710
+false and it will no longer continue.
+
+133
+00:11:52,280 --> 00:11:56,900
+Just as a final touch, we can even tell the user goodbye
+
+134
+00:11:58,330 --> 00:12:00,550
+so that they know that the program has ended.
+
+135
+00:12:01,270 --> 00:12:05,980
+Now let's go ahead and run our code and see if it works.
+
+136
+00:12:07,840 --> 00:12:15,250
+All right, so let's first encode something. And now I can type yes to go again, and you can see it's
+
+137
+00:12:15,250 --> 00:12:17,470
+allowing me to type encode or decode.
+
+138
+00:12:17,770 --> 00:12:19,540
+So let's encode something else.
+
+139
+00:12:22,740 --> 00:12:28,050
+Now, finally, if I decided I've had enough, I'm done with encoding and decoding, I'm going to type
+
+140
+00:12:28,050 --> 00:12:28,550
+no.
+
+141
+00:12:28,560 --> 00:12:34,620
+It tells me goodbye and I can now see my prompt, which means it's actually exited out of the program
+
+142
+00:12:34,620 --> 00:12:37,830
+and I would need to run it again in order to restart it.
+
+143
+00:12:38,520 --> 00:12:39,720
+Did you manage to get that right?
+
+144
+00:12:40,560 --> 00:12:47,220
+If you want to take a look at the completed code, then you can head over to caesar-cipher-4-end and
+
+145
+00:12:47,220 --> 00:12:49,640
+you will find the same code as I've got here.
+
+146
+00:12:50,130 --> 00:12:56,020
+And of course, feel free to play around with the code, modify it and make this program your own.
+
+147
+00:12:56,040 --> 00:13:01,890
+So if you wanted to add some extra features, if you wanted to make sure that the numbers and symbols
+
+148
+00:13:01,890 --> 00:13:06,870
+are all being encrypted and any sort of bells and whistles and anything else that you can think of,
+
+149
+00:13:07,200 --> 00:13:08,820
+this is the time to do it now.
+
+150
+00:13:09,360 --> 00:13:15,360
+But once you're done, be sure to get some rest, because tomorrow is yet another packed session where
+
+151
+00:13:15,360 --> 00:13:18,540
+we're going to talk more about Python dictionaries.
+
+152
+00:13:18,900 --> 00:13:23,180
+For all of that and more, I bid you good night and I'll see you tomorrow.
+

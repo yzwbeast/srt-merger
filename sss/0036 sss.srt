@@ -1,0 +1,2372 @@
+1
+00:00:00,090 --> 00:00:00,720
+Hey guys,
+
+2
+00:00:00,720 --> 00:00:05,720
+it's Angela here and welcome to Day 36 of 100 Days of Code. Today
+
+3
+00:00:06,150 --> 00:00:08,370
+we've got a fun project for you.
+
+4
+00:00:08,550 --> 00:00:12,720
+We're going to be building a stock news monitoring project.
+
+5
+00:00:13,410 --> 00:00:16,650
+So I don't know how many of you guys trade stocks out there,
+
+6
+00:00:16,800 --> 00:00:19,110
+but I've recently started learning about it.
+
+7
+00:00:19,350 --> 00:00:22,590
+And one of the pictures that always come to my mind when I think of people
+
+8
+00:00:22,590 --> 00:00:25,440
+trading stocks is something like this,
+
+9
+00:00:25,890 --> 00:00:28,230
+where if you will sit in front of a million screens,
+
+10
+00:00:28,260 --> 00:00:31,020
+looking at all of the data and all of the news.
+
+11
+00:00:31,800 --> 00:00:33,990
+Now I did a bit of research into this
+
+12
+00:00:34,050 --> 00:00:39,050
+and it seems like a lot of the people who trade stocks professionally have
+
+13
+00:00:39,110 --> 00:00:43,700
+access to what's that a Bloomberg terminal, which looks something like this.
+
+14
+00:00:43,790 --> 00:00:45,890
+And it provides you with a number of things,
+
+15
+00:00:46,370 --> 00:00:49,640
+the current stock prices of whichever companies you're looking at,
+
+16
+00:00:50,150 --> 00:00:55,130
+and also the breaking news that's relevant to those companies. So 
+
+17
+00:00:55,130 --> 00:00:57,440
+depending on whether if they had some good news
+
+18
+00:00:57,440 --> 00:01:00,680
+say they earned a lot of money in the last quarter, or
+
+19
+00:01:00,690 --> 00:01:04,519
+they built a really great product or they developed a new vaccine.
+
+20
+00:01:04,760 --> 00:01:09,760
+Then obviously you can imagine the price of their company's stock go up or down
+
+21
+00:01:11,540 --> 00:01:16,540
+depending on the type of news that comes out. And finally these platforms
+
+22
+00:01:17,450 --> 00:01:22,450
+also give you the ability to alert you when relevant pieces of news happen that are
+
+23
+00:01:23,930 --> 00:01:26,030
+related to stocks that you're following.
+
+24
+00:01:27,170 --> 00:01:32,170
+So I found out for my friend that to subscribe to one of these Bloomberg
+
+25
+00:01:33,290 --> 00:01:34,123
+terminals,
+
+26
+00:01:34,220 --> 00:01:39,220
+it costs something like $24,000 a year.
+
+27
+00:01:39,920 --> 00:01:43,160
+So that was the end of that research. Um,
+
+28
+00:01:43,190 --> 00:01:46,820
+but I thought about it and I thought about the kind of things that would be
+
+29
+00:01:46,820 --> 00:01:49,400
+really useful to somebody who trades stocks.
+
+30
+00:01:49,580 --> 00:01:54,260
+And I thought about how we could turn this into a Python project.
+
+31
+00:01:54,830 --> 00:01:56,360
+So here's what's going to happen.
+
+32
+00:01:56,600 --> 00:02:01,600
+We're going to DIY our own a Bloomberg terminal or at least the parts of the
+
+33
+00:02:01,640 --> 00:02:05,240
+functionality that are quite useful. First,
+
+34
+00:02:05,300 --> 00:02:09,500
+let's take a look at what stock market data looks like. So here,
+
+35
+00:02:09,500 --> 00:02:14,500
+I've got a website up called tradingview.com and I'm looking at the large cap
+
+36
+00:02:15,950 --> 00:02:16,783
+companies.
+
+37
+00:02:17,120 --> 00:02:20,840
+So these are well known companies that you've probably heard of like Apple or
+
+38
+00:02:20,840 --> 00:02:22,370
+Microsoft or Amazon.
+
+39
+00:02:22,910 --> 00:02:26,330
+And let's say that we had an interest in a particular stock.
+
+40
+00:02:26,360 --> 00:02:28,610
+Let's say that we bought shares in Tesla,
+
+41
+00:02:29,120 --> 00:02:31,340
+and we want to know how it's doing. Well,
+
+42
+00:02:31,340 --> 00:02:34,130
+we could take a closer look at it and we could take a look at
+
+43
+00:02:34,400 --> 00:02:35,840
+the full featured chart.
+
+44
+00:02:36,560 --> 00:02:41,560
+And this shows us the price of the Tesla stock over the past few days.
+
+45
+00:02:45,410 --> 00:02:49,670
+Now I'm going to change the time zone here to the actual time zone of the
+
+46
+00:02:49,670 --> 00:02:54,170
+exchange. And if I change the view to one day view,
+
+47
+00:02:54,470 --> 00:02:58,730
+then you can see the points at which the market is open and when it's closed.
+
+48
+00:02:59,110 --> 00:03:03,010
+So these blue sections highlight when the market is closed.
+
+49
+00:03:03,730 --> 00:03:07,540
+Currently it's the 22nd of July. So because this day's
+
+50
+00:03:07,540 --> 00:03:11,550
+data is not yet complete, we're going to look at the previous day's data.
+
+51
+00:03:11,580 --> 00:03:12,750
+So this is yesterday.
+
+52
+00:03:13,320 --> 00:03:18,120
+And you can see that NASDAQ opens at 9:30 AM New York time
+
+53
+00:03:18,180 --> 00:03:21,840
+and it closes down at 4:00 PM on the same day.
+
+54
+00:03:22,410 --> 00:03:24,960
+And often when you're getting data on stocks,
+
+55
+00:03:25,260 --> 00:03:30,060
+you can get the price of a particular stock at the point when the market opens
+
+56
+00:03:30,300 --> 00:03:33,120
+and when the market closes. For example,
+
+57
+00:03:33,120 --> 00:03:38,120
+we could compare the price of the Tesla stock at market close yesterday.
+
+58
+00:03:38,610 --> 00:03:43,610
+So that was about $1,567 and at market close the previous day
+
+59
+00:03:45,560 --> 00:03:48,510
+so that's four o'clock on the 20th of July,
+
+60
+00:03:48,900 --> 00:03:53,900
+and that was at around $1,641.
+
+61
+00:03:54,120 --> 00:03:59,120
+So there was a big difference between the end of the 20th of July and the end of
+
+62
+00:03:59,490 --> 00:04:03,630
+the 21st of July. As a stock trader would be quite 
+
+63
+00:04:03,630 --> 00:04:08,310
+interested in these big fluctuations because it might mean that we would want to
+
+64
+00:04:08,340 --> 00:04:12,150
+buy more, or we might want to sell our stocks in Tesla.
+
+65
+00:04:13,020 --> 00:04:14,910
+When you look at a lot of these services
+
+66
+00:04:14,940 --> 00:04:18,690
+be it Bloomberg terminals or something much simpler like this,
+
+67
+00:04:19,019 --> 00:04:21,930
+they often give you a whole bunch of other data as well.
+
+68
+00:04:23,100 --> 00:04:28,100
+One of the most useful things is actually to look at the news that's related to
+
+69
+00:04:28,350 --> 00:04:32,340
+the company that you're investigating. So for example,
+
+70
+00:04:32,340 --> 00:04:34,740
+these are the current headlines for Tesla,
+
+71
+00:04:35,250 --> 00:04:39,990
+and it comes from various news sources like Reuters or my Wall Street or
+
+72
+00:04:39,990 --> 00:04:44,850
+Bloomberg. And it gives us some information to start analyzing.
+
+73
+00:04:44,850 --> 00:04:48,480
+For example, well why was there this big drop, what's the reason,
+
+74
+00:04:48,990 --> 00:04:52,710
+and there's various news sources that might tell us why. For example,
+
+75
+00:04:52,710 --> 00:04:56,130
+maybe they're experiencing problems with servicing staff,
+
+76
+00:04:56,220 --> 00:05:00,330
+or maybe as this news piece suggests, the stock is probably going to rise again.
+
+77
+00:05:00,930 --> 00:05:02,850
+So these are really interesting things
+
+78
+00:05:02,880 --> 00:05:05,820
+if we were to trade this particular stock.
+
+79
+00:05:06,750 --> 00:05:10,350
+If we were to create a Python program that's going to help us trade stocks,
+
+80
+00:05:11,010 --> 00:05:14,010
+then this is how it might work. First,
+
+81
+00:05:14,160 --> 00:05:18,480
+we're going to pull in the stock prices of the stocks that we're interested in.
+
+82
+00:05:18,900 --> 00:05:21,810
+So we would be using an API to get this data.
+
+83
+00:05:22,560 --> 00:05:26,460
+And let's say that we were monitoring the Tesla stock cause we bought some
+
+84
+00:05:26,460 --> 00:05:29,400
+shares and we want to know how it's doing. Well,
+
+85
+00:05:29,430 --> 00:05:34,430
+it might pull in the data for the price of Tesla stock that was at market close.
+
+86
+00:05:35,220 --> 00:05:37,950
+Let's say that today was March the 11th.
+
+87
+00:05:38,250 --> 00:05:43,170
+So we're pulling in yesterday's closing price and let's just say, for example,
+
+88
+00:05:43,320 --> 00:05:44,700
+it is $1,000.
+
+89
+00:05:45,270 --> 00:05:49,320
+Now the next thing our program is going to do is it's going to pull in the
+
+90
+00:05:49,350 --> 00:05:52,020
+closing price on the previous day.
+
+91
+00:05:52,530 --> 00:05:56,760
+And we're going to compare these two values. So over the course of one day,
+
+92
+00:05:56,790 --> 00:05:59,300
+what was the difference. And in this case,
+
+93
+00:05:59,360 --> 00:06:03,890
+there's a difference of a hundred dollars and the direction is up.
+
+94
+00:06:03,950 --> 00:06:08,720
+So it increased in value, right? Going from March 9th to March 10th.
+
+95
+00:06:08,960 --> 00:06:12,260
+So that's good news for us if we bought in. Now,
+
+96
+00:06:12,320 --> 00:06:16,910
+we can also calculate what is the percentage that this rise represents.
+
+97
+00:06:16,940 --> 00:06:21,770
+So if we look at this difference of a hundred dollars and calculate it as a
+
+98
+00:06:21,770 --> 00:06:24,890
+percentage of yesterday's closing price,
+
+99
+00:06:25,160 --> 00:06:30,160
+then we can see that the price on March 9th was 10% lower than on March 10th.
+
+100
+00:06:31,340 --> 00:06:33,650
+So let's say that in our Python program,
+
+101
+00:06:34,010 --> 00:06:37,550
+we set the program to run and fetch us some news
+
+102
+00:06:37,790 --> 00:06:42,530
+whenever we get a slightly extraordinary rise or an extraordinary fall.
+
+103
+00:06:42,920 --> 00:06:46,850
+So you can define that as anything you want, but let's say it's 10%.
+
+104
+00:06:47,600 --> 00:06:52,400
+If there was a difference of 10% or more between yesterday's closing price and
+
+105
+00:06:52,400 --> 00:06:55,040
+the previous day, then we want to know about it.
+
+106
+00:06:55,910 --> 00:07:00,470
+So we're going to get our API to fetch us some relevant news.
+
+107
+00:07:01,070 --> 00:07:05,240
+That way we can figure out what is the reason for this rise or what is the
+
+108
+00:07:05,240 --> 00:07:06,350
+reason for this fall.
+
+109
+00:07:06,860 --> 00:07:11,030
+And it might just turn out well because Tesla launched a new product,
+
+110
+00:07:11,360 --> 00:07:14,240
+or because they've acquired a new factory.
+
+111
+00:07:14,480 --> 00:07:17,240
+Some sort of indicator that says, well,
+
+112
+00:07:17,240 --> 00:07:20,630
+this company is going to do a lot better. Now,
+
+113
+00:07:20,630 --> 00:07:25,630
+once the stock prices have triggered this alert and we fetched the news data,
+
+114
+00:07:26,660 --> 00:07:29,660
+then we're going to send ourselves an SMS.
+
+115
+00:07:29,930 --> 00:07:34,190
+So we're going to send ourselves a message telling us what was the big
+
+116
+00:07:34,220 --> 00:07:39,220
+fluctuation that happened and what is the relevant news so that we can decide
+
+117
+00:07:39,440 --> 00:07:41,780
+there and then whether if you want to sell our stock,
+
+118
+00:07:41,810 --> 00:07:42,950
+or if we want to buy more.
+
+119
+00:07:43,730 --> 00:07:48,440
+We're aiming for messages from Twilio that look a bit like this.
+
+120
+00:07:48,950 --> 00:07:49,610
+That way
+
+121
+00:07:49,610 --> 00:07:52,940
+when you wake up in the morning and you're wondering what's happening with my
+
+122
+00:07:52,940 --> 00:07:57,020
+Tesla stock and it just so happens that over the last two days,
+
+123
+00:07:57,110 --> 00:07:59,510
+it experienced huge fluctuations,
+
+124
+00:07:59,870 --> 00:08:04,870
+then you would get sent the relevant pieces of news to help you decide and help
+
+125
+00:08:05,270 --> 00:08:10,190
+you figure out what you should do with your trades. That's the goal.
+
+126
+00:08:10,430 --> 00:08:15,350
+And the best part of this project is the fact that it's going to be mostly up to
+
+127
+00:08:15,350 --> 00:08:17,060
+you as to how you create it
+
+128
+00:08:18,190 --> 00:08:20,350
+In the course resources I've got links
+
+129
+00:08:20,650 --> 00:08:24,100
+to starting projects with the comment and hints,
+
+130
+00:08:24,580 --> 00:08:29,020
+and depending on which level of difficulty you want to choose, normal,
+
+131
+00:08:29,020 --> 00:08:33,520
+hard or extra hard, you can pick the starting project that's right for you.
+
+132
+00:08:34,090 --> 00:08:35,710
+Once you pick the starting project,
+
+133
+00:08:35,740 --> 00:08:37,780
+then you are going to work through each of the comments
+
+134
+00:08:38,110 --> 00:08:42,280
+and you're going to try and complete the functionality of this program.
+
+135
+00:08:42,940 --> 00:08:47,200
+Now I want you to spend at least a half an hour to 45 minutes working on this
+
+136
+00:08:47,200 --> 00:08:51,580
+project, just because it has quite a few APIs that you need to tap into.
+
+137
+00:08:51,940 --> 00:08:53,440
+And most importantly,
+
+138
+00:08:53,710 --> 00:08:58,440
+I want you to read through the API documentation yourself so that you can
+
+139
+00:08:58,440 --> 00:09:02,820
+understand how to work with it and how to figure out things on your own.
+
+140
+00:09:03,210 --> 00:09:06,300
+Because after all, there are millions of APIs out there
+
+141
+00:09:06,420 --> 00:09:09,270
+and if you're going to need it for a special project of your own,
+
+142
+00:09:09,570 --> 00:09:12,870
+you're going to need to go through this process that all developers go through
+
+143
+00:09:13,050 --> 00:09:18,050
+which is digging through documentation and understanding how to work with an
+
+144
+00:09:18,240 --> 00:09:19,073
+external piece of  software
+
+145
+00:09:19,550 --> 00:09:21,350
+or code.
+
+146
+00:09:21,380 --> 00:09:25,700
+That's the challenge I've set for you. Head over to the course resources now and
+
+147
+00:09:25,700 --> 00:09:29,630
+get the starting code so that you can get started working on the project.
+
+148
+00:09:29,750 --> 00:09:30,380
+Good luck.
+
+
+149
+00:00:00,180 --> 00:00:02,310
+Now I'm going to walk you through the solution.
+
+150
+00:00:02,790 --> 00:00:06,870
+And I want to make sure that you've actually given this a go before you look
+
+151
+00:00:06,870 --> 00:00:10,920
+through the solution, because you can watch me type in code all day long,
+
+152
+00:00:10,950 --> 00:00:13,410
+and it's still not going to get you where you want to be.
+
+153
+00:00:13,470 --> 00:00:16,530
+So make sure you've actually practiced and you've struggled.
+
+154
+00:00:16,890 --> 00:00:18,180
+Even if you get stuck,
+
+155
+00:00:18,300 --> 00:00:22,950
+it's still better than just watching the videos and seeing the code written.
+
+156
+00:00:23,190 --> 00:00:27,210
+You have to write code to get good at writing code. All right,
+
+157
+00:00:27,210 --> 00:00:28,260
+enough motivation.
+
+158
+00:00:28,470 --> 00:00:33,470
+Now I'm going to take the normal starting point to guide you through step by
+
+159
+00:00:33,990 --> 00:00:38,640
+step. Now, notice how in the starting project I've included a bunch of to-dos.
+
+160
+00:00:39,060 --> 00:00:42,810
+And one of the nice things about PyCharm is you can view all of the
+
+161
+00:00:42,810 --> 00:00:47,220
+to-dos a found in the file and you can delete them as you check them off,
+
+162
+00:00:47,460 --> 00:00:51,150
+and then you'll be able to see what is remaining. And when you click on it,
+
+163
+00:00:51,150 --> 00:00:55,470
+it takes you directly to that particular to-do's location, which is really neat.
+
+164
+00:00:56,040 --> 00:00:57,240
+Let's start from the top.
+
+165
+00:00:57,510 --> 00:01:02,510
+We want to be able to use the alphavantage.co's APIs in order to get
+
+166
+00:01:03,420 --> 00:01:07,020
+yesterday's closing stock price. So that's the first thing.
+
+167
+00:01:08,610 --> 00:01:13,260
+How do we do that? Well, Alpha vantage is a stock market API
+
+168
+00:01:13,770 --> 00:01:16,680
+and what we have to do is first set up an API key.
+
+169
+00:01:17,970 --> 00:01:22,500
+You can select yourself as a student and then your organization if you have one
+
+170
+00:01:23,280 --> 00:01:28,110
+and then enter your email. Now, once you filled in the form, you can click on
+
+171
+00:01:28,110 --> 00:01:29,550
+get a free API key
+
+172
+00:01:29,940 --> 00:01:33,300
+and you should see your API key show up below.
+
+173
+00:01:33,900 --> 00:01:37,800
+Make sure that you copy this API key and save it in your project.
+
+174
+00:01:38,310 --> 00:01:41,370
+So I'm going to head over here and right at the top,
+
+175
+00:01:41,400 --> 00:01:46,400
+I'm going to add my STOCK_API_KEY as a constant like this.
+
+176
+00:01:47,940 --> 00:01:48,390
+That way
+
+177
+00:01:48,390 --> 00:01:52,260
+I won't forget it because it's actually quite hard to navigate back to this page
+
+178
+00:01:52,590 --> 00:01:56,190
+and get your API key. Now, the next step is of course,
+
+179
+00:01:56,190 --> 00:01:59,130
+the digging through the documentation. Now,
+
+180
+00:01:59,130 --> 00:02:02,190
+for those of you guys who chose the hard and extra hard versions,
+
+181
+00:02:02,220 --> 00:02:06,510
+I didn't really point you towards which part of the API documentation is most
+
+182
+00:02:06,510 --> 00:02:10,440
+relevant, because I hope that if you had chosen to give yourself a challenge,
+
+183
+00:02:10,500 --> 00:02:14,850
+you would appreciate having the opportunity to dig through all of the different
+
+184
+00:02:14,850 --> 00:02:18,180
+things you can do with the API. Now, in our case,
+
+185
+00:02:18,210 --> 00:02:20,400
+we actually want is the daily data.
+
+186
+00:02:21,240 --> 00:02:24,720
+So this API will return the daily data
+
+187
+00:02:25,020 --> 00:02:29,790
+which will give us the open price, the highest price of the day,
+
+188
+00:02:29,790 --> 00:02:33,210
+the lowest price of the day, and also the closing price at the day
+
+189
+00:02:33,240 --> 00:02:37,470
+which is what we're mostly interested in. There's a couple of API parameters
+
+190
+00:02:37,470 --> 00:02:39,720
+which are required; the function
+
+191
+00:02:39,870 --> 00:02:43,530
+which in this case is a time series daily, and also the symbol
+
+192
+00:02:43,560 --> 00:02:47,370
+which is the name of the equity of your choice. In our case,
+
+193
+00:02:47,400 --> 00:02:50,850
+we've already defined that at the top. It's the stock name right here.
+
+194
+00:02:51,510 --> 00:02:56,370
+So let's see how we can fetch yesterday's closing stock price. To start
+
+195
+00:02:56,370 --> 00:02:59,220
+we of course need our trusty requests module.
+
+196
+00:03:01,120 --> 00:03:03,010
+And using requests
+
+197
+00:03:03,040 --> 00:03:08,040
+we're going to fetch from the stock endpoint.
+
+198
+00:03:08,860 --> 00:03:10,960
+So you can see that in their example,
+
+199
+00:03:11,020 --> 00:03:15,970
+the end point is everything up to and not including the question
+
+200
+00:03:15,970 --> 00:03:18,670
+mark. This should be all pretty familiar to you,
+
+201
+00:03:18,760 --> 00:03:22,600
+but you could also just type in simply the one that I've already included.
+
+202
+00:03:22,720 --> 00:03:27,610
+This stock endpoint. Now next we're going to need to add some parameters.
+
+203
+00:03:27,790 --> 00:03:32,790
+So let's create something called our stock_params and let's see what we need
+
+204
+00:03:33,190 --> 00:03:35,920
+to add. So we have to add the function
+
+205
+00:03:36,220 --> 00:03:39,640
+which is equal to time series daily. I'm going to copy that
+
+206
+00:03:39,640 --> 00:03:41,020
+so I don't make any typos.
+
+207
+00:03:41,560 --> 00:03:46,560
+So let's create a Python dictionary and this is going to be the key and value.
+
+208
+00:03:47,710 --> 00:03:48,160
+Next,
+
+209
+00:03:48,160 --> 00:03:52,870
+we have to add our symbol and that is going to be the name of our stock or
+
+210
+00:03:52,870 --> 00:03:53,703
+equity.
+
+211
+00:03:55,780 --> 00:03:59,830
+The symbol, in this case, is simply going to be our stock name TSLA
+
+212
+00:04:00,210 --> 00:04:01,043
+Right.
+
+213
+00:04:03,420 --> 00:04:07,500
+And stock symbols tend to have a maximum number of four letters.
+
+214
+00:04:07,500 --> 00:04:12,500
+So that's why you see it abbreviated like Snap for Snapchat or TSLA for Tesla.
+
+215
+00:04:14,220 --> 00:04:17,790
+Now the final required parameter is our API key.
+
+216
+00:04:18,300 --> 00:04:22,800
+The whole thing is not going to work unless we authenticate ourselves using the
+
+217
+00:04:22,800 --> 00:04:24,420
+API key that we got just now,
+
+218
+00:04:24,690 --> 00:04:27,810
+which is saved as our STOCK_API_KEY.
+
+219
+00:04:28,860 --> 00:04:33,270
+Now that we've got all three parameters in there, well, we can add it to our
+
+220
+00:04:33,270 --> 00:04:37,170
+request method, and it will just add it as the stock_params.
+
+221
+00:04:37,710 --> 00:04:42,710
+Now let's save this as the response and let's print out what the response
+
+222
+00:04:43,680 --> 00:04:47,040
+actually look like when it's in the format of a JSON.
+
+223
+00:04:48,420 --> 00:04:53,400
+So let's run this code and I'm getting a error that says indentation error
+
+224
+00:04:53,490 --> 00:04:57,390
+unexpected indent. And that's because my stock_params here
+
+225
+00:04:57,390 --> 00:05:02,390
+really should actually be within the same indentation as the starting point
+
+226
+00:05:04,950 --> 00:05:08,400
+like this. So be careful that when you have a to-do that's
+
+227
+00:05:08,400 --> 00:05:12,540
+indented every line that you start afterward is going to be indented as
+
+228
+00:05:12,540 --> 00:05:13,373
+well.
+
+229
+00:05:13,920 --> 00:05:18,920
+So it probably helps to just unindent everything so that they will start at the
+
+230
+00:05:19,260 --> 00:05:22,530
+margin here. So let's try that again.
+
+231
+00:05:25,140 --> 00:05:28,800
+And this time it looks like we're getting back actual data in the format of
+
+232
+00:05:28,800 --> 00:05:33,030
+a JSON. Let's view it using our JSON viewer.
+
+233
+00:05:34,830 --> 00:05:36,870
+You can see that we've got some metadata
+
+234
+00:05:36,900 --> 00:05:41,880
+which basically just describes what we told the API. For example,
+
+235
+00:05:41,880 --> 00:05:46,880
+we wanted the Tesla symbol and we wanted the daily price.
+
+236
+00:05:47,370 --> 00:05:51,660
+But what we're actually interested is in the time series daily data.
+
+237
+00:05:52,110 --> 00:05:56,280
+So you can see it's giving us the data for all of the dates prior to today.
+
+238
+00:05:56,400 --> 00:05:58,640
+So currently it's 22nd of July
+
+239
+00:05:58,940 --> 00:06:03,940
+so we can see the complete data for the 21st of July and the 20th of July. Right
+
+240
+00:06:05,090 --> 00:06:09,590
+now, what we're interested in is yesterday's closing stock price.
+
+241
+00:06:10,190 --> 00:06:14,600
+So this is yesterday and this is the closing stock price.
+
+242
+00:06:14,930 --> 00:06:19,130
+So it's 1,568. How do we get hold of it? Well,
+
+243
+00:06:19,130 --> 00:06:22,970
+we have to step through a number of keys in order to get to this particular
+
+244
+00:06:22,970 --> 00:06:25,130
+value. First,
+
+245
+00:06:25,160 --> 00:06:30,160
+we need to pass in our time series daily and notice how this has brackets and
+
+246
+00:06:30,830 --> 00:06:35,810
+everything. We have to include all of the spaces, all the brackets in our key.
+
+247
+00:06:36,380 --> 00:06:40,880
+Let's say that our data is equal to the response.
+
+248
+00:06:40,910 --> 00:06:44,870
+json, let's go ahead and add a square bracket,
+
+249
+00:06:45,170 --> 00:06:47,270
+and then we can provide the key
+
+250
+00:06:47,660 --> 00:06:50,600
+which I'm actually just going to copy from down here.
+
+251
+00:06:51,440 --> 00:06:53,510
+So I don't make any typos and
+
+252
+00:06:53,540 --> 00:06:58,190
+make sure that I preserve all of the spaces and all of the symbols.
+
+253
+00:06:58,430 --> 00:07:03,430
+So basically everything in between the quotation marks like this.
+
+254
+00:07:04,220 --> 00:07:06,680
+Now, if we print our data,
+
+255
+00:07:07,910 --> 00:07:11,480
+you can see it's stepped into that particular dictionary
+
+256
+00:07:11,810 --> 00:07:16,730
+and it's now giving us all of this data. But this is not a list.
+
+257
+00:07:16,790 --> 00:07:20,390
+As you can see, the data starts out with a curly bracket. In fact,
+
+258
+00:07:20,390 --> 00:07:24,260
+it's a really big dictionary with the key being the date.
+
+259
+00:07:25,670 --> 00:07:28,940
+Now, while I can tap into yesterday's data
+
+260
+00:07:28,970 --> 00:07:32,390
+by simply providing this as the key,
+
+261
+00:07:32,780 --> 00:07:36,740
+this is going to be pretty hard-coded because once I get to tomorrow
+
+262
+00:07:36,740 --> 00:07:41,450
+when it becomes the 23rd, then yesterday's date is going to change.
+
+263
+00:07:41,960 --> 00:07:46,960
+So we have to figure out another way of getting hold of that first value.
+
+264
+00:07:47,960 --> 00:07:52,960
+How about turning this large dictionary into a list where we get each of the
+
+265
+00:07:55,940 --> 00:08:00,940
+pieces of data that's associated with each of the keys? To do that,
+
+266
+00:08:01,070 --> 00:08:03,380
+we're going to need to do a bit of a list comprehension.
+
+267
+00:08:03,770 --> 00:08:05,810
+So I'm going to create a variable called data_list
+
+268
+00:08:06,020 --> 00:08:09,650
+and then I'm going to use my list comprehension keywords.
+
+269
+00:08:09,650 --> 00:08:12,860
+So we did list comprehensions a while back,
+
+270
+00:08:12,890 --> 00:08:16,280
+but this might be a good time to remind yourself of how to use it.
+
+271
+00:08:17,060 --> 00:08:21,200
+It's going to be new item for item in list.
+
+272
+00:08:21,680 --> 00:08:25,670
+Our list is actually not a list. It's in fact a dictionary.
+
+273
+00:08:26,120 --> 00:08:29,960
+So we're going to tap into our data, which is the dictionary,
+
+274
+00:08:30,350 --> 00:08:33,860
+and we're going to call the items method on it.
+
+275
+00:08:34,490 --> 00:08:37,549
+And this is going to give us not just the item,
+
+276
+00:08:37,640 --> 00:08:40,250
+but the key and the value.
+
+277
+00:08:40,730 --> 00:08:45,080
+So we're actually only interested in the values. So we can put that in here
+
+278
+00:08:45,440 --> 00:08:50,440
+so that each item in this new list is composed of only the values and not the
+
+279
+00:08:51,290 --> 00:08:54,830
+keys. Now, if I print this data list,
+
+280
+00:08:56,340 --> 00:09:00,510
+you can see I've now got a list denoted by the square brackets
+
+281
+00:09:00,900 --> 00:09:05,900
+and each item in the list is a dictionary with each day's data. Using that I can
+
+282
+00:09:08,850 --> 00:09:10,110
+get hold of yesterday_
+
+283
+00:09:10,110 --> 00:09:15,110
+data by simply tapping to our data list and getting the object at index zero.
+
+284
+00:09:17,280 --> 00:09:19,410
+Now, once I've got yesterday's data,
+
+285
+00:09:19,470 --> 00:09:24,470
+then it's pretty simple to get yesterday's closing price,
+
+286
+00:09:26,640 --> 00:09:31,320
+because that is simply stored under this particular key. Now again,
+
+287
+00:09:31,350 --> 00:09:36,060
+notice how the entire key is this. It's everything in between the quotation
+
+288
+00:09:36,060 --> 00:09:39,420
+marks, including the number and the dot and all of that.
+
+289
+00:09:39,810 --> 00:09:43,380
+So this is a bit of a strange way of formatting your keys, to be honest.
+
+290
+00:09:43,440 --> 00:09:47,610
+I haven't seen many APIs that do this because it's a little bit confusing to
+
+291
+00:09:47,610 --> 00:09:50,760
+have spaces and dots and numbers,
+
+292
+00:09:50,970 --> 00:09:53,370
+but that's just the way that they decided to do it.
+
+293
+00:09:53,400 --> 00:09:56,130
+So in order to get the closing price,
+
+294
+00:09:56,160 --> 00:10:01,140
+we can tap into yesterday's data, add a set of square brackets, pass in this
+
+295
+00:10:01,140 --> 00:10:05,880
+particular key. So now if we print out yesterday's closing price,
+
+296
+00:10:06,000 --> 00:10:11,000
+you can see we've narrowed down on the exact price of the Tesla stock at
+
+297
+00:10:11,730 --> 00:10:13,110
+yesterday market close.
+
+298
+00:10:15,230 --> 00:10:15,680
+Right?
+
+299
+00:10:15,680 --> 00:10:19,670
+That's to-do number one completed. We can delete the to-do.
+
+300
+00:10:20,570 --> 00:10:20,960
+Now
+
+301
+00:10:20,960 --> 00:10:25,910
+the next one is to get the day before yesterday's closing stock price.
+
+302
+00:10:26,270 --> 00:10:28,670
+So now that we've actually got this data list,
+
+303
+00:10:28,760 --> 00:10:33,760
+it's pretty simple to do that; day_before_yesterday_
+
+304
+00:10:34,490 --> 00:10:39,490
+data is going to be equal to the data list at index one
+
+305
+00:10:40,190 --> 00:10:44,840
+because remember everything in the list is ordered going backward from today's
+
+306
+00:10:44,840 --> 00:10:48,650
+date. So that is going to be the day before yesterday's data.
+
+307
+00:10:51,380 --> 00:10:54,830
+And then the day before yesterday's closing price,
+
+308
+00:10:54,890 --> 00:10:56,420
+we can fetch that in the same way
+
+309
+00:10:56,420 --> 00:11:00,380
+by passing in that key 4.space close.
+
+310
+00:11:01,130 --> 00:11:03,200
+And just to confirm everything works,
+
+311
+00:11:03,260 --> 00:11:05,960
+let's print out both of the closing prices
+
+312
+00:11:06,260 --> 00:11:10,790
+so you can see that yesterday it closed at $1,568
+
+313
+00:11:11,120 --> 00:11:14,780
+and then the day before it closed at $1,643.
+
+314
+00:11:15,020 --> 00:11:18,740
+So that's actually quite a big drop, almost a hundred dollars.
+
+315
+00:11:20,600 --> 00:11:22,580
+That's to-do number two done.
+
+316
+00:11:22,580 --> 00:11:27,580
+We've managed to get the day before yesterday's closing stock price. To-do number
+
+317
+00:11:27,980 --> 00:11:28,813
+three
+
+318
+00:11:28,940 --> 00:11:33,050
+involves finding the positive difference between step one and two,
+
+319
+00:11:33,350 --> 00:11:37,370
+so yesterday's closing price and the day before yesterday's closing price.
+
+320
+00:11:38,090 --> 00:11:39,320
+And it gives us a hint.
+
+321
+00:11:40,790 --> 00:11:44,360
+Now the hint takes us to the Python abs function,
+
+322
+00:11:44,450 --> 00:11:46,220
+which we've also seen before.
+
+323
+00:11:46,880 --> 00:11:50,300
+It's a function that returns the absolute value of a number.
+
+324
+00:11:50,300 --> 00:11:54,700
+So it basically just gets rid of any negative sign in front of a number.
+
+325
+00:11:55,630 --> 00:11:59,860
+And this is what we need in order to complete to-do number three.
+
+326
+00:11:59,880 --> 00:12:00,713
+Right?
+
+327
+00:12:02,130 --> 00:12:07,130
+The difference is going to be yesterday's closing price subtract by the day
+
+328
+00:12:08,670 --> 00:12:12,180
+before yesterday's closing price. Now,
+
+329
+00:12:12,240 --> 00:12:16,800
+because these two are strings, if we actually run the code right now,
+
+330
+00:12:16,830 --> 00:12:18,510
+you're going to get an error.
+
+331
+00:12:19,380 --> 00:12:23,310
+And the error tells you that you can't subtract between a string and a string.
+
+332
+00:12:23,910 --> 00:12:26,250
+We know that these numbers look like this,
+
+333
+00:12:26,310 --> 00:12:31,310
+so we can quite easily convert them into a floating point numbers just by
+
+334
+00:12:31,350 --> 00:12:35,850
+wrapping the float function around them. If we print that out,
+
+335
+00:12:35,880 --> 00:12:39,960
+you can see that it's actually going to be a negative number.
+
+336
+00:12:40,500 --> 00:12:42,780
+And the reason is because this is yesterday's price,
+
+337
+00:12:42,810 --> 00:12:44,940
+this is the day before yesterday's price.
+
+338
+00:12:45,330 --> 00:12:48,660
+The price actually went down by $74.
+
+339
+00:12:49,290 --> 00:12:53,700
+What if we want to get the positive difference between one and two?
+
+340
+00:12:55,770 --> 00:12:56,160
+Well,
+
+341
+00:12:56,160 --> 00:13:01,050
+this is where the abs or absolute value function comes in handy.
+
+342
+00:13:01,260 --> 00:13:05,490
+If we wrap all of that around the absolute function, now, if I run it,
+
+343
+00:13:05,640 --> 00:13:08,970
+you can see we're getting a positive value instead.
+
+344
+00:13:10,590 --> 00:13:12,600
+Now that's step three completed.
+
+345
+00:13:12,720 --> 00:13:17,370
+We found the positive difference between yesterday's closing price and the day
+
+346
+00:13:17,370 --> 00:13:19,470
+before yesterday's closing price.
+
+347
+00:13:20,610 --> 00:13:22,770
+Now let's tackle step number four.
+
+348
+00:13:23,400 --> 00:13:27,570
+We want to be able to work out the percentage difference in price between the
+
+349
+00:13:27,570 --> 00:13:31,980
+closing price yesterday and the closing price the day before yesterday.
+
+350
+00:13:33,390 --> 00:13:38,390
+The diff_percent is going to be the difference divided by the closing price
+
+351
+00:13:40,920 --> 00:13:41,753
+yesterday.
+
+352
+00:13:43,830 --> 00:13:46,860
+And in order to turn this into a percentage,
+
+353
+00:13:46,920 --> 00:13:51,210
+we're going to have to multiply it by 100. But again,
+
+354
+00:13:51,240 --> 00:13:56,040
+notice that this is a floating point number because it was calculated here,
+
+355
+00:13:56,370 --> 00:13:58,290
+but this is still the string.
+
+356
+00:13:58,770 --> 00:14:02,670
+So we're going to have to turn that into a float for this calculation to
+
+357
+00:14:02,670 --> 00:14:06,510
+actually go through. And once it does that, we're going to print it out.
+
+358
+00:14:08,370 --> 00:14:12,870
+We've got about a 4.75% difference.
+
+359
+00:14:14,220 --> 00:14:17,700
+Now we can tackle to-do number five,
+
+360
+00:14:18,150 --> 00:14:22,350
+which is if the percentage here is greater than five,
+
+361
+00:14:22,680 --> 00:14:27,600
+then we're going to print get news. This is pretty simple.
+
+362
+00:14:27,630 --> 00:14:31,650
+All we have to do is check if the diff_percent is greater than five,
+
+363
+00:14:32,130 --> 00:14:36,810
+in which case we're going to print get news. Now,
+
+364
+00:14:36,810 --> 00:14:39,630
+depending on the time when you're completing this project,
+
+365
+00:14:39,960 --> 00:14:43,290
+the stock price of Tesla may not show a difference
+
+366
+00:14:43,320 --> 00:14:47,880
+that's greater than five. Because in order to continue testing our code
+
+367
+00:14:47,910 --> 00:14:50,670
+we're going to need this to be true,
+
+368
+00:14:51,110 --> 00:14:54,530
+then we can change this number to a smaller number,
+
+369
+00:14:54,560 --> 00:14:57,890
+just so that we can actually get it to work. So my case,
+
+370
+00:14:57,890 --> 00:15:02,150
+the difference is 4.75. So I'm actually just going to change this down to 4.
+
+371
+00:15:04,130 --> 00:15:06,380
+And now if I run all of this,
+
+372
+00:15:06,710 --> 00:15:09,680
+then you can see it's going to print get news.
+
+373
+00:15:10,190 --> 00:15:12,350
+So that is what we're going to do on the next lesson
+
+374
+00:15:12,620 --> 00:15:14,450
+in the second part of the solution.
+
+
+375
+00:00:00,420 --> 00:00:02,310
+In the first part of the solution,
+
+376
+00:00:02,340 --> 00:00:07,340
+we managed to get our code to pull in the live stock data for the selected
+
+377
+00:00:08,180 --> 00:00:09,020
+stock name.
+
+378
+00:00:09,740 --> 00:00:14,270
+And then we looked at the difference in price between yesterday and the day
+
+379
+00:00:14,270 --> 00:00:18,140
+before yesterday and then we worked out the percentage difference.
+
+380
+00:00:18,920 --> 00:00:22,760
+Now we have this if statement which will print get news
+
+381
+00:00:23,090 --> 00:00:27,560
+if the percentage difference is greater than a specified amount.
+
+382
+00:00:28,130 --> 00:00:31,760
+Now, I've put right five here, just because ideally,
+
+383
+00:00:31,820 --> 00:00:33,980
+if you were monitoring a particular stock,
+
+384
+00:00:34,220 --> 00:00:37,880
+you'd probably only be interested if it changed by a large amount,
+
+385
+00:00:37,880 --> 00:00:42,800
+like 5 or 10 or 50% set by you. But at the moment,
+
+386
+00:00:42,800 --> 00:00:47,780
+because we're testing these things and the Tesla stock is only moved by one
+
+387
+00:00:47,780 --> 00:00:51,710
+point something percent, then this is actually never going to be true.
+
+388
+00:00:51,800 --> 00:00:56,030
+So I'm going to manually adjust this down so that we can continue working with
+
+389
+00:00:56,030 --> 00:01:00,770
+the rest of the challenge. So now onto step two of the challenge,
+
+390
+00:01:00,920 --> 00:01:04,459
+the first part is instead of printing get news,
+
+391
+00:01:04,670 --> 00:01:08,960
+we're going to use the news API to get articles related to
+
+392
+00:01:08,960 --> 00:01:13,820
+the company name. The news API is newsapi.org.
+
+393
+00:01:14,540 --> 00:01:17,780
+And we can start by getting hold of an API key.
+
+394
+00:01:18,590 --> 00:01:21,740
+Once you signed up, you should get a free API key
+
+395
+00:01:21,860 --> 00:01:25,580
+and we're going to paste that into our project.
+
+396
+00:01:27,500 --> 00:01:31,550
+Now we can start looking through the documentation and seeing how we can use
+
+397
+00:01:31,550 --> 00:01:32,990
+this news API.
+
+398
+00:01:34,010 --> 00:01:39,010
+There's a number of end points as we can see. There's top headlines and also
+
+399
+00:01:39,170 --> 00:01:41,810
+everything. These are the two main end points.
+
+400
+00:01:42,470 --> 00:01:46,250
+Now everything is better for article discovery
+
+401
+00:01:46,700 --> 00:01:50,990
+whereas the headlines tend to only have a limited number of headlines.
+
+402
+00:01:51,530 --> 00:01:53,300
+I've tested both of these
+
+403
+00:01:53,360 --> 00:01:58,360
+and I found that the everything one is more likely to give us a news piece for
+
+404
+00:01:58,670 --> 00:02:03,260
+stocks that we're looking for. Because very often a lot of these companies and
+
+405
+00:02:03,260 --> 00:02:06,530
+their stocks don't actually make it to the day's headlines.
+
+406
+00:02:07,190 --> 00:02:12,170
+So this is what the query looks like, this is the end point,
+
+407
+00:02:12,230 --> 00:02:16,730
+and these are the parameters. Now, if we scroll down,
+
+408
+00:02:16,760 --> 00:02:20,330
+we can see a number of request parameters; q
+
+409
+00:02:20,330 --> 00:02:25,330
+which is the keyword or phrase the same in the article title and body, qIn
+
+410
+00:02:25,760 --> 00:02:29,210
+Title is to search for in the title only,
+
+411
+00:02:29,720 --> 00:02:32,420
+and then you can limit the sources or the domains
+
+412
+00:02:32,420 --> 00:02:35,570
+which you want to search or exclude certain websites
+
+413
+00:02:35,930 --> 00:02:39,200
+and you can also specify the date, time, language,
+
+414
+00:02:39,530 --> 00:02:43,550
+and a number of other things. Now, the only required parameter is
+
+415
+00:02:43,880 --> 00:02:47,780
+actually this API key. Now, in addition,
+
+416
+00:02:47,810 --> 00:02:51,500
+we're probably gonna want to use one of these requests parameters.
+
+417
+00:02:52,250 --> 00:02:57,050
+There's a lot of stocks that get lumped in into these analysis articles.
+
+418
+00:02:57,410 --> 00:03:01,420
+So I think it will be more specific if we can actually check the title of the
+
+419
+00:03:01,420 --> 00:03:03,730
+article for our company name.
+
+420
+00:03:04,600 --> 00:03:08,680
+So let's get started putting this API to use. Up here
+
+421
+00:03:08,680 --> 00:03:10,840
+we've really got the news end point,
+
+422
+00:03:11,770 --> 00:03:15,010
+and we're going to delete this print statement,
+
+423
+00:03:15,400 --> 00:03:20,400
+and we're going to use the requests library to get hold of some data from that
+
+424
+00:03:21,550 --> 00:03:22,383
+endpoint.
+
+425
+00:03:23,920 --> 00:03:28,920
+And then we're going to add our params. Our new params is firstly going to
+
+426
+00:03:29,950 --> 00:03:34,950
+contain our API key and notice how it's spelled. When you are using parameters,
+
+427
+00:03:36,400 --> 00:03:40,840
+you have to make sure that any capitalization or spelling must match their
+
+428
+00:03:40,840 --> 00:03:42,430
+requirements exactly.
+
+429
+00:03:43,510 --> 00:03:48,040
+So the API key is just going to be our news API key that we added previously,
+
+430
+00:03:48,580 --> 00:03:52,690
+and then we're going to provide a queryInTitle as well.
+
+431
+00:03:53,020 --> 00:03:57,130
+And I'm actually just going to straight up copy it because I'm not sure if that
+
+432
+00:03:57,130 --> 00:04:01,390
+was an I or an L. That way we don't make any typos. Now,
+
+433
+00:04:01,420 --> 00:04:04,810
+the query we're going to search for is actually our company name,
+
+434
+00:04:04,990 --> 00:04:07,420
+because while we can search for the name of the stock,
+
+435
+00:04:07,660 --> 00:04:11,860
+it's actually better to search for the company name because most articles tend
+
+436
+00:04:11,860 --> 00:04:14,650
+to include the company name rather than the stock name.
+
+437
+00:04:15,730 --> 00:04:19,120
+This is going to be the params that's going to go in here.
+
+438
+00:04:19,720 --> 00:04:22,300
+Now we're going to get hold of our response
+
+439
+00:04:24,340 --> 00:04:28,420
+and I'm going to print out the response as a JSON.
+
+440
+00:04:31,170 --> 00:04:31,410
+All right.
+
+441
+00:04:31,410 --> 00:04:33,030
+If you take a look at the documentation,
+
+442
+00:04:33,030 --> 00:04:37,080
+they also tell you what an example output would look like.
+
+443
+00:04:37,500 --> 00:04:42,060
+Firstly, we have a dictionary with status,
+
+444
+00:04:42,090 --> 00:04:45,150
+total results, but most importantly articles,
+
+445
+00:04:45,330 --> 00:04:50,130
+which is a list. In that list there's a bunch of dictionaries
+
+446
+00:04:50,160 --> 00:04:54,480
+which contains things like the source, the author, the title, description,
+
+447
+00:04:54,870 --> 00:04:59,370
+and each of these articles are an item in this list of articles.
+
+448
+00:05:00,060 --> 00:05:02,730
+We can actually get hold of all the articles
+
+449
+00:05:03,210 --> 00:05:08,210
+just by tapping into the news_response.json and then passing in the key
+
+450
+00:05:09,420 --> 00:05:14,400
+articles. And now when I print that out,
+
+451
+00:05:14,400 --> 00:05:16,830
+you can see its a list first of all,
+
+452
+00:05:17,280 --> 00:05:21,150
+and then each article is a dictionary inside that list.
+
+453
+00:05:22,710 --> 00:05:27,630
+Now we've managed to complete to-do number six and we can move on to
+
+454
+00:05:27,630 --> 00:05:28,800
+to-do number seven,
+
+455
+00:05:29,280 --> 00:05:34,280
+which is to use the Python slice operator to create a list that contains the
+
+456
+00:05:35,220 --> 00:05:38,130
+first three articles. And as a hint,
+
+457
+00:05:38,220 --> 00:05:41,160
+I've linked to the Stack Overflow page
+
+458
+00:05:41,190 --> 00:05:46,170
+where they go through the slice operator in quite a bit of detail
+
+459
+00:05:46,170 --> 00:05:47,003
+actually.
+
+460
+00:05:48,240 --> 00:05:51,900
+If we want to only get the first three articles,
+
+461
+00:05:51,960 --> 00:05:55,950
+then our start is probably going to be from the beginning and then we're going
+
+462
+00:05:55,950 --> 00:05:58,100
+to loop to stop minus one.
+
+463
+00:05:58,490 --> 00:06:03,490
+So that's going to be :3 because let's start counting from zero. Like
+
+464
+00:06:05,000 --> 00:06:08,300
+that. And now if I print these three articles,
+
+465
+00:06:08,380 --> 00:06:09,213
+right,
+
+466
+00:06:11,380 --> 00:06:12,010
+to see them,
+
+467
+00:06:12,010 --> 00:06:17,010
+if you click on this soft wrap and you can see the three items,
+
+468
+00:06:17,980 --> 00:06:22,540
+one, two, and three.
+
+469
+00:06:24,310 --> 00:06:25,143
+That's
+
+470
+00:06:25,630 --> 00:06:26,463
+step two.
+
+471
+00:06:26,500 --> 00:06:31,500
+Now we've managed to use the news API to get hold of the first three articles
+
+472
+00:06:32,440 --> 00:06:37,240
+that talk about this particular company name. In the next lesson
+
+473
+00:06:37,270 --> 00:06:41,350
+I'm going to go through the final part of the solution which is step three,
+
+474
+00:06:41,500 --> 00:06:46,500
+and to figure out how to send the relevant parts of the articles to our mobile
+
+475
+00:06:47,140 --> 00:06:47,560
+number.
+
+
+476
+00:00:00,150 --> 00:00:04,770
+So previously we managed to check the stock price difference between the day
+
+477
+00:00:04,770 --> 00:00:06,600
+before yesterday and yesterday.
+
+478
+00:00:06,990 --> 00:00:11,460
+And then based on when that different is over a certain threshold,
+
+479
+00:00:11,760 --> 00:00:14,010
+then we trigger this bunch of code
+
+480
+00:00:14,100 --> 00:00:18,990
+which actually fetches some news from the news API regarding that company.
+
+481
+00:00:19,620 --> 00:00:24,030
+So now that we've got the top three articles from the news API,
+
+482
+00:00:24,420 --> 00:00:26,130
+now we're onto step three
+
+483
+00:00:26,190 --> 00:00:31,190
+which is to use Twilio to send a message with each article's
+
+484
+00:00:31,200 --> 00:00:33,120
+title and description to a phone number.
+
+485
+00:00:33,840 --> 00:00:38,760
+The first step is to create a list of the first three article's
+
+486
+00:00:38,760 --> 00:00:42,390
+headline, and description using list comprehension.
+
+487
+00:00:42,810 --> 00:00:47,610
+So what we're aiming for is a single string that says something like this.
+
+488
+00:00:48,240 --> 00:00:49,073
+Headline:
+
+489
+00:00:49,470 --> 00:00:53,820
+and then it's the actual article title.
+
+490
+00:00:54,600 --> 00:00:57,810
+And then we've got our brief
+
+491
+00:00:57,840 --> 00:00:59,760
+which is going to go on a new line,
+
+492
+00:01:00,150 --> 00:01:03,990
+and then this is going to be the article description.
+
+493
+00:01:05,250 --> 00:01:09,690
+You can see those parts in the articles that we printed out.
+
+494
+00:01:10,050 --> 00:01:12,270
+For example, this first article here,
+
+495
+00:01:12,510 --> 00:01:17,510
+you can see the title says Spartan Energy surges after something,
+
+496
+00:01:17,910 --> 00:01:21,690
+something, something, something. You can see this is the first title
+
+497
+00:01:21,960 --> 00:01:23,970
+and this is the first description.
+
+498
+00:01:24,480 --> 00:01:29,480
+So its basically the title of the article and also a brief description of what
+
+499
+00:01:31,080 --> 00:01:35,160
+the article is about. That is what we want to get messaged to us.
+
+500
+00:01:35,640 --> 00:01:38,760
+Now in order to use list comprehension,
+
+501
+00:01:39,000 --> 00:01:41,670
+we first use the keyword method.
+
+502
+00:01:42,420 --> 00:01:45,960
+So new item for item in list.
+
+503
+00:01:46,590 --> 00:01:51,590
+Now our list in this case is of course our three articles and each of those
+
+504
+00:01:51,990 --> 00:01:54,930
+items will be an article in themselves.
+
+505
+00:01:55,560 --> 00:01:59,490
+And for each of those articles, we want to have this format.
+
+506
+00:02:00,090 --> 00:02:03,540
+So I'm just going to cut that and then paste it in here
+
+507
+00:02:03,930 --> 00:02:08,580
+and then I'm going to use an f-string in order to insert these relevant parts.
+
+508
+00:02:09,180 --> 00:02:14,180
+So the article title is stored under the title key and the description is stored
+
+509
+00:02:14,490 --> 00:02:15,810
+under the description key.
+
+510
+00:02:16,410 --> 00:02:21,410
+So we can simply use that as the key to tap into this article.
+
+511
+00:02:22,920 --> 00:02:27,920
+Notice how we've got a set of double quotes outside to create our string.
+
+512
+00:02:28,860 --> 00:02:32,190
+If we have another set of double quotes to specify the key,
+
+513
+00:02:32,460 --> 00:02:35,730
+this is going to be a bit confusing for the code interpreter.
+
+514
+00:02:36,180 --> 00:02:41,180
+So let's change that to single quotes instead to make it actually work. Like this.
+
+515
+00:02:43,080 --> 00:02:45,630
+Now, next is the article description.
+
+516
+00:02:46,350 --> 00:02:51,000
+So this is going to go inside another set of quotes and also it's going to go
+
+517
+00:02:51,000 --> 00:02:55,050
+inside a set of square brackets. Like this.
+
+518
+00:02:57,120 --> 00:03:01,330
+Each of the new items that's going to go into this new list is going to be a
+
+519
+00:03:01,330 --> 00:03:06,040
+string that's comprised of the article title and also the article description.
+
+520
+00:03:06,790 --> 00:03:11,790
+Now we can save this new list into a formatted_articles list, like this.
+
+521
+00:03:15,640 --> 00:03:17,830
+So that's to-do eight completed,
+
+522
+00:03:18,250 --> 00:03:22,840
+and now we're going to try and send each article as a separate message via
+
+523
+00:03:22,840 --> 00:03:27,070
+Twilio. Here's our Twilio SMS Python Quickstart,
+
+524
+00:03:27,310 --> 00:03:30,250
+and we're basically going to replicate all of this.
+
+525
+00:03:30,490 --> 00:03:35,490
+So first we're gonna import the client class from the Twilio library,
+
+526
+00:03:38,760 --> 00:03:39,180
+right?
+
+527
+00:03:39,180 --> 00:03:41,850
+And make sure that we actually have this installed
+
+528
+00:03:41,850 --> 00:03:46,850
+if it's not already installed, and get rid of the red underlines. Next,
+
+529
+00:03:47,790 --> 00:03:52,260
+we're going to get our account SID and auth token from Twilio.
+
+530
+00:03:53,280 --> 00:03:58,280
+So I'm going to copy my account SID and put that over here.
+
+531
+00:03:59,880 --> 00:04:00,713
+Right?
+
+532
+00:04:03,390 --> 00:04:06,450
+And also get my auth token from here as well.
+
+533
+00:04:08,220 --> 00:04:13,220
+So now I can set up my client by creating it from the client class. Down here, at
+
+534
+00:04:14,250 --> 00:04:16,440
+the point where I want to send my message,
+
+535
+00:04:16,470 --> 00:04:20,010
+I'm going to create a new client from the Twilio client class
+
+536
+00:04:20,490 --> 00:04:25,490
+and this is going to be comprised of my Twilio account SID and also my Twilio
+
+537
+00:04:26,970 --> 00:04:29,490
+auth token. Finally,
+
+538
+00:04:29,520 --> 00:04:34,230
+we can create our message and send it to our own number,
+
+539
+00:04:34,380 --> 00:04:35,213
+right?
+
+540
+00:04:37,620 --> 00:04:41,610
+The body of the message is going to be each of the articles.
+
+541
+00:04:42,000 --> 00:04:44,640
+So in order to send three messages,
+
+542
+00:04:44,940 --> 00:04:49,940
+we can loop through our three formatted articles, like this, and then we can
+
+543
+00:04:50,550 --> 00:04:54,960
+create a message and send each of those one by one.
+
+544
+00:04:55,380 --> 00:05:00,150
+So the body is going to be each article in the formatted articles.
+
+545
+00:05:01,260 --> 00:05:01,590
+Now the
+
+546
+00:05:01,590 --> 00:05:06,590
+from number is going to be our Twilio virtual number and our to number is going
+
+547
+00:05:07,710 --> 00:05:12,060
+to be our actual phone number. Once we've done all of that,
+
+548
+00:05:12,120 --> 00:05:16,290
+we can now test this and run it to see if it actually works.
+
+549
+00:05:17,010 --> 00:05:19,350
+Now I'm going to go ahead and hit run.
+
+550
+00:05:20,100 --> 00:05:22,500
+And hopefully our messages will get sent
+
+551
+00:05:24,780 --> 00:05:26,130
+as you can see right now.
+
+552
+00:05:26,820 --> 00:05:31,110
+So we've got our headline and our brief and each of the three articles are being
+
+553
+00:05:31,110 --> 00:05:33,330
+sent as a separate message.
+
+554
+00:05:34,200 --> 00:05:36,930
+That's pretty much the end of this challenge.
+
+555
+00:05:37,110 --> 00:05:39,930
+Now you can of course improve this even further.
+
+556
+00:05:40,620 --> 00:05:45,390
+And one of the things I thought about is having a little emoji to show whether
+
+557
+00:05:45,390 --> 00:05:50,390
+if your stock is up or down and also showing a rounded percentage. To do that,
+
+558
+00:05:51,930 --> 00:05:56,520
+we need to figure out whether if the stock was up or down and we can work that
+
+559
+00:05:56,520 --> 00:06:01,520
+out by looking at the difference. If instead of using the abs here
+
+560
+00:06:01,850 --> 00:06:04,880
+which is going to get rid of our negative and positive,
+
+561
+00:06:05,420 --> 00:06:10,420
+if we had instead used an if statement to check if the difference is greater than
+
+562
+00:06:10,760 --> 00:06:15,650
+zero, so it's positive, then we can create a variable called up_down
+
+563
+00:06:15,680 --> 00:06:19,160
+which starts out as none. But if it's positive,
+
+564
+00:06:19,190 --> 00:06:23,000
+then we can turn that into a up emoji.
+
+565
+00:06:26,230 --> 00:06:30,460
+And remember emojis are simply just treated as strings in our code.
+
+566
+00:06:31,090 --> 00:06:36,040
+Otherwise, if it's below zero, then it will change that to a down emoji,
+
+567
+00:06:36,160 --> 00:06:36,993
+Right?
+
+568
+00:06:42,820 --> 00:06:44,650
+Like this. And as always,
+
+569
+00:06:44,680 --> 00:06:48,310
+you can always search for these emojis in Google and copy and paste them in
+
+570
+00:06:48,730 --> 00:06:52,180
+if you don't have the emoji and symbols keyboard.
+
+571
+00:06:53,290 --> 00:06:57,310
+But having taken away that absolute value function here,
+
+572
+00:06:57,550 --> 00:06:59,770
+we're going to have to put it back somewhere else.
+
+573
+00:06:59,920 --> 00:07:04,920
+So we're going to put it right here at the point where we do the if checking.
+
+574
+00:07:07,510 --> 00:07:08,650
+And in addition,
+
+575
+00:07:08,740 --> 00:07:13,740
+I want to change this diff_percentage so that we actually around it to the
+
+576
+00:07:13,990 --> 00:07:15,010
+nearest whole number.
+
+577
+00:07:16,600 --> 00:07:20,410
+With the rounded diff_percentage and also this up_down,
+
+578
+00:07:20,500 --> 00:07:25,500
+we can now format our message so that it says the name of the stock
+
+579
+00:07:28,450 --> 00:07:29,283
+...
+
+580
+00:07:29,290 --> 00:07:31,750
+and then whether if it's up or down,
+
+581
+00:07:33,370 --> 00:07:38,370
+and then the diff_percentage, and finally a percentage sign and also a new
+
+582
+00:07:40,390 --> 00:07:43,660
+line. So now if I run this again,
+
+583
+00:07:46,300 --> 00:07:47,740
+you can see that this time
+
+584
+00:07:47,770 --> 00:07:51,730
+these messages come complete with the stock name,
+
+585
+00:07:51,970 --> 00:07:55,930
+the movement percentage, the headlines and the brief.
+
+586
+00:07:57,220 --> 00:07:58,300
+So there you have it.
+
+587
+00:07:58,750 --> 00:08:02,800
+I'm sure you can think of even more improvements to this program.
+
+588
+00:08:03,160 --> 00:08:05,350
+And especially if you're somebody who actually trades stocks,
+
+589
+00:08:05,590 --> 00:08:09,040
+then I'm sure you'll think of even more ways of improving this project.
+
+590
+00:08:09,550 --> 00:08:11,650
+If you come up with anything interesting and fun,
+
+591
+00:08:11,800 --> 00:08:15,910
+be sure to share it with the rest of us in the Q/A so that we can all admire
+
+592
+00:08:15,940 --> 00:08:16,810
+your hard work.
+
+

@@ -1,0 +1,3631 @@
+1
+00:00:00,030 --> 00:00:04,500
+Hey! Welcome to Day 16 of 100 Days of Code. Now
+
+2
+00:00:04,530 --> 00:00:05,100
+today,
+
+3
+00:00:05,100 --> 00:00:08,250
+we're going to be pulling out the big guns, we're going to be learning about
+
+4
+00:00:08,280 --> 00:00:12,210
+Object Oriented Programming otherwise known as OOP.
+
+5
+00:00:12,630 --> 00:00:16,890
+Why are we learning about it? Well, if you think back to yesterday's project,
+
+6
+00:00:17,310 --> 00:00:21,450
+some of you I'm sure at some point during the project, would have had this
+
+7
+00:00:21,450 --> 00:00:25,740
+feeling of what on earth is going on with my code?
+
+8
+00:00:25,920 --> 00:00:30,060
+And the reason is because our code is getting more complex,
+
+9
+00:00:30,330 --> 00:00:32,369
+it's trying to do a lot of things,
+
+10
+00:00:32,490 --> 00:00:35,850
+and it's trying to manage a whole bunch of relationships.
+
+11
+00:00:36,150 --> 00:00:39,540
+So one function is changing a variable,
+
+12
+00:00:39,540 --> 00:00:43,740
+and then that same function is doing something else to another variable.
+
+13
+00:00:44,100 --> 00:00:48,810
+And at some point, the logic of our code starts looking very, very spaghetti-
+
+14
+00:00:48,810 --> 00:00:49,643
+like.
+
+15
+00:00:49,920 --> 00:00:54,630
+And it's at this point where it's really hard to track and remember what's
+
+16
+00:00:54,720 --> 00:00:56,460
+actually going on in our code.
+
+17
+00:00:57,180 --> 00:01:00,510
+So this style of programming is called Procedural
+
+18
+00:01:00,510 --> 00:01:05,510
+Programming where we set up procedures or functions that do particular things.
+
+19
+00:01:06,600 --> 00:01:11,250
+And then one procedure leads to another procedure, and all in all, the computer's
+
+20
+00:01:11,250 --> 00:01:15,690
+mostly working from top to bottom and then jumping out into a function as
+
+21
+00:01:15,690 --> 00:01:16,523
+needed.
+
+22
+00:01:17,250 --> 00:01:22,110
+Procedural programming is one of the earliest paradigms of Programming.
+
+23
+00:01:22,410 --> 00:01:27,210
+In fact, back in the days when we had older languages like Fortran and COBOL,
+
+24
+00:01:27,840 --> 00:01:30,840
+they rely pretty much exclusively on procedural
+
+25
+00:01:30,840 --> 00:01:32,670
+programming like what we've been doing.
+
+26
+00:01:33,780 --> 00:01:36,120
+But the increase in complexity,
+
+27
+00:01:36,150 --> 00:01:40,410
+the increase in the number of relationships that we need to remember and manage
+
+28
+00:01:40,800 --> 00:01:45,540
+starts making it look a bit like the dating history of the Kardashians.
+
+29
+00:01:45,930 --> 00:01:47,160
+And it gets very,
+
+30
+00:01:47,160 --> 00:01:52,020
+very confusing because everybody has been in touch with somebody else. Now,
+
+31
+00:01:52,080 --> 00:01:56,280
+the kind of relationships I prefer are one to one, me and my couch.
+
+32
+00:01:56,700 --> 00:02:01,700
+So how can we maintain a simple relationship in our code while being able to
+
+33
+00:02:03,120 --> 00:02:07,320
+write more and more complex projects? Well,
+
+34
+00:02:07,350 --> 00:02:11,430
+this is where the Object-Oriented paradigm comes in really handy.
+
+35
+00:02:12,090 --> 00:02:17,090
+Now let's imagine that you're tasked with creating the program for a self-
+
+36
+00:02:18,150 --> 00:02:21,090
+driving car. Now, as you can imagine,
+
+37
+00:02:21,090 --> 00:02:24,660
+this is a pretty complex project and it's many,
+
+38
+00:02:24,660 --> 00:02:29,220
+many notches above the coffee machine that we've been struggling with so far.
+
+39
+00:02:29,970 --> 00:02:33,630
+But what if you broke it down? What is a self-driving car?
+
+40
+00:02:34,020 --> 00:02:38,160
+What are the different components that make up a self-driving car? Well,
+
+41
+00:02:38,220 --> 00:02:43,220
+it probably needs some sort of camera module to keep track of what's on the road
+
+42
+00:02:43,560 --> 00:02:45,360
+and to recognize what's on the road,
+
+43
+00:02:45,990 --> 00:02:50,990
+it will probably need a form of lane detection to know if we're actually within
+
+44
+00:02:51,750 --> 00:02:56,750
+the lane or if we need to turn off or if we need to park, and it will need some
+
+45
+00:02:58,560 --> 00:03:02,740
+way of navigating so that when the user says, I want to go to the bank,
+
+46
+00:03:02,980 --> 00:03:05,290
+they identify the branch they want to go to,
+
+47
+00:03:05,380 --> 00:03:09,370
+and then the navigation gets set up and the car knows how to get there.
+
+48
+00:03:09,940 --> 00:03:14,080
+And finally, you'll probably need some form of fuel management, right?
+
+49
+00:03:14,140 --> 00:03:16,330
+What should happen when the fuel gets low?
+
+50
+00:03:16,660 --> 00:03:20,290
+Should it go and automatically recharge at a specified point?
+
+51
+00:03:20,800 --> 00:03:24,010
+Now I'm obviously simplifying this task. There's a lot,
+
+52
+00:03:24,010 --> 00:03:27,160
+a lot more that goes into making an automated car.
+
+53
+00:03:27,730 --> 00:03:32,140
+But we've already managed to break it down into several modules that we can
+
+54
+00:03:32,320 --> 00:03:34,000
+think about tackling, right?
+
+55
+00:03:34,540 --> 00:03:39,540
+But imagine if you have a whole team who are all working on this project and
+
+56
+00:03:39,790 --> 00:03:40,750
+within that team,
+
+57
+00:03:40,750 --> 00:03:45,010
+there's sub-teams who are working on each of these different modules.
+
+58
+00:03:45,490 --> 00:03:50,490
+Well then by splitting up this big complex task into separate modules,
+
+59
+00:03:51,520 --> 00:03:54,640
+then we can all work on this car simultaneously,
+
+60
+00:03:55,570 --> 00:03:57,820
+massively improving our productivity,
+
+61
+00:03:58,180 --> 00:04:02,500
+making it much quicker to eventually build all the software for this car.
+
+62
+00:04:03,280 --> 00:04:06,850
+Plus on top of that, a lot of these modules are reusable.
+
+63
+00:04:07,270 --> 00:04:12,270
+So if it just so happens that the next year we're tasked with building a drone,
+
+64
+00:04:12,640 --> 00:04:16,390
+well, a lot of those programming modules that we built, like the camera module,
+
+65
+00:04:16,390 --> 00:04:18,700
+the fuel management, the navigation,
+
+66
+00:04:18,910 --> 00:04:23,910
+that's all going to be incredibly useful in our drone delivery software as well.
+
+67
+00:04:24,370 --> 00:04:29,370
+And because we've taken out these individual chunks of code and modularized them
+
+68
+00:04:29,890 --> 00:04:32,020
+using Object Oriented Programming,
+
+69
+00:04:32,260 --> 00:04:36,340
+we won't have to code them up again in the same way that we might need to
+
+70
+00:04:36,460 --> 00:04:38,380
+if we were using procedural programming.
+
+71
+00:04:39,180 --> 00:04:44,180
+So what exactly is all Object Oriented Programming? We've seen that we can split
+
+72
+00:04:46,140 --> 00:04:49,620
+a larger task into that smaller pieces.
+
+73
+00:04:50,070 --> 00:04:54,690
+And each of those pieces can be worked on by separate teams, separate people,
+
+74
+00:04:54,990 --> 00:04:59,460
+and also each of those pieces become reusable if we need the same
+
+75
+00:04:59,460 --> 00:05:03,030
+functionality in the future. But Object Oriented
+
+76
+00:05:03,030 --> 00:05:05,940
+Programming actually takes that concept even further.
+
+77
+00:05:06,510 --> 00:05:08,130
+And I think the best way to explain it
+
+78
+00:05:08,340 --> 00:05:11,730
+is to imagine that you are tasked with running a restaurant.
+
+79
+00:05:12,420 --> 00:05:16,320
+So you take over this restaurant from your long lost uncle
+
+80
+00:05:16,440 --> 00:05:19,980
+and you realize that it's actually really hard running a restaurant.
+
+81
+00:05:20,550 --> 00:05:25,550
+So, first off, you have to be the receptionist and you reserve seats for your
+
+82
+00:05:26,220 --> 00:05:29,400
+restaurant visitor's and then when they order something,
+
+83
+00:05:29,430 --> 00:05:32,520
+you have to be the waitress and bring them their order.
+
+84
+00:05:32,970 --> 00:05:35,370
+And then of course the order needs to be cooked up, right?
+
+85
+00:05:35,370 --> 00:05:39,600
+So you're also gonna run into the kitchen and be the chef, create the thing that
+
+86
+00:05:39,600 --> 00:05:41,130
+they ordered and finally,
+
+87
+00:05:41,130 --> 00:05:44,550
+you're also going to be the cleaner tidying up after everybody
+
+88
+00:05:44,580 --> 00:05:47,070
+once they've left. As you can imagine,
+
+89
+00:05:47,070 --> 00:05:50,280
+if you were one person having to do all of these tasks,
+
+90
+00:05:50,730 --> 00:05:55,410
+that's going to be a pretty rough day. There are in fact one-man restaurants,
+
+91
+00:05:55,500 --> 00:05:58,310
+and I've seen some work really in well Japan,
+
+92
+00:05:58,700 --> 00:06:01,970
+where you have one person who's taking the order,
+
+93
+00:06:02,300 --> 00:06:05,300
+who's making the food, who's tidying up after you.
+
+94
+00:06:05,720 --> 00:06:10,040
+But the limitation here though, is that look at how many seats he has.
+
+95
+00:06:10,190 --> 00:06:15,190
+You can't have a large restaurant running everything by yourself. In the same
+
+96
+00:06:16,340 --> 00:06:20,780
+way we can't create a very complex and really large software project
+
+97
+00:06:21,170 --> 00:06:25,370
+if we are using a procedural style of programming where we're sort of running a
+
+98
+00:06:25,370 --> 00:06:27,380
+one man band. It gets very,
+
+99
+00:06:27,380 --> 00:06:30,620
+very complex and very hard to manage very quickly.
+
+100
+00:06:31,280 --> 00:06:33,260
+So lets consider the alternative.
+
+101
+00:06:33,770 --> 00:06:38,770
+What if we had just hired a bunch of people where they each have their own
+
+102
+00:06:39,290 --> 00:06:42,590
+individual roles. They're trained for it, they know what to do.
+
+103
+00:06:42,800 --> 00:06:46,940
+The waiter knows how to wait and the chef knows how to cook. Well,
+
+104
+00:06:46,940 --> 00:06:47,600
+in this case,
+
+105
+00:06:47,600 --> 00:06:52,600
+you could just be the manager and you can manage all of your staff and tell them
+
+106
+00:06:53,210 --> 00:06:54,560
+what it is that they need to do.
+
+107
+00:06:54,980 --> 00:06:59,510
+But then you won't have to worry about the nitty-gritty details of exactly how
+
+108
+00:06:59,510 --> 00:07:02,660
+they need to go about doing their jobs. So for example,
+
+109
+00:07:02,660 --> 00:07:04,040
+you don't need to tell the waiter
+
+110
+00:07:04,050 --> 00:07:08,300
+how to wait on customers and you don't need to tell the chef how to cook an egg
+
+111
+00:07:08,450 --> 00:07:10,370
+because they already know how to do that.
+
+112
+00:07:11,000 --> 00:07:16,000
+And we can use the same concept to simplify the relationships in our code and
+
+113
+00:07:17,090 --> 00:07:21,080
+make it scalable for a larger and more complex project.
+
+
+114
+00:00:00,060 --> 00:00:04,620
+We've seen a little bit of why Object Oriented Programming is really useful,
+
+115
+00:00:04,980 --> 00:00:09,510
+but now let's take a look at how you would actually go about implementing Object
+
+116
+00:00:09,510 --> 00:00:10,530
+Oriented Programming.
+
+117
+00:00:11,370 --> 00:00:15,240
+So in the last lesson we talked of this example of the restaurant,
+
+118
+00:00:15,750 --> 00:00:18,600
+where we hired three types of staff,
+
+119
+00:00:19,020 --> 00:00:24,020
+and we had a manager who would then manage all of these three different types of
+
+120
+00:00:24,300 --> 00:00:25,830
+staff. Now,
+
+121
+00:00:26,160 --> 00:00:31,160
+the reason why Object Oriented Programming is called that is because it's trying
+
+122
+00:00:31,410 --> 00:00:34,350
+to model a real world object.
+
+123
+00:00:34,770 --> 00:00:39,570
+So let's say that we are creating a virtual restaurant. Well, in this case,
+
+124
+00:00:39,570 --> 00:00:43,320
+we probably have to model a virtual chef, waiter,
+
+125
+00:00:43,350 --> 00:00:44,760
+cleaner, and manager.
+
+126
+00:00:45,270 --> 00:00:50,270
+So let's say that we were going to model a waiter. In order to model our waiter,
+
+127
+00:00:50,910 --> 00:00:55,910
+there's probably two things we need to think about: what it has and what it does.
+
+128
+00:00:56,790 --> 00:01:00,540
+In terms of what it has, well, it might have variables like,
+
+129
+00:01:00,570 --> 00:01:02,790
+is it holding a plate, true or false?
+
+130
+00:01:03,360 --> 00:01:08,360
+Or which tables is it responsible for? Maybe table 4, 5 and 6.
+
+131
+00:01:09,510 --> 00:01:11,940
+Now it also has things that it does.
+
+132
+00:01:12,390 --> 00:01:17,390
+Maybe they're able to take an order to the chef and maybe they also need to take
+
+133
+00:01:17,670 --> 00:01:22,470
+payments and add money to the restaurant. So these two different things,
+
+134
+00:01:22,500 --> 00:01:25,650
+what the waiter has and what the waiter does are
+
+135
+00:01:25,650 --> 00:01:30,650
+the two most important things that make up an object: its attributes and its
+
+136
+00:01:32,520 --> 00:01:34,980
+methods. By looking at the code,
+
+137
+00:01:35,010 --> 00:01:39,750
+you can pretty much see that the attributes is basically a variable.
+
+138
+00:01:40,260 --> 00:01:45,260
+An attribute is just a fancy word for a variable that's associated with a
+
+139
+00:01:46,410 --> 00:01:48,660
+modeled object like our waiter here.
+
+140
+00:01:49,260 --> 00:01:52,500
+Because it's not just a free floating bit of a variable, right?
+
+141
+00:01:52,500 --> 00:01:54,690
+It's not just somewhere in our main.py.
+
+142
+00:01:55,050 --> 00:01:59,130
+It's actually a variable that's attached to a particular object.
+
+143
+00:01:59,400 --> 00:02:02,130
+It's the waiter's tables responsible.
+
+144
+00:02:02,850 --> 00:02:05,970
+Now the method goes along the same vein. These,
+
+145
+00:02:06,060 --> 00:02:08,520
+as you can clearly see, are just functions
+
+146
+00:02:09,090 --> 00:02:14,090
+but we call it a method because it's a function that a particular modeled
+
+147
+00:02:14,730 --> 00:02:16,500
+object can do.
+
+148
+00:02:17,160 --> 00:02:22,160
+We need a waiter object to take the order and we need a waiter object to take
+
+149
+00:02:22,260 --> 00:02:25,950
+payment. Again, these are not just free-floating functions.
+
+150
+00:02:26,520 --> 00:02:31,520
+Now, there's a lot of new words that are part of Object Oriented Programming and
+
+151
+00:02:31,740 --> 00:02:35,160
+programming in general, we're going to see them again and again,
+
+152
+00:02:35,220 --> 00:02:38,160
+and eventually it's going to become a word that's going to be in your
+
+153
+00:02:38,160 --> 00:02:42,720
+dictionary. But for now, just remember that in Object Oriented
+
+154
+00:02:42,720 --> 00:02:43,350
+Programming,
+
+155
+00:02:43,350 --> 00:02:48,350
+we're trying to model real-life objects and those objects have things
+
+156
+00:02:49,590 --> 00:02:51,720
+and they also can do things.
+
+157
+00:02:52,110 --> 00:02:54,780
+The things that they have are their attributes
+
+158
+00:02:55,200 --> 00:02:59,980
+and these are usually modeled with variables, and the things that they can do
+
+159
+00:03:00,280 --> 00:03:03,400
+are called methods and they are modeled by functions.
+
+160
+00:03:04,060 --> 00:03:09,060
+So essentially, an object is just a way of combining some piece of data and some
+
+161
+00:03:10,810 --> 00:03:14,170
+functionality altogether in the same thing.
+
+162
+00:03:15,370 --> 00:03:20,370
+But we can actually have multiple objects generated from the same type.
+
+163
+00:03:21,190 --> 00:03:24,940
+So when we've modeled a particular job in our virtual restaurant
+
+164
+00:03:25,030 --> 00:03:26,800
+like the waiter's job,
+
+165
+00:03:27,490 --> 00:03:31,090
+and we figured out what are the things that the waiter have and what are the
+
+166
+00:03:31,090 --> 00:03:33,220
+things that it can do, well,
+
+167
+00:03:33,220 --> 00:03:38,220
+we can actually generate multiple versions of the same object. So we could have
+
+168
+00:03:38,950 --> 00:03:43,270
+Henry who's a waiter and we can also have Betty who's a waiter,
+
+169
+00:03:43,840 --> 00:03:48,460
+and we can generate as many of these as we want from the same blueprint.
+
+170
+00:03:48,970 --> 00:03:53,970
+And in OOP we call this blueprint, or this type, a class.
+
+171
+00:03:56,170 --> 00:04:01,170
+And we call these individual objects that are generated from the blueprint
+
+172
+00:04:01,480 --> 00:04:02,320
+an object.
+
+173
+00:04:03,070 --> 00:04:08,070
+So now let's take a look at how you use these class blueprints to create an actual
+
+174
+00:04:08,380 --> 00:04:08,950
+object.
+
+
+175
+00:00:00,000 --> 00:00:05,000
+[inaudible]
+
+176
+00:00:06,020 --> 00:00:08,210
+So here's a blueprint for a car.
+
+177
+00:00:08,840 --> 00:00:13,010
+And that blueprint that specifies what the color of the car is,
+
+178
+00:00:13,010 --> 00:00:17,900
+how many wheels it should have, what its mileage is, how much fuel it has,
+
+179
+00:00:17,900 --> 00:00:22,310
+all of those bits of data combined with all of its functionality
+
+180
+00:00:22,340 --> 00:00:26,840
+like the ability to drive, the ability to stop and break.
+
+181
+00:00:27,470 --> 00:00:32,470
+And that blueprint which models a real-life car is known as the class.
+
+182
+00:00:33,380 --> 00:00:35,060
+And it's from this blueprint,
+
+183
+00:00:35,060 --> 00:00:40,040
+this class, that we can generate as many objects as we want. Now,
+
+184
+00:00:40,040 --> 00:00:43,970
+the object is the actual thing that we're going to be using in our code.
+
+185
+00:00:44,720 --> 00:00:47,090
+The code equivalent of what just happened,
+
+186
+00:00:47,150 --> 00:00:50,300
+creating a new object from a blueprint,
+
+187
+00:00:50,480 --> 00:00:54,770
+looks like this in Python. You have the class
+
+188
+00:00:55,010 --> 00:00:59,930
+which is normally written with the first letter of each word capitalized,
+
+189
+00:01:00,350 --> 00:01:02,510
+which is known as Pascal case.
+
+190
+00:01:03,230 --> 00:01:08,030
+This is to differentiate it from all the variable and function names that we
+
+191
+00:01:08,030 --> 00:01:12,140
+give in Python, where each word is separated by underscores.
+
+192
+00:01:12,740 --> 00:01:13,790
+So in this case,
+
+193
+00:01:14,090 --> 00:01:19,090
+the car is the object and it gets created from this car blueprint.
+
+194
+00:01:21,320 --> 00:01:26,320
+All we have to do to create the object from the class is to give the object a
+
+195
+00:01:27,260 --> 00:01:32,150
+name, it can be anything you want, set it equal to the name of the class,
+
+196
+00:01:32,570 --> 00:01:36,920
+and then the parentheses, which in the same way as it activates the function,
+
+197
+00:01:37,220 --> 00:01:41,090
+it activates the construction of this object from the blueprint.
+
+198
+00:01:41,990 --> 00:01:46,220
+Now, in order for us to practice this and to see it in action,
+
+199
+00:01:46,580 --> 00:01:51,170
+we're going to using a library of code that somebody else has created.
+
+200
+00:01:51,830 --> 00:01:56,830
+And what it allows us to do is to finally start putting graphics onto the
+
+201
+00:01:57,290 --> 00:01:59,990
+screen. The premise is really simple.
+
+202
+00:02:00,410 --> 00:02:05,240
+Let's say that somebody somewhere has created a blueprint for a turtle.
+
+203
+00:02:05,870 --> 00:02:09,050
+Now this turtle has a paintbrush on its back,
+
+204
+00:02:09,500 --> 00:02:13,460
+and you can tell the turtle to dip the paintbrush in different colors,
+
+205
+00:02:13,790 --> 00:02:17,120
+pick a different of size paint brushes and most importantly,
+
+206
+00:02:17,210 --> 00:02:19,430
+you can tell it to draw onto the screen.
+
+207
+00:02:20,300 --> 00:02:25,300
+This library is called turtle graphics and it's preloaded with every download of
+
+208
+00:02:25,820 --> 00:02:29,150
+Python so we can get started with it straight away.
+
+209
+00:02:30,200 --> 00:02:34,100
+So go ahead and open up PyCharm and create a new project.
+
+210
+00:02:34,700 --> 00:02:39,440
+Now I'm going to call mine, buy the old convention day 16 start
+
+211
+00:02:41,240 --> 00:02:45,350
+and making sure that I'm on the latest version of Python in my base interpreter,
+
+212
+00:02:45,680 --> 00:02:50,660
+I'm going to click create. Now, once you've created the new project,
+
+213
+00:02:51,080 --> 00:02:54,800
+go ahead and create the main.py as we have always done.
+
+214
+00:02:55,310 --> 00:02:56,143
+In our case,
+
+215
+00:02:56,150 --> 00:03:00,610
+we're going to be creating an object from a blueprint that somebody else has
+
+216
+00:03:00,610 --> 00:03:01,630
+already created,
+
+217
+00:03:02,230 --> 00:03:05,650
+and the blueprint lives in another module called turtle.
+
+218
+00:03:05,890 --> 00:03:07,990
+So we'll have to import that module.
+
+219
+00:03:09,190 --> 00:03:11,680
+And we know that from previously,
+
+220
+00:03:11,710 --> 00:03:16,710
+we can import other modules and use the things that are declared inside the
+
+221
+00:03:17,110 --> 00:03:21,340
+module by importing it, and then tapping into various things in there.
+
+222
+00:03:21,790 --> 00:03:25,600
+So for example, if I was to go and create another new file
+
+223
+00:03:25,810 --> 00:03:27,400
+which I'll call another_module.
+
+224
+00:03:29,470 --> 00:03:33,250
+Now inside another_module, let's say I create another variable.
+
+225
+00:03:34,810 --> 00:03:38,290
+And now I can go back to my main.py,
+
+226
+00:03:38,320 --> 00:03:42,190
+I can import my another_module I just created
+
+227
+00:03:42,580 --> 00:03:44,920
+and I can tap into that variable
+
+228
+00:03:44,950 --> 00:03:49,950
+that's inside another module by saying another module dot another variable.
+
+229
+00:03:51,100 --> 00:03:54,010
+Now let's go ahead and run this code as it is.
+
+230
+00:03:55,570 --> 00:04:00,400
+And you can see the value of that variable from the other module being used
+
+231
+00:04:00,430 --> 00:04:02,200
+inside our main.py.
+
+232
+00:04:03,070 --> 00:04:07,510
+Now I want to do the same thing using turtle, but in this case,
+
+233
+00:04:07,540 --> 00:04:11,050
+I want to tap into the class called turtle
+
+234
+00:04:11,320 --> 00:04:16,269
+that's declared inside this turtle module. The wording's a little bit confusing,
+
+235
+00:04:16,300 --> 00:04:17,500
+but let me show you what I mean.
+
+236
+00:04:18,070 --> 00:04:23,070
+So I'm going to tap into the turtle module and I'm going to get hold of a
+
+237
+00:04:24,640 --> 00:04:28,390
+turtle class. So notice how it's got the C here
+
+238
+00:04:28,690 --> 00:04:33,070
+denoting that this is a blueprint for creating a new turtle
+
+239
+00:04:33,070 --> 00:04:38,070
+object. Now, remember that to actually construct the object
+
+240
+00:04:38,770 --> 00:04:41,260
+we need to add the parentheses at the end,
+
+241
+00:04:41,710 --> 00:04:46,600
+and now we can save all of this into an actual object, which we get to name.
+
+242
+00:04:47,020 --> 00:04:49,180
+So I'm going to call my turtle timmy
+
+243
+00:04:49,870 --> 00:04:54,790
+and now I've got a new turtle object. Essentially,
+
+244
+00:04:54,790 --> 00:04:57,550
+we've done the same thing as we have done up here.
+
+245
+00:04:58,060 --> 00:05:01,090
+We've imported a module called turtle,
+
+246
+00:05:01,630 --> 00:05:05,140
+we've tapped into that turtle module here,
+
+247
+00:05:05,620 --> 00:05:09,460
+and then we've fetched something from that module. In this case,
+
+248
+00:05:09,460 --> 00:05:10,990
+it's a variable. And in this case,
+
+249
+00:05:11,020 --> 00:05:15,580
+it's a class which is denoted by the capital T, the Pascal case here.
+
+250
+00:05:16,300 --> 00:05:19,300
+And then we've used the parentheses to initialize
+
+251
+00:05:19,330 --> 00:05:22,870
+or basically construct an object from that blueprint
+
+252
+00:05:23,230 --> 00:05:26,530
+and we've saved it into an object called Timmy.
+
+253
+00:05:27,550 --> 00:05:31,990
+Now I can simplify this code to make it look more like what we had in the slides
+
+254
+00:05:32,290 --> 00:05:35,380
+by saying, instead of import turtle, I can say from,
+
+255
+00:05:35,380 --> 00:05:39,850
+from the turtle module import the turtle class.
+
+256
+00:05:40,420 --> 00:05:43,150
+So now, instead of writing all of this,
+
+257
+00:05:43,210 --> 00:05:45,520
+I can simply just write Timmy
+
+258
+00:05:45,790 --> 00:05:50,790
+equals a new object created from the turtle class and it's constructed.
+
+259
+00:05:52,000 --> 00:05:55,540
+This is how we would construct our new object.
+
+260
+00:05:56,770 --> 00:05:59,780
+So now I have this brand new object called Timmy
+
+261
+00:06:00,290 --> 00:06:02,480
+and if I go ahead and print timmy
+
+262
+00:06:02,900 --> 00:06:07,900
+you can see that when I run this code what gets printed is a new turtle object
+
+263
+00:06:09,770 --> 00:06:11,180
+from the turtle module
+
+264
+00:06:11,480 --> 00:06:14,990
+and it's saved at this location in the computer's memory.
+
+265
+00:06:15,590 --> 00:06:17,690
+So this is very different from say
+
+266
+00:06:17,690 --> 00:06:21,050
+if we just printed a string or a number.
+
+267
+00:06:21,440 --> 00:06:24,710
+It works completely differently. In this case,
+
+268
+00:06:24,740 --> 00:06:29,660
+it's actually a object that's being printed. Now,
+
+269
+00:06:29,660 --> 00:06:31,640
+what can we do with this object?
+
+270
+00:06:32,380 --> 00:06:37,380
+[inaudible]
+
+271
+00:06:37,660 --> 00:06:40,480
+Now, as we saw before with our car
+
+272
+00:06:40,510 --> 00:06:44,440
+object it has certain attributes, right?
+
+273
+00:06:44,680 --> 00:06:49,680
+Like speed and fuel, data that it could keep track of that are really important
+
+274
+00:06:51,190 --> 00:06:55,720
+to the modeling of an actual car object. Now,
+
+275
+00:06:55,720 --> 00:06:58,720
+when it comes to accessing these attributes,
+
+276
+00:06:58,840 --> 00:07:03,840
+the syntax or the code looks like this. Car in this case is the object
+
+277
+00:07:04,480 --> 00:07:09,480
+and then we use a dot or a full stop to separate the object from the actual
+
+278
+00:07:10,960 --> 00:07:14,530
+attribute that we want to get hold of, which in this case is speed.
+
+279
+00:07:15,100 --> 00:07:18,940
+What this code does is it essentially identifies the object
+
+280
+00:07:19,660 --> 00:07:23,590
+and then it says, from this object get the speed attribute.
+
+281
+00:07:24,130 --> 00:07:28,030
+This is actually gonna represent the speed of this particular car
+
+282
+00:07:28,030 --> 00:07:31,270
+object. Coming back to our turtle.
+
+283
+00:07:31,900 --> 00:07:36,900
+One of the other classes that is inside this turtle module is something called
+
+284
+00:07:37,480 --> 00:07:38,313
+screen.
+
+285
+00:07:38,680 --> 00:07:43,680
+And the screen represents the window in which this turtle is going to show up.
+
+286
+00:07:45,400 --> 00:07:47,320
+So let's go ahead and create this screen
+
+287
+00:07:47,320 --> 00:07:50,260
+object. I'm going to call my object my_screen
+
+288
+00:07:50,800 --> 00:07:54,970
+and then I'm going to create it from this blueprint of a screen that we
+
+289
+00:07:54,970 --> 00:07:59,320
+imported. Now we can tap into one of the screens properties
+
+290
+00:07:59,770 --> 00:08:03,070
+which is called the canvas height and canvas width.
+
+291
+00:08:03,370 --> 00:08:07,690
+So let's see what the height is, and notice how we're using that dot notation.
+
+292
+00:08:07,960 --> 00:08:12,670
+So this is the object and then separated by a dot we've got the attributes that
+
+293
+00:08:12,670 --> 00:08:14,980
+we want to access from this object.
+
+294
+00:08:15,400 --> 00:08:19,390
+So I'm going to print that into the console. Now,
+
+295
+00:08:19,390 --> 00:08:21,220
+when I go ahead and run this code,
+
+296
+00:08:21,550 --> 00:08:25,030
+you'll see a window pop up very briefly
+
+297
+00:08:25,480 --> 00:08:29,530
+and that was the screen on which our turtle is going to show up.
+
+298
+00:08:31,060 --> 00:08:33,850
+Now, if you take a look in the console,
+
+299
+00:08:34,150 --> 00:08:37,510
+you can see that not only have we printed the turtle object,
+
+300
+00:08:37,840 --> 00:08:42,840
+but we've also printed the height of the canvas for this particular screen that
+
+301
+00:08:43,600 --> 00:08:44,500
+we've created.
+
+302
+00:08:45,610 --> 00:08:50,380
+So the screen here is the object and that canvas height is an attribute that's
+
+303
+00:08:50,380 --> 00:08:52,360
+associated with that screen.
+
+304
+00:08:58,910 --> 00:09:02,540
+Now, in addition to the things that an object has,
+
+305
+00:09:02,780 --> 00:09:06,140
+so data that it holds like the speed or the fuel
+
+306
+00:09:06,470 --> 00:09:11,060
+which we've already seen, it also has things that it can do, right?
+
+307
+00:09:11,060 --> 00:09:16,060
+So functions that are associated with that particular object. And these functions
+
+308
+00:09:16,730 --> 00:09:19,880
+when it's tied to an object is known as a method.
+
+309
+00:09:20,630 --> 00:09:24,530
+But essentially we would use it the same way as we have done with any other
+
+310
+00:09:24,530 --> 00:09:26,330
+function that we've created so far.
+
+311
+00:09:27,560 --> 00:09:30,980
+The only difference is the syntax. Firstly,
+
+312
+00:09:31,010 --> 00:09:35,570
+we would tap into the car object and then using that same dot notation that
+
+313
+00:09:35,570 --> 00:09:39,500
+we saw with the attributes, we're saying car.stop.
+
+314
+00:09:39,710 --> 00:09:43,640
+So essentially what we're doing is we're getting hold of the object and then
+
+315
+00:09:43,640 --> 00:09:47,870
+we're calling this function that's associated with that object,
+
+316
+00:09:48,170 --> 00:09:52,790
+which is known as a method. So coming back to our code here,
+
+317
+00:09:53,060 --> 00:09:57,830
+one of the things that we can do with this screen object that we've created here
+
+318
+00:09:58,070 --> 00:10:02,840
+called my_screen is we can tap into one of its functions.
+
+319
+00:10:03,320 --> 00:10:06,110
+And because it's a function that's tied to an object,
+
+320
+00:10:06,110 --> 00:10:07,640
+it's actually called a method.
+
+321
+00:10:08,150 --> 00:10:11,930
+So the method name is called exitonclick.
+
+322
+00:10:12,530 --> 00:10:17,390
+And what this will allow us to do is instead of having our screen show up and
+
+323
+00:10:17,390 --> 00:10:20,510
+then quickly disappear when our code ends,
+
+324
+00:10:21,110 --> 00:10:26,110
+this exitonclick will allow our program to continue running until we click on
+
+325
+00:10:27,980 --> 00:10:30,530
+the screen and then it exits our code.
+
+326
+00:10:31,010 --> 00:10:36,010
+So let's try this again and notice how we've now got our screen show up
+
+327
+00:10:36,770 --> 00:10:41,240
+and this canvas has a height of 300 and a width of 300,
+
+328
+00:10:41,930 --> 00:10:46,730
+but now we can see our turtle in the form of the arrow. So this is our
+
+329
+00:10:46,730 --> 00:10:48,830
+a little Timmy shown up in the middle.
+
+330
+00:10:49,280 --> 00:10:53,600
+And our code is only going to exit when the screen detects a click
+
+331
+00:10:53,720 --> 00:10:58,720
+because we've called this function that's associated with the screen object.
+
+332
+00:10:59,000 --> 00:11:00,530
+So now if I click on the screen,
+
+333
+00:11:00,800 --> 00:11:05,390
+you can see process finished with exit code zero, our code is ended and the screen
+
+334
+00:11:05,390 --> 00:11:08,900
+has disappeared. Now there are other functions as well.
+
+335
+00:11:08,900 --> 00:11:13,310
+So if we take our little timmy object and we say, well, timmy,
+
+336
+00:11:13,520 --> 00:11:17,090
+why don't we change the shape of you on the screen
+
+337
+00:11:17,150 --> 00:11:19,550
+and we'll change you into an actual turtle?
+
+338
+00:11:20,750 --> 00:11:22,310
+So now when I run the code,
+
+339
+00:11:23,180 --> 00:11:27,770
+you can see that object in the center is now in the shape of a turtle.
+
+340
+00:11:29,000 --> 00:11:29,300
+Now,
+
+341
+00:11:29,300 --> 00:11:33,590
+if you want to know how I know about all these things I can do with the turtle
+
+342
+00:11:33,590 --> 00:11:36,440
+graphics library, then of course,
+
+343
+00:11:36,470 --> 00:11:40,160
+I'm getting all of this information from the documentation.
+
+344
+00:11:40,610 --> 00:11:42,200
+So in the course resources,
+
+345
+00:11:42,230 --> 00:11:45,740
+you'll see a link to this Turtle graphics documentation,
+
+346
+00:11:46,160 --> 00:11:49,520
+and it tells you all the things that you can do with your turtle.
+
+347
+00:11:49,940 --> 00:11:50,900
+So for example,
+
+348
+00:11:50,900 --> 00:11:55,510
+you can call all of these methods that are associated with your turtle object to
+
+349
+00:11:55,510 --> 00:11:58,180
+get your turtle to move and draw,
+
+350
+00:11:58,540 --> 00:12:03,400
+and you can also use it to change its position or change its coordinates,
+
+351
+00:12:03,580 --> 00:12:07,720
+as well as doing things like changing the color or resetting.
+
+352
+00:12:08,140 --> 00:12:12,250
+And you can browse through this list to see how you would use each of these
+
+353
+00:12:12,250 --> 00:12:15,040
+things. So for example,
+
+354
+00:12:15,370 --> 00:12:18,550
+if I wanted to change the color of my turtle,
+
+355
+00:12:18,880 --> 00:12:22,600
+I can do that by simply just calling this method, color,
+
+356
+00:12:23,020 --> 00:12:25,420
+and then inside the parentheses
+
+357
+00:12:25,450 --> 00:12:29,650
+I pass in the argument of the actual color string.
+
+358
+00:12:30,400 --> 00:12:35,400
+Now you can choose from a whole range of colors just by putting in the name as a
+
+359
+00:12:36,280 --> 00:12:40,240
+string into that method which is called color.
+
+360
+00:12:40,870 --> 00:12:45,870
+So go ahead and see if you can change our turtle timmy's color from the default
+
+361
+00:12:46,960 --> 00:12:51,960
+which is just black to one of the colors that you see in this link here,
+
+362
+00:12:53,290 --> 00:12:55,840
+and the link, of course, is in the course resources.
+
+363
+00:12:59,170 --> 00:13:03,070
+So let's say I want to change it to a coral color like this one.
+
+364
+00:13:03,670 --> 00:13:07,510
+All I have to do is tap into my object which is called timmy,
+
+365
+00:13:08,050 --> 00:13:11,860
+and then call the method which is called color onto it.
+
+366
+00:13:12,220 --> 00:13:14,260
+And you can see all the methods are 
+
+367
+00:13:14,260 --> 00:13:16,870
+denoted by a little M here in the circle.
+
+368
+00:13:17,500 --> 00:13:21,520
+Now this color, of course, expects some sort of input.
+
+369
+00:13:22,180 --> 00:13:27,180
+So the input that it expects is a actual string of a color.
+
+370
+00:13:28,030 --> 00:13:32,500
+And my string is going to be coral, which I picked up from here.
+
+371
+00:13:33,640 --> 00:13:37,510
+So now let's run our code and see what it looks like now.
+
+372
+00:13:37,960 --> 00:13:39,580
+Once the screen refreshes,
+
+373
+00:13:39,610 --> 00:13:43,090
+you can see that our turtle is now a nice coral color,
+
+374
+00:13:43,600 --> 00:13:46,990
+and we've managed to do all of this to change the shape,
+
+375
+00:13:47,020 --> 00:13:52,020
+change the color, all because we were able to call these functions
+
+376
+00:13:52,720 --> 00:13:53,800
+which belong to this
+
+377
+00:13:53,800 --> 00:13:58,800
+object. Now see if you can use the documentation here and figure out how to get the
+
+378
+00:13:59,440 --> 00:14:02,560
+turtle to move forward by a hundred paces.
+
+379
+00:14:03,760 --> 00:14:06,250
+Pause the video and try to complete this challenge.
+
+380
+00:14:08,860 --> 00:14:09,190
+All right.
+
+381
+00:14:09,190 --> 00:14:13,420
+So we saw earlier that it has a whole bunch of move and draw methods.
+
+382
+00:14:13,870 --> 00:14:18,550
+So we can simply use this forward method to get it to move forward.
+
+383
+00:14:19,030 --> 00:14:21,070
+And in terms of the parameters that it takes,
+
+384
+00:14:21,340 --> 00:14:25,750
+it takes a number which is going to determine the distance that it's going to
+
+385
+00:14:25,750 --> 00:14:26,740
+move forward by.
+
+386
+00:14:27,580 --> 00:14:31,600
+So we said that we wanted our turtle to move forward by a hundred paces.
+
+387
+00:14:33,040 --> 00:14:37,900
+All I have to do is specify the object that I want to move which is timmy,
+
+388
+00:14:38,470 --> 00:14:43,360
+and then call that method forward and pass in the distance.
+
+389
+00:14:43,450 --> 00:14:47,650
+So I said a hundred paces. So now let's run our code again,
+
+390
+00:14:48,430 --> 00:14:53,180
+and you can see that little turtle just move forward by a hundred paces.
+
+391
+00:14:53,630 --> 00:14:58,630
+So now we've seen how to create a new Object from a blueprint,
+
+392
+00:15:00,020 --> 00:15:05,020
+we've seen how we can tap into its attributes by using the object name dot and
+
+393
+00:15:08,060 --> 00:15:09,350
+then the name of the attribute.
+
+394
+00:15:09,650 --> 00:15:14,450
+So this is the same as having a variable that's associated with that object.
+
+395
+00:15:14,930 --> 00:15:15,590
+And finally,
+
+396
+00:15:15,590 --> 00:15:20,300
+we've seen how we can call methods that are associated with the object.
+
+397
+00:15:20,540 --> 00:15:21,410
+For example, here
+
+398
+00:15:21,410 --> 00:15:25,190
+when we changed the shape or when we changed the color or when we told it to go
+
+399
+00:15:25,190 --> 00:15:27,830
+forwards. Now in the next lesson,
+
+400
+00:15:27,860 --> 00:15:32,000
+I'm going to show you how you can get hold of more external libraries
+
+401
+00:15:32,300 --> 00:15:37,160
+not just turtle, but a whole world of packages that you can tap into.
+
+402
+00:15:37,460 --> 00:15:42,230
+And you can start using these packages of code that other programmers have
+
+403
+00:15:42,230 --> 00:15:43,130
+already developed,
+
+404
+00:15:43,430 --> 00:15:48,430
+and simply by creating objects from the existing blueprints and reading the
+
+405
+00:15:48,710 --> 00:15:52,070
+documentation to get it to do various things that you want it to.
+
+406
+00:15:52,550 --> 00:15:55,580
+So for all of that and more, I'll see you on the next lesson.
+
+
+407
+00:00:00,330 --> 00:00:05,330
+Now I've mentioned a lot about using code that other developers have written and
+
+408
+00:00:05,939 --> 00:00:09,960
+the most common way to do this is through using packages of code.
+
+409
+00:00:10,710 --> 00:00:11,543
+In this lesson,
+
+410
+00:00:11,820 --> 00:00:16,200
+I'll show you how to integrate an existing package of code into our project so
+
+411
+00:00:16,200 --> 00:00:20,820
+that we can practice creating objects and working with attributes and methods.
+
+412
+00:00:21,480 --> 00:00:26,480
+Now we've seen modules of code where each file that we create in our project is
+
+413
+00:00:27,870 --> 00:00:29,850
+essentially a module in itself.
+
+414
+00:00:30,540 --> 00:00:35,540
+But a package differs from a module in the sense that it's actually a whole
+
+415
+00:00:36,120 --> 00:00:41,120
+bunch of code that other people have written, lots and lots of files all packaged
+
+416
+00:00:41,610 --> 00:00:46,470
+together to achieve some sort of goal or purpose. Now,
+
+417
+00:00:46,470 --> 00:00:51,450
+let's say that we wanted to create a table of Pokemon and their type.
+
+418
+00:00:51,780 --> 00:00:56,780
+So we wanted some way of documenting that Pikachu is an electric type and maybe
+
+419
+00:00:58,590 --> 00:01:01,950
+Squirtle is a water type. Now,
+
+420
+00:01:01,980 --> 00:01:06,930
+if we wanted to do that in ASCII so that we could print it in the console, well
+
+421
+00:01:06,930 --> 00:01:10,410
+then we would have to go about formatting it and it'll be quite painful.
+
+422
+00:01:10,800 --> 00:01:15,800
+So we might have to print some sort of pipe and then maybe we would have the
+
+423
+00:01:16,650 --> 00:01:20,580
+name of the field, so Pokemon name,
+
+424
+00:01:21,180 --> 00:01:25,410
+and then maybe another pipe. And then we would have the name of the next column,
+
+425
+00:01:25,740 --> 00:01:27,000
+which is their type.
+
+426
+00:01:27,720 --> 00:01:32,010
+And then finally we would close that off and then we would have to print some
+
+427
+00:01:32,010 --> 00:01:36,000
+sort of a horizontal line
+
+428
+00:01:36,120 --> 00:01:40,890
+maybe like this and so on and so forth just to create this table.
+
+429
+00:01:41,100 --> 00:01:45,660
+And it's quite difficult if you're not used to manipulating ASCII and
+
+430
+00:01:45,660 --> 00:01:49,080
+visualizing it. I certainly am not up to this task.
+
+431
+00:01:49,770 --> 00:01:52,500
+So what could we do instead? Well,
+
+432
+00:01:52,500 --> 00:01:57,500
+we could search for a package that other developers have created to achieve this
+
+433
+00:01:58,200 --> 00:02:02,880
+goal. And the place that we would do that is somewhere called PyPi,
+
+434
+00:02:03,330 --> 00:02:06,030
+which is the Python package index.
+
+435
+00:02:06,480 --> 00:02:11,480
+And this is a bunch of software for the Python programming language that is
+
+436
+00:02:11,640 --> 00:02:16,080
+developed and shared by the Python community. So we can see their source code,
+
+437
+00:02:16,350 --> 00:02:17,460
+but more importantly,
+
+438
+00:02:17,490 --> 00:02:22,290
+we can see how to implement the code and how to put it into our project.
+
+439
+00:02:23,190 --> 00:02:26,670
+In here, I'm going to search for something called prettytable.
+
+440
+00:02:27,600 --> 00:02:32,600
+And this is a very simple library that is going to help us to display tables in
+
+441
+00:02:34,410 --> 00:02:36,000
+a ASCII format.
+
+442
+00:02:36,780 --> 00:02:41,130
+We can click on the project links to find out more about it.
+
+443
+00:02:41,820 --> 00:02:45,150
+And this will take us to the Google code archive,
+
+444
+00:02:45,420 --> 00:02:47,370
+where the documentation is hosted.
+
+445
+00:02:47,940 --> 00:02:50,460
+If you go to Wikis and go to tutorial,
+
+446
+00:02:50,580 --> 00:02:53,700
+you'll see some documentation on how to use it.
+
+447
+00:02:54,210 --> 00:02:59,210
+Now, this particular package is not as extensive as the turtle graphics package.
+
+448
+00:03:00,760 --> 00:03:03,670
+So there's actually not a lot of things you can do with it,
+
+449
+00:03:04,090 --> 00:03:06,850
+but its got more than we need for our use case.
+
+450
+00:03:07,840 --> 00:03:12,640
+The first thing we have to do is to install this package into our project.
+
+451
+00:03:13,120 --> 00:03:15,220
+Now, unlike the turtle package
+
+452
+00:03:15,220 --> 00:03:19,780
+which is already preloaded with every copy of Python, in order to use the
+
+453
+00:03:19,780 --> 00:03:23,110
+packages that you find in the Python package index,
+
+454
+00:03:23,620 --> 00:03:25,660
+you actually have to install it.
+
+455
+00:03:25,750 --> 00:03:30,550
+So here's how we do it in PyCharm. First, go to the preferences,
+
+456
+00:03:30,730 --> 00:03:35,590
+so in Windows, I think it's under file and then preferences. On Mac is under 
+
+457
+00:03:35,590 --> 00:03:37,030
+PyCharm and then preferences.
+
+458
+00:03:37,600 --> 00:03:40,540
+And then here you'll see a whole bunch of things you can change
+
+459
+00:03:40,570 --> 00:03:44,950
+including the editor or appearance which we've already messed around with.
+
+460
+00:03:45,400 --> 00:03:47,770
+But I want you to click on your project.
+
+461
+00:03:47,950 --> 00:03:52,660
+So my project is called day-16-start and then we're going to go into the project
+
+462
+00:03:52,660 --> 00:03:57,660
+interpreter. And here we can click on the plus button to install any package that
+
+463
+00:04:00,310 --> 00:04:04,930
+you find in the Python package index. Make a note of what it's called.
+
+464
+00:04:05,020 --> 00:04:09,670
+So ours is called PrettyTable and then we're going to search for it inside the
+
+465
+00:04:09,670 --> 00:04:12,310
+available packages. And once we found it,
+
+466
+00:04:12,340 --> 00:04:14,650
+we're going to select it and then click install.
+
+467
+00:04:15,610 --> 00:04:16,990
+If you are working with Repl.it,
+
+468
+00:04:17,019 --> 00:04:21,010
+you can also install packages just by going to the packages tab
+
+469
+00:04:21,310 --> 00:04:26,050
+and then again, searching for PrettyTable. Once you click on the package 
+
+470
+00:04:26,050 --> 00:04:29,920
+that you want, click on the plus button to add it to your project.
+
+471
+00:04:30,640 --> 00:04:34,120
+Now Repl.it is a little bit weird because it says installing
+
+472
+00:04:34,120 --> 00:04:38,320
+but it never actually confirms the success. But once you click run,
+
+473
+00:04:38,440 --> 00:04:41,170
+everything will go through and it will work perfectly
+
+474
+00:04:41,440 --> 00:04:45,130
+as long as you see it in your list of packages here. Now,
+
+475
+00:04:45,130 --> 00:04:48,640
+if you want to remove the package, you can simply click on the minus button,
+
+476
+00:04:49,000 --> 00:04:50,650
+but now we're going to work with it.
+
+477
+00:04:52,450 --> 00:04:54,790
+So now it's installed successfully,
+
+478
+00:04:55,030 --> 00:04:57,790
+we can go ahead and close this down and click okay.
+
+479
+00:04:58,360 --> 00:05:02,650
+And we can now access this package called PrettyTable in our code.
+
+480
+00:05:03,220 --> 00:05:03,640
+Again,
+
+481
+00:05:03,640 --> 00:05:08,440
+I'm going to import it so I can say import prettytable.
+
+482
+00:05:08,560 --> 00:05:13,120
+And now I can use everything that's inside this package. Now,
+
+483
+00:05:13,150 --> 00:05:14,650
+if you want to see the source code,
+
+484
+00:05:14,830 --> 00:05:19,720
+you can actually right-click on it and select, go to, implementation.
+
+485
+00:05:19,780 --> 00:05:24,250
+And this will take you to the Python file where this entire prettytable is
+
+486
+00:05:24,250 --> 00:05:27,250
+implemented, so all of the code that they've written.
+
+487
+00:05:28,120 --> 00:05:31,330
+It's a little bit daunting and it's got a lot of code in it,
+
+488
+00:05:31,630 --> 00:05:35,620
+but we don't have to worry about how the code is created and how it works.
+
+489
+00:05:36,040 --> 00:05:41,040
+All we need to do is look at the documentation for this package and see how we
+
+490
+00:05:41,290 --> 00:05:45,190
+can implement it into our project. Now in the next lesson,
+
+491
+00:05:45,460 --> 00:05:46,540
+we're going to get some practice
+
+492
+00:05:46,540 --> 00:05:51,540
+constructing a prettytable object and using the documentation to explore this
+
+493
+00:05:51,700 --> 00:05:55,630
+object's attributes and methods. For all of that and more, I'll see you there.
+
+
+494
+00:00:00,300 --> 00:00:03,780
+In the last lesson, we added an external library to our project.
+
+495
+00:00:04,230 --> 00:00:09,060
+Now it's time to construct a prettytable object and practice using its methods
+
+496
+00:00:09,060 --> 00:00:12,090
+and attributes. Our starting point as always
+
+497
+00:00:12,120 --> 00:00:14,190
+is the documentation. Here
+
+498
+00:00:14,190 --> 00:00:17,580
+you can see how to construct an actual prettytable object.
+
+499
+00:00:18,420 --> 00:00:22,950
+So let's use what we've learned previously about constructing objects to go
+
+500
+00:00:22,950 --> 00:00:27,360
+ahead and create this object from the class. Now, firstly,
+
+501
+00:00:27,360 --> 00:00:30,600
+we're going to do the same thing as we did previously with turtle.
+
+502
+00:00:31,110 --> 00:00:33,630
+We're going to tap into the package prettytable,
+
+503
+00:00:34,050 --> 00:00:39,050
+and then we're going to import the prettytable class noted by the c here.
+
+504
+00:00:41,340 --> 00:00:44,640
+Now that we have access to this class inside our code,
+
+505
+00:00:45,030 --> 00:00:50,030
+I want you to go ahead and create an object from this pretty table class and the
+
+506
+00:00:50,370 --> 00:00:54,780
+object should be named table. So pause the video and give that a go.
+
+507
+00:00:57,120 --> 00:00:59,790
+All right. So we said I'll object is going to be called table,
+
+508
+00:01:00,210 --> 00:01:04,319
+and then we're going to construct it from this class called a prettytable.
+
+509
+00:01:05,069 --> 00:01:07,770
+So we're going to put it in with its casing.
+
+510
+00:01:08,130 --> 00:01:11,160
+So this is the Pascal case that we spoke about earlier on,
+
+511
+00:01:11,640 --> 00:01:15,060
+and then in order to actually give it the go-ahead and construct,
+
+512
+00:01:15,420 --> 00:01:18,090
+we have to add the parentheses at the end.
+
+513
+00:01:18,630 --> 00:01:23,630
+So now you've created a new object called table from this prettytable and we
+
+514
+00:01:24,960 --> 00:01:28,770
+can actually go ahead and print this table. And even at this stage,
+
+515
+00:01:28,800 --> 00:01:33,450
+it's ready going to start printing out a bare bones version all the table.
+
+516
+00:01:33,810 --> 00:01:36,060
+But of course this table has no datas
+
+517
+00:01:36,180 --> 00:01:39,960
+So it's actually kind of hard to visualize what all of these ASCII characters
+
+518
+00:01:39,960 --> 00:01:41,610
+are doing in an empty table.
+
+519
+00:01:42,390 --> 00:01:47,390
+But no matter, the next thing we can see in our documentation is how to go about
+
+520
+00:01:48,420 --> 00:01:52,110
+adding columns. So it's got this method, remember methods
+
+521
+00:01:52,110 --> 00:01:57,110
+are functions that are associated with an object and this method will add columns to
+
+522
+00:01:57,930 --> 00:02:02,670
+whatever table we specify. Now the method takes two inputs.
+
+523
+00:02:02,970 --> 00:02:05,220
+One is the name of the field,
+
+524
+00:02:05,820 --> 00:02:09,270
+so our field names are Pokemon name and type.
+
+525
+00:02:10,350 --> 00:02:13,320
+And then we've got a list of strings
+
+526
+00:02:13,620 --> 00:02:18,420
+which is going to be the data that's going to go into that column. Essentially,
+
+527
+00:02:18,510 --> 00:02:21,690
+every time we call that method, add column,
+
+528
+00:02:21,990 --> 00:02:25,740
+it's going to allow us to give a field name as a string,
+
+529
+00:02:26,070 --> 00:02:29,970
+and then a list of data in order that they're going to go into the table.
+
+530
+00:02:30,450 --> 00:02:35,450
+So we're going to add our table one column at a time. Using that documentation
+
+531
+00:02:36,600 --> 00:02:41,600
+see if you can add both of these columns to our table object and then once
+
+532
+00:02:43,080 --> 00:02:46,410
+you've done that, we're going to print the table object again
+
+533
+00:02:46,740 --> 00:02:51,270
+and we should be to see an ASCII table. This is what you're aiming for
+
+534
+00:02:51,270 --> 00:02:52,470
+when you run your code.
+
+535
+00:02:52,830 --> 00:02:57,810
+It should print out your table and nicely format it in this ASCII style.
+
+536
+00:02:58,200 --> 00:03:00,460
+Pause the video and complete the challenge.
+
+537
+00:03:04,110 --> 00:03:04,380
+Right?
+
+538
+00:03:04,380 --> 00:03:04,650
+All right.
+
+539
+00:03:04,650 --> 00:03:09,510
+So we've got our table object and remember that methods are functions that are
+
+540
+00:03:09,510 --> 00:03:14,190
+associated with the object. So we say table object dot,
+
+541
+00:03:14,310 --> 00:03:16,140
+and then we get to call that method,
+
+542
+00:03:16,530 --> 00:03:21,090
+add_column. And notice how it takes two inputs,
+
+543
+00:03:21,120 --> 00:03:24,240
+the field name and the data that's going to go into the column.
+
+544
+00:03:24,840 --> 00:03:26,700
+So the field name is going to be a string,
+
+545
+00:03:27,000 --> 00:03:31,350
+and this is going to be the name at the top of our column. So in our case,
+
+546
+00:03:31,350 --> 00:03:35,490
+it was called Pokemon name. And then after a comma,
+
+547
+00:03:35,490 --> 00:03:40,380
+we get to put in a list of all the data that's going to go into our column.
+
+548
+00:03:41,280 --> 00:03:44,880
+So just as a quick reminder, our first column contains Pikachu,
+
+549
+00:03:44,880 --> 00:03:46,140
+Squirtle and Charmander.
+
+550
+00:03:46,140 --> 00:03:51,140
+Now, we should have added a column to our table and you can safely ignore all
+
+551
+00:03:53,340 --> 00:03:57,690
+of these typos because of course, Pokemon names are not real words.
+
+552
+00:03:58,020 --> 00:04:01,200
+But if you wanted to check against the poke dex
+
+553
+00:04:01,380 --> 00:04:04,110
+you can actually go to this link in the course resources,
+
+554
+00:04:04,440 --> 00:04:08,490
+and you can see how each of these Pokemon are spelt. Now,
+
+555
+00:04:08,700 --> 00:04:12,870
+the next thing we want to add is the associated type with each of these
+
+556
+00:04:12,870 --> 00:04:17,130
+Pokemons. So for example, Charmander is a fire type of Pokemon,
+
+557
+00:04:17,160 --> 00:04:19,230
+Squirtle is a water type Pokemon,
+
+558
+00:04:19,709 --> 00:04:23,430
+but essentially we're going to add the data that's in the second column.
+
+559
+00:04:23,880 --> 00:04:27,270
+So the field name is called type, and then we've got three pieces of data
+
+560
+00:04:27,570 --> 00:04:32,430
+that's going to need to go into the list in the same order as the previous
+
+561
+00:04:32,430 --> 00:04:35,370
+Pokemon. That way we'll actually match them up properly.
+
+562
+00:04:37,200 --> 00:04:40,110
+So if you haven't already, go ahead and add the second column.
+
+563
+00:04:40,920 --> 00:04:41,753
+Right?
+
+564
+00:04:44,460 --> 00:04:45,090
+So again,
+
+565
+00:04:45,090 --> 00:04:50,090
+I'm going to call the same method on my table and this time I'm going to add the
+
+566
+00:04:50,310 --> 00:04:55,310
+field type and the data is going to go in the order of the data that I had from
+
+567
+00:04:56,670 --> 00:05:01,440
+the previous column. So the first one is the type of Pikachu which is electric.
+
+568
+00:05:02,010 --> 00:05:06,900
+And the second one is the type for Squirtle, which is Water. And finally,
+
+569
+00:05:06,930 --> 00:05:08,880
+we've got fire for Charmander.
+
+570
+00:05:09,480 --> 00:05:12,210
+So now this will be matched to this,
+
+571
+00:05:12,300 --> 00:05:14,730
+this will be matched this and so on and so forth.
+
+572
+00:05:15,210 --> 00:05:17,700
+If we go ahead and print our table now, so
+
+573
+00:05:17,820 --> 00:05:20,820
+if we run our code and take a look in here,
+
+574
+00:05:20,850 --> 00:05:25,850
+you can see how we've now got a nicely formatted table by creating an object
+
+575
+00:05:27,870 --> 00:05:32,640
+from this pre-made prettytable class and we've now called this method
+
+576
+00:05:32,730 --> 00:05:36,810
+add_column to add two columns. And when we print our table,
+
+577
+00:05:36,870 --> 00:05:41,160
+it's now nicely formatted in ASCII. Now,
+
+578
+00:05:41,190 --> 00:05:44,880
+remember that we can also change the object's attributes.
+
+579
+00:05:45,900 --> 00:05:48,780
+For example, if we wanted to change the appearance of our table,
+
+580
+00:05:49,170 --> 00:05:53,580
+that's probably controlled by an attribute. If you scroll down,
+
+581
+00:05:53,640 --> 00:05:58,640
+you can see that we can change the table style by tapping into each of these attributes.
+
+582
+00:05:59,600 --> 00:06:03,710
+For example, if I wanted to change the alignment of my data in the table,
+
+583
+00:06:04,040 --> 00:06:09,040
+I can change this align attribute to L for left-align, C for the center-align or
+
+584
+00:06:10,550 --> 00:06:11,900
+R for right-aligned.
+
+585
+00:06:13,010 --> 00:06:17,750
+Do you remember how to tap into an object's attribute? If you do,
+
+586
+00:06:18,110 --> 00:06:23,110
+go ahead and see if you can change our table from center-aligned by default to
+
+587
+00:06:23,600 --> 00:06:27,650
+left-aligned. Pause the video and try to complete that challenge.
+
+588
+00:06:28,180 --> 00:06:29,013
+Right?
+
+589
+00:06:30,340 --> 00:06:31,090
+So again,
+
+590
+00:06:31,090 --> 00:06:36,090
+we're going to tap into our table object and we're going to use the dot
+
+591
+00:06:36,250 --> 00:06:38,290
+notation, but this time
+
+592
+00:06:38,320 --> 00:06:42,280
+instead of accessing a method associated with the object
+
+593
+00:06:42,550 --> 00:06:47,110
+which is of course denoted by the M, we're going to access an attribute or in
+
+594
+00:06:47,110 --> 00:06:50,140
+this case, they've titled F which is a field.
+
+595
+00:06:50,710 --> 00:06:55,510
+And the one that we want is this align. So let's go ahead and type align,
+
+596
+00:06:55,960 --> 00:07:00,340
+and now we have access to this attribute. Let's see what happens
+
+597
+00:07:00,340 --> 00:07:03,340
+if I go ahead and print this align attribute.
+
+598
+00:07:04,270 --> 00:07:08,770
+You can see that for both of my columns, Pokemon name and type,
+
+599
+00:07:09,100 --> 00:07:12,370
+the align attribute is set to C, which is centered.
+
+600
+00:07:13,240 --> 00:07:18,240
+What I want to do is change the whole table to be left-aligned. Just as we would
+
+601
+00:07:18,730 --> 00:07:21,760
+with any other variable we can of course print it,
+
+602
+00:07:22,090 --> 00:07:23,800
+but we can also change it.
+
+603
+00:07:24,280 --> 00:07:28,090
+And we would change a variable by just using the equal sign, right?
+
+604
+00:07:28,390 --> 00:07:31,330
+So let's change the alignment to left-aligned,
+
+605
+00:07:31,810 --> 00:07:33,490
+and now let's run the code again.
+
+606
+00:07:34,570 --> 00:07:39,570
+And you can see now both of my columns are now aligning with the left hand
+
+607
+00:07:40,150 --> 00:07:40,983
+margin.
+
+608
+00:07:42,700 --> 00:07:45,580
+So we've seen how we can use attributes
+
+609
+00:07:45,640 --> 00:07:49,480
+like the ones here to change the styling of our table.
+
+610
+00:07:49,750 --> 00:07:52,300
+We've seen how we can use methods
+
+611
+00:07:52,510 --> 00:07:57,510
+like add_column or add_row to work with this table object and get it to
+
+612
+00:07:58,810 --> 00:08:02,680
+perform some sort of functionality, like adding pieces of data to it.
+
+613
+00:08:03,130 --> 00:08:08,130
+And we've seen how we can create new objects by simply constructing it from the
+
+614
+00:08:08,350 --> 00:08:13,000
+blueprint class. Feel free to mess around with prettytable
+
+615
+00:08:13,240 --> 00:08:15,940
+as much as you like change, other things about it,
+
+616
+00:08:16,000 --> 00:08:17,770
+or add different pieces of data.
+
+617
+00:08:18,130 --> 00:08:23,130
+But once you're happy with creating the object changing the attributes and
+
+618
+00:08:23,770 --> 00:08:25,150
+calling the methods,
+
+619
+00:08:25,510 --> 00:08:28,900
+then head over to the next lesson where I've got a quiz for you.
+
+
+620
+00:00:00,240 --> 00:00:05,240
+Now as we start using objects and their attributes and methods more and more,
+
+621
+00:00:05,640 --> 00:00:10,410
+we're going to start to see why it is that they are so useful and so loved by
+
+622
+00:00:10,410 --> 00:00:12,120
+programmers. Now,
+
+623
+00:00:12,150 --> 00:00:17,150
+I think one of the non-programmers that explained OOP the best is actually the late
+
+624
+00:00:18,350 --> 00:00:19,183
+Steve Jobs.
+
+625
+00:00:19,730 --> 00:00:24,730
+And he has this brilliant example that makes it really clear why objects are so
+
+626
+00:00:25,880 --> 00:00:28,100
+great. In his story
+
+627
+00:00:28,280 --> 00:00:33,280
+he talks about this concept where let's say you were traveling to Japan and
+
+628
+00:00:33,440 --> 00:00:35,450
+after a long flight,
+
+629
+00:00:36,020 --> 00:00:40,910
+you finally land and you go outside and there's beautiful cherry blossoms, Mt.
+
+630
+00:00:40,910 --> 00:00:44,270
+Fuji is looking wonderful. But unfortunately on the flight,
+
+631
+00:00:44,630 --> 00:00:45,920
+you had soiled your T-shirt.
+
+632
+00:00:45,950 --> 00:00:50,950
+You were overly eager with the tomato juice and you spilled everything upon
+
+633
+00:00:51,560 --> 00:00:55,460
+yourself. So what do we do? Well,
+
+634
+00:00:55,520 --> 00:00:58,700
+you're in this unfamiliar city and you have no idea
+
+635
+00:00:58,730 --> 00:01:02,420
+even whether the hell you are let alone where to find the nearest
+
+636
+00:01:02,600 --> 00:01:06,320
+dry cleaners or launderette. And plus on top of that,
+
+637
+00:01:06,380 --> 00:01:09,470
+you don't have the local currency. They take yen,
+
+638
+00:01:09,500 --> 00:01:14,240
+but you only have pounds and you don't even speak Japanese. So what do you do?
+
+639
+00:01:14,750 --> 00:01:18,890
+It's going to be a real struggle trying to solve this problem. Well,
+
+640
+00:01:19,130 --> 00:01:22,970
+you staying at a hotel, right? And the hotel staff probably speak English.
+
+641
+00:01:23,420 --> 00:01:28,250
+So you go the receptionist and you tell it the hotel that, Hey,
+
+642
+00:01:28,280 --> 00:01:32,270
+my t-shirt is soiled and they say, Hey, no problems. We'll take that from you.
+
+643
+00:01:32,420 --> 00:01:35,240
+And we'll go and handle all of that messy stuff.
+
+644
+00:01:35,540 --> 00:01:37,280
+We know how to find the dry cleaners,
+
+645
+00:01:37,550 --> 00:01:40,820
+we can pay them in the local currency and we speak the local language.
+
+646
+00:01:41,270 --> 00:01:44,990
+And what you get back is just a nice clean t-shirt.
+
+647
+00:01:45,500 --> 00:01:50,360
+So this is similar to the process of working with objects. Essentially,
+
+648
+00:01:50,360 --> 00:01:52,640
+if you have this hotel object
+
+649
+00:01:52,790 --> 00:01:56,450
+which has a blueprint for how to handle dry cleaning
+
+650
+00:01:56,510 --> 00:02:01,510
+some sort of clothing, then all you have to do is just get the object hotel and
+
+651
+00:02:03,170 --> 00:02:06,500
+then call its associated method dry clean,
+
+652
+00:02:06,920 --> 00:02:10,039
+and then it will do all of the messy stuff for you.
+
+653
+00:02:10,280 --> 00:02:14,090
+And you don't have to worry about the implementation of this function at all.
+
+654
+00:02:14,750 --> 00:02:18,020
+So now you can work with multiple objects
+
+655
+00:02:18,350 --> 00:02:23,330
+getting them to do different things and trust that they know how to manage their
+
+656
+00:02:23,330 --> 00:02:26,510
+data and how to perform the necessary functionality.
+
+657
+00:02:27,350 --> 00:02:30,410
+Coming back to a problem that we've already solved
+
+658
+00:02:30,710 --> 00:02:35,090
+creating that coffee machine with all of the program requirements. Well,
+
+659
+00:02:35,090 --> 00:02:39,740
+it's time to put our Object Oriented Programming knowledge to the test because
+
+660
+00:02:39,740 --> 00:02:44,180
+we're going to be making a OOP version of our coffee machine.
+
+661
+00:02:44,990 --> 00:02:48,020
+Now the program still has the same requirements
+
+662
+00:02:48,020 --> 00:02:51,050
+as before. You have to print reports for
+
+663
+00:02:51,050 --> 00:02:54,350
+all the resources, you have to check if the resources are sufficient,
+
+664
+00:02:54,530 --> 00:02:59,530
+process coins, check transaction is successful, and finally make coffee.
+
+665
+00:03:00,100 --> 00:03:03,700
+But in this case, you're going to be working with objects.
+
+666
+00:03:04,810 --> 00:03:06,220
+In the course resources,
+
+667
+00:03:06,250 --> 00:03:11,110
+you'll find a link to the starting project for the OOP coffee machine.
+
+668
+00:03:11,620 --> 00:03:13,090
+So if you head over to this link,
+
+669
+00:03:13,240 --> 00:03:17,170
+you can see that there's a whole bunch of code that we've already written for
+
+670
+00:03:17,170 --> 00:03:18,250
+you. Now,
+
+671
+00:03:18,280 --> 00:03:22,300
+the idea here is you're not going to touch any of these other files,
+
+672
+00:03:22,300 --> 00:03:27,160
+the money machine, the menu, or the coffee maker. All that code has already
+
+673
+00:03:27,160 --> 00:03:28,360
+been written for you
+
+674
+00:03:28,690 --> 00:03:31,750
+and it's almost like you're working with an external library.
+
+675
+00:03:32,260 --> 00:03:35,020
+You're just going to trust that they do what they say they do.
+
+676
+00:03:35,980 --> 00:03:40,270
+And you'll find a link to this coffee machine documentation that I've created
+
+677
+00:03:40,630 --> 00:03:45,630
+which describes in detail what each of these classes or blueprints allow you to
+
+678
+00:03:46,390 --> 00:03:50,560
+do. So once you construct an object from the menu item class,
+
+679
+00:03:50,830 --> 00:03:54,340
+then you have access to the name attribute, the cost attribute,
+
+680
+00:03:54,340 --> 00:03:58,690
+ingredient attributes, and there's also descriptions of what it should do
+
+681
+00:03:58,930 --> 00:04:00,610
+and what an example might be.
+
+682
+00:04:01,450 --> 00:04:05,860
+You have access to all of these classes and you can build objects from each of
+
+683
+00:04:05,860 --> 00:04:08,620
+these classes to solve this project.
+
+684
+00:04:09,670 --> 00:04:13,540
+In order to work with PyCharm, all you need to do is to download the zip
+
+685
+00:04:13,540 --> 00:04:16,810
+file it with all the starting code from our course resource website.
+
+686
+00:04:17,260 --> 00:04:18,160
+Alternatively,
+
+687
+00:04:18,190 --> 00:04:22,270
+if you are already logged in on Repl.it, simply fork the project and then click
+
+688
+00:04:22,270 --> 00:04:26,350
+on these three dots to download the zip file here. Now,
+
+689
+00:04:26,350 --> 00:04:28,510
+once you found that in your downloads folder,
+
+690
+00:04:28,540 --> 00:04:31,450
+all you have to do is uncompressed or unzip it.
+
+691
+00:04:32,020 --> 00:04:35,140
+And then you can go into PyCharm and open it here.
+
+692
+00:04:35,260 --> 00:04:40,030
+So click on the open button and then navigate to where you had that folder
+
+693
+00:04:40,030 --> 00:04:43,330
+downloaded. Remember it needs to be unzipped.
+
+694
+00:04:44,260 --> 00:04:48,550
+If you're on windows, right-click the zip file and choose extract all.
+
+695
+00:04:48,880 --> 00:04:50,260
+Then click extract.
+
+696
+00:04:50,560 --> 00:04:54,280
+You should see an unzipped folder popup next to your zip file.
+
+697
+00:04:55,240 --> 00:05:00,240
+If you're on Mac then all you need to do is just double-click on the .zip file.
+
+698
+00:05:01,750 --> 00:05:04,000
+Now, if we click open on that folder,
+
+699
+00:05:04,660 --> 00:05:08,740
+then it will open up this project. And when you open up the project folder,
+
+700
+00:05:08,770 --> 00:05:11,230
+you'll see all of the same files.
+
+701
+00:05:11,770 --> 00:05:16,300
+Now you're only going to be working from the main.py. In fact,
+
+702
+00:05:16,300 --> 00:05:20,200
+I don't even want you to care that much about the code that's in the other
+
+703
+00:05:20,200 --> 00:05:21,033
+files.
+
+704
+00:05:21,190 --> 00:05:25,840
+It has class definitions and a whole bunch of other things that we're going to
+
+705
+00:05:25,840 --> 00:05:27,370
+learn about in the next lesson.
+
+706
+00:05:27,790 --> 00:05:32,170
+But for now, I want you to treat it as if it is an external library
+
+707
+00:05:32,350 --> 00:05:37,000
+which you're just going to use. At the very beginning of the main.py file,
+
+708
+00:05:37,060 --> 00:05:41,380
+I've already imported all four classes that you are going to be using; menu,
+
+709
+00:05:41,410 --> 00:05:44,110
+menu item, coffee maker, and money machine.
+
+710
+00:05:44,800 --> 00:05:49,690
+Now all of these classes are documented in the coffee machine documentation
+
+711
+00:05:49,690 --> 00:05:50,523
+website.
+
+712
+00:05:50,800 --> 00:05:55,800
+All you have to do is head over to this website and read through what each of
+
+713
+00:05:56,140 --> 00:05:59,930
+the classes do. Some of them have attributes and methods,
+
+714
+00:06:00,260 --> 00:06:02,120
+others just have methods.
+
+715
+00:06:02,720 --> 00:06:07,720
+So each of these classes have already pre-written code that do a lot of the
+
+716
+00:06:08,450 --> 00:06:12,740
+heavy lifting and all of the code that we had to write when we wrote the coffee
+
+717
+00:06:12,740 --> 00:06:14,330
+machine code from scratch.
+
+718
+00:06:14,810 --> 00:06:19,790
+But this time you're only going to be using these four classes and the objects
+
+719
+00:06:19,790 --> 00:06:24,470
+created from them in order to achieve exactly the same goals as before.
+
+720
+00:06:25,100 --> 00:06:29,120
+So while the goals are fresh in your mind from the previous day,
+
+721
+00:06:29,540 --> 00:06:33,500
+you should review the code from the previous day and then have a read of the
+
+722
+00:06:33,500 --> 00:06:38,500
+documentation and see how you would implement exactly the same project
+
+723
+00:06:38,930 --> 00:06:43,310
+but this time using only the objects created from these classes.
+
+724
+00:06:43,880 --> 00:06:47,300
+You'll need to spend some time on this because you'll need to think through how
+
+725
+00:06:47,300 --> 00:06:52,300
+to create objects from these blueprint classes and then how to use the objects,
+
+726
+00:06:52,510 --> 00:06:56,420
+how to call the methods and the logic that's required to put everything
+
+727
+00:06:56,420 --> 00:06:58,430
+together. Pause the video
+
+728
+00:06:58,430 --> 00:07:02,480
+now, have a think about this problem, and try to make the coffee machine do
+
+729
+00:07:02,480 --> 00:07:07,480
+exactly the same and have all the same functionality as the coffee machine that
+
+730
+00:07:08,030 --> 00:07:10,190
+you created in yesterday's project.
+
+
+731
+00:00:00,450 --> 00:00:07,140
+If you got stuck or if you had any problems completing this project, the first port of call is to review
+
+732
+00:00:07,140 --> 00:00:08,380
+the lessons you learned today.
+
+733
+00:00:08,760 --> 00:00:14,280
+It might just be that you need to see some of the theory a few more times and listen to it a few more
+
+734
+00:00:14,280 --> 00:00:19,410
+times and practice it a few more times before you're ready to tackle this final challenge.
+
+735
+00:00:20,070 --> 00:00:24,660
+But if you have completed it and you just want to see the solution, then I'm going to go through it
+
+736
+00:00:24,660 --> 00:00:25,380
+with you right now.
+
+737
+00:00:26,400 --> 00:00:30,210
+Again, we're going to complete all of the program requirements step by step.
+
+738
+00:00:30,570 --> 00:00:38,610
+So the first thing is to print a report for all of the current resources in the coffee machine. Back
+
+739
+00:00:38,610 --> 00:00:39,090
+in PyCharm,
+
+740
+00:00:39,330 --> 00:00:44,310
+I'm actually going to collapse this entire project folder because I'm not going to be writing any code
+
+741
+00:00:44,310 --> 00:00:46,140
+other than inside main.py.
+
+742
+00:00:47,040 --> 00:00:54,270
+Now you can see up here, we've got access to four classes. And if we take a look inside the documentation,
+
+743
+00:00:54,480 --> 00:01:00,990
+you can see that both the coffeemaker class and the money machine class have a method called report.
+
+744
+00:01:01,560 --> 00:01:06,690
+And this is going to print a report of all of the resources like water, milk, coffee,
+
+745
+00:01:06,990 --> 00:01:09,810
+and this is going to print a report of the current profit.
+
+746
+00:01:10,260 --> 00:01:16,290
+So our final report is going to be both a report from the money machine as well as the coffee maker.
+
+747
+00:01:17,310 --> 00:01:22,380
+Let's go ahead and start off by creating some objects from these classes.
+
+748
+00:01:22,950 --> 00:01:27,840
+For example, the money machine is going to be just called money_machine
+
+749
+00:01:27,870 --> 00:01:30,250
+or you could call it my_money_machine.
+
+750
+00:01:30,270 --> 00:01:33,090
+You can actually name your objects anything you like.
+
+751
+00:01:33,720 --> 00:01:41,160
+But I'm just going to use the default Python snake case to create a new variable money_machine, which
+
+752
+00:01:41,160 --> 00:01:46,980
+is going to hold my object. And my object is going to be created, of course, from the money machine
+
+753
+00:01:46,980 --> 00:01:47,520
+class.
+
+754
+00:01:48,090 --> 00:01:51,900
+And the construction happens when I add the parentheses.
+
+755
+00:01:52,500 --> 00:01:58,440
+So now I have a object created and stored inside this variable money_machine.
+
+756
+00:01:59,280 --> 00:02:06,870
+Now, if I want this money machine to create a report, then all I have to do is tap into the object
+
+757
+00:02:07,260 --> 00:02:12,360
+and then write a dot and then call the method that I need, which is report.
+
+758
+00:02:13,020 --> 00:02:15,630
+So now if I go ahead and run my code,
+
+759
+00:02:18,360 --> 00:02:22,110
+you can see it prints out the current amount of money in the machine.
+
+760
+00:02:22,890 --> 00:02:25,710
+Now let's do the same thing for our coffee maker.
+
+761
+00:02:26,630 --> 00:02:31,010
+Again, I'm going to call it coffee_maker, and you see this frequently.
+
+762
+00:02:31,020 --> 00:02:39,840
+The object naming tends to be the lower case and snake case, so separated by underscores, version of the
+
+763
+00:02:39,840 --> 00:02:40,740
+name of the class.
+
+764
+00:02:40,950 --> 00:02:47,580
+So the name of the class is CoffeeMaker, and usually you'll see people name the object exactly the
+
+765
+00:02:47,580 --> 00:02:49,290
+same, but in lowercase.
+
+766
+00:02:50,280 --> 00:02:57,900
+And now that I have my coffee _maker, then I can go ahead and call the report method on that object
+
+767
+00:02:57,900 --> 00:02:58,410
+as well.
+
+768
+00:02:58,800 --> 00:03:04,980
+And now, if I run my code once more, you can see that I've got everything now being reported and printed
+
+769
+00:03:04,980 --> 00:03:05,190
+out.
+
+770
+00:03:06,060 --> 00:03:12,870
+So in this case, we don't actually have to care how report is implementing all of this functionality.
+
+771
+00:03:13,200 --> 00:03:19,470
+All we have to do is read the documentation, find the method that does the thing that we want, and
+
+772
+00:03:19,470 --> 00:03:23,640
+then trust that it will carry out the functionality as described.
+
+773
+00:03:24,870 --> 00:03:30,480
+Now that we've completed step 1, the next one is to check that resources are sufficient.
+
+774
+00:03:31,080 --> 00:03:35,370
+My first port of call is going to be going over to the documentation.
+
+775
+00:03:35,820 --> 00:03:42,240
+And you can see that the coffeemaker class actually has a method called is _resource_efficient.
+
+776
+00:03:42,600 --> 00:03:50,130
+And all we have to do is pass in the drink, which is a menu item, and then it's going to check and
+
+777
+00:03:50,130 --> 00:03:56,640
+give us true, if that drink order can be made, and false if the ingredients are insufficient.
+
+778
+00:03:57,840 --> 00:04:03,930
+So how do we get hold of this drink menu item to pass over to this method?
+
+779
+00:04:04,650 --> 00:04:11,700
+Well, if we take a look at the menu class, you can see it has a method called get_items and this is
+
+780
+00:04:11,700 --> 00:04:15,030
+where you really see reading the documentation properly,
+
+781
+00:04:15,450 --> 00:04:19,800
+actually absorbing everything that's in here becomes really, really helpful.
+
+782
+00:04:20,459 --> 00:04:24,570
+This menu class has two methods that are really useful.
+
+783
+00:04:25,050 --> 00:04:30,870
+One, It's able to get a hold of the names of all the items that are available on the menu.
+
+784
+00:04:31,350 --> 00:04:35,370
+And it returns it as a string separated by forward slashes.
+
+785
+00:04:36,120 --> 00:04:40,560
+It's also able to find a drink based on the order name.
+
+786
+00:04:40,590 --> 00:04:47,550
+So if we passed in one of these names to this function find_drink, then it's going to return a menu
+
+787
+00:04:47,550 --> 00:04:49,770
+item object if it actually exists.
+
+788
+00:04:50,040 --> 00:04:51,990
+Otherwise, it's going to return none.
+
+789
+00:04:52,620 --> 00:04:56,670
+We're going to need both of these in order to ask the user what they want.
+
+790
+00:04:57,530 --> 00:05:02,520
+Let's go ahead and set up our while loop. As we had previously
+
+791
+00:05:02,540 --> 00:05:08,660
+I'm going to create a new variable called is_on and it's going to start off being true.
+
+792
+00:05:09,230 --> 00:05:16,880
+And then while coffee machine is on, well then we're going to get hold of all the options that we
+
+793
+00:05:16,880 --> 00:05:22,850
+can offer the user. And we get that by calling that method get_items.
+
+794
+00:05:23,300 --> 00:05:28,580
+But of course, because this is a method, it's associated with an object.
+
+795
+00:05:28,670 --> 00:05:32,240
+So we have to create an object from this menu blueprint.
+
+796
+00:05:33,440 --> 00:05:36,770
+So let's do that next to all the other objects being created.
+
+797
+00:05:37,190 --> 00:05:42,050
+So let's create a menu object and it's going to be created from the menu class,
+
+798
+00:05:42,050 --> 00:05:43,640
+and then we add the parentheses.
+
+799
+00:05:44,030 --> 00:05:47,840
+And now we have access to that object by the name menu.
+
+800
+00:05:48,380 --> 00:05:54,800
+The options are going to be equal to the menu object and then we're going to call the get_items method.
+
+801
+00:05:55,340 --> 00:06:01,580
+And then when this method returns, it's going to save the string and all the options into this variable
+
+802
+00:06:01,580 --> 00:06:02,390
+called options.
+
+803
+00:06:02,990 --> 00:06:09,800
+Now we can get the user's choice by asking them for what would you like?
+
+804
+00:06:11,170 --> 00:06:17,650
+And then inside a set of parenthesis we'll offer them all the options. And then, of course, I need
+
+805
+00:06:17,650 --> 00:06:19,480
+to turn this into an fstring.
+
+806
+00:06:19,630 --> 00:06:24,070
+And the code highlighting immediately tells me that this is actually now working.
+
+807
+00:06:24,640 --> 00:06:32,740
+So once I've got the user's choice, then I can incorporate the reporting behaviour into this choice.
+
+808
+00:06:33,130 --> 00:06:42,310
+Remember, previously we said if the choice was equal to off, then that means the is_on is going
+
+809
+00:06:42,310 --> 00:06:45,390
+to be equal to false, and elif
+
+810
+00:06:45,400 --> 00:06:47,860
+the choice is equal to report,
+
+811
+00:06:48,310 --> 00:06:53,110
+well, in this case, we're going to get the coffeemaker and the money machine to make their reports
+
+812
+00:06:53,110 --> 00:06:54,040
+into the console.
+
+813
+00:06:54,970 --> 00:07:03,040
+Finally, we're ready to tackle the next problem, which is how do we check that we have enough resources?
+
+814
+00:07:04,100 --> 00:07:10,520
+And this is going to require us to find the drink given the order name that the user chose from the
+
+815
+00:07:10,520 --> 00:07:17,440
+choice and then get hold of the menu item which comes as the output from this method call.
+
+816
+00:07:18,430 --> 00:07:26,110
+So else, we're going to save our drink as a variable called drink, and then we're going to tap into
+
+817
+00:07:26,110 --> 00:07:35,500
+the menu.find_drink. And find_drink, you'll notice, takes a order name as the input.
+
+818
+00:07:35,980 --> 00:07:42,370
+So this is a string and this is going to be equal to whatever the user chose inside this choice.
+
+819
+00:07:42,940 --> 00:07:45,910
+So let's put the choice in here as the input.
+
+820
+00:07:46,450 --> 00:07:51,190
+And now, once we've got hold of this drink, let's go ahead and print it.
+
+821
+00:07:51,820 --> 00:07:55,930
+Remember, we're expecting a menu item object at this stage.
+
+822
+00:07:56,500 --> 00:08:01,480
+So let's click run, and let's make sure that we can hit report to get the report,
+
+823
+00:08:01,870 --> 00:08:11,440
+we can say off to switch off the machine and exit the code, and we can also get hold of a latte by
+
+824
+00:08:11,440 --> 00:08:14,530
+passing in latte as the drink that we want.
+
+825
+00:08:15,040 --> 00:08:21,940
+And we now get printed a menu item object at this particular location in the computer's memory.
+
+826
+00:08:22,450 --> 00:08:23,040
+Perfect.
+
+827
+00:08:23,050 --> 00:08:25,330
+Everything is working as expected.
+
+828
+00:08:26,140 --> 00:08:32,590
+Now, instead of printing the drink, I'm going to tackle this step 2, which is to check that the
+
+829
+00:08:32,590 --> 00:08:34,330
+resources are sufficient.
+
+830
+00:08:35,440 --> 00:08:42,400
+Again, that's going to require us to look through our documentation. And you'll see that the coffee
+
+831
+00:08:42,400 --> 00:08:43,600
+maker class has
+
+832
+00:08:43,600 --> 00:08:50,260
+that method is_resource _sufficient, and it expects a menu item object as the input.
+
+833
+00:08:50,710 --> 00:08:54,970
+And then it's going to return true when it can be made and false if it can't.
+
+834
+00:08:55,960 --> 00:09:03,550
+So let's get hold of our coffee maker object and then get it to check if the resources are sufficient
+
+835
+00:09:03,940 --> 00:09:07,000
+to make the current drink that we're interested in.
+
+836
+00:09:07,870 --> 00:09:11,770
+And let's go ahead and print the results here
+
+837
+00:09:12,820 --> 00:09:14,350
+and run our code.
+
+838
+00:09:15,190 --> 00:09:23,290
+Let's say that we wanted to make a latte. That's going to be resource sufficient, so true. Espresso,
+
+839
+00:09:23,620 --> 00:09:27,560
+also true, and a Cappuccino is also true.
+
+840
+00:09:27,580 --> 00:09:29,740
+So we can make all three drinks, basically.
+
+841
+00:09:30,070 --> 00:09:37,480
+Now, instead of printing this, what we want to do is we want to check if this is true and then proceed
+
+842
+00:09:37,480 --> 00:09:40,210
+to the next step if there are enough resources.
+
+843
+00:09:40,870 --> 00:09:47,830
+Now the next step is to take payment from the user and to process the coins and check the transaction
+
+844
+00:09:47,830 --> 00:09:48,700
+is successful.
+
+845
+00:09:49,630 --> 00:09:56,980
+Notice how in our coffee machine documentation for the money machine, we don't actually have a way
+
+846
+00:09:56,980 --> 00:10:05,050
+of processing the coins. But it what it does have is it allows us to make payments passing in the cost
+
+847
+00:10:05,050 --> 00:10:11,530
+of the drink and then it will return true when the payment is accepted or false, if insufficient.
+
+848
+00:10:12,160 --> 00:10:15,650
+So let's see what happens if we actually try to make payment.
+
+849
+00:10:16,510 --> 00:10:23,110
+Let's tap into our money machine object and then call the make_payment method and we have to pass in
+
+850
+00:10:23,110 --> 00:10:26,170
+the cost of the drink that the user ordered.
+
+851
+00:10:26,710 --> 00:10:34,480
+So we've got the drink object here, which remember is a menu item, and each of the menu items have
+
+852
+00:10:34,480 --> 00:10:39,880
+three attributes that we care about: the name of the drink, the cost of the drink and the ingredient
+
+853
+00:10:39,880 --> 00:10:40,240
+list.
+
+854
+00:10:40,630 --> 00:10:49,360
+So this is what we're interested in at the moment. So we can pass in the drink.cost which is the
+
+855
+00:10:49,360 --> 00:10:52,270
+attribute that's associated with the drink object,
+
+856
+00:10:52,750 --> 00:10:59,110
+and that cost is going to be processed by this make_payment method from the money machine.
+
+857
+00:10:59,740 --> 00:11:05,020
+And then finally, it's going to tell us whether if this was successful or not.
+
+858
+00:11:05,410 --> 00:11:08,200
+So let's see what happens when we run this code as it is.
+
+859
+00:11:09,230 --> 00:11:11,230
+Let's say I wanted a latte,
+
+860
+00:11:12,170 --> 00:11:14,820
+notice how it's asking me to insert coins:
+
+861
+00:11:14,840 --> 00:11:22,340
+how many quarters, how many dimes, how many nickels and how many pennies. A the coffee machine,
+
+862
+00:11:22,700 --> 00:11:28,490
+I don't actually need to care about how the money and the coins are processed.
+
+863
+00:11:29,090 --> 00:11:35,180
+All I had to do is call make_payment and it deals with all of this automatically.
+
+864
+00:11:36,170 --> 00:11:43,430
+Finally, it gives me the change and it returns true, telling me that this make_payment was indeed
+
+865
+00:11:43,430 --> 00:11:44,240
+successful.
+
+866
+00:11:45,140 --> 00:11:52,610
+If you actually look inside the money_machine code, then you can see that it has a method called process_
+
+867
+00:11:52,610 --> 00:11:56,790
+coins, but it's called when make payment is triggered.
+
+868
+00:11:57,290 --> 00:12:02,960
+This class is going to process coins, and then it's going to decide whether if it was successful
+
+869
+00:12:03,170 --> 00:12:07,820
+or not. And if it was successful, it's going to add the cost to the profit,
+
+870
+00:12:08,120 --> 00:12:13,130
+and if not, it's going to tell you that that was not enough money and your money is refunded.
+
+871
+00:12:14,980 --> 00:12:23,620
+Coming back over here, if this is successful, then that means the user has managed to pay and we fulfilled
+
+872
+00:12:23,680 --> 00:12:27,850
+step 3 and 4 just using one method.
+
+873
+00:12:28,960 --> 00:12:32,440
+The final thing we have to do is to actually make the coffee.
+
+874
+00:12:33,160 --> 00:12:35,830
+And that, of course, happens right at the end here.
+
+875
+00:12:36,430 --> 00:12:42,730
+And all we have to do to make the coffee is get hold of the coffee maker object and then call the make_
+
+876
+00:12:42,730 --> 00:12:48,220
+coffee method and we can pass in the order, which is our drink.
+
+877
+00:12:48,700 --> 00:12:54,850
+Because remember that the make_coffee method expects a menu item as the input parameter.
+
+878
+00:12:55,990 --> 00:13:03,280
+We can actually simplify this code even more by saying, well, if the coffee maker is_resource_sufficient
+
+879
+00:13:04,030 --> 00:13:11,620
+and the money machine was able to take payment, well then we can get the coffee_maker to make coffee.
+
+880
+00:13:12,310 --> 00:13:14,320
+So now let's go ahead and run our code.
+
+881
+00:13:16,530 --> 00:13:21,930
+And let's report to begin with, to see how much resources we have to begin with.
+
+882
+00:13:22,380 --> 00:13:24,780
+And then let's order a coffee.
+
+883
+00:13:26,930 --> 00:13:30,890
+Insert lots of money and we've got our coffee back.
+
+884
+00:13:31,400 --> 00:13:39,800
+So now let's go ahead and order a different coffee, latte, and let's go ahead and insert lots of money.
+
+885
+00:13:40,370 --> 00:13:42,380
+And you can see, here's my latte.
+
+886
+00:13:42,770 --> 00:13:49,910
+But now, if I hit report, you can see that the objects, the coffee maker has been managing our resources
+
+887
+00:13:50,420 --> 00:13:53,240
+and the money_machine has been managing our profit.
+
+888
+00:13:53,960 --> 00:13:59,900
+Now, if I decided to order another latte, then it should actually tell me, sorry, there's not enough
+
+889
+00:13:59,900 --> 00:14:04,520
+water and there's not enough milk. So it can't make me that drink.
+
+890
+00:14:05,150 --> 00:14:12,650
+And we've managed to achieve all of this functionality by writing very few lines of code, and the code
+
+891
+00:14:12,650 --> 00:14:16,130
+itself is actually very, very easy to understand.
+
+892
+00:14:16,370 --> 00:14:22,840
+Even if you came to this completely fresh, you've never seen how each of the methods are implemented,
+
+893
+00:14:22,850 --> 00:14:24,440
+you don't know how the coffee maker works,
+
+894
+00:14:24,710 --> 00:14:26,240
+you don't know how the money machine works,
+
+895
+00:14:26,540 --> 00:14:29,000
+you can see quite easily what it's trying to do.
+
+896
+00:14:29,960 --> 00:14:35,660
+And so if you only have to write this kind of code, then it would make it so much easier to create
+
+897
+00:14:35,660 --> 00:14:39,440
+even more complex functionality in your coffee machine, right?
+
+898
+00:14:40,430 --> 00:14:43,130
+So have a play around with these classes:
+
+899
+00:14:43,580 --> 00:14:50,270
+the coffeeMaker, the moneyMachine, the menu, the menu item, etc. And see what else it is that
+
+900
+00:14:50,270 --> 00:14:51,590
+you can do with this code
+
+901
+00:14:51,860 --> 00:14:55,880
+while not touching any of the blueprints for each of these classes.
+
+902
+00:14:57,200 --> 00:15:02,660
+Now, in the next lesson, I'm going to be showing you how to create your own classes so that you can
+
+903
+00:15:02,660 --> 00:15:07,880
+actually start structuring your code using full object-oriented programming.
+
+904
+00:15:08,390 --> 00:15:14,420
+And we're going to learn about these things like the initialization and how classes are declared and
+
+905
+00:15:14,420 --> 00:15:16,910
+why there's all this self all over the place.
+
+906
+00:15:17,630 --> 00:15:20,480
+That's all yet to come on tomorrow's lessons.
+
+

@@ -1,0 +1,324 @@
+1
+00:00:00,300 --> 00:00:01,080
+Hey guys,
+
+2
+00:00:01,080 --> 00:00:05,580
+welcome to Day 47 of 100 Days of Code. Today
+
+3
+00:00:05,580 --> 00:00:09,600
+we're going to be building a project that I personally find really useful.
+
+4
+00:00:10,680 --> 00:00:15,350
+It's a Amazon price tracker project.
+
+5
+00:00:15,380 --> 00:00:17,390
+So I don't know about you,
+
+6
+00:00:17,390 --> 00:00:22,310
+but I find it much more time-efficient to go online and search for the thing
+
+7
+00:00:22,310 --> 00:00:25,580
+that I need rather than have to go and browse through the shops,
+
+8
+00:00:25,880 --> 00:00:30,050
+find the thing I want and I just find the whole shopping experience,
+
+9
+00:00:30,050 --> 00:00:33,170
+really tiring. Whereas with buying stuff online,
+
+10
+00:00:33,170 --> 00:00:36,230
+you can simply go on Amazon, type in the thing you want,
+
+11
+00:00:36,470 --> 00:00:39,470
+and then a few days later you'll get it delivered straight to your door.
+
+12
+00:00:40,160 --> 00:00:44,720
+But one of the things I've noticed with online shopping is that the prices of
+
+13
+00:00:44,720 --> 00:00:49,130
+things vary dramatically from day to day. For example,
+
+14
+00:00:49,130 --> 00:00:53,690
+one of the things I've been really tempted to buy is a instant pot.
+
+15
+00:00:53,960 --> 00:00:57,350
+Um, it's basically it like a souped up pressure cooker.
+
+16
+00:00:57,950 --> 00:01:00,890
+It can do all the normal things like cook your rice
+
+17
+00:01:01,190 --> 00:01:05,660
+or work as a slow cooker, or pressure-cook your meat until it's really tender,
+
+18
+00:01:06,230 --> 00:01:11,230
+but it can even do crazy stuff like bake a cake in the pressure cooker or make
+
+19
+00:01:12,980 --> 00:01:17,150
+yogurt. This is something that I've had my eye on for a while,
+
+20
+00:01:17,180 --> 00:01:21,320
+but I haven't really even able to pull the trigger just because I can't really
+
+21
+00:01:21,320 --> 00:01:26,320
+justify paying $120 for something that I can sort of do with the other things
+
+22
+00:01:26,960 --> 00:01:30,980
+I have, right? You can bake a cake with an oven, you can, um,
+
+23
+00:01:31,100 --> 00:01:32,540
+you can make everything on the stove,
+
+24
+00:01:32,990 --> 00:01:35,420
+but it's something that I've really been fascinated by 
+
+25
+00:01:35,420 --> 00:01:40,040
+and I wonder if I could cut down the amount of time I spend cooking so I can do
+
+26
+00:01:40,040 --> 00:01:43,400
+some other things like making Programming tutorials.
+
+27
+00:01:44,000 --> 00:01:49,000
+But one of the things I've noticed about this item or a lot of items on Amazon
+
+28
+00:01:49,100 --> 00:01:51,650
+is that the price really fluctuates.
+
+29
+00:01:52,010 --> 00:01:55,310
+So I've been keeping my eye on this product for a while now
+
+30
+00:01:55,340 --> 00:01:59,540
+and I've seen it go up and down even on a day to day basis sometimes.
+
+31
+00:02:00,080 --> 00:02:05,080
+And there is a really cool website that I discovered called camelcamelcamel.com,
+
+32
+00:02:05,420 --> 00:02:08,660
+where you can simply take a product's URL,
+
+33
+00:02:08,660 --> 00:02:13,430
+so you select the size you want, the style, the item, whatever it may be,
+
+34
+00:02:13,490 --> 00:02:17,990
+and then you take the URL and you paste it into camelcamelcamel.com
+
+35
+00:02:18,440 --> 00:02:21,350
+and it will give you the price history of that 
+
+36
+00:02:21,380 --> 00:02:22,580
+product. isn't that cool?
+
+37
+00:02:22,880 --> 00:02:27,880
+So now you can look and get actual data on how much that product costs over the
+
+38
+00:02:28,790 --> 00:02:33,560
+past few months or year and you can now see what was the lowest price,
+
+39
+00:02:33,860 --> 00:02:38,210
+what was the highest price and see how it just fluctuates almost randomly.
+
+40
+00:02:38,660 --> 00:02:41,600
+Now, normally I would think that on big sale days
+
+41
+00:02:41,660 --> 00:02:46,370
+like black Friday or prime day, that you would get the cheapest price,
+
+42
+00:02:46,730 --> 00:02:51,020
+but actually, that's not always the case. For example, in this case,
+
+43
+00:02:51,020 --> 00:02:55,400
+the cheapest price for this item happened on May 25th,
+
+44
+00:02:55,760 --> 00:02:58,310
+which is, I think, just a normal day.
+
+45
+00:02:58,310 --> 00:03:01,870
+I don't really why it got price-dropped to that amount.
+
+46
+00:03:03,060 --> 00:03:08,060
+So let's say that we have set a price in our mind at which point I'm ready to
+
+47
+00:03:09,150 --> 00:03:10,920
+make a purchase. So for me,
+
+48
+00:03:11,400 --> 00:03:15,930
+maybe if this item drops down from $119
+
+49
+00:03:16,020 --> 00:03:20,910
+um, to let's say $99, then I'll actually buy it.
+
+50
+00:03:21,720 --> 00:03:24,870
+Now we can actually do this using what we've learned,
+
+51
+00:03:25,290 --> 00:03:30,270
+and then on that day, I get an email and it tells me Instant Pot price alert,
+
+52
+00:03:30,330 --> 00:03:35,250
+the product price is now $99.99 below your target price, go ahead and buy now.
+
+53
+00:03:35,850 --> 00:03:40,350
+So this is basically the functionality that we want to build using our knowledge
+
+54
+00:03:40,350 --> 00:03:42,150
+of Python and web scraping.
+
+55
+00:03:42,930 --> 00:03:47,400
+And our Python bot is going to be the one that's going to be constantly checking
+
+56
+00:03:47,400 --> 00:03:49,710
+for the price. And when the time is right,
+
+57
+00:03:49,740 --> 00:03:53,280
+it's going to be the one that's going to alert us, using an email,
+
+58
+00:03:53,460 --> 00:03:57,900
+telling us to buy so that we don't have to spend every day looking at the
+
+59
+00:03:57,900 --> 00:03:58,440
+website,
+
+60
+00:03:58,440 --> 00:04:02,850
+checking the price and doing something that our Python bot could do by itself.
+
+61
+00:04:04,170 --> 00:04:09,090
+The idea here is our little Python body is going to have a set time, let's say 
+
+62
+00:04:09,090 --> 00:04:13,290
+9:00 AM every day where it checks that URL that we got.
+
+63
+00:04:13,740 --> 00:04:18,000
+So it's going to look at a specific thing on that webpage,
+
+64
+00:04:18,029 --> 00:04:22,290
+which is the price. So at the moment, it's right, registering as 
+
+65
+00:04:22,290 --> 00:04:24,690
+$119.99
+
+66
+00:04:25,110 --> 00:04:30,110
+and the moment when it checks that price and it sees 99.9 something,
+
+67
+00:04:31,290 --> 00:04:34,920
+so anything that's below our set target of a hundred dollars,
+
+68
+00:04:35,280 --> 00:04:39,480
+then it's going to send us an email and give us an alert.
+
+69
+00:04:40,440 --> 00:04:45,000
+So then we can go to the URL and purchase is that product.
+
+70
+00:04:45,300 --> 00:04:47,040
+Instead of having to check it out ourselves,
+
+71
+00:04:47,370 --> 00:04:50,760
+we now get notified when our condition is met.
+
+72
+00:04:51,720 --> 00:04:55,350
+As you can imagine, this is going to involve a little bit of web scraping,
+
+73
+00:04:55,500 --> 00:05:00,500
+where we try to get hold of the value of this price and we turn it into a number
+
+74
+00:05:02,250 --> 00:05:07,230
+and we check it against our target price. And then when the conditions are met,
+
+75
+00:05:07,290 --> 00:05:10,950
+then we use the SMTP module to send ourselves an email.
+
+76
+00:05:11,880 --> 00:05:14,100
+So that's the goal of today's project
+
+77
+00:05:14,250 --> 00:05:18,210
+and I think if you're somebody like me who buys a lot of stuff online,
+
+78
+00:05:18,510 --> 00:05:20,940
+then this is going to be pretty interesting for you.
+
+79
+00:05:21,090 --> 00:05:23,970
+And I hope that will actually come in handy at some point as well.
+
+80
+00:05:24,840 --> 00:05:29,370
+So head over to the next lesson and let's get started building our Amazon price
+
+81
+00:05:29,370 --> 00:05:30,090
+tracking bot.
+

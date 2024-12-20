@@ -1,0 +1,168 @@
+1
+00:00:00,210 --> 00:00:00,840
+Hey guys,
+
+2
+00:00:00,840 --> 00:00:05,840
+welcome to day 40 of 100 Days of Code. Today is really exciting because
+
+3
+00:00:06,870 --> 00:00:11,870
+we're going to be upgrading the project that we created in the last day
+
+4
+00:00:12,270 --> 00:00:17,220
+to a fully-fledged product. We're going to be building a company today,
+
+5
+00:00:17,610 --> 00:00:20,730
+and this is part two of your capstone project.
+
+6
+00:00:21,330 --> 00:00:26,130
+Now the first rule of flight club is you do not talk about flight club.
+
+7
+00:00:26,670 --> 00:00:31,410
+So in part one, we created our flight deal hunter for ourselves,
+
+8
+00:00:31,950 --> 00:00:36,300
+and we only had a user base of one. Now in this part 2,
+
+9
+00:00:36,420 --> 00:00:41,250
+we're going to be leveling up the code so that we can start signing up users and
+
+10
+00:00:41,250 --> 00:00:45,990
+send them an email with a notification of all of the best flight deals.
+
+11
+00:00:47,310 --> 00:00:50,940
+A little while ago, I discovered a company called Jack's flight club,
+
+12
+00:00:51,420 --> 00:00:52,950
+and it's pretty simple.
+
+13
+00:00:53,220 --> 00:00:57,600
+All you have to do is put in your email and then they'll send you cheap flight
+
+14
+00:00:57,600 --> 00:01:00,840
+deals. So any flight within the next six months
+
+15
+00:01:01,170 --> 00:01:06,120
+that is a lot cheaper than it normally is, you'll get it through an email.
+
+16
+00:01:06,570 --> 00:01:10,980
+And if you're like me, somebody who doesn't really care where they're going
+
+17
+00:01:11,310 --> 00:01:15,570
+just as long as they're getting a good deal, then these emails are pretty cool,
+
+18
+00:01:15,630 --> 00:01:16,463
+right?
+
+19
+00:01:16,830 --> 00:01:21,830
+They actually charge for this premium service in order to get an email with all
+
+20
+00:01:22,650 --> 00:01:27,630
+of the latest deals and all of the best flight prices. Now,
+
+21
+00:01:27,660 --> 00:01:28,560
+if you think about it,
+
+22
+00:01:28,650 --> 00:01:33,510
+their service is essentially the same as what we've created using Python code.
+
+23
+00:01:33,990 --> 00:01:37,890
+Maybe they'll have a larger Google spreadsheet with more destinations,
+
+24
+00:01:38,220 --> 00:01:40,350
+but essentially it's pretty much the same.
+
+25
+00:01:41,100 --> 00:01:46,100
+I want you to take a look at their website, Jack's flight club, and see how it
+
+26
+00:01:46,320 --> 00:01:50,940
+works and you can see that they've actually got a whole bunch of members,
+
+27
+00:01:51,390 --> 00:01:53,970
+but this is essentially what we're going to replicate.
+
+28
+00:01:54,930 --> 00:01:56,430
+By the end of today,
+
+29
+00:01:56,460 --> 00:02:01,460
+we'll have a text-based way of getting our customers or users to join.
+
+30
+00:02:02,160 --> 00:02:06,840
+So maybe you've got some friends and family who might want to use your flight
+
+31
+00:02:06,840 --> 00:02:09,210
+club to get the best flight deals. Well
+
+32
+00:02:09,210 --> 00:02:13,440
+then all you have to do is point them to a link in Repl.it
+
+33
+00:02:13,500 --> 00:02:17,880
+which contains your customer acquisition code and then they get to, um,
+
+34
+00:02:17,910 --> 00:02:22,440
+enter in their name and email.
+
+35
+00:02:24,000 --> 00:02:25,890
+And after a little bit of validation,
+
+36
+00:02:25,920 --> 00:02:30,920
+we hit enter and we get added to a spreadsheet. In our spreadsheet,
+
+37
+00:02:31,860 --> 00:02:33,780
+in another sheet called users
+
+38
+00:02:34,200 --> 00:02:37,620
+we'll see all the details of our customer being added,
+
+39
+00:02:38,100 --> 00:02:42,270
+and we're going to be using the SMTP module that we learned about a long time
+
+40
+00:02:42,270 --> 00:02:46,710
+ago to email all of our users with the latest deals every day.
+
+41
+00:02:47,700 --> 00:02:52,020
+So head over to the next lesson and get started by downloading the starting
+
+42
+00:02:52,020 --> 00:02:52,440
+files.
+

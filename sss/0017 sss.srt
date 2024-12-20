@@ -1,0 +1,3622 @@
+1
+00:00:00,060 --> 00:00:04,740
+Hey guys, welcome to day 17 of 100 Days of Code. Now,
+
+2
+00:00:04,770 --> 00:00:05,430
+today
+
+3
+00:00:05,430 --> 00:00:09,690
+we're going to be focusing on how we actually create the classes that we've been
+
+4
+00:00:09,690 --> 00:00:11,910
+using in yesterday's lessons.
+
+5
+00:00:12,480 --> 00:00:17,480
+Today's final project that we're going to be building up towards is a quiz game.
+
+6
+00:00:18,180 --> 00:00:20,460
+So we're going to be able to create a true-false quiz,
+
+7
+00:00:20,850 --> 00:00:22,260
+and we'll be able to play the quiz,
+
+8
+00:00:22,620 --> 00:00:25,110
+answer the questions and keep track of score.
+
+9
+00:00:25,560 --> 00:00:30,560
+But we're gonna be building this completely using Object Oriented Programming. We're
+
+10
+00:00:30,570 --> 00:00:35,040
+going to be creating our classes ourselves and then using the objects created
+
+11
+00:00:35,040 --> 00:00:39,480
+from those classes in order to build this game. And once you're done,
+
+12
+00:00:39,570 --> 00:00:44,520
+this is what you'll be able to create. Question one, A slug's blood is green,
+
+13
+00:00:44,520 --> 00:00:47,760
+true or false. True. Now,
+
+14
+00:00:47,790 --> 00:00:51,090
+if you want to have a play around with the final project to get a feel for how
+
+15
+00:00:51,090 --> 00:00:51,690
+it works,
+
+16
+00:00:51,690 --> 00:00:56,550
+then you'll find a link to this final version of the quiz game in the course
+
+17
+00:00:56,550 --> 00:00:58,920
+resources. But once you're ready,
+
+18
+00:00:59,130 --> 00:01:02,610
+then head over to the next lesson and we're going to get started by learning how
+
+19
+00:01:02,610 --> 00:01:07,110
+to create our own custom classes. So, for all of that and more,
+
+20
+00:01:07,230 --> 00:01:07,710
+I'll see you there.
+
+
+21
+00:00:00,270 --> 00:00:04,920
+Throughout all of yesterday, we've been using other people's classes.
+
+22
+00:00:05,460 --> 00:00:10,460
+And we said that a class is simply just a blueprint for creating an eventual
+
+23
+00:00:11,490 --> 00:00:13,800
+object. In this lesson,
+
+24
+00:00:13,830 --> 00:00:17,490
+we're going to talk about how we can create our own classes,
+
+25
+00:00:17,970 --> 00:00:22,830
+so our own blueprints, which we can use to create our own objects.
+
+26
+00:00:23,910 --> 00:00:28,080
+Now let's go ahead and create our own custom classes in code.
+
+27
+00:00:28,530 --> 00:00:33,240
+Go ahead and create a new project either in PyCharm or Repl.it wherever you
+
+28
+00:00:33,240 --> 00:00:37,140
+prefer. And we're going to name it day-17-start,
+
+29
+00:00:37,950 --> 00:00:41,430
+and then hit create. And again, as always,
+
+30
+00:00:41,460 --> 00:00:46,170
+once you've created your project, it's time to create your first file
+
+31
+00:00:46,170 --> 00:00:48,090
+which we're going to name main.py.
+
+32
+00:00:48,480 --> 00:00:52,890
+And then we can collapse our project sidebar and focus on the code.
+
+33
+00:00:54,240 --> 00:00:59,070
+So how do we create a class? The syntax looks very simple.
+
+34
+00:00:59,100 --> 00:01:05,120
+You have the "class" keyword followed by the name of your class and then a colon
+
+35
+00:01:05,122 --> 00:01:05,123
+.
+
+36
+00:01:05,129 --> 00:01:09,360
+and then all of the code that's in your class will follow this and it will be
+
+37
+00:01:09,360 --> 00:01:13,320
+indented. Let's create our very first class in Python.
+
+38
+00:01:13,920 --> 00:01:14,760
+As I mentioned,
+
+39
+00:01:14,790 --> 00:01:19,440
+the way that we would create a class is first by using the class keyword.
+
+40
+00:01:20,250 --> 00:01:22,740
+And then we get to give our class a name.
+
+41
+00:01:23,220 --> 00:01:28,220
+Let's say that we're building a website and we need a class to model our website's
+
+42
+00:01:29,490 --> 00:01:30,323
+users.
+
+43
+00:01:30,570 --> 00:01:35,570
+So this class is basically going to be the blueprint to represent what our
+
+44
+00:01:35,880 --> 00:01:39,450
+users have and what they can do on our website.
+
+45
+00:01:40,170 --> 00:01:42,000
+Let's call our class User
+
+46
+00:01:42,510 --> 00:01:47,510
+and then we finished this declaration with a colon as usual. And everything
+
+47
+00:01:48,480 --> 00:01:50,010
+else that's going to go inside
+
+48
+00:01:50,010 --> 00:01:54,180
+this class is going to need to be indented after the colon.
+
+49
+00:01:54,870 --> 00:01:57,780
+Let's start out with a completely empty class.
+
+50
+00:01:58,200 --> 00:02:02,820
+Our user class is going to do absolutely nothing for now. However,
+
+51
+00:02:02,820 --> 00:02:04,530
+because I've created my blueprint
+
+52
+00:02:04,620 --> 00:02:08,310
+I can already use it to create my first user object.
+
+53
+00:02:08,940 --> 00:02:11,220
+So let's say I wanted to create a user_1
+
+54
+00:02:11,640 --> 00:02:14,490
+and I'm going to create it using that class,
+
+55
+00:02:14,880 --> 00:02:17,760
+which notice it's now being recognized by PyCharm,
+
+56
+00:02:18,150 --> 00:02:21,330
+and it's got the C symbol next to it. And of course,
+
+57
+00:02:21,330 --> 00:02:23,850
+to initialize an object from a class,
+
+58
+00:02:23,880 --> 00:02:26,190
+we have to add the parentheses at the end.
+
+59
+00:02:26,940 --> 00:02:31,020
+Now we get an error here because there's an indent expected.
+
+60
+00:02:31,440 --> 00:02:33,540
+So basically Python doesn't like it
+
+61
+00:02:33,630 --> 00:02:38,340
+when you create something like a class or when you create something like a
+
+62
+00:02:38,340 --> 00:02:40,950
+function and you have a colon,
+
+63
+00:02:41,280 --> 00:02:46,080
+but you don't have anything inside that function or class. For example,
+
+64
+00:02:46,080 --> 00:02:49,560
+if I just immediately wanted to print "hello" afterwards,
+
+65
+00:02:49,590 --> 00:02:52,650
+I get exactly the same error; indent expected.
+
+66
+00:02:53,100 --> 00:02:56,640
+It's expecting this function that you've created or this class
+
+67
+00:02:56,640 --> 00:03:01,640
+you've just created to have some sort of content before you go ahead and do something
+
+68
+00:03:01,810 --> 00:03:04,630
+else. So how can we fix this? Well,
+
+69
+00:03:04,660 --> 00:03:08,200
+if we actually really want to leave this function or this class empty,
+
+70
+00:03:08,320 --> 00:03:10,390
+we can use a keyword which is pass.
+
+71
+00:03:10,960 --> 00:03:15,370
+And all it does is it just passes. It says, I don't want to have a go right now.
+
+72
+00:03:15,640 --> 00:03:19,840
+Just continue to the next line of code. And this gets rid of our errors
+
+73
+00:03:19,900 --> 00:03:21,880
+both in the function declaration
+
+74
+00:03:22,210 --> 00:03:26,650
+as well as in our class declaration. We've now essentially completed the
+
+75
+00:03:26,650 --> 00:03:29,050
+first step towards creating our custom classes,
+
+76
+00:03:29,320 --> 00:03:34,320
+which is writing the declaration and then building an object called user_1 out
+
+77
+00:03:34,960 --> 00:03:39,370
+of that class. And we've also seen how to name classes in Python.
+
+78
+00:03:39,940 --> 00:03:43,960
+Now the name of the class should have the first letter of every word
+
+79
+00:03:44,140 --> 00:03:44,980
+capitalized.
+
+80
+00:03:45,550 --> 00:03:50,550
+And this particular style of naming in Programming is known as Pascal case.
+
+81
+00:03:52,060 --> 00:03:55,030
+So if you think of Blaise Pascal as a person,
+
+82
+00:03:55,060 --> 00:03:56,950
+then we know that everybody's name,
+
+83
+00:03:56,950 --> 00:04:01,950
+every person's name, has the first letter capitalized and also the first letter
+
+84
+00:04:02,400 --> 00:04:04,890
+of their surname or their middle name
+
+85
+00:04:04,980 --> 00:04:08,100
+and basically every subsequent name capitalized. Now,
+
+86
+00:04:08,130 --> 00:04:12,180
+this is different from another type of casing which you may have come across
+
+87
+00:04:12,420 --> 00:04:13,800
+which is called camel casing.
+
+88
+00:04:14,160 --> 00:04:19,160
+And camel casing is only different from Pascal case because the first word is
+
+89
+00:04:19,380 --> 00:04:23,910
+lowercase, but every subsequent word it has it's first letter capitalized in
+
+90
+00:04:24,030 --> 00:04:27,870
+exactly the same way as Pascal case. And finally,
+
+91
+00:04:27,900 --> 00:04:31,590
+we've also come across snake case where all the words are lowercase
+
+92
+00:04:31,740 --> 00:04:32,880
+but they're separated by 
+
+93
+00:04:32,880 --> 00:04:37,830
+an underscore. In Python programming, you won't see a lot of camel casing.
+
+94
+00:04:37,860 --> 00:04:41,430
+You will see Pascal case being used for the class names,
+
+95
+00:04:41,760 --> 00:04:45,210
+snake case being used pretty much to name everything else.
+
+
+96
+00:00:00,060 --> 00:00:03,480
+Now that we've seen how we can create a new class.
+
+97
+00:00:03,540 --> 00:00:06,060
+Even if it's a class with nothing inside.
+
+98
+00:00:06,600 --> 00:00:10,290
+And we've seen how we can create a new object from that class
+
+99
+00:00:10,740 --> 00:00:14,010
+by using the same code that we used in yesterday's lessons.
+
+100
+00:00:14,430 --> 00:00:19,350
+The next question is: "Well, how do we create an attribute for that class?". Well,
+
+101
+00:00:19,350 --> 00:00:24,350
+one of the easiest ways of doing this is simply tapping into your object and
+
+102
+00:00:24,390 --> 00:00:26,130
+then adding an attribute.
+
+103
+00:00:26,310 --> 00:00:31,310
+So we could say user_1.id = 
+
+104
+00:00:32,460 --> 00:00:33,293
+"001".
+
+105
+00:00:33,960 --> 00:00:38,960
+And we could add as many attributes as we want just by using this method of
+
+106
+00:00:39,570 --> 00:00:42,570
+using the dot notation after the name of the object,
+
+107
+00:00:42,960 --> 00:00:47,370
+and then just adding any piece of data we want. So now,
+
+108
+00:00:47,370 --> 00:00:51,930
+if I go ahead and print user_1.username,
+
+109
+00:00:52,290 --> 00:00:55,860
+you'll see that this attribute now exists in this object
+
+110
+00:00:55,880 --> 00:00:56,713
+[Inaudible]
+
+111
+00:00:58,910 --> 00:01:03,470
+And you can see the value that's held in that attribute being printed in the
+
+112
+00:01:03,470 --> 00:01:05,870
+console. So just a quick reminder,
+
+113
+00:01:05,900 --> 00:01:10,820
+an attribute is a variable that's associated with an object.
+
+114
+00:01:11,450 --> 00:01:16,130
+So it's almost as if we just created a new variable, but in this case,
+
+115
+00:01:16,160 --> 00:01:20,630
+we've attached it to an object. But here's a question though,
+
+116
+00:01:21,710 --> 00:01:25,640
+if we had lots and lots of attributes like this,
+
+117
+00:01:25,880 --> 00:01:29,030
+and every single time we create a new user,
+
+118
+00:01:29,420 --> 00:01:34,420
+let's say we created user_2 and we had to do the same thing,
+
+119
+00:01:34,550 --> 00:01:36,830
+create it from the class and then say,
+
+120
+00:01:36,830 --> 00:01:41,000
+user_2.id = "002",
+
+121
+00:01:41,120 --> 00:01:43,910
+and user_2.username
+
+122
+00:01:45,440 --> 00:01:49,430
+= "jack". And this is one,
+
+123
+00:01:49,610 --> 00:01:54,500
+a little bit prone to error because it's perfectly valid for me to make a typo
+
+124
+00:01:54,530 --> 00:01:58,940
+or change the name of an attribute where I end up with something like this.
+
+125
+00:01:59,300 --> 00:02:02,120
+So is there a way of making this simpler?
+
+126
+00:02:02,510 --> 00:02:06,770
+How can I specify all these starting pieces of information
+
+127
+00:02:07,040 --> 00:02:11,300
+when I create my object from the class? Now,
+
+128
+00:02:11,330 --> 00:02:15,320
+in order to do this, we have to understand something called a constructor,
+
+129
+00:02:15,770 --> 00:02:20,770
+which is a part of the blueprint that allows us to specify what should happen
+
+130
+00:02:21,470 --> 00:02:24,410
+when our object is being constructed.
+
+131
+00:02:25,160 --> 00:02:29,240
+And this is also known in programming as initializing
+
+132
+00:02:29,270 --> 00:02:32,840
+an object. When the object is being initialized,
+
+133
+00:02:32,870 --> 00:02:37,870
+we can set variables or counters to they're starting values. In Python,
+
+134
+00:02:39,560 --> 00:02:44,560
+the way that we would create the constructor is by using a special function,
+
+135
+00:02:45,980 --> 00:02:47,570
+which is the init function.
+
+136
+00:02:48,140 --> 00:02:52,070
+And you can tell it's special because it isn't just the Def keyword
+
+137
+00:02:52,310 --> 00:02:55,850
+and then the name of the function. It's got two underscores
+
+138
+00:02:55,910 --> 00:02:57,110
+either side of the name.
+
+139
+00:02:57,740 --> 00:03:02,740
+And this means that it's a method that the Python interpreter knows about and
+
+140
+00:03:03,100 --> 00:03:05,800
+knows that it has a special function. Now,
+
+141
+00:03:05,800 --> 00:03:10,800
+what is the special function? Well, it's normally used to initialize the attributes.
+
+142
+00:03:12,580 --> 00:03:14,260
+So if inside our class
+
+143
+00:03:14,590 --> 00:03:19,590
+we add this init function and you can see as soon as I write def and then 
+
+144
+00:03:19,690 --> 00:03:23,320
+init, I've really got autofill helping me so I can just hit enter
+
+145
+00:03:23,620 --> 00:03:25,510
+once it's selected. Now,
+
+146
+00:03:25,630 --> 00:03:30,630
+inside this init function is where we initialize or create the starting
+
+147
+00:03:30,970 --> 00:03:33,940
+values for our attributes. Now,
+
+148
+00:03:34,000 --> 00:03:39,000
+the important thing to remember is that the init function is going to be called
+
+149
+00:03:39,370 --> 00:03:43,210
+every time you create a new object from this class.
+
+150
+00:03:43,690 --> 00:03:45,400
+For example, if I print,
+
+151
+00:03:47,830 --> 00:03:51,460
+then every time that this construction happens
+
+152
+00:03:51,730 --> 00:03:53,770
+when we create a new user,
+
+153
+00:03:54,130 --> 00:03:57,220
+then this print statement is going to be triggered.
+
+154
+00:03:59,920 --> 00:04:03,940
+So you can see here, this print statement gets triggered
+
+155
+00:04:04,360 --> 00:04:08,410
+and then we print the user_1's username, and then we've got 
+
+156
+00:04:08,410 --> 00:04:12,490
+another user being created. Just as a quick reminder,
+
+157
+00:04:12,520 --> 00:04:16,720
+the attributes are the things that the object will have.
+
+158
+00:04:17,350 --> 00:04:22,210
+And they are basically just variables that are associated with the final
+
+159
+00:04:22,210 --> 00:04:25,870
+object. So for example, if you're constructing a car bject,
+
+160
+00:04:25,900 --> 00:04:29,500
+then one of those attributes could be the number of seats it has and
+
+161
+00:04:29,500 --> 00:04:31,150
+normally that's equal to five.
+
+162
+00:04:31,720 --> 00:04:36,220
+So how do we set these attributes in the constructor? Well,
+
+163
+00:04:36,220 --> 00:04:37,930
+this is what the code would look like.
+
+164
+00:04:38,350 --> 00:04:42,460
+We have our init function and inside the init function
+
+165
+00:04:42,820 --> 00:04:44,950
+in addition to this thing called self
+
+166
+00:04:45,010 --> 00:04:50,010
+which is the actual object that's being created or being initialized,
+
+167
+00:04:50,890 --> 00:04:54,250
+in addition, you can add as many parameters as you wish.
+
+168
+00:04:54,670 --> 00:04:59,670
+And that parameter is going to be passed in when an object gets constructed from
+
+169
+00:05:00,850 --> 00:05:04,300
+this class. And once you receive that data,
+
+170
+00:05:04,390 --> 00:05:09,010
+then you can use it to set the object's attributes.
+
+171
+00:05:10,090 --> 00:05:14,470
+This is what it would look like when we actually call our constructor.
+
+172
+00:05:15,250 --> 00:05:20,250
+We know that we can create an object by calling the name of the class and then
+
+173
+00:05:20,980 --> 00:05:25,810
+adding the parentheses. But if inside our init function
+
+174
+00:05:25,900 --> 00:05:27,970
+we have some additional parameters,
+
+175
+00:05:28,240 --> 00:05:32,350
+then we can also pass in data to those parameters
+
+176
+00:05:32,470 --> 00:05:36,460
+which will be used to set the attributes for that object.
+
+177
+00:05:36,760 --> 00:05:40,330
+So in this case, once this line of code has completed,
+
+178
+00:05:40,510 --> 00:05:44,710
+then my_car.seats is going to be equal to five.
+
+179
+00:05:45,790 --> 00:05:49,390
+And this is exactly the same as if we created our
+
+180
+00:05:49,390 --> 00:05:53,560
+my_car object first and then we said my_car.seats = 5.
+
+181
+00:05:53,590 --> 00:05:55,180
+It's completely the same.
+
+182
+00:05:56,230 --> 00:06:00,500
+But it does make it a lot quicker when you're creating a lot of objects that
+
+183
+00:06:00,500 --> 00:06:05,150
+need all the same attributes. Let's see how we would do it here.
+
+184
+00:06:05,150 --> 00:06:07,400
+We've got our init function already declared.
+
+185
+00:06:08,000 --> 00:06:11,780
+So if we wanted to pass over a user ID
+
+186
+00:06:11,810 --> 00:06:15,890
+when we construct our objects, we can add that as a parameter
+
+187
+00:06:16,340 --> 00:06:20,060
+and then inside the init we can say self.id,
+
+188
+00:06:20,330 --> 00:06:25,330
+so self.id is going to be the attribute that's associated with this class
+
+189
+00:06:25,910 --> 00:06:30,910
+and we can set it equal to the user_id that's passed in when any user gets
+
+190
+00:06:31,580 --> 00:06:35,450
+constructed. So now when we create our user,
+
+191
+00:06:36,050 --> 00:06:40,880
+instead of creating these attributes later on, at the time of construction
+
+192
+00:06:41,000 --> 00:06:44,420
+you can already see that we can add a user ID.
+
+193
+00:06:45,170 --> 00:06:47,000
+So let's give it the same ID.
+
+194
+00:06:48,020 --> 00:06:50,990
+And now let's add another attribute.
+
+195
+00:06:51,320 --> 00:06:56,320
+So we're going to pass in the username and I'm going to set the attribute
+
+196
+00:06:56,930 --> 00:07:00,710
+self.username equal the username that's past it.
+
+197
+00:07:01,280 --> 00:07:05,510
+Notice how in this case I've named my parameter user_id
+
+198
+00:07:05,840 --> 00:07:10,640
+and that value is going to become the self.id attribute.
+
+199
+00:07:11,060 --> 00:07:14,120
+So notice how these two actually have different names.
+
+200
+00:07:14,510 --> 00:07:17,480
+You can name either of these anything you want.
+
+201
+00:07:18,230 --> 00:07:23,120
+It's normally convention that you will see the name of the parameter be equal to
+
+202
+00:07:23,120 --> 00:07:27,590
+the name of the attribute, but you don't always have to stick to these rules.
+
+203
+00:07:28,970 --> 00:07:33,590
+Now let's go back to our constructor whereas previously it was empty,
+
+204
+00:07:33,830 --> 00:07:38,830
+now we have our user ID being passed in and I can now pass in the second
+
+205
+00:07:39,620 --> 00:07:44,060
+attribute, which is the username. So my username was going to be Angela.
+
+206
+00:07:45,650 --> 00:07:49,370
+And now we've created a new user,
+
+207
+00:07:49,520 --> 00:07:53,480
+which is user_1 from this user class
+
+208
+00:07:53,690 --> 00:07:58,690
+and we're initializing it with these starting values where the first value is
+
+209
+00:07:59,690 --> 00:08:03,860
+going to become the user ID which is going to be the self.id,
+
+210
+00:08:04,220 --> 00:08:08,780
+and the second value is going to become the self.username. So now,
+
+211
+00:08:08,780 --> 00:08:12,560
+if I wanted to print the user_1's username,
+
+212
+00:08:12,950 --> 00:08:14,420
+then I can simply write
+
+213
+00:08:14,420 --> 00:08:17,690
+user_1.username exactly the same way as before,
+
+214
+00:08:17,990 --> 00:08:21,350
+or if I wanted the ID, it would be user_1.id.
+
+215
+00:08:22,070 --> 00:08:26,750
+So now let's comment out the rest of the code and hit run,
+
+216
+00:08:27,680 --> 00:08:32,179
+and you can see we've got the user ID being printed here. Now,
+
+217
+00:08:32,179 --> 00:08:35,539
+remember that when you add parameters to the constructor
+
+218
+00:08:35,659 --> 00:08:36,919
+which is the init function,
+
+219
+00:08:37,460 --> 00:08:42,460
+you're now saying that whenever a new object is being constructed from this
+
+220
+00:08:43,130 --> 00:08:47,600
+class, it must provide these two pieces of data.
+
+221
+00:08:48,530 --> 00:08:53,150
+If we uncomment this and you try to run it, you'll see you get an error.
+
+222
+00:08:53,840 --> 00:08:56,160
+And it says that on line 12,
+
+223
+00:08:56,940 --> 00:09:00,840
+this user is being created from the user class.
+
+224
+00:09:01,320 --> 00:09:06,180
+But according to the init, we're actually missing two required arguments;
+
+225
+00:09:06,360 --> 00:09:08,010
+user ID and username.
+
+226
+00:09:08,790 --> 00:09:12,300
+So now when we create any object from this class,
+
+227
+00:09:12,600 --> 00:09:16,290
+we have to provide the user ID and the username.
+
+228
+00:09:17,190 --> 00:09:20,190
+But this is now much more convenient, right?
+
+229
+00:09:20,250 --> 00:09:23,970
+While we previously needed three lines of code, we now only have one.
+
+230
+00:09:25,200 --> 00:09:27,540
+Now sometimes when we're creating our attributes,
+
+231
+00:09:27,840 --> 00:09:31,170
+we might want a default value to start with.
+
+232
+00:09:31,230 --> 00:09:35,460
+And if at some later point in our program we want to modify it,
+
+233
+00:09:35,460 --> 00:09:36,840
+then we'll do it at that point.
+
+234
+00:09:37,140 --> 00:09:42,140
+But it doesn't make sense for all attributes to be initialized when we actually
+
+235
+00:09:42,510 --> 00:09:46,200
+create our object. So if, for example, in our case,
+
+236
+00:09:46,230 --> 00:09:50,010
+let's say that we were coding up the Instagram app, right? Well,
+
+237
+00:09:50,010 --> 00:09:53,160
+each of the Instagram users, they would have an ID,
+
+238
+00:09:53,430 --> 00:09:56,940
+they would have a username and they would probably have a follower count.
+
+239
+00:09:57,330 --> 00:10:01,170
+So they might have something like self.followers.
+
+240
+00:10:02,460 --> 00:10:07,050
+This is always going to start out as zero, right? You start a new account,
+
+241
+00:10:07,110 --> 00:10:10,350
+you're going to have zero followers. You might get some followers later on,
+
+242
+00:10:10,620 --> 00:10:11,453
+you might not.
+
+243
+00:10:11,700 --> 00:10:16,700
+But it doesn't make sense for followers to be something that we have to provide
+
+244
+00:10:17,520 --> 00:10:19,410
+whenever we construct a new object.
+
+245
+00:10:19,680 --> 00:10:23,670
+It seems very wasteful to have to always write zero
+
+246
+00:10:23,880 --> 00:10:27,900
+when you construct any object from this class. So in Python,
+
+247
+00:10:27,900 --> 00:10:31,770
+we can also provide a default value just as I've done here.
+
+248
+00:10:32,220 --> 00:10:37,170
+Instead of setting it equal to one of the parameters that's being passed in when
+
+249
+00:10:37,170 --> 00:10:41,610
+this class is being initialized, instead I'm just setting it to a value,
+
+250
+00:10:41,640 --> 00:10:46,470
+which is zero. Let's get rid of that from the initializer
+
+251
+00:10:46,500 --> 00:10:48,840
+because we now have a default value of zero.
+
+252
+00:10:49,380 --> 00:10:52,530
+And if I go ahead and print my, let's say,
+
+253
+00:10:52,530 --> 00:10:57,180
+user_1.followers attribute, and I hit run,
+
+254
+00:10:57,570 --> 00:11:02,570
+then you can see it's zero because all objects being created from this class will
+
+255
+00:11:04,170 --> 00:11:07,830
+have a followers attribute that set out to zero to begin with.
+
+
+256
+00:00:00,570 --> 00:00:04,920
+In addition to creating attributes, we know that we can also create methods.
+
+257
+00:00:05,370 --> 00:00:09,360
+The attributes are the things that the object has and the methods
+
+258
+00:00:09,420 --> 00:00:11,520
+are the things that the object does.
+
+259
+00:00:12,330 --> 00:00:16,620
+Let's say that we were creating the car class and we've really created the seats
+
+260
+00:00:16,650 --> 00:00:18,810
+attribute. Well, later on
+
+261
+00:00:18,840 --> 00:00:23,840
+we might decide that we want to call a method to change that seats attribute's
+
+262
+00:00:24,420 --> 00:00:29,370
+value. So for example, I've been watching a lot of truck racing recently.
+
+263
+00:00:29,520 --> 00:00:29,720
+Yeah.
+
+264
+00:00:29,720 --> 00:00:34,720
+[inaudible]
+
+265
+00:00:35,690 --> 00:00:39,920
+And one of the things that people do when they mod their cars for racing is they
+
+266
+00:00:39,920 --> 00:00:43,940
+take out some of the seats. This way it reduces the weight of the car,
+
+267
+00:00:43,970 --> 00:00:48,170
+and it means that you can go a bit faster. So in our car class,
+
+268
+00:00:48,200 --> 00:00:49,250
+we might, in fact,
+
+269
+00:00:49,250 --> 00:00:53,780
+have a method where the car can enter race mode,
+
+270
+00:00:54,170 --> 00:00:57,110
+where the seats are dropped from 5 to 2.
+
+271
+00:00:58,010 --> 00:01:02,270
+This is what the method would look like. Inside the class declaration,
+
+272
+00:01:02,630 --> 00:01:07,250
+we have a function, but remember when a function is attached to an object
+
+273
+00:01:07,310 --> 00:01:08,810
+then it's called a method.
+
+274
+00:01:09,830 --> 00:01:14,540
+This method looks exactly the same as how we've created other functions.
+
+275
+00:01:14,540 --> 00:01:17,660
+We have the Def keyword, we have the name of the method,
+
+276
+00:01:17,900 --> 00:01:21,470
+we have some parentheses which can take inputs, a colon,
+
+277
+00:01:21,560 --> 00:01:24,650
+and then the body of the method. So in this case,
+
+278
+00:01:24,650 --> 00:01:29,650
+all it does is it gets hold of the object and then the object seats attribute
+
+279
+00:01:32,030 --> 00:01:36,620
+and then changes it to 2. So now when you call that method,
+
+280
+00:01:36,710 --> 00:01:41,710
+all you need to do is get hold of the object and then you use the dot notation
+
+281
+00:01:42,560 --> 00:01:46,310
+to call that method enter_race_mode, and of course,
+
+282
+00:01:46,310 --> 00:01:47,750
+with the parentheses at the end.
+
+283
+00:01:48,920 --> 00:01:52,640
+So let's say that while we're modeling our Instagram user,
+
+284
+00:01:53,120 --> 00:01:56,720
+we want to have a way for the users to follow each other, right?
+
+285
+00:01:57,140 --> 00:02:01,550
+And when they follow each other, their follower counts obviously go up.
+
+286
+00:02:02,000 --> 00:02:06,890
+So let's define a new method. So we're going to use the def keyword
+
+287
+00:02:07,190 --> 00:02:11,690
+and then we're going to name our method follow. Now a method,
+
+288
+00:02:11,780 --> 00:02:16,780
+unlike a function, always needs to have a self parameter as the first parameter.
+
+289
+00:02:18,980 --> 00:02:21,230
+This means that when this method is called,
+
+290
+00:02:21,560 --> 00:02:25,490
+it knows the object that called it. Now,
+
+291
+00:02:25,520 --> 00:02:27,380
+in addition to that self parameter,
+
+292
+00:02:27,410 --> 00:02:31,430
+we're also going to pass in the user that we've decided to follow.
+
+293
+00:02:32,270 --> 00:02:35,510
+So now let's say that we actually had two attributes,
+
+294
+00:02:35,930 --> 00:02:39,860
+the followers and the following count, right?
+
+295
+00:02:39,860 --> 00:02:43,430
+So they both start from zero, so two default attributes.
+
+296
+00:02:44,000 --> 00:02:47,990
+But when a user decides to follow another user,
+
+297
+00:02:48,500 --> 00:02:49,460
+well in this case,
+
+298
+00:02:49,580 --> 00:02:54,580
+the user who we're following, their follower count goes up by one and our own,
+
+299
+00:02:57,500 --> 00:03:02,500
+so the self.following count goes up by one as well.
+
+300
+00:03:03,550 --> 00:03:07,930
+So the self keyword becomes quite important when we're working with classes and
+
+301
+00:03:07,930 --> 00:03:12,760
+objects. It's a way for us to refer to the object 
+
+302
+00:03:12,790 --> 00:03:17,790
+that's going to be created from this class inside the class blueprint.
+
+303
+00:03:18,790 --> 00:03:22,030
+So you'll never see self when you're using objects
+
+304
+00:03:22,540 --> 00:03:26,530
+but you see it a lot when you're writing your code inside your class.
+
+305
+00:03:27,340 --> 00:03:30,070
+Now let's go ahead and call this.
+
+306
+00:03:30,310 --> 00:03:35,310
+And let's say that user_1 decided to follow
+
+307
+00:03:37,120 --> 00:03:41,530
+user_2. This is the user_1 object,
+
+308
+00:03:41,980 --> 00:03:46,300
+and this is the follow method from the user_1 object.
+
+309
+00:03:46,750 --> 00:03:50,560
+And then the user_2 is the person who we're going to follow.
+
+310
+00:03:51,160 --> 00:03:55,630
+So now let's go ahead and print the user_1's
+
+311
+00:03:56,050 --> 00:04:01,050
+follower count and the user_1's following count.
+
+312
+00:04:03,280 --> 00:04:06,820
+And let's do the same for user_2 as well.
+
+313
+00:04:09,370 --> 00:04:12,220
+You can see once this method has run,
+
+314
+00:04:12,790 --> 00:04:16,089
+then user_1's follow account is still zero,
+
+315
+00:04:16,390 --> 00:04:18,790
+but user_1 is now following one person.
+
+316
+00:04:19,360 --> 00:04:24,340
+User_2 has one followers and has zero people that it's following.
+
+317
+00:04:26,640 --> 00:04:26,730
+Right?
+
+
+318
+00:00:00,390 --> 00:00:04,230
+Now that we've seen how to create our own custom classes,
+
+319
+00:00:04,650 --> 00:00:06,990
+we're finally ready to build the quiz game.
+
+320
+00:00:07,680 --> 00:00:10,710
+Now this game is going to be a simple true/false game.
+
+321
+00:00:11,010 --> 00:00:15,000
+So a question will be asked to the user and they'll select true or false,
+
+322
+00:00:15,420 --> 00:00:19,080
+and then we'll tell them if they got it right or wrong and give them a score.
+
+323
+00:00:20,040 --> 00:00:24,270
+Now to begin, the first step you'll need to do is to download the zip
+
+324
+00:00:24,270 --> 00:00:27,570
+file it with all the starting code from our course resource website.
+
+325
+00:00:28,020 --> 00:00:28,920
+Alternatively,
+
+326
+00:00:28,950 --> 00:00:33,030
+if you are already logged in on Repl.it simply fork the project and then click
+
+327
+00:00:33,030 --> 00:00:35,550
+on these three dots to download the zip file here.
+
+328
+00:00:36,720 --> 00:00:40,050
+And once you've extracted the actual folder, quiz-game-
+
+329
+00:00:40,050 --> 00:00:44,520
+start from the.zip file, then we're ready to go ahead and open it
+
+330
+00:00:44,670 --> 00:00:47,610
+using PyCharm. In PyCharm 
+
+331
+00:00:47,640 --> 00:00:51,960
+we're going to click open and then we're going to navigate to the place where we
+
+332
+00:00:51,960 --> 00:00:56,460
+have our quiz-game-start, which in my case is in the downloads folder.
+
+333
+00:00:57,390 --> 00:01:01,080
+PyCharm should automatically configure the latest version of Python you've got
+
+334
+00:01:01,080 --> 00:01:03,120
+installed as the interpreter.
+
+335
+00:01:03,480 --> 00:01:06,150
+So you can go ahead and close these popups.
+
+336
+00:01:06,630 --> 00:01:09,480
+And if we open up our quiz-game-start folder,
+
+337
+00:01:09,720 --> 00:01:13,110
+you can see we have four files, data,
+
+338
+00:01:13,140 --> 00:01:15,450
+main, question_model and quiz_brain.
+
+339
+00:01:16,050 --> 00:01:18,240
+And over the course of the next few lessons,
+
+340
+00:01:18,300 --> 00:01:22,290
+we're going to be writing the code in all of these files so that we end up
+
+341
+00:01:22,320 --> 00:01:24,600
+creating our final quiz project.
+
+342
+00:01:25,650 --> 00:01:30,650
+The first task that we have is to create a model for a question in our quiz.
+
+343
+00:01:32,280 --> 00:01:37,280
+If we had a question object, well what kind of attributes should it have?
+
+344
+00:01:37,860 --> 00:01:42,030
+It might have a text attribute for the question texts,
+
+345
+00:01:42,360 --> 00:01:44,940
+and it might also hold an answer attribute
+
+346
+00:01:45,090 --> 00:01:49,260
+which is going to be the correct answer to that question. Now,
+
+347
+00:01:49,260 --> 00:01:53,340
+these two attributes should be initialized with a value
+
+348
+00:01:53,640 --> 00:01:57,720
+when a new question object is created from this class.
+
+349
+00:01:58,230 --> 00:02:02,040
+For example, if our first question was 2 + 3 = 5,
+
+350
+00:02:02,340 --> 00:02:05,340
+which we know the correct answer should be true. Well,
+
+351
+00:02:05,340 --> 00:02:10,139
+then we might write the code like this to actually initialize a new question
+
+352
+00:02:10,139 --> 00:02:15,140
+object. And when this initialization goes through the constructor code inside the
+
+353
+00:02:16,890 --> 00:02:17,820
+question class
+
+354
+00:02:18,120 --> 00:02:23,120
+will take these two pieces of data and then add them to the corresponding
+
+355
+00:02:23,220 --> 00:02:25,470
+attributes, the text and the answer.
+
+356
+00:02:26,070 --> 00:02:31,070
+And so our new question object will have both of these attributes initialized
+
+357
+00:02:31,470 --> 00:02:32,490
+with a value
+
+358
+00:02:32,760 --> 00:02:37,760
+when a new question object is being created. Inside your project,
+
+359
+00:02:39,030 --> 00:02:42,660
+go over to the question_model.py file,
+
+360
+00:02:43,110 --> 00:02:48,030
+and go ahead and create a new class called question
+
+361
+00:02:48,510 --> 00:02:51,960
+and that question class should have an init method
+
+362
+00:02:52,200 --> 00:02:55,170
+which will initialize two attributes,
+
+363
+00:02:55,440 --> 00:02:59,950
+the text and the answer just as you've seen in the previous slides.
+
+364
+00:03:00,850 --> 00:03:04,600
+Pause the video and see if you can complete this challenge by creating this
+
+365
+00:03:04,600 --> 00:03:05,130
+class.
+
+366
+00:03:05,130 --> 00:03:05,963
+Right.
+
+367
+00:03:10,590 --> 00:03:12,600
+All right. So we know that to create a class,
+
+368
+00:03:12,600 --> 00:03:16,260
+we first have to use the class keyword. And then in our case,
+
+369
+00:03:16,290 --> 00:03:20,700
+the name of the class is going to be called Question because we're modeling what
+
+370
+00:03:20,700 --> 00:03:23,160
+a question would be like in our game.
+
+371
+00:03:23,940 --> 00:03:27,270
+We know that each of these questions have two attributes;
+
+372
+00:03:27,690 --> 00:03:30,240
+a self.text and a self.answer.
+
+373
+00:03:30,840 --> 00:03:34,650
+And those two attributes are going to be initialized
+
+374
+00:03:35,400 --> 00:03:40,400
+when we create a new question object. So we need the init function in here.
+
+375
+00:03:41,520 --> 00:03:43,770
+And we're pretty much going to use the autofill.
+
+376
+00:03:43,830 --> 00:03:46,980
+So once you write Def and then you write init,
+
+377
+00:03:47,280 --> 00:03:50,610
+you can see it in the dropdown list and then just hit enter
+
+378
+00:03:50,970 --> 00:03:54,240
+and the code will be inserted automatically. This way
+
+379
+00:03:54,240 --> 00:03:58,050
+you don't have to remember the exact order of the parentheses or where to put
+
+380
+00:03:58,050 --> 00:04:02,340
+the colon, et cetera, et cetera. Now, inside the init function,
+
+381
+00:04:02,370 --> 00:04:05,580
+we're going to set up two attributes as we said.
+
+382
+00:04:05,910 --> 00:04:09,660
+One is going to be called text and one is going to be called answer.
+
+383
+00:04:10,290 --> 00:04:13,980
+And if we want to create an attribute, we have to use this syntax,
+
+384
+00:04:14,050 --> 00:04:17,040
+self. and then the name of the attribute,
+
+385
+00:04:17,370 --> 00:04:21,120
+because eventually when we create a new object from this class
+
+386
+00:04:21,390 --> 00:04:26,390
+say a new question object, then we're going to be passing in these two items,
+
+387
+00:04:27,510 --> 00:04:30,270
+a piece of text which is going to be the question,
+
+388
+00:04:30,510 --> 00:04:35,400
+and then either true or false as the answer. And then later on
+
+389
+00:04:35,400 --> 00:04:37,320
+if we wanted to access the text,
+
+390
+00:04:37,380 --> 00:04:40,590
+then we would say new_q.text.
+
+391
+00:04:41,190 --> 00:04:42,720
+Now of course at the moment,
+
+392
+00:04:42,750 --> 00:04:46,680
+these are all yellowed out because it seems to have no effect.
+
+393
+00:04:47,010 --> 00:04:51,510
+There's no way of receiving a value for each of these attributes.
+
+394
+00:04:51,990 --> 00:04:56,010
+And to do that, we have to add some inputs inside the init function.
+
+395
+00:04:56,490 --> 00:04:59,730
+So let's just call it q_text and a q_answer.
+
+396
+00:05:00,090 --> 00:05:02,910
+You can of course call these parameters anything you want.
+
+397
+00:05:03,330 --> 00:05:08,330
+But the important part is you set the self.text to that first value and the
+
+398
+00:05:09,960 --> 00:05:12,450
+self.answer to the second value.
+
+399
+00:05:13,020 --> 00:05:18,020
+So now when we actually go ahead and print this new_q.text
+
+400
+00:05:18,840 --> 00:05:20,730
+object like we have here,
+
+401
+00:05:20,820 --> 00:05:24,750
+then it will go ahead and actually fetch this value into the output.
+
+402
+00:05:26,250 --> 00:05:30,810
+If you go to run and then run and then select a question model,
+
+403
+00:05:31,380 --> 00:05:35,400
+you can see that is what gets printed in the console.
+
+404
+00:05:37,110 --> 00:05:41,940
+Let's delete those two lines and now we have completed our first task,
+
+405
+00:05:42,270 --> 00:05:46,200
+which is creating our question class from scratch.
+
+
+406
+00:00:00,330 --> 00:00:01,650
+Now in the last lesson,
+
+407
+00:00:01,680 --> 00:00:05,610
+we created our question class. In this lesson,
+
+408
+00:00:05,640 --> 00:00:10,470
+we're going to be creating a question bank of question objects.
+
+409
+00:00:11,070 --> 00:00:15,930
+Notice how we can create a question object by using the name of the class and
+
+410
+00:00:15,930 --> 00:00:20,250
+then giving it some inputs for the question and the answer. Now,
+
+411
+00:00:20,250 --> 00:00:25,080
+if we create a whole bunch of those and then put them into a list like this,
+
+412
+00:00:25,140 --> 00:00:29,580
+then we can create a question bank of questions to use in our quiz.
+
+413
+00:00:30,720 --> 00:00:33,570
+If you take a look inside the data.py file,
+
+414
+00:00:33,900 --> 00:00:38,900
+you'll see that I've already included a whole bunch of questions inside here,
+
+415
+00:00:39,270 --> 00:00:42,300
+and you can see it's got some text and it's got some answer.
+
+416
+00:00:42,780 --> 00:00:47,780
+So the exact structure of this file is that it's got a whole bunch of
+
+417
+00:00:48,360 --> 00:00:51,030
+dictionaries, 12 in total,
+
+418
+00:00:51,330 --> 00:00:55,110
+and all of these dictionaries are saved inside a list
+
+419
+00:00:55,440 --> 00:01:00,270
+and that list is called question_data. Now, when you first come onto this file
+
+420
+00:01:00,300 --> 00:01:04,019
+you'll see some warnings, these little yellow squiggly lines.
+
+421
+00:01:04,500 --> 00:01:08,190
+And the reason is because it would expect for proper formatting,
+
+422
+00:01:08,580 --> 00:01:13,140
+each of these dictionaries should be indented inside the list. Now,
+
+423
+00:01:13,200 --> 00:01:16,620
+in terms of actual functionality, this won't change anything.
+
+424
+00:01:16,650 --> 00:01:21,650
+The indentation of the items in a list are not as important as the indentation
+
+425
+00:01:21,810 --> 00:01:23,820
+in say a method or a for loop.
+
+426
+00:01:24,360 --> 00:01:27,210
+But it's still better to get rid of all of these warnings.
+
+427
+00:01:27,630 --> 00:01:32,250
+So what we're going to do is we're going to select everything inside this file,
+
+428
+00:01:32,310 --> 00:01:35,520
+we're going to go to code and then auto-indent lines.
+
+429
+00:01:36,090 --> 00:01:39,060
+And this you'll notice has now auto-indented
+
+430
+00:01:39,330 --> 00:01:42,120
+all of the dictionaries inside the list.
+
+431
+00:01:42,720 --> 00:01:47,190
+Now you'll still notice some red squiggly lines. So in this case,
+
+432
+00:01:47,190 --> 00:01:51,690
+the reason is because the line is too long, it's greater than 120 characters.
+
+433
+00:01:51,960 --> 00:01:55,260
+You can see that's where the cutoff is. So in PyCharm
+
+434
+00:01:55,260 --> 00:01:57,390
+it's really easy to separate lines.
+
+435
+00:01:57,420 --> 00:02:01,020
+If you just identify a good spot in that line, hit enter,
+
+436
+00:02:01,050 --> 00:02:05,700
+and it will automatically add some quotation marks around it so that it still
+
+437
+00:02:05,700 --> 00:02:09,660
+behaves the same way as before, but now it's on separate lines.
+
+438
+00:02:10,090 --> 00:02:12,450
+And I'm going to do the same to line 8 as well.
+
+439
+00:02:12,840 --> 00:02:16,440
+Now the final warning expect a new line at the end of the file,
+
+440
+00:02:16,650 --> 00:02:17,790
+so it let's give it that.
+
+441
+00:02:18,150 --> 00:02:22,710
+And the last thing that you'll notice here is that there's a squiggly line here
+
+442
+00:02:22,740 --> 00:02:26,880
+under Backrub because that is a unknown word in the dictionary.
+
+443
+00:02:27,240 --> 00:02:31,050
+So if you want to, you can actually save words into the dictionary
+
+444
+00:02:31,320 --> 00:02:33,420
+to you get rid of all of these squiggly lines.
+
+445
+00:02:33,780 --> 00:02:35,940
+This is actually a name of a company,
+
+446
+00:02:35,940 --> 00:02:38,280
+so it's probably not going to be in the dictionary.
+
+447
+00:02:38,580 --> 00:02:41,250
+But if you go ahead and put your cursor on it like this,
+
+448
+00:02:41,490 --> 00:02:45,720
+you'll see a little light-bulb light up and you can go ahead and select save 
+
+449
+00:02:45,720 --> 00:02:47,490
+'Backrub' to project-level dictionary,
+
+450
+00:02:47,910 --> 00:02:50,850
+and that will get rid of all of your warnings and errors
+
+451
+00:02:51,120 --> 00:02:54,000
+and you'll see a nice green check mark in the right corner.
+
+452
+00:02:55,110 --> 00:02:57,990
+Now that we've done all of this formatting with the data,
+
+453
+00:02:58,020 --> 00:03:03,020
+let's really examine it. What we have here is a list of dictionaries.
+
+454
+00:03:04,390 --> 00:03:09,390
+Each of the dictionaries have the same key for the question text and the same
+
+455
+00:03:09,640 --> 00:03:11,320
+key for the question answer.
+
+456
+00:03:11,890 --> 00:03:16,890
+So what we need to do is we need to be able to bring this question data into the
+
+457
+00:03:17,560 --> 00:03:21,850
+main.py file. But instead of having a list of dictionaries,
+
+458
+00:03:22,240 --> 00:03:25,120
+we want a list of question objects.
+
+459
+00:03:25,690 --> 00:03:30,690
+We know already that we can create a new question object by simply constructing
+
+460
+00:03:31,690 --> 00:03:35,740
+one from the question and then giving it the required inputs.
+
+461
+00:03:36,160 --> 00:03:39,700
+But in order to do this inside the main.py file,
+
+462
+00:03:40,420 --> 00:03:45,420
+we, of course, have to import the question model and we'll also need to import the
+
+463
+00:03:45,790 --> 00:03:49,480
+data.py. So from the question model
+
+464
+00:03:49,480 --> 00:03:54,310
+I'm going to import the question class, and from the data file
+
+465
+00:03:54,340 --> 00:03:56,830
+I'm going to import the question data.
+
+466
+00:03:57,550 --> 00:04:02,260
+Now that you've got both the question data and the question class,
+
+467
+00:04:02,950 --> 00:04:06,010
+your goal is to create the question bank.
+
+468
+00:04:06,670 --> 00:04:08,020
+And once you're done,
+
+469
+00:04:08,200 --> 00:04:12,100
+it should contain a list of question objects
+
+470
+00:04:12,520 --> 00:04:15,610
+each being initialized with a question and an answer,
+
+471
+00:04:16,390 --> 00:04:21,390
+and the data is going to come from these dictionaries from the question data.
+
+472
+00:04:22,450 --> 00:04:26,440
+So you'll need to think about how you can loop through that question data in
+
+473
+00:04:26,440 --> 00:04:28,930
+order to create this list of question objects.
+
+474
+00:04:29,440 --> 00:04:31,510
+Pause the video and give that a go now.
+
+475
+00:04:34,930 --> 00:04:37,690
+All right. So we know that we need to create this question bank
+
+476
+00:04:37,750 --> 00:04:40,600
+which is going to be a list of question objects.
+
+477
+00:04:41,110 --> 00:04:43,930
+So I'm going to start out just by creating an empty list
+
+478
+00:04:44,380 --> 00:04:49,380
+and then I'm going to loop through each of the questions inside the question
+
+479
+00:04:49,720 --> 00:04:53,380
+data. And for each of these questions,
+
+480
+00:04:53,380 --> 00:04:58,180
+I'm going to create a variable, which we'll call a question_text
+
+481
+00:04:58,870 --> 00:05:03,870
+and the question_text is going to come from those question dictionaries from
+
+482
+00:05:04,660 --> 00:05:06,730
+here. And if we imagine
+
+483
+00:05:06,730 --> 00:05:10,330
+we have one of these dictionaries and we want to get hold of the question_text,
+
+484
+00:05:10,660 --> 00:05:12,910
+then we'll need to tap into the text key.
+
+485
+00:05:13,390 --> 00:05:18,130
+So I'm going to put text inside here and I'm going to do the same thing for the
+
+486
+00:05:18,130 --> 00:05:18,963
+answer.
+
+487
+00:05:19,570 --> 00:05:24,570
+So this is going to be using the answer key that we see right here.
+
+488
+00:05:25,600 --> 00:05:29,500
+So now if we're looping through the first one, we should have 'A slug's
+
+489
+00:05:29,500 --> 00:05:34,500
+blood is green.' and 'True' for these two variables.
+
+490
+00:05:35,080 --> 00:05:38,230
+So now I'm ready to create my new question,
+
+491
+00:05:39,040 --> 00:05:41,980
+which is going to be created from the question class.
+
+492
+00:05:42,430 --> 00:05:46,660
+And you can see that in the constructor, it's expecting two parameters;
+
+493
+00:05:46,930 --> 00:05:51,930
+one is the q_text and another is the q_answer.
+
+494
+00:05:53,650 --> 00:05:58,340
+We can set the q_text to this local variable called question_text,
+
+495
+00:05:58,760 --> 00:06:02,750
+and we can set the answer to the question_answer. And of course,
+
+496
+00:06:02,750 --> 00:06:04,100
+for simplicity sake,
+
+497
+00:06:04,130 --> 00:06:09,130
+we can also get rid of the named parameters and have them just as the parameters
+
+498
+00:06:09,400 --> 00:06:10,233
+like this.
+
+499
+00:06:10,630 --> 00:06:15,630
+So now that we've created this new question object and saved it in the variable
+
+500
+00:06:16,000 --> 00:06:19,690
+new_question, we're ready to add it into our question bank.
+
+501
+00:06:19,870 --> 00:06:22,060
+So we can say a question_bank.append,
+
+502
+00:06:22,450 --> 00:06:26,560
+and we'll append each of these new questions that we create in the for loop.
+
+503
+00:06:27,190 --> 00:06:30,640
+So now if I go ahead and print this question bank,
+
+504
+00:06:31,120 --> 00:06:35,350
+you'll see that when I hit run and select my main file,
+
+505
+00:06:35,830 --> 00:06:40,830
+then it prints out a list denoted by the square brackets and inside the list
+
+506
+00:06:41,830 --> 00:06:46,090
+you've got a whole bunch of question objects. And if you count,
+
+507
+00:06:46,120 --> 00:06:47,920
+there's actually 12 in total,
+
+508
+00:06:48,190 --> 00:06:52,060
+one for each of the dictionaries inside our question_data.
+
+509
+00:06:52,750 --> 00:06:55,600
+So very often when you're getting data from the
+
+510
+00:06:55,810 --> 00:06:59,410
+internet or from somewhere else, it'll likely be in a format
+
+511
+00:06:59,410 --> 00:07:04,210
+that's very similar to this. What we're doing is we're converting each of these
+
+512
+00:07:04,210 --> 00:07:08,500
+pieces of data which has a string key,
+
+513
+00:07:08,680 --> 00:07:10,630
+which means it's very easy to make typos
+
+514
+00:07:10,630 --> 00:07:12,880
+if we're using this in our code everywhere,
+
+515
+00:07:13,270 --> 00:07:15,760
+and we're converting it into a object
+
+516
+00:07:16,120 --> 00:07:21,120
+which now has all of that data in a very easy and foolproof way of accessing the
+
+517
+00:07:22,660 --> 00:07:26,380
+text and the answer. And you'll notice here,
+
+518
+00:07:26,410 --> 00:07:29,050
+if I actually write the wrong thing,
+
+519
+00:07:29,320 --> 00:07:31,810
+then it's actually going to highlight to me
+
+520
+00:07:32,080 --> 00:07:35,980
+this is not something that you can use. And if I start typing,
+
+521
+00:07:36,010 --> 00:07:38,920
+I've also got the help of the auto-insert.
+
+522
+00:07:40,480 --> 00:07:45,480
+Now that we've created our question bank of question objects, the next step is to
+
+523
+00:07:46,240 --> 00:07:48,160
+actually get our quiz up and running.
+
+
+524
+00:00:00,480 --> 00:00:03,360
+Now that we've managed to create a question bank
+
+525
+00:00:03,420 --> 00:00:06,960
+which consists of a list of question
+
+526
+00:00:06,990 --> 00:00:11,990
+objects, the next natural thing to do is to actually bring up one of those
+
+527
+00:00:13,440 --> 00:00:18,440
+questions and to ask the user to answer the question. Now,
+
+528
+00:00:19,380 --> 00:00:23,370
+for all of the questioning and quizzing functionality,
+
+529
+00:00:23,760 --> 00:00:25,890
+we're going to put that into the QuizBrain,
+
+530
+00:00:26,370 --> 00:00:28,800
+which is going to be a class in its own right.
+
+531
+00:00:29,280 --> 00:00:33,570
+And it's going to manage everything from asking the user for the next question,
+
+532
+00:00:33,870 --> 00:00:37,920
+checking whether if the answer was right and also checking to see if we're
+
+533
+00:00:37,920 --> 00:00:39,660
+actually at the end of the quiz.
+
+534
+00:00:40,530 --> 00:00:44,070
+You're going to be creating this QuizBrain and class
+
+535
+00:00:44,550 --> 00:00:49,550
+and this class is going to have two attributes to begin with; a question number
+
+536
+00:00:50,910 --> 00:00:53,760
+which is going to have a default value of zero
+
+537
+00:00:54,090 --> 00:00:57,660
+because all our quizzes will start from the first question.
+
+538
+00:00:58,290 --> 00:01:02,700
+And this is going to keep track of which question the user is currently on.
+
+539
+00:01:03,210 --> 00:01:07,410
+And we're going to use that number to go through the list of questions
+
+540
+00:01:07,770 --> 00:01:12,570
+which will be passed over to this QuizBrain object when it gets initialized.
+
+541
+00:01:13,230 --> 00:01:17,100
+And then you're going to have a method which is called next_question
+
+542
+00:01:17,490 --> 00:01:21,210
+which will pull up the question from that list
+
+543
+00:01:21,450 --> 00:01:23,880
+depending on which current question number we're on.
+
+544
+00:01:24,480 --> 00:01:28,080
+If you take a look at the final version of the quiz game,
+
+545
+00:01:28,500 --> 00:01:33,500
+you can see that it displays the question number, Q. and then that number.
+
+546
+00:01:34,050 --> 00:01:36,120
+And then it displays the question text,
+
+547
+00:01:36,600 --> 00:01:39,900
+and then it asks the user for an input, true or false.
+
+548
+00:01:40,860 --> 00:01:43,380
+This is what we're going to be focusing on in this lesson.
+
+549
+00:01:44,130 --> 00:01:46,890
+Inside your quiz-game-start,
+
+550
+00:01:47,160 --> 00:01:51,060
+go to the quiz_brain file and create the quiz brain class.
+
+551
+00:01:51,600 --> 00:01:54,930
+Add those two attributes; one is the question number
+
+552
+00:01:54,930 --> 00:01:59,310
+which starts out with a default value and the other is the question list
+
+553
+00:01:59,520 --> 00:02:03,000
+which is going to be initialized when you create a new quiz brain.
+
+554
+00:02:03,540 --> 00:02:08,539
+And we're going to be passing over this question bank here into this question
+
+555
+00:02:08,940 --> 00:02:11,280
+list when we initialize a new QuizBrain.
+
+556
+00:02:12,030 --> 00:02:15,300
+Pause the video and see if you can complete this challenge.
+
+557
+00:02:15,380 --> 00:02:16,213
+Right?
+
+558
+00:02:19,880 --> 00:02:23,030
+All right. So let's start off by creating our new class
+
+559
+00:02:23,060 --> 00:02:28,060
+which is going to be called QuizBrain and inside this class, we'll need to
+
+560
+00:02:28,790 --> 00:02:30,920
+initialize some of those attributes,
+
+561
+00:02:31,280 --> 00:02:35,870
+so I'm going to create the init method. Inside the init method
+
+562
+00:02:35,930 --> 00:02:40,700
+I'm going to create that first attribute which was called question_number
+
+563
+00:02:41,570 --> 00:02:45,230
+and I said we would set it to have a default value of zero.
+
+564
+00:02:45,380 --> 00:02:48,800
+So this means every time we create a new QuizBrain 
+
+565
+00:02:48,800 --> 00:02:50,390
+object from this class,
+
+566
+00:02:50,750 --> 00:02:55,190
+it's ready going to have an attribute called question_number that set to zero.
+
+567
+00:02:56,030 --> 00:03:00,520
+Now the next attribute is called question_list,
+
+568
+00:03:01,210 --> 00:03:05,230
+and this is not going to have a default value. Instead,
+
+569
+00:03:05,290 --> 00:03:08,470
+it's going to get it as a value passed over.
+
+570
+00:03:09,040 --> 00:03:14,040
+So lets put that as a q_list here and set it equal to question_list.
+
+571
+00:03:15,490 --> 00:03:18,640
+So what's going to happen is inside our main.py file,
+
+572
+00:03:18,910 --> 00:03:23,260
+we're going to be initializing that QuizBrain and the value that we're going to
+
+573
+00:03:23,260 --> 00:03:28,260
+put in there as the question list is going to be the question bank. This way
+
+574
+00:03:30,010 --> 00:03:34,810
+we'll receive the question bank and it will be inside this question list
+
+575
+00:03:34,840 --> 00:03:38,170
+attribute. Now I have another challenge for you.
+
+576
+00:03:38,560 --> 00:03:42,640
+Create a method called next_question inside the QuizBrain.
+
+577
+00:03:43,360 --> 00:03:48,250
+This method needs to retrieve the item at the current question number from the
+
+578
+00:03:48,250 --> 00:03:51,250
+question list. And once you have this item,
+
+579
+00:03:51,310 --> 00:03:56,310
+use the input function to show the user the question text and ask for the
+
+580
+00:03:56,440 --> 00:03:59,650
+user's answer. Pause the video and give this a go.
+
+581
+00:04:04,930 --> 00:04:06,430
+Alright, here's the solution.
+
+582
+00:04:06,880 --> 00:04:10,330
+First we're gonna define a new method called the next_question,
+
+583
+00:04:11,470 --> 00:04:16,470
+and this method is basically going to get hold of the current question and that
+
+584
+00:04:17,980 --> 00:04:21,279
+is of course going to be from the question list.
+
+585
+00:04:21,730 --> 00:04:26,650
+And then we're going to tap into that list and get hold of the item at the
+
+586
+00:04:26,860 --> 00:04:30,430
+current question_number. So for example,
+
+587
+00:04:30,430 --> 00:04:32,920
+question_number is going to start out being zero
+
+588
+00:04:33,460 --> 00:04:36,160
+and so it's going to go into this list
+
+589
+00:04:36,220 --> 00:04:41,220
+which is basically going to be our list of questions from our main.py,
+
+590
+00:04:41,830 --> 00:04:43,300
+so our question bank.
+
+591
+00:04:43,870 --> 00:04:48,870
+And remember, each of the items inside that list is a question object and
+
+592
+00:04:49,030 --> 00:04:52,900
+question objects have text attributes and answer attributes.
+
+593
+00:04:53,440 --> 00:04:56,800
+So in addition to getting hold of the current question,
+
+594
+00:04:57,310 --> 00:05:02,310
+we can then get hold of the current question text by taking the current question
+
+595
+00:05:04,690 --> 00:05:09,610
+and then just simply writing .text to get the value that's saved in that
+
+596
+00:05:09,610 --> 00:05:10,443
+attribute.
+
+597
+00:05:11,290 --> 00:05:14,830
+We're going to use an input to ask the user for
+
+598
+00:05:14,890 --> 00:05:17,200
+what their answer is to this question.
+
+599
+00:05:17,560 --> 00:05:21,550
+This is going to be an fstring because we're going to be inserting the current_
+
+600
+00:05:21,550 --> 00:05:25,960
+question.text. And at the very beginning
+
+601
+00:05:26,470 --> 00:05:27,340
+if you remember,
+
+602
+00:05:27,340 --> 00:05:31,660
+we also have the Q. and then the number and then the colon.
+
+603
+00:05:32,260 --> 00:05:35,530
+So that will be the self.question_number.
+
+604
+00:05:36,100 --> 00:05:39,490
+And then we've got our colon and then it's going to be the question text.
+
+605
+00:05:39,880 --> 00:05:44,530
+And then we're going to ask the user for a input; true or false.
+
+606
+00:05:45,880 --> 00:05:48,220
+And that's it. That completes the challenge.
+
+607
+00:05:48,670 --> 00:05:53,650
+Now all that's left is to show the very first question to the user and run our
+
+608
+00:05:53,650 --> 00:05:58,250
+code. Let's go back to the main.py and import the QuizBrain class.
+
+609
+00:05:58,970 --> 00:06:03,970
+So we're going to say from the quiz_brain file import the QuizBrain class.
+
+610
+00:06:05,840 --> 00:06:08,030
+And once we've created our question bank,
+
+611
+00:06:08,390 --> 00:06:11,810
+then the next thing to do is to create our new quiz.
+
+612
+00:06:12,290 --> 00:06:15,380
+So this is going to be a new QuizBrain object
+
+613
+00:06:15,980 --> 00:06:20,090
+and when we initialize it, we have to pass in a list of questions.
+
+614
+00:06:20,510 --> 00:06:23,450
+And that is of course going to be the question bank.
+
+615
+00:06:24,290 --> 00:06:27,050
+So now that we've got our quiz up and running,
+
+616
+00:06:27,110 --> 00:06:31,460
+then we can say quiz.next_question.
+
+617
+00:06:32,090 --> 00:06:35,000
+Let's go ahead and run this main.py file.
+
+618
+00:06:35,660 --> 00:06:40,660
+And you can see we get our question text being displayed, true or false being
+
+619
+00:06:41,240 --> 00:06:45,110
+asked, but our question number starts from zero.
+
+620
+00:06:45,770 --> 00:06:46,790
+And that is, of course,
+
+621
+00:06:46,790 --> 00:06:51,790
+because we need zero here in order to get hold of the first question from the
+
+622
+00:06:52,520 --> 00:06:56,330
+list and that's why this has a default value of zero.
+
+623
+00:06:56,840 --> 00:06:59,030
+But by the time we reach this input,
+
+624
+00:06:59,120 --> 00:07:03,080
+it would be really good if this actually read one instead of zero.
+
+625
+00:07:03,620 --> 00:07:07,160
+So one way we could do this is we could do this plus one,
+
+626
+00:07:07,610 --> 00:07:12,140
+but remembering that we actually need to increase the question number every
+
+627
+00:07:12,140 --> 00:07:14,570
+single time we call next_question anyways,
+
+628
+00:07:14,930 --> 00:07:17,870
+then once we've gotten hold of the current question,
+
+629
+00:07:18,170 --> 00:07:23,170
+we can actually tap into that self.question_number and increase it by one.
+
+630
+00:07:23,900 --> 00:07:25,610
+This will have the same effect,
+
+631
+00:07:25,760 --> 00:07:30,320
+and if you look at it now we've got the right question number being shown here,
+
+632
+00:07:30,680 --> 00:07:35,570
+the right text being shown, and then we can insert true or false.
+
+633
+00:07:36,680 --> 00:07:37,760
+Now at this stage,
+
+634
+00:07:37,790 --> 00:07:42,020
+our program is just going to exit. In the next lesson,
+
+635
+00:07:42,260 --> 00:07:47,260
+we're going to have to work out a way for our questions to keep being asked. And
+
+636
+00:07:48,080 --> 00:07:50,840
+we'll need to write some more code for that to work.
+
+
+637
+00:00:00,330 --> 00:00:01,620
+In the previous lesson,
+
+638
+00:00:01,650 --> 00:00:06,650
+we managed to get our QuizBrain up and running and to start asking the user for
+
+639
+00:00:07,200 --> 00:00:08,032
+their answer.
+
+640
+00:00:08,550 --> 00:00:13,550
+But currently, there's no way for our program to continue to the next question
+
+641
+00:00:14,220 --> 00:00:17,250
+once the user has typed an input. However,
+
+642
+00:00:17,250 --> 00:00:19,920
+if we take a look at the final version of the quiz game,
+
+643
+00:00:20,280 --> 00:00:23,400
+you can see once the user's typed an input, it
+
+644
+00:00:23,400 --> 00:00:28,400
+then goes to the next question and shows them the question number 2
+
+645
+00:00:28,620 --> 00:00:31,320
+and the question text for that second question.
+
+646
+00:00:32,189 --> 00:00:36,360
+How can we create that functionality to work with our QuizBrain?
+
+647
+00:00:37,050 --> 00:00:37,290
+Well,
+
+648
+00:00:37,290 --> 00:00:42,210
+if we could create another method called still_has_questions
+
+649
+00:00:42,540 --> 00:00:46,800
+well then inside our main.py we could probably create a while loop and
+
+650
+00:00:47,140 --> 00:00:48,420
+the while loop checks
+
+651
+00:00:48,480 --> 00:00:52,950
+if the quiz still has questions remaining.
+
+652
+00:00:53,550 --> 00:00:57,240
+Well, then in that case, we're going to keep going to the next question.
+
+653
+00:00:57,870 --> 00:01:02,870
+So how do we create this functionality and how do we create it inside the 
+
+654
+00:01:03,270 --> 00:01:07,680
+QuizBrain? Your job is to create a new method here
+
+655
+00:01:08,040 --> 00:01:11,820
+which is going to be called still_has_questions.
+
+656
+00:01:12,450 --> 00:01:16,440
+And this is going to return a boolean, either true or false.
+
+657
+00:01:16,800 --> 00:01:18,240
+And depending on that boolean,
+
+658
+00:01:18,360 --> 00:01:22,290
+we can get our while loop to keep working and keep running and looping,
+
+659
+00:01:22,650 --> 00:01:25,020
+or we're going to get the loop to stop
+
+660
+00:01:25,260 --> 00:01:28,050
+once the quiz has run out of questions.
+
+661
+00:01:29,250 --> 00:01:33,000
+Here's the behavior that you're looking for by the end of the challenge.
+
+662
+00:01:33,420 --> 00:01:38,280
+The while loop should continue serving up the next question to the user until we
+
+663
+00:01:38,280 --> 00:01:40,050
+reach the end of the quiz.
+
+664
+00:01:40,380 --> 00:01:45,380
+Have a think about how the question number and the length of the question list
+
+665
+00:01:45,870 --> 00:01:50,190
+relate to each other and see if you can complete this challenge.
+
+666
+00:01:53,820 --> 00:01:54,180
+All right.
+
+667
+00:01:54,180 --> 00:01:59,180
+So we know that we can get the length of our question list by using the Len
+
+668
+00:02:00,120 --> 00:02:05,120
+function. Currently, in all the current version of the question bank,
+
+669
+00:02:05,700 --> 00:02:08,430
+we have 12 questions in total.
+
+670
+00:02:08,880 --> 00:02:11,250
+So the length is going to be 12.
+
+671
+00:02:11,850 --> 00:02:16,850
+Now we want our loop to keep going until we've reached the number of questions
+
+672
+00:02:17,700 --> 00:02:18,570
+in our list.
+
+673
+00:02:19,170 --> 00:02:24,170
+What we could do is we could check to see if the self.question_number is
+
+674
+00:02:25,530 --> 00:02:30,530
+less than the length of self.question_list. In that case, we'll return true,
+
+675
+00:02:32,430 --> 00:02:35,130
+but otherwise we'll return false.
+
+676
+00:02:36,600 --> 00:02:40,980
+Remember that this question number gets increased every time we show the user
+
+677
+00:02:40,980 --> 00:02:44,640
+the next question. It starts out being zero
+
+678
+00:02:44,880 --> 00:02:46,920
+and then it goes immediately to one.
+
+679
+00:02:47,370 --> 00:02:51,150
+And then we get to the end of the next question function
+
+680
+00:02:51,540 --> 00:02:54,570
+and we get to our while loop. So in our while loop,
+
+681
+00:02:54,600 --> 00:02:59,100
+we can check to see if the quiz still has questions.
+
+682
+00:02:59,710 --> 00:03:04,210
+And if this is true, then go to the next question. But if it's false,
+
+683
+00:03:04,240 --> 00:03:06,970
+then exit the loop and we're at the end of the game.
+
+684
+00:03:08,050 --> 00:03:10,090
+Back inside our QuizBrain
+
+685
+00:03:10,300 --> 00:03:15,300
+we can actually simplify this method even more because we know that this is
+
+686
+00:03:16,020 --> 00:03:18,570
+going to be evaluated by the computer
+
+687
+00:03:18,930 --> 00:03:23,010
+and it's going to be either that true or false. If it is it's true
+
+688
+00:03:23,040 --> 00:03:26,130
+then it goes into this block. And if it's false,
+
+689
+00:03:26,190 --> 00:03:27,900
+then it goes into the else block.
+
+690
+00:03:28,410 --> 00:03:32,100
+We can actually save ourselves all of this effort by 
+
+691
+00:03:32,130 --> 00:03:36,540
+simply just returning this expression. Now,
+
+692
+00:03:36,540 --> 00:03:41,540
+what it's going to do is, let's say that a = 5 and b =
+
+693
+00:03:45,030 --> 00:03:45,863
+3.
+
+694
+00:03:46,260 --> 00:03:50,100
+And if we were to return five is 
+
+695
+00:03:50,130 --> 00:03:51,540
+greater than three,
+
+696
+00:03:51,870 --> 00:03:55,560
+then this is basically the same as this expression
+
+697
+00:03:55,890 --> 00:04:00,150
+which gets evaluated by the computer. And when this code runs,
+
+698
+00:04:00,180 --> 00:04:05,080
+it's going to be either true or it's going to be false. So that
+
+699
+00:04:05,130 --> 00:04:07,860
+that value is then going to be straight away
+
+700
+00:04:07,860 --> 00:04:12,180
+returned by this method back into this while loop
+
+701
+00:04:12,240 --> 00:04:15,960
+to see if we should continue going to the next question or not.
+
+702
+00:04:16,620 --> 00:04:21,510
+So let's run this file and you can see it asks me the first question.
+
+703
+00:04:22,230 --> 00:04:24,480
+And then it's going to go to the next question.
+
+704
+00:04:24,810 --> 00:04:29,810
+And then it's going to basically keep going until it gets to the end of the list
+
+705
+00:04:31,230 --> 00:04:32,910
+of questions and then it
+
+706
+00:04:32,970 --> 00:04:37,230
+ends our entire program. In the next lesson
+
+707
+00:04:37,290 --> 00:04:42,150
+we're going to figure out how we can check the answer that the user has inputted
+
+708
+00:04:42,150 --> 00:04:45,930
+here and see if its actually the correct answer.
+
+
+709
+00:00:00,180 --> 00:00:02,490
+Currently when we run our code
+
+710
+00:00:02,910 --> 00:00:06,780
+you can see that while we can input our answer,
+
+711
+00:00:07,380 --> 00:00:12,030
+our code doesn't actually really care because it's not checking to see if it's
+
+712
+00:00:12,030 --> 00:00:14,280
+right or wrong. In this lesson
+
+713
+00:00:14,310 --> 00:00:17,520
+we're going to add one more method to our QuizBrain
+
+714
+00:00:17,970 --> 00:00:22,970
+and that's the ability to check the answer that the user inputted and see if it
+
+715
+00:00:22,980 --> 00:00:27,870
+was correct. And that means we need to keep track of the user's score.
+
+716
+00:00:27,990 --> 00:00:30,300
+So we'll add another attribute score
+
+717
+00:00:30,540 --> 00:00:33,030
+which has a default value of zero to begin with
+
+718
+00:00:33,360 --> 00:00:38,220
+and it'll increase every time they get a question right. So in this lesson,
+
+719
+00:00:38,250 --> 00:00:42,660
+we're going to create a new method called check_answer.
+
+720
+00:00:43,470 --> 00:00:48,470
+And this check_answer function is going to be used to see if the user's answer
+
+721
+00:00:50,640 --> 00:00:55,640
+which comes from this input is the same as the actual answer to the current
+
+722
+00:00:57,240 --> 00:00:58,073
+question.
+
+723
+00:00:58,920 --> 00:01:03,920
+What we need to do is we need to save this user's input inside a variable
+
+724
+00:01:05,190 --> 00:01:07,350
+which we'll call user_answer.
+
+725
+00:01:08,430 --> 00:01:12,150
+And then I'm going to call our check_answer method
+
+726
+00:01:12,600 --> 00:01:17,100
+and I want to pass over the user_answer. Now, in addition,
+
+727
+00:01:17,100 --> 00:01:22,100
+I also want to pass over the correct answer and the correct answer is going to
+
+728
+00:01:22,830 --> 00:01:26,130
+be the current_question.answer.
+
+729
+00:01:26,430 --> 00:01:30,330
+So let's replace that with current_question.answer
+
+730
+00:01:30,990 --> 00:01:35,190
+because we know that current_question is a question object
+
+731
+00:01:35,490 --> 00:01:38,820
+which has a text attribute and an answer attribute.
+
+732
+00:01:39,480 --> 00:01:44,480
+And once we've passed over the user's answer and the correct answer,
+
+733
+00:01:45,180 --> 00:01:49,440
+then we can receive it inside our check_answer function as a parameter.
+
+734
+00:01:50,580 --> 00:01:52,770
+So we'll call this user_answer
+
+735
+00:01:53,340 --> 00:01:56,760
+and the second one we'll call the correct_answer.
+
+736
+00:01:58,560 --> 00:02:01,860
+So now this input is going to be passed over here
+
+737
+00:02:02,310 --> 00:02:06,210
+and the correct answer is going to be under this variable name.
+
+738
+00:02:06,780 --> 00:02:11,780
+So now we can see if the user_answer is equal to the correct_answer.
+
+739
+00:02:13,260 --> 00:02:14,790
+And just for safety sake,
+
+740
+00:02:14,820 --> 00:02:18,840
+it's usually a good idea to drop both sides to
+
+741
+00:02:18,840 --> 00:02:22,050
+a lowercase so they are comparable. This way
+
+742
+00:02:22,050 --> 00:02:25,620
+just in case the user answers True or true,
+
+743
+00:02:25,890 --> 00:02:27,660
+it will be treated exactly the same.
+
+744
+00:02:28,860 --> 00:02:32,940
+If the user_answer matches the correct answer, well
+
+745
+00:02:32,940 --> 00:02:35,880
+then this means that they got it right, so let's print it.
+
+746
+00:02:38,550 --> 00:02:42,960
+But on the other hand, if that was false then that means they got it wrong.
+
+747
+00:02:43,080 --> 00:02:45,210
+So let's tell them that's wrong.
+
+748
+00:02:46,500 --> 00:02:51,500
+Now it might also be a good idea to tell the user what the actual correct answer
+
+749
+00:02:51,750 --> 00:02:56,010
+was. Now you have a choice depending on where you want to put that.
+
+750
+00:02:56,070 --> 00:03:01,070
+So you can either choose to only show them the correct answer if they got it
+
+751
+00:03:01,510 --> 00:03:03,340
+wrong like this.
+
+752
+00:03:03,580 --> 00:03:06,670
+But I think it's actually a good idea to show them the correct answer
+
+753
+00:03:06,970 --> 00:03:08,320
+even if they're got it right.
+
+754
+00:03:08,470 --> 00:03:13,030
+So I'm going to change the indentation so that it's actually outside of the
+
+755
+00:03:13,030 --> 00:03:13,990
+if/else block,
+
+756
+00:03:14,500 --> 00:03:19,120
+and it's just simply going to happen once the if/else block is complete.
+
+757
+00:03:19,930 --> 00:03:24,930
+Now, the next thing to do is to keep track of the user's score so that every
+
+758
+00:03:25,780 --> 00:03:30,760
+time they get a question right then it should increase the score by one.
+
+759
+00:03:31,450 --> 00:03:36,450
+Pause the video and add a new attribute called score to the QuizBrain class and
+
+760
+00:03:37,510 --> 00:03:41,650
+increment it by one every time the user gets it right. Now,
+
+761
+00:03:41,650 --> 00:03:46,510
+what you're aiming for is to be able to print out the score and the current
+
+762
+00:03:46,510 --> 00:03:51,510
+question so that you can tell the user 'Your current score is:' and printed out
+
+763
+00:03:52,330 --> 00:03:54,340
+after every single question.
+
+764
+00:03:55,300 --> 00:03:57,730
+Pause the video now and complete this challenge.
+
+765
+00:04:00,400 --> 00:04:04,750
+All right. So let's go ahead and create our new score attribute
+
+766
+00:04:05,110 --> 00:04:08,440
+which is again going to have a default starting value of zero.
+
+767
+00:04:09,070 --> 00:04:12,820
+And then whenever the user gets a question right,
+
+768
+00:04:13,090 --> 00:04:16,300
+then we're going to increase their score by one.
+
+769
+00:04:16,660 --> 00:04:20,290
+So let's tap into that score attribute and then increase it by one.
+
+770
+00:04:21,250 --> 00:04:24,010
+Now we've got our score being tracked,
+
+771
+00:04:24,070 --> 00:04:28,810
+then we want to be able to print out what the users' current score is.
+
+772
+00:04:29,350 --> 00:04:34,090
+So at the end of the check_answer, let's create another print statement
+
+773
+00:04:34,450 --> 00:04:36,640
+which gives the user their score.
+
+774
+00:04:36,820 --> 00:04:39,820
+So 'Your current score is:'
+
+775
+00:04:40,360 --> 00:04:43,360
+and then we'll insert the self.score.
+
+776
+00:04:44,440 --> 00:04:49,090
+And we'll also tell them out of a possible number of questions,
+
+777
+00:04:49,120 --> 00:04:52,240
+so we can insert the self.question_number.
+
+778
+00:04:52,660 --> 00:04:56,380
+So this means that they've completed five questions so far where they've had
+
+779
+00:04:56,380 --> 00:04:58,600
+five chances to get things right
+
+780
+00:04:58,930 --> 00:05:03,040
+then we can show them that they got however many right out of those five.
+
+781
+00:05:03,370 --> 00:05:07,510
+So maybe they got 3/5 right, or maybe they got 5/5
+
+782
+00:05:07,510 --> 00:05:10,570
+right. And now if we run our code,
+
+783
+00:05:10,630 --> 00:05:12,970
+we can see that print statement in action.
+
+784
+00:05:15,400 --> 00:05:18,850
+So it tells me that I got it right and then the--
+
+785
+00:05:19,930 --> 00:05:23,590
+and then the correct answer was true.
+
+786
+00:05:24,070 --> 00:05:26,950
+And that my current score is 1/1.
+
+787
+00:05:32,940 --> 00:05:33,773
+Right
+
+788
+00:05:34,260 --> 00:05:36,780
+Now, if I get one of these wrong,
+
+789
+00:05:37,350 --> 00:05:42,300
+then you can see that my current score is now 3/4.
+
+790
+00:05:43,230 --> 00:05:46,800
+And it tells the user that they've missed out on one point.
+
+791
+00:05:47,760 --> 00:05:51,510
+It'd be nice to add a little bit of space in between each of the questions.
+
+792
+00:05:51,570 --> 00:05:55,110
+I want to be able to see all the questions that I've done so far.
+
+793
+00:05:55,320 --> 00:05:56,910
+So I don't want to clear the screen,
+
+794
+00:05:57,230 --> 00:06:00,020
+but I want to be able to add a new line here.
+
+795
+00:06:00,560 --> 00:06:05,540
+So at the end of my print statement, I'm going to add a print
+
+796
+00:06:05,570 --> 00:06:07,490
+which is just going to print a new line.
+
+797
+00:06:08,780 --> 00:06:10,670
+So that in between each question
+
+798
+00:06:10,670 --> 00:06:14,930
+I have a little bit of space to tell each question apart from the other.
+
+799
+00:06:16,010 --> 00:06:20,060
+The final thing I need to do is to tell the user
+
+800
+00:06:20,330 --> 00:06:23,660
+their final score once the entire quiz is finished,
+
+801
+00:06:24,170 --> 00:06:29,170
+and we want to be able to print something like 'You've completed the quiz' and
+
+802
+00:06:32,450 --> 00:06:34,730
+then we'll print out, um,
+
+803
+00:06:34,760 --> 00:06:38,210
+something like 'Your final score was:'
+
+804
+00:06:38,390 --> 00:06:42,230
+and then we'll give them their final score so maybe they got 10/12
+
+805
+00:06:42,620 --> 00:06:47,420
+correct. And this way they can see what their final outcome was.
+
+806
+00:06:47,900 --> 00:06:51,740
+So have a think about how you might be able to print these two lines here
+
+807
+00:06:52,190 --> 00:06:57,190
+and how you can get hold of the question number and the user's score to print
+
+808
+00:06:57,800 --> 00:07:01,820
+inside our main.py. So pause the video and complete this challenge.
+
+809
+00:07:03,620 --> 00:07:06,080
+All right. So the first line is very easy to print.
+
+810
+00:07:06,140 --> 00:07:08,990
+All we need to do is wrap a print statement around it.
+
+811
+00:07:09,560 --> 00:07:13,610
+The second line is a little bit more tricky because it will need to have an 
+
+812
+00:07:13,610 --> 00:07:14,443
+fstring.
+
+813
+00:07:14,450 --> 00:07:19,450
+So we want this second value to be the total number of questions in the question
+
+814
+00:07:20,300 --> 00:07:21,133
+bank,
+
+815
+00:07:21,350 --> 00:07:25,700
+or it could be the current question number that the user is on.
+
+816
+00:07:26,270 --> 00:07:27,200
+You can do either.
+
+817
+00:07:27,230 --> 00:07:32,230
+You can either say question bank and wrap a length function around it,
+
+818
+00:07:34,100 --> 00:07:37,010
+like this, which will give you the total number of questions
+
+819
+00:07:37,310 --> 00:07:40,880
+cause we're at the end of the quiz now. Alternatively,
+
+820
+00:07:40,910 --> 00:07:45,910
+you can also tap into the quiz object and get the question number when the quiz
+
+821
+00:07:46,910 --> 00:07:50,150
+ended. And similarly with the score,
+
+822
+00:07:50,150 --> 00:07:52,370
+you can say quiz.score.
+
+823
+00:07:53,120 --> 00:07:56,300
+So now once the quiz has completed,
+
+824
+00:07:57,980 --> 00:08:01,700
+you can see our print statements. You've completed the quiz and your final score
+
+825
+00:08:01,730 --> 00:08:06,500
+was 0/12 because I was just button mashing and it didn't get any
+
+826
+00:08:06,500 --> 00:08:07,370
+questions right.
+
+
+827
+00:00:00,120 --> 00:00:03,360
+So I'm sure you've had a few gos with your quiz now
+
+828
+00:00:03,360 --> 00:00:06,930
+and you've answered all the questions and you know all the correct answers.
+
+829
+00:00:07,440 --> 00:00:11,670
+It's a little bit dry if we only have one question bank, right?
+
+830
+00:00:12,210 --> 00:00:15,660
+Wouldn't it be nice to be able to switch out the question data with some new
+
+831
+00:00:15,660 --> 00:00:19,530
+questions? Now you could certainly write your own questions,
+
+832
+00:00:19,560 --> 00:00:24,000
+just change each of the texts and the answers to whatever question you want to
+
+833
+00:00:24,000 --> 00:00:28,740
+add. An alternative though, is to use the Open Trivia database,
+
+834
+00:00:28,920 --> 00:00:33,480
+which is a free-to-use user contributed trivia question database
+
+835
+00:00:33,900 --> 00:00:38,900
+and it has over 3000 verified questions to pick from. In the course resources
+
+836
+00:00:39,300 --> 00:00:44,190
+I've got a link to the open TDB, the open trivia database,
+
+837
+00:00:44,610 --> 00:00:49,610
+and we can go ahead and take a look at their API to see how we can generate some
+
+838
+00:00:49,710 --> 00:00:54,120
+questions. For example, if I wanted 10 questions on,
+
+839
+00:00:54,480 --> 00:00:59,430
+let's say computers and I want the difficulty to be easy
+
+840
+00:00:59,880 --> 00:01:02,850
+and I want to select the type to be true or false
+
+841
+00:01:03,270 --> 00:01:06,840
+And then I'm going to go and click generate API URL.
+
+842
+00:01:07,420 --> 00:01:08,940
+Now that I've got my URL,
+
+843
+00:01:08,940 --> 00:01:12,600
+I can open up a new tab and go to that location.
+
+844
+00:01:13,320 --> 00:01:18,320
+Now, we'll get some data generated in a JSON format
+
+845
+00:01:18,990 --> 00:01:21,750
+which is a JavaScript object notation
+
+846
+00:01:22,170 --> 00:01:26,700
+but it actually looks pretty much the same as a Python dictionary.
+
+847
+00:01:27,210 --> 00:01:32,210
+So let's go ahead and copy everything that's here and then go into our data.py
+
+848
+00:01:33,570 --> 00:01:38,570
+and I'm going to replace the entire question data with what I got just now.
+
+849
+00:01:39,330 --> 00:01:42,870
+Now once you paste it in, it's going to be very hard to read.
+
+850
+00:01:42,930 --> 00:01:47,930
+So we'll need to go to code and then reformat code in order to get it to look a
+
+851
+00:01:48,870 --> 00:01:50,160
+little bit more normal.
+
+852
+00:01:50,610 --> 00:01:55,610
+So you can see that we've got this dictionary and it has two key-value pairs.
+
+853
+00:01:57,480 --> 00:02:02,480
+One is a response code and another is a list which is under the key results.
+
+854
+00:02:04,350 --> 00:02:06,060
+If I go and reformat this again,
+
+855
+00:02:06,090 --> 00:02:10,949
+you can see that results is comprised of 10 dictionaries.
+
+856
+00:02:11,490 --> 00:02:11,700
+Now,
+
+857
+00:02:11,700 --> 00:02:16,700
+each of these dictionaries contain a whole bunch of key-value pairs and inside
+
+858
+00:02:17,430 --> 00:02:20,760
+each of these key-value pairs it has a bunch of things
+
+859
+00:02:20,760 --> 00:02:24,960
+including the category, that type, the difficulty,
+
+860
+00:02:24,960 --> 00:02:29,370
+the question, the correct answer, and the incorrect answers.
+
+861
+00:02:29,850 --> 00:02:34,850
+So what we can see here is we have a dictionary and then we have these two key
+
+862
+00:02:35,820 --> 00:02:36,653
+value pairs.
+
+863
+00:02:37,110 --> 00:02:42,110
+So you can simply just get rid of the enclosing dictionary and leave it so that
+
+864
+00:02:43,080 --> 00:02:47,940
+you have this as a list of dictionaries. Now,
+
+865
+00:02:47,970 --> 00:02:52,970
+if we go and reformat our code so that we can see each of these dictionary
+
+866
+00:02:53,310 --> 00:02:54,143
+objects,
+
+867
+00:02:54,390 --> 00:02:59,070
+you can see there's a total of five key value pairs and they each have the keys
+
+868
+00:02:59,080 --> 00:03:03,970
+category, type, question, which is the question text and the correct answer
+
+869
+00:03:04,000 --> 00:03:06,550
+which is a string that's true or false.
+
+870
+00:03:07,120 --> 00:03:10,360
+These are the two bits of information that we're interested in.
+
+871
+00:03:10,840 --> 00:03:15,840
+So can you figure out how you can modify the main.py in order to get our
+
+872
+00:03:16,030 --> 00:03:20,320
+quiz to start working again with this new data?
+
+873
+00:03:20,830 --> 00:03:23,110
+Pause the video and complete this challenge.
+
+874
+00:03:26,400 --> 00:03:30,810
+All right. So we've got our question data from the data file,
+
+875
+00:03:31,320 --> 00:03:35,010
+but now we have to change the names of these keys.
+
+876
+00:03:35,460 --> 00:03:37,890
+Whereas before it was called text and answer,
+
+877
+00:03:38,310 --> 00:03:41,340
+now it's called question and correct answer.
+
+878
+00:03:41,520 --> 00:03:46,520
+So the question_text is under the key question and correct answer is under
+
+879
+00:03:46,830 --> 00:03:48,330
+the key correct _answer.
+
+880
+00:03:48,840 --> 00:03:53,250
+So just by changing those two things and pasting all of that data in
+
+881
+00:03:53,640 --> 00:03:58,640
+we can already get started with this brand new quiz. And you can play with it and
+
+882
+00:04:00,780 --> 00:04:04,620
+mess around with different data from the open trivia database,
+
+883
+00:04:04,860 --> 00:04:07,380
+change the category, change the difficulty,
+
+884
+00:04:07,710 --> 00:04:10,770
+and you have endless number of questions to play with.
+
+885
+00:04:11,460 --> 00:04:16,260
+And this really brings about some of the advantages of Object Oriented
+
+886
+00:04:16,260 --> 00:04:21,260
+Programming. Notice how only our main.py file actually has knowledge of how each
+
+887
+00:04:23,550 --> 00:04:28,550
+of these classes work and behave. Our QuizBrain actually didn't need to be
+
+888
+00:04:30,000 --> 00:04:31,470
+touched at all
+
+889
+00:04:31,500 --> 00:04:36,150
+when we changed our data over. This is modularity at its best.
+
+890
+00:04:36,450 --> 00:04:41,450
+We're able to completely switch up the question data to a different language,
+
+891
+00:04:41,670 --> 00:04:46,200
+to a different topic, to a different format, and the quiz brain doesn't care.
+
+892
+00:04:46,680 --> 00:04:51,680
+All it has to concern itself with is how to track which question we're on,
+
+893
+00:04:52,080 --> 00:04:55,230
+how to get the next question, how to check the answer.
+
+894
+00:04:55,650 --> 00:04:59,940
+And as long as it's able to do that and perform the functionality of a quiz,
+
+895
+00:05:00,330 --> 00:05:04,440
+it's unconcerned by where the data comes from, how it's formatted,
+
+896
+00:05:04,770 --> 00:05:08,430
+and it will continue to work. So, as you can imagine,
+
+897
+00:05:08,460 --> 00:05:10,770
+if your colleague was working on quiz brain,
+
+898
+00:05:11,190 --> 00:05:15,450
+they don't actually need to know how the data looks or how it's structured.
+
+899
+00:05:15,840 --> 00:05:19,170
+And you, on the other hand, could be working on the data,
+
+900
+00:05:19,200 --> 00:05:23,070
+getting hold of each of these pieces of data or writing the quiz.
+
+901
+00:05:23,550 --> 00:05:26,910
+And you can already see how we've got a piece of program
+
+902
+00:05:27,210 --> 00:05:32,210
+that's able to be far more complex than what we used to be able to create with
+
+903
+00:05:32,580 --> 00:05:34,050
+simple procedural code.
+
+

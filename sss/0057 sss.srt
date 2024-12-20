@@ -1,0 +1,2181 @@
+1
+00:00:00,090 --> 00:00:04,860
+Hey guys, welcome to day 57 of 100 Days of Code. Today
+
+2
+00:00:04,860 --> 00:00:09,480
+we're going to be digging deeper into building more advanced Flask applications.
+
+3
+00:00:10,050 --> 00:00:12,720
+And in order to do that, we're going to be learning about URL
+
+4
+00:00:12,720 --> 00:00:15,630
+building and templating with Jinja.
+
+5
+00:00:16,470 --> 00:00:19,470
+So very often when you're creating a website,
+
+6
+00:00:19,800 --> 00:00:24,800
+you'll get cases where you actually don't want to create the page entirely from
+
+7
+00:00:24,810 --> 00:00:26,520
+scratch. For example,
+
+8
+00:00:26,520 --> 00:00:31,520
+if you had a blog and you wanted to have several different posts in the blog,
+
+9
+00:00:32,430 --> 00:00:36,660
+you don't want to create a separate HTML file for each blog post.
+
+10
+00:00:37,140 --> 00:00:37,920
+So in that case,
+
+11
+00:00:37,920 --> 00:00:42,920
+it's really helpful to have a templating language where you can replace bits of
+
+12
+00:00:43,650 --> 00:00:46,290
+that blog with dynamic content.
+
+13
+00:00:47,250 --> 00:00:48,960
+And that's where Jinja comes in.
+
+14
+00:00:49,230 --> 00:00:52,080
+This is a templating language built for Python,
+
+15
+00:00:52,530 --> 00:00:55,890
+and it's going to allow us to create the general layout of our blog,
+
+16
+00:00:56,070 --> 00:01:00,720
+the styling and the structure, and then to replace the content, for example,
+
+17
+00:01:00,720 --> 00:01:05,720
+the title or the subtitle or the body with dynamic content
+
+18
+00:01:05,910 --> 00:01:09,420
+that's generated each time we load a specific page.
+
+19
+00:01:10,320 --> 00:01:12,210
+And by the end of today,
+
+20
+00:01:12,240 --> 00:01:16,980
+you will have built a very simple blog with a number of blog posts.
+
+21
+00:01:17,220 --> 00:01:19,560
+So here we can see the title and subtitle.
+
+22
+00:01:19,920 --> 00:01:23,460
+And then when we click on read to see the blog post in detail,
+
+23
+00:01:23,730 --> 00:01:25,650
+we go to a different page.
+
+24
+00:01:25,980 --> 00:01:29,970
+And depending on which of these blog posts we've clicked on,
+
+25
+00:01:30,240 --> 00:01:33,690
+you can see that we're rendering basically the same layout,
+
+26
+00:01:33,720 --> 00:01:36,300
+the same styling and the same structure,
+
+27
+00:01:36,540 --> 00:01:39,570
+but each time for each of these pages,
+
+28
+00:01:39,930 --> 00:01:44,160
+we're getting some different content. So that's the goal.
+
+29
+00:01:44,550 --> 00:01:48,270
+And once you're ready, head over to the next lesson and we'll get started.
+
+
+30
+00:00:00,270 --> 00:00:04,710
+Now to begin, all we need is a simple Flask application.
+
+31
+00:00:05,100 --> 00:00:08,340
+You can either write this out from scratch for practice,
+
+32
+00:00:08,610 --> 00:00:13,610
+or you can head over to the course resources and you can download this file as a
+
+33
+00:00:13,800 --> 00:00:17,640
+zip file. Once you've unzipped it and opened it in PyCharm,
+
+34
+00:00:17,850 --> 00:00:20,520
+you should see a server.py file
+
+35
+00:00:20,790 --> 00:00:25,790
+which contains all of the basic code that is required to render hello world onto
+
+36
+00:00:26,610 --> 00:00:27,443
+the screen.
+
+37
+00:00:27,930 --> 00:00:32,930
+So if we go ahead and just run this file and go to the local URL of our website,
+
+38
+00:00:34,410 --> 00:00:39,090
+you should just be able to see hello world. Now,
+
+39
+00:00:39,120 --> 00:00:42,720
+the next thing I want you to do is to create an HTML file
+
+40
+00:00:42,900 --> 00:00:46,530
+which you'll call index, and inside this HTML file,
+
+41
+00:00:46,740 --> 00:00:51,740
+we're going to give it a title of just my website and the more important part is
+
+42
+00:00:52,560 --> 00:00:55,830
+going to occur in the body. For practice,
+
+43
+00:00:55,860 --> 00:00:59,490
+go ahead and see if you can create an h1 that says hello world
+
+44
+00:00:59,820 --> 00:01:04,819
+instead of returning just a hello world as text, and render this index HTML onto
+
+45
+00:01:06,540 --> 00:01:11,160
+the screen instead. Pause the video and see if you can complete this challenge.
+
+46
+00:01:14,040 --> 00:01:14,370
+All right.
+
+47
+00:01:14,370 --> 00:01:18,630
+So the first thing we have to do was to create an h1 that said hello world.
+
+48
+00:01:19,440 --> 00:01:22,290
+And once we've created our index.html,
+
+49
+00:01:22,530 --> 00:01:27,510
+we want to render it as a template instead of just returning this text.
+
+50
+00:01:27,990 --> 00:01:32,340
+So to do that, we're gonna need this render template function at the top.
+
+51
+00:01:32,850 --> 00:01:34,800
+So if we're going to say render template,
+
+52
+00:01:35,070 --> 00:01:39,180
+and then the template we want to render is called index.html.
+
+53
+00:01:39,570 --> 00:01:44,040
+But one thing you have to remember is that this file has to be inside a folder
+
+54
+00:01:44,070 --> 00:01:49,070
+called templates because Flask has specific requirements for things like
+
+55
+00:01:49,680 --> 00:01:51,180
+static files and templates.
+
+56
+00:01:53,340 --> 00:01:58,020
+So now we should be ready to rerun our app so that it will take into account the
+
+57
+00:01:58,020 --> 00:02:03,020
+new files and then go to our website and you should see this hello world is
+
+58
+00:02:03,180 --> 00:02:07,230
+being rendered from our index.html. Now,
+
+59
+00:02:07,260 --> 00:02:11,039
+one of the things you might be wondering is why is this a template?
+
+60
+00:02:11,100 --> 00:02:12,870
+Why are we rendering a template
+
+61
+00:02:13,200 --> 00:02:17,370
+when in fact what we're doing is just sending over an HTML file?
+
+62
+00:02:17,910 --> 00:02:21,930
+Well, the HTML files can actually act as a template
+
+63
+00:02:22,320 --> 00:02:25,800
+as long as we know how to work with a templating language.
+
+64
+00:02:26,820 --> 00:02:30,330
+The templating language that we're going to use is called Jinja
+
+65
+00:02:30,780 --> 00:02:33,210
+and this is specific for Python.
+
+66
+00:02:33,750 --> 00:02:38,750
+It allows us to use some syntax like these curly braces, percentage signs,
+
+67
+00:02:40,110 --> 00:02:45,000
+or double curly braces in order to specify inside the HTML file
+
+68
+00:02:45,330 --> 00:02:50,010
+which parts should actually be evaluated as Python code.
+
+69
+00:02:50,640 --> 00:02:51,690
+Let me show you something.
+
+70
+00:02:52,380 --> 00:02:56,190
+We've already seen that just by putting this text in between the h1
+
+71
+00:02:56,520 --> 00:03:00,310
+we get this rendered as text in the h1.
+
+72
+00:03:01,090 --> 00:03:05,410
+And if I go ahead and I wrote something like 5 * 6,
+
+73
+00:03:05,710 --> 00:03:08,980
+what would you expect our website to look like? Well,
+
+74
+00:03:08,980 --> 00:03:12,610
+if I go ahead and hit save, and because we're in debug mode,
+
+75
+00:03:12,670 --> 00:03:16,960
+then our server should allow us to refresh the page and you see,
+
+76
+00:03:16,960 --> 00:03:21,490
+it's just the plain text of what I wrote right here. Now, however,
+
+77
+00:03:21,580 --> 00:03:26,580
+if I go ahead and add two curly braces around this expression,
+
+78
+00:03:27,700 --> 00:03:31,690
+then this now suddenly becomes evaluated as Python code.
+
+79
+00:03:32,140 --> 00:03:36,790
+So let's hit save again and let's hit refresh and you can see now
+
+80
+00:03:36,790 --> 00:03:40,030
+instead of 5 * 6, I get 30.
+
+81
+00:03:40,510 --> 00:03:43,600
+So this is actually being seen as Python code
+
+82
+00:03:43,900 --> 00:03:47,680
+and the calculated outcome is being put into this h1.
+
+83
+00:03:48,550 --> 00:03:51,310
+This is why this is known as a templating language,
+
+84
+00:03:51,640 --> 00:03:53,800
+because it means that we can have an HTML
+
+85
+00:03:53,800 --> 00:03:58,720
+which acts as the template where the title doesn't change, the head doesn't
+
+86
+00:03:58,720 --> 00:03:59,080
+change,
+
+87
+00:03:59,080 --> 00:04:04,080
+the styling doesn't change, and only the parts which we specify inside these curly
+
+88
+00:04:04,510 --> 00:04:09,510
+braces actually get evaluated as Python code and inserted into the template.
+
+89
+00:04:12,250 --> 00:04:15,520
+I'm going to add back the hello world inside an h1
+
+90
+00:04:15,940 --> 00:04:20,940
+and also our Python expression inside this Jinja markup so that you can see
+
+91
+00:04:22,420 --> 00:04:23,410
+both versions.
+
+92
+00:04:24,040 --> 00:04:29,040
+The next thing I want to do is what if I wanted to generate a random number?
+
+93
+00:04:29,890 --> 00:04:32,950
+Let's say I was to create an h3 and inside here
+
+94
+00:04:32,950 --> 00:04:37,630
+I wanted to generate a random number. How would I do that?
+
+95
+00:04:38,950 --> 00:04:43,120
+Well, when we're working with something that requires an import, for example,
+
+96
+00:04:43,120 --> 00:04:46,420
+to get a random number, we're going to need to import the random module,
+
+97
+00:04:46,690 --> 00:04:51,220
+then it's best to write our code inside our Python server.
+
+98
+00:04:52,120 --> 00:04:53,500
+Let me show you how this works.
+
+99
+00:04:53,590 --> 00:04:58,240
+Let's go ahead and import random so that we can generate a random number.
+
+100
+00:04:58,660 --> 00:05:03,520
+And I'm going to do that inside this home function. Now,
+
+101
+00:05:03,550 --> 00:05:07,030
+in this case, I'm just going to generate a random number between 1 and 10.
+
+102
+00:05:07,570 --> 00:05:11,380
+But the most important thing is I want to be able to send this random number
+
+103
+00:05:11,650 --> 00:05:16,650
+over to my index.html and incorporate it into this template when I render
+
+104
+00:05:17,680 --> 00:05:22,270
+it. So what I can do after the first parameter
+
+105
+00:05:22,330 --> 00:05:25,390
+which is the name of the template file,
+
+106
+00:05:25,930 --> 00:05:29,470
+I can add as many keyword arguments as I need.
+
+107
+00:05:30,550 --> 00:05:32,620
+If we take a look at this render template,
+
+108
+00:05:32,860 --> 00:05:35,380
+you can see that after the name of the template,
+
+109
+00:05:35,470 --> 00:05:38,890
+the next parameter has the double star context.
+
+110
+00:05:39,160 --> 00:05:44,160
+This is basically the same as when you see the double star keyword arguments or
+
+111
+00:05:44,680 --> 00:05:45,513
+kwargs.
+
+112
+00:05:45,940 --> 00:05:50,080
+Basically it says that you can add as many keyword arguments as you want
+
+113
+00:05:50,440 --> 00:05:54,970
+and each of these keyword arguments need to have a name for the variable and a
+
+114
+00:05:54,970 --> 00:05:56,110
+value for the variable.
+
+115
+00:05:56,560 --> 00:06:01,560
+And the reason why they need have a name and value is because we can refer to
+
+116
+00:06:02,300 --> 00:06:07,300
+that variable by its name inside the templated HTML file.
+
+117
+00:06:08,630 --> 00:06:12,650
+So for example, if I go ahead and send over a variable
+
+118
+00:06:12,650 --> 00:06:17,650
+which I'll call num and then set it equal to this random number we've generated
+
+119
+00:06:19,490 --> 00:06:23,720
+here. Well, now, once this template gets rendered,
+
+120
+00:06:23,990 --> 00:06:28,040
+it's going to pass over this variable with this name and with this value.
+
+121
+00:06:28,550 --> 00:06:32,750
+So now in our index.html, I can tap into that variable name
+
+122
+00:06:32,780 --> 00:06:33,650
+which is num
+
+123
+00:06:33,980 --> 00:06:38,980
+and I can insert it using these double curly braces into the position that I
+
+124
+00:06:39,260 --> 00:06:42,530
+want it to be. So that's going to go inside that h3.
+
+125
+00:06:43,010 --> 00:06:47,030
+And now if I hit save and go ahead and refresh my website,
+
+126
+00:06:47,270 --> 00:06:51,290
+you can see I've got this random number and then a number show up.
+
+127
+00:06:51,680 --> 00:06:53,330
+And every time I hit refresh,
+
+128
+00:06:53,570 --> 00:06:58,570
+you can see that number changes to a different random number between 1 and 10.
+
+129
+00:06:59,600 --> 00:07:04,430
+So we've seen how we can render an HTML file just by using render
+
+130
+00:07:04,430 --> 00:07:07,640
+template, but we've also seen that inside the template,
+
+131
+00:07:07,910 --> 00:07:12,860
+we can use these double curly braces in order to create single lines of Python
+
+132
+00:07:12,860 --> 00:07:13,693
+expressions
+
+133
+00:07:13,880 --> 00:07:18,620
+which can be evaluated and then inserted into the position that we desire.
+
+134
+00:07:19,160 --> 00:07:23,270
+Now, we've also seen that we can pass over any variable
+
+135
+00:07:23,270 --> 00:07:27,920
+we desire as keyword arguments after the name of the template.
+
+136
+00:07:28,610 --> 00:07:32,930
+So now I've got a challenge for you. On a lot of websites, for example
+
+137
+00:07:32,930 --> 00:07:36,500
+if you go to the Jinja website which you'll find in the course resources
+
+138
+00:07:36,650 --> 00:07:41,270
+and you scroll to the very bottom, there's usually a line of copyright text.
+
+139
+00:07:41,570 --> 00:07:44,270
+So it will say copyright and the current year
+
+140
+00:07:44,660 --> 00:07:47,030
+and then the name of the creator or the company.
+
+141
+00:07:47,840 --> 00:07:52,840
+Now that year is supposed to be the current year to say that this website's
+
+142
+00:07:54,440 --> 00:07:57,470
+copyright is valid in this current year.
+
+143
+00:07:58,010 --> 00:08:01,100
+But very often, even Jinja included,
+
+144
+00:08:01,430 --> 00:08:06,170
+they don't actually update their footer because it's probably just some hard-
+
+145
+00:08:06,170 --> 00:08:10,670
+coded text, as you can see right here. Now,
+
+146
+00:08:10,700 --> 00:08:15,260
+this is something that annoys a lot of web developers and web designers.
+
+147
+00:08:15,920 --> 00:08:20,870
+And they are outraged by the idea that people would have just some plain text
+
+148
+00:08:21,200 --> 00:08:23,960
+as their copyright. We're programmers, right?
+
+149
+00:08:23,990 --> 00:08:28,990
+We should be able to update our footer dynamically by using code.
+
+150
+00:08:29,780 --> 00:08:34,780
+And this is a website which has a pretty much a sort of campaign against
+
+151
+00:08:35,510 --> 00:08:40,340
+websites with outdated footers. And if you take a look at their footer,
+
+152
+00:08:40,429 --> 00:08:43,460
+you can see that this is not just a piece of plain text.
+
+153
+00:08:43,789 --> 00:08:48,790
+This is actually a script using JavaScript to work out the value of the current
+
+154
+00:08:50,030 --> 00:08:55,010
+year. And so it's always going to be up to date no matter what year it is.
+
+155
+00:08:55,560 --> 00:08:59,250
+So we also want to have a dynamic footer year,
+
+156
+00:08:59,790 --> 00:09:03,960
+but we're not going to be doing it with JavaScript and definitely not with PHP.
+
+157
+00:09:04,350 --> 00:09:06,150
+We're going to be doing it with Python.
+
+158
+00:09:07,290 --> 00:09:11,580
+So this is the challenge for you. Using what you've learned in this lesson,
+
+159
+00:09:11,880 --> 00:09:16,880
+see if you can create a footer element so we can put it inside a footer tag
+
+160
+00:09:17,340 --> 00:09:19,920
+like this. And inside this footer tag,
+
+161
+00:09:20,040 --> 00:09:24,570
+I want you to create a paragraph element that can say any piece of text
+
+162
+00:09:24,990 --> 00:09:29,250
+as long as it contains the copyright year, which should be the current year
+
+163
+00:09:29,310 --> 00:09:32,310
+worked out programmatically using Python.
+
+164
+00:09:32,970 --> 00:09:36,390
+Pause the video and have a think about how you might solve that challenge.
+
+165
+00:09:41,520 --> 00:09:41,910
+All right.
+
+166
+00:09:41,910 --> 00:09:45,960
+So the first thing we're going to do is create our paragraph and we're going to
+
+167
+00:09:45,960 --> 00:09:50,370
+say something like copyright and then the year
+
+168
+00:09:50,700 --> 00:09:52,680
+and then we're going to say, um,
+
+169
+00:09:52,740 --> 00:09:57,740
+something like built by... This is a pretty common footer.
+
+170
+00:09:59,190 --> 00:10:02,370
+Now what we want to do is we want to replace these YYYYs
+
+171
+00:10:02,370 --> 00:10:06,480
+with the actual year. So, as you can imagine,
+
+172
+00:10:06,510 --> 00:10:11,510
+I'm going to be using these double curly braces to insert the year into here.
+
+173
+00:10:12,180 --> 00:10:16,230
+But first I have to generate that. So going back to our server.py,
+
+174
+00:10:16,590 --> 00:10:19,050
+I'm going to import the datetime module
+
+175
+00:10:19,050 --> 00:10:24,050
+which you've used many times before to generate the current date and time.
+
+176
+00:10:24,600 --> 00:10:27,300
+And we're going to use it specifically this time though,
+
+177
+00:10:27,330 --> 00:10:28,890
+to generate the current year.
+
+178
+00:10:30,840 --> 00:10:34,920
+And it's going to be done using the datetime module, the datetime class,
+
+179
+00:10:35,250 --> 00:10:39,330
+and then we're going to call the now method in order to get the current date
+
+180
+00:10:39,330 --> 00:10:42,120
+time and then we're going to tap into the year property.
+
+181
+00:10:42,900 --> 00:10:47,730
+So now in addition to passing over that random number as num,
+
+182
+00:10:48,060 --> 00:10:53,060
+I'm also going to pass over a new variable with the name of year and the value
+
+183
+00:10:53,520 --> 00:10:56,310
+of the current year that we just worked out from here.
+
+184
+00:10:56,940 --> 00:10:59,460
+So now when this template is rendered,
+
+185
+00:10:59,490 --> 00:11:02,400
+it's also going to receive a variable called year
+
+186
+00:11:02,730 --> 00:11:06,720
+which we can insert right here into the copyright like that.
+
+187
+00:11:07,410 --> 00:11:11,310
+So now if I go ahead and hit save, go back to our website,
+
+188
+00:11:11,610 --> 00:11:16,470
+hit refresh, you can see our footer show up copyright 2020,
+
+189
+00:11:16,530 --> 00:11:20,820
+which is the current year I'm living in, and it has the rest of the text.
+
+190
+00:11:21,240 --> 00:11:23,580
+So now no matter which year it is
+
+191
+00:11:23,640 --> 00:11:28,640
+we will never need to update our footer ever again because it's being automatically
+
+192
+00:11:28,890 --> 00:11:30,480
+updated using code.
+
+
+193
+00:00:00,360 --> 00:00:03,690
+Now that you've seen that we can write code in our server,
+
+194
+00:00:04,080 --> 00:00:07,950
+work out some sort of value or get some piece of data,
+
+195
+00:00:08,340 --> 00:00:12,000
+and then we can send it over to our template to be rendered,
+
+196
+00:00:12,660 --> 00:00:16,650
+I've got a challenge for you to test some of the things that you've learned from
+
+197
+00:00:16,650 --> 00:00:20,340
+previous days as well as what we've been doing with Flask
+
+198
+00:00:20,400 --> 00:00:21,570
+over the last few days.
+
+199
+00:00:22,440 --> 00:00:25,800
+I found a pretty interesting API called the agify
+
+200
+00:00:26,280 --> 00:00:30,600
+and there's also genderize. This is a really simple API.
+
+201
+00:00:30,630 --> 00:00:34,620
+It doesn't require you to sign up and it doesn't require any authentication.
+
+202
+00:00:35,370 --> 00:00:40,370
+What you can do with it is you can hit up the URL of the API and then you can
+
+203
+00:00:41,610 --> 00:00:44,640
+pass over a value for name.
+
+204
+00:00:45,090 --> 00:00:47,880
+And it's going to predict the age of a name.
+
+205
+00:00:48,810 --> 00:00:51,690
+You can go ahead and hit try me to see what you get.
+
+206
+00:00:52,230 --> 00:00:55,200
+You can see its a very simple JSON that you get back.
+
+207
+00:00:55,410 --> 00:01:00,410
+And this describes the name that you entered, the estimated age of that person
+
+208
+00:01:01,560 --> 00:01:02,393
+with that name,
+
+209
+00:01:02,730 --> 00:01:07,440
+and also how many times they've sampled this name when they were calculating
+
+210
+00:01:07,470 --> 00:01:08,303
+this data.
+
+211
+00:01:09,270 --> 00:01:14,040
+Now another one is genderize where you can pass in a name and it'll give you the
+
+212
+00:01:14,040 --> 00:01:15,480
+predicted gender.
+
+213
+00:01:16,170 --> 00:01:21,000
+So I have to say from testing that I think genderize is a lot more accurate than
+
+214
+00:01:21,030 --> 00:01:21,863
+agify,
+
+215
+00:01:22,080 --> 00:01:26,640
+but maybe I'm just a little bit upset because it says that people with my name
+
+216
+00:01:26,640 --> 00:01:30,920
+on average are 63 years old. But hey, you know,
+
+217
+00:01:30,950 --> 00:01:35,420
+I'm doing pretty well for a 63-year-old. So, I can't complain.
+
+218
+00:01:36,350 --> 00:01:36,620
+Now,
+
+219
+00:01:36,620 --> 00:01:41,620
+what I want you to do is to turn this into a dynamic Flask application.
+
+220
+00:01:43,580 --> 00:01:48,580
+We're going to set up a new route in our application and it's under the 
+
+221
+00:01:50,630 --> 00:01:54,410
+/guess route. Now after /guess
+
+222
+00:01:54,500 --> 00:01:57,080
+we're going to put in a name. So for example,
+
+223
+00:01:57,080 --> 00:02:01,820
+/guess/Angela and what it should give us is
+
+224
+00:02:02,030 --> 00:02:05,600
+Hey, and then the name that was entered into the URL.
+
+225
+00:02:06,170 --> 00:02:08,360
+And then it should say, I think you are
+
+226
+00:02:08,570 --> 00:02:11,840
+and then the predicted gender from genderize.io.
+
+227
+00:02:12,530 --> 00:02:16,640
+And then it should tell me how old it predicts that name to be.
+
+228
+00:02:17,180 --> 00:02:22,180
+Now this works for any name so I could change it to James or Katie.
+
+229
+00:02:26,660 --> 00:02:29,030
+And it doesn't really matter what I enter here.
+
+230
+00:02:29,180 --> 00:02:33,320
+This piece of data come from these two APIs.
+
+231
+00:02:34,010 --> 00:02:37,370
+Now you might have to think back a little bit when we learned about 
+
+232
+00:02:37,370 --> 00:02:41,870
+how do you use the requests module to get hold of the data that we want from an
+
+233
+00:02:41,870 --> 00:02:46,640
+API. And then you're going to incorporate it into a website that you can design
+
+234
+00:02:46,850 --> 00:02:47,960
+however you want,
+
+235
+00:02:48,290 --> 00:02:52,970
+but be aware that the first line needs to have the name that was entered into
+
+236
+00:02:52,970 --> 00:02:57,970
+the URL and the name should ideally be capitalized into title case like this,
+
+237
+00:02:59,230 --> 00:03:02,830
+and then it should have the predicted gender and the predicted age.
+
+238
+00:03:03,370 --> 00:03:07,930
+So this is your challenge and it might take you a little while to work out all
+
+239
+00:03:07,930 --> 00:03:10,360
+the components, but I think you can do it.
+
+240
+00:03:10,750 --> 00:03:15,750
+Pause the video and spend at least 15 or 20 minutes working out this challenge
+
+241
+00:03:16,090 --> 00:03:17,470
+and see if you can complete it.
+
+242
+00:03:17,860 --> 00:03:21,610
+Remember that you've always got the help of the documentation.
+
+243
+00:03:21,610 --> 00:03:26,200
+So there is the Flask documentation, there's the Jinja documentation, well
+
+244
+00:03:26,200 --> 00:03:31,060
+also there's the documentation from the agify and genderize.io.
+
+245
+00:03:31,540 --> 00:03:35,380
+And if there's anything else, you can always search through the course for the
+
+246
+00:03:35,380 --> 00:03:39,940
+part where we dealt with APIs and getting hold of data from APIs,
+
+247
+00:03:40,420 --> 00:03:44,710
+as well as using Google and Stack Overflow to help you achieve this.
+
+248
+00:03:45,520 --> 00:03:47,500
+Don't just give up. If you get stuck,
+
+249
+00:03:47,710 --> 00:03:51,730
+try to work like a real world developer and work out the solution to your
+
+250
+00:03:51,730 --> 00:03:55,570
+problems. All right.
+
+251
+00:03:55,600 --> 00:04:00,100
+So the first thing we have to do is set up this /guess/
+
+252
+00:04:00,160 --> 00:04:03,760
+name route. Back inside our server
+
+253
+00:04:04,000 --> 00:04:06,100
+after where we've defined our home route,
+
+254
+00:04:06,340 --> 00:04:08,410
+let's go ahead and create app.route
+
+255
+00:04:08,800 --> 00:04:13,800
+and here we're going to target /guess and then /name.
+
+256
+00:04:14,440 --> 00:04:19,440
+Now because we need to pass the URL to get hold of the name that the user
+
+257
+00:04:19,750 --> 00:04:23,710
+entered, if we take a look at the Flask documentation,
+
+258
+00:04:24,010 --> 00:04:29,010
+you might remember that yesterday we covered this idea of variable rules and
+
+259
+00:04:29,230 --> 00:04:31,150
+passing a URL.
+
+260
+00:04:31,930 --> 00:04:36,910
+The way we do it is by adding some angle brackets around the part of the URL
+
+261
+00:04:37,180 --> 00:04:41,860
+which is going to be taken in as a variable. And here's their example.
+
+262
+00:04:42,520 --> 00:04:43,480
+So in our case,
+
+263
+00:04:43,510 --> 00:04:48,510
+we're going to put this name part of the URL inside some angle brackets to turn
+
+264
+00:04:49,480 --> 00:04:54,250
+it into a variable. And then we can create our function
+
+265
+00:04:54,790 --> 00:04:58,870
+which I'll just call guess. Um, it doesn't really matter what you call it.
+
+266
+00:04:59,350 --> 00:05:04,180
+And then inside this guess method, I'm going to put in this name.
+
+267
+00:05:04,870 --> 00:05:09,870
+So essentially when my guess function goes through this decorator method,
+
+268
+00:05:10,840 --> 00:05:15,160
+it's going to give it a value for this name variable,
+
+269
+00:05:15,790 --> 00:05:20,350
+and then I'm going to catch onto that name and I'm going to send it over when I
+
+270
+00:05:20,350 --> 00:05:21,580
+render my template.
+
+271
+00:05:23,380 --> 00:05:26,650
+So let's go ahead and create a new template to render.
+
+272
+00:05:27,010 --> 00:05:31,360
+So it's going to be an HTML file which I'll just call guess.html.
+
+273
+00:05:33,010 --> 00:05:36,670
+And I'll leave the title as guess. Now inside the body
+
+274
+00:05:36,700 --> 00:05:39,310
+I want to be able to type the name.
+
+275
+00:05:39,370 --> 00:05:42,760
+So it was Hey, and then the name.
+
+276
+00:05:44,500 --> 00:05:47,560
+And then it was, I think you are and then the gender,
+
+277
+00:05:49,570 --> 00:05:53,650
+and then finally it was, and maybe and your age.
+
+278
+00:05:54,580 --> 00:05:58,190
+So something like this. Now we just need to replace the name,
+
+279
+00:05:58,490 --> 00:06:00,110
+the gender and the age.
+
+280
+00:06:00,500 --> 00:06:05,500
+So I'm going to keep those names and I'm just going to wrap them like this.
+
+281
+00:06:10,130 --> 00:06:12,830
+Now remembering the names of these variables,
+
+282
+00:06:12,860 --> 00:06:17,860
+I'm going to go back to my server and I'm going to try and render my guess.
+
+283
+00:06:18,680 --> 00:06:21,440
+html. So it was render_template,
+
+284
+00:06:21,560 --> 00:06:25,040
+the name of the template is called guess.html,
+
+285
+00:06:25,370 --> 00:06:28,700
+and then I'm going to add a bunch of keyword arguments.
+
+286
+00:06:29,210 --> 00:06:30,800
+So the first one was the name,
+
+287
+00:06:30,830 --> 00:06:34,340
+so this is the name of the keyword argument.
+
+288
+00:06:34,700 --> 00:06:38,720
+And then the value is also going to be name because it's going to come from
+
+289
+00:06:38,720 --> 00:06:41,150
+this URL. If you find that confusing,
+
+290
+00:06:41,180 --> 00:06:43,790
+you can always change this. For example,
+
+291
+00:06:43,820 --> 00:06:46,670
+you could change this to person_name
+
+292
+00:06:48,680 --> 00:06:50,990
+and we could use that right here.
+
+293
+00:06:51,770 --> 00:06:55,700
+Now you might be able to see that this name comes from the URL
+
+294
+00:06:55,700 --> 00:07:00,680
+which gets passed through the input, and this person_name is the one that we use
+
+295
+00:07:00,740 --> 00:07:05,270
+when we put it into the template. Let's go ahead and test this out.
+
+296
+00:07:05,840 --> 00:07:10,840
+Let's comment out these two lines of code by hitting command forward slash or
+
+297
+00:07:11,030 --> 00:07:15,140
+control forward slash and then hit save and run the code
+
+298
+00:07:15,200 --> 00:07:20,180
+and let's try going to this URL. So you can see it says
+
+299
+00:07:20,180 --> 00:07:23,900
+Hey, and then it says whatever it is that we typed after guess.
+
+300
+00:07:24,200 --> 00:07:26,390
+So if you type a whole bunch of gobbledy goop,
+
+301
+00:07:26,600 --> 00:07:29,960
+then that's also what we're going to see right here. Now,
+
+302
+00:07:29,990 --> 00:07:34,190
+one of the things about the name is it will be nice to have it in title case.
+
+303
+00:07:34,610 --> 00:07:39,610
+So we can change things to title case by using the Python title method
+
+304
+00:07:41,090 --> 00:07:43,760
+where we simply just say txt.title.
+
+305
+00:07:44,840 --> 00:07:48,200
+We can do that inside our guess.html
+
+306
+00:07:48,230 --> 00:07:52,790
+because we know that we can evaluate Python expressions in between the double
+
+307
+00:07:52,790 --> 00:07:56,450
+curly quotes. We can say person_name.title
+
+308
+00:07:56,840 --> 00:07:58,550
+and then it's the parentheses.
+
+309
+00:07:59,120 --> 00:08:04,120
+So now, if we save that, coming back over here and we go back to our Katie and hit
+
+310
+00:08:05,660 --> 00:08:08,210
+enter, you can see it's now capitalized
+
+311
+00:08:08,210 --> 00:08:13,130
+that K and the first character is always now going to be capitalized.
+
+312
+00:08:14,720 --> 00:08:16,220
+We've solved the first part.
+
+313
+00:08:16,520 --> 00:08:20,450
+Now we need to figure out the gender and the age. And to do that,
+
+314
+00:08:20,560 --> 00:08:24,650
+we're going to need the help of these two APIs; genderize and agify.
+
+315
+00:08:25,250 --> 00:08:28,640
+So the API is probably the simplest API you've worked with.
+
+316
+00:08:28,970 --> 00:08:31,880
+You've worked with a lot more complex APIs in the past.
+
+317
+00:08:32,150 --> 00:08:33,679
+So there shouldn't be too hard.
+
+318
+00:08:34,130 --> 00:08:38,000
+Now what we want to do is we want to replace this part that says Peter
+
+319
+00:08:38,030 --> 00:08:42,380
+with whatever it is that the user typed into the URL right here.
+
+320
+00:08:43,070 --> 00:08:47,630
+We're going to need to take this entire string and we're going to paste it in
+
+321
+00:08:47,960 --> 00:08:50,240
+and this is going to be the URL.
+
+322
+00:08:52,730 --> 00:08:56,400
+Now we're going to replace this part by an f-string.
+
+323
+00:08:56,970 --> 00:09:01,470
+So we have an F in front of the string, and then inside the curly braces,
+
+324
+00:09:01,740 --> 00:09:05,430
+we can put in the name which got passed from the URL.
+
+325
+00:09:06,150 --> 00:09:07,890
+So that's the gender URL.
+
+326
+00:09:08,460 --> 00:09:11,550
+And in order to get the data from that URL,
+
+327
+00:09:11,730 --> 00:09:13,950
+we're going to need the requests library.
+
+328
+00:09:14,070 --> 00:09:16,800
+So let's go ahead and import requests
+
+329
+00:09:18,690 --> 00:09:21,660
+and install it if it's red and squiggly.
+
+330
+00:09:25,730 --> 00:09:26,090
+Right.
+
+331
+00:09:26,090 --> 00:09:30,500
+Now, once it's installed, we can now use requests.get
+
+332
+00:09:30,800 --> 00:09:35,330
+and we can get hold of the data at this gender_url.
+
+333
+00:09:35,930 --> 00:09:39,830
+And this is going to be our gender_response.
+
+334
+00:09:40,160 --> 00:09:40,993
+Right.
+
+335
+00:09:43,400 --> 00:09:45,050
+Now, from this gender_response,
+
+336
+00:09:45,080 --> 00:09:50,080
+we can get hold of the gender_data and we want it in JSON format.
+
+337
+00:09:50,270 --> 00:09:53,870
+So we can say gender_response.json.
+
+338
+00:09:54,380 --> 00:09:57,650
+I'm not going to explain this too much because we've gone into excruciating
+
+339
+00:09:57,650 --> 00:10:00,260
+detail before on how to work with JSONs,
+
+340
+00:10:00,260 --> 00:10:03,140
+how to work with APIs, and how to work with the requests library.
+
+341
+00:10:03,440 --> 00:10:04,940
+I'm hoping that this stage
+
+342
+00:10:04,940 --> 00:10:08,300
+it's just a bit of revision and you just have to look up some of the methods,
+
+343
+00:10:08,600 --> 00:10:11,240
+but you've already seen this before and it should be quite familiar.
+
+344
+00:10:12,560 --> 00:10:15,140
+So now finally, from the gender_data,
+
+345
+00:10:15,170 --> 00:10:20,090
+we want to extract the part of that dictionary that is interesting,
+
+346
+00:10:20,330 --> 00:10:23,390
+which is actually just the one under the key gender.
+
+347
+00:10:23,930 --> 00:10:27,980
+So let's go ahead and add our square brackets and then put gender in here.
+
+348
+00:10:28,310 --> 00:10:31,910
+And this is going to be equal to our gender.
+
+349
+00:10:32,630 --> 00:10:34,880
+And that is what we're going to pass over.
+
+350
+00:10:36,320 --> 00:10:38,960
+So we're going to say gender = gender.
+
+351
+00:10:39,740 --> 00:10:43,850
+And that means that once we get into the guess.html,
+
+352
+00:10:44,150 --> 00:10:48,770
+it'll be able to put the value into this placeholder. Now,
+
+353
+00:10:48,770 --> 00:10:50,960
+all that's left is to work out the age.
+
+354
+00:10:52,010 --> 00:10:54,560
+So let's get our agify URL.
+
+355
+00:10:57,110 --> 00:10:57,943
+Right.
+
+356
+00:10:58,010 --> 00:11:01,250
+And this is going to be pretty straightforward because it's going to be pretty
+
+357
+00:11:01,250 --> 00:11:03,530
+much the same as what we did for the gender.
+
+358
+00:11:08,420 --> 00:11:09,110
+Yeah.
+
+359
+00:11:09,110 --> 00:11:12,800
+And if you take a look at the JSON you get back from calling this API,
+
+360
+00:11:13,190 --> 00:11:18,110
+the important piece of data is inside that key age. Now,
+
+361
+00:11:18,110 --> 00:11:22,430
+all we need to do is pass over a new variable called age
+
+362
+00:11:22,760 --> 00:11:25,130
+and the value is going to come from right here.
+
+363
+00:11:27,980 --> 00:11:28,370
+Cool.
+
+364
+00:11:28,370 --> 00:11:33,370
+So now if we hit save and we go back to our website and we hit enter,
+
+365
+00:11:34,700 --> 00:11:38,930
+it should say, Hey, Katie, I think you're female. And maybe 32 years old.
+
+366
+00:11:39,500 --> 00:11:44,360
+Why is Katie younger than me? Anyways. I hope you managed to get that to work.
+
+367
+00:11:44,570 --> 00:11:45,230
+If not,
+
+368
+00:11:45,230 --> 00:11:49,550
+take a look at the final code in the course resources and see where you went
+
+369
+00:11:49,550 --> 00:11:53,360
+wrong and maybe revise the section in the course on APIs.
+
+
+370
+00:00:00,210 --> 00:00:01,350
+In the previous lessons,
+
+371
+00:00:01,380 --> 00:00:06,380
+we've seen how we can use the Jinja markup in order to insert bits of Python
+
+372
+00:00:06,780 --> 00:00:10,860
+code into the HTML template. Now,
+
+373
+00:00:10,890 --> 00:00:14,670
+in this lesson, I want to demystify some of the other markup
+
+374
+00:00:15,030 --> 00:00:19,410
+like the {% and some of these keywords.
+
+375
+00:00:20,160 --> 00:00:20,520
+Now,
+
+376
+00:00:20,520 --> 00:00:25,170
+what we've been able to do with this markup is to specify single line
+
+377
+00:00:25,200 --> 00:00:27,240
+expressions in Python.
+
+378
+00:00:27,780 --> 00:00:32,430
+But what if we wanted to create multiline statements like an if statement or a
+
+379
+00:00:32,430 --> 00:00:36,780
+for loop? Well, we would have to use some slightly different markup.
+
+380
+00:00:37,500 --> 00:00:42,090
+I'm going to go ahead and create a new HTML file which I'll call blog.
+
+381
+00:00:43,050 --> 00:00:46,440
+And this will have the title of blog and in the body
+
+382
+00:00:46,470 --> 00:00:51,470
+what I want to do is to render all the titles of all the blogs I have. Now in
+
+383
+00:00:53,370 --> 00:00:56,040
+order to get hold of some data for our blogs,
+
+384
+00:00:56,340 --> 00:01:00,750
+we're going to use a service called endpoint. And this is a really neat service
+
+385
+00:01:00,810 --> 00:01:03,600
+which just acts as JSON storage bin.
+
+386
+00:01:04,110 --> 00:01:08,400
+So basically you can create your own API with your own JSON data
+
+387
+00:01:08,820 --> 00:01:11,940
+and you don't even have to log in. It's as simple as clicking on,
+
+388
+00:01:12,180 --> 00:01:16,980
+create JSON bin, and then here you can create some, um, keys,
+
+389
+00:01:17,040 --> 00:01:19,980
+some values or a list of values.
+
+390
+00:01:20,490 --> 00:01:22,170
+And once you've done that,
+
+391
+00:01:22,200 --> 00:01:25,980
+you can go ahead and access this bin at this particular API
+
+392
+00:01:26,370 --> 00:01:29,070
+and you can see it sends you that JSON back.
+
+393
+00:01:29,160 --> 00:01:34,160
+So you can update anything in here and you can get that data coming back to you
+
+394
+00:01:35,610 --> 00:01:37,140
+via this API.
+
+395
+00:01:37,950 --> 00:01:42,950
+That means that I could create some blog posts where each blog post has an ID,
+
+396
+00:01:44,400 --> 00:01:46,500
+a title, a subtitle and body.
+
+397
+00:01:46,920 --> 00:01:50,100
+And I've only got three blog posts in my list.
+
+398
+00:01:50,460 --> 00:01:55,460
+But you can now use this as if it were an API simply by heading to this address,
+
+399
+00:01:56,220 --> 00:01:58,890
+which you'll find in the course resources. Now,
+
+400
+00:01:58,890 --> 00:02:03,510
+what we're going to do is we're going to pull down these blog posts as if it was
+
+401
+00:02:03,510 --> 00:02:04,343
+an API,
+
+402
+00:02:04,590 --> 00:02:08,669
+and we're going to try and display all of the titles and all of the subtitles.
+
+403
+00:02:09,720 --> 00:02:11,490
+Inside our server.py,
+
+404
+00:02:11,970 --> 00:02:16,200
+if we go ahead and set up a new app.route,
+
+405
+00:02:16,590 --> 00:02:20,760
+and this route is going to be /blog, then here
+
+406
+00:02:20,760 --> 00:02:23,460
+we're going to create a blog function
+
+407
+00:02:23,850 --> 00:02:27,480
+which is going to fetch all the blogs from this URL.
+
+408
+00:02:27,960 --> 00:02:30,690
+So I'm going to copy the URL of my API
+
+409
+00:02:30,750 --> 00:02:33,030
+and you can do that in the course resources.
+
+410
+00:02:33,450 --> 00:02:37,650
+And then we're going to put this as the blog URL.
+
+411
+00:02:38,310 --> 00:02:40,050
+Now I'm going to use requests.
+
+412
+00:02:40,050 --> 00:02:43,440
+get to get hold of the data at that URL,
+
+413
+00:02:44,430 --> 00:02:48,720
+and then I can tap into the data by saying response.json
+
+414
+00:02:48,810 --> 00:02:51,750
+and this will give me all of the blog posts.
+
+415
+00:02:52,020 --> 00:02:54,180
+So we'll call that all posts.
+
+416
+00:02:55,830 --> 00:03:00,490
+And now I'm going to render my blog.html
+
+417
+00:03:02,860 --> 00:03:07,860
+and I'm going to pass in all the posts under a keyword called posts... like this.
+
+418
+00:03:10,900 --> 00:03:13,420
+So I've fetched all of those posts,
+
+419
+00:03:13,600 --> 00:03:17,500
+I've passed it into a variable called all_post,
+
+420
+00:03:17,770 --> 00:03:22,570
+and I'm sending that value over to the blog.html under the name posts.
+
+421
+00:03:22,960 --> 00:03:27,850
+So now going to my blog.html, I should be able to catch that post.
+
+422
+00:03:28,120 --> 00:03:31,030
+And if we were just writing Python straightaway,
+
+423
+00:03:31,030 --> 00:03:36,030
+then we would be able to say something like for blog posts in posts,
+
+424
+00:03:37,090 --> 00:03:42,090
+let's go ahead and create an h1 where we have the blog post title,
+
+425
+00:03:45,100 --> 00:03:50,100
+and let's create a h2 where we have the blog post subtitle.
+
+426
+00:03:54,010 --> 00:03:58,780
+And it would, in an ideal world, loop through all the posts it received and for
+
+427
+00:03:58,780 --> 00:04:00,490
+each of the blog posts, render
+
+428
+00:04:00,490 --> 00:04:05,410
+an h1 for the title and h2 for the subtitle. Now, in fact,
+
+429
+00:04:05,440 --> 00:04:08,680
+using Jinja, we can pretty much do exactly this,
+
+430
+00:04:09,010 --> 00:04:11,950
+but we have to alter things a little bit. Firstly,
+
+431
+00:04:11,950 --> 00:04:14,110
+when we have a multiline statement,
+
+432
+00:04:14,170 --> 00:04:19,170
+we're going to have to add a curly brace and then a percentage sign for each of
+
+433
+00:04:19,720 --> 00:04:22,810
+the lines. So not just from the beginning to the end,
+
+434
+00:04:23,140 --> 00:04:28,090
+but for each of the lines that's Python code that spans multi lines
+
+435
+00:04:28,150 --> 00:04:31,390
+we have to enclose it inside this kind of markup.
+
+436
+00:04:31,600 --> 00:04:36,600
+So notice the direction of the curly braces and also notice the presence of the
+
+437
+00:04:37,240 --> 00:04:40,180
+percentage signs. Now inside the part
+
+438
+00:04:40,180 --> 00:04:42,610
+where we insert it into HTML elements,
+
+439
+00:04:42,700 --> 00:04:47,700
+we can do just as we did before, pass through the blog post and render it as a
+
+440
+00:04:49,060 --> 00:04:51,400
+single line expression like this.
+
+441
+00:04:51,910 --> 00:04:54,670
+But because we're working inside an HTML file,
+
+442
+00:04:54,670 --> 00:04:58,490
+we also have to specify when our for loop actually ends.
+
+443
+00:04:58,930 --> 00:05:03,930
+And that very end is also going to be enclosed inside one of these percentage
+
+444
+00:05:04,240 --> 00:05:05,073
+curly brace.
+
+445
+00:05:05,440 --> 00:05:09,550
+And there's a special key word that comes from Jinja 
+
+446
+00:05:09,580 --> 00:05:14,580
+which is called endfor in order to specify at the end of the for loop.
+
+447
+00:05:16,120 --> 00:05:19,630
+We'll just have to add it in like this. Now,
+
+448
+00:05:19,660 --> 00:05:21,310
+if we go ahead and hit save,
+
+449
+00:05:21,640 --> 00:05:26,500
+and now if we run our code and try to bring up our blog website,
+
+450
+00:05:27,070 --> 00:05:31,870
+you should see that it's pulled in all of the articles in our fake blog,
+
+451
+00:05:32,290 --> 00:05:33,520
+the life of cactus,
+
+452
+00:05:33,670 --> 00:05:37,810
+top 15 things to do when you're bored, and introduction to intermittent fasting.
+
+453
+00:05:37,840 --> 00:05:41,740
+It's a really random blog that we're starting and it's created an h1 for
+
+454
+00:05:41,740 --> 00:05:45,340
+each of the titles and h2 for each of the subtitles.
+
+455
+00:05:46,000 --> 00:05:51,000
+And it's done this without us having to pass out each of the title, subtitles.
+
+456
+00:05:51,970 --> 00:05:54,400
+We've actually been able to do all of that just with a
+
+457
+00:05:54,400 --> 00:05:57,190
+for loop inside our template.
+
+458
+00:05:57,770 --> 00:06:01,040
+Now you can do the same thing using an if statement.
+
+459
+00:06:01,580 --> 00:06:03,620
+All you have to do is to, again,
+
+460
+00:06:03,620 --> 00:06:08,360
+enclose every line in the statement with {%,
+
+461
+00:06:08,750 --> 00:06:12,500
+and then at the very end of your block of code, of your statement,
+
+462
+00:06:12,800 --> 00:06:16,040
+you have to add the endif keyword as well.
+
+463
+00:06:17,240 --> 00:06:22,240
+See if you can modify this so that we only print out the title for the blog
+
+464
+00:06:23,120 --> 00:06:26,030
+post which has an ID of 2.
+
+465
+00:06:28,960 --> 00:06:30,070
+All right, in this case,
+
+466
+00:06:30,490 --> 00:06:33,490
+all we have to do is add an if statement down here.
+
+467
+00:06:34,180 --> 00:06:39,180
+We're going to say if the blog post that we're currently looping on has an ID
+
+468
+00:06:41,890 --> 00:06:45,820
+that's equal to 2, well, in that case,
+
+469
+00:06:45,880 --> 00:06:49,630
+we actually want to render the title and subtitle,
+
+470
+00:06:50,020 --> 00:06:54,370
+but otherwise, we're not going to. All we have to do is add in the markup.
+
+471
+00:06:54,640 --> 00:06:56,860
+So starting at the first if statement,
+
+472
+00:06:56,860 --> 00:07:01,390
+we add the {% at the beginning and at the end, and at
+
+473
+00:07:01,390 --> 00:07:02,830
+the very end of the if statement
+
+474
+00:07:02,860 --> 00:07:07,420
+we add the {% and that keyword endif
+
+475
+00:07:07,660 --> 00:07:10,330
+to say that this is the end of the if statement.
+
+476
+00:07:10,960 --> 00:07:14,530
+So now if we hit save and we go back to our blog,
+
+477
+00:07:14,860 --> 00:07:18,340
+you can see that it's only going to show the second article,
+
+478
+00:07:18,640 --> 00:07:20,230
+the one with ID of 2.
+
+
+479
+00:00:00,780 --> 00:00:04,290
+So now that we've seen some of the things that we can do with templating and
+
+480
+00:00:04,290 --> 00:00:08,010
+Jinja, I want to talk to you about something called URL building.
+
+481
+00:00:08,910 --> 00:00:13,910
+And this is a way that allows us to direct the user to a specific page in our
+
+482
+00:00:15,830 --> 00:00:20,540
+website and web app. Now, what that means is that for example,
+
+483
+00:00:20,720 --> 00:00:22,730
+on our main homepage,
+
+484
+00:00:23,000 --> 00:00:26,210
+we could actually have a link to the blogs page.
+
+485
+00:00:27,200 --> 00:00:32,200
+The way that we would do that is in our index.html here, we could create a
+
+486
+00:00:34,220 --> 00:00:38,270
+anchor tag, for example, in the body here. And we could say
+
+487
+00:00:38,300 --> 00:00:39,950
+Go to blog.
+
+488
+00:00:40,550 --> 00:00:43,580
+And then for the Href of this anchor tag,
+
+489
+00:00:43,850 --> 00:00:48,850
+this is where we're going to use the Jinja template to build out the href.
+
+490
+00:00:50,630 --> 00:00:55,630
+So we're going to add the curly braces in and dynamically work out the href. And
+
+491
+00:00:57,140 --> 00:00:58,730
+in every Jinja template,
+
+492
+00:00:58,790 --> 00:01:03,790
+we have access to a method called url_for.
+
+493
+00:01:04,459 --> 00:01:09,080
+So we can say url_for, and then because this is Python,
+
+494
+00:01:09,170 --> 00:01:12,470
+we can add some parameters when we call this method.
+
+495
+00:01:13,130 --> 00:01:18,050
+And what it's expecting is the name of a function in your Flask server.
+
+496
+00:01:18,800 --> 00:01:20,030
+So you could, for example,
+
+497
+00:01:20,030 --> 00:01:24,410
+hit up home or guess or blog.
+
+498
+00:01:24,890 --> 00:01:27,680
+And in our case, this blog is what we want.
+
+499
+00:01:27,950 --> 00:01:29,780
+So to make it right a little bit more clear
+
+500
+00:01:29,780 --> 00:01:33,380
+because we've got the route which is called /blog, and we've
+
+501
+00:01:33,380 --> 00:01:35,810
+got the function which is called blog.
+
+502
+00:01:35,990 --> 00:01:38,450
+I'm going to change this to get_blog.
+
+503
+00:01:39,140 --> 00:01:43,880
+So once you render this blog page, we can call this method
+
+504
+00:01:43,910 --> 00:01:48,680
+get_blog by saying URL for, and then passing a string.
+
+505
+00:01:49,130 --> 00:01:53,120
+So because we've got some quotation marks around the outside,
+
+506
+00:01:53,480 --> 00:01:58,480
+we're going to use some single quotes on the inside. And in between a single
+
+507
+00:01:58,520 --> 00:02:02,120
+quotes is the name of that method, get_blog,
+
+508
+00:02:03,980 --> 00:02:06,140
+like this. Now,
+
+509
+00:02:06,140 --> 00:02:10,250
+what it's going to do is it's going to generate a hyperlink
+
+510
+00:02:10,550 --> 00:02:13,130
+that's going to be based on what it takes
+
+511
+00:02:13,130 --> 00:02:18,130
+to get to this particular route and call this particular method.
+
+512
+00:02:18,860 --> 00:02:23,860
+So now if I go ahead and update this and go to my homepage here,
+
+513
+00:02:24,380 --> 00:02:28,970
+you'll see there's a new link that says go to blog. And when I click on it,
+
+514
+00:02:29,150 --> 00:02:32,330
+it takes me to the blog page. Now,
+
+515
+00:02:32,390 --> 00:02:37,390
+another thing that you might want to do is when you navigate to a URL inside
+
+516
+00:02:38,030 --> 00:02:41,390
+your web app, you might want to add in some parameters.
+
+517
+00:02:41,840 --> 00:02:46,840
+You can add parameters when you are using url_for in the same way that you did it
+
+518
+00:02:47,450 --> 00:02:51,800
+when you did render_template. So that you can create the name of the parameter
+
+519
+00:02:52,070 --> 00:02:53,060
+and the value
+
+520
+00:02:53,390 --> 00:02:57,350
+and it is a keyword argument that comes after the first parameter.
+
+521
+00:02:58,160 --> 00:03:02,230
+So here we could say, for example, url_for get_blog,
+
+522
+00:03:02,680 --> 00:03:06,070
+and then we could just say a number equals three.
+
+523
+00:03:07,060 --> 00:03:10,120
+So now when the user clicks on this anchor tag,
+
+524
+00:03:10,450 --> 00:03:14,860
+it's going to look for a method called get_blog on our server.py
+
+525
+00:03:14,860 --> 00:03:15,940
+which is right here,
+
+526
+00:03:16,480 --> 00:03:21,480
+and then it's going to pass over any subsequent keyword arguments as parameters.
+
+527
+00:03:22,180 --> 00:03:26,440
+So we can catch those parameters inside the app route.
+
+528
+00:03:26,590 --> 00:03:30,460
+So we can say / and then we can use our angle brackets
+
+529
+00:03:30,490 --> 00:03:34,990
+which we've always done to give parts of the URL a identifier,
+
+530
+00:03:35,410 --> 00:03:38,650
+and we can call this num or number, whatever you like.
+
+531
+00:03:39,430 --> 00:03:43,660
+And we'll also need to add that to the input to this method
+
+532
+00:03:43,960 --> 00:03:46,810
+and just to prove that it works, I'm going to print it out.
+
+533
+00:03:47,890 --> 00:03:50,440
+So now let's go ahead and rerun our code.
+
+534
+00:03:51,280 --> 00:03:55,990
+And if we go back to our homepage and I click on go to blog and it goes to the
+
+535
+00:03:55,990 --> 00:04:00,990
+blog website and it inserts that three into that part of the URL,
+
+536
+00:04:01,750 --> 00:04:05,650
+and if I take a look in the console, you can see it printed out that number
+
+537
+00:04:06,070 --> 00:04:10,780
+which got passed all the way from the index.html to the server.
+
+538
+00:04:11,320 --> 00:04:13,720
+And finally, inside this method
+
+539
+00:04:13,720 --> 00:04:18,010
+it was caught and it could be printed. And it could also be further propagated
+
+540
+00:04:18,040 --> 00:04:20,589
+into another template if need be.
+
+541
+00:04:22,570 --> 00:04:25,840
+So now that we've done all the theory, in the next lesson,
+
+542
+00:04:25,870 --> 00:04:30,340
+it's time to tackle the final project and we're going to be building out our
+
+543
+00:04:30,350 --> 00:04:34,300
+blog website with styling and also with templating.
+
+544
+00:04:35,080 --> 00:04:37,900
+So for all of that and more, head over to the next lesson.
+
+

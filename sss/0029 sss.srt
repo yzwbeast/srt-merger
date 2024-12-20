@@ -1,0 +1,3391 @@
+1
+00:00:00,480 --> 00:00:05,460
+Hey guys, welcome to 100 Days of Code. And today we are on day 29,
+
+2
+00:00:05,760 --> 00:00:08,760
+where we're going to be building a password manager.
+
+3
+00:00:09,270 --> 00:00:11,610
+So we're going to be doing this using tkinter.
+
+4
+00:00:11,880 --> 00:00:16,620
+And the real inspiration for this project came about because I was trying to
+
+5
+00:00:16,650 --> 00:00:16,880
+register
+
+6
+00:00:16,880 --> 00:00:21,880
+for a website where it asked for a password that was just insanely
+
+7
+00:00:22,460 --> 00:00:27,020
+complicated, something along these lines, or it has to be really long.
+
+8
+00:00:27,020 --> 00:00:29,510
+It has to include lots of different things,
+
+9
+00:00:29,840 --> 00:00:34,130
+it can't match your previous passwords. It just has a whole bunch of rules
+
+10
+00:00:34,610 --> 00:00:39,610
+and I really struggled coming up with a password that actually match all of their
+
+11
+00:00:39,680 --> 00:00:42,110
+requirements. And by the time that I came up with it,
+
+12
+00:00:42,410 --> 00:00:44,420
+I've already forgotten what the password was.
+
+13
+00:00:45,080 --> 00:00:49,070
+One of my favorite blogs is Coding Horror by a guy called Jeff Atwood.
+
+14
+00:00:49,250 --> 00:00:52,100
+And you might not know him by name,
+
+15
+00:00:52,130 --> 00:00:55,520
+but you will actually have used something that he's made.
+
+16
+00:00:55,730 --> 00:00:58,130
+He is one of the founders and original creators
+
+17
+00:00:58,130 --> 00:01:00,350
+Stack Overflow
+
+18
+00:01:00,380 --> 00:01:03,230
+which I'm sure by now you're well familiar with.
+
+19
+00:01:03,650 --> 00:01:08,650
+And even he was talking about how password rules are just really terrible.
+
+20
+00:01:09,290 --> 00:01:13,730
+They're so long and they're so complicated and they've even inspired
+
+21
+00:01:13,760 --> 00:01:16,400
+a really good XKCD comic,
+
+22
+00:01:16,820 --> 00:01:20,270
+which essentially tells the truth that through 20 years of effort,
+
+23
+00:01:20,270 --> 00:01:23,570
+we've successfully trained everyone to use passwords that are hard for humans to
+
+24
+00:01:23,570 --> 00:01:27,380
+remember but easy for computers to guess. This is the crazy state of things.
+
+25
+00:01:28,340 --> 00:01:31,640
+So we're going to be creating a program to combat that.
+
+26
+00:01:31,880 --> 00:01:35,690
+And it's going to be called MyPass, our password manager,
+
+27
+00:01:36,230 --> 00:01:40,220
+and we're going to use it to store and generate passwords.
+
+28
+00:01:40,700 --> 00:01:43,820
+For example, if I wanted to create an account on App Brewery,
+
+29
+00:01:44,300 --> 00:01:48,770
+then I enter the name of the website so that I know what this password is for,
+
+30
+00:01:49,130 --> 00:01:53,990
+I put in my email, and username is already prepopulated in my password
+
+31
+00:01:53,990 --> 00:01:58,670
+manager. And then all I have to do is to either come up with a password
+
+32
+00:01:58,700 --> 00:02:03,500
+that is hopefully not terrible, but I can obviously never remember,
+
+33
+00:02:03,830 --> 00:02:08,830
+or I can use the builtin generate password to just generate me a very complex,
+
+34
+00:02:09,530 --> 00:02:14,530
+very long password with all of the required numbers and symbols and all of that.
+
+35
+00:02:15,200 --> 00:02:18,170
+And once I'm done with that, then I can click add,
+
+36
+00:02:18,620 --> 00:02:21,830
+and I get a popup asking me if this is okay.
+
+37
+00:02:22,490 --> 00:02:24,980
+And if that all looks good, then I click Yes
+
+38
+00:02:25,190 --> 00:02:28,610
+and that data gets added to a text file,
+
+39
+00:02:28,640 --> 00:02:30,530
+which I have on my computer.
+
+40
+00:02:30,980 --> 00:02:35,750
+So this is not an internet-based service and you keep everything locally on your
+
+41
+00:02:35,750 --> 00:02:36,583
+computer,
+
+42
+00:02:36,770 --> 00:02:41,180
+which some people feel is a lot safer than using a third-party service
+
+43
+00:02:41,180 --> 00:02:43,400
+like LastPass or whatever else.
+
+44
+00:02:44,420 --> 00:02:48,350
+So this is what we're trying to build and it's got some really neat features.
+
+45
+00:02:48,680 --> 00:02:52,280
+For example, it's got some basic validations. So if you, for example,
+
+46
+00:02:52,280 --> 00:02:56,690
+leave one of the fields empty and you click add, you get a popup that tells you,
+
+47
+00:02:56,720 --> 00:03:01,030
+please don't leave any of the fields empty. Or if you generate a password,
+
+48
+00:03:01,210 --> 00:03:06,210
+then you can actually immediately use it by pasting it. What's happening behind
+
+49
+00:03:06,250 --> 00:03:09,130
+the scenes is as soon as I click on generate password,
+
+50
+00:03:09,460 --> 00:03:14,440
+then my password is saved onto my clipboard and I can paste it into the password
+
+51
+00:03:14,440 --> 00:03:16,810
+field on the website I'm trying to sign up for.
+
+52
+00:03:18,340 --> 00:03:20,320
+This is what we're going to be building today.
+
+53
+00:03:20,410 --> 00:03:23,410
+And it's going to use everything you've learned about tkinter
+
+54
+00:03:23,830 --> 00:03:26,680
+and we're going to be learning some new things that you can do with 
+
+55
+00:03:26,680 --> 00:03:28,930
+tkinter as well. Once you're ready,
+
+56
+00:03:29,020 --> 00:03:31,600
+head over to the next lesson and let's get started.
+
+
+57
+00:00:00,570 --> 00:00:02,370
+To begin, as always, head over
+
+58
+00:00:02,370 --> 00:00:07,050
+to the course resources and download the starting project as a zip file.
+
+59
+00:00:07,770 --> 00:00:10,470
+Now, once you've unzipped it, open it using PyCharm
+
+60
+00:00:11,820 --> 00:00:15,360
+and go ahead and take a look inside the starting files.
+
+61
+00:00:16,079 --> 00:00:18,300
+I've included a logo image
+
+62
+00:00:18,360 --> 00:00:21,450
+which is going to be used in our project.
+
+63
+00:00:21,930 --> 00:00:25,890
+And I've got also a very, very blank looking at main.py.
+
+64
+00:00:26,580 --> 00:00:30,810
+Now here comes a challenge already. To start out,
+
+65
+00:00:30,810 --> 00:00:35,790
+we're going to create a window using tkinter that has a title of Password
+
+66
+00:00:35,790 --> 00:00:36,623
+Manager.
+
+67
+00:00:36,960 --> 00:00:41,960
+And the only thing that it's going to have is just a canvas widget displaying
+
+68
+00:00:43,110 --> 00:00:44,430
+that logo image.
+
+69
+00:00:44,790 --> 00:00:48,210
+So the canvas is going to have a width and height of 200 pixels,
+
+70
+00:00:48,690 --> 00:00:53,690
+and the canvas is going to be padded from the edge of the window by 20 pixels on
+
+71
+00:00:54,420 --> 00:00:55,440
+all four sides
+
+72
+00:00:55,620 --> 00:01:00,570
+so that way it could look quite centered like this. And this image finally is
+
+73
+00:01:00,570 --> 00:01:03,300
+going to be bang in the center of the canvas.
+
+74
+00:01:04,769 --> 00:01:08,580
+So I want you to think back to what you learned yesterday about the canvas
+
+75
+00:01:08,580 --> 00:01:10,890
+widget and in the course resources,
+
+76
+00:01:10,920 --> 00:01:14,730
+I've linked to this page on the canvas documentation
+
+77
+00:01:15,090 --> 00:01:18,300
+including that all important create_image method.
+
+78
+00:01:18,690 --> 00:01:21,840
+Have a look through this for what the expected inputs are
+
+79
+00:01:22,110 --> 00:01:26,340
+and you can also scroll up to see more of the references on other things that
+
+80
+00:01:26,340 --> 00:01:27,660
+you can do with the canvas.
+
+81
+00:01:28,110 --> 00:01:31,110
+Or just have a quick look through yesterday's code if you need to.
+
+82
+00:01:31,620 --> 00:01:36,620
+But I want you to be able to create a tkinter program using all the things
+
+83
+00:01:36,870 --> 00:01:38,730
+that you've learned and when you run it,
+
+84
+00:01:38,730 --> 00:01:42,180
+it should look pretty much the same as this. Pause
+
+85
+00:01:42,180 --> 00:01:44,100
+the video and complete this challenge,
+
+86
+00:01:44,960 --> 00:01:45,793
+Okay.
+
+87
+00:01:47,420 --> 00:01:50,360
+So to begin, we're going to go to the very top of our file,
+
+88
+00:01:50,480 --> 00:01:54,080
+and I'm going to import all of the classes inside tkinter
+
+89
+00:01:54,590 --> 00:01:58,100
+and I'm going to use that to do my UI setup. As always,
+
+90
+00:01:58,100 --> 00:02:00,020
+I start out creating a window
+
+91
+00:02:02,000 --> 00:02:03,350
+and then give it a title.
+
+92
+00:02:04,790 --> 00:02:08,780
+And then I'm going to get my window to start out with my main loop.
+
+93
+00:02:09,350 --> 00:02:11,990
+Now in between, I'm going to create my canvas.
+
+94
+00:02:14,030 --> 00:02:18,440
+And this is from the canvas widget. Now this canvas widget, as I mentioned,
+
+95
+00:02:18,440 --> 00:02:23,440
+is going to have a height of 200 and a width of 200.
+
+96
+00:02:25,160 --> 00:02:26,120
+And in addition,
+
+97
+00:02:26,120 --> 00:02:31,120
+it's going to display this logo.png inside as the image.
+
+98
+00:02:31,640 --> 00:02:35,060
+So I'm going to create our logo image from the photo image class,
+
+99
+00:02:35,330 --> 00:02:38,000
+and then I have to provide the filename.
+
+100
+00:02:38,330 --> 00:02:42,740
+So the filename is just simply logo.png in this case
+
+101
+00:02:42,770 --> 00:02:47,720
+because they're both inside the same folder. So once I've created my image,
+
+102
+00:02:47,750 --> 00:02:52,730
+I can tell my canvas to create a image inside the canvas
+
+103
+00:02:53,150 --> 00:02:56,030
+and then I can specify the image name
+
+104
+00:02:56,480 --> 00:03:00,550
+and that is of course going to be my logo image. Now,
+
+105
+00:03:00,580 --> 00:03:04,240
+the other thing that I have to do before I can actually run my code,
+
+106
+00:03:04,720 --> 00:03:08,770
+because at the moment it's actually going to give me an error and the error
+
+107
+00:03:08,770 --> 00:03:10,720
+says tuple index out of range.
+
+108
+00:03:10,780 --> 00:03:14,650
+It's basically expecting some sort of a tuple to work on
+
+109
+00:03:14,680 --> 00:03:19,680
+and that tuple is the define what the X and Y position is of this image on
+
+110
+00:03:20,110 --> 00:03:24,430
+the canvas. So we do that by simply just adding the raw numbers.
+
+111
+00:03:24,550 --> 00:03:28,570
+So the X position of the center of the image is going to be 100,
+
+112
+00:03:28,900 --> 00:03:32,980
+because remember that the width is 200 so half of that is 100.
+
+113
+00:03:33,340 --> 00:03:37,510
+And similarly for the Y position, it's also going to be 100.
+
+114
+00:03:38,020 --> 00:03:40,750
+So this way we've got the X and Y position to find,
+
+115
+00:03:40,960 --> 00:03:43,840
+and we've created the canvas size. Now,
+
+116
+00:03:43,840 --> 00:03:48,730
+all we need to do is to get our canvas to have some sort of layout dimension.
+
+117
+00:03:49,210 --> 00:03:53,740
+I'm just going to start out by packing my canvas onto the screen because later
+
+118
+00:03:53,740 --> 00:03:57,760
+on, once we have more components, then we can think about using more fancy things
+
+119
+00:03:57,760 --> 00:04:01,330
+like the grid. Now, if I run this as it is,
+
+120
+00:04:01,480 --> 00:04:06,480
+then you can see that I've created my password manager window and I've created
+
+121
+00:04:07,930 --> 00:04:09,940
+my 200 by 200 canvas.
+
+122
+00:04:10,330 --> 00:04:15,040
+The only requirement I haven't yet satisfied is adding some padding between the
+
+123
+00:04:15,040 --> 00:04:16,540
+window and that canvas.
+
+124
+00:04:16,750 --> 00:04:20,290
+So let's do that using our window.config,
+
+125
+00:04:20,769 --> 00:04:24,820
+and I'm going to set the padding using the padx and pady.
+
+126
+00:04:25,270 --> 00:04:26,380
+And as we mentioned,
+
+127
+00:04:26,440 --> 00:04:30,550
+I'm going to set that to 20 on the X and 20 on the Y.
+
+128
+00:04:31,420 --> 00:04:36,420
+So now we get pretty much exactly the image that you saw in the demonstration,
+
+129
+00:04:37,030 --> 00:04:39,610
+and this is the end result we were looking for.
+
+130
+00:04:40,390 --> 00:04:42,910
+Did you manage to complete this challenge?
+
+131
+00:04:43,360 --> 00:04:46,900
+If not, be sure to review some of the lessons that we learned yesterday
+
+132
+00:04:47,110 --> 00:04:49,990
+where we went through the canvas widget in great detail.
+
+133
+00:04:50,920 --> 00:04:54,580
+But if you're happy with all of this code, then in the next lesson,
+
+134
+00:04:54,760 --> 00:04:58,540
+we're going to be learning more about the grid system and how to lay out a
+
+135
+00:04:58,540 --> 00:05:02,830
+complex user interface like this one. So for all of that and more,
+
+136
+00:05:02,980 --> 00:05:03,520
+I'll see you there.
+
+
+137
+00:00:00,720 --> 00:00:05,720
+To go from this to this will require not only some widgets to be added,
+
+138
+00:00:06,570 --> 00:00:11,250
+but a little bit more knowledge about how to lay out our widgets on the grid.
+
+139
+00:00:11,760 --> 00:00:16,760
+Because notice how here we've got a single entry that is spread across the right
+
+140
+00:00:18,330 --> 00:00:20,580
+side of the screen. But then down here,
+
+141
+00:00:20,610 --> 00:00:25,470
+we've got an entry that's only taking up a part of that space. Effectively
+
+142
+00:00:25,470 --> 00:00:27,060
+if we think about our grid,
+
+143
+00:00:27,270 --> 00:00:30,930
+this particular entry is actually taking up two columns.
+
+144
+00:00:31,440 --> 00:00:36,440
+So, how can we do this? To demonstrate this I've created a sandbox app.
+
+145
+00:00:37,380 --> 00:00:38,700
+So it's super simple,
+
+146
+00:00:38,730 --> 00:00:42,720
+all it has is a red label and a green label.
+
+147
+00:00:43,200 --> 00:00:46,320
+And you can see that the red label has a width of 20,
+
+148
+00:00:46,320 --> 00:00:48,480
+a height of 5 as does the green,
+
+149
+00:00:48,750 --> 00:00:51,420
+but the red is on row 0 column 0 
+
+150
+00:00:51,870 --> 00:00:54,570
+whereas the green is on row 1 column 1.
+
+151
+00:00:54,720 --> 00:00:57,240
+So we get this kind of checkered kind of look.
+
+152
+00:00:57,870 --> 00:01:00,870
+If I decide to go and add another label,
+
+153
+00:01:00,960 --> 00:01:05,580
+let's call it b for blue and I give it a background of blue.
+
+154
+00:01:06,150 --> 00:01:10,020
+And then I give it the same width and height. Now,
+
+155
+00:01:10,020 --> 00:01:15,020
+if I put this new label onto the grid and I put it onto the next row,
+
+156
+00:01:16,260 --> 00:01:21,210
+so row 2, but the column I'm going to put it on column 0. Now,
+
+157
+00:01:21,390 --> 00:01:25,590
+I think at this point you can probably all predict where that label is going to
+
+158
+00:01:25,590 --> 00:01:26,370
+go.
+
+159
+00:01:26,370 --> 00:01:31,370
+And indeed it goes onto the very first left-most column and its on the third
+
+160
+00:01:31,800 --> 00:01:32,633
+row.
+
+161
+00:01:32,820 --> 00:01:37,820
+Now what if I wanted that blue label to go across the entire width so that it's
+
+162
+00:01:39,630 --> 00:01:43,080
+below the red and also below the green? Well,
+
+163
+00:01:43,080 --> 00:01:46,710
+you might think that I could simply just double the width, right?
+
+164
+00:01:46,830 --> 00:01:48,210
+Instead of a width of 20,
+
+165
+00:01:48,210 --> 00:01:52,830
+let's change it to 40. Surely that's going to stretch this label so that it goes
+
+166
+00:01:52,830 --> 00:01:55,590
+across the entire red and green label.
+
+167
+00:01:56,220 --> 00:02:00,480
+But unfortunately when I run this, you'll see instead, this happens.
+
+168
+00:02:01,140 --> 00:02:04,470
+The blue label is still within the first column.
+
+169
+00:02:04,890 --> 00:02:09,889
+And in fact it stretched that column to a 40 width and that red column is now
+
+170
+00:02:10,530 --> 00:02:13,950
+centered again in the leftmost or the first column.
+
+171
+00:02:14,550 --> 00:02:19,170
+And that blue is nowhere near the green label because it's not allowed to go
+
+172
+00:02:19,170 --> 00:02:23,670
+into that second column. So how can we solve this situation?
+
+173
+00:02:24,540 --> 00:02:26,670
+Well, the actual answer is 
+
+174
+00:02:26,670 --> 00:02:29,640
+another attribute that the grid has,
+
+175
+00:02:29,940 --> 00:02:33,000
+which is something called a column span.
+
+176
+00:02:33,660 --> 00:02:36,870
+Now the column span is exactly what it sounds like
+
+177
+00:02:36,870 --> 00:02:41,870
+really. It's basically how many columns is this particular thing going to span?
+
+178
+00:02:43,170 --> 00:02:46,710
+So in our case, we want it to go across two columns,
+
+179
+00:02:46,980 --> 00:02:49,230
+column 0 and column 1.
+
+180
+00:02:49,620 --> 00:02:52,230
+So it should start out at column 0
+
+181
+00:02:52,290 --> 00:02:57,270
+but then span a whole two columns. And now when I run this code,
+
+182
+00:02:57,540 --> 00:02:59,250
+you can see we get our desired effect.
+
+183
+00:03:00,040 --> 00:03:05,040
+The blue label is now across the red and the green and it's spanning two
+
+184
+00:03:05,680 --> 00:03:06,513
+columns.
+
+185
+00:03:07,270 --> 00:03:11,380
+The link to this playground is in the course resources,
+
+186
+00:03:11,410 --> 00:03:13,780
+so feel free to head over there and give it a go
+
+187
+00:03:13,780 --> 00:03:18,160
+if you want to play around with this example. Now in our case,
+
+188
+00:03:18,190 --> 00:03:20,920
+if we break down the final layout we're looking for,
+
+189
+00:03:21,280 --> 00:03:25,540
+it's effectively a 3-column and 5-row layout.
+
+190
+00:03:25,960 --> 00:03:27,790
+So we've already got our canvas
+
+191
+00:03:27,880 --> 00:03:32,590
+which is actually going to go in the middle, so it probably the second column.
+
+192
+00:03:33,010 --> 00:03:37,000
+And then we've got the website, the email/username, the password,
+
+193
+00:03:37,270 --> 00:03:38,950
+and finally our two buttons.
+
+194
+00:03:39,580 --> 00:03:44,580
+Now I've laid out this entire user interface and I've specified the width of
+
+195
+00:03:45,970 --> 00:03:50,140
+some of these entries and buttons just because you'll need to do a bit of
+
+196
+00:03:50,140 --> 00:03:54,010
+tweaking around just to make sure that everything lines up with each other.
+
+197
+00:03:54,490 --> 00:03:56,020
+I've really done that ahead of time
+
+198
+00:03:56,170 --> 00:03:59,440
+and I've already worked out the sort of near-optimal width.
+
+199
+00:04:00,070 --> 00:04:04,900
+So what I want you to do is to use what we've learned about the grid column
+
+200
+00:04:04,900 --> 00:04:09,430
+span. So if we have our label, a button, new button and entry,
+
+201
+00:04:09,700 --> 00:04:13,420
+if I want this particular button to go across two columns,
+
+202
+00:04:13,840 --> 00:04:16,300
+then I have to change that columnspan
+
+203
+00:04:16,329 --> 00:04:21,329
+attribute to 2 and I have to specify which column it starts out in and how
+
+204
+00:04:21,820 --> 00:04:26,820
+many columns it's going to go across. Using everything you've learned so far
+
+205
+00:04:27,550 --> 00:04:30,490
+I want you to recreate this user interface.
+
+206
+00:04:31,030 --> 00:04:36,010
+Have a look at what's on-screen; these are labels, these are entries
+
+207
+00:04:36,310 --> 00:04:41,310
+and these two are buttons. Have a look at where they lie within the grid system and
+
+208
+00:04:41,440 --> 00:04:45,790
+how many columns they go across and also the width of some of these widgets
+
+209
+00:04:46,120 --> 00:04:50,470
+and see if you can recreate this user interface in your project.
+
+210
+00:04:50,680 --> 00:04:52,690
+So pause the video and give that a go.
+
+
+211
+00:00:00,180 --> 00:00:03,270
+Did you have a go at the challenge? Here's what we currently have,
+
+212
+00:00:03,600 --> 00:00:06,720
+and this is what you should have created upon completing the challenge.
+
+213
+00:00:07,320 --> 00:00:11,220
+If you haven't had a go at attempting to recreate this user interface,
+
+214
+00:00:11,550 --> 00:00:16,530
+pause the video now because I'm about to walk you through the solution. Again,
+
+215
+00:00:16,530 --> 00:00:18,960
+we're going to be within the UI setup section,
+
+216
+00:00:19,350 --> 00:00:23,490
+and I'm going to write my code below where I've got my canvas. Now,
+
+217
+00:00:23,490 --> 00:00:24,870
+the first thing I'm going to create
+
+218
+00:00:25,020 --> 00:00:29,490
+are actually all of these labels because they're relatively simple to layout
+
+219
+00:00:29,970 --> 00:00:31,680
+and they'll be a quick and easy job.
+
+220
+00:00:37,700 --> 00:00:38,270
+Okay.
+
+221
+00:00:38,270 --> 00:00:38,570
+Now
+
+222
+00:00:38,570 --> 00:00:43,490
+I've created three labels and it's time to actually put them onto the screen. Now,
+
+223
+00:00:43,520 --> 00:00:47,510
+because I'm going to be using grids I can't use pack in addition.
+
+224
+00:00:47,780 --> 00:00:50,540
+So I also have to put my canvas onto the grid.
+
+225
+00:00:51,050 --> 00:00:54,620
+The canvas is going to go onto the grid in row 0,
+
+226
+00:00:54,710 --> 00:00:56,930
+the first row at the very top.
+
+227
+00:00:57,380 --> 00:01:00,560
+And in terms of column it's actually going to be column 1,
+
+228
+00:01:01,130 --> 00:01:04,970
+the middle column. And then going down the list,
+
+229
+00:01:05,000 --> 00:01:09,680
+my website label and my email label and my password label,
+
+230
+00:01:09,890 --> 00:01:12,380
+they're all going to be on subsequent rows.
+
+231
+00:01:12,410 --> 00:01:15,950
+So row 1 and then row 2
+
+232
+00:01:18,290 --> 00:01:19,490
+and row 3.
+
+233
+00:01:21,530 --> 00:01:24,350
+And they're all going to be in the same column,
+
+234
+00:01:24,350 --> 00:01:28,070
+which is going to be column 0, the very first column.
+
+235
+00:01:29,870 --> 00:01:33,830
+Now, if I run this code and we take a look,
+
+236
+00:01:34,100 --> 00:01:38,960
+you can see that it looks a little bit weird just because this canvas is in
+
+237
+00:01:38,960 --> 00:01:43,310
+column 1 while these labels are in column 0. But that's fine.
+
+238
+00:01:43,370 --> 00:01:46,070
+It's gonna even out once we add the other components.
+
+239
+00:01:46,880 --> 00:01:50,270
+That's all the labels done. The next thing are the entries.
+
+240
+00:01:52,250 --> 00:01:56,870
+Now, as I showed you in the slide, these entries will have different widths.
+
+241
+00:01:57,200 --> 00:01:59,000
+So the website entry,
+
+242
+00:01:59,000 --> 00:02:03,860
+this one here, and the email entry are both going to have a width of 35.
+
+243
+00:02:04,250 --> 00:02:07,610
+While the password entry is only going to have a width of 21.
+
+244
+00:02:08,990 --> 00:02:13,990
+Now remember that the width is a property of the entry class.
+
+245
+00:02:14,600 --> 00:02:17,030
+It's not something that's related to the grid.
+
+246
+00:02:17,360 --> 00:02:21,950
+So if inside this grid method, you add something like width,
+
+247
+00:02:22,550 --> 00:02:25,160
+then this is not going to work and it's going to give you an error.
+
+248
+00:02:25,280 --> 00:02:28,040
+So that's a common source of error for students so be aware.
+
+249
+00:02:28,850 --> 00:02:33,500
+Once we've created our entries, it's time to lay them out using our grid.
+
+250
+00:02:34,130 --> 00:02:39,130
+Now, the first website entry is going to go into the same row as the website
+
+251
+00:02:39,530 --> 00:02:44,390
+label, so that row 1, but the column is going to be column 1
+
+252
+00:02:44,390 --> 00:02:45,980
+so it's the next one over.
+
+253
+00:02:46,130 --> 00:02:46,963
+Okay.
+
+254
+00:02:51,800 --> 00:02:55,250
+And the email entry is going to be in exactly the same column,
+
+255
+00:02:55,310 --> 00:02:57,200
+but just shifted one row down.
+
+256
+00:02:59,710 --> 00:03:00,310
+And finally
+
+257
+00:03:00,310 --> 00:03:04,030
+the password entry is going to be on the next row, so row 3,
+
+258
+00:03:04,420 --> 00:03:08,380
+and it's going to be in column 1  as well. Right now,
+
+259
+00:03:08,410 --> 00:03:09,760
+this is what it looks like.
+
+260
+00:03:09,820 --> 00:03:12,580
+And you can see that this doesn't look terribly bad
+
+261
+00:03:12,670 --> 00:03:14,890
+other than maybe I need to change this to
+
+262
+00:03:14,890 --> 00:03:19,890
+a capital P and I could probably add a colon to the end of each of these lines,
+
+263
+00:03:24,640 --> 00:03:29,290
+like this. Now the final step to do is to add the two buttons.
+
+264
+00:03:29,500 --> 00:03:33,550
+So one button has to go over here to the right of the password field
+
+265
+00:03:33,880 --> 00:03:35,410
+and one has to go at the bottom.
+
+266
+00:03:42,450 --> 00:03:43,283
+Okay.
+
+267
+00:03:43,350 --> 00:03:47,580
+Now, this generate password button is going to be on the grid
+
+268
+00:03:47,850 --> 00:03:50,640
+but it's going to be in the third column.
+
+269
+00:03:51,870 --> 00:03:55,440
+And in terms of row, it's going to be on the same row as the password,
+
+270
+00:03:55,470 --> 00:03:56,610
+which is row 3.
+
+271
+00:03:57,330 --> 00:03:58,163
+Okay.
+
+272
+00:04:01,620 --> 00:04:04,890
+While the add button is simply going to be in the last row,
+
+273
+00:04:05,130 --> 00:04:05,963
+right?
+
+274
+00:04:07,950 --> 00:04:12,450
+And this should be a button rather than a radio button.
+
+275
+00:04:13,710 --> 00:04:15,690
+So this is what we have so far.
+
+276
+00:04:16,290 --> 00:04:20,970
+This is clearly not what we wanted to have, which looks more like this.
+
+277
+00:04:21,060 --> 00:04:22,500
+And if I put it side by side,
+
+278
+00:04:22,830 --> 00:04:27,810
+you can see that the add button is far too small. Referring back to this,
+
+279
+00:04:27,930 --> 00:04:32,090
+we need to set the width to 36. So let's go ahead and add that.
+
+280
+00:04:32,160 --> 00:04:32,993
+Okay.
+
+281
+00:04:35,490 --> 00:04:39,360
+Now, that makes the button a lot wider, but it still doesn't solve
+
+282
+00:04:39,360 --> 00:04:44,160
+the fact that this generate password is actually in a completely different
+
+283
+00:04:44,160 --> 00:04:49,160
+column while we actually ideally want that button to cover the entire password
+
+284
+00:04:51,720 --> 00:04:54,450
+entry and also the generate password.
+
+285
+00:04:54,750 --> 00:04:58,440
+So we need this button basically to have a column span of 2
+
+286
+00:04:58,680 --> 00:05:01,920
+so that it spans both of these columns. And in fact,
+
+287
+00:05:01,950 --> 00:05:05,580
+so does the website entry and the email/username entry.
+
+288
+00:05:06,270 --> 00:05:07,260
+So let's fix that.
+
+289
+00:05:08,340 --> 00:05:13,340
+The website entry grid is going to have a additional keyword argument
+
+290
+00:05:14,160 --> 00:05:17,640
+which is the column span, and this is going to be set to 2.
+
+291
+00:05:18,240 --> 00:05:22,470
+And we're gonna add that to the email entry when it's on the grid as well,
+
+292
+00:05:22,920 --> 00:05:24,720
+and finally the add button.
+
+293
+00:05:25,770 --> 00:05:29,070
+So now you can see that we're getting pretty close, right?
+
+294
+00:05:29,580 --> 00:05:31,410
+Once we put in those columnspans,
+
+295
+00:05:31,470 --> 00:05:35,280
+you can see our layout has dramatically changed and everything
+
+296
+00:05:35,280 --> 00:05:37,560
+now looks a lot more aligned.
+
+297
+00:05:38,190 --> 00:05:43,190
+Now the alignment is not perfect because the generate password button is
+
+298
+00:05:43,230 --> 00:05:46,080
+actually just allowed to be the size that it needs to be.
+
+299
+00:05:46,620 --> 00:05:50,700
+And I've tinkered around with some of the widths and you can, of course,
+
+300
+00:05:50,760 --> 00:05:55,620
+try out your own widths and nudge it around a bit to see if you can change it.
+
+301
+00:05:56,640 --> 00:05:59,750
+But I think in terms of overall look, this is not bad.
+
+302
+00:06:00,410 --> 00:06:05,360
+The only thing I would add is maybe our padding of 20 around the side of the
+
+303
+00:06:05,360 --> 00:06:09,290
+window is actually not enough. Maybe we need to increase it a little bit.
+
+304
+00:06:09,680 --> 00:06:10,520
+If you want to,
+
+305
+00:06:10,550 --> 00:06:15,010
+you can actually change the padding to 50 so that you get a little bit more
+
+306
+00:06:15,010 --> 00:06:18,490
+white space and it looks a little bit less busy.
+
+307
+00:06:19,270 --> 00:06:22,360
+So this is the final design that we're trying to get to.
+
+308
+00:06:22,810 --> 00:06:26,080
+And now that we've set up all of our UI,
+
+309
+00:06:26,410 --> 00:06:29,260
+all that's left to do is to add the functionality.
+
+310
+00:06:30,160 --> 00:06:32,590
+And that is what we're going to do in coming lessons.
+
+311
+00:06:32,920 --> 00:06:35,770
+So for all of that and more, I'll see you in the next lesson.
+
+
+312
+00:00:00,390 --> 00:00:04,320
+Now that the UI is all set up, it's time to go onto the next step
+
+313
+00:00:04,590 --> 00:00:09,030
+where we actually can start saving some of this data that the user is entering.
+
+314
+00:00:09,810 --> 00:00:12,870
+So that there's a couple of things I want to show you before we get started.
+
+315
+00:00:13,380 --> 00:00:16,920
+Firstly, notice how when we run our code at the moment,
+
+316
+00:00:17,280 --> 00:00:18,900
+it just launches our app.
+
+317
+00:00:19,050 --> 00:00:24,000
+But wouldn't it be nice if the cursor was already within the first textbox? That
+
+318
+00:00:24,000 --> 00:00:27,600
+means the user can start typing straight away when they launched the password
+
+319
+00:00:27,600 --> 00:00:32,189
+manager. To do that, you can of course dig through the docs,
+
+320
+00:00:32,250 --> 00:00:37,250
+but the easiest way is to get hold of that website entry and then call a method
+
+321
+00:00:38,190 --> 00:00:39,750
+on it called a focus.
+
+322
+00:00:40,170 --> 00:00:43,950
+And this will focus the cursor into that particular entry.
+
+323
+00:00:44,220 --> 00:00:45,540
+And you can see that right there.
+
+324
+00:00:46,500 --> 00:00:50,370
+Now the next thing that would be nice is when you're signing up for lots of
+
+325
+00:00:50,370 --> 00:00:52,530
+websites, at least in my case,
+
+326
+00:00:52,890 --> 00:00:55,860
+I often use just one email to sign up.
+
+327
+00:00:56,160 --> 00:01:01,160
+So wouldn't it be nice if when we launch our password manager that this email
+
+328
+00:01:01,800 --> 00:01:06,030
+field is already pre-populated with our most commonly used email?
+
+329
+00:01:06,660 --> 00:01:06,930
+Well,
+
+330
+00:01:06,930 --> 00:01:11,850
+we can do that by simply adding a starting value to that email entry.
+
+331
+00:01:12,570 --> 00:01:17,280
+And the way that we do that is through a method called insert.
+
+332
+00:01:17,760 --> 00:01:21,180
+Now insert it takes two parameters. And in fact,
+
+333
+00:01:21,180 --> 00:01:26,180
+you can actually scroll down to the insert method and you can see it describes
+
+334
+00:01:26,430 --> 00:01:29,130
+in detail that it takes an index
+
+335
+00:01:29,550 --> 00:01:34,550
+and also the string that you want to insert. The way that the index works is it's
+
+336
+00:01:36,030 --> 00:01:37,950
+basically where the cursor is.
+
+337
+00:01:38,490 --> 00:01:43,490
+If you wanted to insert it at the very beginning of that email entry,
+
+338
+00:01:44,430 --> 00:01:45,750
+then you could just put in zero.
+
+339
+00:01:45,780 --> 00:01:50,700
+That basically inserts this piece of text at the first zeroth character.
+
+340
+00:01:51,390 --> 00:01:55,860
+Alternatively, there's another useful index which is called end.
+
+341
+00:01:56,430 --> 00:02:01,200
+And this end comes from tkinter constants and its just a constant
+
+342
+00:02:01,200 --> 00:02:05,430
+that's gonna represent the very last character that's inside that entry.
+
+343
+00:02:05,940 --> 00:02:08,250
+For example, if inside your entry
+
+344
+00:02:08,250 --> 00:02:12,750
+you already had some text and you want to insert it after your text here,
+
+345
+00:02:12,870 --> 00:02:14,910
+then you would use the index as end.
+
+346
+00:02:15,300 --> 00:02:17,430
+But if you want to insert it at the very beginning,
+
+347
+00:02:17,490 --> 00:02:21,390
+then you would use the index as zero. Now in our case,
+
+348
+00:02:21,450 --> 00:02:25,020
+it shouldn't actually matter because our email entry will start out being
+
+349
+00:02:25,020 --> 00:02:26,190
+completely empty.
+
+350
+00:02:26,490 --> 00:02:29,910
+So I'm going to choose to insert this piece of text at the very beginning
+
+351
+00:02:30,390 --> 00:02:34,980
+and the text that I'm going to insert is just a example dummy email.
+
+352
+00:02:35,010 --> 00:02:38,250
+This is not my real email, but in your case,
+
+353
+00:02:38,310 --> 00:02:40,140
+if you were creating your own password manager,
+
+354
+00:02:40,200 --> 00:02:45,090
+then you could put down your own email so that every time you run the app,
+
+355
+00:02:45,180 --> 00:02:49,140
+it already starts out being pre-populated when that email that you've got.
+
+356
+00:02:50,460 --> 00:02:55,460
+So now the rest of the challenge is pretty much going to be up to you. Inside
+
+357
+00:02:56,460 --> 00:02:59,130
+this save password section,
+
+358
+00:02:59,470 --> 00:03:03,880
+what I want you to do is to be able to take the inputs that are put into the
+
+359
+00:03:03,880 --> 00:03:07,240
+website entry, the email entry and the password entry,
+
+360
+00:03:07,780 --> 00:03:10,690
+and when the user clicks on this add button,
+
+361
+00:03:11,230 --> 00:03:16,230
+I want you to somehow figure out how to save that data into a file called data
+
+362
+00:03:18,010 --> 00:03:18,843
+.txt.
+
+363
+00:03:19,270 --> 00:03:23,500
+This data.txt is going to take the website that the user entered,
+
+364
+00:03:23,740 --> 00:03:27,730
+the email that they entered and the password that they entered
+
+365
+00:03:28,120 --> 00:03:32,440
+and it's going to put it in here with a space in between and a pipe symbol that
+
+366
+00:03:32,440 --> 00:03:36,370
+you can find on your keyboard. Or in fact, you can format this however you like
+
+367
+00:03:36,400 --> 00:03:37,720
+because at the end of the day,
+
+368
+00:03:38,020 --> 00:03:41,080
+you're going to be the one looking at this file to find your emails and
+
+369
+00:03:41,080 --> 00:03:44,140
+passwords. So format it in a way that's comfortable for you.
+
+370
+00:03:45,250 --> 00:03:50,250
+But essentially, what we want to do is to transport things that the user types
+
+371
+00:03:50,710 --> 00:03:51,543
+into here,
+
+372
+00:03:51,610 --> 00:03:56,610
+the website that this password is for, their email and their password and the
+
+373
+00:03:57,970 --> 00:04:02,140
+moment that they press this add button to trigger some sort of function that
+
+374
+00:04:02,140 --> 00:04:06,550
+saves this information into a data.txt file.
+
+375
+00:04:06,910 --> 00:04:08,920
+And that format is the information like this.
+
+376
+00:04:09,310 --> 00:04:12,640
+And every time the user adds another entry,
+
+377
+00:04:12,850 --> 00:04:17,560
+it's going to be added on a new line and it's going to be appended to the end of
+
+378
+00:04:17,560 --> 00:04:18,670
+the previous entry.
+
+379
+00:04:19,360 --> 00:04:23,620
+So I know that it's been a little while since we last dealt with writing to
+
+380
+00:04:23,620 --> 00:04:28,300
+file. So I'll link to the documentation that's relevant to this challenge.
+
+381
+00:04:28,660 --> 00:04:32,830
+One is how to write to file using Python and you can see the demo code
+
+382
+00:04:32,830 --> 00:04:34,990
+which you can run and you can try out,
+
+383
+00:04:35,260 --> 00:04:39,010
+and then you're going to format that to work for your particular case. Now,
+
+384
+00:04:39,010 --> 00:04:41,830
+the other thing is the tkinter entry widget.
+
+385
+00:04:42,130 --> 00:04:45,550
+So there is the insert method that's going to be pretty useful.
+
+386
+00:04:45,970 --> 00:04:50,110
+But the other thing that you want to happen is once you press the add button,
+
+387
+00:04:50,440 --> 00:04:54,520
+you want all of this information other than the email to be cleared out.
+
+388
+00:04:54,970 --> 00:04:59,970
+So you're probably also going to have to take a look at the delete function.
+
+389
+00:05:00,760 --> 00:05:01,900
+And at the very top,
+
+390
+00:05:01,930 --> 00:05:06,930
+you can see it even shows you how to delete something entirely from an entry.
+
+391
+00:05:07,780 --> 00:05:11,290
+Using these two pieces of documentation.
+
+392
+00:05:11,950 --> 00:05:13,900
+I want you to be able to take this information,
+
+393
+00:05:14,020 --> 00:05:15,940
+put it into a data.txt file
+
+394
+00:05:16,300 --> 00:05:21,130
+and afterward, wipe clear this website entry and the password entry.
+
+395
+00:05:21,610 --> 00:05:25,630
+So that's all there is to it. There's going to be quite a bit of code writing.
+
+396
+00:05:25,870 --> 00:05:29,350
+So you have a think about it and go ahead and complete this challenge.
+
+397
+00:05:29,770 --> 00:05:32,860
+I'll wait for you and we'll go through the solution afterward together.
+
+398
+00:05:37,240 --> 00:05:42,100
+So the first thing I need to happen is when the user presses on the add button,
+
+399
+00:05:42,160 --> 00:05:45,670
+I need to trigger a function. So in this add_button,
+
+400
+00:05:45,730 --> 00:05:50,730
+I'm also going to add a command and I'm going to call my function save.
+
+401
+00:05:51,190 --> 00:05:55,090
+So I'm going to put that function inside the section save password.
+
+402
+00:05:55,990 --> 00:06:00,740
+Now this save function is going to write to a file
+
+403
+00:06:00,740 --> 00:06:02,480
+which is called data.txt,
+
+404
+00:06:02,630 --> 00:06:07,250
+or in fact, you can call it anything you want. Inside the save function
+
+405
+00:06:07,310 --> 00:06:10,130
+we want to be able to write to a particular file.
+
+406
+00:06:10,370 --> 00:06:13,640
+So we need to open the file and then we need to write to it.
+
+407
+00:06:14,000 --> 00:06:18,050
+And we can use the option a, to append to the end of the file.
+
+408
+00:06:18,350 --> 00:06:22,280
+Or write, which overrides any existing content or read,
+
+409
+00:06:22,310 --> 00:06:25,520
+which just reads the actual file. Now in our case,
+
+410
+00:06:25,550 --> 00:06:30,110
+every time we add a new password, we wanna add it to the previous passwords.
+
+411
+00:06:30,350 --> 00:06:32,000
+So we're going to need this append.
+
+412
+00:06:33,110 --> 00:06:35,630
+So let's go ahead and open a file
+
+413
+00:06:35,660 --> 00:06:40,660
+which we're going to call data.txt and we're going to open it using the
+
+414
+00:06:41,330 --> 00:06:43,010
+append mode. Now,
+
+415
+00:06:43,010 --> 00:06:48,010
+remember that when you're opening a file using the append mode or the write mode,
+
+416
+00:06:48,350 --> 00:06:51,500
+and that file doesn't exist, it's simply going to create it.
+
+417
+00:06:52,220 --> 00:06:56,270
+We are gonna open this and you can either save it to a file name,
+
+418
+00:06:56,270 --> 00:06:59,720
+so you could do it like this data_file = open,
+
+419
+00:07:00,230 --> 00:07:05,000
+or you might have remembered that previously we spoke about the with keyword.
+
+420
+00:07:05,480 --> 00:07:10,480
+So we can say with open this particular data file as our data file.
+
+421
+00:07:12,380 --> 00:07:17,380
+And what this allows us to do is it will close this file automatically without
+
+422
+00:07:18,050 --> 00:07:21,110
+us having to later write file.close.
+
+423
+00:07:22,100 --> 00:07:25,220
+So it's a much better way of working with files.
+
+424
+00:07:26,030 --> 00:07:27,830
+But if you didn't remember the with keyword,
+
+425
+00:07:27,860 --> 00:07:31,340
+don't worry. Using the open will still work. Now,
+
+426
+00:07:31,370 --> 00:07:34,760
+once we've opened our data.txt in append mode,
+
+427
+00:07:34,880 --> 00:07:39,260
+the next step is to actually add the pieces of data. Now,
+
+428
+00:07:39,290 --> 00:07:43,640
+how do we get hold of data from our entries? Well,
+
+429
+00:07:43,640 --> 00:07:47,000
+that's where the entry documentation comes in handy.
+
+430
+00:07:47,510 --> 00:07:49,460
+And you can see even at the very top,
+
+431
+00:07:49,460 --> 00:07:53,600
+it tells you that to fetch the current entry text, use the get method,
+
+432
+00:07:53,840 --> 00:07:55,370
+so the entry.get.
+
+433
+00:07:56,000 --> 00:08:00,500
+We can get hold of our website by getting hold of the website entry and then
+
+434
+00:08:00,500 --> 00:08:01,760
+calling .get.
+
+435
+00:08:02,270 --> 00:08:05,510
+And then we can do the same for email and password.
+
+436
+00:08:07,400 --> 00:08:10,550
+Once we've gotten all of these pieces of text,
+
+437
+00:08:10,940 --> 00:08:13,790
+then we're going to be writing it into our file.
+
+438
+00:08:14,030 --> 00:08:17,000
+So our data_file.write
+
+439
+00:08:17,540 --> 00:08:20,420
+and what we're going to write is a string
+
+440
+00:08:20,450 --> 00:08:22,520
+which I'm going to format using an f-string.
+
+441
+00:08:22,850 --> 00:08:27,850
+And I'm first going to put in the website and then space and pipe symbol,
+
+442
+00:08:28,340 --> 00:08:31,160
+space and then it's going to be the email
+
+443
+00:08:33,679 --> 00:08:38,030
+and finally, it's going to be the password. Let's check this out,
+
+444
+00:08:38,030 --> 00:08:39,830
+let's run it and see if it works
+
+445
+00:08:42,730 --> 00:08:42,909
+right?
+
+446
+00:08:42,909 --> 00:08:46,990
+Say we're signing up for Amazon, I'm going to use my normal username
+
+447
+00:08:47,080 --> 00:08:51,130
+and I'm going to create a password which is super insecure,
+
+448
+00:08:51,130 --> 00:08:52,420
+which you should never use.
+
+449
+00:08:52,720 --> 00:08:57,060
+But now I'm going to click on add. And after I've clicked it,
+
+450
+00:08:57,090 --> 00:08:59,160
+even though nothing has happened so far,
+
+451
+00:08:59,190 --> 00:09:01,800
+if we take a look inside our project folder,
+
+452
+00:09:02,100 --> 00:09:06,630
+you can see we've now magically created this data.txt file. And you can see
+
+453
+00:09:06,630 --> 00:09:10,860
+it's formatted our website, email, and password, all into that file.
+
+454
+00:09:11,730 --> 00:09:14,730
+So that's pretty much a success. Now,
+
+455
+00:09:14,760 --> 00:09:18,570
+the other thing I mentioned is that it would be nice to get some sort of
+
+456
+00:09:18,570 --> 00:09:23,250
+indication that it worked right? And for our application to be prepped and ready
+
+457
+00:09:23,250 --> 00:09:25,590
+for the next piece of data to be entered.
+
+458
+00:09:25,800 --> 00:09:30,330
+So we wanted to delete whatever text there's inside the website entry and the
+
+459
+00:09:30,330 --> 00:09:35,130
+password entry. If you take a look again at the documentation,
+
+460
+00:09:35,520 --> 00:09:40,290
+you can see that you can delete whatever is inside the entry by calling delete
+
+461
+00:09:40,350 --> 00:09:44,850
+and telling it to delete from a particular index to another index.
+
+462
+00:09:45,270 --> 00:09:50,160
+Now, there's more detailed if you actually scroll down to the actual method and
+
+463
+00:09:50,160 --> 00:09:55,160
+it tells you that it takes two parameters; first and last. First is the start of
+
+464
+00:09:55,950 --> 00:09:59,580
+the range and last is the end of the range.
+
+465
+00:09:59,850 --> 00:10:03,600
+And it tells you that if you omit it, it's only going to remove one character.
+
+466
+00:10:03,600 --> 00:10:05,010
+So that's not what we want.
+
+467
+00:10:05,400 --> 00:10:09,540
+We want it to remove all of the characters in a particular entry.
+
+468
+00:10:09,900 --> 00:10:14,100
+So let's start out with our website entry, call delete on it,
+
+469
+00:10:14,580 --> 00:10:19,580
+and we're going to start from index zero and go all the way to the end. In the
+
+470
+00:10:20,430 --> 00:10:23,160
+same way that we used our index
+
+471
+00:10:23,370 --> 00:10:27,120
+when we inserted our email to the email entry,
+
+472
+00:10:27,360 --> 00:10:32,310
+we moved the cursor to the very start, the zeroth character in that entry.
+
+473
+00:10:32,730 --> 00:10:36,390
+In this case, we're deleting from the zeroth character to
+
+474
+00:10:36,390 --> 00:10:38,310
+the end of the entry.
+
+475
+00:10:39,420 --> 00:10:42,060
+And then we can do the same for our password entry,
+
+476
+00:10:42,650 --> 00:10:43,483
+right?
+
+477
+00:10:45,050 --> 00:10:46,970
+And now if we run this code,
+
+478
+00:10:47,000 --> 00:10:52,000
+you can see that once I type something in and let's just generate another bad
+
+479
+00:10:52,310 --> 00:10:55,460
+password Qwerty. And by the way,
+
+480
+00:10:55,490 --> 00:11:00,110
+if I've called out any of your passwords, just for my sake, um,
+
+481
+00:11:00,410 --> 00:11:03,710
+and definitely for your own security, go ahead and change it.
+
+482
+00:11:03,770 --> 00:11:07,190
+These are really bad passwords. But either way,
+
+483
+00:11:07,280 --> 00:11:11,270
+I'm going to click add and you can see the moment that I've clicked that my
+
+484
+00:11:11,270 --> 00:11:16,250
+website and my password entries have now cleared out and it's now ready to take
+
+485
+00:11:16,340 --> 00:11:20,780
+the next entry. And back in my data.txt, I've now got 
+
+486
+00:11:20,780 --> 00:11:21,680
+another entry.
+
+487
+00:11:22,070 --> 00:11:26,030
+But notice this, it's been added to the end of the previous entry,
+
+488
+00:11:26,390 --> 00:11:30,440
+but its on the same line. That's a little bit confusing.
+
+489
+00:11:30,980 --> 00:11:35,870
+Now you might remember this special character which is \n,
+
+490
+00:11:36,470 --> 00:11:40,310
+and that allows us to enter things onto a new line.
+
+491
+00:11:40,850 --> 00:11:45,850
+Let's delete everything that we've got in here so far and let's hit save so that
+
+492
+00:11:46,490 --> 00:11:48,110
+we can start from scratch.
+
+493
+00:11:48,650 --> 00:11:52,400
+Now let's run our program with that new line inserted.
+
+494
+00:11:53,890 --> 00:11:58,890
+And if I go ahead and add the website and let me think of another bad password,
+
+495
+00:11:59,650 --> 00:12:04,060
+um, password is a really terrible password. Now,
+
+496
+00:12:04,060 --> 00:12:05,440
+if I click add,
+
+497
+00:12:05,500 --> 00:12:10,500
+you'll notice that those fields disappear and that the password gets added into
+
+498
+00:12:10,630 --> 00:12:14,260
+here. Now, if I try and add another value in here,
+
+499
+00:12:14,650 --> 00:12:19,650
+so let's say-- then you can see that the next value got added in on the next line,
+
+500
+00:12:21,640 --> 00:12:23,890
+which is a lot better in terms of formatting.
+
+501
+00:12:24,670 --> 00:12:27,910
+These are just small things that make things look tidy and neat.
+
+502
+00:12:28,450 --> 00:12:33,450
+But the big part was remembering how to save things into a file and using the
+
+503
+00:12:35,200 --> 00:12:40,200
+documentation to get hold of the values inside our entries and putting it into
+
+504
+00:12:40,750 --> 00:12:41,650
+our data file.
+
+505
+00:12:43,210 --> 00:12:47,410
+One of the things you might have realized is that it's a terrible user
+
+506
+00:12:47,410 --> 00:12:51,250
+experience when the user enters a piece of data,
+
+507
+00:12:51,250 --> 00:12:56,250
+say a website and a password and they click add. Things sort of disappear,
+
+508
+00:13:00,010 --> 00:13:05,010
+but they don't really have a confirmation that this, in fact, did work.
+
+509
+00:13:06,340 --> 00:13:07,840
+So in the next lesson,
+
+510
+00:13:07,900 --> 00:13:11,350
+we're going to look at how we can create some popups so that we can show the
+
+511
+00:13:11,350 --> 00:13:14,170
+user what the result was of their action.
+
+512
+00:13:14,440 --> 00:13:18,820
+We can tell them if it was successful or if it was not, ask them to confirm
+
+513
+00:13:18,850 --> 00:13:23,650
+whether if they're happy with that data entry. So for all of that and more,
+
+514
+00:13:23,860 --> 00:13:24,910
+I'll see you in the next lesson.
+
+
+515
+00:00:00,330 --> 00:00:01,589
+Now in the last lesson,
+
+516
+00:00:01,650 --> 00:00:05,670
+we managed to get our password manager to start saving the data that we're
+
+517
+00:00:05,670 --> 00:00:08,189
+entering inside the password manager.
+
+518
+00:00:08,790 --> 00:00:12,810
+And we formatted it and put it inside our data.txt.
+
+519
+00:00:13,590 --> 00:00:13,860
+Now,
+
+520
+00:00:13,860 --> 00:00:18,860
+one of the things that was a bit of an issue in terms of user experience is
+
+521
+00:00:19,380 --> 00:00:24,380
+whenever the user actually enters their details into this password manager at the
+
+522
+00:00:25,590 --> 00:00:26,423
+moment,
+
+523
+00:00:26,460 --> 00:00:30,900
+it doesn't actually give you some sort of way of knowing that it was successful
+
+524
+00:00:30,990 --> 00:00:31,890
+or if it was not,
+
+525
+00:00:32,340 --> 00:00:37,110
+or actually getting them to check and verify that the data that they've entered
+
+526
+00:00:37,410 --> 00:00:41,010
+is definitely the one that they want to save into the file.
+
+527
+00:00:41,820 --> 00:00:43,080
+In order to do this,
+
+528
+00:00:43,170 --> 00:00:46,260
+we're going to learn about something else that you can do with tkinter
+
+529
+00:00:46,740 --> 00:00:48,960
+which is something called standard dialogs.
+
+530
+00:00:49,260 --> 00:00:53,460
+These are basically popups that your tkinter program can generate.
+
+531
+00:00:53,970 --> 00:00:58,350
+And one of the most popular standard dialogs are the message boxes.
+
+532
+00:00:58,980 --> 00:01:02,520
+And it's really, really easy to create these popups.
+
+533
+00:01:02,970 --> 00:01:06,390
+You can simply just import the message box module
+
+534
+00:01:06,660 --> 00:01:11,370
+and you can tap into methods like show info or show warning, show error,
+
+535
+00:01:11,730 --> 00:01:15,810
+or you can ask the user yes no, or OK
+
+536
+00:01:15,810 --> 00:01:19,560
+or cancel, ask a question yes or no,
+
+537
+00:01:19,980 --> 00:01:22,380
+ask to retry or cancel.
+
+538
+00:01:23,160 --> 00:01:26,790
+Now the screenshots where made in a Swedish version of Windows,
+
+539
+00:01:26,910 --> 00:01:31,620
+but we can actually try these out ourselves and start putting in some standard
+
+540
+00:01:31,620 --> 00:01:34,410
+dialogs so that we can give the user some feedback.
+
+541
+00:01:35,070 --> 00:01:39,090
+The thing that we really want to tell the user is the moment that the save
+
+542
+00:01:39,090 --> 00:01:43,830
+function is called it's because they pressed on the add button here.
+
+543
+00:01:44,430 --> 00:01:49,430
+But before we actually commit all of the current information to the file,
+
+544
+00:01:50,130 --> 00:01:54,060
+we want to check and make sure that they're actually happy with what they've
+
+545
+00:01:54,060 --> 00:01:54,893
+written.
+
+546
+00:01:55,110 --> 00:01:59,220
+So we can create a message box here and get them to check the details that
+
+547
+00:01:59,220 --> 00:02:02,700
+they've entered and then hit yes or no as to whether
+
+548
+00:02:02,700 --> 00:02:06,300
+if they want to save it. In order to use the message box,
+
+549
+00:02:06,330 --> 00:02:10,050
+we actually have to import the message box. Again,
+
+550
+00:02:10,050 --> 00:02:15,050
+it's from the tkinter module that we're going to import the message box module.
+
+551
+00:02:16,200 --> 00:02:20,280
+Now notice how this is not actually a class. So that's why,
+
+552
+00:02:20,310 --> 00:02:24,510
+even though we've said * which means import everything,
+
+553
+00:02:24,870 --> 00:02:29,340
+it actually only imports all of the classes, the constants,
+
+554
+00:02:29,580 --> 00:02:32,340
+but it doesn't import things like the message box,
+
+555
+00:02:32,580 --> 00:02:36,300
+which is simply just another module of code. And in fact,
+
+556
+00:02:36,300 --> 00:02:41,010
+if you right-click on it and go to implementation here,
+
+557
+00:02:41,430 --> 00:02:46,430
+then you can actually see this messagebox.py file and how it's implemented.
+
+558
+00:02:49,110 --> 00:02:53,460
+The thing that's important though is to actually put it into use. So we can use the
+
+559
+00:02:53,460 --> 00:02:57,210
+message box and call a method to show a popup.
+
+560
+00:02:57,750 --> 00:03:00,160
+The simplest type is just showinfo
+
+561
+00:03:00,280 --> 00:03:02,110
+which you only need to think about two things
+
+562
+00:03:02,110 --> 00:03:06,430
+really; a title and also a message.
+
+563
+00:03:07,420 --> 00:03:10,720
+So I'm just going to put title as title and message as message.
+
+564
+00:03:11,230 --> 00:03:13,480
+And you can see when I press add,
+
+565
+00:03:13,630 --> 00:03:18,490
+I get this up and it's just got the title and the message and you can't do
+
+566
+00:03:18,490 --> 00:03:20,290
+anything other than click OK.
+
+567
+00:03:22,000 --> 00:03:23,770
+In addition to showinfo,
+
+568
+00:03:23,980 --> 00:03:27,850
+there is actually a lot of other methods; you can ask yes or no,
+
+569
+00:03:28,240 --> 00:03:33,160
+ask retry or cancel. You can show an error or you can show a warning.
+
+570
+00:03:33,910 --> 00:03:36,910
+Now in addition, you can actually ask the user something.
+
+571
+00:03:36,910 --> 00:03:41,770
+So this generates two buttons, yes or no, retry or cancel,
+
+572
+00:03:41,800 --> 00:03:46,480
+OK or cancel, ask question is also yes and no, and we've also got yes,
+
+573
+00:03:46,480 --> 00:03:51,190
+no and cancel here. What I'm going to do is I'm going to ask OK
+
+574
+00:03:51,190 --> 00:03:52,090
+or cancel.
+
+575
+00:03:53,110 --> 00:03:58,110
+And what I want to ask the user is I'm going to set the title as the website
+
+576
+00:03:58,960 --> 00:03:59,920
+that they've entered
+
+577
+00:04:00,490 --> 00:04:05,490
+so that's going to come from here, and then I'm going to set the message as a
+
+578
+00:04:06,900 --> 00:04:07,690
+f-string.
+
+579
+00:04:07,690 --> 00:04:12,690
+So I'm going to say these are the details entered:\n.
+
+580
+00:04:14,590 --> 00:04:17,560
+And then I'll give them the email that they entered
+
+581
+00:04:19,180 --> 00:04:24,180
+and then a new line and the password that they entered.
+
+582
+00:04:28,000 --> 00:04:32,800
+And then after new line, I'm going to ask them, is it okay to 
+
+583
+00:04:35,010 --> 00:04:35,130
+save?
+
+584
+00:04:35,130 --> 00:04:37,050
+If I go ahead and run this code,
+
+585
+00:04:38,130 --> 00:04:41,400
+you can see that when I type a website
+
+586
+00:04:41,460 --> 00:04:44,760
+say Amaazon
+
+587
+00:04:45,690 --> 00:04:49,620
+and I type in my password and I click add,
+
+588
+00:04:50,040 --> 00:04:53,700
+I get my popup and it says these are the details entered. This is email,
+
+589
+00:04:53,700 --> 00:04:56,130
+this is the password, is it okay to save?
+
+590
+00:04:56,640 --> 00:04:59,550
+Now what I want to do is when they click OK
+
+591
+00:04:59,790 --> 00:05:04,350
+then for that action to go through and for us to write to our data file.
+
+592
+00:05:04,650 --> 00:05:06,360
+But if they click cancel,
+
+593
+00:05:06,360 --> 00:05:10,260
+I want them to be able to go back to the screen and edit it if necessary.
+
+594
+00:05:10,920 --> 00:05:12,150
+In order to do that,
+
+595
+00:05:12,360 --> 00:05:16,020
+we have to receive the output from this method call,
+
+596
+00:05:16,350 --> 00:05:19,770
+which is going to be a boolean. It's going to be either true or false.
+
+597
+00:05:19,920 --> 00:05:22,140
+So I'm going to set that to is_ok.
+
+598
+00:05:23,070 --> 00:05:27,570
+Now if this is_ok  is true, well, in that case,
+
+599
+00:05:27,600 --> 00:05:30,510
+we're going to go ahead and do all of this. So write
+
+600
+00:05:30,510 --> 00:05:34,440
+to file and delete everything that's inside the entry.
+
+601
+00:05:34,890 --> 00:05:38,850
+But if it's not okay, then we're simply just going to do nothing
+
+602
+00:05:39,120 --> 00:05:42,600
+and the popup box will dismiss itself. Now,
+
+603
+00:05:42,630 --> 00:05:47,630
+if I run this code again and I type in some ### and I click add,
+
+604
+00:05:48,750 --> 00:05:53,610
+you can see if I click cancel, nothing happens, and I go back. But if I click
+
+605
+00:05:53,700 --> 00:05:54,540
+OK,
+
+606
+00:05:54,750 --> 00:05:59,750
+then all of that information is going to be to my data.txt like here.
+
+607
+00:06:01,910 --> 00:06:06,910
+Now it's time for you to have a go with the message boxes and these standard
+
+608
+00:06:07,070 --> 00:06:07,903
+dialogs.
+
+609
+00:06:08,270 --> 00:06:12,470
+But your job is to figure out how can we get our app to have a little bit of
+
+610
+00:06:12,470 --> 00:06:17,390
+validation because when they have an empty website and an empty password and
+
+611
+00:06:17,390 --> 00:06:18,230
+they click add,
+
+612
+00:06:18,950 --> 00:06:23,900
+you shouldn't really let them save an empty password and an empty website,
+
+613
+00:06:23,900 --> 00:06:24,890
+right? That's not right.
+
+614
+00:06:25,340 --> 00:06:29,930
+So we want to check to see if the length of the entries in the website or the
+
+615
+00:06:29,930 --> 00:06:33,290
+password is zero. And in that case,
+
+616
+00:06:33,320 --> 00:06:35,720
+we're going to bring up a message box
+
+617
+00:06:35,750 --> 00:06:38,120
+that's just going to tell them basically that, Hey,
+
+618
+00:06:38,450 --> 00:06:42,650
+you've left some fields empty. So this is what you're aiming for.
+
+619
+00:06:42,710 --> 00:06:46,970
+Let's say that you've left the website or the password empty and you click add,
+
+620
+00:06:47,360 --> 00:06:51,230
+you should get a popup that tells you, Hey, don't leave any of the fields empty.
+
+621
+00:06:51,620 --> 00:06:56,620
+And this should trigger when either the website or the password is empty.
+
+622
+00:06:57,680 --> 00:07:01,190
+So have a think about how you might solve that challenge and give it a go.
+
+623
+00:07:01,660 --> 00:07:02,493
+Okay.
+
+624
+00:07:06,640 --> 00:07:10,630
+All right. So here's where we get all of the information from our entries.
+
+625
+00:07:10,810 --> 00:07:13,360
+And this is also a good time to do this validation.
+
+626
+00:07:13,930 --> 00:07:16,120
+We can use an if statement to check, well,
+
+627
+00:07:16,210 --> 00:07:20,980
+if this website string has a length of zero,
+
+628
+00:07:21,400 --> 00:07:23,770
+then that means the user didn't type anything in there.
+
+629
+00:07:24,250 --> 00:07:26,770
+And we can use an or statement to check well,
+
+630
+00:07:26,800 --> 00:07:31,660
+if the password also has a length of 0, well,
+
+631
+00:07:31,660 --> 00:07:33,910
+in that case, they didn't type anything in there either.
+
+632
+00:07:34,450 --> 00:07:37,240
+Now you can also add validation for the email,
+
+633
+00:07:37,240 --> 00:07:40,660
+but because we have the email already pre-populated,
+
+634
+00:07:40,900 --> 00:07:42,190
+there's actually not much point here.
+
+635
+00:07:42,790 --> 00:07:46,810
+So if either they've left the website blank or the password blank,
+
+636
+00:07:47,110 --> 00:07:51,370
+then we're going to generate a message box and we're going to use the showinfo
+
+637
+00:07:51,370 --> 00:07:55,540
+message box. The title is just going to say
+
+638
+00:07:55,960 --> 00:07:59,950
+Oops, and the message is going to say
+
+639
+00:08:00,880 --> 00:08:03,220
+Please make sure you haven't left any fields empty.
+
+640
+00:08:03,820 --> 00:08:07,270
+And now when you run this code, if you've left either of these two empty,
+
+641
+00:08:07,480 --> 00:08:10,600
+then you are going to get a popup that tells you this.
+
+642
+00:08:11,170 --> 00:08:16,060
+Now we don't actually want the rest of this code to happen if this is true.
+
+643
+00:08:16,480 --> 00:08:21,480
+So let's go ahead and add an else statement as well so that we can indent all of
+
+644
+00:08:22,300 --> 00:08:26,590
+this so that we only continue forward
+
+645
+00:08:27,070 --> 00:08:32,070
+if in fact, the length of the website or the password is not equal to zero.
+
+646
+00:08:33,730 --> 00:08:37,030
+So in this case, when they leave it empty, you can say OK
+
+647
+00:08:37,090 --> 00:08:40,690
+and it just goes back to let you continue entering more details.
+
+648
+00:08:42,070 --> 00:08:43,210
+Now in the next lesson,
+
+649
+00:08:43,240 --> 00:08:47,380
+we're going to add another piece of functionality to our application
+
+650
+00:08:47,680 --> 00:08:49,480
+which is the generate password.
+
+651
+00:08:49,780 --> 00:08:53,830
+We've already seen how terrible the passwords are that we come up with from our
+
+652
+00:08:53,830 --> 00:08:54,610
+own heads.
+
+653
+00:08:54,610 --> 00:08:58,900
+So we're going to be using the generate password code that we created many,
+
+654
+00:08:58,900 --> 00:09:01,840
+many moons ago as one of our projects
+
+655
+00:09:01,930 --> 00:09:04,840
+and we're going to be embedding that into this application.
+
+656
+00:09:05,350 --> 00:09:08,380
+So for all of that and more, I'll see you on the next lesson.
+
+
+657
+00:00:00,240 --> 00:00:03,870
+Now what may seem like a long time ago,
+
+658
+00:00:04,350 --> 00:00:07,530
+we created a password generator project.
+
+659
+00:00:07,620 --> 00:00:12,620
+So this was in fact on day 5 where we took three lists,
+
+660
+00:00:13,110 --> 00:00:14,640
+letters, numbers, and symbols,
+
+661
+00:00:15,180 --> 00:00:20,010
+and we used it to generate a random list of letters, symbols,
+
+662
+00:00:20,010 --> 00:00:20,843
+and numbers
+
+663
+00:00:21,000 --> 00:00:25,860
+and then we shuffled all of those together and we turned it into a string to
+
+664
+00:00:25,860 --> 00:00:28,320
+create a very secure password.
+
+665
+00:00:29,760 --> 00:00:32,009
+Now I've modified the code a little bit,
+
+666
+00:00:32,189 --> 00:00:34,970
+just so that we don't need to use any inputs.
+
+667
+00:00:34,970 --> 00:00:38,190
+So we don't have to type anything in the console. Instead,
+
+668
+00:00:38,220 --> 00:00:43,220
+I've created a random number between 8 and 10 to pick 8 or 10 letters
+
+669
+00:00:44,580 --> 00:00:49,470
+and then 2 to 4 numbers and 2 to 4 symbols.
+
+670
+00:00:50,370 --> 00:00:52,980
+So what I want you to do is the head over to this link
+
+671
+00:00:53,220 --> 00:00:54,900
+which is in the course resources,
+
+672
+00:00:55,560 --> 00:01:00,560
+and simply just copy everything that's in there into your password generator
+
+673
+00:01:01,140 --> 00:01:01,973
+section,
+
+674
+00:01:02,220 --> 00:01:07,220
+because we're going to be using this code in our password manager so that when
+
+675
+00:01:08,070 --> 00:01:09,750
+the user clicks on this button,
+
+676
+00:01:09,780 --> 00:01:14,780
+we can generate them a random password and already pre-populate that field.
+
+677
+00:01:14,910 --> 00:01:16,380
+So they don't have to type anything
+
+678
+00:01:16,530 --> 00:01:20,700
+and they don't have to come up with a really complex password like this.
+
+679
+00:01:21,810 --> 00:01:26,810
+Once we've put our password generator code into the password generator section,
+
+680
+00:01:27,360 --> 00:01:31,680
+let's go ahead and reformat it. So let's put our imports at the top.
+
+681
+00:01:33,660 --> 00:01:37,770
+And as a challenge, I want you to take a look at these three lines,
+
+682
+00:01:38,190 --> 00:01:39,420
+look at what they're doing.
+
+683
+00:01:39,990 --> 00:01:44,990
+We've created an empty list and we're adding a random letter from this list of
+
+684
+00:01:47,310 --> 00:01:50,100
+letters. And then we have this for-loop
+
+685
+00:01:50,220 --> 00:01:54,420
+which basically creates a range from this random number,
+
+686
+00:01:54,690 --> 00:01:56,880
+so anywhere between 8 to 10,
+
+687
+00:01:57,420 --> 00:02:02,420
+and then we add a random letter to that password list. So this is a really
+
+688
+00:02:02,790 --> 00:02:06,480
+good opportunity for using list comprehensions instead,
+
+689
+00:02:06,900 --> 00:02:11,400
+because we can get rid of a lot of these for loops and do each of these things
+
+690
+00:02:11,430 --> 00:02:15,990
+in just one single line of code. It's also a good point for
+
+691
+00:02:15,990 --> 00:02:16,890
+a bit of revision.
+
+692
+00:02:17,520 --> 00:02:22,520
+I want you to have a think about how these things work and see if you can do the
+
+693
+00:02:22,530 --> 00:02:27,530
+same thing by changing these three sections into three list comprehensions.
+
+694
+00:02:30,180 --> 00:02:32,640
+If you're successful, once you run the code,
+
+695
+00:02:32,790 --> 00:02:35,280
+it should still work exactly the same way
+
+696
+00:02:35,580 --> 00:02:39,780
+and you should see a random password being generated and printed down here.
+
+697
+00:02:40,590 --> 00:02:42,360
+Pause the video and give that a go.
+
+698
+00:02:42,380 --> 00:02:43,213
+All right.
+
+699
+00:02:48,830 --> 00:02:52,490
+All right. So what I'm going to do is instead of creating an empty list,
+
+700
+00:02:52,640 --> 00:02:54,830
+I'm going to create three new lists.
+
+701
+00:02:55,340 --> 00:03:00,340
+One is going to be the password_letters and this list is going to be created,
+
+702
+00:03:03,340 --> 00:03:03,880
+of course,
+
+703
+00:03:03,880 --> 00:03:08,880
+using less comprehension and replacing these two lines of code.
+
+704
+00:03:09,580 --> 00:03:11,320
+Remember our keyword formats.
+
+705
+00:03:11,350 --> 00:03:16,350
+We have our new item for item in list.
+
+706
+00:03:17,230 --> 00:03:20,200
+Now, in this case, our list is actually not a list.
+
+707
+00:03:20,380 --> 00:03:25,330
+It's actually going to be a range because we're going to create a range using
+
+708
+00:03:25,360 --> 00:03:30,360
+this random number. So we generate a range between zero and this number minus
+
+709
+00:03:31,540 --> 00:03:36,010
+one. So we can pass in our number letters into here.
+
+710
+00:03:37,210 --> 00:03:40,810
+Each of the items is actually not important.
+
+711
+00:03:40,990 --> 00:03:44,800
+We don't actually need to use it so we can just use an underscore to replace it.
+
+712
+00:03:45,430 --> 00:03:48,490
+But what is important is what the new item is going to be,
+
+713
+00:03:48,910 --> 00:03:51,880
+because this is going to be created from random.choice
+
+714
+00:03:52,210 --> 00:03:57,210
+and we're going to be passing in our list of letters up here so that we pick a
+
+715
+00:03:58,180 --> 00:04:03,160
+random letter and we put it into our new list, password_letters.
+
+716
+00:04:03,640 --> 00:04:07,240
+And then we're going to check to see how many times we need to do this by
+
+717
+00:04:07,240 --> 00:04:12,240
+looking at the range. That line will replace these two lines of code,
+
+718
+00:04:13,660 --> 00:04:17,589
+and we can go ahead and do the same thing for the other two sections.
+
+719
+00:04:22,140 --> 00:04:22,973
+Yeah.
+
+720
+00:04:23,610 --> 00:04:28,610
+These three lines of code uses list comprehension to replace these for loops. So
+
+721
+00:04:29,490 --> 00:04:33,450
+we can delete those for loops and now we end up with three lists.
+
+722
+00:04:34,050 --> 00:04:38,310
+Now we want to combine these three lists into one list so that we can actually
+
+723
+00:04:38,310 --> 00:04:42,720
+shuffle it. So I'm going to create, again, this password_list,
+
+724
+00:04:43,380 --> 00:04:48,380
+and it's going to be created by adding our password_letters to our password_
+
+725
+00:04:49,980 --> 00:04:53,400
+symbols and our password_numbers.
+
+726
+00:04:54,000 --> 00:04:58,170
+So we're basically adding all these three lists together and putting it into one
+
+727
+00:04:58,170 --> 00:05:02,670
+big list, and then we're shuffling it up in order to get the final random list.
+
+728
+00:05:03,180 --> 00:05:07,050
+Now we can actually cut down on this code even further if we wanted to.
+
+729
+00:05:07,620 --> 00:05:10,680
+For example, instead of creating a separate variable here,
+
+730
+00:05:10,710 --> 00:05:13,410
+we could actually put it straight in like this.
+
+731
+00:05:13,920 --> 00:05:16,500
+And instead of calling random.randint,
+
+732
+00:05:17,100 --> 00:05:21,330
+we can actually say from random import the methods that we need,
+
+733
+00:05:21,660 --> 00:05:26,660
+which is choice and randint and also down here we're using the shuffle function
+
+734
+00:05:28,950 --> 00:05:29,783
+as well.
+
+735
+00:05:30,990 --> 00:05:35,990
+So now we can delete all the places where we have random and we can replace
+
+736
+00:05:36,840 --> 00:05:39,810
+these with just simply the randint,
+
+737
+00:05:42,060 --> 00:05:45,840
+and we can delete these three lines of code. And finally,
+
+738
+00:05:45,840 --> 00:05:50,520
+it's simply just shuffle and we shuffle our password_list. Now,
+
+739
+00:05:50,520 --> 00:05:54,810
+one last thing that I think is a good thing to point out is here
+
+740
+00:05:54,810 --> 00:05:57,270
+we've created an empty string called password
+
+741
+00:05:57,620 --> 00:05:59,870
+and then for each of the characters in our list,
+
+742
+00:05:59,900 --> 00:06:04,550
+we've basically added it to this password. Now that's easy enough,
+
+743
+00:06:04,580 --> 00:06:09,580
+but these three lines could actually be done in a more Pythonic way. In
+
+744
+00:06:10,160 --> 00:06:12,890
+Python there is a method called join
+
+745
+00:06:13,160 --> 00:06:15,680
+which is available on every single string.
+
+746
+00:06:16,070 --> 00:06:20,480
+So you could take a string like the pound sign and you could call the join
+
+747
+00:06:20,480 --> 00:06:21,313
+method on it.
+
+748
+00:06:21,710 --> 00:06:26,710
+And what it does is it will create a new string that combines all of the
+
+749
+00:06:27,920 --> 00:06:30,890
+elements in this iterable, John, Peter, and Vicky,
+
+750
+00:06:31,220 --> 00:06:35,360
+and it will separate them by whatever character you put here. Now,
+
+751
+00:06:35,390 --> 00:06:37,850
+this doesn't actually have to be a tuple.
+
+752
+00:06:37,880 --> 00:06:41,120
+It could be a dictionary and it could also be a list.
+
+753
+00:06:41,450 --> 00:06:43,760
+Let me convert this into a list.
+
+754
+00:06:45,230 --> 00:06:50,230
+And now if I go ahead and use the pound sign to join my list and run this code,
+
+755
+00:06:52,330 --> 00:06:54,100
+ou can see, 
+
+756
+00:06:54,460 --> 00:06:57,220
+I end up with the same results. Now,
+
+757
+00:06:57,220 --> 00:07:01,780
+what if I actually delete this pound sign and I just have an empty string?
+
+758
+00:07:02,200 --> 00:07:05,350
+Well, this will work as well. And what it does,
+
+759
+00:07:05,410 --> 00:07:10,410
+it will join all of the elements in that list with no separation.
+
+760
+00:07:11,770 --> 00:07:16,270
+That's basically what we're trying to do here, right? So instead of all of this,
+
+761
+00:07:17,080 --> 00:07:19,060
+I can simply just write
+
+762
+00:07:19,540 --> 00:07:22,360
+" ".join,
+
+763
+00:07:22,840 --> 00:07:26,410
+and then pass in my list which is my password_list.
+
+764
+00:07:26,920 --> 00:07:29,800
+And this would be equal to my password.
+
+765
+00:07:30,850 --> 00:07:35,560
+And that replaces all of these lines of code. Right now
+
+766
+00:07:35,590 --> 00:07:38,980
+if I run my code as it is, you can see
+
+767
+00:07:39,040 --> 00:07:44,040
+I still generate my password and it still is super secure and super long
+
+768
+00:07:44,740 --> 00:07:49,450
+and in fact, you can modify that by changing how many password letters you want,
+
+769
+00:07:49,450 --> 00:07:51,400
+how many symbols, how many numbers,
+
+770
+00:07:51,880 --> 00:07:55,390
+and you can change these up to make it even more secure.
+
+771
+00:07:55,780 --> 00:08:00,780
+But we've greatly shortened this code from our day 5's work because we now
+
+772
+00:08:00,970 --> 00:08:03,190
+know things like list comprehensions,
+
+773
+00:08:03,340 --> 00:08:05,830
+and we've now learned the join method as well.
+
+774
+00:08:06,550 --> 00:08:11,050
+So this entire section is our password generator mechanism.
+
+775
+00:08:11,530 --> 00:08:15,520
+If we embed all of this inside a function
+
+776
+00:08:15,550 --> 00:08:19,330
+so we could call it generate_password
+
+777
+00:08:19,390 --> 00:08:21,490
+which is what it's pretty much going to do,
+
+778
+00:08:22,000 --> 00:08:27,000
+then we can call this function when the user presses on that generate password
+
+779
+00:08:27,280 --> 00:08:28,113
+button.
+
+780
+00:08:28,300 --> 00:08:33,299
+So let's add another command and add in our generate_password function here.
+
+781
+00:08:35,799 --> 00:08:39,789
+Now, what we don't want though is we don't want to print out the password,
+
+782
+00:08:39,789 --> 00:08:44,049
+that's not very useful for the user who's using a graphical user interface.
+
+783
+00:08:44,500 --> 00:08:48,580
+Instead, we want to populate this entry with the password.
+
+784
+00:08:49,000 --> 00:08:50,260
+Do you remember how to do that?
+
+785
+00:08:50,620 --> 00:08:53,680
+If you do, pause the video and complete this as a challenge.
+
+786
+00:08:54,100 --> 00:08:56,100
+If you don't, I'm to show you how to do it.
+
+787
+00:08:58,020 --> 00:09:01,890
+So it's the same way as what we did with our email.
+
+788
+00:09:02,280 --> 00:09:06,750
+Remember how we wanted our email entry to have a starting value,
+
+789
+00:09:07,080 --> 00:09:10,110
+the user's email. Well, we'll do the same thing here.
+
+790
+00:09:10,470 --> 00:09:15,390
+So we can tap into our password entry and we call the method insert.
+
+791
+00:09:15,900 --> 00:09:19,650
+Now the position that we want to insert our text is going to be at the very
+
+792
+00:09:19,650 --> 00:09:20,220
+start,
+
+793
+00:09:20,220 --> 00:09:25,220
+so the zeroth character, and the text that we want to insert into it is of course
+
+794
+00:09:25,410 --> 00:09:29,160
+our newly created password. So now
+
+795
+00:09:29,160 --> 00:09:32,640
+if I run my code, you can see as soon as I click on this button,
+
+796
+00:09:32,940 --> 00:09:37,940
+a random and beautifully complex password gets generated and populated in here.
+
+797
+00:09:39,120 --> 00:09:42,180
+Now, whenever I sign up for a new website,
+
+798
+00:09:42,960 --> 00:09:45,390
+then I can simply just type in the name of the website,
+
+799
+00:09:45,660 --> 00:09:49,770
+generate my password and hit add, and I'm already done.
+
+800
+00:09:50,490 --> 00:09:54,390
+Now we've incorporated our generate password functionality,
+
+801
+00:09:54,660 --> 00:09:58,050
+we're able to save all data to our data file.
+
+802
+00:09:58,350 --> 00:10:00,270
+The very last thing I want to show you
+
+803
+00:10:00,270 --> 00:10:05,270
+which is a really neat trick that you can do with Python is the ability to put
+
+804
+00:10:05,430 --> 00:10:10,430
+strings into the clipboard so that once we click generate_password,
+
+805
+00:10:11,280 --> 00:10:12,570
+this entire string,
+
+806
+00:10:12,600 --> 00:10:17,250
+I don't actually have to go ahead and highlight it and then copy it and then get
+
+807
+00:10:17,250 --> 00:10:21,150
+hold of it. Because in most cases, once I've generated my password,
+
+808
+00:10:21,210 --> 00:10:25,620
+I want to be able to immediately paste it into somewhere where I'm signing up
+
+809
+00:10:25,620 --> 00:10:27,930
+for, right? I want to be able to just simply hit
+
+810
+00:10:28,550 --> 00:10:29,383
+paste.
+
+811
+00:10:30,410 --> 00:10:33,830
+So how can we do that? Well, we can use a Python project
+
+812
+00:10:34,130 --> 00:10:38,840
+which is called pyperclip. And this is a cross-platform Python module
+
+813
+00:10:39,170 --> 00:10:43,580
+that just makes it so easy to work with copy and pasting for clipboard
+
+814
+00:10:43,580 --> 00:10:47,870
+functions. All we have to do is import it
+
+815
+00:10:48,260 --> 00:10:52,490
+and then we say, copy, and we pass in the text to be copied.
+
+816
+00:10:52,880 --> 00:10:56,510
+Or you can hit paste and it'll paste whatever is in the clipboard.
+
+817
+00:10:56,990 --> 00:10:59,420
+We're only really interested in these two parts.
+
+818
+00:10:59,540 --> 00:11:04,310
+So two lines of code gets us that functionality. Going back to our code,
+
+819
+00:11:04,340 --> 00:11:05,630
+scrolling to the very top,
+
+820
+00:11:05,690 --> 00:11:09,680
+let's go ahead and import our pyperclip.
+
+821
+00:11:09,710 --> 00:11:13,640
+Make sure that you spelled it right. You can check it against this link
+
+822
+00:11:13,670 --> 00:11:15,500
+which I've got in the course resources.
+
+823
+00:11:16,370 --> 00:11:20,780
+And once we type that you can see that PyCharm is already telling us you don't
+
+824
+00:11:20,780 --> 00:11:23,330
+have this package. So go ahead and install it.
+
+825
+00:11:23,990 --> 00:11:27,320
+Once it's been successfully installed (it's a very small module)
+
+826
+00:11:27,620 --> 00:11:28,880
+then we can use it.
+
+827
+00:11:29,420 --> 00:11:33,440
+And the part where we're going to use it is when we generate our password.
+
+828
+00:11:33,950 --> 00:11:38,600
+So once we've generated our password, we're going to call pyperclip
+
+829
+00:11:41,360 --> 00:11:45,410
+and we're going to call the copy method. Now, inside here,
+
+830
+00:11:45,410 --> 00:11:48,440
+we have to put the text that we want to copy into the clipboard,
+
+831
+00:11:48,680 --> 00:11:50,660
+which is going to be the password.
+
+832
+00:11:51,860 --> 00:11:56,860
+So now when we run and I generate a new password, right now
+
+833
+00:11:57,160 --> 00:11:59,170
+that password is already in my clipboard
+
+834
+00:11:59,230 --> 00:12:04,230
+and I can show you just by pasting it into here with command + v. That makes
+
+835
+00:12:04,330 --> 00:12:07,450
+it so much easier to work with our password manager
+
+836
+00:12:07,750 --> 00:12:12,750
+because all we have to do when we want to sign up to a new account is to simply
+
+837
+00:12:12,820 --> 00:12:15,430
+specify the website name
+
+838
+00:12:15,730 --> 00:12:20,080
+and then we've already got our email saved and we've got our password generated,
+
+839
+00:12:20,320 --> 00:12:21,940
+ready to paste into here.
+
+840
+00:12:22,870 --> 00:12:27,870
+So that should make it a lot easier to have very secure passwords and also a
+
+841
+00:12:28,000 --> 00:12:31,930
+place to check on what those passwords are when you forget.
+
+842
+00:12:32,740 --> 00:12:35,230
+I hope you enjoyed building this project with me today
+
+843
+00:12:35,590 --> 00:12:39,010
+and that you are going to put this into good use and make sure that all of your
+
+844
+00:12:39,010 --> 00:12:44,010
+websites and all of your data and all of your accounts are secured with a good
+
+845
+00:12:44,650 --> 00:12:45,610
+quality password.
+
+846
+00:12:45,630 --> 00:12:45,930
+All right.
+
+

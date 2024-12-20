@@ -1,0 +1,3097 @@
+
+1
+00:00:00,750 --> 00:00:05,010
+Hey there! Welcome to Day 10 of a 100 Days of Code
+
+2
+00:00:05,430 --> 00:00:08,560
+and today we're gonna learn about functions with
+
+3
+00:00:08,630 --> 00:00:10,850
+outputs. Previously
+
+4
+00:00:10,880 --> 00:00:15,770
+we've already seen the other two flavors of functions; a plain function and
+
+5
+00:00:15,800 --> 00:00:19,850
+also functions with inputs. But in today's lessons,
+
+6
+00:00:19,880 --> 00:00:22,400
+we're going to be using the skills that we've learned
+
+7
+00:00:22,730 --> 00:00:26,180
+and we're going to be extending our knowledge of functions to build a
+
+8
+00:00:26,210 --> 00:00:30,920
+calculator app. I think at some point in every program has lives
+
+9
+00:00:30,950 --> 00:00:33,230
+they will have built a calculator app.
+
+10
+00:00:33,440 --> 00:00:37,070
+So if that hasn't already happened to you, then today is your lucky day,
+
+11
+00:00:37,130 --> 00:00:39,740
+because that's exactly what we're going to be making.
+
+12
+00:00:40,310 --> 00:00:43,580
+So it's a simple text base calculator,
+
+13
+00:00:43,820 --> 00:00:48,820
+and we can start off by writing a number and then picking one of the operations:
+
+14
+00:00:48,860 --> 00:00:53,420
+plus, minus, multiply or divide. So I'm going to divide this by two,
+
+15
+00:00:53,870 --> 00:00:58,370
+and then it shows us the full calculation, 5 / 2 = 2.5.
+
+16
+00:00:58,820 --> 00:01:02,810
+And now we can continue calculating with the answer from the previous step,
+
+17
+00:01:02,990 --> 00:01:07,190
+or we can type 'n' to start a new calculation. Let me type a 'y'
+
+18
+00:01:07,310 --> 00:01:12,200
+and maybe I'll do 2.5 + 6 
+
+19
+00:01:13,010 --> 00:01:16,970
+and now I get 8.5. By the end of the lessons today,
+
+20
+00:01:17,000 --> 00:01:20,180
+you'll have understood how functions really work,
+
+21
+00:01:20,300 --> 00:01:25,300
+how you can use them to reduce redundant code and how you can provide inputs to
+
+22
+00:01:26,210 --> 00:01:31,210
+functions as well as providing outputs. Once you're ready, head over to the next
+
+23
+00:01:31,820 --> 00:01:33,680
+lesson and let's get started.
+
+1
+00:00:00,330 --> 00:00:01,163
+To begin
+
+2
+00:00:01,170 --> 00:00:05,460
+the first thing I want to talk about is more on functions.
+
+3
+00:00:05,880 --> 00:00:09,120
+So we've already seen a couple of things that we can do with functions.
+
+4
+00:00:09,630 --> 00:00:13,860
+The first thing I showed you was how to create a very simple bog-standard 
+
+5
+00:00:13,860 --> 00:00:18,060
+function using the def, the name, the empty parentheses,
+
+6
+00:00:18,240 --> 00:00:21,690
+and then the colon. And then within the body of the function,
+
+7
+00:00:21,780 --> 00:00:26,780
+you can do a bunch of things which will be carried out every single time you
+
+8
+00:00:27,420 --> 00:00:30,630
+trigger or call the function like this.
+
+9
+00:00:31,260 --> 00:00:35,310
+And the first type of function basically just helps you reduce the amount of
+
+10
+00:00:35,310 --> 00:00:36,420
+code you have to write
+
+11
+00:00:36,720 --> 00:00:40,980
+when you have instructions that you want to execute repeatedly. Now,
+
+12
+00:00:40,980 --> 00:00:45,420
+the next type of function we saw actually had something inside the parentheses
+
+13
+00:00:45,930 --> 00:00:50,930
+and this something is an input which can be passed over when we call the
+
+14
+00:00:51,480 --> 00:00:53,820
+function. So in this case, 123
+
+15
+00:00:53,820 --> 00:00:58,820
+is the argument which gets passed into this parameter called something
+
+16
+00:00:59,670 --> 00:01:02,520
+and then it gets used within the body of the function.
+
+17
+00:01:03,030 --> 00:01:05,160
+The second type of function, the functions
+
+18
+00:01:05,160 --> 00:01:10,160
+which allow for inputs, gives us the ability to modify the code in the function
+
+19
+00:01:10,920 --> 00:01:13,740
+and to get it to do something different each time
+
+20
+00:01:13,920 --> 00:01:16,350
+depending on what input was passed in.
+
+21
+00:01:17,070 --> 00:01:20,820
+We're now onto the final sort of flavor functions
+
+22
+00:01:21,270 --> 00:01:22,770
+and these are functions
+
+23
+00:01:22,830 --> 00:01:26,280
+which allow you to have an output
+
+24
+00:01:26,430 --> 00:01:28,170
+once the function is completed.
+
+25
+00:01:28,920 --> 00:01:32,460
+We start off with a simple function, and in this case
+
+26
+00:01:32,460 --> 00:01:36,720
+you'll notice that even though I could, I'm actually not giving it any inputs.
+
+27
+00:01:36,750 --> 00:01:39,840
+The inputs and the outputs are completely separate from each other.
+
+28
+00:01:40,350 --> 00:01:44,940
+So this is a normal function that you've seen many times now. And within the
+
+29
+00:01:44,940 --> 00:01:49,740
+body of the function, I'm going to do some piece of calculation. Let's say
+
+30
+00:01:49,740 --> 00:01:52,200
+I'm going to calculate what is three times two,
+
+31
+00:01:52,560 --> 00:01:56,790
+and then save it to a variable called result. Now, once that's done,
+
+32
+00:01:57,060 --> 00:02:00,980
+I can use the output keyword, which is return.
+
+33
+00:02:01,460 --> 00:02:04,940
+And then after that keyword, I can put whatever it is
+
+34
+00:02:04,940 --> 00:02:09,340
+I want to be the output of this function. So in this case,
+
+35
+00:02:09,500 --> 00:02:11,570
+the output is the result.
+
+36
+00:02:11,990 --> 00:02:16,990
+And what that means is when I call this function later on and it runs,
+
+37
+00:02:18,350 --> 00:02:22,400
+then it will go ahead and output this result
+
+38
+00:02:22,880 --> 00:02:27,710
+and it replaces this line of code where this function was called.
+
+39
+00:02:28,220 --> 00:02:33,220
+Now that result is held in the code where the function was called and I could
+
+40
+00:02:33,770 --> 00:02:38,180
+save it to another variable. Result, of course, equals
+
+41
+00:02:38,180 --> 00:02:42,770
+3 * 2 and that means this output now equal 6.
+
+42
+00:02:43,280 --> 00:02:47,960
+So this is what the code might look like. Somewhere I would define my function
+
+43
+00:02:48,140 --> 00:02:53,120
+which has an output, which you can tell by the return keyword. Now,
+
+44
+00:02:53,180 --> 00:02:57,230
+at some other point in my code, I decide to call that function
+
+45
+00:02:57,710 --> 00:03:02,710
+and once that function executes, that return or whatever is outputted replaces
+
+46
+00:03:03,760 --> 00:03:06,460
+the function call. And at the very end,
+
+47
+00:03:06,550 --> 00:03:11,200
+it means this variable output will store whatever the output is.
+
+48
+00:03:11,530 --> 00:03:14,710
+So in this case, output would be equal to 6.
+
+49
+00:03:15,790 --> 00:03:19,840
+The way that I like to think about functions with outputs is almost kind of like
+
+50
+00:03:19,840 --> 00:03:20,890
+a machine, right?
+
+51
+00:03:21,400 --> 00:03:26,400
+If you had a machine where in goes some empty bottles and after some processing
+
+52
+00:03:27,130 --> 00:03:31,360
+or some inputs, outcomes a bottle filled with milk.
+
+53
+00:03:31,750 --> 00:03:36,490
+So in this case, this function has an input, the empty glass bottle.
+
+54
+00:03:36,790 --> 00:03:41,380
+It has an output, the glass bottle filled with milk and in the middle,
+
+55
+00:03:41,410 --> 00:03:46,410
+there's some processes or some code that's being executed to create this change.
+
+56
+00:03:47,560 --> 00:03:50,980
+This ties together all the things that we've learned about functions.
+
+57
+00:03:51,430 --> 00:03:55,180
+So now head over to the Day 10 starting replit,
+
+58
+00:03:55,690 --> 00:03:59,320
+and go ahead and fork your own copy of it. Now,
+
+59
+00:03:59,320 --> 00:04:01,030
+once you have your own copy of it,
+
+60
+00:04:01,540 --> 00:04:05,890
+we're going to create some functions with outputs of our own.
+
+61
+00:04:06,640 --> 00:04:09,940
+Let's start off by creating a new function
+
+62
+00:04:10,330 --> 00:04:12,820
+which I'm going to call format_name
+
+63
+00:04:13,390 --> 00:04:18,390
+and the reason is because this function is going to take a first name and a last
+
+64
+00:04:19,810 --> 00:04:23,740
+name, and it's going to change those inputs,
+
+65
+00:04:24,160 --> 00:04:27,040
+even if it was lowercase or if it was all caps,
+
+66
+00:04:27,070 --> 00:04:31,270
+it's going to change it into title case, something like this
+
+67
+00:04:31,570 --> 00:04:36,570
+where the first letter is capitalized in each word. To begin,
+
+68
+00:04:37,030 --> 00:04:41,770
+I want you to create this function and then go ahead and add two inputs to it.
+
+69
+00:04:42,250 --> 00:04:47,200
+One could f_name, so first name and another code l_name,
+
+70
+00:04:47,740 --> 00:04:50,710
+which is the last name. Pause the video and give that a go.
+
+71
+00:04:53,110 --> 00:04:53,410
+All right.
+
+72
+00:04:53,410 --> 00:04:58,410
+So all we have to do to add inputs to our function is just to put the names of
+
+73
+00:04:58,660 --> 00:05:01,840
+these parameters inside the parentheses.
+
+74
+00:05:02,410 --> 00:05:07,410
+So now our function is able to take these parameters as inputs
+
+75
+00:05:07,780 --> 00:05:09,460
+whenever this function gets called.
+
+76
+00:05:10,630 --> 00:05:15,630
+The next step is we're going to convert these strings that gets passed in,
+
+77
+00:05:16,030 --> 00:05:19,240
+so it could be something like this, all lower case.
+
+78
+00:05:19,270 --> 00:05:23,410
+It could be all capitalized, or it could be kind of random, right?
+
+79
+00:05:23,410 --> 00:05:26,290
+Like some are capitalized, some are not.
+
+80
+00:05:26,650 --> 00:05:29,260
+But we're going to make it all uniform,
+
+81
+00:05:29,260 --> 00:05:33,910
+so all of these are going to end up like this. And to do this,
+
+82
+00:05:34,270 --> 00:05:39,270
+we can search around in Google and you might come across a similar question in
+
+83
+00:05:39,910 --> 00:05:44,740
+Stack Overflow: How do you convert a string to title case in Python?
+
+84
+00:05:45,220 --> 00:05:49,810
+They have an example and it's trying to do exactly what we're trying to do.
+
+85
+00:05:50,590 --> 00:05:52,660
+If we take a look at the answers,
+
+86
+00:05:52,930 --> 00:05:57,250
+you can see that somebody is helpfully pointing to this title function.
+
+87
+00:05:57,680 --> 00:06:02,390
+So you take a string and then you write .title and then afterwards,
+
+88
+00:06:02,390 --> 00:06:07,390
+the string gets transformed and every word now starts off with a capital letter.
+
+89
+00:06:09,650 --> 00:06:12,950
+And if you want to know more about how this title case works,
+
+90
+00:06:13,250 --> 00:06:17,420
+then you can click on that link in title and then have a read through the Python
+
+91
+00:06:17,420 --> 00:06:21,200
+documentation. Once you've read through that,
+
+92
+00:06:21,410 --> 00:06:26,410
+go ahead and modify this Fname and Lname so that they end up being both in
+
+93
+00:06:28,520 --> 00:06:31,340
+title case. Pause the video and give that a go.
+
+94
+00:06:33,700 --> 00:06:34,490
+Right?
+
+95
+00:06:34,490 --> 00:06:34,810
+All right.
+
+96
+00:06:34,810 --> 00:06:39,810
+So we want to go ahead and take this Fname and then write a dot and then write
+
+97
+00:06:40,160 --> 00:06:43,660
+title to convert it to title case.
+
+98
+00:06:44,410 --> 00:06:48,640
+Once we've done that, then we're going to do the same with the l_name.
+
+99
+00:06:50,260 --> 00:06:53,530
+And if we go ahead and actually print these out,
+
+100
+00:06:54,880 --> 00:06:57,460
+and of course, in order for the function to actually execute,
+
+101
+00:06:57,760 --> 00:07:02,080
+we'll have to call the function. So I'm going to put two inputs in here,
+
+102
+00:07:02,080 --> 00:07:07,000
+one which is going to be, um, just angela, all in lowercase
+
+103
+00:07:07,510 --> 00:07:11,620
+and then the second one is going to be ANGELA all in up a case.
+
+104
+00:07:12,190 --> 00:07:14,140
+And now when I run this code,
+
+105
+00:07:14,530 --> 00:07:18,640
+you'll see that the result is they both get converted to title case.
+
+106
+00:07:19,270 --> 00:07:19,960
+In essence,
+
+107
+00:07:19,960 --> 00:07:24,960
+this part of the code becomes whatever the previous value of f_name is converted
+
+108
+00:07:25,240 --> 00:07:30,240
+to title case. You might have spotted already that this title function actually
+
+109
+00:07:31,930 --> 00:07:33,400
+has an output.
+
+110
+00:07:33,730 --> 00:07:38,410
+It returns a version of the string where each word is title cased.
+
+111
+00:07:39,070 --> 00:07:41,770
+Instead of simply just printing this,
+
+112
+00:07:42,100 --> 00:07:44,980
+we can also capture it inside a variable.
+
+113
+00:07:45,460 --> 00:07:50,460
+Let's create a new variable called formatted_f_name and also
+
+114
+00:07:55,330 --> 00:07:57,490
+formatted_l_name.
+
+115
+00:07:58,690 --> 00:08:03,690
+Now what's happening here is we are transforming this input f_name,
+
+116
+00:08:05,680 --> 00:08:08,140
+turning it into title case.
+
+117
+00:08:08,560 --> 00:08:11,530
+And then once this function executes,
+
+118
+00:08:11,860 --> 00:08:16,860
+it has an output and that output replaces this part of the code
+
+119
+00:08:17,590 --> 00:08:20,830
+and then it gets stored inside this variable.
+
+120
+00:08:21,490 --> 00:08:26,020
+Now we can go ahead and print the final version of our function
+
+121
+00:08:26,380 --> 00:08:31,380
+which is going to use an fstring to take the formatted Fname and then add a
+
+122
+00:08:32,049 --> 00:08:37,049
+space and then print out the formatted Lname, like this.
+
+123
+00:08:39,280 --> 00:08:43,090
+Now, if I start out with my first name
+
+124
+00:08:43,120 --> 00:08:46,000
+but all in strange sort of casing,
+
+125
+00:08:46,330 --> 00:08:48,730
+and then my last name in all caps,
+
+126
+00:08:49,030 --> 00:08:51,580
+let's go ahead and hit run and see what happens.
+
+127
+00:08:52,240 --> 00:08:55,180
+You can see that my first name gets converted to title the case,
+
+128
+00:08:55,230 --> 00:08:57,600
+my last name gets converted to title case
+
+129
+00:08:57,990 --> 00:09:01,320
+and then that result is stored in formatted Fname
+
+130
+00:09:01,590 --> 00:09:05,130
+and this result becomes stored in this Lname,
+
+131
+00:09:05,460 --> 00:09:10,200
+and then they get printed and formatted, like so. Now
+
+132
+00:09:10,230 --> 00:09:13,110
+instead of printing this result out,
+
+133
+00:09:13,140 --> 00:09:18,140
+we could also return it as well. In the same way that this title function
+
+134
+00:09:19,650 --> 00:09:23,370
+returns the output, replaces this part of the code,
+
+135
+00:09:23,670 --> 00:09:27,330
+we can also do the same with our format_name function.
+
+136
+00:09:27,720 --> 00:09:32,520
+So let's delete the print function and go ahead and use return
+
+137
+00:09:32,550 --> 00:09:33,383
+instead.
+
+138
+00:09:34,440 --> 00:09:38,100
+Now this formatted string becomes the output
+
+139
+00:09:38,520 --> 00:09:40,380
+and as we mentioned before,
+
+140
+00:09:40,500 --> 00:09:45,500
+what happens with functions with outputs is this output replaces the part of the
+
+141
+00:09:46,620 --> 00:09:50,190
+code where the function was called. Now,
+
+142
+00:09:50,250 --> 00:09:53,280
+if this is the string that we want to print,
+
+143
+00:09:53,580 --> 00:09:58,050
+then all we have to do is just to save the output
+
+144
+00:09:58,110 --> 00:10:03,060
+which replaces this part of the code inside a variable like this.
+
+145
+00:10:03,660 --> 00:10:08,660
+And then all we have to do is just go ahead and print that formatted string.
+
+146
+00:10:10,170 --> 00:10:15,000
+As you can see, when I run the code, the same thing happens. Now you can,
+
+147
+00:10:15,090 --> 00:10:17,280
+and you might've alternatively,
+
+148
+00:10:17,310 --> 00:10:22,310
+just taken this function call and put it straight inside the print statement.
+
+149
+00:10:22,830 --> 00:10:24,930
+That works exactly the same way.
+
+150
+00:10:25,260 --> 00:10:27,870
+And we can visualize this using Thonny.
+
+151
+00:10:28,350 --> 00:10:33,350
+If I go ahead and paste everything we have inside the editor and go ahead and
+
+152
+00:10:34,110 --> 00:10:35,070
+run debug,
+
+153
+00:10:37,410 --> 00:10:41,760
+then we can step into and see what are the steps that happen.
+
+154
+00:10:42,270 --> 00:10:43,290
+So the first thing
+
+155
+00:10:43,410 --> 00:10:48,410
+when this line 6 gets executed is it tries to call this function, format_name.
+
+156
+00:10:50,190 --> 00:10:52,740
+So it passes in these two inputs.
+
+157
+00:10:54,000 --> 00:10:59,000
+And we're now within the function where we have access to these two inputs,
+
+158
+00:10:59,310 --> 00:11:00,660
+Fname and Lname.
+
+159
+00:11:01,410 --> 00:11:04,320
+Now the formated_f_name becomes the title-cased
+
+160
+00:11:04,320 --> 00:11:08,790
+version of the first name and the same thing happens with the last name.
+
+161
+00:11:09,090 --> 00:11:12,930
+So we now have a formatted_f_name and a formatted_l_name
+
+162
+00:11:13,320 --> 00:11:16,800
+and that is what's going to be returned as the output.
+
+163
+00:11:18,240 --> 00:11:22,230
+Now, once that's completed, that output replaces
+
+164
+00:11:22,260 --> 00:11:24,840
+whatever was in between the print statement,
+
+165
+00:11:25,140 --> 00:11:27,720
+which is where we called this format name function
+
+166
+00:11:28,110 --> 00:11:32,670
+and this is what gets printed into the console. As I mentioned before,
+
+167
+00:11:32,670 --> 00:11:37,530
+we've actually already been using functions that we didn't create that have all
+
+168
+00:11:37,530 --> 00:11:40,290
+of these functionalities, right? For example,
+
+169
+00:11:40,320 --> 00:11:44,190
+the Len function takes an input and has an output.
+
+170
+00:11:44,760 --> 00:11:47,370
+The input is going to be a string,
+
+171
+00:11:47,730 --> 00:11:51,300
+my name again, seemed to be really obsessed with my own name.
+
+172
+00:11:52,380 --> 00:11:57,160
+So now this line of code is going to run this built in len function,
+
+173
+00:11:57,640 --> 00:12:01,570
+calculating the number of letters inside this input that we've given it.
+
+174
+00:12:02,080 --> 00:12:04,900
+And then it's going to return the result as an output,
+
+175
+00:12:05,260 --> 00:12:08,320
+which we can now capture inside a variable.
+
+176
+00:12:09,040 --> 00:12:12,490
+This is the inputs, this is the function
+
+177
+00:12:12,910 --> 00:12:15,190
+and once this is completed,
+
+178
+00:12:15,490 --> 00:12:20,490
+the return or whatever it is after the return statement is going to replace this
+
+179
+00:12:21,940 --> 00:12:23,140
+part of the code.
+
+180
+00:12:23,650 --> 00:12:28,240
+Then that result or output then gets stored inside of this variable.
+
+181
+00:12:29,560 --> 00:12:34,150
+So this return keyword is really the most important thing in order to create a
+
+182
+00:12:34,150 --> 00:12:36,100
+function that has an output,
+
+183
+00:12:36,130 --> 00:12:41,130
+because everything that comes after it is going to replace where the function
+
+184
+00:12:41,170 --> 00:12:43,780
+was called. In the next lesson
+
+185
+00:12:43,810 --> 00:12:48,730
+we'll take a quick look at the return keyword in more detail. Specifically,
+
+186
+00:12:48,760 --> 00:12:49,840
+let's see what happens
+
+187
+00:12:49,870 --> 00:12:54,490
+when we have more than one return statement in the same function. All right.
+
+188
+00:12:54,700 --> 00:12:56,710
+For all of that and more, I'll see you there.
+
+1
+00:00:00,480 --> 00:00:04,530
+In the last lesson, we looked at functions that return some sort of value.
+
+2
+00:00:05,010 --> 00:00:09,570
+We created a function called format_name that returned a string. In this
+
+3
+00:00:09,570 --> 00:00:10,080
+lesson
+
+4
+00:00:10,080 --> 00:00:14,160
+let's see what happens when a function has more than one return statement.
+
+5
+00:00:14,520 --> 00:00:18,600
+When the computer encounters a line that has the word return on it,
+
+6
+00:00:19,140 --> 00:00:22,560
+then it knows that this line is the end of the function.
+
+7
+00:00:23,100 --> 00:00:28,100
+If I add a line of code after the return keyword, notice what happens when I run
+
+8
+00:00:29,970 --> 00:00:33,630
+this code. It doesn't ever get executed.
+
+9
+00:00:33,930 --> 00:00:38,930
+And this has because the return tells the computer that this is the end of the
+
+10
+00:00:39,480 --> 00:00:42,420
+function and you should now exit the function.
+
+11
+00:00:43,020 --> 00:00:47,130
+You can actually have multiple return keywords within the same function,
+
+12
+00:00:47,640 --> 00:00:51,300
+and you can even have a empty return keyword.
+
+13
+00:00:51,360 --> 00:00:55,170
+So just the return keyword without anything afterwards.
+
+14
+00:00:55,590 --> 00:00:56,790
+So for example,
+
+15
+00:00:56,820 --> 00:01:01,820
+we could check whether if the fname is equal to an empty string or the lname
+
+16
+00:01:04,470 --> 00:01:07,620
+is equal to an empty string. So this case,
+
+17
+00:01:07,620 --> 00:01:12,540
+it means that when we called it format name, maybe we didn't give it any inputs.
+
+18
+00:01:13,050 --> 00:01:17,430
+For example, let's say that instead of just calling the function as it is,
+
+19
+00:01:17,670 --> 00:01:20,400
+we actually used the input function.
+
+20
+00:01:20,580 --> 00:01:25,580
+So what is your first name and what is your last name?
+
+21
+00:01:28,350 --> 00:01:28,890
+Now
+
+22
+00:01:28,890 --> 00:01:33,890
+what happens is it'll ask us for a input and it will take these two inputs
+
+23
+00:01:36,990 --> 00:01:41,990
+and then call that function and return the formatted version to be printed.
+
+24
+00:01:43,470 --> 00:01:47,820
+So now in this case, it's possible that we might have just not given it
+
+25
+00:01:47,880 --> 00:01:52,880
+a first name or not given it a last name and it probably shouldn't go through
+
+26
+00:01:53,730 --> 00:01:57,660
+these lines of code. But at the moment, it's still running this function
+
+27
+00:01:57,960 --> 00:02:01,650
+trying to get the title case from the empty string and then printing it.
+
+28
+00:02:02,310 --> 00:02:06,360
+And I can prove this to you by just adding an extra word in here.
+
+29
+00:02:06,870 --> 00:02:09,479
+So again, empty first name, empty, last name,
+
+30
+00:02:09,900 --> 00:02:13,590
+and then it's print result and then of course nothing.
+
+31
+00:02:14,220 --> 00:02:19,220
+How can we get it to bypass the rest of the code if the user typed in an empty
+
+32
+00:02:19,830 --> 00:02:21,990
+first name or last name? Well,
+
+33
+00:02:21,990 --> 00:02:25,410
+we could use what I mentioned before, an early return.
+
+34
+00:02:25,860 --> 00:02:29,400
+So we could just write return without anything afterwards
+
+35
+00:02:29,730 --> 00:02:32,730
+and this is going to escape the function.
+
+36
+00:02:33,120 --> 00:02:35,850
+So it's basically going to terminate the function early.
+
+37
+00:02:36,690 --> 00:02:41,010
+Now this time, if I leave an empty first name and last name,
+
+38
+00:02:41,250 --> 00:02:46,250
+you'll see it prints none because there is no output from this to print.
+
+39
+00:02:47,700 --> 00:02:48,600
+Now, of course,
+
+40
+00:02:48,630 --> 00:02:53,340
+it's probably safer to actually return something that tells the developer what's
+
+41
+00:02:53,340 --> 00:02:57,240
+actually going on so we can give a meaningful message,
+
+42
+00:02:57,300 --> 00:03:00,580
+like return, something like this.
+
+43
+00:03:01,090 --> 00:03:06,090
+So this way we can catch the cases when something is not quite right and then
+
+44
+00:03:06,400 --> 00:03:11,200
+exit our function instead of wasting time for it to continue working on
+
+45
+00:03:11,200 --> 00:03:12,820
+something that we don't want it to do.
+
+46
+00:03:14,140 --> 00:03:17,050
+We've covered a number of things in today's lesson
+
+47
+00:03:17,530 --> 00:03:22,530
+and I want you to combine this with your existing knowledge to tackle the
+
+48
+00:03:22,990 --> 00:03:24,850
+challenge in the next lesson
+
+49
+00:03:25,300 --> 00:03:30,300
+to get to grips with this concept of functions with inputs and with outputs.
+
+1
+00:00:00,360 --> 00:00:04,440
+Head over to the Repl.it day 10.1 Days in Month
+
+2
+00:00:04,500 --> 00:00:06,810
+coding exercise. Here,
+
+3
+00:00:06,840 --> 00:00:11,840
+you'll notice that I've copied over the is_leap year function that we created
+
+4
+00:00:12,780 --> 00:00:16,260
+a while back in another coding exercise. Now,
+
+5
+00:00:16,290 --> 00:00:21,240
+the first thing I want you to do is to modify this function so that instead of
+
+6
+00:00:21,270 --> 00:00:24,150
+printing leap year or not leap year,
+
+7
+00:00:24,510 --> 00:00:29,070
+we're actually just going to return true if it is a leap year and false
+
+8
+00:00:29,130 --> 00:00:30,540
+if it is not a leap year,
+
+9
+00:00:31,080 --> 00:00:34,890
+because we're going to be using that function in the next function that you're
+
+10
+00:00:34,890 --> 00:00:35,723
+going to modify,
+
+11
+00:00:36,210 --> 00:00:40,590
+which is a function that's going to tell you how many days there are in the
+
+12
+00:00:40,590 --> 00:00:44,670
+month that you specify. So for example,
+
+13
+00:00:45,090 --> 00:00:49,860
+if I was to call days_in_month and passing in the year as 
+
+14
+00:00:49,860 --> 00:00:52,800
+2022 in the month as 2,
+
+15
+00:00:53,130 --> 00:00:55,950
+then I should get an output of 28,
+
+16
+00:00:56,160 --> 00:01:00,240
+as in there's 28 days in February, 2022.
+
+17
+00:01:00,870 --> 00:01:04,650
+This is the reason why we need to know about leap years
+
+18
+00:01:04,680 --> 00:01:09,270
+'cause in a leap year, there's actually 29 days in February.
+
+19
+00:01:09,840 --> 00:01:12,690
+You're going to combine the output from this function
+
+20
+00:01:13,050 --> 00:01:16,530
+as well as this list of days_in_month
+
+21
+00:01:16,830 --> 00:01:20,880
+in order to modify this function to output the number of days in a month
+
+22
+00:01:21,030 --> 00:01:22,950
+when this line of code is called.
+
+23
+00:01:23,430 --> 00:01:26,460
+It's really important that you don't change any of the code below,
+
+24
+00:01:26,820 --> 00:01:31,140
+but you are going to modify this function and add more lines of code in it.
+
+25
+00:01:32,280 --> 00:01:34,260
+Take a look at the hints if you get stuck,
+
+26
+00:01:34,410 --> 00:01:37,020
+but otherwise, pause the video and give it a go.
+
+27
+00:01:40,460 --> 00:01:40,790
+All right.
+
+28
+00:01:40,790 --> 00:01:44,390
+So the first thing I'm going to do is I'm going to change each of these print
+
+29
+00:01:44,390 --> 00:01:48,200
+statements so that it returns a Boolean instead.
+
+30
+00:01:48,680 --> 00:01:52,880
+So this one should return true, and this one should return true. Now,
+
+31
+00:01:52,880 --> 00:01:56,210
+when it's not a leap year, I'm going to return false
+
+32
+00:01:56,270 --> 00:01:58,310
+instead. This way,
+
+33
+00:01:58,310 --> 00:02:03,110
+basically, when we call this function, is_leap, passing in a year,
+
+34
+00:02:03,440 --> 00:02:06,980
+then we'll get the output as either true or false.
+
+35
+00:02:07,460 --> 00:02:11,540
+So we can now use that inside our function days_in_month.
+
+36
+00:02:11,930 --> 00:02:14,570
+But before we do that, we need to get some inputs.
+
+37
+00:02:14,810 --> 00:02:19,430
+We need to know what is the year and what is the month the user is interested
+
+38
+00:02:19,430 --> 00:02:24,260
+in. So that is going to be passed in using these positional arguments.
+
+39
+00:02:24,950 --> 00:02:28,640
+We're going to ask the user to input a year and input a month,
+
+40
+00:02:28,970 --> 00:02:33,970
+and then each of these pieces of data gets passed into here and here,
+
+41
+00:02:34,340 --> 00:02:37,340
+which will end up inside our function ready for use.
+
+42
+00:02:38,600 --> 00:02:43,130
+The first thing I'm going to check is if the year is a leap year.
+
+43
+00:02:43,940 --> 00:02:45,530
+How are we going to do that? Well,
+
+44
+00:02:45,530 --> 00:02:50,000
+we're going to use our function here, is_leap, passing in that year,
+
+45
+00:02:50,270 --> 00:02:53,960
+and then the output will be checked using the if statement.
+
+46
+00:02:54,560 --> 00:02:59,560
+Remember that the way that if statements work is that if something is evaluated to true,
+
+47
+00:03:00,490 --> 00:03:03,220
+then it's gonna carry out the line of code below.
+
+48
+00:03:03,550 --> 00:03:07,510
+But if it was evaluated and it turned out to be false,
+
+49
+00:03:07,720 --> 00:03:09,670
+then it's going to skip this line of code.
+
+50
+00:03:10,390 --> 00:03:14,920
+So instead of using true or false, or if a three is bigger than two,
+
+51
+00:03:15,250 --> 00:03:20,250
+we're going to use the function, is_leap, and pass in the year that we got as an
+
+52
+00:03:21,310 --> 00:03:23,350
+input. So this way,
+
+53
+00:03:23,380 --> 00:03:27,190
+when a year is tested in this function,
+
+54
+00:03:27,580 --> 00:03:30,700
+then it's going to output either true or false
+
+55
+00:03:30,730 --> 00:03:35,730
+which is going to replace this part of the code because it's the output from
+
+56
+00:03:36,010 --> 00:03:39,670
+this function. So now if that output is true,
+
+57
+00:03:40,060 --> 00:03:41,680
+namely it is a leap year,
+
+58
+00:03:42,190 --> 00:03:46,780
+then we're going to check if the month they were interested in was the month of
+
+59
+00:03:46,780 --> 00:03:50,290
+February. So if the is_leap year
+
+60
+00:03:50,290 --> 00:03:55,000
+is true and the month is equal to 2, well,
+
+61
+00:03:55,000 --> 00:03:55,810
+in that case,
+
+62
+00:03:55,810 --> 00:04:00,810
+then we're going to return 29 because there's 29 days in February in a leap year.
+
+63
+00:04:02,560 --> 00:04:04,240
+If this is the case,
+
+64
+00:04:04,270 --> 00:04:08,920
+then this function is going to end right here when it returns 29.
+
+65
+00:04:09,520 --> 00:04:11,440
+But if this is not the case,
+
+66
+00:04:11,470 --> 00:04:16,329
+then it's going to bypass this line of code and we can output the number of days
+
+67
+00:04:16,329 --> 00:04:20,110
+in a month for any other condition, so when it's not a leap year.
+
+68
+00:04:20,829 --> 00:04:25,830
+We can go ahead and simply just use the return statement to tap into that list
+
+69
+00:04:26,020 --> 00:04:27,700
+called month_days
+
+70
+00:04:28,240 --> 00:04:32,380
+and we're gonna pull out the value at the current month
+
+71
+00:04:32,410 --> 00:04:33,580
+that's being requested.
+
+72
+00:04:34,030 --> 00:04:39,030
+But remember that because lists start counting from zero and the month that the
+
+73
+00:04:39,250 --> 00:04:42,100
+user's going to be interested in doesn't start from zero,
+
+74
+00:04:42,220 --> 00:04:45,460
+so if they're interested in January then this month,
+
+75
+00:04:45,610 --> 00:04:49,660
+instead of being 1, should actually be 0 to pull out this 31.
+
+76
+00:04:49,960 --> 00:04:52,990
+So then we actually have to subtract one from it.
+
+77
+00:04:54,220 --> 00:04:58,120
+So now if we test the code and we enter the year 
+
+78
+00:04:58,120 --> 00:05:01,270
+2022 and the month of February,
+
+79
+00:05:01,630 --> 00:05:04,900
+then we'll get the correct output, which is 28.
+
+80
+00:05:05,890 --> 00:05:09,100
+That solves the challenge. Now, some of you, I know,
+
+81
+00:05:09,100 --> 00:05:14,100
+might have gone even further because we talked about using the return statement to
+
+82
+00:05:15,550 --> 00:05:20,320
+catch out any situations where there might be invalid inputs.
+
+83
+00:05:20,680 --> 00:05:21,670
+So you could,
+
+84
+00:05:21,700 --> 00:05:25,900
+if you wanted to, also add an if statement that checks
+
+85
+00:05:25,900 --> 00:05:30,900
+whether if the month is greater than 12 or if the month is less than one. In
+
+86
+00:05:34,390 --> 00:05:35,350
+these cases,
+
+87
+00:05:35,380 --> 00:05:40,380
+then it's actually an invalid input and you could just return invalid month. And
+
+88
+00:05:42,430 --> 00:05:44,710
+you could of course do the same thing for the year.
+
+89
+00:05:44,980 --> 00:05:49,980
+And this way it ensures that our function doesn't progress unless we have clean
+
+90
+00:05:50,800 --> 00:05:51,633
+data.
+
+91
+00:05:52,270 --> 00:05:57,270
+But this, of course, is not necessary to complete the challenge because we're now able
+
+92
+00:05:57,770 --> 00:06:02,330
+to figure out the days in the month using this leap year function's output,
+
+93
+00:06:02,810 --> 00:06:07,810
+and the output from our days_in_month function. In the next lesson,
+
+94
+00:06:08,900 --> 00:06:12,920
+I'm going to address something that a lot of students are thinking at this
+
+95
+00:06:12,920 --> 00:06:16,460
+point. And the question is why return at all?
+
+96
+00:06:16,850 --> 00:06:20,420
+Why not just simply print the outputs instead,
+
+97
+00:06:21,320 --> 00:06:25,670
+because this way it seems to end up doing the same thing, right?
+
+98
+00:06:25,730 --> 00:06:28,370
+It's still going to print this down here.
+
+99
+00:06:28,850 --> 00:06:33,850
+And if we just added a print to this return and a print here and got rid of this
+
+100
+00:06:35,030 --> 00:06:38,360
+one, then it would still behave exactly the same.
+
+101
+00:06:39,140 --> 00:06:42,290
+This is exactly what I want to talk about in the next lessons.
+
+102
+00:06:42,500 --> 00:06:43,430
+So, see you there.
+
+1
+00:00:00,090 --> 00:00:00,780
+Hey guys,
+
+2
+00:00:00,780 --> 00:00:05,780
+I want to quickly spend a few minutes talking about a concept in Python known as
+
+3
+00:00:05,939 --> 00:00:06,780
+Docstrings.
+
+4
+00:00:07,410 --> 00:00:12,410
+Docstrings are basically a way for us to create little bits of documentation as
+
+5
+00:00:12,780 --> 00:00:16,680
+we're coding along in our functions or in our other blocks of code.
+
+6
+00:00:17,490 --> 00:00:20,970
+Now, previously, we've seen that when we use other functions
+
+7
+00:00:20,970 --> 00:00:25,740
+like the ones that were ready to find by Python, like the length function,
+
+8
+00:00:26,070 --> 00:00:29,310
+you can see that as soon as I open up my parentheses,
+
+9
+00:00:29,640 --> 00:00:34,170
+I can see this little piece of documentation that tells me what this function is
+
+10
+00:00:34,170 --> 00:00:38,370
+actually going to do, namely return the number of items in a container.
+
+11
+00:00:39,000 --> 00:00:43,500
+So how can we create the same kind of documentation for the functions that we
+
+12
+00:00:43,500 --> 00:00:46,590
+write? Well, we would do that using docstrings.
+
+13
+00:00:46,980 --> 00:00:51,570
+The docstring has to go as the first line after the declaration.
+
+14
+00:00:51,900 --> 00:00:55,590
+So here we've defined the name of our function, the inputs,
+
+15
+00:00:55,800 --> 00:01:00,420
+and then after the colon, the first indented line will be the docstring.
+
+16
+00:01:00,810 --> 00:01:01,590
+But that's not it.
+
+17
+00:01:01,590 --> 00:01:06,590
+You also have to use three of these quotation marks and it's in between these
+
+18
+00:01:08,460 --> 00:01:11,550
+three quotation marks that you can write your documentation.
+
+19
+00:01:12,510 --> 00:01:14,820
+We could write something like, well, what is this format_
+
+20
+00:01:14,820 --> 00:01:16,260
+name function going to do?
+
+21
+00:01:16,290 --> 00:01:21,290
+What would we want our future selves or another user who's using this function
+
+22
+00:01:21,300 --> 00:01:22,530
+to know about it? Well,
+
+23
+00:01:22,530 --> 00:01:27,530
+it's going to take a first and last name and format,
+
+24
+00:01:29,360 --> 00:01:30,193
+it.
+
+25
+00:01:33,110 --> 00:01:34,730
+Notice how with docstrings
+
+26
+00:01:34,820 --> 00:01:39,440
+you can actually write strings that are multi-line. Normally,
+
+27
+00:01:39,440 --> 00:01:42,620
+if I was to create a normal string, let's say, I dunno,
+
+28
+00:01:42,710 --> 00:01:44,530
+a = "A String".
+
+29
+00:01:46,370 --> 00:01:47,720
+If I hit the enter key,
+
+30
+00:01:47,780 --> 00:01:51,770
+I'm going to get a warning because it's going to interpret this as the end of
+
+31
+00:01:51,770 --> 00:01:52,603
+this line.
+
+32
+00:01:53,090 --> 00:01:57,920
+And it won't see this closing quotation mark as being a part of this string.
+
+33
+00:01:58,670 --> 00:02:03,080
+But when we use a docstring, we can write as many lines as we want
+
+34
+00:02:03,380 --> 00:02:07,220
+and it will be interpreted all as the same thing altogether,
+
+35
+00:02:07,490 --> 00:02:11,210
+as if it was fitted onto the same line like this.
+
+36
+00:02:12,470 --> 00:02:17,330
+Now that we've added our docstring, it's time to see what it looks like. Now,
+
+37
+00:02:17,330 --> 00:02:21,590
+if I call this function format_name, and I open up the parentheses,
+
+38
+00:02:21,890 --> 00:02:26,890
+you can see that the text we wrote here now gets populated in the documentation.
+
+39
+00:02:27,650 --> 00:02:31,430
+It takes the first and last name and formats it to return the title
+
+40
+00:02:31,430 --> 00:02:32,690
+case version of the name.
+
+41
+00:02:33,650 --> 00:02:37,850
+So this is a way for you to be able to start documenting your functions and
+
+42
+00:02:37,850 --> 00:02:40,460
+giving each function a little bit of an explainer.
+
+43
+00:02:41,120 --> 00:02:46,120
+Now you can also use this as a multiline comment.
+
+44
+00:02:46,460 --> 00:02:49,700
+So notice how when we write a comment and we go to the next line
+
+45
+00:02:49,760 --> 00:02:50,900
+it becomes code again.
+
+46
+00:02:51,470 --> 00:02:54,860
+Now you can in fact use something like this
+
+47
+00:02:55,190 --> 00:02:58,850
+where you just comment as many lines as you like
+
+48
+00:02:59,140 --> 00:03:02,050
+and this will be interpreted as a comment
+
+49
+00:03:02,350 --> 00:03:05,500
+as long as it's not assigned to anything. So for example,
+
+50
+00:03:05,500 --> 00:03:06,820
+if I create a variable
+
+51
+00:03:07,150 --> 00:03:11,290
+then this is now a piece of code. Because it's a little bit confusing
+
+52
+00:03:11,320 --> 00:03:15,700
+the official Python guidance is actually to avoid multiline comments like this.
+
+53
+00:03:15,910 --> 00:03:20,910
+What is actually much easier is to just write your multiline comment and then to
+
+54
+00:03:21,760 --> 00:03:26,380
+highlight all of it and then to hit command + forward slash or control + forward
+
+55
+00:03:26,380 --> 00:03:27,370
+slash on Windows.
+
+56
+00:03:28,030 --> 00:03:32,350
+That's a much better way of differentiating the comment from actual pieces of
+
+57
+00:03:32,350 --> 00:03:33,183
+code.
+
+58
+00:03:33,730 --> 00:03:38,710
+Have a go at adding docstrings to the other functions that you've created and
+
+59
+00:03:38,710 --> 00:03:41,110
+see it show up when you call your functions.
+
+1
+00:00:00,150 --> 00:00:03,630
+So we're now ready to tackle our final project of the day
+
+2
+00:00:03,900 --> 00:00:06,900
+and that's building up a calculator program.
+
+3
+00:00:07,950 --> 00:00:12,150
+If you head over to calculator-final.appbrewery.repl.run,
+
+4
+00:00:12,450 --> 00:00:14,610
+you'll see how the final project works.
+
+5
+00:00:15,240 --> 00:00:20,240
+We get to enter a number and then pick an operation and then pick the next
+
+6
+00:00:21,360 --> 00:00:25,500
+number and it will calculate the result. Now,
+
+7
+00:00:25,800 --> 00:00:26,550
+at this point,
+
+8
+00:00:26,550 --> 00:00:30,900
+we can either continue to calculate with the result from the previous step.
+
+9
+00:00:30,960 --> 00:00:34,860
+So let's multiply it by two, alternatively,
+
+10
+00:00:34,890 --> 00:00:39,240
+I can type N and that clears the screen and lets me start out a new
+
+11
+00:00:39,240 --> 00:00:40,170
+calculation,
+
+12
+00:00:42,990 --> 00:00:44,760
+like so. Now,
+
+13
+00:00:44,790 --> 00:00:48,570
+because a lot of the concepts that are covered in this project are actually
+
+14
+00:00:48,570 --> 00:00:49,440
+quite difficult,
+
+15
+00:00:49,830 --> 00:00:53,850
+I want to go through this project together and while we're building it up,
+
+16
+00:00:53,910 --> 00:00:58,910
+there's also a lot of small challenges along the way that I want you to tackle.
+
+17
+00:00:59,700 --> 00:01:04,379
+Once you're ready, head over to the calculator starting file and fork
+
+18
+00:01:04,379 --> 00:01:06,210
+your own copy to get started.
+
+19
+00:01:06,380 --> 00:01:07,213
+Right?
+
+20
+00:01:09,170 --> 00:01:13,520
+This calculator is going to have some different functions that it can do.
+
+21
+00:01:13,670 --> 00:01:17,270
+So for example, it will start out with a add function,
+
+22
+00:01:17,720 --> 00:01:20,960
+which takes two inputs and n1 and n2,
+
+23
+00:01:21,440 --> 00:01:26,030
+and then it's simply just returns n1 + n2.
+
+24
+00:01:26,900 --> 00:01:29,930
+This is pretty simple. This is all that there is to
+
+25
+00:01:29,930 --> 00:01:33,920
+the functionality of adding, takes one number and adds it to the other one.
+
+26
+00:01:34,550 --> 00:01:39,550
+And I want you to go ahead to create the functions in the same format for these
+
+27
+00:01:41,360 --> 00:01:45,620
+other mathematical operations. So subtract,
+
+28
+00:01:45,770 --> 00:01:50,720
+multiply, and divide. Pause the video and complete this challenge.
+
+29
+00:01:51,860 --> 00:01:52,693
+Right?
+
+30
+00:01:54,800 --> 00:01:58,430
+All right. So subtract is as simple as add.
+
+31
+00:01:58,490 --> 00:02:02,420
+So we'll just call it subtract. We pass in again
+
+32
+00:02:02,480 --> 00:02:04,550
+two numbers, n1 and n2,
+
+33
+00:02:05,090 --> 00:02:09,530
+and we'll return the outcome as n1 - n2.
+
+34
+00:02:11,330 --> 00:02:16,310
+And for time sake, I'm just going to copy and paste these for the last two
+
+35
+00:02:16,610 --> 00:02:20,540
+and I'm going to rename them multiply and divide.
+
+36
+00:02:20,900 --> 00:02:23,330
+And then when numbers are multiplied,
+
+37
+00:02:23,360 --> 00:02:27,860
+we use the asterisk sign and the number of divided we use the forward slash.
+
+38
+00:02:28,430 --> 00:02:33,380
+So now we have four functions; add, subtract, multiply, and divide.
+
+39
+00:02:34,040 --> 00:02:39,040
+And what we want to do is we want to somehow store these functions inside a
+
+40
+00:02:39,770 --> 00:02:43,130
+dictionary. Here's another challenge for you.
+
+41
+00:02:43,520 --> 00:02:47,870
+Can you create a dictionary where the keys are
+
+42
+00:02:47,960 --> 00:02:52,960
+each of these symbols that we've used to add or subtract or multiply,
+
+43
+00:02:53,990 --> 00:02:57,200
+and the values are just the names of the functions.
+
+44
+00:02:57,440 --> 00:03:00,100
+So pause the video and try that now.
+
+45
+00:03:02,230 --> 00:03:06,760
+Alright, let's go ahead and create this dictionary. Now we start out of course,
+
+46
+00:03:06,790 --> 00:03:10,390
+with a set of curly braces and as I mentioned,
+
+47
+00:03:10,690 --> 00:03:15,690
+each of the keys are going to be the symbols for the operations and the values
+
+48
+00:03:16,150 --> 00:03:20,140
+are going to be the names of the functions. So we've got plus,
+
+49
+00:03:20,980 --> 00:03:24,820
+and then we've got subtract, multiply,
+
+50
+00:03:24,910 --> 00:03:28,720
+and divide. So now we have this dictionary,
+
+51
+00:03:28,750 --> 00:03:33,010
+let's go ahead and save it inside a variable called operations.
+
+52
+00:03:33,700 --> 00:03:38,700
+Now this dictionary is going to act as the means in which we're going to call
+
+53
+00:03:40,480 --> 00:03:43,870
+these functions. At some point down here,
+
+54
+00:03:44,200 --> 00:03:49,200
+we want to be able to tap into the operations and then pass in the key that we
+
+55
+00:03:49,510 --> 00:03:51,670
+want, so for example multiply,
+
+56
+00:03:52,270 --> 00:03:56,620
+and then store this as the function that we want.
+
+57
+00:03:57,340 --> 00:04:02,110
+That means we can then call this function and then pass in one number and a
+
+58
+00:04:02,110 --> 00:04:02,950
+second number
+
+59
+00:04:03,430 --> 00:04:07,480
+and this function is currently going to act as the multiply function. Now,
+
+60
+00:04:07,480 --> 00:04:08,950
+if we change this to plus,
+
+61
+00:04:09,220 --> 00:04:13,090
+then this function is now going to act as the add function.
+
+62
+00:04:14,350 --> 00:04:17,800
+So now the next thing we're going to do is we're going to create a variable
+
+63
+00:04:17,800 --> 00:04:18,820
+called num1
+
+64
+00:04:19,690 --> 00:04:23,290
+where we ask the user for an input to say
+
+65
+00:04:23,350 --> 00:04:24,880
+what's the first number.
+
+66
+00:04:25,780 --> 00:04:30,160
+And there's number of course has to be converted into an integer.
+
+67
+00:04:31,180 --> 00:04:35,230
+Now, the next thing to do is to ask them for the second number,
+
+68
+00:04:35,260 --> 00:04:38,770
+so this is going to be pretty much the same as this line of code,
+
+69
+00:04:39,340 --> 00:04:42,640
+other than the word second. Now,
+
+70
+00:04:42,640 --> 00:04:47,200
+the next thing is we want to ask them which of these operations they want to do.
+
+71
+00:04:47,800 --> 00:04:48,670
+Firstly,
+
+72
+00:04:48,760 --> 00:04:53,760
+we want to be able to loop through this dictionary and print out each of these
+
+73
+00:04:54,670 --> 00:04:55,503
+keys.
+
+74
+00:04:55,840 --> 00:05:00,070
+And then we're going to ask the user to type out one of them so that we can
+
+75
+00:05:00,070 --> 00:05:03,130
+figure out which operation they actually want to do.
+
+76
+00:05:03,790 --> 00:05:06,130
+Go ahead and try to use a for loop
+
+77
+00:05:06,340 --> 00:05:11,320
+to loop through this dictionary of operations and print out each of these
+
+78
+00:05:11,590 --> 00:05:16,120
+symbols. All right,
+
+79
+00:05:16,180 --> 00:05:17,860
+now we're going to use a for loop
+
+80
+00:05:17,920 --> 00:05:20,890
+and we know that when we use a four loop with a dictionary,
+
+81
+00:05:21,130 --> 00:05:26,130
+it will loop through all the keys rather than the values or the actual entries.
+
+82
+00:05:27,010 --> 00:05:32,010
+We can say for each symbol in the dictionary operations,
+
+83
+00:05:35,080 --> 00:05:39,970
+go ahead and print out the symbol. And of the moment
+
+84
+00:05:39,970 --> 00:05:43,600
+if I run this code, you'll see that it'll ask us for the first number,
+
+85
+00:05:43,930 --> 00:05:44,950
+the second number,
+
+86
+00:05:45,250 --> 00:05:48,550
+and then it's gonna loop through that list and then print out all the
+
+87
+00:05:48,550 --> 00:05:49,390
+operations.
+
+88
+00:05:49,810 --> 00:05:54,810
+So now we're ready to go ahead and ask them for a operation symbol. Pick and
+
+89
+00:05:56,200 --> 00:05:58,010
+operation from the line above.
+
+90
+00:05:58,100 --> 00:06:03,100
+So they're going to see all of these keys and then they get to pick an operation
+
+91
+00:06:03,530 --> 00:06:08,150
+like so. And that symbol is now going to be saved within this variable.
+
+92
+00:06:08,840 --> 00:06:13,840
+So now we can go ahead and take that operation symbol to pick out the value
+
+93
+00:06:16,040 --> 00:06:19,340
+that's associated with it. For example, if in this case
+
+94
+00:06:19,400 --> 00:06:21,890
+the user chose the plus symbol,
+
+95
+00:06:22,340 --> 00:06:24,950
+then we're gonna pick out the add function.
+
+96
+00:06:25,580 --> 00:06:27,800
+And then just as I shown you before,
+
+97
+00:06:27,860 --> 00:06:31,850
+we want to use that add function to add these two numbers together.
+
+98
+00:06:32,360 --> 00:06:32,960
+But of course,
+
+99
+00:06:32,960 --> 00:06:36,890
+if they picked a different symbol then we want to be able to carry out the
+
+100
+00:06:36,950 --> 00:06:41,950
+different operation. See if you can get this calculator to work so we can print out
+
+101
+00:06:43,850 --> 00:06:47,750
+the num1 and then the operation symbol,
+
+102
+00:06:48,320 --> 00:06:53,180
+and then num2, and finally the equal sign
+
+103
+00:06:53,570 --> 00:06:58,570
+and then the answer. See if you can make this line of code work and make sure that
+
+104
+00:07:00,740 --> 00:07:04,700
+it works whenever you choose any of these operations,
+
+105
+00:07:05,150 --> 00:07:08,150
+and it will calculate it using these numbers that you input.
+
+106
+00:07:08,570 --> 00:07:09,470
+Pause the video now.
+
+107
+00:07:12,530 --> 00:07:12,940
+All right. 
+
+108
+00:07:12,940 --> 00:07:17,940
+The first thing we need to do is to get hold of the calculation function
+
+109
+00:07:19,210 --> 00:07:22,390
+and this is going to be done using the operation symbol.
+
+110
+00:07:22,780 --> 00:07:26,590
+So we're going to tap into our dictionary of operations here,
+
+111
+00:07:27,070 --> 00:07:29,710
+and then we're going to use the square brackets to pass in
+
+112
+00:07:30,040 --> 00:07:31,360
+the operation symbol.
+
+113
+00:07:31,810 --> 00:07:36,810
+Now we can use this calculation function as if it were any of these functions.
+
+114
+00:07:38,740 --> 00:07:41,650
+And that's of course, based on the choice the user made here.
+
+115
+00:07:42,280 --> 00:07:47,280
+So we can now say calculation function and we can pass in the num1 as the
+
+116
+00:07:47,830 --> 00:07:50,860
+first input, num2 as the second input.
+
+117
+00:07:51,370 --> 00:07:55,060
+And of course our function all have a return value.
+
+118
+00:07:55,480 --> 00:08:00,430
+And so this part is going to be replaced when the code runs with the actual
+
+119
+00:08:00,430 --> 00:08:04,870
+answer. So we can now save that inside a variable called answer,
+
+120
+00:08:05,290 --> 00:08:09,520
+and then that will get sent over here and we can now test it out.
+
+121
+00:08:10,420 --> 00:08:13,360
+So let's try adding three plus five.
+
+122
+00:08:13,870 --> 00:08:17,710
+So I'm going to use the add symbol and we end up with three plus five equals
+
+123
+00:08:17,710 --> 00:08:21,010
+eight. Now what about something a little bit more complicated?
+
+124
+00:08:21,190 --> 00:08:25,930
+Uhm, 45, 78 and we'll choose multiply.
+
+125
+00:08:26,830 --> 00:08:30,790
+Now, I think in reality that it actually makes more sense to put num2
+
+126
+00:08:31,150 --> 00:08:35,710
+after the user's enter the operation symbol so that you actually end up with a
+
+127
+00:08:35,710 --> 00:08:40,240
+better user experience like this. You can pick the first number,
+
+128
+00:08:40,450 --> 00:08:43,570
+pick the operation, and then pick the second number.
+
+1
+00:00:00,390 --> 00:00:06,780
+We've managed to get our calculator to work. But in this lesson, I want to talk about something else.
+
+2
+00:00:07,200 --> 00:00:15,540
+I want to talk about the difference between printing something to the console over here versus returning
+
+3
+00:00:15,540 --> 00:00:22,020
+something as an output from a function, because a lot of students get very confused at this stage and
+
+4
+00:00:22,020 --> 00:00:27,440
+they think, well, why don't I just print this results instead of returning it?
+
+5
+00:00:27,750 --> 00:00:31,500
+What's the actual difference and why would I use return?
+
+6
+00:00:32,220 --> 00:00:34,440
+That's what I want to address in this lesson.
+
+7
+00:00:35,850 --> 00:00:43,050
+At the moment, we've got these four functions, and when we call it, we pass over some inputs and
+
+8
+00:00:43,050 --> 00:00:48,100
+then once we get a hold of the output, we go ahead and print it out into the console.
+
+9
+00:00:48,780 --> 00:00:54,660
+Now, in the current state of the calculator, it's hard to see the difference between the print and
+
+10
+00:00:54,660 --> 00:00:55,280
+the return.
+
+11
+00:00:55,860 --> 00:00:57,090
+But here's a question.
+
+12
+00:00:57,510 --> 00:01:04,110
+What if we wanted to take the output that comes from calling this function and instead of just storing
+
+13
+00:01:04,110 --> 00:01:11,560
+it inside a variable and then printing it out, what if we want to pass it as an input to another function?
+
+14
+00:01:12,150 --> 00:01:18,960
+Let's say that at this point we decided, you know what, we're going to ask them to pick another operation.
+
+15
+00:01:19,500 --> 00:01:22,620
+And then let's ask them to pick another number.
+
+16
+00:01:23,980 --> 00:01:30,820
+And finally, let's go ahead and get the calculation function again based on this new operation symbol
+
+17
+00:01:30,820 --> 00:01:34,930
+that they picked. And then we're going to calculate the new answer
+
+18
+00:01:35,320 --> 00:01:42,460
+but this time, instead of passing over the calculation function, we're going to pass over the answer
+
+19
+00:01:42,460 --> 00:01:44,320
+that we got back from this step.
+
+20
+00:01:44,740 --> 00:01:47,910
+So num1 is now the previous answer
+
+21
+00:01:48,490 --> 00:01:53,500
+and the second number that's going to be the input is going to be num3.
+
+22
+00:01:54,130 --> 00:02:01,780
+At this point, when we're calling this calculation function, we're passing over the results or outputs
+
+23
+00:02:01,810 --> 00:02:06,000
+of this calculation function, and that is going in right here,
+
+24
+00:02:06,370 --> 00:02:10,060
+and then the third number goes in as the second input.
+
+25
+00:02:10,509 --> 00:02:16,230
+What basically has happened here is I've taken the output from this function,
+
+26
+00:02:16,240 --> 00:02:21,160
+so in fact, I could replace this answer with this output,
+
+27
+00:02:21,610 --> 00:02:28,120
+and I've taken that as the first input into the calculation function and then num3 as the second
+
+28
+00:02:28,120 --> 00:02:28,600
+input
+
+29
+00:02:28,930 --> 00:02:32,350
+and then using all of this in order to get the answer.
+
+30
+00:02:33,970 --> 00:02:35,830
+Let's call this first_answer,
+
+31
+00:02:36,710 --> 00:02:41,330
+and let's call this second_answer just to differentiate the two answers.
+
+32
+00:02:42,390 --> 00:02:48,030
+And now I'm going to write a slightly different print statement. In this case, the calculation is done
+
+33
+00:02:48,210 --> 00:02:55,530
+using the first_answer and then the operation symbol and then the num3 that was inserted at
+
+34
+00:02:55,530 --> 00:02:59,490
+this point in order to obtain the second_answer.
+
+35
+00:03:00,000 --> 00:03:01,680
+So now if we give this a run.
+
+36
+00:03:06,180 --> 00:03:14,400
+Let's do 3 + 2. Now, in this first step of the calculation, we get 5 as the result.
+
+37
+00:03:14,820 --> 00:03:19,770
+So now if I want to pick another operation, let's I want to multiply 5 by 3.
+
+38
+00:03:20,190 --> 00:03:23,190
+Then I'm going to take this 5, which is the previous answer,
+
+39
+00:03:23,470 --> 00:03:28,710
+I'm going to say multiply, and then I'm going to provide the next number, which we'll call 3.
+
+40
+00:03:29,190 --> 00:03:36,000
+And now it takes the previous answer from the last step and puts that in as the first number in the
+
+41
+00:03:36,000 --> 00:03:41,760
+calculation, multiplies it by 3 in order to get the final answer.
+
+42
+00:03:43,080 --> 00:03:50,520
+In this case, what I'm able to do because I have an output from my calculation function up here because
+
+43
+00:03:50,520 --> 00:03:57,360
+each of these all return their answer, I'm able to take the result from that calculation and plug it
+
+44
+00:03:57,360 --> 00:04:06,480
+right back into another calculation function using the result of that function call as the input to
+
+45
+00:04:06,480 --> 00:04:07,970
+another function call.
+
+46
+00:04:08,550 --> 00:04:15,270
+And I'm only able to do this because I'm using the return statement and because I have outputs from
+
+47
+00:04:15,270 --> 00:04:15,990
+my functions.
+
+48
+00:04:16,320 --> 00:04:19,500
+This would not be possible if I was using a print statement.
+
+49
+00:04:28,680 --> 00:04:34,800
+In the next lesson, we're going to reorganize our code and introduce a while loop so that we can continue
+
+50
+00:04:34,800 --> 00:04:37,260
+making as many calculations as we want to.
+
+1
+00:00:00,960 --> 00:00:04,800
+In the last lesson we made it possible to reuse the result of the first
+
+2
+00:00:04,800 --> 00:00:05,633
+calculation.
+
+3
+00:00:06,060 --> 00:00:10,470
+The answer for the first calculation became our input for the next calculation,
+
+4
+00:00:10,830 --> 00:00:14,370
+allowing us to chain the calculations together. However,
+
+5
+00:00:14,400 --> 00:00:16,920
+this created quite a bit of repetition in our code
+
+6
+00:00:17,100 --> 00:00:20,520
+and it limits our user to just two calculations.
+
+7
+00:00:21,690 --> 00:00:25,950
+Let's allow the user to chain as many calculations as they want to.
+
+8
+00:00:26,760 --> 00:00:29,100
+And I want to throw this over to you as a challenge,
+
+9
+00:00:29,100 --> 00:00:33,000
+so can you use a while loop and the input function to achieve this?
+
+10
+00:00:33,360 --> 00:00:34,040
+Ask the user
+
+11
+00:00:34,040 --> 00:00:39,040
+this question, type 'y' to continue calculating with the previous result or type 'n'
+
+12
+00:00:39,630 --> 00:00:40,463
+to exit.
+
+13
+00:00:41,700 --> 00:00:45,570
+If the user types y then your calculator should allow them to continue chaining
+
+14
+00:00:45,570 --> 00:00:48,120
+together calculations with the previous answer.
+
+15
+00:00:48,780 --> 00:00:52,020
+If they type anything else the program should exit for now.
+
+16
+00:00:52,440 --> 00:00:55,500
+I'll give you a few seconds to pause the video before I show you the result.
+
+17
+00:00:57,960 --> 00:01:02,520
+All right. So the easiest way to solve this is through the use of a while loop.
+
+18
+00:01:02,940 --> 00:01:07,620
+So let's say that after we've asked for the first number and we've shown them
+
+19
+00:01:07,620 --> 00:01:10,440
+all of the different symbols that they could possibly pick from,
+
+20
+00:01:10,860 --> 00:01:14,130
+lets set a flag called should_continue.
+
+21
+00:01:15,990 --> 00:01:18,510
+And we'll set that to start out as true.
+
+22
+00:01:19,500 --> 00:01:24,120
+Then we can create a while loop and while it should continue as true,
+
+23
+00:01:24,540 --> 00:01:26,490
+then we're going to perform these things.
+
+24
+00:01:27,120 --> 00:01:31,500
+Now we want to change some of this text so that it's a little bit more reusable.
+
+25
+00:01:31,950 --> 00:01:34,410
+Let's say pick an operation,
+
+26
+00:01:35,460 --> 00:01:40,460
+and what's the next number instead of the second number.
+
+27
+00:01:41,220 --> 00:01:45,750
+So now we have a first number, we have a operation,
+
+28
+00:01:45,780 --> 00:01:50,610
+we have a second number and then we pick out the function from that dictionary
+
+29
+00:01:50,610 --> 00:01:53,400
+of operations and we get our answer.
+
+30
+00:01:53,670 --> 00:01:58,670
+So I'm going to change this back to answer and we're passing in num1
+
+31
+00:01:59,550 --> 00:02:03,960
+and num2 into the calculation function. Now,
+
+32
+00:02:03,960 --> 00:02:06,120
+once this line has been printed,
+
+33
+00:02:06,840 --> 00:02:10,199
+everything that occurs afterwards is pretty much repetition.
+
+34
+00:02:11,160 --> 00:02:16,160
+And instead we're going to ask the user to type y-- type y to continue calculating
+
+35
+00:02:19,380 --> 00:02:21,840
+with the answer from the previous step.
+
+36
+00:02:22,440 --> 00:02:27,440
+Let's make that an fstring and let's check what this is actually equal to.
+
+37
+00:02:28,380 --> 00:02:33,180
+So remember that the input function is also a function that has an output,
+
+38
+00:02:33,720 --> 00:02:35,040
+which is a little bit then zen,
+
+39
+00:02:35,250 --> 00:02:39,240
+but the output of this function is whatever the user typed in.
+
+40
+00:02:39,360 --> 00:02:44,360
+So if they typed in y then this part is going to become y. That's where we're
+
+41
+00:02:44,880 --> 00:02:45,750
+going to check.
+
+42
+00:02:45,840 --> 00:02:50,840
+So we're going to check if the result of the input from the user is equal to y,
+
+43
+00:02:51,360 --> 00:02:55,650
+then in that case that means we should continue and it should repeat back.
+
+44
+00:02:56,100 --> 00:02:57,930
+But when it loops back,
+
+45
+00:02:57,990 --> 00:03:02,990
+we want to make sure that num1 is equal to the answer from the previous step.
+
+46
+00:03:04,930 --> 00:03:07,540
+So we can say if this is true,
+
+47
+00:03:07,690 --> 00:03:11,740
+then num1 is going to be set to equal the answer.
+
+48
+00:03:12,460 --> 00:03:15,640
+But on the other hand, else, if they typed anything else,
+
+49
+00:03:15,940 --> 00:03:20,940
+so we could say maybe type y to continue calculating with answer or type n to
+
+50
+00:03:22,780 --> 00:03:23,613
+exit.
+
+51
+00:03:24,760 --> 00:03:29,760
+So now if they type y then the answer is going to be set as the num1 back at
+
+52
+00:03:30,940 --> 00:03:32,800
+the start of this while loop
+
+53
+00:03:33,100 --> 00:03:36,550
+so that this num1 becomes the answer from the previous step.
+
+54
+00:03:37,090 --> 00:03:40,510
+But if they typed n then we want this while loop to the end.
+
+55
+00:03:40,780 --> 00:03:44,110
+So we're going to change the flag should_continue to false.
+
+56
+00:03:44,830 --> 00:03:46,840
+So now let's give that a run.
+
+57
+00:03:50,670 --> 00:03:51,000
+Right?
+
+58
+00:03:51,000 --> 00:03:52,890
+Let's say the first number is five.
+
+59
+00:03:53,310 --> 00:03:57,570
+Then we're going to add three to five and then we're going to type y to
+
+60
+00:03:57,570 --> 00:04:00,990
+continue. So now we get to pick another operation,
+
+61
+00:04:01,020 --> 00:04:03,180
+so let's multiply, um,
+
+62
+00:04:03,240 --> 00:04:08,240
+eight by two and we get the result from the next step and we can actually keep
+
+63
+00:04:09,600 --> 00:04:12,360
+going until we're basically done, right?
+
+64
+00:04:12,360 --> 00:04:16,980
+So we can take the 16 and we can divide it by four.
+
+65
+00:04:17,610 --> 00:04:19,529
+But if we type 'n' on the other hand,
+
+66
+00:04:19,800 --> 00:04:23,250
+then our program ends and we see the prompt once more.
+
+67
+00:04:24,990 --> 00:04:26,790
+And that's the solution to the challenge,
+
+68
+00:04:26,850 --> 00:04:30,540
+but it's a little bit sad to just exit, right?
+
+69
+00:04:30,540 --> 00:04:33,270
+Because with a calculator more often than not,
+
+70
+00:04:33,270 --> 00:04:37,950
+what you want to do is to start a fresh calculation where you get to determine
+
+71
+00:04:37,980 --> 00:04:41,310
+the first number and the second number once more.
+
+72
+00:04:42,540 --> 00:04:45,120
+If the user didn't want to exit
+
+73
+00:04:45,570 --> 00:04:48,690
+but if they wanted to start a new calculation,
+
+74
+00:04:49,230 --> 00:04:54,230
+then how can we get them to go back all the way up here so that they provide the
+
+75
+00:04:54,720 --> 00:04:59,610
+num1 as a fresh input? This is a little bit tricky
+
+76
+00:04:59,760 --> 00:05:03,750
+and in programming, this concept is known as recursion.
+
+77
+00:05:04,260 --> 00:05:08,700
+It's basically the idea that you could have a function that calls itself.
+
+78
+00:05:09,300 --> 00:05:14,300
+So let's define a new function called calculator and this function takes no
+
+79
+00:05:14,820 --> 00:05:17,100
+inputs and has no outputs.
+
+80
+00:05:17,640 --> 00:05:22,410
+But all of this code that we've got here so far is inside the calculator
+
+81
+00:05:22,410 --> 00:05:25,230
+function. To begin when we start,
+
+82
+00:05:25,350 --> 00:05:30,350
+we have to call the calculator function in order for it to find the place where
+
+83
+00:05:30,450 --> 00:05:35,190
+this function was defined and to actually carry out all of these instructions.
+
+84
+00:05:35,790 --> 00:05:36,180
+Now,
+
+85
+00:05:36,180 --> 00:05:40,560
+the next thing we get to do is a little bit interesting because when the user
+
+86
+00:05:40,560 --> 00:05:41,850
+types no,
+
+87
+00:05:42,690 --> 00:05:47,280
+and says that they don't want to continue calculating with the previous answer
+
+88
+00:05:47,640 --> 00:05:50,760
+but instead they want to start a new calculation,
+
+89
+00:05:51,120 --> 00:05:54,270
+what we want to do instead of just exiting the while loop,
+
+90
+00:05:54,630 --> 00:05:59,630
+we want to call the calculator function because what this is going to do is it's
+
+91
+00:06:00,560 --> 00:06:05,030
+basically going to take us all the way back up to the beginning where we get to
+
+92
+00:06:05,030 --> 00:06:07,430
+enter a new input again.
+
+93
+00:06:08,510 --> 00:06:11,990
+And remember that once you reach the end of a function,
+
+94
+00:06:12,350 --> 00:06:17,300
+everything gets reset to the beginning. So should_continue becomes true again
+
+95
+00:06:17,570 --> 00:06:19,820
+and this while loop will continue working.
+
+96
+00:06:20,600 --> 00:06:22,970
+So let's try running this new version.
+
+97
+00:06:23,720 --> 00:06:28,720
+We've performed a calculation and now we want to start a new calculation,
+
+98
+00:06:29,030 --> 00:06:33,710
+so I'm going to type n. And now I get to again define the first number again.
+
+99
+00:06:37,100 --> 00:06:42,100
+This recursion basically happens because we're calling this calculator function
+
+100
+00:06:42,890 --> 00:06:45,110
+within the calculator function.
+
+101
+00:06:45,710 --> 00:06:49,490
+Essentially the code runs and runs and runs until it reaches here
+
+102
+00:06:50,060 --> 00:06:55,010
+and if these conditions are met and this calculator function is called,
+
+103
+00:06:55,250 --> 00:07:00,230
+then it goes and finds the calculator function in order to call it once more.
+
+104
+00:07:01,310 --> 00:07:05,960
+But now you have to be quite careful with while loops and with these recursive
+
+105
+00:07:05,960 --> 00:07:06,793
+functions
+
+106
+00:07:06,920 --> 00:07:11,920
+because let's say that instead of having all of this code and some checking code
+
+107
+00:07:12,500 --> 00:07:14,750
+to determine when I should call calculator,
+
+108
+00:07:15,230 --> 00:07:18,830
+if I actually just called calculator within calculator,
+
+109
+00:07:19,130 --> 00:07:21,590
+then this is going to be a infinite loop.
+
+110
+00:07:21,620 --> 00:07:23,900
+It's just going to keep going back and forth.
+
+111
+00:07:24,290 --> 00:07:27,410
+The calculator function calls the calculator function,
+
+112
+00:07:27,440 --> 00:07:31,400
+which goes back up and calls and it goes around and round around until forever.
+
+113
+00:07:32,090 --> 00:07:32,480
+Again,
+
+114
+00:07:32,480 --> 00:07:36,620
+be careful and make sure that there is some sort of condition that needs to be
+
+115
+00:07:36,620 --> 00:07:41,620
+met in order for this function to call itself. In the next lesson,
+
+116
+00:07:41,810 --> 00:07:45,830
+we're gonna add the finishing touches to our program and also fix a bug that you
+
+117
+00:07:45,830 --> 00:07:47,450
+may have already spotted at this point.
+
+1
+00:00:00,660 --> 00:00:05,370
+Now that we've pretty much completed all of the logic and functionality of this
+
+2
+00:00:05,370 --> 00:00:08,850
+calculator, it's time to add in the bells and the whistles,
+
+3
+00:00:09,120 --> 00:00:13,200
+including adding in the calculator logo and also checking for any bugs.
+
+4
+00:00:14,280 --> 00:00:16,590
+Adding the calculator logo is pretty simple.
+
+5
+00:00:17,280 --> 00:00:19,200
+You've done this loads of times before.
+
+6
+00:00:19,860 --> 00:00:22,740
+All we have to do is import it from the art module,
+
+7
+00:00:23,070 --> 00:00:27,480
+and then we're going to print it at the beginning of our calculator function.
+
+8
+00:00:28,470 --> 00:00:29,310
+So this way
+
+9
+00:00:29,370 --> 00:00:33,630
+when we get to the end and the user wants to start a fresh calculation,
+
+10
+00:00:33,930 --> 00:00:38,910
+we'll also show them a logo again. Now the next thing to notice,
+
+11
+00:00:39,060 --> 00:00:42,630
+this is a bit of a bug that you might've seen or not.
+
+12
+00:00:43,290 --> 00:00:48,090
+But what happens if we try to enter a number with a decimal point?
+
+13
+00:00:48,630 --> 00:00:52,470
+Let's say we want to calculate 4.5 multiplied by 2.
+
+14
+00:00:54,180 --> 00:00:55,860
+Our program has already crashed
+
+15
+00:00:55,950 --> 00:01:00,000
+as soon as I've entered 4.5 and hit enter. As a challenge,
+
+16
+00:01:00,030 --> 00:01:03,930
+can you diagnose what went wrong and fix this bug? I'll give you a few seconds
+
+17
+00:01:03,930 --> 00:01:05,530
+to pause the video before I give you the 
+
+18
+00:01:06,050 --> 00:01:06,883
+solution.
+
+19
+00:01:08,750 --> 00:01:10,070
+Alright. Here's the solution.
+
+20
+00:01:10,220 --> 00:01:15,110
+The bug goes back to our lesson on datatypes.Notice how it's giving us an error
+
+21
+00:01:15,230 --> 00:01:17,030
+and it's pointing to this line
+
+22
+00:01:17,060 --> 00:01:22,040
+number 26. Line number 26 takes this input
+
+23
+00:01:22,100 --> 00:01:26,570
+which is a string and converts it into an integer. But of course,
+
+24
+00:01:26,780 --> 00:01:30,380
+a number with the decimal place shouldn't be converted into an integer.
+
+25
+00:01:30,770 --> 00:01:35,480
+We should actually hold it as a floating point number instead. This way
+
+26
+00:01:35,480 --> 00:01:38,330
+we're able to perform more accurate calculations.
+
+27
+00:01:38,600 --> 00:01:40,670
+So instead of just 4 times 5,
+
+28
+00:01:40,670 --> 00:01:44,360
+we can do 4.5 times 5.5, for example.
+
+29
+00:01:44,930 --> 00:01:48,410
+So instead of using int here, I'm going to change that to float
+
+30
+00:01:48,920 --> 00:01:53,510
+and I'm going to do the same here for num2. Now, when we hit run,
+
+31
+00:01:53,690 --> 00:01:58,160
+I can actually perform calculations using numbers with decimal places,
+
+32
+00:01:58,520 --> 00:02:01,340
+but I can also use numbers which are whole.
+
+33
+00:02:01,670 --> 00:02:06,020
+So let's multiply 2.5 by 2, the answer is 5,
+
+34
+00:02:06,080 --> 00:02:10,789
+and you can see that all the numbers are being reported to a greater level of
+
+35
+00:02:10,789 --> 00:02:14,030
+accuracy, meaning we have numbers after the decimal point.
+
+36
+00:02:14,420 --> 00:02:18,260
+And this is all because we converted that int to a float.
+
+37
+00:02:19,850 --> 00:02:23,240
+Now that there's a lot more features that you could add to your calculator.
+
+38
+00:02:23,540 --> 00:02:28,310
+You could add a square root capability, you could add exponent capability,
+
+39
+00:02:28,670 --> 00:02:32,990
+but the important thing here was really for you to see how functions that
+
+40
+00:02:32,990 --> 00:02:35,810
+provide outputs are really useful
+
+41
+00:02:35,840 --> 00:02:40,840
+when you come to a more complex program where you can take the output from one
+
+42
+00:02:42,650 --> 00:02:47,360
+function call and pass it into the next function
+
+43
+00:02:47,360 --> 00:02:49,100
+call as an input.
+
+44
+00:02:49,940 --> 00:02:53,660
+So this output can be reused in different parts of the code.
+
+45
+00:02:54,170 --> 00:02:59,170
+And this not only allows us to reduce repetition and also make our more reusable
+
+46
+00:03:00,400 --> 00:03:01,420
+and more modular,
+
+47
+00:03:01,720 --> 00:03:06,720
+but also it gives us the flexibility of performing more actions after a function
+
+48
+00:03:08,590 --> 00:03:10,990
+has completed. Now,
+
+49
+00:03:10,990 --> 00:03:15,370
+we're going to be using a lot of the concepts that we've learned here today in
+
+50
+00:03:15,520 --> 00:03:19,780
+tomorrow's capstone project. A lot of things I've explained,
+
+51
+00:03:19,780 --> 00:03:22,240
+including things like the recursion
+
+52
+00:03:22,240 --> 00:03:26,980
+where we're calling a function within its own definition or things like setting a
+
+53
+00:03:26,980 --> 00:03:29,860
+flag using a wall loop to continue
+
+54
+00:03:29,860 --> 00:03:33,070
+some piece of code execution is all going to come in really,
+
+55
+00:03:33,070 --> 00:03:34,360
+really handy tomorrow.
+
+56
+00:03:34,780 --> 00:03:38,050
+So make sure that if there's anything that you don't understand here
+
+57
+00:03:38,380 --> 00:03:43,380
+that you review it and you're comfortable with what the code is doing before you
+
+58
+00:03:43,480 --> 00:03:47,410
+proceed. That's all for today and I'll see you tomorrow.
+

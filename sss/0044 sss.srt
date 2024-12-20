@@ -1,0 +1,3297 @@
+1
+00:00:00,110 --> 00:00:08,300
+Now we've already used some CSS properties in order to apply to our different HTML elements, but in
+
+2
+00:00:08,300 --> 00:00:13,220
+this section we're going to do a deep dive into some of the most important CSS properties that you'll
+
+3
+00:00:13,220 --> 00:00:14,690
+see and use.
+
+4
+00:00:14,720 --> 00:00:20,300
+And we're going to start with CSS, color properties, some of the color properties you've already seen
+
+5
+00:00:20,300 --> 00:00:21,410
+previously.
+
+6
+00:00:21,530 --> 00:00:28,640
+I've shown you how you can set the background color of a particular HTML element by using the background
+
+7
+00:00:29,180 --> 00:00:30,800
+color property.
+
+8
+00:00:30,800 --> 00:00:36,920
+And previously we've been setting it to basic colors like red or blue or green.
+
+9
+00:00:37,040 --> 00:00:45,080
+And remember that the way that the CSS rules work is the first part is the property.
+
+10
+00:00:46,280 --> 00:00:52,850
+And the part that comes after the colon is the value that you want to set that property to.
+
+11
+00:00:52,880 --> 00:00:59,630
+So in this case, we're setting the background color of the HTML element, which remember contains everything
+
+12
+00:00:59,630 --> 00:01:00,660
+on our website.
+
+13
+00:01:00,660 --> 00:01:04,769
+So the entire web page to a color of red.
+
+14
+00:01:04,769 --> 00:01:06,510
+That's what that rule does.
+
+15
+00:01:06,690 --> 00:01:10,170
+Now, there are different types of color properties.
+
+16
+00:01:10,170 --> 00:01:15,090
+There's the background color, but you can also simply use the color property.
+
+17
+00:01:15,090 --> 00:01:19,080
+And what this does is it sets the text color.
+
+18
+00:01:19,080 --> 00:01:21,900
+So always check the docs.
+
+19
+00:01:21,930 --> 00:01:25,200
+If you're not sure which property does what.
+
+20
+00:01:26,370 --> 00:01:32,460
+Notice that in this case we've got two colors, which we've named Red and Blue.
+
+21
+00:01:32,490 --> 00:01:35,640
+Well, how do we know that we can use these colors?
+
+22
+00:01:35,640 --> 00:01:37,380
+And what exactly are they?
+
+23
+00:01:37,500 --> 00:01:39,810
+Well, they're called named colors.
+
+24
+00:01:39,810 --> 00:01:47,910
+And there's a whole bunch of them out there with poetic names like Cornflower Blue or Cadet Blue or
+
+25
+00:01:47,910 --> 00:01:51,390
+dim gray or olive drab, etcetera.
+
+26
+00:01:51,390 --> 00:01:56,340
+And you can find all of them by, of course, going to the developer documentation.
+
+27
+00:01:56,430 --> 00:02:03,140
+If you Google for docs named color, the first link should take you to this web page.
+
+28
+00:02:03,150 --> 00:02:08,580
+Alternatively, you can use this URL as well, and the syntax is pretty simple.
+
+29
+00:02:08,580 --> 00:02:16,080
+You simply use the name of the color and if you scroll through this table you'll see all the different
+
+30
+00:02:16,080 --> 00:02:16,740
+colors.
+
+31
+00:02:16,740 --> 00:02:20,880
+And don't worry too much about the CSS level one or level two or level three.
+
+32
+00:02:20,910 --> 00:02:24,870
+It just describes historically when each color was introduced.
+
+33
+00:02:24,870 --> 00:02:28,330
+So these were introduced first because it's basically the rainbow.
+
+34
+00:02:28,330 --> 00:02:35,650
+And then over time we got some more fun colors like cyan and dark khaki and all of these different colors.
+
+35
+00:02:35,650 --> 00:02:42,490
+So you can simply copy the name of the color and paste it into your code and you'll be able to see that
+
+36
+00:02:42,490 --> 00:02:44,380
+rendered in your website.
+
+37
+00:02:44,530 --> 00:02:49,900
+Of course, even though there's many colors available in the default CSS named colors.
+
+38
+00:02:49,900 --> 00:02:54,460
+But you still sometimes might want to have a more unique color palette.
+
+39
+00:02:54,460 --> 00:02:56,410
+So what do you do in that case?
+
+40
+00:02:56,410 --> 00:03:01,510
+Well, one of my favorite color palettes is color hunt.co.
+
+41
+00:03:01,900 --> 00:03:09,070
+It's a free tool that's created by designers for designers and of course, for us as well.
+
+42
+00:03:09,250 --> 00:03:15,610
+Here you've got professionally designed color palettes for colors stacked together that would look perfect
+
+43
+00:03:15,610 --> 00:03:16,840
+on any website.
+
+44
+00:03:16,870 --> 00:03:22,450
+You can imagine that if you select any of these random websites, maybe this could be the background
+
+45
+00:03:22,450 --> 00:03:23,500
+color of the website.
+
+46
+00:03:23,500 --> 00:03:28,090
+This could be an H1 color, this could be a subtitle or H2 color.
+
+47
+00:03:28,090 --> 00:03:33,310
+You have accent tones, you have main tones, and you can use all of these colors in your website.
+
+48
+00:03:33,310 --> 00:03:38,110
+But how do we use them if we don't have a name that's attached to it?
+
+49
+00:03:38,110 --> 00:03:40,960
+Instead, we've got all these numbers and letters.
+
+50
+00:03:40,960 --> 00:03:42,730
+What exactly are these?
+
+51
+00:03:42,760 --> 00:03:51,820
+Well, these are hex codes and they are a way of representing a larger number code for that particular
+
+52
+00:03:51,820 --> 00:03:52,450
+color.
+
+53
+00:03:52,450 --> 00:04:00,010
+So, for example, in this case, this is a color purple which is formed of three fractions, red,
+
+54
+00:04:00,010 --> 00:04:01,030
+green and blue.
+
+55
+00:04:01,090 --> 00:04:04,720
+And these are colors out of 255.
+
+56
+00:04:04,720 --> 00:04:15,160
+So if you imagine a fraction, 93 out of 255 red, 56 out of 255 green and one for five out of 255 blue.
+
+57
+00:04:15,160 --> 00:04:21,160
+And when you mix all three of these primary colors, you can get so many different types of shades.
+
+58
+00:04:21,160 --> 00:04:24,550
+So in this case, we've got 93, 56, one four, five.
+
+59
+00:04:24,580 --> 00:04:37,300
+So 93 out of two, five five, 56, green out of two, five, five and one, four five.
+
+60
+00:04:37,300 --> 00:04:44,860
+So a little bit more blue and we end up with exactly the same shade as this purple you see right here
+
+61
+00:04:45,370 --> 00:04:49,480
+converting that RGB into a hex code.
+
+62
+00:04:49,480 --> 00:04:52,600
+So a different way of representing that number.
+
+63
+00:04:52,600 --> 00:04:55,210
+We get this particular hex code.
+
+64
+00:04:55,210 --> 00:04:56,860
+What does this mean for you?
+
+65
+00:04:56,860 --> 00:05:01,780
+Well, when you're using something like color hunt and you want to apply these different colors to your
+
+66
+00:05:01,780 --> 00:05:08,080
+website, you can simply copy the hex code and use it instead of the name.
+
+67
+00:05:08,080 --> 00:05:14,770
+And even on the docs for the named colors, you can see their hex codes lined up next to the names,
+
+68
+00:05:14,770 --> 00:05:18,220
+and in code it looks pretty much exactly the same.
+
+69
+00:05:18,220 --> 00:05:20,860
+Instead of the name, you just put the hex code.
+
+70
+00:05:21,370 --> 00:05:23,650
+So now it's time to try an exercise.
+
+71
+00:05:23,680 --> 00:05:30,730
+Go ahead and download this zip file from this current lesson, extract it and open it inside vs code.
+
+72
+00:05:30,910 --> 00:05:36,970
+Once you're here, you should see it's a pretty simple website with just two elements inside the body
+
+73
+00:05:37,210 --> 00:05:38,950
+an H1 and H2.
+
+74
+00:05:38,950 --> 00:05:44,740
+And if we look at the preview, then you can see it's clearly a drab, black and white world.
+
+75
+00:05:44,860 --> 00:05:48,370
+We're going to change all of that by adding in CSS colors.
+
+76
+00:05:48,370 --> 00:05:54,610
+So you've got five steps that you need to complete here and you should follow them one by one and by
+
+77
+00:05:54,610 --> 00:06:00,010
+the end of all five steps, you should have a website that looks something like this with lots of different
+
+78
+00:06:00,010 --> 00:06:02,980
+colors and different background colors as well.
+
+79
+00:06:03,160 --> 00:06:05,980
+Pause the video now and give this challenge a go.
+
+80
+00:06:09,620 --> 00:06:10,040
+All right.
+
+81
+00:06:10,040 --> 00:06:12,500
+So let's walk through the solution together.
+
+82
+00:06:12,680 --> 00:06:20,330
+We've got the background color of the body, which is set to antique white, which is this color right
+
+83
+00:06:20,330 --> 00:06:20,890
+here.
+
+84
+00:06:20,900 --> 00:06:25,400
+And we've got the text color of the H one set to white smoke.
+
+85
+00:06:25,430 --> 00:06:29,430
+But you can also set the background color of the H one.
+
+86
+00:06:29,450 --> 00:06:35,390
+It's a property that's available on any of the elements and it simply takes the existing area of that
+
+87
+00:06:35,390 --> 00:06:37,700
+element and colors the background.
+
+88
+00:06:37,910 --> 00:06:41,870
+Now, that might have required a little bit of lateral thinking, but hopefully you got there in the
+
+89
+00:06:41,870 --> 00:06:42,440
+end.
+
+90
+00:06:42,440 --> 00:06:49,910
+And notice how in the H one we've got all named colors and in the H two, I've asked you to use hex
+
+91
+00:06:49,910 --> 00:06:55,760
+colors and this is just so that you have practice adding colors using the two different methods.
+
+92
+00:06:56,630 --> 00:06:58,280
+Hopefully you got there in the end.
+
+93
+00:06:58,280 --> 00:07:05,090
+Once you're ready, head over to the next lesson and let's learn more about formatting fonts using CSS.
+
+
+94
+00:00:00,290 --> 00:00:05,510
+Now, in this lesson, we're going to talk a bit more about the different CSS properties that we can
+
+95
+00:00:05,510 --> 00:00:11,060
+set for fonts so we can change the appearance of the text in our websites.
+
+96
+00:00:11,630 --> 00:00:18,050
+And we've already seen some of them, for example, the color property which sets the text color, but
+
+97
+00:00:18,050 --> 00:00:25,820
+there's other ones as well, such as the font weight, the font size and also the font family, which
+
+98
+00:00:25,820 --> 00:00:28,140
+is the typeface that we want to use.
+
+99
+00:00:28,160 --> 00:00:30,680
+Let's explore some of these newer ones.
+
+100
+00:00:30,710 --> 00:00:33,910
+The first one I'll talk about is the font size.
+
+101
+00:00:33,920 --> 00:00:42,320
+We can change the size of a font by simply using the font size property and then setting it to a particular
+
+102
+00:00:42,320 --> 00:00:45,890
+pixel size, as you might have seen me do already.
+
+103
+00:00:46,280 --> 00:00:51,350
+But if we think about it, what exactly does a 20 pixel font size mean?
+
+104
+00:00:51,350 --> 00:00:53,110
+How big is it really?
+
+105
+00:00:53,120 --> 00:00:55,040
+Well, this is how big it is.
+
+106
+00:00:55,040 --> 00:01:00,750
+One pixel is about 1/96 of an inch.
+
+107
+00:01:00,750 --> 00:01:07,560
+And the reason why we're using imperial units is because a lot of the sizing for websites and for design
+
+108
+00:01:07,560 --> 00:01:12,330
+work actually comes from the olden days of book printing, book binding.
+
+109
+00:01:12,330 --> 00:01:14,010
+And it was very traditional.
+
+110
+00:01:14,010 --> 00:01:20,220
+If you know how big an inch is, then you know how big one over 96 of an inch is.
+
+111
+00:01:20,220 --> 00:01:26,640
+It's absolutely tiny, but if you have no idea how big an inch is, then in metric units it's about
+
+112
+00:01:26,670 --> 00:01:29,550
+0.26mm.
+
+113
+00:01:29,550 --> 00:01:32,310
+That's about how big a pixel is.
+
+114
+00:01:32,310 --> 00:01:39,150
+It's 0.26mm wide and 0.26mm tall.
+
+115
+00:01:39,150 --> 00:01:43,620
+So it's a small cube that's very, very tiny.
+
+116
+00:01:44,500 --> 00:01:50,800
+There are other ways that we can represent the font size when we're writing CSS.
+
+117
+00:01:50,920 --> 00:01:58,090
+One common way that you'll see in addition to pixels is using something called a point.
+
+118
+00:01:58,540 --> 00:02:06,010
+A stands for a pixel and a P stands for a point.
+
+119
+00:02:06,100 --> 00:02:07,950
+Now how big is a point?
+
+120
+00:02:07,960 --> 00:02:10,630
+Well, it's a slightly bigger than a pixel.
+
+121
+00:02:10,630 --> 00:02:15,070
+It's about one over 72 second of an inch.
+
+122
+00:02:15,070 --> 00:02:17,320
+So that's just slightly bigger.
+
+123
+00:02:17,350 --> 00:02:30,880
+If 1.96 of an inch is 0.26mm, one over 72 of an inch is about 0.35mm, just a tiny bit bigger.
+
+124
+00:02:30,940 --> 00:02:36,220
+Now the point is actually often used in many different applications.
+
+125
+00:02:36,220 --> 00:02:45,350
+So when you select a 12 size font in, say, word, you're actually selecting 12 points.
+
+126
+00:02:45,350 --> 00:02:50,930
+So that means when you're using 12 points on your web page, you can expect that when a website is at
+
+127
+00:02:50,930 --> 00:02:56,000
+100%, it will look about the same as a 12 font on your word document.
+
+128
+00:02:56,090 --> 00:03:04,040
+In addition, there are some other ways of representing font size, the M and the M.
+
+129
+00:03:04,160 --> 00:03:06,140
+What are these units?
+
+130
+00:03:06,170 --> 00:03:13,520
+Well, the M is actually not pronounced M It's pronounced M, so it's pronounced in the same way that
+
+131
+00:03:13,520 --> 00:03:16,100
+this letter is in the alphabet.
+
+132
+00:03:16,370 --> 00:03:17,660
+Why is that?
+
+133
+00:03:17,660 --> 00:03:24,170
+Well, one M is defined as the full width of an M.
+
+134
+00:03:24,260 --> 00:03:32,150
+The letter M is probably one of the widest letters in the English alphabet, and this unit simply represents
+
+135
+00:03:32,150 --> 00:03:33,950
+that entire width.
+
+136
+00:03:34,430 --> 00:03:37,700
+But what does it actually mean when we use it?
+
+137
+00:03:37,730 --> 00:03:46,850
+Well, what it means is that when you set an H one to have the font size of one M, your CSS code would
+
+138
+00:03:46,850 --> 00:03:48,570
+look something like this.
+
+139
+00:03:48,590 --> 00:03:58,910
+Then it means that if it had a parent, for example, if we had a body tag that enclosed this h one
+
+140
+00:03:58,910 --> 00:04:13,100
+tag, then if this body had a font size of say, 20 pixels, then this h one if we set it to one M or
+
+141
+00:04:13,100 --> 00:04:19,120
+one M, then it means it's going to be a 100% of the parent size.
+
+142
+00:04:19,130 --> 00:04:21,829
+So it means it's going to be 20 pixels.
+
+143
+00:04:22,070 --> 00:04:31,760
+Now, however, if we set it to two M instead, then in this case it's going to be two times the parent
+
+144
+00:04:31,760 --> 00:04:32,450
+size.
+
+145
+00:04:32,450 --> 00:04:37,940
+So two times 20 pixels, which is going to be 40 pixels instead.
+
+146
+00:04:38,030 --> 00:04:41,090
+It's basically a relative size.
+
+147
+00:04:41,450 --> 00:04:45,260
+And I'm going to explain to you why this is important very shortly.
+
+148
+00:04:45,260 --> 00:04:52,730
+But closely related to the M or the M is the M, and it's got that extra word.
+
+149
+00:04:52,760 --> 00:04:55,670
+Ah, And basically it works the same thing.
+
+150
+00:04:55,670 --> 00:05:00,860
+It's a relative size, but it's now relative instead of to the parent.
+
+151
+00:05:00,860 --> 00:05:08,840
+It's relative to the root of your HTML file, which if you remember, the root is usually an HTML element
+
+152
+00:05:08,840 --> 00:05:11,750
+that encloses everything inside.
+
+153
+00:05:12,770 --> 00:05:17,840
+What is the difference then, between the M and the M?
+
+154
+00:05:18,170 --> 00:05:26,930
+If we take a look at this code where we've got a body tag that encloses an H1 and then we've got a footer
+
+155
+00:05:26,930 --> 00:05:33,950
+tag, which is one of the tags that you can use to define a section in your code for the footer area
+
+156
+00:05:33,950 --> 00:05:34,940
+of your website.
+
+157
+00:05:35,030 --> 00:05:39,680
+Then inside here we've got an H2 that's enclosed.
+
+158
+00:05:40,220 --> 00:05:52,250
+If I set my H2 to have a font size of two M and my footer had a font size of 20 pixels, then two M
+
+159
+00:05:52,280 --> 00:05:57,860
+is two times 20 pixels, which is equal to 40 pixels.
+
+160
+00:05:57,860 --> 00:06:00,860
+So this H2 is now 40 pixels.
+
+161
+00:06:01,310 --> 00:06:08,810
+However, if I go in here and I change this footer to have 80 pixels, then all of a sudden this is
+
+162
+00:06:08,810 --> 00:06:16,760
+going to change and it's no longer going to be 40 pixels, but instead it's going to be two times 80,
+
+163
+00:06:16,790 --> 00:06:20,840
+which is now equal to 160 pixels.
+
+164
+00:06:20,840 --> 00:06:25,310
+So it's moving relative to its parent size.
+
+165
+00:06:25,610 --> 00:06:37,100
+On the other hand, if I had set this H2 to have a size of two REM and I change the size of my footer
+
+166
+00:06:37,100 --> 00:06:43,760
+from 20 pixels to 80 pixels, then it does not affect this.
+
+167
+00:06:43,820 --> 00:06:44,510
+Whatsoever.
+
+168
+00:06:44,510 --> 00:06:47,200
+It still remains the same size.
+
+169
+00:06:47,210 --> 00:06:55,340
+It's only if I change the root element, which if you take a look, it's the thing that encloses all
+
+170
+00:06:55,340 --> 00:06:59,440
+of the rest of the code, which is normally the HTML element.
+
+171
+00:06:59,450 --> 00:07:07,580
+If I change this size to something larger, say 90 pixels, then that is the thing that will affect
+
+172
+00:07:07,580 --> 00:07:09,170
+this sizing.
+
+173
+00:07:09,170 --> 00:07:19,100
+So the main difference between the M and the M is the fact that this is a more consistent way of changing
+
+174
+00:07:19,100 --> 00:07:20,210
+the sizing.
+
+175
+00:07:20,210 --> 00:07:27,230
+So I normally recommend that everybody who develops websites when you're setting the font size to use
+
+176
+00:07:27,230 --> 00:07:32,960
+the REM, because the way that you have different things embedded in others.
+
+177
+00:07:32,960 --> 00:07:39,170
+So this H two is inside a footer which is inside the body, which is inside the HTML.
+
+178
+00:07:39,200 --> 00:07:46,100
+Then the relationship to the parent can very quickly get very confused and you don't know whose parent
+
+179
+00:07:46,100 --> 00:07:49,730
+you're referring to, especially when you're working in a separate CSS file.
+
+180
+00:07:49,820 --> 00:07:53,300
+So understand how the REM works.
+
+181
+00:07:53,300 --> 00:07:58,670
+Remember, it is a scaled size of the root one.
+
+182
+00:07:58,910 --> 00:08:03,980
+M is one x, the root size two M is two x, the root size.
+
+183
+00:08:03,980 --> 00:08:09,770
+And this is a much easier way to control the different sizes of various elements on your screen and
+
+184
+00:08:09,770 --> 00:08:15,440
+have more clarity around what's going on in the starting file that you downloaded previously.
+
+185
+00:08:15,440 --> 00:08:17,750
+I've got some sample code for you.
+
+186
+00:08:17,780 --> 00:08:25,040
+If we take a look at all the different ways of setting font size, you can see that we can use the pixel
+
+187
+00:08:25,040 --> 00:08:33,080
+size, we can use point size, we can use M REM, and we can also use named font sizes such as extra
+
+188
+00:08:33,080 --> 00:08:34,970
+large or large.
+
+189
+00:08:34,970 --> 00:08:40,159
+And when all of this is rendered, you'll see the different sizes in play.
+
+190
+00:08:40,190 --> 00:08:48,780
+The fact that a pixel is much smaller than a point, but these two are static font sizes and then the
+
+191
+00:08:48,780 --> 00:08:53,490
+M is relative to the parent and the M is relative to the root.
+
+192
+00:08:53,490 --> 00:08:55,920
+But these are relative sizes.
+
+193
+00:08:56,160 --> 00:09:02,190
+If you want to see this code and be able to edit it and change it and see it working, then download
+
+194
+00:09:02,190 --> 00:09:07,200
+the zip file from this current lesson called 6.1 font properties.
+
+195
+00:09:07,590 --> 00:09:10,710
+Once you've extracted it, open it up inside vs code.
+
+196
+00:09:10,710 --> 00:09:17,130
+Head over to font size dot HTML and you'll see exactly the same code as in the demo.
+
+197
+00:09:17,130 --> 00:09:20,190
+But in this case it's of course in VS code.
+
+198
+00:09:20,190 --> 00:09:26,820
+So you can change things such as the REM, the m, the different font sizes, the root font size, and
+
+199
+00:09:26,820 --> 00:09:29,280
+you'll see it reflected on the screen.
+
+200
+00:09:29,400 --> 00:09:36,360
+For example, if I change this root font size from extra extra large down to say, 20 pixels, then
+
+201
+00:09:36,390 --> 00:09:44,790
+you'll see that this paragraph change accordingly because its size is based on REM.
+
+202
+00:09:44,790 --> 00:09:48,960
+So have a play around with that so that you can understand what's going on.
+
+203
+00:09:49,710 --> 00:09:53,940
+There are some other font properties that I want to briefly cover.
+
+204
+00:09:53,940 --> 00:09:57,840
+One is the font weight, which is relatively simple.
+
+205
+00:09:57,840 --> 00:10:01,710
+You can have normal or you can have bold, and we all know what that means.
+
+206
+00:10:01,710 --> 00:10:04,050
+It just makes the font look a bit heavier.
+
+207
+00:10:04,290 --> 00:10:09,210
+But out in the wild you might see some other ways that people use to change the font weight.
+
+208
+00:10:09,210 --> 00:10:16,230
+In addition to the basic keywords, you can have a relative font weight which is relative to the parent
+
+209
+00:10:16,230 --> 00:10:19,320
+to have the font lighter or have it be bolder.
+
+210
+00:10:19,320 --> 00:10:29,520
+In addition, you can also use a number from 100 up to 900 to determine how light or how bold you want
+
+211
+00:10:29,520 --> 00:10:30,690
+the font to be.
+
+212
+00:10:30,690 --> 00:10:37,710
+And similarly, when we say lighter it basically minuses the number by 100.
+
+213
+00:10:37,710 --> 00:10:41,370
+And if we say bolder, it just makes it bolder by 100.
+
+214
+00:10:41,370 --> 00:10:49,560
+Somewhere along this range, in addition to font size and font weight, there's also the all important
+
+215
+00:10:49,560 --> 00:10:50,880
+font family.
+
+216
+00:10:50,880 --> 00:10:55,380
+And this determines what you want your text to look like.
+
+217
+00:10:55,410 --> 00:11:01,320
+For example, in this first example, we've got the font family that is set to Helvetica.
+
+218
+00:11:01,350 --> 00:11:10,260
+This is a particular typeface and the name is called Helvetica, but this is a mac specific typeface.
+
+219
+00:11:10,260 --> 00:11:15,360
+So there are many Windows computers that do not own this typeface.
+
+220
+00:11:15,480 --> 00:11:23,400
+That's why very often when we write a font family, we don't just write the font name, we have a comma
+
+221
+00:11:23,520 --> 00:11:28,350
+and then we have a backup generic font type.
+
+222
+00:11:28,830 --> 00:11:31,920
+So in this case it's a sans serif.
+
+223
+00:11:32,310 --> 00:11:38,550
+A sans serif is simply the type of font where all the edges are pretty much at right angles.
+
+224
+00:11:38,550 --> 00:11:43,230
+If you had these little feet or these little decorations at the edges.
+
+225
+00:11:43,340 --> 00:11:48,790
+Of your letters, then very often what you're looking at is a serif type font.
+
+226
+00:11:48,820 --> 00:11:52,450
+So that's the main two types of different typefaces.
+
+227
+00:11:52,450 --> 00:11:54,370
+And in later lessons, we.
+
+228
+00:11:54,400 --> 00:11:56,620
+Cover typefaces in more detail.
+
+229
+00:11:56,620 --> 00:12:01,000
+So you can either search for that lesson or wait until it comes up to learn more about that.
+
+230
+00:12:01,570 --> 00:12:05,750
+What is important, though, is having this generic typeface.
+
+231
+00:12:05,770 --> 00:12:13,180
+This means that when you have this set that Mac users will see this font, but Windows users will see
+
+232
+00:12:13,180 --> 00:12:18,610
+something that's relatively equivalent and it will be automatically displayed for them when it doesn't
+
+233
+00:12:18,610 --> 00:12:19,330
+work.
+
+234
+00:12:20,020 --> 00:12:23,860
+Now what if you have a font that has many words in it?
+
+235
+00:12:23,860 --> 00:12:27,550
+For example, times new Roman consists of three words.
+
+236
+00:12:27,580 --> 00:12:32,450
+Well, in this case, we can't simply just type it out like this and then have a comma.
+
+237
+00:12:32,470 --> 00:12:38,890
+We actually need the quotation marks around it so that we can tell the CSS file that there are spaces
+
+238
+00:12:38,890 --> 00:12:41,050
+in the name of the font family.
+
+239
+00:12:41,050 --> 00:12:43,850
+So just be careful about that when you're using it.
+
+240
+00:12:44,180 --> 00:12:52,220
+And because times new Roman is a serif type font, then the backup, the generic type is also a serif.
+
+241
+00:12:52,730 --> 00:12:59,120
+Now what if you want a completely custom font that maybe the user doesn't have?
+
+242
+00:12:59,150 --> 00:13:05,390
+Well, one of the best places to find free fonts is going over to Fonts.google.com.
+
+243
+00:13:05,570 --> 00:13:12,050
+And here you can find all sorts of different fonts and there are so, so many for you to choose from
+
+244
+00:13:12,050 --> 00:13:14,570
+and you can browse to your heart's content.
+
+245
+00:13:14,720 --> 00:13:16,550
+Now I want you to do this with me.
+
+246
+00:13:16,580 --> 00:13:20,480
+Go over to Fonts.google.com, find a font that you like.
+
+247
+00:13:20,510 --> 00:13:27,710
+So maybe I really like a particular font and if you click on it, sometimes you'll see that it has different
+
+248
+00:13:27,710 --> 00:13:31,100
+font faces for the different weights.
+
+249
+00:13:31,100 --> 00:13:34,850
+So there's Bold, which is 700 or regular 400.
+
+250
+00:13:34,850 --> 00:13:40,700
+But then other fonts you might see in here doesn't actually have any weight other than just the regular
+
+251
+00:13:40,700 --> 00:13:45,240
+one that you can use depending on which of these type you have.
+
+252
+00:13:45,260 --> 00:13:48,740
+Simply select the weight that you're interested in.
+
+253
+00:13:48,740 --> 00:13:57,800
+For example, with this font, maybe I want the medium size, and with this font, maybe I'm just going
+
+254
+00:13:57,800 --> 00:13:59,420
+to select a regular one.
+
+255
+00:13:59,540 --> 00:14:04,940
+And once you've selected that, if you go to the top right corner, you can see all of your selections.
+
+256
+00:14:04,940 --> 00:14:09,470
+So you can remove all or you can remove the ones that you're not interested in.
+
+257
+00:14:09,470 --> 00:14:13,480
+But either way, you should end up with a font that you want to include.
+
+258
+00:14:13,490 --> 00:14:19,520
+Now make sure that that link is selected and then copy that over to your starting file.
+
+259
+00:14:19,520 --> 00:14:26,450
+So select the font family dot html inside the head element just after the style tag.
+
+260
+00:14:26,450 --> 00:14:33,680
+Go ahead and paste all of that in and this is basically a link that is going to pull in the Google font
+
+261
+00:14:33,680 --> 00:14:35,870
+for any user on the internet.
+
+262
+00:14:35,870 --> 00:14:41,330
+So it doesn't matter if they have a mac or a PC or which fonts they have downloaded on their computer,
+
+263
+00:14:41,360 --> 00:14:45,680
+they'll all be able to access this font because we're including it in the link.
+
+264
+00:14:45,680 --> 00:14:51,680
+And then let's go ahead and copy the CSS rule, which Google has very helpfully included for us.
+
+265
+00:14:51,680 --> 00:14:57,980
+And if you scroll up, you'll see that I've again got an internal style set in here so that we can more
+
+266
+00:14:57,980 --> 00:15:01,760
+easily see the CSS alongside the HTML on the same file.
+
+267
+00:15:01,760 --> 00:15:03,530
+While we're doing the exercise.
+
+268
+00:15:03,530 --> 00:15:11,210
+Let's go ahead and create an H1 here and I'm simply going to write the words font family because that
+
+269
+00:15:11,210 --> 00:15:13,160
+is what this page is all about.
+
+270
+00:15:13,160 --> 00:15:16,430
+And then let's right click and show it in the preview.
+
+271
+00:15:16,520 --> 00:15:23,070
+Now I want you to set the H1 CSS style to the one that you just copied over.
+
+272
+00:15:23,090 --> 00:15:26,120
+Pause the video and do that right now.
+
+273
+00:15:27,990 --> 00:15:28,320
+All right.
+
+274
+00:15:28,320 --> 00:15:34,710
+So we need to target the H, one of which we've only got one so we can use the element selector and
+
+275
+00:15:34,710 --> 00:15:38,490
+then we paste in our CSS style as easy as that.
+
+276
+00:15:38,490 --> 00:15:45,510
+And you'll notice immediately that updates that font into our custom font from Google.
+
+277
+00:15:45,510 --> 00:15:50,790
+And it doesn't matter what you've chosen, this should always work as long as you've included all of
+
+278
+00:15:50,790 --> 00:15:55,770
+the links that are required and added in the relevant CSS.
+
+279
+00:15:56,040 --> 00:16:02,730
+Also on this page you'll see the different font families, for example, the Helvetica and the sans
+
+280
+00:16:02,730 --> 00:16:03,390
+serif.
+
+281
+00:16:03,390 --> 00:16:05,700
+Or on a windows.
+
+282
+00:16:05,700 --> 00:16:09,000
+The default sans serif will be an Ariel type font.
+
+283
+00:16:09,000 --> 00:16:14,940
+And then you've got serif type fonts, which are the ones with the little feet that I mentioned.
+
+284
+00:16:14,970 --> 00:16:22,230
+You've got these sans serif fonts and you've got all of these other generics such as cursive monospace
+
+285
+00:16:22,230 --> 00:16:25,830
+and fantasy cursive is a little bit curly.
+
+286
+00:16:25,830 --> 00:16:26,970
+That's how I remember it.
+
+287
+00:16:27,000 --> 00:16:34,600
+Monospace has all the letters occupying the same width, so similar to a typewriter or code, and fantasy
+
+288
+00:16:34,600 --> 00:16:36,250
+is usually something kind of wild.
+
+289
+00:16:36,250 --> 00:16:41,740
+And these generic fonts will be different depending on the computer that you use and the browser that
+
+290
+00:16:41,740 --> 00:16:42,190
+you use.
+
+291
+00:16:42,190 --> 00:16:49,240
+So you might not see the same type of fonts that I have here, but if you specify a specific font and
+
+292
+00:16:49,240 --> 00:16:55,300
+you make sure that it's linked to, then we should all be looking at the same font face right up here.
+
+293
+00:16:55,780 --> 00:17:04,420
+And notice how when we copy that over it specified the specific font, but also a backup font in case
+
+294
+00:17:04,420 --> 00:17:09,640
+these links didn't work or something messed up and it would default to a cursive font.
+
+295
+00:17:09,819 --> 00:17:13,480
+The generic cursive font would then look like this.
+
+296
+00:17:14,200 --> 00:17:21,069
+So the final thing I want to talk about in terms of text styling is alignment.
+
+297
+00:17:21,069 --> 00:17:22,720
+So text alignment.
+
+298
+00:17:22,720 --> 00:17:30,120
+And this, this property called text align where you can set it to say centered or you can set it to
+
+299
+00:17:30,120 --> 00:17:32,580
+the left or to the right.
+
+300
+00:17:32,580 --> 00:17:36,810
+And you've also got some values like start and end.
+
+301
+00:17:36,810 --> 00:17:43,500
+And basically start is when you have text that maybe starts writing from the right to left, such as
+
+302
+00:17:43,500 --> 00:17:44,520
+in Arabic.
+
+303
+00:17:44,520 --> 00:17:49,680
+And so in this case, the start is actually here and the end is here.
+
+304
+00:17:49,680 --> 00:17:56,220
+But then if you're working with Western text, then the start will be right here and the end will be
+
+305
+00:17:56,220 --> 00:17:57,000
+right here.
+
+306
+00:17:57,120 --> 00:18:01,800
+That's just a more flexible way of determining the text align.
+
+307
+00:18:01,800 --> 00:18:10,410
+But all in all, this is a pretty simple property and you can take a look at it in the docs to learn
+
+308
+00:18:10,410 --> 00:18:18,780
+more about what the other values in addition to start end are and try the demo to see how they work.
+
+309
+00:18:19,200 --> 00:18:27,180
+Now once you've done all of that, I've got a final exercise for you and that's located in the index.html
+
+310
+00:18:27,210 --> 00:18:27,690
+here.
+
+311
+00:18:27,930 --> 00:18:36,160
+There's a number of to do's I want you to complete and I want you to go through them one by one.
+
+312
+00:18:36,160 --> 00:18:43,000
+It involves changing some colors, changing some font sizes, font weight, font, family, the text
+
+313
+00:18:43,000 --> 00:18:48,070
+align and also changing a root element font size.
+
+314
+00:18:48,580 --> 00:18:54,400
+The important thing is that you don't change any of the CSS that's already included, but instead write
+
+315
+00:18:54,400 --> 00:19:01,750
+your CSS below in this internal style element so that you can quickly refer to the to do's and see what
+
+316
+00:19:01,750 --> 00:19:03,760
+you need to write in the CSS.
+
+317
+00:19:03,790 --> 00:19:06,700
+Don't worry too much about setting external CSS.
+
+318
+00:19:06,730 --> 00:19:10,330
+We're just completing this as a quick exercise.
+
+319
+00:19:10,600 --> 00:19:15,190
+And remember, while you're doing this, if you want to see what the end result should look like, go
+
+320
+00:19:15,190 --> 00:19:17,110
+ahead into the goal dot PNG.
+
+321
+00:19:17,410 --> 00:19:22,000
+To see all the colors and layout and relative sizes of everything.
+
+322
+00:19:22,030 --> 00:19:25,570
+Pause the video now and go through each of these two dos.
+
+323
+00:19:28,500 --> 00:19:28,890
+All right.
+
+324
+00:19:28,890 --> 00:19:31,070
+So let's go through the solution together.
+
+325
+00:19:31,080 --> 00:19:38,670
+Now, step one was to change the color of this particular element to a named color called coral.
+
+326
+00:19:38,670 --> 00:19:41,370
+And the solution should look something like this.
+
+327
+00:19:42,090 --> 00:19:49,200
+The second one is to change the font size of this element to two times the size of the root element.
+
+328
+00:19:49,350 --> 00:19:56,340
+Remember, to do that, we have to use the REM and two times the size is two REM.
+
+329
+00:19:56,700 --> 00:20:01,980
+I've selected it based on the size ID and I've changed the font size to that.
+
+330
+00:20:03,050 --> 00:20:04,010
+The next step.
+
+331
+00:20:04,010 --> 00:20:12,380
+I've changed the font weight of this element to 900 by using the font weight property and then we change
+
+332
+00:20:12,380 --> 00:20:19,460
+the font family of this element to use the caveat font with a regular font weight.
+
+333
+00:20:19,670 --> 00:20:28,040
+So I selected that font from there and then I added in all the required links just before the end of
+
+334
+00:20:28,040 --> 00:20:28,790
+the head section.
+
+335
+00:20:28,790 --> 00:20:33,860
+But outside of the style section, this is very important in terms of placement.
+
+336
+00:20:33,860 --> 00:20:39,140
+And then I added in the font family and a backup font in case it goes wrong.
+
+337
+00:20:39,620 --> 00:20:44,990
+Next I changed this particular paragraph element so that it's right aligned.
+
+338
+00:20:44,990 --> 00:20:51,650
+And finally I change the route, which is the HTML element to have a 30 pixel font.
+
+339
+00:20:51,800 --> 00:21:00,350
+And when that was changed, then the two REM one, which is the font size element here, actually changes
+
+340
+00:21:00,350 --> 00:21:00,800
+with it.
+
+341
+00:21:00,800 --> 00:21:05,100
+So it gets bigger or it gets smaller depending on the route size.
+
+342
+00:21:05,100 --> 00:21:11,010
+So hopefully that was easy enough for you to complete and it tested you on all the things that we learned
+
+343
+00:21:11,010 --> 00:21:12,820
+in this lesson so far.
+
+344
+00:21:12,840 --> 00:21:18,540
+Once you're ready, head over to the next lesson where we're going to learn more about CSS inspection
+
+345
+00:21:18,540 --> 00:21:23,700
+and how you can find out what is happening with your CSS using the Chrome developer tools.
+
+346
+00:21:23,700 --> 00:21:26,220
+So for all of that and more, I'll see you there.
+
+
+347
+00:00:00,260 --> 00:00:05,570
+Hey guys, welcome to another lesson where we learn more about CSS.
+
+348
+00:00:05,689 --> 00:00:12,950
+Now in this lesson, we're going to deep dive into CSS inspection and learn about the Chrome developer
+
+349
+00:00:12,950 --> 00:00:20,300
+tools that allow us to figure out what our CSS is doing and potentially diagnose any bugs or resolve
+
+350
+00:00:20,300 --> 00:00:21,320
+any issues.
+
+351
+00:00:22,550 --> 00:00:28,220
+As I mentioned before, the Chrome developer tools are a really powerful suite of tools that is completely
+
+352
+00:00:28,220 --> 00:00:31,800
+free and comes bundled with the Chrome browser.
+
+353
+00:00:31,820 --> 00:00:35,570
+If you are not using a Chrome browser, you won't get access to it.
+
+354
+00:00:35,570 --> 00:00:41,780
+And it's really important, at least for this course, that you've got the same browser as I'm using
+
+355
+00:00:41,780 --> 00:00:44,090
+so that we can go through these tools together.
+
+356
+00:00:44,360 --> 00:00:50,960
+If you head over to this URL, which we visited before in the last section where I showed you how CSS
+
+357
+00:00:50,990 --> 00:00:57,920
+works and how we can simply add CSS to make our website look beautiful, then we can use this as an
+
+358
+00:00:57,920 --> 00:01:01,160
+example to learn more about CSS inspection.
+
+359
+00:01:01,430 --> 00:01:07,460
+In order to bring up the Chrome developer tools, we go over to these three dots and then we go to more
+
+360
+00:01:07,460 --> 00:01:10,160
+tools and we go to developer tools.
+
+361
+00:01:10,400 --> 00:01:19,310
+Now you'll notice that on the right hand side of this selection, you have the shortcut for your computer
+
+362
+00:01:19,340 --> 00:01:21,980
+on how you can bring it up quickly.
+
+363
+00:01:21,980 --> 00:01:22,810
+On a mac.
+
+364
+00:01:22,820 --> 00:01:32,780
+It's usually set by default to command option and I on Windows it's normally control plus shift plus
+
+365
+00:01:32,780 --> 00:01:33,050
+I.
+
+366
+00:01:33,080 --> 00:01:35,810
+So holding down those three keys together.
+
+367
+00:01:35,990 --> 00:01:41,840
+But if you have the function keys up here, pressing F12 usually also brings up the chrome developer
+
+368
+00:01:41,840 --> 00:01:42,650
+console.
+
+369
+00:01:42,650 --> 00:01:44,900
+But the shortcut could be totally different for you.
+
+370
+00:01:44,900 --> 00:01:49,730
+So make sure you take a look over here to figure out what your precise shortcut is.
+
+371
+00:01:50,030 --> 00:01:55,370
+Another way of bringing up this developer console is simply to right click on any element you're interested
+
+372
+00:01:55,370 --> 00:01:55,730
+in.
+
+373
+00:01:55,730 --> 00:02:00,740
+For example, this button and then click on inspect and it will do the same thing.
+
+374
+00:02:00,740 --> 00:02:06,200
+But in addition, it will highlight in the HTML that element that you selected.
+
+375
+00:02:06,230 --> 00:02:10,370
+Now what if you wanted to select a different element while you're here?
+
+376
+00:02:10,400 --> 00:02:17,210
+Well, you can use this button up here to select an element visually so you can click that and then
+
+377
+00:02:17,240 --> 00:02:22,500
+say, okay, I want to look at the footer here, this paragraph, Well, then it will select it for
+
+378
+00:02:22,500 --> 00:02:23,450
+you in the HTML.
+
+379
+00:02:23,460 --> 00:02:30,240
+Or I want to look at this H1 so you can select it visually or you can select it using the HTML.
+
+380
+00:02:30,810 --> 00:02:37,860
+This is the Elements tab and we're going to be exploring a subsection of this, which is the styles
+
+381
+00:02:37,860 --> 00:02:38,700
+section.
+
+382
+00:02:38,850 --> 00:02:45,570
+Notice that when I select any of these elements, it shows me the styles that have been applied to those
+
+383
+00:02:45,570 --> 00:02:46,330
+elements.
+
+384
+00:02:46,350 --> 00:02:52,590
+For example, if we take a look at this button, at least in the CSS on version, you'll see that it's
+
+385
+00:02:52,590 --> 00:02:54,480
+got a background color that I've set.
+
+386
+00:02:54,510 --> 00:02:59,340
+I've set a color for the text and lots of other things that we don't need to worry about too much right
+
+387
+00:02:59,340 --> 00:03:03,930
+now because in the next lesson we're going to learn more about different CSS properties.
+
+388
+00:03:03,930 --> 00:03:09,990
+But the important thing is that notice if I go ahead and press that button and switch off all the CSS
+
+389
+00:03:09,990 --> 00:03:17,250
+and I select that button again, then you can see that most of the element style is actually all automatic.
+
+390
+00:03:17,250 --> 00:03:24,780
+Whenever you insert a HTML element, it comes with automatic preloaded CSS and that's what you're getting.
+
+391
+00:03:24,780 --> 00:03:31,200
+By default, it looks something like this, but when you actually apply your own CSS, then it gets
+
+392
+00:03:31,200 --> 00:03:34,410
+shown here and you can even see which file it's coming from.
+
+393
+00:03:34,410 --> 00:03:41,460
+In this case, it's the Styles.css right here and you can click on it to view the source code of that
+
+394
+00:03:41,460 --> 00:03:42,300
+CSS.
+
+395
+00:03:43,290 --> 00:03:49,350
+The next thing I want to show you is how you can actually change the CSS live in the Chrome developer
+
+396
+00:03:49,350 --> 00:03:50,070
+tools.
+
+397
+00:03:50,160 --> 00:03:59,100
+Right now you can see I've got my H1 selected and by simply clicking add I can add a style to this H1.
+
+398
+00:03:59,100 --> 00:04:07,710
+So I could say let's change its color instead of white to um, maybe black instead.
+
+399
+00:04:07,710 --> 00:04:10,610
+And you can see that reflected live over here.
+
+400
+00:04:10,620 --> 00:04:16,440
+Now I can switch that off by hovering over here and clicking on the button to put a slash through it
+
+401
+00:04:16,440 --> 00:04:18,660
+and it deletes that CSS.
+
+402
+00:04:18,690 --> 00:04:24,720
+Now, the important thing to remember is any of the changes that you make in the Chrome developer tool
+
+403
+00:04:24,750 --> 00:04:28,020
+does not affect your original file.
+
+404
+00:04:28,050 --> 00:04:35,400
+Previously, remember we looked at TechCrunch using the Chrome developer tools and we were able to change
+
+405
+00:04:35,400 --> 00:04:40,050
+the text by simply typing in the Chrome developer tool.
+
+406
+00:04:40,500 --> 00:04:46,590
+This does not change Techcrunch's website and some of you have asked Is this illegal?
+
+407
+00:04:46,620 --> 00:04:47,760
+Am I doing something bad?
+
+408
+00:04:47,790 --> 00:04:48,360
+No, it doesn't.
+
+409
+00:04:48,360 --> 00:04:53,730
+It's just you affecting your local copy that's loaded up inside the Chrome browser.
+
+410
+00:04:53,730 --> 00:04:59,490
+It doesn't affect any of the other users and certainly doesn't change anything on Techcrunch's servers.
+
+411
+00:04:59,820 --> 00:05:07,470
+Similarly, back over here, when we're editing the CSS, when we are selecting or unselecting or adding
+
+412
+00:05:07,470 --> 00:05:11,040
+new rules, it doesn't affect the actual website.
+
+413
+00:05:11,370 --> 00:05:16,560
+Even if you load up one of your local websites that you're developing and you change a whole bunch of
+
+414
+00:05:16,560 --> 00:05:18,390
+things, this is just temporary.
+
+415
+00:05:18,390 --> 00:05:21,630
+It's for you to look and try things out and.
+
+416
+00:05:21,860 --> 00:05:28,130
+See how you like it before you add these rules into your actual CSS source code.
+
+417
+00:05:28,130 --> 00:05:32,720
+And you can further confirm this by seeing that I've got an H1 that says color black.
+
+418
+00:05:32,720 --> 00:05:39,950
+But if I go into the sources, my style.css for this file and I look in this file, you can see that
+
+419
+00:05:39,950 --> 00:05:41,810
+nothing has changed here.
+
+420
+00:05:42,140 --> 00:05:47,270
+There is no H1 that has a color of black.
+
+421
+00:05:47,600 --> 00:05:50,840
+Again, I recommend don't worry too much about the different properties.
+
+422
+00:05:50,840 --> 00:05:53,840
+There's lots of them that's coming up that we're going to talk about.
+
+423
+00:05:53,840 --> 00:05:59,780
+But the main thing to focus on here is how to use the inspector to understand other peoples as well
+
+424
+00:05:59,780 --> 00:06:03,080
+as your own websites and how the CSS is laid out.
+
+425
+00:06:03,560 --> 00:06:07,820
+If you go ahead and inspect on one of these anchor tags.
+
+426
+00:06:07,820 --> 00:06:11,240
+So when you click this and hover over it, you should see an A tag show up.
+
+427
+00:06:11,240 --> 00:06:14,390
+So click on it and it'll select it in the HTML.
+
+428
+00:06:14,420 --> 00:06:20,720
+Now, if you look over here, you can see that it's got some default properties that have been striked
+
+429
+00:06:20,720 --> 00:06:30,150
+out and the reason for this is because when we apply a CSS rule that conflicts with some of the automatically
+
+430
+00:06:30,150 --> 00:06:35,820
+applied rules, such as the color of that anchor tag, remember, by default, the color of any anchor
+
+431
+00:06:35,820 --> 00:06:37,710
+tag is blue to start with.
+
+432
+00:06:37,740 --> 00:06:39,810
+But here we've got one that's white.
+
+433
+00:06:39,840 --> 00:06:42,690
+Well, we've overridden it simply with this line.
+
+434
+00:06:42,690 --> 00:06:46,170
+So if I switch this off, you can see the other one switched back on.
+
+435
+00:06:46,170 --> 00:06:51,480
+But if I do have my own rules, then it can override other existing rules.
+
+436
+00:06:51,480 --> 00:06:55,860
+So how do you know what's actually being applied to your CSS element?
+
+437
+00:06:55,890 --> 00:07:01,230
+Well, that's where the computer tab comes in, because when you click on it, you'll see the actual
+
+438
+00:07:01,230 --> 00:07:03,030
+color in terms of RGB.
+
+439
+00:07:03,030 --> 00:07:09,600
+So how much red, green and blue is being applied to the text color and other properties as well.
+
+440
+00:07:09,600 --> 00:07:14,190
+And it removes all of the craziness of all this crossing out stuff.
+
+441
+00:07:14,190 --> 00:07:18,780
+And you can actually see in one place what is being applied.
+
+442
+00:07:19,140 --> 00:07:25,620
+Now another feature of Chrome Developer tool that I find really useful is to go over to the three dots,
+
+443
+00:07:25,650 --> 00:07:33,270
+go to more tools, and remember, this is the three dots for the settings of the Chrome developer tools,
+
+444
+00:07:33,270 --> 00:07:35,160
+not the one for Chrome.
+
+445
+00:07:35,160 --> 00:07:40,830
+This is easily confused, but when you go here and you go to more tools, you should find CSS overview.
+
+446
+00:07:40,830 --> 00:07:47,310
+And this is a neat feature where you can select capture overview and it will show you a bunch of useful
+
+447
+00:07:47,310 --> 00:07:51,210
+things like, for example, that there are two background colors here.
+
+448
+00:07:51,210 --> 00:07:55,410
+There's a sort of whitish gray and there's a sort of purple going on.
+
+449
+00:07:55,440 --> 00:07:59,160
+There's two different text colors, white and black.
+
+450
+00:07:59,280 --> 00:08:04,470
+And we've also got information on the different fonts that are being used on the web page.
+
+451
+00:08:05,160 --> 00:08:10,080
+I find this really neat when I come across a website that I really like and I'm trying to figure out,
+
+452
+00:08:10,080 --> 00:08:11,850
+Oh, what font is that?
+
+453
+00:08:11,880 --> 00:08:18,120
+Well, it seems like they're using Helvetica Neue or What color is this green Exactly.
+
+454
+00:08:18,120 --> 00:08:24,330
+Well, I can actually find out simply by looking at this inspector and maybe I can copy it for my own
+
+455
+00:08:24,330 --> 00:08:25,380
+use later on.
+
+456
+00:08:25,380 --> 00:08:27,840
+So you can see the colors, you can see the fonts.
+
+457
+00:08:27,840 --> 00:08:31,290
+And for now, we won't worry too much about the last two.
+
+458
+00:08:31,320 --> 00:08:34,200
+We'll come to that in later modules.
+
+459
+00:08:34,530 --> 00:08:42,179
+Have a play around with the CSS inspector and I want you to take a look at selecting different elements,
+
+460
+00:08:42,179 --> 00:08:48,780
+looking at their styles, trying to add some styles in the Chrome developer tool and looking around
+
+461
+00:08:48,780 --> 00:08:51,030
+at some of the other things we've mentioned.
+
+462
+00:08:51,480 --> 00:08:57,100
+Once you're happy that you know how to do that, I want you to head over to this URL at Brewery dot
+
+463
+00:08:57,120 --> 00:09:06,030
+Github.io slash CSS dash inspection and I've created a website for you to inspect in this website.
+
+464
+00:09:06,030 --> 00:09:15,870
+We've got some things that are on the screen and this is an H1 and H2 and a paragraph tag.
+
+465
+00:09:15,870 --> 00:09:24,780
+Now I want you to use the CSS inspector to answer these four quiz questions and once you've put in the
+
+466
+00:09:24,780 --> 00:09:28,950
+answer, click submit and you'll see if you got it right or if you got it wrong.
+
+467
+00:09:29,370 --> 00:09:32,940
+Pause the video and try to complete this challenge.
+
+468
+00:09:34,940 --> 00:09:35,300
+All right.
+
+469
+00:09:35,300 --> 00:09:40,280
+So the first question is, what is the named color of the body?
+
+470
+00:09:40,310 --> 00:09:41,810
+Well, what is the color?
+
+471
+00:09:41,810 --> 00:09:48,350
+So let's go ahead and pull up our inspector and let's select the body element if we haven't already
+
+472
+00:09:48,350 --> 00:09:50,330
+got it selected in the HTML.
+
+473
+00:09:50,330 --> 00:09:53,380
+And let's take a look at what styles are applied.
+
+474
+00:09:53,390 --> 00:09:56,810
+You can see it's got a background color that's being applied.
+
+475
+00:09:56,810 --> 00:10:01,430
+And if we switch it off, you can see it changes it to the default, which is white.
+
+476
+00:10:01,430 --> 00:10:05,630
+So this is the background color of the body and it's called Alice Blue.
+
+477
+00:10:05,660 --> 00:10:11,720
+If I type that in here and click submit, then I get my answer correct.
+
+478
+00:10:11,960 --> 00:10:14,000
+Now let's move on to the second question.
+
+479
+00:10:14,000 --> 00:10:16,580
+What's the font size of the H1?
+
+480
+00:10:16,580 --> 00:10:23,300
+Let's select the H1 right here and let's take a look at the font size that's mentioned here.
+
+481
+00:10:23,300 --> 00:10:28,130
+Well, it says it's three REM, which makes it a lot bigger than the default.
+
+482
+00:10:28,130 --> 00:10:32,840
+So let's type three REM in here, hit submit.
+
+483
+00:10:32,840 --> 00:10:39,660
+And we got that question right to number three is what is the font weight of the H2?
+
+484
+00:10:39,690 --> 00:10:45,900
+Select the H2, look at the font weight, its font weight 500.
+
+485
+00:10:46,170 --> 00:10:46,740
+Okay.
+
+486
+00:10:46,740 --> 00:10:48,180
+And hit submit.
+
+487
+00:10:48,600 --> 00:10:54,000
+And finally, what's the font family of the paragraph tag?
+
+488
+00:10:54,000 --> 00:10:59,640
+So let's select the paragraph tag and then look at the font family.
+
+489
+00:10:59,640 --> 00:11:06,240
+And this is a little bit tricky because it's actually not applied directly to the paragraph, but it's
+
+490
+00:11:06,270 --> 00:11:10,680
+actually one of the automatically inherited parts.
+
+491
+00:11:10,680 --> 00:11:13,710
+So you can see down here it says the font family.
+
+492
+00:11:13,710 --> 00:11:19,470
+And also if you go to computed where everything's all stacked up together, as I mentioned, where you
+
+493
+00:11:19,470 --> 00:11:24,570
+don't have to go through the entire list of what's being striked out, what's being applied, etcetera.
+
+494
+00:11:24,570 --> 00:11:29,310
+You can see the font family is Ariel comma sans serif.
+
+495
+00:11:29,310 --> 00:11:37,560
+So Ariel comma, sans serif and hit submit and we get all our answers correct.
+
+496
+00:11:37,560 --> 00:11:39,360
+So did you manage to do that?
+
+497
+00:11:39,360 --> 00:11:43,200
+Did you manage to use the inspector to figure out the answers to these questions?
+
+498
+00:11:43,200 --> 00:11:48,870
+If not, be sure to review the previous parts of this video so that you understand exactly what's going
+
+499
+00:11:48,870 --> 00:11:51,450
+on before you move on to the next lesson.
+
+
+500
+00:00:00,350 --> 00:00:00,980
+Hey, guys.
+
+501
+00:00:00,980 --> 00:00:07,190
+In this lesson, we're going to talk about some other really important properties and the ones that
+
+502
+00:00:07,190 --> 00:00:12,140
+you might have already seen if you've been doing a little bit of inspection around the Internet.
+
+503
+00:00:12,140 --> 00:00:19,670
+And these are margin padding and the border properties and these three properties, along with width
+
+504
+00:00:19,670 --> 00:00:25,760
+and height, form a really important CSS concept known as the box model.
+
+505
+00:00:25,760 --> 00:00:27,830
+So what exactly is it?
+
+506
+00:00:27,860 --> 00:00:33,110
+Well, if you think about a typical website here, I've created one called I Love Bacon.
+
+507
+00:00:33,140 --> 00:00:38,000
+Then you've got different components that are on screen, different HTML elements.
+
+508
+00:00:38,000 --> 00:00:46,820
+And even though we can't really see it effectively, each element is a box in itself and we can change
+
+509
+00:00:46,820 --> 00:00:51,110
+the dimensions of those boxes by changing things such as width and height.
+
+510
+00:00:51,110 --> 00:00:54,230
+So in this case, I've made my bacon much, much bigger.
+
+511
+00:00:54,230 --> 00:01:00,290
+And that invisible box around the element describes how it would be laid out on screen.
+
+512
+00:01:00,290 --> 00:01:06,980
+If we have an element that has a height of 300 pixels, we can change that height to allow our element
+
+513
+00:01:06,980 --> 00:01:10,100
+to take up more vertical spacing on the web page.
+
+514
+00:01:10,130 --> 00:01:18,020
+And when this happens, it pushes the box of any other elements lower on the web page.
+
+515
+00:01:18,380 --> 00:01:24,470
+Now, similarly, we can also change the width of an element to allow it to take up more space horizontally.
+
+516
+00:01:24,470 --> 00:01:31,280
+And we can either do this using pixels as defined here or we can use percentages.
+
+517
+00:01:31,280 --> 00:01:38,390
+So in this case, we've gotten our blue element to take up the entire width of the website and that
+
+518
+00:01:38,390 --> 00:01:43,580
+can be done using percentages in addition to width and height.
+
+519
+00:01:43,610 --> 00:01:48,500
+We can also set a border on each of the HTML elements.
+
+520
+00:01:48,500 --> 00:01:55,250
+If you imagine, again each HTML element being a box, then this would be the border of the box.
+
+521
+00:01:55,970 --> 00:02:01,950
+And the way that the border property works is a little bit different from what you might have seen before.
+
+522
+00:02:02,070 --> 00:02:07,650
+It can take three values separated by a space.
+
+523
+00:02:07,860 --> 00:02:13,680
+The first value that you should provide is the thickness of the border.
+
+524
+00:02:14,190 --> 00:02:18,510
+And this, as you can see here, is the thickness of this line.
+
+525
+00:02:18,510 --> 00:02:21,720
+If I made it thicker, then it would look like this.
+
+526
+00:02:21,720 --> 00:02:26,910
+And so we can provide a pixel value for the thickness as the first item.
+
+527
+00:02:27,090 --> 00:02:31,140
+Now, the second item is the style of the border.
+
+528
+00:02:31,170 --> 00:02:37,440
+You can have, for example, solid, but you can also have a dashed line, in which case the border
+
+529
+00:02:37,440 --> 00:02:43,710
+would look something like this instead of a solid line as we've gotten here.
+
+530
+00:02:44,700 --> 00:02:52,500
+And finally, we've got the color of the border in which you can set to any named color or hex color
+
+531
+00:02:52,500 --> 00:02:59,400
+as we've covered in the color properties lesson, These are three items together determine what the
+
+532
+00:02:59,400 --> 00:03:01,790
+border should look like.
+
+533
+00:03:01,790 --> 00:03:09,380
+So if I was to change the border from ten pixels to 30 pixels, then we would get a lot thicker of a
+
+534
+00:03:09,380 --> 00:03:10,040
+border.
+
+535
+00:03:10,040 --> 00:03:18,350
+But remember, the important thing is that the height and the width of your HTML element, your box
+
+536
+00:03:18,350 --> 00:03:19,840
+does not change.
+
+537
+00:03:19,850 --> 00:03:23,870
+It's exactly the same as what it was before.
+
+538
+00:03:23,870 --> 00:03:28,580
+So this border actually goes outwards rather than inwards.
+
+539
+00:03:28,580 --> 00:03:31,100
+And that's the important thing to remember here.
+
+540
+00:03:32,030 --> 00:03:38,780
+Now, once you've defined a border, you can further modify it with more specific rules.
+
+541
+00:03:38,780 --> 00:03:46,430
+So, for example, in this case, I've got a around 30 pixels solid black border around my element.
+
+542
+00:03:46,430 --> 00:03:53,270
+But then afterwards on the next line and this is very important where this line goes, it has to go
+
+543
+00:03:53,270 --> 00:03:55,730
+after the point where we've created the border.
+
+544
+00:03:56,240 --> 00:04:02,550
+In this case, I'm saying I want the top of that border to be zero pixels instead.
+
+545
+00:04:02,550 --> 00:04:09,030
+And, well, the way that these rules are evaluated is first they will look at this line creating this
+
+546
+00:04:09,030 --> 00:04:11,970
+border, which is 30 pixels all around.
+
+547
+00:04:11,970 --> 00:04:18,480
+But then once it lands on the next line, it evaluates this rule and sees that actually I should amend
+
+548
+00:04:18,510 --> 00:04:21,570
+the top of the border to have zero pixels.
+
+549
+00:04:21,570 --> 00:04:25,770
+So effectively getting rid of the border at the top here.
+
+550
+00:04:26,520 --> 00:04:33,270
+This border width works similarly to the way that the border property works, namely that it can take
+
+551
+00:04:33,270 --> 00:04:35,970
+a maximum of four values.
+
+552
+00:04:36,000 --> 00:04:45,570
+The first value is the top, the second is the right, third is the bottom, and the fourth is the left.
+
+553
+00:04:45,600 --> 00:04:48,930
+It goes in a clockwise direction.
+
+554
+00:04:49,110 --> 00:04:54,690
+In addition, you can also just provide two values for the border width.
+
+555
+00:04:54,720 --> 00:04:59,790
+And what that does is it sets one and three.
+
+556
+00:05:00,040 --> 00:05:03,460
+And then it sets two and four.
+
+557
+00:05:03,700 --> 00:05:12,940
+For example, if my border width, I had set to zero pixels and 20 pixels, then what that would do
+
+558
+00:05:12,940 --> 00:05:19,720
+is it would set two and four, which is the left and right to 20 pixels, and then it would set one
+
+559
+00:05:19,720 --> 00:05:21,700
+and 3 to 0 pixels.
+
+560
+00:05:21,730 --> 00:05:24,850
+This then becomes top and bottom.
+
+561
+00:05:26,190 --> 00:05:29,730
+And then we've got our left and right.
+
+562
+00:05:31,560 --> 00:05:37,530
+Now, another property I want to talk about in regards to the box model is something called padding.
+
+563
+00:05:37,530 --> 00:05:41,760
+And this is most easily seen when we have content such as text.
+
+564
+00:05:41,850 --> 00:05:48,210
+So in this case, imagine that this blue box is a paragraph element.
+
+565
+00:05:48,300 --> 00:05:53,460
+And in the paragraph element we've got Hello world repeated many, many times.
+
+566
+00:05:53,610 --> 00:06:02,070
+This paragraph element has got a border property and it's a solid black border, measuring 30 pixels
+
+567
+00:06:02,070 --> 00:06:03,120
+wide all around.
+
+568
+00:06:04,160 --> 00:06:14,030
+If at this point I add a padding property to this element, then what would happen is it would push
+
+569
+00:06:14,030 --> 00:06:18,770
+my border out by 20 pixels.
+
+570
+00:06:18,770 --> 00:06:23,900
+And in this case, I'm pushing it by 20 on all sides.
+
+571
+00:06:24,260 --> 00:06:33,260
+And notice how, again, in this situation, the height and the width of this box does not change.
+
+572
+00:06:33,260 --> 00:06:34,690
+It's still the same.
+
+573
+00:06:34,700 --> 00:06:43,190
+The padding simply adds this padding or space between the element and the border.
+
+574
+00:06:43,880 --> 00:06:48,180
+In addition to the padding, there's also something known as a margin.
+
+575
+00:06:48,200 --> 00:06:54,330
+And the margin is actually the part that's outside of the border.
+
+576
+00:06:54,350 --> 00:07:03,170
+So here again is the border in between the border and the width and height of the element.
+
+577
+00:07:03,860 --> 00:07:12,680
+Is the padding and the part between the border and any other content that's on screen is the margin.
+
+578
+00:07:12,680 --> 00:07:18,410
+So in this case, we've added a margin of ten pixels on all four sides.
+
+579
+00:07:19,010 --> 00:07:27,170
+If you imagine, we had two elements, each with the same padding, margin and border, then this margin
+
+580
+00:07:27,170 --> 00:07:35,060
+or this distance between the two elements in this case will actually be 20 pixels because it's ten pixels
+
+581
+00:07:35,060 --> 00:07:37,700
+from this side and ten pixels from this side.
+
+582
+00:07:37,700 --> 00:07:43,390
+And it adds this spacing between elements that you would not get with the padding.
+
+583
+00:07:43,400 --> 00:07:45,980
+So that is the main difference.
+
+584
+00:07:47,020 --> 00:07:56,530
+In your inspection, you might have seen the box model already shown in the inspector, and it shows
+
+585
+00:07:56,530 --> 00:08:01,090
+you the margin, the border, the padding and the width and height.
+
+586
+00:08:01,180 --> 00:08:05,330
+So that's what all of these different colors represent.
+
+587
+00:08:05,350 --> 00:08:13,450
+And when you take a look at the box model on inspection, then you can actually change each of these
+
+588
+00:08:13,450 --> 00:08:18,460
+values to see how it would look differently if you head over to this address.
+
+589
+00:08:18,490 --> 00:08:25,960
+App dot Github.io forward slash box dash model, and then we go ahead and open up the developer tools
+
+590
+00:08:25,960 --> 00:08:34,690
+and we select on the first image here, which shows a daytime world and we go into the box model that's
+
+591
+00:08:34,690 --> 00:08:36,390
+under the Styles tab.
+
+592
+00:08:36,400 --> 00:08:43,720
+If I go ahead and add a margin right here, let's say, I don't know, 100 pixels, then it's going
+
+593
+00:08:43,720 --> 00:08:45,220
+to add that gap.
+
+594
+00:08:45,220 --> 00:08:50,630
+Did you see it just now, that gap between that image and anything that's below it?
+
+595
+00:08:50,780 --> 00:09:00,470
+And similarly, if I add a little bit of a margin above, say, 100 pixels, then you can see it adds
+
+596
+00:09:00,470 --> 00:09:05,840
+a gap between that image and the next element above, which is that paragraph tag.
+
+597
+00:09:05,930 --> 00:09:14,720
+However, if I added the padding as 100 pixels, then you'll see it add the space as well.
+
+598
+00:09:14,720 --> 00:09:19,520
+But it's actually inside the border of the image.
+
+599
+00:09:20,030 --> 00:09:30,200
+If this element actually had a border which will set as a ten pixels solid black, then you can see
+
+600
+00:09:30,200 --> 00:09:35,060
+how that padding goes to a different place versus where the border goes.
+
+601
+00:09:35,060 --> 00:09:41,960
+And this box model is going to come really, really handy when you start to try and lay out different
+
+602
+00:09:41,960 --> 00:09:48,290
+items on your website determining how they look and where they're placed Relative to each other.
+
+603
+00:09:48,620 --> 00:09:57,350
+The final thing I wanted to mention is that padding and margin, similar to what we saw for the border
+
+604
+00:09:57,680 --> 00:10:07,460
+and also the border width function in that same way where we've got one, two, three and four values
+
+605
+00:10:07,460 --> 00:10:16,190
+that we can provide and if we provide a different value for each of them, so zero, ten, 20 and 30
+
+606
+00:10:16,190 --> 00:10:22,490
+pixels, then this will determine how it looks on all four sides.
+
+607
+00:10:22,490 --> 00:10:30,830
+And you have to remember that this is where the first value is second, and it goes around in a clockwise
+
+608
+00:10:30,830 --> 00:10:31,790
+direction.
+
+609
+00:10:32,240 --> 00:10:37,460
+Again, with the border width, you can change to only provide two values.
+
+610
+00:10:37,460 --> 00:10:47,390
+So say ten pixels and 40 pixels, then this is going to be applied to the top and the bottom and also
+
+611
+00:10:47,390 --> 00:10:49,490
+the left and the right.
+
+612
+00:10:49,910 --> 00:10:57,980
+So this is just a particular way of how these three properties can accept multiple values.
+
+613
+00:10:57,980 --> 00:11:06,140
+If you only set one value, say ten pixels, then that's going to affect all sides in addition to the
+
+614
+00:11:06,140 --> 00:11:13,670
+boxes that are created by elements, we can actually create our own boxes independent of that, and
+
+615
+00:11:13,670 --> 00:11:19,460
+that's really useful when we want to group different bits of content together so that we can style it
+
+616
+00:11:19,460 --> 00:11:20,030
+together.
+
+617
+00:11:20,030 --> 00:11:22,250
+Or maybe we want to lay it out together.
+
+618
+00:11:22,250 --> 00:11:31,100
+For example, here we have an image and maybe I would want the image to have a caption and I would probably
+
+619
+00:11:31,100 --> 00:11:38,390
+want to style these two bits together so I can wrap a box around these two elements.
+
+620
+00:11:38,510 --> 00:11:46,130
+And the way that I would create these artificial boxes is through the use of a HTML element, which
+
+621
+00:11:46,130 --> 00:11:48,980
+is called the content division element.
+
+622
+00:11:48,980 --> 00:11:55,300
+There was no point learning about the div element before we could learn about CSS because these are
+
+623
+00:11:55,300 --> 00:12:04,960
+completely invisible unless you apply CSS style to it and the whole purpose is to act as an invisible
+
+624
+00:12:04,990 --> 00:12:12,100
+box that can contain content in between the opening and the closing tags.
+
+625
+00:12:12,250 --> 00:12:20,290
+In the middle, we can put as many elements as we want and we can group them into separate boxes known
+
+626
+00:12:20,290 --> 00:12:21,640
+as Divs.
+
+627
+00:12:22,540 --> 00:12:30,640
+So here I've got the HTML code from that website I showed you earlier with the two versions of our world
+
+628
+00:12:30,640 --> 00:12:32,980
+the Morning and the Evening View.
+
+629
+00:12:32,980 --> 00:12:38,620
+And it's really simple and I've only just taken the body section of the HTML.
+
+630
+00:12:38,620 --> 00:12:45,610
+But here notice that we've got a paragraph tag and an image tag and they're grouped together through
+
+631
+00:12:45,610 --> 00:12:46,060
+the use.
+
+632
+00:12:46,260 --> 00:12:52,800
+Of this div element and notice that the div element doesn't really do anything else other than act as
+
+633
+00:12:52,800 --> 00:13:00,690
+a container to group this section together so that it's separated from other content.
+
+634
+00:13:00,690 --> 00:13:03,240
+For example, this section right here.
+
+635
+00:13:04,290 --> 00:13:11,400
+And now we've not only added meaning to our HTML by saying this is one section of content and this is
+
+636
+00:13:11,400 --> 00:13:17,070
+another section of content, but in addition we can style them differently in CSS.
+
+637
+00:13:17,700 --> 00:13:21,210
+When we run our code, this is what the website would look like.
+
+638
+00:13:21,240 --> 00:13:29,220
+You would not see any of these div elements, but if we were able to see them then they would look like
+
+639
+00:13:29,220 --> 00:13:29,640
+this.
+
+640
+00:13:29,640 --> 00:13:35,010
+Grouping our elements together because these divs are invisible.
+
+641
+00:13:35,010 --> 00:13:41,010
+Sometimes it can be really hard to debug them and understand what's going on or more likely what's going
+
+642
+00:13:41,010 --> 00:13:42,690
+wrong with your CSS.
+
+643
+00:13:42,900 --> 00:13:50,640
+So there's a free Chrome extension that I recommend you download to make this process of debugging a
+
+644
+00:13:50,640 --> 00:13:54,510
+little bit easier and hence that's why it's called pesticide.
+
+645
+00:13:54,540 --> 00:13:57,630
+We're going to use it to get rid of bugs in our CSS.
+
+646
+00:13:58,200 --> 00:14:05,410
+I'll add a link to this Chrome extension and all you have to do is click add to Chrome and then add
+
+647
+00:14:05,410 --> 00:14:06,430
+extension.
+
+648
+00:14:06,430 --> 00:14:12,910
+And once you've got it, then you should be able to look inside your extensions and then open it up
+
+649
+00:14:12,910 --> 00:14:14,410
+to activate it.
+
+650
+00:14:14,440 --> 00:14:16,000
+Now what does it do?
+
+651
+00:14:16,030 --> 00:14:17,320
+Well, let's demo it.
+
+652
+00:14:17,410 --> 00:14:23,800
+In addition to the suite of developer tools you've got now, you've also got the pesticide working for
+
+653
+00:14:23,800 --> 00:14:24,300
+you.
+
+654
+00:14:24,310 --> 00:14:32,950
+And once you activate it, you can see these div boxes now show up on screen and you can also see the
+
+655
+00:14:32,950 --> 00:14:38,890
+different elements highlighted in boxes and it really helps you diagnose what's wrong with your box
+
+656
+00:14:38,890 --> 00:14:40,750
+model when it does go wrong.
+
+657
+00:14:40,840 --> 00:14:46,360
+In addition, if you close down the Chrome developer tools and hold down the control key, when you
+
+658
+00:14:46,390 --> 00:14:53,980
+hover on each of these boxes down at the bottom of the screen, you can see how it tells you which node
+
+659
+00:14:53,980 --> 00:14:55,360
+you're actually hovering on.
+
+660
+00:14:55,360 --> 00:15:02,200
+So in this case, I'm inside a div and it shows you if there are any classes or IDs on that div as well.
+
+661
+00:15:02,200 --> 00:15:09,070
+And then here I'm hovering on an image element and here I'm hovering on a paragraph element and this
+
+662
+00:15:09,070 --> 00:15:15,850
+can be really helpful for you to see exactly what's on screen and almost like put on night vision goggles
+
+663
+00:15:15,850 --> 00:15:21,010
+so that we can see our divs and our elements and their alignment and their sizing.
+
+664
+00:15:21,640 --> 00:15:27,090
+Finally, we're going to use everything that we've learned and put it all together in this exercise.
+
+665
+00:15:27,230 --> 00:15:30,070
+We're going to write some code and apply our knowledge.
+
+666
+00:15:30,250 --> 00:15:37,300
+Go ahead and download this zip file from this current lesson, extract it and open it inside vs code.
+
+667
+00:15:37,630 --> 00:15:43,930
+Now, once you've done that, open up the index.html and you should see a bunch of to do's.
+
+668
+00:15:44,110 --> 00:15:50,800
+I want you to follow each of the steps one by one, just as if you were a web developer following client
+
+669
+00:15:50,800 --> 00:15:51,790
+instructions.
+
+670
+00:15:51,790 --> 00:15:57,250
+And we're going to use everything you've learned so far in order to create something that looks like
+
+671
+00:15:57,250 --> 00:15:57,860
+this.
+
+672
+00:15:57,880 --> 00:16:03,420
+Now, I've marked up this page a little bit so I can show you the important parts of the requirements.
+
+673
+00:16:03,430 --> 00:16:11,050
+For example, notice that here I've said 20 pixel padding, and that applies to the distance between
+
+674
+00:16:11,050 --> 00:16:14,110
+that paragraph tag and the border.
+
+675
+00:16:14,620 --> 00:16:20,740
+And then here I've said it should have a 20 pixel border at the top and at the bottom, but then only
+
+676
+00:16:20,740 --> 00:16:23,560
+a ten pixel border on the left and the right.
+
+677
+00:16:23,680 --> 00:16:27,270
+And notice that the layout is very specific here.
+
+678
+00:16:27,280 --> 00:16:31,330
+Each of these boxes should be touching corner to corner.
+
+679
+00:16:31,330 --> 00:16:37,570
+So you're going to have to figure out how to use the margin property in order to push these boxes around
+
+680
+00:16:37,570 --> 00:16:42,400
+so that they're literally aligned right up to each other on the same pixel.
+
+681
+00:16:42,850 --> 00:16:50,200
+I'm going to leave you to pause the video and go through each of these requirements and hopefully you
+
+682
+00:16:50,200 --> 00:16:54,730
+will be able to create a website that looks like the goal image.
+
+683
+00:16:54,850 --> 00:16:58,930
+Pause the video now and complete this challenge.
+
+684
+00:17:01,460 --> 00:17:01,850
+All right.
+
+685
+00:17:01,850 --> 00:17:04,230
+So let's go through the solution together.
+
+686
+00:17:04,250 --> 00:17:12,319
+Now, the first thing you'll notice is we've created three Divs and I've added a paragraph tag into
+
+687
+00:17:12,319 --> 00:17:16,490
+the first div so that we can see our padding a bit more easily.
+
+688
+00:17:16,790 --> 00:17:23,569
+The next thing is we've set each of the divs height and width to a pixel size, namely 200 pixels.
+
+689
+00:17:23,900 --> 00:17:31,400
+Next I've added a paragraph element inside the first div so that we can see any padding that gets added
+
+690
+00:17:31,400 --> 00:17:32,600
+very easily.
+
+691
+00:17:32,810 --> 00:17:40,280
+And I've set the first div to have 20 pixels of padding all around with a black ten pixel border and
+
+692
+00:17:40,280 --> 00:17:42,860
+that you can see under here.
+
+693
+00:17:42,950 --> 00:17:50,780
+Now notice how I've used different IDs for the different boxes or divs, and this way I can uniquely
+
+694
+00:17:50,780 --> 00:17:54,440
+identify each div and set different styling to them.
+
+695
+00:17:55,510 --> 00:17:56,410
+Next step.
+
+696
+00:17:56,410 --> 00:18:03,460
+I've targeted the paragraph element so that I remove any of the margins that go on it, because if we
+
+697
+00:18:03,460 --> 00:18:13,240
+preview our solution and open this up inside Chrome, you can see that by default, each paragraph element
+
+698
+00:18:13,240 --> 00:18:17,800
+actually gets one m of margin at the start and the end.
+
+699
+00:18:17,800 --> 00:18:23,650
+So if I cancel this, you can see how it pushes that away from the containing div.
+
+700
+00:18:23,680 --> 00:18:29,380
+So we wanted to add the zero margin so that we would have it centered and it would not be affected by
+
+701
+00:18:29,380 --> 00:18:30,750
+its default styling.
+
+702
+00:18:30,760 --> 00:18:38,230
+Next we had you set the second div to have a 20 pixel border, top and bottom and ten pixel border left
+
+703
+00:18:38,230 --> 00:18:39,250
+and right.
+
+704
+00:18:39,250 --> 00:18:46,510
+And if you remember from the lesson this is achieved through that multi-value method of setting border
+
+705
+00:18:46,510 --> 00:18:46,870
+width.
+
+706
+00:18:46,870 --> 00:18:50,110
+So the first value is top and bottom.
+
+707
+00:18:50,110 --> 00:18:53,890
+And then after space we have the second value for the left and right.
+
+708
+00:18:53,890 --> 00:18:59,900
+And even if you hover over this, usually the code is quite helpful for pulling up the reference on
+
+709
+00:18:59,900 --> 00:19:02,570
+this and it tells you how the rules work.
+
+710
+00:19:02,570 --> 00:19:03,980
+So that's a quick tip.
+
+711
+00:19:04,670 --> 00:19:11,900
+Finally, we set the third div to have a ten pixel border and I wanted you to set the margins so that
+
+712
+00:19:11,900 --> 00:19:14,360
+they would each touch corner to corner.
+
+713
+00:19:14,390 --> 00:19:18,020
+Now that could be done either by trial and error.
+
+714
+00:19:18,050 --> 00:19:24,290
+Alternatively, you can also work it out because if you think about this first div right here, it's
+
+715
+00:19:24,290 --> 00:19:29,990
+got a width of 200 pixels, so this part is 200.
+
+716
+00:19:29,990 --> 00:19:35,420
+But in addition it's also got a border of ten pixels all around.
+
+717
+00:19:35,420 --> 00:19:39,590
+So then we have to add ten and ten here.
+
+718
+00:19:39,770 --> 00:19:42,590
+Now that takes us up to 220.
+
+719
+00:19:42,590 --> 00:19:47,060
+But in addition, remember that we added 20 pixels of padding all around.
+
+720
+00:19:47,060 --> 00:19:51,080
+So then there's 20 here and 20 here.
+
+721
+00:19:51,080 --> 00:20:00,710
+So then if we add it all up, 200 plus 20 plus 20 plus ten, ten, that ends up with 260 pixels.
+
+722
+00:20:00,710 --> 00:20:08,630
+So then we know that we have to push the second div over by 260 pixels and we can do that using the
+
+723
+00:20:08,630 --> 00:20:13,610
+margin left setting, which is how we manage to push this box over.
+
+724
+00:20:13,610 --> 00:20:19,340
+And in a similar way we can work out how much to push this third box as well.
+
+725
+00:20:20,300 --> 00:20:26,330
+I hope this challenge was sufficiently challenging enough for you, but don't worry if it's not because
+
+726
+00:20:26,330 --> 00:20:31,430
+there's way more challenging layouts are coming up in the rest of the course and you're going to be
+
+727
+00:20:31,460 --> 00:20:37,010
+able to flex your box model muscles in the coming sections as well.
+
+728
+00:20:37,040 --> 00:20:42,740
+But once you're ready and you've reviewed your code and fixed any errors, head over to the next lesson
+
+729
+00:20:42,740 --> 00:20:45,590
+where we've got the final project for the section.
+
+
+730
+00:00:00,290 --> 00:00:00,680
+All right.
+
+731
+00:00:00,680 --> 00:00:07,070
+So for the final project, we're going to be building a motivational poster website and we're going
+
+732
+00:00:07,070 --> 00:00:09,000
+to make our own memes.
+
+733
+00:00:09,020 --> 00:00:11,880
+You might have seen some of these around the Internet.
+
+734
+00:00:11,900 --> 00:00:17,780
+There are the serious ones which are based off these 90 seconds motivational posters where you have
+
+735
+00:00:17,780 --> 00:00:23,280
+some sort of title and you have some sort of motivational text like potential.
+
+736
+00:00:23,300 --> 00:00:27,620
+We all have the tools for greatness within us, and I believe that is true.
+
+737
+00:00:27,620 --> 00:00:29,650
+And you've got a cute little Arctic fox.
+
+738
+00:00:29,660 --> 00:00:33,510
+But also there are some pretty hilarious ones like Coolness.
+
+739
+00:00:33,530 --> 00:00:36,410
+You may be cool, but you'll never be for popped collars.
+
+740
+00:00:36,410 --> 00:00:37,850
+Cool like this guy.
+
+741
+00:00:37,970 --> 00:00:43,850
+So the goal is to make our own website where we can create our own motivational poster.
+
+742
+00:00:44,030 --> 00:00:50,090
+The important part of a motivational poster is there is a image that is going to be big.
+
+743
+00:00:50,090 --> 00:00:53,870
+There is a border around the image.
+
+744
+00:00:53,870 --> 00:00:56,970
+So we now know all about borders and we can do that.
+
+745
+00:00:56,990 --> 00:01:04,690
+We have a black background and that is easy because we know all about CSS color properties.
+
+746
+00:01:04,709 --> 00:01:13,560
+We have a big main title, which we're going to use a custom font for to mimic this font a little bit
+
+747
+00:01:13,560 --> 00:01:14,250
+better.
+
+748
+00:01:14,250 --> 00:01:20,910
+And finally, we have a paragraph at the bottom and we're going to figure out how we're going to center
+
+749
+00:01:20,910 --> 00:01:26,850
+things on the screen, how to add borders and how to apply basically everything that we've learned so
+
+750
+00:01:26,850 --> 00:01:28,260
+far in this section.
+
+751
+00:01:28,620 --> 00:01:35,520
+Go ahead and download the starting project files for the Motivation Meme Project and extract it and
+
+752
+00:01:35,520 --> 00:01:38,100
+then open it up inside vs code.
+
+753
+00:01:38,310 --> 00:01:44,190
+I've created the task in a sort of to do list breakdown for you.
+
+754
+00:01:44,220 --> 00:01:49,740
+Now the main thing is that it's your website, it's your project, and as with all the projects in the
+
+755
+00:01:49,740 --> 00:01:52,920
+course, it's totally up to you how you want to create it.
+
+756
+00:01:52,920 --> 00:01:59,100
+But there are some caveats and it's important that you touch all of the learning points.
+
+757
+00:01:59,100 --> 00:02:06,690
+So these six points are important, and after completing these six points, you can change your website,
+
+758
+00:02:06,690 --> 00:02:12,120
+you can mess with it however you like, but want to make sure that everything you've learned so far
+
+759
+00:02:12,120 --> 00:02:15,150
+has consolidated and it all makes sense.
+
+760
+00:02:15,570 --> 00:02:23,040
+We're going to use a custom font from Google called The Libre Baskerville, which looks somewhat similar
+
+761
+00:02:23,040 --> 00:02:26,550
+to the motivational main title font.
+
+762
+00:02:26,910 --> 00:02:32,850
+You should add your own image into the images folder under the assets folder.
+
+763
+00:02:32,850 --> 00:02:38,760
+I've got an example image in here for you just in case you want to use it, but I recommend putting
+
+764
+00:02:38,760 --> 00:02:41,190
+in your own images just for practice.
+
+765
+00:02:41,280 --> 00:02:50,280
+And that image should have a five pixel white border and the text should be center aligned and you should
+
+766
+00:02:50,280 --> 00:02:54,060
+adjust the margin so that the image and text are centered on the page.
+
+767
+00:02:54,060 --> 00:03:01,050
+Now, this is going to be the trickiest part because centering elements using CSS is a whole science
+
+768
+00:03:01,050 --> 00:03:03,450
+in itself, but we're going to do it simply.
+
+769
+00:03:03,480 --> 00:03:09,990
+We're going to horizontally center the div by giving that div a width of 50% to take up 50% of the screen.
+
+770
+00:03:09,990 --> 00:03:13,620
+And then if you think about it, there's only 25% left on each side.
+
+771
+00:03:13,620 --> 00:03:19,770
+So if we have a margin left of 20% on that div, then it should push it into the center.
+
+772
+00:03:20,040 --> 00:03:25,680
+In addition, you might find it useful to set the image to have a width of 100% so that it fills the
+
+773
+00:03:25,680 --> 00:03:30,660
+entire container div so that you're not having to center the image along with the div.
+
+774
+00:03:30,690 --> 00:03:35,670
+Some of these hints are only going to make sense once you get started writing the code for it, so don't
+
+775
+00:03:35,670 --> 00:03:36,540
+worry too much about it.
+
+776
+00:03:36,540 --> 00:03:42,030
+Now I'm just highlighting certain points in the to do so that when you get to it, to pay more attention
+
+777
+00:03:42,030 --> 00:03:47,100
+to these parts and these helpful tips, which you'll probably need because especially at this point,
+
+778
+00:03:47,130 --> 00:03:52,860
+number five, it's quite a difficult task and it will take some time for you to figure out how to get
+
+779
+00:03:52,860 --> 00:03:54,630
+it to look like this.
+
+780
+00:03:55,380 --> 00:04:02,850
+And if you want to push the div down vertically, then I recommend just adding a top margin to push
+
+781
+00:04:02,850 --> 00:04:04,770
+it down by a pixel amount.
+
+782
+00:04:04,800 --> 00:04:10,590
+It doesn't have to be spot bang in the middle of the center because as I said, that is a whole science
+
+783
+00:04:10,590 --> 00:04:15,750
+in itself and we're going to be covering it in coming sections, but it's just a little bit more complicated.
+
+784
+00:04:15,750 --> 00:04:21,269
+So we're going to judge it by eye for this project for now, in order to get something that looks like
+
+785
+00:04:21,269 --> 00:04:29,340
+the goal image, I recommend putting the H1, the paragraph and the image inside a div.
+
+786
+00:04:29,370 --> 00:04:36,300
+That way you can center the div on the screen and you won't have to mess with all three elements and
+
+787
+00:04:36,300 --> 00:04:39,330
+their centering, which is already a hard enough task.
+
+788
+00:04:40,230 --> 00:04:49,710
+Finally, you're going to use your developer doc reading skills and learn by yourself about a property
+
+789
+00:04:49,710 --> 00:04:58,140
+called text Transform and figure out how to make the H1 look uppercase like what I've got in the solution
+
+790
+00:04:58,140 --> 00:04:59,640
+goal website.
+
+791
+00:05:00,130 --> 00:05:01,900
+All of these elements are on screen.
+
+792
+00:05:01,900 --> 00:05:07,660
+We've got the white board around the image, we've got the black background, the white text, the custom
+
+793
+00:05:07,660 --> 00:05:15,520
+font, and our H1 is totally in uppercase without us having to type it in uppercase.
+
+794
+00:05:15,520 --> 00:05:18,730
+So that's where that text transform property comes in.
+
+795
+00:05:18,730 --> 00:05:25,510
+And notice how this entire content div is roughly somewhere in the center, horizontally and vertically,
+
+796
+00:05:25,510 --> 00:05:26,800
+just judging it by eye.
+
+797
+00:05:26,830 --> 00:05:33,100
+It's not perfect, but as long as you find the perfect avocado, everything else is easy in life.
+
+798
+00:05:33,520 --> 00:05:40,420
+Pause the video now and complete this project and once you're done, come back and I'm going to walk
+
+799
+00:05:40,420 --> 00:05:41,980
+through the solution code with you.
+
+800
+00:05:44,810 --> 00:05:45,140
+All right.
+
+801
+00:05:45,140 --> 00:05:47,290
+So hopefully that wasn't too hard.
+
+802
+00:05:47,300 --> 00:05:56,570
+If we take a look at the solution HTML, you can see that I've completed all of those tasks with a small
+
+803
+00:05:56,690 --> 00:06:01,010
+HTML and a small CSS file, so it shouldn't be too hard.
+
+804
+00:06:01,160 --> 00:06:06,650
+Now, some of the steps are pretty self-explanatory, but there's a couple of things I want to just
+
+805
+00:06:06,650 --> 00:06:07,750
+briefly touch on.
+
+806
+00:06:07,760 --> 00:06:17,930
+One is you will need the Google font links in the head section if you want to be able to have that custom
+
+807
+00:06:17,930 --> 00:06:19,520
+font on screen.
+
+808
+00:06:19,520 --> 00:06:21,530
+And this is the custom font.
+
+809
+00:06:22,040 --> 00:06:29,600
+In addition, we want to have all our elements inside a div so that we can style it all together.
+
+810
+00:06:29,600 --> 00:06:32,090
+And that's quite important in terms of positioning.
+
+811
+00:06:32,090 --> 00:06:34,580
+So I've created a class for the div.
+
+812
+00:06:35,180 --> 00:06:41,450
+In this case you could have also used an ID, but if you were going to extend this website then it's
+
+813
+00:06:41,450 --> 00:06:42,920
+safer to use a class.
+
+814
+00:06:42,920 --> 00:06:46,380
+So you might be able to reuse the CSS in the future.
+
+815
+00:06:46,740 --> 00:06:54,570
+The poster is the part that is more or less center aligned and we use that trick with setting its width
+
+816
+00:06:54,570 --> 00:06:59,670
+and setting its margin, using percentages to get it more or less in the horizontal center.
+
+817
+00:06:59,670 --> 00:07:05,580
+And then I simply set a 100 pixel margin top, just judging it by eye to get it somewhere in the middle.
+
+818
+00:07:06,030 --> 00:07:16,200
+And I added the custom font and the border to the image and made the image 100% wide so that it would
+
+819
+00:07:16,200 --> 00:07:21,840
+fit fully into that poster div if you had any problems.
+
+820
+00:07:21,840 --> 00:07:26,910
+This is a time where you can look at the solution code and look at your own code and see if there's
+
+821
+00:07:26,910 --> 00:07:28,860
+any fixes you want to make.
+
+822
+00:07:28,890 --> 00:07:35,850
+And once you have, then you can also modify the website any way you like to personalize it and make
+
+823
+00:07:35,850 --> 00:07:36,720
+it your own.
+
+

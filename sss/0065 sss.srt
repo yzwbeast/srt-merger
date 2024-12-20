@@ -1,0 +1,3254 @@
+1
+00:00:01,460 --> 00:00:06,780
+Hey guys. In this module I've got something a little bit different for you. Now, 
+
+2
+00:00:06,790 --> 00:00:13,220
+up till now we've been working on how to build websites that have great functionality and how to use
+
+3
+00:00:13,220 --> 00:00:17,590
+CSS, HTML, to build up the structure of the website.
+
+4
+00:00:17,630 --> 00:00:24,680
+Now today I want to talk about something a little bit different namely how to design websites so that
+
+5
+00:00:24,680 --> 00:00:30,710
+not only does your website have great functionality but it also looks beautiful.
+
+6
+00:00:30,800 --> 00:00:37,910
+The most important thing to making a website loved by users is pretty much the design.
+
+7
+00:00:37,910 --> 00:00:39,010
+After all, think about it.
+
+8
+00:00:39,020 --> 00:00:43,600
+When was the last time you heard somebody tell you, "Hey I came across this great website.
+
+9
+00:00:43,610 --> 00:00:45,220
+It worked really really well.
+
+10
+00:00:45,250 --> 00:00:47,180
+So smooth and no bugs."
+
+11
+00:00:47,180 --> 00:00:49,000
+Nobody ever says that right?
+
+12
+00:00:49,040 --> 00:00:55,050
+They say things like: "It looked so beautiful. It just worked like I wanted it to."
+
+13
+00:00:55,910 --> 00:01:02,570
+So today we're going to talk about design and I want to show you some of the different aspects of design
+
+14
+00:01:02,630 --> 00:01:04,450
+when it comes to websites.
+
+15
+00:01:04,480 --> 00:01:07,340
+Now more often than not, you've heard the saying right?
+
+16
+00:01:07,370 --> 00:01:10,260
+"Don't judge a book by its cover."
+
+17
+00:01:10,340 --> 00:01:16,250
+Now at the same time, you might have also heard of this saying: "You only have three seconds to make a
+
+18
+00:01:16,250 --> 00:01:17,770
+good impression."
+
+19
+00:01:17,840 --> 00:01:22,400
+Now when it comes to web design, the latter is probably more accurate.
+
+20
+00:01:22,460 --> 00:01:30,290
+It's just like a job interview or a first date, your website has a crucial few seconds before the user
+
+21
+00:01:30,290 --> 00:01:33,720
+is going to judge your company, your brand, your product.
+
+22
+00:01:34,250 --> 00:01:36,820
+So take a look at this example.
+
+23
+00:01:36,860 --> 00:01:43,930
+This is a website called Penny juice and it's a company that sells children's juice cartons.
+
+24
+00:01:43,940 --> 00:01:52,880
+Now look at the design of it. There's clashing colors, there's different typefaces, there's different colors
+
+25
+00:01:52,880 --> 00:01:57,980
+for the text and they have different fonts and it's all, to be honest, a bit of a mess.
+
+26
+00:01:58,670 --> 00:02:02,300
+So this is a question I often ask students at this point.
+
+27
+00:02:02,300 --> 00:02:08,250
+Take a look at this website and ask yourself if you were to buy a product from this company,
+
+28
+00:02:08,449 --> 00:02:12,200
+if you were to buy a carton of juice, how much would you pay for it?
+
+29
+00:02:13,100 --> 00:02:15,920
+Now take a look at this website.
+
+30
+00:02:15,920 --> 00:02:20,990
+This is the same website reimagined by a professional web designer.
+
+31
+00:02:20,990 --> 00:02:28,100
+Look at how the color scheme is now consistent, how the fonts and the typefaces now look a lot better.
+
+32
+00:02:28,100 --> 00:02:34,860
+And ask yourself again, how much would you pay for a single carton of juice from this website.
+
+33
+00:02:34,860 --> 00:02:39,740
+Now I've asked this question to a number of people and this is the result I got.
+
+34
+00:02:39,740 --> 00:02:46,570
+People are willing to pay anywhere up to only a dollar for a carton of juice from the first wesite
+
+35
+00:02:46,940 --> 00:02:51,150
+but anywhere up to $3 for the second website.
+
+36
+00:02:51,150 --> 00:02:57,480
+Now I run a startup and a lot of friends and colleagues of mine also work on their own businesses.
+
+37
+00:02:57,710 --> 00:03:02,630
+And we usually spend a lot of time brainstorming, how can we make our product better,
+
+38
+00:03:02,630 --> 00:03:04,930
+how do we make our brand stronger.
+
+39
+00:03:05,000 --> 00:03:11,600
+And there's very very few things that we can think of that can actually produce a three times improvement
+
+40
+00:03:11,720 --> 00:03:15,120
+in the value of your product or in the value of your company.
+
+41
+00:03:15,140 --> 00:03:17,660
+So design is really really powerful.
+
+42
+00:03:17,660 --> 00:03:24,980
+It's one of the cheapest ways to make your company or your product look expensive because it's elevating.
+
+43
+00:03:25,250 --> 00:03:30,820
+And it doesn't take a lot to get good at design as you'll see in the coming lessons.
+
+44
+00:03:30,860 --> 00:03:36,140
+So we're going to be exploring some of the principles of web design in this module.
+
+45
+00:03:36,140 --> 00:03:44,210
+And I want to take you through everything from color theory to typography to user interface design and
+
+46
+00:03:44,210 --> 00:03:46,330
+user experience design.
+
+47
+00:03:46,490 --> 00:03:51,020
+These are the four pillars of good web design.
+
+48
+00:03:51,020 --> 00:03:55,220
+So once you are ready, head over to the next lesson and let's get started.
+
+
+49
+00:00:00,810 --> 00:00:08,520
+Now one of the first things I want to talk about is Color Theory. And color theory is the art and science
+
+50
+00:00:08,610 --> 00:00:11,760
+of creating the right palette for your website.
+
+51
+00:00:12,450 --> 00:00:15,040
+So take a look at this example.
+
+52
+00:00:15,090 --> 00:00:21,690
+Now let's say you had a logo where you have flowers which are brown, paintball which is pink.
+
+53
+00:00:21,810 --> 00:00:24,960
+It looks all very weird and very inconsistent.
+
+54
+00:00:25,020 --> 00:00:30,960
+And take a look at the actual logos. Like what are you thinking when you see these color palettes on
+
+55
+00:00:30,960 --> 00:00:37,560
+the words. The color of the flowers looks a bit like dirt I guess but it also looks a bit like something
+
+56
+00:00:37,560 --> 00:00:40,460
+else. And the paint ball being pink
+
+57
+00:00:40,530 --> 00:00:45,120
+I'm not really sure who that target audience is. But take a look at this.
+
+58
+00:00:45,390 --> 00:00:50,630
+If we flip the color palette, it suddenly all looks like it's meant to be like this.
+
+59
+00:00:50,730 --> 00:00:53,710
+It suddenly all looks a lot better right?
+
+60
+00:00:53,730 --> 00:00:56,940
+It looks consistent with the actual message.
+
+61
+00:00:57,000 --> 00:01:02,770
+So when you're picking colors you have to be aware of the mood of your color palette.
+
+62
+00:01:02,940 --> 00:01:09,780
+So the predominant color that is going to be in your design really tells a story and it conveys a message
+
+63
+00:01:09,840 --> 00:01:11,530
+to the user.
+
+64
+00:01:11,700 --> 00:01:20,490
+For example, Red conveys love, energy, intensity. Which is why you see a lot of car adverts which have a
+
+65
+00:01:20,520 --> 00:01:22,980
+red car on a red background.
+
+66
+00:01:23,340 --> 00:01:25,250
+It's because they're trying to tell you,
+
+67
+00:01:25,260 --> 00:01:28,560
+"Hey buy this car and you'll feel energetic
+
+68
+00:01:28,620 --> 00:01:38,220
+and the intensity of this car even if you're 89." Now yellow is more about joy, intellect, attention.
+
+69
+00:01:39,060 --> 00:01:46,290
+And the most important thing about yellow though is how attention grabbing it is because it's almost
+
+70
+00:01:46,290 --> 00:01:50,550
+impossible to not look at something that is very yellow.
+
+71
+00:01:50,580 --> 00:01:53,530
+For example this ad. Now a few years back
+
+72
+00:01:53,550 --> 00:01:59,220
+this ad caused an uproar because it has this lady in a yellow bikini
+
+73
+00:01:59,220 --> 00:02:01,500
+and it says, "Are you 
+
+74
+00:02:01,500 --> 00:02:03,560
+beach body ready?"
+
+75
+00:02:03,570 --> 00:02:06,740
+And a lot of people got really really upset about it.
+
+76
+00:02:06,750 --> 00:02:08,090
+They took to the Internet,
+
+77
+00:02:08,100 --> 00:02:09,419
+they raved about it.
+
+78
+00:02:09,570 --> 00:02:15,390
+And I remember thinking to myself at the time, "You know, this is not so different from a lot of the other
+
+79
+00:02:15,390 --> 00:02:17,880
+ads that are trying to tell women how to look."
+
+80
+00:02:18,500 --> 00:02:20,100
+And it's not a great message.
+
+81
+00:02:20,160 --> 00:02:26,580
+But why is it causing so much anger and causing so much attention drawn to it?
+
+82
+00:02:26,580 --> 00:02:30,270
+And I think the reason is because it's actually bright yellow.
+
+83
+00:02:30,900 --> 00:02:35,450
+It's impossible to ignore this advert when you come across it.
+
+84
+00:02:35,610 --> 00:02:42,420
+So when you're creating a logo or when you're creating some sort of headline, then yeah yellow is a great
+
+85
+00:02:42,420 --> 00:02:48,090
+choice. But when you're creating something that's designed to be looked at for a long period of time
+
+86
+00:02:48,540 --> 00:02:53,290
+then yellow can be too attention grabbing. It might actually hurt your user's eyes
+
+87
+00:02:53,400 --> 00:02:58,000
+if you tried to read a whole article that's backgrounded in yellow.
+
+88
+00:02:58,350 --> 00:03:05,670
+Now the next color that we're going to talk about is green which is all about freshness, growth, safety.
+
+89
+00:03:05,880 --> 00:03:13,110
+And that's why you see a lot of grocery companies like Hello Fresh or Amazon groceries use this color
+
+90
+00:03:13,230 --> 00:03:19,120
+as their predominant color palette. Because it's trying to tell you, "Hey look! This thing is edible.
+
+91
+00:03:19,140 --> 00:03:21,620
+This is what we're selling."
+
+92
+00:03:21,690 --> 00:03:28,870
+And so if you have a company that has anything to do with food, this is usually a safe bet to go with.
+
+93
+00:03:28,890 --> 00:03:37,440
+Now Blue is about stability, trust, serenity. And so you see a lot of companies which need to convey that
+
+94
+00:03:37,440 --> 00:03:39,980
+"Hey, we're really trustworthy"
+
+95
+00:03:40,020 --> 00:03:41,930
+use this color. For example,
+
+96
+00:03:41,940 --> 00:03:47,640
+look at all the financial companies, look at companies like PayPal or the cryptocurrency companies like
+
+97
+00:03:47,640 --> 00:03:52,680
+Coinbase. They all choose this color because they want you to know that they're not going to run away
+
+98
+00:03:52,680 --> 00:03:54,060
+with your money.
+
+99
+00:03:54,090 --> 00:04:01,170
+In fact, there was a really interesting psychology study where they compared interviewees wearing different
+
+100
+00:04:01,170 --> 00:04:02,550
+colored shirts.
+
+101
+00:04:02,580 --> 00:04:05,700
+So for example, a group of them would wear a green shirt,
+
+102
+00:04:05,700 --> 00:04:12,410
+another group would wear a blue shirt and they compared how they were perceived by the interviewers.
+
+103
+00:04:12,510 --> 00:04:19,050
+And it showed that just by changing the color of your shirt to a blue one you vastly increase the amount
+
+104
+00:04:19,050 --> 00:04:20,180
+of trust in you
+
+105
+00:04:20,250 --> 00:04:21,970
+that's given by other people.
+
+106
+00:04:21,990 --> 00:04:26,390
+So have a think about that the next time you're going for an interview.
+
+107
+00:04:26,460 --> 00:04:34,950
+Now the final color is purple and it's meant to signify royalty, wealth, femininity. And strangely enough
+
+108
+00:04:34,980 --> 00:04:41,160
+I've come across a number of payday loan companies which use this color palette especially ones which
+
+109
+00:04:41,160 --> 00:04:42,900
+are targeted at women.
+
+110
+00:04:42,990 --> 00:04:48,690
+So, the important thing to think about is that you're making a conscious decision when you're choosing
+
+111
+00:04:48,690 --> 00:04:49,920
+a color palette.
+
+112
+00:04:50,010 --> 00:04:56,040
+It's not just whichever color you like or your favorite color. But it's actually 'what message am I trying
+
+113
+00:04:56,040 --> 00:05:03,930
+to convey to the user' and then picking an appropriate color. Now, usually you're not just going to be
+
+114
+00:05:03,930 --> 00:05:09,180
+using a single color for your design. You're probably going to be using two or three.
+
+115
+00:05:09,300 --> 00:05:14,850
+So at some point you have to think about which different colors to combine.
+
+116
+00:05:14,850 --> 00:05:19,680
+And this is probably the most scientific part of color theory.
+
+117
+00:05:19,740 --> 00:05:28,740
+Now very often, designers will rely on scientific ways of combining colors. For example taking two colors
+
+118
+00:05:28,770 --> 00:05:31,560
+that are right next to each other on the color wheel.
+
+119
+00:05:32,130 --> 00:05:36,170
+And this way you create what's called an analogous color palette.
+
+120
+00:05:36,390 --> 00:05:42,600
+And these designs look incredibly harmonious and they really work well together.
+
+121
+00:05:42,600 --> 00:05:48,450
+So this color palette can be really good for things like navigation bars and the body of your website
+
+122
+00:05:48,930 --> 00:05:52,300
+or things like a logo and it's background.
+
+123
+00:05:52,350 --> 00:05:59,160
+Now, what it's not so good at though is standing out. If you really want your design to pop, you're better
+
+124
+00:05:59,160 --> 00:06:05,490
+off taking two colors from opposite ends of the color wheel creating what's called a complementary color
+
+125
+00:06:05,490 --> 00:06:08,280
+palette or a clashing palette.
+
+126
+00:06:08,280 --> 00:06:12,270
+Now this complementary color palette really creates that pop.
+
+127
+00:06:12,600 --> 00:06:16,490
+And it really brings out each of the colors.
+
+128
+00:06:16,620 --> 00:06:23,130
+So the next time you go to a supermarket, I want you to take a look at the meat aisle and see if they've
+
+129
+00:06:23,130 --> 00:06:27,910
+used this complementary color palette to make things pop.
+
+130
+00:06:27,930 --> 00:06:34,620
+So, one of the things that you often see is they'll take these fake plastic bits of greenery like fake
+
+131
+00:06:34,620 --> 00:06:42,720
+grass or fake bushes and they'll put it in between the meat. And because the green and the red are complementary
+
+132
+00:06:42,720 --> 00:06:50,160
+colors it makes the red meat pop out a lot more and gives you this idea of freshness
+
+133
+00:06:50,310 --> 00:06:57,750
+even if it's a little bit past the best dates. But what you shouldn't do with clashing colors or complementary
+
+134
+00:06:57,750 --> 00:07:04,710
+colors is to try to style text and text background with it because it actually looks very very jarring
+
+135
+00:07:04,920 --> 00:07:08,440
+and you can feel your eyes sort of getting a little bit fuzzy
+
+136
+00:07:08,550 --> 00:07:13,940
+looking at this particular combination. So don't do this when it concerns text.
+
+137
+00:07:14,100 --> 00:07:20,670
+Instead, keep it to things like logos or icons or things that you really really want to stand out from
+
+138
+00:07:20,670 --> 00:07:21,990
+each other.
+
+139
+00:07:22,020 --> 00:07:28,350
+Now, there's a lot of other ways that you can combine colors like drawing an equilateral triangle to
+
+140
+00:07:28,350 --> 00:07:34,170
+create a triadic color palette or drawing a perfect square.
+
+141
+00:07:34,180 --> 00:07:40,200
+Now if you want to, you can head over to a website called Adobe color which lets you mess around with
+
+142
+00:07:40,290 --> 00:07:47,430
+all of these different color combinations. So select a triadic color palette or a square color palette
+
+143
+00:07:47,820 --> 00:07:52,990
+and then drag it around the color wheel so that you get different combinations of colors.
+
+144
+00:07:53,100 --> 00:07:59,100
+And once you come across a palette that fits the mood of your project, then you can pick the hex codes
+
+145
+00:07:59,220 --> 00:08:02,790
+and just put them straight into your website.
+
+146
+00:08:02,790 --> 00:08:07,950
+Now if all of that sounds like it was a little bit too much work ,then I got you covered.
+
+147
+00:08:07,980 --> 00:08:11,470
+You can also use a website called colorhunt.co.
+
+148
+00:08:11,490 --> 00:08:17,550
+This is a website where professional designers have curated some of their favorite color palettes
+
+149
+00:08:17,730 --> 00:08:21,130
+and you can nab the hex codes straight off the website.
+
+150
+00:08:22,110 --> 00:08:28,530
+So take a look at the hot and popular sections of this website and use it to guide the pilot scheme
+
+151
+00:08:28,540 --> 00:08:30,810
+for your next project.
+
+152
+00:08:30,810 --> 00:08:37,350
+Now when you create a website that has a beautiful consistent color scheme like the one for the LIEBE
+
+153
+00:08:37,350 --> 00:08:44,760
+yogurt, you can see how much it makes the design stand out and it becomes really colorful and really
+
+154
+00:08:44,760 --> 00:08:51,000
+playful and you can convey different messages using your choice of colors and your color scheme.
+
+155
+00:08:51,010 --> 00:08:54,060
+So think about your color choice and your color palette
+
+156
+00:08:54,060 --> 00:08:59,760
+the next time you design your website to make sure that it is consistent with what your brand is about
+
+157
+00:08:59,850 --> 00:09:04,140
+and what your product is about and it conveys the message you want to convey.
+
+
+158
+00:00:00,650 --> 00:00:01,000
+All right.
+
+159
+00:00:01,020 --> 00:00:05,190
+The next topic I want to talk about is typography.
+
+160
+00:00:05,190 --> 00:00:07,670
+Now, I know a lot of students always say to me
+
+161
+00:00:07,710 --> 00:00:10,460
+"But why do I need to learn about typography?
+
+162
+00:00:10,470 --> 00:00:14,020
+I just open up Word, click the dropdown,
+
+163
+00:00:14,070 --> 00:00:15,450
+find Times New Roman,
+
+164
+00:00:15,450 --> 00:00:16,850
+my favorite font.
+
+165
+00:00:17,070 --> 00:00:20,770
+And then just put that on everything. It's done right?"
+
+166
+00:00:21,480 --> 00:00:24,350
+Well let's think about this.
+
+167
+00:00:24,400 --> 00:00:30,030
+Well let's say it's Valentine's Day and you decide that you want to write a letter to your beloved Valentine
+
+168
+00:00:30,420 --> 00:00:34,150
+and you change the font to something cursive like this.
+
+169
+00:00:34,290 --> 00:00:35,490
+"You'll always be mine."
+
+170
+00:00:35,490 --> 00:00:37,530
+I don't know if she or he will be
+
+171
+00:00:37,610 --> 00:00:40,070
+but you have a good chance.
+
+172
+00:00:40,210 --> 00:00:43,350
+Now let's say that you chose the wrong font.
+
+173
+00:00:43,380 --> 00:00:45,730
+That's a bit of a problem.
+
+174
+00:00:45,780 --> 00:00:51,040
+Not only do I not think your Valentine is going to take very kindly to this,
+
+175
+00:00:51,120 --> 00:00:55,230
+you might also have the police on your back which is a bit of a problem.
+
+176
+00:00:55,650 --> 00:01:03,780
+So fonts really do matter and it's important to consider not only their mood but also how to combine
+
+177
+00:01:03,780 --> 00:01:04,910
+different fonts.
+
+178
+00:01:04,989 --> 00:01:12,180
+And it's a really really easy way to make your designs look very professional and really slick. Out of
+
+179
+00:01:12,210 --> 00:01:14,520
+all of the fonts in the world
+
+180
+00:01:14,530 --> 00:01:19,020
+there's pretty much two large families that you should really know about.
+
+181
+00:01:19,020 --> 00:01:26,700
+One is the Serif family where they have these little feet at the end of their central beams.
+
+182
+00:01:26,700 --> 00:01:34,380
+And the reason why they have these old feet is because the Serif typeface were inspired by the marble
+
+183
+00:01:34,380 --> 00:01:37,350
+carvings of days of yore.
+
+184
+00:01:37,350 --> 00:01:44,190
+So if you next go out and you take a look at the buildings around you especially if you're in a historical
+
+185
+00:01:44,190 --> 00:01:51,810
+area, take a look at places where they've carved into stone or marble and you'll notice that they also
+
+186
+00:01:51,810 --> 00:01:55,560
+have these little feet at the end of the central beams.
+
+187
+00:01:55,560 --> 00:01:57,100
+So why is that?
+
+188
+00:01:57,120 --> 00:02:03,540
+I don't know how many of you carved marble in your spare time but if you did you would know that once
+
+189
+00:02:03,540 --> 00:02:12,210
+you chisel has gone into the Rock and you need to exit your engraving it's actually not possible to
+
+190
+00:02:12,210 --> 00:02:15,540
+create 90 degree angles when you're carving into rock.
+
+191
+00:02:16,260 --> 00:02:21,310
+So this is where the Serif typeface gets their inspiration from.
+
+192
+00:02:21,420 --> 00:02:27,780
+And this is also the reason why when you're choosing a Serif typeface you're making your design look
+
+193
+00:02:27,780 --> 00:02:34,320
+more serious, more authoritative and also a little bit older as well.
+
+194
+00:02:34,320 --> 00:02:41,550
+So it's really good if you're designing something like a letterhead for a legal company or a magazine
+
+195
+00:02:41,550 --> 00:02:43,590
+for architectural design.
+
+196
+00:02:43,830 --> 00:02:48,520
+But when we take a look at the big family of Serif typefaces
+
+197
+00:02:48,600 --> 00:02:55,710
+they're actually further subdivided into smaller sub families like Old style, Transitional, Modern and
+
+198
+00:02:55,710 --> 00:02:57,310
+Slab-Serif.
+
+199
+00:02:57,330 --> 00:03:05,820
+Now the really interesting thing is you can actually tell how old a typeface would look by looking at
+
+200
+00:03:05,910 --> 00:03:11,370
+the difference between the thickest and the thinnest parts of each letter.
+
+201
+00:03:11,370 --> 00:03:15,050
+So compare the Old Style 'o' versus the Transitional
+
+202
+00:03:15,060 --> 00:03:16,720
+'o' versus the modern
+
+203
+00:03:16,780 --> 00:03:23,070
+'o'. And look at how that difference between the thickest part of the letter and the thinnest part gets
+
+204
+00:03:23,070 --> 00:03:28,650
+more and more exaggerated as you get towards a more modern font.
+
+205
+00:03:28,830 --> 00:03:34,920
+So if you want something that looks authoritative but modern then maybe you want to go for a modern
+
+206
+00:03:35,010 --> 00:03:43,980
+Serif typeface like Didot. But if you want it to come across as a little bit older, a little bit more aged
+
+207
+00:03:44,610 --> 00:03:49,890
+maybe you have a winery, maybe you want to go for an Old Style Serif instead.
+
+208
+00:03:49,890 --> 00:03:57,270
+Now just as different colors have different moods and emotions, different fonts also have different moods
+
+209
+00:03:57,630 --> 00:04:02,850
+and they also convey a different message to a user depending on which one you choose.
+
+210
+00:04:02,850 --> 00:04:09,800
+So the Serif family generally come across as traditional, stable, respectable, authoritative.
+
+211
+00:04:09,810 --> 00:04:15,490
+These are the words that get thrown around by designers when they're thinking about the Serif typeface.
+
+212
+00:04:15,510 --> 00:04:20,370
+So for example, the next time you go to a magazine rack pick up the Vogue magazine.
+
+213
+00:04:20,430 --> 00:04:26,480
+Take a look at their title and see how it's a modern Serif typeface.
+
+214
+00:04:26,520 --> 00:04:33,000
+It's got hugely exaggerated difference between the thick and thin parts of the lettering and it looks
+
+215
+00:04:33,090 --> 00:04:36,950
+authoritative and it knows what it is talking about.
+
+216
+00:04:37,170 --> 00:04:43,230
+Now on the other hand, if we think about the San-Serifs, they're kind of a different family because instead
+
+217
+00:04:43,230 --> 00:04:49,290
+of having the Serifs or the little feet at the end the central beams, they have perfect right angles.
+
+218
+00:04:49,290 --> 00:04:56,100
+And it's this right angle that makes the San-Serif family look so much more friendly, more approachable,
+
+219
+00:04:56,490 --> 00:04:59,120
+more novel and more contemporary.
+
+220
+00:04:59,610 --> 00:05:06,120
+So for example, you will tend to get words like sensible, simple, straightforward. And this is why a lot
+
+221
+00:05:06,120 --> 00:05:11,390
+of startups love using the San-Serif typeface in their websites.
+
+222
+00:05:11,490 --> 00:05:18,330
+For example, a Humanist typeface which is a subfamily of the San-Serifs. It's something that is known
+
+223
+00:05:18,390 --> 00:05:25,740
+as a highly readable typeface. And in fact, even within the Serifs and the San-Serifs, you will tend to
+
+224
+00:05:25,740 --> 00:05:32,340
+see designers going for the San-Serifs if they want to write body text which needs to be more legible
+
+225
+00:05:32,370 --> 00:05:34,920
+and more readable.
+
+226
+00:05:34,920 --> 00:05:42,300
+Now within this sub family, there's even differences in terms of legibility and readability.
+
+227
+00:05:42,420 --> 00:05:49,910
+So how easy are the words to read and how pleasant is it to read the letters.
+
+228
+00:05:49,920 --> 00:05:56,760
+There was a really interesting study done by MIT a few years back where they took two groups of users,
+
+229
+00:05:57,300 --> 00:06:05,190
+one they put them into a car which had a dashboard made of a Humanist typeface and the other car had
+
+230
+00:06:05,190 --> 00:06:13,920
+a dashboard which had a Grotesque San-Serif typeface. And what they did is they tracked the pupils of
+
+231
+00:06:13,920 --> 00:06:21,120
+the people who were driving the cars and they tested how long each driver needed to look down at the
+
+232
+00:06:21,120 --> 00:06:27,840
+dashboard before they got enough information from the speedometer or the odometer and before they could
+
+233
+00:06:27,930 --> 00:06:35,160
+come back and look at the road again. And really surprisingly they found that just by changing the font
+
+234
+00:06:36,000 --> 00:06:42,330
+from a Grotesque San-Serif to a Humanist San-Serif, they could save the drivers somewhere around
+
+235
+00:06:42,330 --> 00:06:48,370
+30 to 40 percent of the time that's required to understand the information.
+
+236
+00:06:48,420 --> 00:06:54,690
+So imagine that car is on a freeway that's driving at 60 miles, 100 miles an hour.
+
+237
+00:06:54,750 --> 00:07:00,750
+That difference in the amount of time the user needs to look down at the dashboard could be the difference
+
+238
+00:07:00,750 --> 00:07:02,670
+between life and death.
+
+239
+00:07:02,700 --> 00:07:07,580
+And as designers, we rarely get to make that kind of difference in the world right?
+
+240
+00:07:07,650 --> 00:07:13,600
+So knowing that the Humanist typeface, all of the fonts that belong in that category like Gill Sans,
+
+241
+00:07:13,680 --> 00:07:21,620
+Tahoma, Verdana, these are highly readable and highly legible fonts which you can use in the body types
+
+242
+00:07:21,630 --> 00:07:23,220
+for example of your sales pitch.
+
+243
+00:07:23,760 --> 00:07:27,740
+Now, even though we're not saving lives with our sales pitches,
+
+244
+00:07:27,900 --> 00:07:32,610
+if you manage to get the user to read through more of your sales copy then they're probably going to
+
+245
+00:07:32,610 --> 00:07:36,120
+be more convinced and more likely to buy your product
+
+246
+00:07:36,120 --> 00:07:36,420
+right?
+
+247
+00:07:36,960 --> 00:07:42,990
+So readability and legibility when you're choosing fonts is incredibly important. And the things that
+
+248
+00:07:42,990 --> 00:07:49,260
+you're looking for in the letters when you're looking for legibility are open shapes and a lot of space
+
+249
+00:07:49,290 --> 00:07:54,690
+between each of the letters and also the forms look unambiguous so they look different
+
+250
+00:07:54,690 --> 00:08:00,940
+for example here the 'g' and the 9 actually look different on the second line. And finally, varying proportions.
+
+251
+00:08:00,960 --> 00:08:06,540
+So having an 'O' that's very wide and a '0' that's a bit more narrow so you can actually tell the difference
+
+252
+00:08:06,540 --> 00:08:08,340
+between the two.
+
+253
+00:08:08,430 --> 00:08:15,990
+Now while we've talked about using fonts it's often that you see people go a bit overboard where they
+
+254
+00:08:15,990 --> 00:08:22,920
+choose 10 fonts in the same design. And that makes your design look very cluttered and very unprofessional.
+
+255
+00:08:22,980 --> 00:08:26,910
+I recommend actually sticking to just two fonts in one design.
+
+256
+00:08:26,910 --> 00:08:32,580
+So if you're making a poster keeping that to two fonts. If you're making a section of your website keeping
+
+257
+00:08:32,580 --> 00:08:36,559
+then again to two fonts. It just looks a lot cleaner and a lot tighter.
+
+258
+00:08:37,110 --> 00:08:44,190
+And when you're combining these two different fonts you want to try to go for similar moods. So find
+
+259
+00:08:44,190 --> 00:08:48,990
+fonts that have a similar mood to each other and also a similar time era.
+
+260
+00:08:48,990 --> 00:08:53,610
+You don't want something that looks ultramodern with something that looks like it's from the days of
+
+261
+00:08:53,610 --> 00:08:56,780
+yore combined together. It looks a little bit weird.
+
+262
+00:08:56,890 --> 00:08:59,730
+Now the things you want to contrast are the serifness.
+
+263
+00:08:59,730 --> 00:09:05,190
+So for example you on the heading to be a Serif and the body to be a San-Serif or the opposite way
+
+264
+00:09:05,190 --> 00:09:08,030
+round. It just creates more interest in your design.
+
+265
+00:09:08,640 --> 00:09:14,010
+And similarly, you can also create interest by just changing up the weights between the heading and the
+
+266
+00:09:14,010 --> 00:09:21,150
+body. So making the heading really really bold or even using a black typeface and making the body text
+
+267
+00:09:21,240 --> 00:09:27,660
+using something like thin or regular or light. These different weights can create contrast in your design.
+
+268
+00:09:29,270 --> 00:09:34,850
+Now if you don't remember anything from this talk on typefaces, I just want you to look at these six
+
+269
+00:09:34,850 --> 00:09:42,050
+fonts and try to wipe them from your memory because it is very very difficult to make these designs
+
+270
+00:09:42,050 --> 00:09:46,830
+look good unless I guess if you're running a lemonade stand.
+
+271
+00:09:47,090 --> 00:09:52,940
+But if you want to look professional, if you want to look designs, try to use one of the other fonts that
+
+272
+00:09:52,940 --> 00:09:58,190
+we've talked about and try to ignore these ones which are difficult to read and have moods that are
+
+273
+00:09:58,190 --> 00:10:00,830
+difficult to fit in in a professional setting.
+
+274
+00:10:00,830 --> 00:10:05,780
+The next time you're designing a website think about what typefaces you're going to choose.
+
+275
+00:10:05,780 --> 00:10:11,750
+Think about what you're trying to convey with those typefaces and then pick a font from the San-Serif
+
+276
+00:10:11,840 --> 00:10:14,660
+or the Serif family and maybe try to combine them
+
+277
+00:10:14,660 --> 00:10:20,000
+so you have a heading that's a San-Serif and a body that's a Serif and try to create contrast in your
+
+278
+00:10:20,000 --> 00:10:21,310
+designs.
+
+279
+00:10:21,350 --> 00:10:28,310
+So keep this in mind and hopefully they'll make your designs a lot more interesting and a lot more professional.
+
+
+280
+00:00:01,020 --> 00:00:07,410
+So now that we've talked about some of the fundamentals of design like Color Theory and Typography, the
+
+281
+00:00:07,410 --> 00:00:11,790
+next thing I want to talk about is User Interface Design.
+
+282
+00:00:11,820 --> 00:00:14,340
+Now take a look at this picture.
+
+283
+00:00:14,400 --> 00:00:21,200
+In most cases, 99% of you would have read "YOUR EYE HERE" first, "then here" then
+
+284
+00:00:21,240 --> 00:00:22,360
+"Isn't that fascinating?"
+
+285
+00:00:23,010 --> 00:00:25,620
+So this is just a way that our brains work.
+
+286
+00:00:25,650 --> 00:00:30,560
+We're always drawn to the bigger bolder square of things.
+
+287
+00:00:30,630 --> 00:00:39,450
+And As designers, we can use this knowledge to define hierarchy. So let's say that you were to write a
+
+288
+00:00:39,480 --> 00:00:42,770
+birthday invites to Jane.
+
+289
+00:00:42,780 --> 00:00:48,340
+You could write it like this. But all of the information has equal weighting.
+
+290
+00:00:48,420 --> 00:00:54,060
+So as a reader, I have to go through the entire paragraph and I can't just skim through it to get the
+
+291
+00:00:54,060 --> 00:00:55,470
+important bits.
+
+292
+00:00:55,500 --> 00:00:57,300
+So it's gonna take me a lot longer
+
+293
+00:00:57,330 --> 00:01:04,980
+right? Now on the other hand if I apply the rules of hierarchy then the most important information gets
+
+294
+00:01:04,980 --> 00:01:12,420
+conveyed over first and I make sure that Jane actually knows whose birthday party it is, where it is
+
+295
+00:01:12,690 --> 00:01:15,570
+and when they should go.
+
+296
+00:01:15,570 --> 00:01:19,000
+So we can establish hierarchy in a number of ways.
+
+297
+00:01:19,110 --> 00:01:21,930
+The most obvious is through the use of color.
+
+298
+00:01:22,110 --> 00:01:29,400
+So colors that really pop and stand out and have contrast with that background tend to be used for high
+
+299
+00:01:29,400 --> 00:01:30,640
+hierarchy.
+
+300
+00:01:30,660 --> 00:01:37,100
+So for example in this case if all the colors were the same, then it feels like they all have equal importance.
+
+301
+00:01:37,500 --> 00:01:43,110
+But on the other hand, if we have something that's very bright very standoutish versus something that's
+
+302
+00:01:43,110 --> 00:01:50,370
+a bit more grade, a bit more muted, then we know exactly where our eyes will go to first.
+
+303
+00:01:50,460 --> 00:01:56,880
+Now if you take a look at this example this is the ASOS website. And their predominant color palette
+
+304
+00:01:56,940 --> 00:02:03,570
+is the sort of gray and white color. But they've really cleverly used their accent tone, this green and
+
+305
+00:02:03,570 --> 00:02:07,560
+red, to really tell the user what they think you should really look at.
+
+306
+00:02:08,030 --> 00:02:13,860
+And it seems like ASOS really cares that you know that they have an outlet and also that you add your
+
+307
+00:02:13,860 --> 00:02:17,250
+product to the bag so that they can actually make money off you.
+
+308
+00:02:18,000 --> 00:02:23,850
+So, in this case, they're using that green accent tone to really pull the eyes to that button and make sure
+
+309
+00:02:23,850 --> 00:02:30,430
+that the user actually completes their transaction. Now in addition to color, you should also think about
+
+310
+00:02:30,430 --> 00:02:36,460
+size because as I said, the bigger items often draw your eyes to it.
+
+311
+00:02:36,590 --> 00:02:42,740
+So, for example, if you look at the Coinbase website which you can use to buy cryptocurrency, we can see
+
+312
+00:02:42,770 --> 00:02:48,740
+the first thing they want to tell you is you can use this website to buy and sell cryptocurrency.
+
+313
+00:02:48,740 --> 00:02:55,960
+Now the next biggest thing on the page is this huge email input and a button that says "Get started".
+
+314
+00:02:56,030 --> 00:03:02,570
+So because a lot of these companies run ads and they're paying for users to land on their page, it's really
+
+315
+00:03:02,570 --> 00:03:05,630
+important for them to capture the emails.
+
+316
+00:03:05,630 --> 00:03:08,930
+This is kind of what this design is representing
+
+317
+00:03:08,930 --> 00:03:09,760
+right?
+
+318
+00:03:09,830 --> 00:03:15,560
+As long as you land on this page, you're probably going to want to look at this place where you put in
+
+319
+00:03:15,560 --> 00:03:22,380
+your email address and get started so that the company can capture your information.
+
+320
+00:03:22,400 --> 00:03:28,970
+Now in addition to establishing hierarchy in terms of user interface, you should think about the layout
+
+321
+00:03:29,090 --> 00:03:30,460
+of your website.
+
+322
+00:03:30,530 --> 00:03:36,710
+You can of course, on one hand, have this big block of text which is just your website where everything
+
+323
+00:03:36,710 --> 00:03:40,040
+is all laid out in the same kind of way
+
+324
+00:03:40,100 --> 00:03:46,970
+or you can create more interest by creating a block of text and then interspersed with pictures and
+
+325
+00:03:46,970 --> 00:03:52,160
+then create some different sizes and different shapes and different hierarchies to make your design
+
+326
+00:03:52,160 --> 00:04:02,820
+look more interesting. Now the Wikipedia pages are a example in bad design because just look at how bland
+
+327
+00:04:02,820 --> 00:04:03,300
+it looks.
+
+328
+00:04:03,300 --> 00:04:08,760
+It really is trying to be an encyclopedia but it doesn't have to be like this. Now
+
+329
+00:04:08,760 --> 00:04:15,600
+one of the most noticeable things about Wikipedia is just the length of each block of text.
+
+330
+00:04:15,630 --> 00:04:18,870
+Just look at how long each line of text is.
+
+331
+00:04:18,870 --> 00:04:24,830
+It's very hard for a user to keep their eyes tracking along the same line.
+
+332
+00:04:25,110 --> 00:04:32,250
+And in fact, in terms of user interface design, there's an optimal line length. Too long and it gets a
+
+333
+00:04:32,250 --> 00:04:38,870
+little bit tedious to read. But too short it feels a bit too choppy and it's a bit awkward to read.
+
+334
+00:04:39,090 --> 00:04:44,940
+So you want to aim for something around 40 to 60 characters per line so that it feels comfortable to
+
+335
+00:04:44,940 --> 00:04:51,910
+the user and they'll be able to get through the information and still be interested in your website.
+
+336
+00:04:51,950 --> 00:04:58,850
+Now when you have good layout like Grammarly's website, it's not only interesting but it also chops
+
+337
+00:04:58,850 --> 00:05:04,880
+up the content into smaller pieces so that you actually get through more of the website and you take
+
+338
+00:05:04,880 --> 00:05:06,050
+more of it in.
+
+339
+00:05:07,100 --> 00:05:10,610
+Now another thing I want to talk about is alignment.
+
+340
+00:05:10,610 --> 00:05:17,360
+This has to do with how you position each of the elements on the screen relative to each other.
+
+341
+00:05:17,360 --> 00:05:24,200
+So take a look at the example on the left. The top title is center-aligned whereas the body text is
+
+342
+00:05:24,200 --> 00:05:30,370
+left-aligned. And it makes it look a little bit awkward like they're not really meant to be together.
+
+343
+00:05:30,500 --> 00:05:38,000
+Now on the right however just by shifting the alignment so that both starting points are the same for
+
+344
+00:05:38,000 --> 00:05:43,410
+the title and the body, it suddenly looks a lot more consistent and a lot more designed.
+
+345
+00:05:43,520 --> 00:05:50,960
+Now one of the easiest ways of making any sort of design you create look professional is just to reduce
+
+346
+00:05:51,050 --> 00:05:53,780
+the number of alignment points.
+
+347
+00:05:53,850 --> 00:05:59,840
+So let's say that you're creating a slide deck for your next presentation or you're creating a poster
+
+348
+00:05:59,870 --> 00:06:01,680
+for your birthday party,
+
+349
+00:06:01,700 --> 00:06:09,290
+take a look at all the things that are on the design and identify a line which goes through the beginning
+
+350
+00:06:09,380 --> 00:06:10,870
+of each item.
+
+351
+00:06:10,880 --> 00:06:17,240
+Now if you can reduce the number of lines like we have done here on the right then suddenly the design
+
+352
+00:06:17,240 --> 00:06:21,490
+looks a lot more coherent like all the pieces are meant to be together.
+
+353
+00:06:21,680 --> 00:06:25,100
+And it just looks a lot more professional.
+
+354
+00:06:25,100 --> 00:06:31,400
+So use these grid lines in your designed to help you visualize where the starting points of each element
+
+355
+00:06:31,400 --> 00:06:33,490
+is and try to line them all up.
+
+356
+00:06:33,740 --> 00:06:40,490
+Because even if you do nothing else but just alignment, you can see in this case the left looks a lot
+
+357
+00:06:40,490 --> 00:06:47,780
+more sloppy and the right looks a lot more designed and more professional. And all that's changed, there's
+
+358
+00:06:47,780 --> 00:06:54,950
+no change in the color, there's no change in typography, it's just the alignment. Now a really important
+
+359
+00:06:54,950 --> 00:07:03,630
+concept in all design is White Space. And white space refers to the empty space that's around text or round
+
+360
+00:07:03,630 --> 00:07:05,210
+your elements.
+
+361
+00:07:05,210 --> 00:07:12,230
+Now sometimes when I'm on the high street I come across one of these luxury handbag or shoe shops and
+
+362
+00:07:12,290 --> 00:07:13,580
+I look through the window.
+
+363
+00:07:22,860 --> 00:07:24,540
+Now here's an experiment.
+
+364
+00:07:24,540 --> 00:07:30,780
+Take a look at this shop that sells handbags and take a look at this one.
+
+365
+00:07:30,840 --> 00:07:36,790
+Now how much are you willing to pay for a handbag from this shop versus this one.
+
+366
+00:07:37,080 --> 00:07:41,330
+Now this is really a use case for white space.
+
+367
+00:07:41,340 --> 00:07:45,030
+A lot of luxury shops, luxury designer stores,
+
+368
+00:07:45,030 --> 00:07:53,850
+one of their simplest tools is just injecting white space around their products, space things out and it
+
+369
+00:07:53,850 --> 00:08:00,690
+makes everything suddenly look a lot more expensive. Whereas when you have everything all tightly crammed
+
+370
+00:08:00,690 --> 00:08:06,120
+together and you have a lot of product on show, it makes it look like it's some sort of discount store.
+
+371
+00:08:07,050 --> 00:08:12,030
+And the same principle applies when it comes to digital design as well.
+
+372
+00:08:12,030 --> 00:08:15,290
+Let's say you have an ad for noise cancelling headphones.
+
+373
+00:08:15,570 --> 00:08:21,490
+If you have loads of things on screen, there's "New", "Only $20", "100% noise cancellation".
+
+374
+00:08:21,540 --> 00:08:28,590
+It makes the product look really cheap. Whereas if you injected some white space, all of a sudden it looks
+
+375
+00:08:28,590 --> 00:08:35,370
+like Apple made it right? Just by adding that space around each element on the screen
+
+376
+00:08:35,370 --> 00:08:41,090
+you can make your design a lot more minimalist and at the same time elevate it.
+
+377
+00:08:41,100 --> 00:08:46,650
+Now the last thing on User Interface design I want to talk about and probably the most important is
+
+378
+00:08:46,650 --> 00:08:49,170
+design for your audience.
+
+379
+00:08:49,170 --> 00:08:53,110
+A lot of things I've said, including not using comic-sans,
+
+380
+00:08:53,130 --> 00:08:54,830
+it really depends on your audience.
+
+381
+00:08:54,840 --> 00:09:00,810
+Let's say you're designing a children's concert poster, the one on the right looks like something that
+
+382
+00:09:00,810 --> 00:09:06,530
+children might actually want to go to. The one on the left looks a bit like a funeral advertisement.
+
+383
+00:09:06,540 --> 00:09:15,030
+It's so serious. It's so black and white and it's so severe looking that no child is kind of want to
+
+384
+00:09:15,030 --> 00:09:16,290
+go to that concert.
+
+385
+00:09:17,250 --> 00:09:19,360
+So think about your audience.
+
+386
+00:09:19,500 --> 00:09:25,380
+Think about what would appeal to them and what's important to convey to them. That it's going to be a
+
+387
+00:09:25,380 --> 00:09:32,530
+fun concert or that it's going to be boring adults who are going to be reading newspapers and some sort
+
+388
+00:09:32,580 --> 00:09:39,480
+of classical band in the background. When you're designing websites design it for your audience even
+
+389
+00:09:39,480 --> 00:09:44,940
+if it's something a little bit messier, a little bit bolder in terms of color, as long as it fits your
+
+390
+00:09:44,940 --> 00:09:47,360
+audience and that's perfectly fine.
+
+391
+00:09:47,430 --> 00:09:54,300
+So have the flexibility in your design so that you're not just creating one style all the time. You're
+
+392
+00:09:54,300 --> 00:10:00,870
+creating one style for a particular audience like teenagers who want to buy clothes and you're creating
+
+393
+00:10:00,960 --> 00:10:06,990
+a different style for people who want to buy and sell cryptocurrency or have a medical website.
+
+394
+00:10:07,530 --> 00:10:14,100
+So the flexibility in your design skills is really important when it comes to User Interface design.
+
+395
+00:10:14,100 --> 00:10:22,350
+But keep in mind those five things: hierarchy, layout, alignment, white space and your audience and you'll
+
+396
+00:10:22,350 --> 00:10:27,420
+be well on the way to creating more beautiful user interfaces for your websites.
+
+
+397
+00:00:00,540 --> 00:00:08,039
+Now, so far we've talked about the three pillars of web design: Color Theory, Typography, User Interface
+
+398
+00:00:08,039 --> 00:00:13,600
+design and now I want to talk about the last pillar, User Experience design.
+
+399
+00:00:13,740 --> 00:00:19,520
+Now a lot of people often get confused about what exactly is UX or User Experience?
+
+400
+00:00:20,460 --> 00:00:27,720
+And one of the best ways I've heard it explained is through the story of the renovation of a college.
+
+401
+00:00:28,410 --> 00:00:35,640
+So this is a picture of Reed College in the US and let's just use it as our imaginary backdrop.
+
+402
+00:00:35,640 --> 00:00:41,550
+So this college decided that it needed to undergo serious renovation. Tearing down the buildings, building
+
+403
+00:00:41,550 --> 00:00:45,500
+new ones and completely reform the campus.
+
+404
+00:00:45,570 --> 00:00:51,660
+So they invited this well-known architect who is very respected in his field.
+
+405
+00:00:51,780 --> 00:00:57,540
+He came and he did a great job with all the buildings and the provost was really really happy.
+
+406
+00:00:57,540 --> 00:00:59,240
+He was like "This looks great."
+
+407
+00:00:59,700 --> 00:01:02,710
+But he had one question.
+
+408
+00:01:02,790 --> 00:01:10,470
+"Hey Mr. Architect. It seemed like you've just left lawn across the entire campus. Where are all the path that
+
+409
+00:01:10,470 --> 00:01:15,090
+people are going to walk on to get between the buildings?" At this point
+
+410
+00:01:15,090 --> 00:01:20,810
+the architect says "Don't worry. I'll come back in a year and all will be revealed."
+
+411
+00:01:20,880 --> 00:01:28,320
+So in a year the paths where people need to naturally walk becomes trotted down and the grass gets worn
+
+412
+00:01:28,320 --> 00:01:31,540
+down revealing these paths that people need.
+
+413
+00:01:31,800 --> 00:01:37,790
+And it's at this point when the architect actually lays down all the tiles and paves these paths.
+
+414
+00:01:38,370 --> 00:01:43,230
+So this is kind of the difference between user experience and design. Design
+
+415
+00:01:43,230 --> 00:01:49,820
+we often think of having an aesthetic, what we think looks good and enforcing that on the user.
+
+416
+00:01:50,040 --> 00:01:54,000
+Now user experience is meant to be invisible.
+
+417
+00:01:54,000 --> 00:01:59,790
+If you have a good experience with a website it's meant to be unobtrusive and it just lets you do your
+
+418
+00:01:59,790 --> 00:02:05,490
+thing and it feels like as if everything is easy and everything is effortless.
+
+419
+00:02:05,490 --> 00:02:07,690
+So this is what we're aiming for.
+
+420
+00:02:07,860 --> 00:02:12,120
+And in order to do that we have to think about again five things.
+
+421
+00:02:12,120 --> 00:02:21,000
+The first is simplicity. Keeping things simple is always better than making it more complex or more cluttered.
+
+422
+00:02:21,000 --> 00:02:27,570
+So this is a website called Sina and it's one of the biggest News websites in China.
+
+423
+00:02:27,570 --> 00:02:33,320
+Now every time I look at it though I get a headache because it is just so dense.
+
+424
+00:02:33,480 --> 00:02:39,030
+There are so many links and my brain gets overwhelmed and I say "Nope, can't do it."
+
+425
+00:02:39,540 --> 00:02:42,270
+So take a look at this alternative.
+
+426
+00:02:42,330 --> 00:02:45,630
+This is Monocle, which is also a News website.
+
+427
+00:02:46,020 --> 00:02:51,510
+But look at how they've managed to chop up the content, provides some interest for the eyes.
+
+428
+00:02:51,510 --> 00:02:55,290
+There's a little bit of dialogue, some images, some videos, a little bit of text.
+
+429
+00:02:55,680 --> 00:02:57,330
+It's never overwhelming.
+
+430
+00:02:57,360 --> 00:03:03,960
+And with that consistent color scheme and typography, it's really delightful to actually read rather
+
+431
+00:03:03,960 --> 00:03:09,300
+than this experience of sort of hurting your eyes with design.
+
+432
+00:03:09,300 --> 00:03:13,720
+This is a much nicer user experience because it's simple.
+
+433
+00:03:13,770 --> 00:03:18,700
+So whenever you're having to choose, should I make it more complex or should I make it more simple,
+
+434
+00:03:18,810 --> 00:03:21,720
+always try to pare it down.
+
+435
+00:03:22,000 --> 00:03:24,710
+The second point is consistency.
+
+436
+00:03:24,790 --> 00:03:31,320
+Keep your designs consistent but also keep the functionality of your product consistent.
+
+437
+00:03:31,390 --> 00:03:33,140
+So here's an example.
+
+438
+00:03:33,190 --> 00:03:42,520
+This is the webpage for Xfinity. Xfinity is a really big communications company in the US and they
+
+439
+00:03:42,520 --> 00:03:48,130
+are responsible for various things like providing TV and providing internet.
+
+440
+00:03:48,130 --> 00:03:52,090
+Here are three screenshots from various parts of their website.
+
+441
+00:03:52,090 --> 00:03:53,440
+One is their home page,
+
+442
+00:03:53,440 --> 00:03:58,320
+the second is their TV offerings and the last one is their News site.
+
+443
+00:03:58,420 --> 00:04:04,420
+And if you take a look at the top navigation bar not only do you see that they've changed up the design
+
+444
+00:04:04,420 --> 00:04:08,360
+of the navigation bar between the different parts of their website,
+
+445
+00:04:08,530 --> 00:04:11,160
+they also made it work a little bit differently.
+
+446
+00:04:11,170 --> 00:04:15,460
+The buttons are not all in the same place, the search bar moves around.
+
+447
+00:04:15,580 --> 00:04:21,880
+And that inconsistency means that a user is going to be confused when they go from one part of the website
+
+448
+00:04:21,940 --> 00:04:25,850
+to another, having to re-learn how to use your website.
+
+449
+00:04:26,050 --> 00:04:31,210
+If you think about the target audience of this company Xfinity, a lot of them are going to be a little
+
+450
+00:04:31,210 --> 00:04:32,680
+bit older right?
+
+451
+00:04:32,800 --> 00:04:38,530
+And having this inconsistent functionality and inconsistent design will really make those users have
+
+452
+00:04:38,530 --> 00:04:41,440
+a bad experience with this website.
+
+453
+00:04:41,440 --> 00:04:46,270
+Now the next thing to think about when you're designing your website is to take into account people's
+
+454
+00:04:46,270 --> 00:04:47,770
+reading patterns.
+
+455
+00:04:47,770 --> 00:04:54,020
+Now they've looked at how human eyes track a webpage and which parts they look at when they're browsing.
+
+456
+00:04:54,190 --> 00:05:00,580
+And one of the most common reading patterns is what's called the F-pattern where the eye starts at the
+
+457
+00:05:00,580 --> 00:05:05,370
+top left of the corner and then it tracks the right and then it flips back again
+
+458
+00:05:05,500 --> 00:05:07,360
+browsing down the left gutter.
+
+459
+00:05:07,570 --> 00:05:14,020
+So you have often things like bullet points or pictures or icons, buttons, they're all on the left.
+
+460
+00:05:14,170 --> 00:05:17,280
+So you can design for this by using the F-layout.
+
+461
+00:05:17,380 --> 00:05:24,490
+So have the most important parts of your content on the left gutter, have the logo at the top and have
+
+462
+00:05:24,520 --> 00:05:26,800
+everything follow this pattern.
+
+463
+00:05:26,800 --> 00:05:30,340
+For example like this website for Bigcommerce.
+
+464
+00:05:30,340 --> 00:05:35,560
+See how the eye is being naturally accommodated going from left to right.
+
+465
+00:05:35,920 --> 00:05:42,610
+Now another really common pattern for reading is the Z-pattern where our eyes go from left to right and then
+
+466
+00:05:42,610 --> 00:05:45,370
+zigzagging down all the way the website.
+
+467
+00:05:45,370 --> 00:05:47,670
+Now this of course depends on the type of website.
+
+468
+00:05:47,680 --> 00:05:52,540
+So you have something that's more sparse with more video content or if somebody is trying to browse
+
+469
+00:05:52,540 --> 00:05:54,440
+a website a little bit faster,
+
+470
+00:05:54,520 --> 00:06:01,050
+you see them using this layout. And this layout is used pretty famously in the Facebook website
+
+471
+00:06:01,180 --> 00:06:05,520
+using that Z-pattern to accommodate for people's natural reading pattern.
+
+472
+00:06:05,680 --> 00:06:10,810
+So have a think about this. Have a think about how people naturally looks at the page and place your
+
+473
+00:06:10,810 --> 00:06:16,680
+content in that pattern to make it easier for people who are using your website.
+
+474
+00:06:16,700 --> 00:06:21,760
+Now in today's day and age, it's really important to think about All Platform Design.
+
+475
+00:06:21,940 --> 00:06:27,330
+It's not enough anymore to just design a website that's meant to go into a desktop computer.
+
+476
+00:06:27,490 --> 00:06:30,700
+Instead you have to think about mobile as well.
+
+477
+00:06:30,790 --> 00:06:37,990
+So having a website that scales up nicely onto mobile, what we call mobile responsive, is really important.
+
+478
+00:06:37,990 --> 00:06:45,070
+You don't want a big website that's designed to take up a landscape kind of screen to be crammed into
+
+479
+00:06:45,070 --> 00:06:45,860
+a phone
+
+480
+00:06:45,940 --> 00:06:48,700
+that's actually more like a portrait shape.
+
+481
+00:06:48,820 --> 00:06:50,110
+This looks really bad.
+
+482
+00:06:50,110 --> 00:06:55,500
+It's very hard to read the individual links and, more often than not, my fingers are actually too big to tap
+
+483
+00:06:55,510 --> 00:06:56,680
+onto the length that I want.
+
+484
+00:06:57,190 --> 00:06:59,700
+So this is a really bad user experience.
+
+485
+00:07:00,670 --> 00:07:03,220
+Now this can happen the opposite way as well.
+
+486
+00:07:03,670 --> 00:07:10,030
+So a design that looks much better on mobile but then when it's rendered on a desktop with a wide kind
+
+487
+00:07:10,030 --> 00:07:14,550
+of screen, it doesn't use up enough of the screen real estate. For example,
+
+488
+00:07:14,560 --> 00:07:18,270
+this is the Facebook latest redesign of their website.
+
+489
+00:07:18,430 --> 00:07:23,980
+And you've got all of this empty space that's not being used at all and everything is crammed into the
+
+490
+00:07:23,980 --> 00:07:24,750
+middle.
+
+491
+00:07:24,760 --> 00:07:31,260
+This is not very efficient. So have a think about how you're using the available space and make sure
+
+492
+00:07:31,260 --> 00:07:39,210
+that your website rearranges itself when it's being rendered on a portrait smaller screen vs. a larger
+
+493
+00:07:39,240 --> 00:07:46,980
+desktop screen. And try to avoid one of my pet peeves in terms of design which is having so many banners
+
+494
+00:07:46,980 --> 00:07:53,010
+on your website that show up on the mobile version that your content becomes impossibly small.
+
+495
+00:07:53,160 --> 00:07:57,480
+And even when you're scrolling it's like you're scrolling it on an Apple Watch or something.
+
+496
+00:07:57,480 --> 00:08:03,360
+Whereas all of this extra content is taken up by warnings and banners and cookies and it's just not
+
+497
+00:08:03,360 --> 00:08:05,590
+a very good user experience.
+
+498
+00:08:05,730 --> 00:08:07,830
+But on the other hand, don't go crazy either.
+
+499
+00:08:07,830 --> 00:08:15,870
+Don't make your entire website just one part like a picture or a piece of text scaling it up massively
+
+500
+00:08:15,870 --> 00:08:21,960
+like this is also very very awkward because then I have to just keep scrolling until forever before
+
+501
+00:08:21,960 --> 00:08:25,080
+I can actually read and take in all of the content.
+
+502
+00:08:25,110 --> 00:08:26,630
+So strike a happy medium.
+
+503
+00:08:26,700 --> 00:08:29,430
+And most importantly test, test, test.
+
+504
+00:08:29,430 --> 00:08:30,820
+Give it to other users.
+
+505
+00:08:30,960 --> 00:08:35,960
+You can employ professional testers to try out your website and give you feedback.
+
+506
+00:08:35,970 --> 00:08:40,799
+Now if you can't afford that, just use your family and friends. And bake some cookies for them,
+
+507
+00:08:40,799 --> 00:08:46,800
+get them to test out your website and start getting some feedback on how you can improve the design.
+
+508
+00:08:46,800 --> 00:08:51,840
+Now finally we've talked a lot about user experience and how to get people to have a good time.
+
+509
+00:08:51,870 --> 00:08:57,900
+Now some designers though use the knowledge they have about human psychology and User Interface and
+
+510
+00:08:57,900 --> 00:09:04,670
+User Experience design to do bad things.
+
+511
+00:09:05,130 --> 00:09:13,410
+And in the design world, we call these dark patterns. So patterns which get a user to perform an action
+
+512
+00:09:13,410 --> 00:09:17,790
+or behavior that is beneficial to the company or the designer
+
+513
+00:09:18,120 --> 00:09:20,960
+but it's not necessarily what the user wants.
+
+514
+00:09:21,030 --> 00:09:25,450
+And this I would say is another form of bad user experience.
+
+515
+00:09:25,470 --> 00:09:27,510
+So let me give you some examples.
+
+516
+00:09:27,540 --> 00:09:32,790
+This is a real life example. Let's say that you walked into Waitrose which is a big supermarket in the
+
+517
+00:09:32,790 --> 00:09:35,880
+UK and you bought yourself a sandwich.
+
+518
+00:09:35,880 --> 00:09:40,560
+Now when you look at it at the point when you're buying it, it looks like this sandwich is going to be
+
+519
+00:09:40,560 --> 00:09:42,510
+full length from edge to edge
+
+520
+00:09:42,510 --> 00:09:43,410
+right?
+
+521
+00:09:43,470 --> 00:09:49,320
+But then when you rip open the packaging you're disappointed when you find that actually all that's
+
+522
+00:09:49,320 --> 00:09:55,540
+in the middle is just air and your sandwich turns out to be a lot smaller than you initially thought.
+
+523
+00:09:55,610 --> 00:09:57,910
+It is the worst feeling in the world.
+
+524
+00:09:58,000 --> 00:10:02,840
+This is a feeling that I can't stand when my food suddenly gets reduced in size.
+
+525
+00:10:02,940 --> 00:10:07,770
+It's like as if somebody came along and took food out of your plate. In the digital world,
+
+526
+00:10:07,770 --> 00:10:13,770
+people do the same thing. The same kind of trickery that's meant to get you to perform an action that
+
+527
+00:10:13,770 --> 00:10:20,430
+you don't necessarily want and you end up feeling really disappointed and really upset. With Amazon every
+
+528
+00:10:20,430 --> 00:10:21,110
+single time
+
+529
+00:10:21,120 --> 00:10:26,550
+I have to re-click the free delivery button which I've earned by buying so much product from them.
+
+530
+00:10:27,060 --> 00:10:32,310
+But they still try to trick you using the things that we've learned about hierarchy
+
+531
+00:10:32,310 --> 00:10:39,060
+for example. Here the button that makes the more money "Express delivery" is highlighted in orange.
+
+532
+00:10:39,060 --> 00:10:40,860
+It pops out a lot more.
+
+533
+00:10:40,920 --> 00:10:44,000
+It's a lot more likely that you'll want to click on it.
+
+534
+00:10:44,700 --> 00:10:50,880
+But in all likelihood, you're probably happy with just normal delivery and you're now tricked into paying
+
+535
+00:10:50,880 --> 00:10:53,040
+more for this delivery.
+
+536
+00:10:53,040 --> 00:10:54,260
+Now here's another example
+
+537
+00:10:54,270 --> 00:10:56,230
+that's actually true the evil.
+
+538
+00:10:56,400 --> 00:10:59,410
+This is a Snapchat ad for some shoes.
+
+539
+00:10:59,760 --> 00:11:08,340
+But what the designer has cleverly done on the advertising is they've placed a one pixel curved line
+
+540
+00:11:08,460 --> 00:11:15,090
+on this ad which makes it kind of look a bit like a hair is on your screen. But when you go into that
+
+541
+00:11:15,090 --> 00:11:19,140
+screen and you try to get rid of that piece of hair, well you've tapped on an avenue.
+
+542
+00:11:19,170 --> 00:11:26,550
+So the ad takes you to the website and the advertisers make money off each click.
+
+543
+00:11:26,550 --> 00:11:32,020
+And this is truly a dog pattern because it's just tricking you to do something you didn't want to.
+
+544
+00:11:32,250 --> 00:11:37,770
+Whereas good design is about helping people do what they want to do and giving them a good experience
+
+545
+00:11:37,800 --> 00:11:39,400
+while they're at it.
+
+546
+00:11:39,420 --> 00:11:47,250
+Now the king of dog patterns is RyanAir and it's a low cost airline in Europe which is really known for
+
+547
+00:11:47,580 --> 00:11:50,720
+sort of charging you for every single little thing.
+
+548
+00:11:50,730 --> 00:11:55,880
+I wouldn't be surprised if tomorrow they suddenly charged you for using the toilet on the plane.
+
+549
+00:11:56,580 --> 00:12:03,150
+But here's what the website looks like when you tried to buy an airplane ticket. In order to buy your
+
+550
+00:12:03,150 --> 00:12:08,370
+airplane ticket you have to go through all of these extra add ons including saying "No I don't want to
+
+551
+00:12:08,370 --> 00:12:13,920
+buy travel insurance." But look at how they've hidden it inside this big dropdown list and it's not even
+
+552
+00:12:13,920 --> 00:12:15,170
+at the beginning of the list.
+
+553
+00:12:15,180 --> 00:12:18,920
+It's actually sorted alphabetically below Denmark for some reason.
+
+554
+00:12:19,530 --> 00:12:23,650
+And this just makes it so much harder for you to find that option
+
+555
+00:12:23,820 --> 00:12:27,910
+and for you to actually accidentally end up buying travel insurance.
+
+556
+00:12:28,330 --> 00:12:34,930
+Now the final example and probably one of the dog patterns I dislike the most is these checkboxes. You
+
+557
+00:12:34,930 --> 00:12:36,660
+know right below you filled in a form,
+
+558
+00:12:36,670 --> 00:12:42,130
+you get these checkboxes and sometimes the wording is so confusing that I really don't know what I'm
+
+559
+00:12:42,130 --> 00:12:43,120
+signing up for.
+
+560
+00:12:43,330 --> 00:12:49,720
+Like this one: If you would like us to no longer continue to stop not sending you special deals and offers
+
+561
+00:12:49,750 --> 00:12:53,150
+every week, please indicate you are inclined to yes
+
+562
+00:12:53,170 --> 00:12:57,440
+by not checking the box. I have no idea what clicking that box does.
+
+563
+00:12:57,460 --> 00:12:59,160
+I really just... I don't know.
+
+564
+00:12:59,170 --> 00:13:00,490
+I might click it, I might not.
+
+565
+00:13:00,490 --> 00:13:06,490
+I don't know what it does. But it's horribly confusing and it's not a good user experience at all.
+
+566
+00:13:06,490 --> 00:13:10,440
+I will bet you that after I sign up I'm never going to come back to this website again
+
+567
+00:13:10,510 --> 00:13:11,390
+right?
+
+568
+00:13:11,410 --> 00:13:13,210
+Are you with me? Now
+
+569
+00:13:13,240 --> 00:13:15,850
+we've seen what good websites look like.
+
+570
+00:13:15,850 --> 00:13:18,130
+We've seen what bad websites look like.
+
+571
+00:13:18,140 --> 00:13:20,650
+We've even seen what evil websites look like.
+
+572
+00:13:21,100 --> 00:13:27,520
+But it's time to put our knowledge to the test by designing our own website from scratch and applying
+
+573
+00:13:27,520 --> 00:13:31,460
+these four pillars of web design to this project.
+
+574
+00:13:31,510 --> 00:13:36,190
+So have a think about what you've learned so far and head over to the next lesson where we're going
+
+575
+00:13:36,190 --> 00:13:38,860
+to design a hotel website from scratch.
+
+
+576
+00:00:00,540 --> 00:00:07,410
+Now that we've learned about some of the principles of web design such as Color Theory, Typography, User
+
+577
+00:00:07,410 --> 00:00:14,730
+Interface design and User Experience design, the four pillars, it's time to apply what we've learned and
+
+578
+00:00:14,790 --> 00:00:17,040
+build a design together.
+
+579
+00:00:17,040 --> 00:00:23,220
+Now there's a website called Daily UI which gives you a task to design every day for 100 days.
+
+580
+00:00:23,790 --> 00:00:29,610
+It's free to sign up and it's something that really does improve designing skills by just that repeated
+
+581
+00:00:29,610 --> 00:00:31,060
+practice.
+
+582
+00:00:31,110 --> 00:00:37,070
+Now if you take a look at a website called Collect UI you can see they've collected together all the
+
+583
+00:00:37,170 --> 00:00:43,290
+designers attempts at designing each of these daily challenges and you can see examples what each of
+
+584
+00:00:43,290 --> 00:00:44,800
+these challenges are.
+
+585
+00:00:44,910 --> 00:00:52,810
+For example, anything from creating a sign up screen to a flight website to a hotel booking website.
+
+586
+00:00:52,830 --> 00:00:59,630
+So we're going to take some of these ideas as inspiration and create our own website design
+
+587
+00:00:59,700 --> 00:01:05,190
+applying the four pillars that we've learned in this module. The first thing I want you to do is head
+
+588
+00:01:05,190 --> 00:01:07,980
+over to a website called canva.com.
+
+589
+00:01:07,980 --> 00:01:14,430
+Now this is a online graphics editing program and you don't have to download anything and it's completely
+
+590
+00:01:14,430 --> 00:01:15,660
+free to sign up.
+
+591
+00:01:15,870 --> 00:01:20,580
+So sign up for a new account and then go ahead and create a new design.
+
+592
+00:01:20,610 --> 00:01:27,720
+So we're going to pick custom dimensions and I'm going to choose 1400 pixels by 800 pixels high.
+
+593
+00:01:27,720 --> 00:01:33,750
+Once we're inside our design we're going to take this as the first screen that the user sees in our
+
+594
+00:01:33,750 --> 00:01:34,740
+website.
+
+595
+00:01:34,740 --> 00:01:39,270
+And then when they scroll down they'll see the next page and then they scroll down and see the final
+
+596
+00:01:39,270 --> 00:01:40,350
+part of our website.
+
+597
+00:01:41,010 --> 00:01:44,060
+So let's design the first title screen.
+
+598
+00:01:44,340 --> 00:01:50,780
+Now I'm going to choose this free template which gives me a backdrop already but I'm actually just going
+
+599
+00:01:50,780 --> 00:01:55,380
+to use it for some texture. I quite like the way that this pattern looks.
+
+600
+00:01:55,410 --> 00:02:00,030
+So I'm going to apply the pattern and then I'm going to change the background.
+
+601
+00:02:00,030 --> 00:02:04,080
+Now I think the background looks a little bit bland with just a single color.
+
+602
+00:02:04,500 --> 00:02:12,600
+So I'm going to choose a photo instead and I'm going to search for a beach, like this one.
+
+603
+00:02:12,600 --> 00:02:18,960
+So now that I've got my image I'm going to drag it out so that it's sized as large as it needs to be.
+
+604
+00:02:19,410 --> 00:02:25,200
+So going all the way to each of the edges. And then I'm going to reposition it so that it fills up the
+
+605
+00:02:25,200 --> 00:02:28,200
+entire screen. Like this.
+
+606
+00:02:28,200 --> 00:02:31,500
+So now I have a background image, some sort of texture on it
+
+607
+00:02:31,880 --> 00:02:35,810
+and I can go to the elements to keep adding to this design.
+
+608
+00:02:35,820 --> 00:02:38,920
+Let's take a look at some of the gradients here.
+
+609
+00:02:39,180 --> 00:02:42,930
+And I'm going to pick something that'll fit in with this theme.
+
+610
+00:02:43,020 --> 00:02:46,590
+Now, of course, how you design this is completely up to you.
+
+611
+00:02:46,650 --> 00:02:52,710
+And I'm just providing an example of how I go through this process of designing.
+
+612
+00:02:52,710 --> 00:02:54,510
+So now I've got a circle here.
+
+613
+00:02:54,540 --> 00:03:02,670
+I'm going to add some more shapes maybe a square of some sort. We can click on see all to see all the
+
+614
+00:03:02,670 --> 00:03:03,870
+other ones.
+
+615
+00:03:04,320 --> 00:03:12,270
+And then I'm going to put a square which I'm going to make it so that it goes right to the end of each
+
+616
+00:03:12,360 --> 00:03:13,340
+of the sites.
+
+617
+00:03:13,350 --> 00:03:19,310
+So here and then we're going to make it line up with the center of the circle roughly like this.
+
+618
+00:03:19,350 --> 00:03:23,460
+And let's just change that color to white.
+
+619
+00:03:23,460 --> 00:03:29,080
+Now we have this nice white border, some abstract shapes and patterns and an image.
+
+620
+00:03:29,100 --> 00:03:34,530
+Now I'm going to add a heading text. This heading text is going to be the name of our hotel.
+
+621
+00:03:34,530 --> 00:03:41,140
+After all we're designing a website for this unknown Hotel which I'll call "A Hotel".
+
+622
+00:03:41,580 --> 00:03:49,410
+A really easy way of making something look authoritative and like it's been around forever is by changing
+
+623
+00:03:49,410 --> 00:03:52,170
+the typeface to a Serif typeface.
+
+624
+00:03:52,620 --> 00:03:58,470
+So I'm going to highlight this font and I'm going to click the dropdown and find a serif typeface like
+
+625
+00:03:58,560 --> 00:03:59,790
+this one cardo.
+
+626
+00:04:00,480 --> 00:04:06,870
+And notice how instantly our hotel looks a lot more established like it's been around for longer.
+
+627
+00:04:06,960 --> 00:04:09,530
+Now I'm going to change the color of this also to white.
+
+628
+00:04:09,690 --> 00:04:16,709
+So notice how we're starting to establish a color palette of greens and turquoise and blue and white.
+
+629
+00:04:17,339 --> 00:04:26,870
+And we're going to increase the font size to maybe something really large like 120 or 144. And
+
+630
+00:04:26,900 --> 00:04:30,070
+I'm going to change this so that it's all caps like so.
+
+631
+00:04:30,850 --> 00:04:33,050
+So that's actually a little bit too big
+
+632
+00:04:33,050 --> 00:04:41,360
+so let's drop it down a notch. And I can increase the spacing of the letters to again make it look more
+
+633
+00:04:41,360 --> 00:04:46,450
+fancy, more expensive and more authoritative.
+
+634
+00:04:47,150 --> 00:04:51,710
+Here's the name of our hotel, A Hotel,  centered in this box.
+
+635
+00:04:51,710 --> 00:04:57,400
+And now I'm ready to add a subheading and my subheading is going to be some sort of tagline
+
+636
+00:04:57,400 --> 00:04:58,560
+right?
+
+637
+00:04:58,790 --> 00:05:05,020
+And I'm going to go with something really obnoxious like "Lose Yourself to find yourself".
+
+638
+00:05:05,020 --> 00:05:07,070
+I feel like I'm ready to open a hotel tomorrow.
+
+639
+00:05:07,850 --> 00:05:17,170
+Let's Now contrast this serif typeface for the title with a San-Serif sort of body or subtitle.
+
+640
+00:05:17,330 --> 00:05:20,010
+And this is what we learned about in the typography section.
+
+641
+00:05:20,030 --> 00:05:22,260
+It creates contrast in the design.
+
+642
+00:05:22,340 --> 00:05:28,820
+So I'm going to pick this Glacial indifference typeface and I'm again going to choose white and then
+
+643
+00:05:28,820 --> 00:05:34,590
+make both these lines left-aligned so that I can align them to the same position.
+
+644
+00:05:34,820 --> 00:05:40,700
+And that is how when you drag elements around on canvas it automatically gives you these alignment grids
+
+645
+00:05:41,060 --> 00:05:46,670
+so that you can more easily position it so that they are actually all aligned together.
+
+646
+00:05:46,670 --> 00:05:48,710
+And notice how big a difference that looks
+
+647
+00:05:48,710 --> 00:05:54,190
+just having it off alignment and then on alignment. It's suddenly just looks a lot more proper
+
+648
+00:05:54,210 --> 00:05:58,170
+right? Now I'm more or less done with my title page.
+
+649
+00:05:58,190 --> 00:06:04,830
+I'm going to move on to the next one which is going to be a page for selling the features of the hotel.
+
+650
+00:06:04,850 --> 00:06:11,330
+Let's start off by adding some images. And I've got some that I've already found before.
+
+651
+00:06:11,330 --> 00:06:18,290
+I've got a picture of a bedroom which I'm going to make it a little bit smaller like so and then I've
+
+652
+00:06:18,290 --> 00:06:21,950
+got a picture of a breakfast of some sort.
+
+653
+00:06:22,130 --> 00:06:24,290
+So you've got food at this hotel.
+
+654
+00:06:24,290 --> 00:06:25,460
+You're not going to starve.
+
+655
+00:06:25,460 --> 00:06:27,770
+That's pretty important for people to know.
+
+656
+00:06:29,460 --> 00:06:33,510
+And I'm going to size it so that it's actually the same size as the other one.
+
+657
+00:06:33,510 --> 00:06:34,930
+So I'm just going to put it on top.
+
+658
+00:06:35,680 --> 00:06:38,000
+Now the last one is going to be a pool.
+
+659
+00:06:38,050 --> 00:06:39,610
+So you've also got a pool.
+
+660
+00:06:39,640 --> 00:06:41,830
+You don't get bored if it gets too hot.
+
+661
+00:06:41,830 --> 00:06:43,650
+You can always just go into the pool.
+
+662
+00:06:43,660 --> 00:06:45,780
+This is turning out to be a great hotel
+
+663
+00:06:45,790 --> 00:06:47,690
+by the way, I really want to stay here.
+
+664
+00:06:47,690 --> 00:06:52,600
+Now the goal of our features page is to have three images which are probably going to be about the same
+
+665
+00:06:52,600 --> 00:06:53,470
+size.
+
+666
+00:06:53,500 --> 00:06:59,920
+So I'm actually going to need to crop this last photo so that I get rid of maybe a little bit of this
+
+667
+00:06:59,950 --> 00:07:05,520
+right edge but have it just about the same size as my other photos.
+
+668
+00:07:05,800 --> 00:07:10,780
+And now I need to resize each of these photos so that it actually can fit onto this page.
+
+669
+00:07:11,500 --> 00:07:14,850
+So I'm just going to throw them one on top of the other and resize them
+
+670
+00:07:14,860 --> 00:07:16,670
+so they're all the same size.
+
+671
+00:07:16,990 --> 00:07:21,210
+And now I can place them around this web page.
+
+672
+00:07:21,340 --> 00:07:25,730
+So when you move towards the edge of each page you can see this grid show up.
+
+673
+00:07:25,810 --> 00:07:29,500
+So I'm going to line up the left with the left side of the grid the right with the right side of the
+
+674
+00:07:29,500 --> 00:07:32,410
+grid and the middle right in the middle.
+
+675
+00:07:32,410 --> 00:07:39,160
+So now these three are evenly spaced apart and I can now add some more design features to it because
+
+676
+00:07:39,160 --> 00:07:42,430
+it's looking a little bit bland just as photos.
+
+677
+00:07:42,460 --> 00:07:48,180
+Now one of the easiest things to make photos look nice is to just jazz it up with a frame.
+
+678
+00:07:48,180 --> 00:07:51,440
+Now because all hotel is very modern, it's contemporary,
+
+679
+00:07:51,520 --> 00:07:53,210
+it's been featured in Vogue,
+
+680
+00:07:53,230 --> 00:07:57,820
+I want to make sure that the framing also looks equally contemporary.
+
+681
+00:07:57,820 --> 00:08:04,780
+So I'm going to find a circle and I'm going to put this circle around this square image which is going
+
+682
+00:08:04,780 --> 00:08:11,590
+to make it look quite nice and contemporary. And then I'm going to give it a background color like that.
+
+683
+00:08:11,590 --> 00:08:14,520
+And we've now framed our picture.
+
+684
+00:08:14,740 --> 00:08:22,150
+So now, all I have to do is just copy it and put it onto all the other images like so.
+
+685
+00:08:22,150 --> 00:08:24,490
+And now I've got three features.
+
+686
+00:08:24,550 --> 00:08:26,830
+You've got a bed, you've got food, you've got pool.
+
+687
+00:08:26,830 --> 00:08:31,650
+What more do you want? The next part is probably going to be some sort of explainer
+
+688
+00:08:31,660 --> 00:08:32,210
+right?
+
+689
+00:08:32,230 --> 00:08:39,789
+So add a subheading of these sections and the subheading is going to be something like you get beautiful
+
+690
+00:08:39,789 --> 00:08:45,160
+food, you have beautiful rooms and you have a beautiful pool.
+
+691
+00:08:45,580 --> 00:08:50,070
+So three things that we've got. And I'm going to left-align
+
+692
+00:08:50,080 --> 00:08:59,500
+each of these again so that I can make it aligned with the left edge of each of the pictures like this.
+
+693
+00:08:59,590 --> 00:09:07,240
+So all three of these pieces of text are on the same horizontal level and they're also vertically aligned
+
+694
+00:09:07,300 --> 00:09:10,360
+with the start of each image.
+
+695
+00:09:10,360 --> 00:09:16,240
+Now each of these will need to be designed so that they have the same typeface as what we had in the
+
+696
+00:09:16,240 --> 00:09:18,370
+title page so that it's consistent
+
+697
+00:09:18,370 --> 00:09:18,950
+right?
+
+698
+00:09:18,970 --> 00:09:21,670
+We're reflecting the same thing that we saw before.
+
+699
+00:09:22,300 --> 00:09:29,890
+So I'm gonna change that again to Glacial indifference and do the same for all three bits of text.
+
+700
+00:09:30,250 --> 00:09:36,370
+And now we can afford to increase the spacing in the text a little bit to make it look a little bit
+
+701
+00:09:36,370 --> 00:09:41,270
+more roomy. So I think I had 18
+
+702
+00:09:41,270 --> 00:09:46,940
+on the other one so I'm going to put 18 here as well and 18 here as well.
+
+703
+00:09:48,990 --> 00:09:49,350
+There we go.
+
+704
+00:09:49,550 --> 00:09:55,760
+So we've got all three bits of text and now all we need is just a little bit of body text. For the bod
+
+705
+00:09:55,760 --> 00:09:56,200
+text
+
+706
+00:09:56,210 --> 00:10:04,460
+I'm going to use a Lorem Ipsum. So I'm going to use one of these generators and just get some text generated
+
+707
+00:10:04,470 --> 00:10:12,200
+and I'm going to copy a little bit of it and put it into my design. Replace that text with this
+
+708
+00:10:12,200 --> 00:10:14,420
+and that's a little bit too much.
+
+709
+00:10:14,420 --> 00:10:22,280
+So let's make it a bit smaller. And we're going to have some text which is going to go just below this
+
+710
+00:10:22,280 --> 00:10:23,540
+section.
+
+711
+00:10:23,780 --> 00:10:25,850
+So it's still a little bit too much.
+
+712
+00:10:25,850 --> 00:10:28,730
+Let's get rid of the last sentence. That looks pretty good.
+
+713
+00:10:28,730 --> 00:10:31,340
+Now again we want to keep our design consistent.
+
+714
+00:10:31,340 --> 00:10:37,190
+So we're going to make sure it's again left aligned using the same font as before.
+
+715
+00:10:37,400 --> 00:10:44,360
+And we've now got a bit of body text which I'm going to further style by changing the color of each
+
+716
+00:10:44,360 --> 00:10:45,310
+of these.
+
+717
+00:10:45,380 --> 00:10:53,700
+So I want to go for maybe like a dark-grayish like one of these and the same for the body text.
+
+718
+00:10:53,990 --> 00:10:56,750
+That way it doesn't sort of stand out so much.
+
+719
+00:10:56,900 --> 00:10:58,350
+And I'm going to copy this
+
+720
+00:10:58,370 --> 00:11:03,620
+so that I put it on all of the other features.
+
+721
+00:11:03,620 --> 00:11:05,410
+Notice the alignment here.
+
+722
+00:11:05,450 --> 00:11:08,390
+I've got all the pictures aligned with each other,
+
+723
+00:11:08,570 --> 00:11:11,570
+all of these circles center-aligned with each picture,
+
+724
+00:11:11,870 --> 00:11:17,610
+I've got all the text lined along the left and this just makes the design look a lot tighter
+
+725
+00:11:17,780 --> 00:11:19,910
+and a lot more consistent.
+
+726
+00:11:20,090 --> 00:11:25,330
+And notice how with the layout I've tried to keep it interesting by having some pictures that break
+
+727
+00:11:25,330 --> 00:11:31,130
+up the text and making sure that each body of text is not overwhelming. It's not too long
+
+728
+00:11:31,130 --> 00:11:32,570
+like a big long sentence.
+
+729
+00:11:32,850 --> 00:11:36,440
+But instead it's short enough to be easily read quickly.
+
+730
+00:11:36,620 --> 00:11:40,790
+Now, the other thing you'll notice is that there's a degree of hierarchy that's being established here
+
+731
+00:11:40,800 --> 00:11:41,450
+right?
+
+732
+00:11:41,490 --> 00:11:46,630
+Clearly the thing that I really want people to know is that my hotel is called A Hotel.
+
+733
+00:11:46,820 --> 00:11:51,800
+But in addition, I've also got beautiful food being more important than the body text
+
+734
+00:11:51,800 --> 00:11:53,640
+that explains that paragraph.
+
+735
+00:11:53,870 --> 00:11:59,750
+And each of these images also being more important because, let's face it, most people look at the pictures
+
+736
+00:11:59,750 --> 00:12:01,100
+and don't read anything right?
+
+737
+00:12:01,340 --> 00:12:02,930
+So that's our second part of the website
+
+738
+00:12:02,930 --> 00:12:03,530
+done.
+
+739
+00:12:03,680 --> 00:12:08,270
+And we're now onto the last part which is going to be the contact page.
+
+740
+00:12:08,270 --> 00:12:15,080
+So this contact page I'm again going to search for maybe a photo of something that's quite fashionable,
+
+741
+00:12:15,080 --> 00:12:17,530
+contemporary, tropical.
+
+742
+00:12:17,810 --> 00:12:21,020
+Maybe we can just find a picture of a pineapple.
+
+743
+00:12:21,890 --> 00:12:24,130
+And this one looks pretty good.
+
+744
+00:12:24,140 --> 00:12:30,320
+Let's go ahead and position this photo so that it's the same size as the design.
+
+745
+00:12:30,560 --> 00:12:35,330
+And now I can move it up so that only the bottom shows up my pineapples.
+
+746
+00:12:35,330 --> 00:12:36,080
+So there we go.
+
+747
+00:12:36,080 --> 00:12:43,100
+We've got 1, 2 and 3 and the last part is just a contact me page. The contact me page is also
+
+748
+00:12:43,100 --> 00:12:45,280
+going to need some titled text.
+
+749
+00:12:45,350 --> 00:12:47,360
+Let's just call that Stay.
+
+750
+00:12:47,360 --> 00:12:52,940
+So when they want to stay they can take a look at this section. And we're going to again copy this style
+
+751
+00:12:52,940 --> 00:12:57,510
+that we had from before so that we can actually replicate it down here
+
+752
+00:12:57,740 --> 00:13:00,830
+and we keep our design again consistent.
+
+753
+00:13:00,830 --> 00:13:06,800
+It has the same theme, the same color palette, the same typography.
+
+754
+00:13:06,800 --> 00:13:13,280
+This is a little bit too big though. So let's make it a bit smaller so it fits onto this page.
+
+755
+00:13:13,400 --> 00:13:19,100
+And again I'm going to be consistent with our geometric shapes which is lending that sort of modern
+
+756
+00:13:19,100 --> 00:13:23,830
+feel. I've got a sort of rectangle, a circle, more circles.
+
+757
+00:13:23,900 --> 00:13:31,880
+So let's pick another shape from here. Maybe some sort of a hexagon. That looks pretty good.
+
+758
+00:13:31,880 --> 00:13:33,260
+Let's add the hexagon,
+
+759
+00:13:33,260 --> 00:13:43,490
+make it a bit smaller, we can maybe move our pineapples down a bit and change this so that it's white
+
+760
+00:13:44,540 --> 00:13:47,930
+and make it even a bit smaller.
+
+761
+00:13:48,170 --> 00:13:50,000
+I think something like that would do quite well.
+
+762
+00:13:50,540 --> 00:13:57,380
+So now the final thing I want to add is some sort of mailing address, email address, phone number, which
+
+763
+00:13:57,380 --> 00:14:02,200
+is going to go in here and it's going to be nicely aligned with this word stay.
+
+764
+00:14:03,590 --> 00:14:10,190
+So let's go ahead and take this word and make it right aligned so that this line pops up when I try
+
+765
+00:14:10,190 --> 00:14:16,810
+to align it like so and let's just make sure that it actually still fits in.
+
+766
+00:14:17,090 --> 00:14:23,450
+So maybe we have to move this text up a little bit, reduce the spacing a little.
+
+767
+00:14:23,450 --> 00:14:29,210
+I think a lot of times you do have to play around with your design just so that it starts looking good
+
+768
+00:14:29,210 --> 00:14:30,040
+to you.
+
+769
+00:14:30,200 --> 00:14:35,240
+You might have to shift things a little bit and be flexible with those rules that we've talked about.
+
+770
+00:14:36,050 --> 00:14:43,610
+So now all we need to make sure is that the word is right-aligned and our text is also right-aligned
+
+771
+00:14:44,000 --> 00:14:50,240
+so that we can actually line them up together so that they actually look like they're on the same vertical
+
+772
+00:14:50,360 --> 00:14:51,830
+alignment.
+
+773
+00:14:51,860 --> 00:14:59,720
+Now, if we can just mess around with the size of the hexagon and make sure that everything is still within
+
+774
+00:14:59,720 --> 00:15:05,960
+the hexagon and we've pretty much finished our design now. What did that take? Maybe 20 minutes. And
+
+775
+00:15:05,960 --> 00:15:11,330
+we managed to apply a lot of things that we've learned from User Interface design or User Experience
+
+776
+00:15:11,330 --> 00:15:19,700
+design, Color Theory and Typography to create this 3-page very modern looking website for A Hotel.
+
+777
+00:15:19,700 --> 00:15:26,000
+So at this point, there's a really cool feature in Canva which lets you just publish the website.
+
+778
+00:15:26,150 --> 00:15:33,830
+So if you click on this publish button and you scroll all the way down and you click on website then
+
+779
+00:15:33,860 --> 00:15:40,820
+you can actually select the Web style as standard and then open this as an actual web page.
+
+780
+00:15:40,820 --> 00:15:46,100
+Notice how it's placed my three pages together into an actual web page
+
+781
+00:15:46,490 --> 00:15:51,390
+and I can scroll down and also navigate to it through the navigation bar.
+
+782
+00:15:51,410 --> 00:15:53,920
+Now of course we don't have mobile optimization,
+
+783
+00:15:53,930 --> 00:16:01,130
+we don't have any code that has any functionality, we can't add javascript to it. But at least we can quickly
+
+784
+00:16:01,130 --> 00:16:06,440
+throw up a design, visualize it and share it with other people to see what they think.
+
+785
+00:16:06,590 --> 00:16:11,050
+And this is probably one of the best ways of building up your design muscle.
+
+786
+00:16:11,060 --> 00:16:17,510
+Just practicing again and again until you get to a point where pretty much unanimously everybody thinks
+
+787
+00:16:17,510 --> 00:16:22,520
+that your design looks great and people start asking you to actually build websites for them.
+
+788
+00:16:22,520 --> 00:16:24,940
+So study a lot of the websites that you come across,
+
+789
+00:16:24,940 --> 00:16:30,320
+the ones that you think look really good. And think about what makes them good and then try to take some
+
+790
+00:16:30,320 --> 00:16:37,700
+of those aspects along with everything you've learned in these lessons to create designs that humans
+
+791
+00:16:37,790 --> 00:16:38,840
+love.
+
+792
+00:16:38,840 --> 00:16:47,370
+So I hope you'll take a moment now to pause the video and have a go at creating your own hotel website.
+
+793
+00:16:47,780 --> 00:16:54,020
+So use the same tools that you saw me use on Canva and try to design a slightly different type of hotel.
+
+794
+00:16:54,020 --> 00:17:00,500
+What if it had to be a more traditional hotel that was around the time of Henry the 8th or something? It's
+
+795
+00:17:00,650 --> 00:17:07,200
+like some really old hotel and they want to show how decadent they are, how glamorous they are, and trying
+
+796
+00:17:07,200 --> 00:17:09,089
+to design a different type of website.
+
+797
+00:17:09,710 --> 00:17:16,369
+So pause the video, give that a go and then try to apply everything you've learned in this module into
+
+798
+00:17:16,369 --> 00:17:17,579
+that design.
+
+799
+00:17:17,869 --> 00:17:24,140
+And once you've created your design share this link that you can see at the top of Canva so that we
+
+800
+00:17:24,140 --> 00:17:28,950
+can all see your design and we can comment on how beautiful it looks.
+
+801
+00:17:29,000 --> 00:17:34,670
+So have a go at doing that and make sure that you let us know what it looks like in the comments below
+
+802
+00:17:34,670 --> 00:17:39,990
+and have fun doing it. Now I hope you really enjoyed this module on web design.
+
+803
+00:17:40,040 --> 00:17:42,550
+It's a little bit different from what you've been used to so far.
+
+804
+00:17:42,590 --> 00:17:48,530
+There's no coding in this module but instead we tried to get you to think about all of the design principles
+
+805
+00:17:48,590 --> 00:17:54,380
+that actually ends up creating beautiful websites, websites that people will love. And hopefully
+
+806
+00:17:54,380 --> 00:17:59,150
+you'll take these pillars and this knowledge through the next time you build your product or you build
+
+807
+00:17:59,150 --> 00:18:06,110
+your website and you'll apply it alongside with your code so that you have beautiful features and beautiful
+
+808
+00:18:06,110 --> 00:18:07,450
+interface.
+
+809
+00:18:07,460 --> 00:18:12,440
+Now once you've created your own designs and you've shared it with us then it's time to get back to
+
+810
+00:18:12,440 --> 00:18:13,310
+the coding and 
+
+811
+00:18:13,430 --> 00:18:18,570
+we're going to continue tackling more web development. So for all of that and more,
+
+812
+00:18:18,680 --> 00:18:19,280
+I'll see you there.
+
+

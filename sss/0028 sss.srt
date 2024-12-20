@@ -1,0 +1,4083 @@
+1
+00:00:00,180 --> 00:00:04,950
+Hey guys, welcome to day 28 of 100 Days of Code. Today
+
+2
+00:00:04,950 --> 00:00:09,000
+we're going to be building a Pomodora app completely from scratch
+
+3
+00:00:09,240 --> 00:00:13,530
+using tkinter and the knowledge that we gained from yesterday's lessons.
+
+4
+00:00:14,190 --> 00:00:17,220
+Now you've already heard me talk about the Pomodoro technique,
+
+5
+00:00:17,280 --> 00:00:19,860
+this famous book by Francesco Cirillo,
+
+6
+00:00:20,570 --> 00:00:25,570
+Cirillo. This
+
+7
+00:00:29,060 --> 00:00:34,060
+famous technique that helps people time-manage and to get more stuff done.
+
+8
+00:00:35,480 --> 00:00:37,250
+Now, if you didn't hear me talk about it,
+
+9
+00:00:37,280 --> 00:00:40,700
+this is basically a very simple breakdown. Essentially,
+
+10
+00:00:40,700 --> 00:00:43,390
+you figure out the task that you need to do something hard,
+
+11
+00:00:43,400 --> 00:00:48,320
+something that takes a while like writing your next book or coding up a project.
+
+12
+00:00:48,890 --> 00:00:52,970
+And then you want to set your timer to the 25 minutes and then work on the task
+
+13
+00:00:53,000 --> 00:00:57,950
+for 25 minutes. And then after that, you take a short five-minute break.
+
+14
+00:00:58,280 --> 00:01:03,080
+And after you've done four of these Pomodoros, basically four repetition,
+
+15
+00:01:03,140 --> 00:01:06,500
+then you get to take a 15 to 30 minute break.
+
+16
+00:01:07,310 --> 00:01:12,110
+So this basically really effectively utilizes the way that our brain works to
+
+17
+00:01:12,320 --> 00:01:17,320
+take short breaks often and to work for 25 minutes at a time,
+
+18
+00:01:17,990 --> 00:01:22,970
+which helps us with information retention and also keeping up the motivation.
+
+19
+00:01:23,660 --> 00:01:28,660
+This is the program that we're going to be building using tkinter. It's going to
+
+20
+00:01:28,760 --> 00:01:32,930
+be a timer with a tomato on it. And when you click start,
+
+21
+00:01:33,020 --> 00:01:36,170
+it's going to tell you to work for 25 minutes.
+
+22
+00:01:36,830 --> 00:01:39,080
+Then that window can go into the background
+
+23
+00:01:39,410 --> 00:01:43,520
+and while you're writing your code or doing whatever, when the timer's up,
+
+24
+00:01:43,580 --> 00:01:48,230
+it will pop to the very front of the screen above all of the other windows and
+
+25
+00:01:48,230 --> 00:01:49,850
+tell you to take a break.
+
+26
+00:01:50,240 --> 00:01:53,780
+So the first break is for five minutes and you'll notice here,
+
+27
+00:01:53,810 --> 00:01:58,810
+we've already achieved one check mark for our first Pomodoro completed.
+
+28
+00:01:59,840 --> 00:02:01,820
+And once you're done with the break,
+
+29
+00:02:01,850 --> 00:02:06,850
+then it's going to go back to work and it's going to continue until you reach
+
+30
+00:02:07,340 --> 00:02:12,290
+the longer break or until you click reset to stop and reset the timer.
+
+31
+00:02:13,100 --> 00:02:13,850
+Effectively,
+
+32
+00:02:13,850 --> 00:02:17,780
+it's going to help you do these Pomodoros where you have 25-minute work,
+
+33
+00:02:17,780 --> 00:02:21,710
+5-minute break. You do four of these 25-minute work sessions,
+
+34
+00:02:21,770 --> 00:02:26,600
+and then you get a 20-minute break. So hopefully by creating this program,
+
+35
+00:02:26,630 --> 00:02:30,830
+you're going to increase your productivity and you're going to have your own handy tool
+
+36
+00:02:31,070 --> 00:02:33,380
+to help you achieve more and do more.
+
+37
+00:02:33,950 --> 00:02:37,610
+So this is what we're going to be building. Once you're ready, head over to the
+
+38
+00:02:37,610 --> 00:02:39,920
+next lesson and let's get started.
+
+
+39
+00:00:00,330 --> 00:00:03,620
+The first thing I want you to do to get started is to head over 
+
+40
+00:00:03,630 --> 00:00:08,340
+to the course resources and download the starting files for the Pomodoro
+
+41
+00:00:08,340 --> 00:00:10,410
+project. Once you've got that,
+
+42
+00:00:10,470 --> 00:00:15,470
+then you should be able to unzip this file and get hold of the starting folder.
+
+43
+00:00:17,070 --> 00:00:20,640
+Next, I want you to open up that folder using PyCharm.
+
+44
+00:00:21,240 --> 00:00:24,210
+So in my case, my folder's inside my downloads,
+
+45
+00:00:24,480 --> 00:00:29,480
+and then I'll just click open. And PyCharm should automatically configure the
+
+46
+00:00:29,880 --> 00:00:31,950
+latest version of Python you've got installed.
+
+47
+00:00:32,580 --> 00:00:35,700
+So if you take a look inside this folder, there's two files.
+
+48
+00:00:36,060 --> 00:00:40,680
+There is a image of a tomato which we're going to use in our project,
+
+49
+00:00:41,070 --> 00:00:45,750
+and there's also a main.py with a couple of sections already hashed out for
+
+50
+00:00:45,750 --> 00:00:49,320
+you. And we've also included some constants,
+
+51
+00:00:49,380 --> 00:00:54,380
+like some color hex codes or a font name or the number of minutes for working
+
+52
+00:00:55,170 --> 00:00:59,460
+short breaks in a long breaks. So that's already in the starting file.
+
+53
+00:01:00,330 --> 00:01:03,840
+The first thing we're going to do is to set up our UI.
+
+54
+00:01:03,870 --> 00:01:05,940
+So under the section UI set up,
+
+55
+00:01:06,210 --> 00:01:09,720
+we're going to create a new window using tkinter
+
+56
+00:01:10,110 --> 00:01:13,590
+and we're going to get the window to run and give it a background color,
+
+57
+00:01:13,830 --> 00:01:14,663
+pretty simple.
+
+58
+00:01:14,910 --> 00:01:19,290
+So let's go to the top of our file and import our tkinter module.
+
+59
+00:01:19,740 --> 00:01:23,070
+And then if we scroll down to our UI setup section,
+
+60
+00:01:23,310 --> 00:01:27,330
+let's go ahead and create a new window from the tk class.
+
+61
+00:01:27,810 --> 00:01:32,250
+Remember that our tk class is one of the classes from tkinter
+
+62
+00:01:32,610 --> 00:01:37,610
+so you can either tap into the tkinter module and then get hold of the tk class
+
+63
+00:01:37,800 --> 00:01:40,560
+like I have done here, or as in our case,
+
+64
+00:01:40,590 --> 00:01:43,920
+if we're going to be using a lot of classes from tkinter
+
+65
+00:01:44,340 --> 00:01:49,340
+then we can simply say from tkinter let's go ahead and import all of the
+
+66
+00:01:49,740 --> 00:01:54,450
+classes. So that way we can straight away refer to this tk class.
+
+67
+00:01:55,170 --> 00:01:56,670
+Now that we've created our window,
+
+68
+00:01:56,700 --> 00:02:01,050
+the next thing we can do is to set the title of the window,
+
+69
+00:02:01,410 --> 00:02:05,040
+which you can of course call it anything you want. But in my case,
+
+70
+00:02:05,040 --> 00:02:09,180
+I'm going to set it to just Pomodoro,
+
+71
+00:02:09,720 --> 00:02:13,080
+which just means tomato in Italian.
+
+72
+00:02:13,650 --> 00:02:15,990
+So now that we've got our Pomodoro,
+
+73
+00:02:16,230 --> 00:02:21,230
+then we're going to get our window to show up by using window.main loop as
+
+74
+00:02:22,290 --> 00:02:23,123
+usual.
+
+75
+00:02:23,310 --> 00:02:28,310
+And now if we run this, code our main, and you can see we've got a blank window,
+
+76
+00:02:28,980 --> 00:02:32,400
+a title, and we're ready to go to the next step.
+
+77
+00:02:33,180 --> 00:02:38,180
+The next step is to put an image into our program so that we can have this 
+
+78
+00:02:39,630 --> 00:02:42,660
+tomato as the background of our program,
+
+79
+00:02:43,020 --> 00:02:44,910
+and then we can put some text on top
+
+80
+00:02:44,940 --> 00:02:49,710
+which is going to signify our countdown timer. This is what we're aiming for,
+
+81
+00:02:49,920 --> 00:02:53,700
+but to achieve this and to be able to put images onto the screen
+
+82
+00:02:54,000 --> 00:02:55,380
+which look like this,
+
+83
+00:02:55,530 --> 00:03:00,040
+we're going to have to learn about the tkinter canvas widget. A canvas
+
+84
+00:03:00,040 --> 00:03:03,550
+widget is a little bit like a real life canvas, really.
+
+85
+00:03:03,820 --> 00:03:07,210
+It allows you to layer things one on top of the others.
+
+86
+00:03:07,240 --> 00:03:10,630
+So you could draw something and then you can draw something on top of that.
+
+87
+00:03:11,140 --> 00:03:16,140
+And what it allows us to do in our case is to place an image onto our program
+
+88
+00:03:17,080 --> 00:03:19,870
+and then to place some text straight on top of that.
+
+89
+00:03:21,400 --> 00:03:23,530
+In between our window creation
+
+90
+00:03:23,590 --> 00:03:27,370
+and the window main loop is where we're going to create our canvas.
+
+91
+00:03:27,790 --> 00:03:32,710
+And our canvas is created using the canvas widget
+
+92
+00:03:32,740 --> 00:03:33,573
+of course.
+
+93
+00:03:34,000 --> 00:03:39,000
+One of the things that we can specify when we create our canvas is a width and
+
+94
+00:03:39,100 --> 00:03:43,420
+a height, and that will be a value in terms of pixels.
+
+95
+00:03:44,020 --> 00:03:49,020
+So we know that we want to display this tomato image inside that canvas.
+
+96
+00:03:50,020 --> 00:03:52,540
+And we can see that this has a,
+
+97
+00:03:52,570 --> 00:03:56,470
+roughly a width of 200 and a height of 223.
+
+98
+00:03:57,010 --> 00:04:01,330
+So let's create a canvas that's roughly about the same size as the image.
+
+99
+00:04:01,810 --> 00:04:06,810
+So we'll put a width of 200 and a height of 224 so that we work with some even
+
+100
+00:04:08,980 --> 00:04:12,250
+numbers. Once I've created my canvas
+
+101
+00:04:12,310 --> 00:04:15,370
+the next thing I want to do is to add my image to it.
+
+102
+00:04:16,000 --> 00:04:20,709
+And we can use a method that the canvas has it which is called create_image.
+
+103
+00:04:21,130 --> 00:04:22,720
+And as soon as I type create,
+
+104
+00:04:22,750 --> 00:04:26,440
+you can see there's actually a whole bunch of other methods like create the text
+
+105
+00:04:26,440 --> 00:04:29,530
+in the canvas, create a rectangle, create an oval.
+
+106
+00:04:29,770 --> 00:04:34,180
+And all of these things could be overlapped on each other inside the same
+
+107
+00:04:34,240 --> 00:04:37,000
+canvas. Now, when we create an image,
+
+108
+00:04:37,030 --> 00:04:42,030
+there's a couple of things which are required. The first thing is the X and Y
+
+109
+00:04:42,880 --> 00:04:45,850
+positions of this image in the canvas.
+
+110
+00:04:46,420 --> 00:04:50,950
+Given that we have a width of 200 and a height of 224,
+
+111
+00:04:51,250 --> 00:04:56,250
+I want my image to be bang in the center of the canvas. So I can provide the X
+
+112
+00:04:56,800 --> 00:05:01,660
+value as half of the width and the Y value as half of the height.
+
+113
+00:05:02,560 --> 00:05:05,230
+In addition to the X and Y values,
+
+114
+00:05:05,290 --> 00:05:08,080
+we also have to specify a image.
+
+115
+00:05:08,530 --> 00:05:12,250
+But I can't just simply just type the name of my image
+
+116
+00:05:12,520 --> 00:05:15,340
+which is tomato.png,
+
+117
+00:05:15,760 --> 00:05:20,760
+because that is not the type of data that this argument is expecting.
+
+118
+00:05:21,670 --> 00:05:25,660
+What it wants instead is something called a photo image
+
+119
+00:05:26,050 --> 00:05:28,450
+and this class comes from tkinter 
+
+120
+00:05:28,750 --> 00:05:33,750
+and it's basically a way to read through a file and to get hold of a particular
+
+121
+00:05:37,210 --> 00:05:41,380
+image at a particular file location. In my case,
+
+122
+00:05:41,380 --> 00:05:44,980
+the file location is in fact tomato.png.
+
+123
+00:05:45,610 --> 00:05:50,610
+And if your image was stored in say another sub folder or a different place,
+
+124
+00:05:52,750 --> 00:05:57,750
+then you should provide the relative or absolute file path to get there from
+
+125
+00:05:57,800 --> 00:06:01,100
+where your code is, which is the main.py. But in our case
+
+126
+00:06:01,100 --> 00:06:03,170
+it's very easy, they're both in the same folder,
+
+127
+00:06:03,650 --> 00:06:06,560
+so we can simply specify our filename like
+
+128
+00:06:06,560 --> 00:06:11,560
+so. The next thing we're going to do is we're going to save this photo image in a
+
+129
+00:06:11,900 --> 00:06:14,120
+variable so we can refer to it later on.
+
+130
+00:06:14,600 --> 00:06:17,810
+I'm going to call this our tomato_img.
+
+131
+00:06:17,990 --> 00:06:19,790
+Feel free to call it anything you want.
+
+132
+00:06:20,450 --> 00:06:24,650
+And that is the data that goes into this image argument.
+
+133
+00:06:25,430 --> 00:06:29,990
+Now we've created our canvas, we've created our photo image,
+
+134
+00:06:30,320 --> 00:06:34,400
+we've told our canvas to create an image at this position,
+
+135
+00:06:34,580 --> 00:06:36,740
+and then we've put the image inside.
+
+136
+00:06:37,010 --> 00:06:42,010
+The final thing we need to do is to pack our canvas or use some other sort of
+
+137
+00:06:42,350 --> 00:06:47,030
+method to specify the layout of how the canvas is going to go on the screen.
+
+138
+00:06:47,480 --> 00:06:49,790
+And now we can hit run,
+
+139
+00:06:50,180 --> 00:06:54,140
+and we can see our image on the screen.
+
+140
+00:06:54,770 --> 00:06:59,270
+So now notice how the image is basically taking up the entire space of the
+
+141
+00:06:59,270 --> 00:07:03,620
+window. And in fact, the window is resizing itself to fit this image.
+
+142
+00:07:04,340 --> 00:07:08,150
+Wouldn't it be better if this screen was actually a little bit bigger?
+
+143
+00:07:08,180 --> 00:07:10,850
+So we don't just look at the image of a tomato.
+
+144
+00:07:11,690 --> 00:07:15,650
+We can do that by getting our window to be configured.
+
+145
+00:07:15,980 --> 00:07:19,520
+And the configuration that we want to change is the padding,
+
+146
+00:07:19,580 --> 00:07:24,580
+so I'm going to change the padx and pady. On the X-axis on the horizontal
+
+147
+00:07:25,010 --> 00:07:29,090
+I'm actually going to add a whole hundred pixels of padding on both sides.
+
+148
+00:07:29,390 --> 00:07:31,820
+And then on the Yaxis, pady,
+
+149
+00:07:31,820 --> 00:07:36,820
+I'm going to change that to 50 so that it's got 50 pixels of padding on the
+
+150
+00:07:36,860 --> 00:07:41,270
+top. That's looking pretty good other than one small defect.
+
+151
+00:07:41,660 --> 00:07:46,190
+You can see that our tomato image is a little bit cut off on the left
+
+152
+00:07:46,640 --> 00:07:51,640
+and I suspect this is because the actual image is a little bit shifted over to
+
+153
+00:07:52,670 --> 00:07:53,390
+the left.
+
+154
+00:07:53,390 --> 00:07:58,390
+So we can actually adjust this X position to be a little bit more to the right,
+
+155
+00:07:59,270 --> 00:08:00,770
+and that way our tomato
+
+156
+00:08:00,770 --> 00:08:04,310
+can be centered on screen without being cut off on either side.
+
+157
+00:08:05,660 --> 00:08:10,340
+So now that we've tweaked our image and we've displayed it on the screen,
+
+158
+00:08:10,820 --> 00:08:14,210
+the next thing to do is to display some text.
+
+159
+00:08:14,840 --> 00:08:18,770
+As you noticed before, in addition to canvas.create_image,
+
+160
+00:08:19,100 --> 00:08:23,330
+they will a whole bunch of other things we could create, including some texts.
+
+161
+00:08:24,410 --> 00:08:29,240
+This create_text method works very similarly to the create_image method.
+
+162
+00:08:29,720 --> 00:08:34,720
+Notice how the first thing that's getting highlighted is the *args.
+
+163
+00:08:35,900 --> 00:08:39,289
+And then we've got our **kw.
+
+164
+00:08:39,710 --> 00:08:42,620
+So remember from the lessons yesterday,
+
+165
+00:08:42,950 --> 00:08:47,950
+these arguments are the unlimited positional arguments and these arguments are
+
+166
+00:08:49,610 --> 00:08:54,140
+the unlimited keyword arguments. So the keyword arguments here
+
+167
+00:08:54,140 --> 00:08:55,010
+are for example the
+
+168
+00:08:55,260 --> 00:08:59,280
+image or the background color or anything else,
+
+169
+00:08:59,610 --> 00:09:02,550
+but these are the X and Y values.
+
+170
+00:09:03,090 --> 00:09:04,980
+So creating the text,
+
+171
+00:09:05,010 --> 00:09:08,220
+we also have to provide a X and Y value.
+
+172
+00:09:08,640 --> 00:09:13,410
+So I'm just going to try the same values as the image to see how that looks.
+
+173
+00:09:14,280 --> 00:09:18,330
+And now we can add some keyword arguments, for example, the text.
+
+174
+00:09:18,690 --> 00:09:22,020
+So I just want it to say 00:00,
+
+175
+00:09:22,410 --> 00:09:26,040
+which looks pretty much like the clock. Now,
+
+176
+00:09:26,070 --> 00:09:30,570
+if we run our code, you can see we've got a little bit of text showing up.
+
+177
+00:09:31,140 --> 00:09:33,990
+Now, notice how it's a little bit high up on the tomato,
+
+178
+00:09:34,020 --> 00:09:38,610
+because remember the tomato starts at the top here and ends here.
+
+179
+00:09:38,910 --> 00:09:41,550
+So that is the center of the tomato image,
+
+180
+00:09:41,820 --> 00:09:46,110
+but we can move it down a little bit so that it's actually centered in this red
+
+181
+00:09:46,110 --> 00:09:50,700
+part, the circular part. With a little bit of experimentation,
+
+182
+00:09:50,730 --> 00:09:55,110
+I think this, 103, 130, actually works quite well
+
+183
+00:09:55,110 --> 00:09:57,870
+and it's pretty much bang in the center of the tomato.
+
+184
+00:09:58,650 --> 00:10:03,650
+Let's modify this text in some other ways. We can change the fill
+
+185
+00:10:04,620 --> 00:10:09,420
+which is basically the color of the text and I'm going to change that to white,
+
+186
+00:10:09,510 --> 00:10:13,590
+that you can see here. And then I'm going to change the font as well.
+
+187
+00:10:14,100 --> 00:10:16,140
+And this is going to expect a tuple.
+
+188
+00:10:16,290 --> 00:10:20,760
+So it's going to be the font name and then the size, and then whether,
+
+189
+00:10:20,760 --> 00:10:25,380
+if it's bold or italic or whatever else you want to do. Now in the constants
+
+190
+00:10:25,380 --> 00:10:27,450
+here, I've already got the font name defined,
+
+191
+00:10:27,480 --> 00:10:31,530
+which is gonna be Courier that we're gonna be using. So that we can straight up
+
+192
+00:10:31,560 --> 00:10:36,360
+add our font name and then we'll add a font size as 35,
+
+193
+00:10:36,720 --> 00:10:41,070
+and it will say, yeah, make it bold. So there you have it.
+
+194
+00:10:41,100 --> 00:10:45,840
+We've got our tomato, we've got our text showing up as the countdown timer.
+
+195
+00:10:46,380 --> 00:10:46,890
+Now,
+
+196
+00:10:46,890 --> 00:10:51,780
+the final thing I want to do is just to change the background color to a slightly
+
+197
+00:10:51,780 --> 00:10:54,120
+nicer looking color. Now,
+
+198
+00:10:54,120 --> 00:10:57,600
+one of my favorite websites is this one called colorhunt.io,
+
+199
+00:10:57,660 --> 00:11:01,140
+which shows you a whole bunch of different color palettes that professional
+
+200
+00:11:01,140 --> 00:11:03,210
+designers have a created
+
+201
+00:11:03,300 --> 00:11:07,680
+and it makes it really easy for us to just snap up some of these hex codes and
+
+202
+00:11:07,680 --> 00:11:10,710
+use them straight away in our program. Now,
+
+203
+00:11:10,740 --> 00:11:13,290
+the one that really caught my eye is this one,
+
+204
+00:11:13,620 --> 00:11:16,320
+cause it has a bit of the tomato color palette.
+
+205
+00:11:16,710 --> 00:11:21,710
+So I've transferred all of these hex codes to the constants in the starting
+
+206
+00:11:22,230 --> 00:11:25,560
+file. So you can see I've got the pink, the red, the green, the yellow,
+
+207
+00:11:25,950 --> 00:11:30,450
+and we're going to be using that across our program to give it that consistent
+
+208
+00:11:30,450 --> 00:11:34,020
+color theme and make it look like it's been professionally designed.
+
+209
+00:11:34,800 --> 00:11:39,210
+So what I want to do is I want to change the window's background color,
+
+210
+00:11:39,540 --> 00:11:43,770
+and I can do that through the keyword argument called at bg for background,
+
+211
+00:11:44,280 --> 00:11:47,010
+and I can set it to a hex code.
+
+212
+00:11:47,160 --> 00:11:52,160
+So a hex code starts out with the pound sign and then it's some numbers and some
+
+213
+00:11:52,350 --> 00:11:55,930
+letters. Now I've already got all of that for you
+
+214
+00:11:56,440 --> 00:12:00,820
+and all you have to do is just to put down the name of the constant.
+
+215
+00:12:01,690 --> 00:12:06,610
+So this should not be in quotation marks because it's not the word. It is
+
+216
+00:12:06,610 --> 00:12:06,970
+in fact,
+
+217
+00:12:06,970 --> 00:12:11,110
+referring to that particular variable and the string that's held inside.
+
+218
+00:12:11,710 --> 00:12:13,510
+So now if we check our screen,
+
+219
+00:12:13,540 --> 00:12:18,130
+you can see the background has been changed to that nice yellow color, sort of
+
+220
+00:12:18,130 --> 00:12:21,700
+rice or hay color, but the tomato,
+
+221
+00:12:21,820 --> 00:12:25,300
+namely the canvas, still has that white background.
+
+222
+00:12:26,230 --> 00:12:30,100
+So let's change the background color of the canvas as well. And again,
+
+223
+00:12:30,100 --> 00:12:31,600
+it's using the bg.
+
+224
+00:12:31,630 --> 00:12:36,630
+So some of these, you'll notice, are standard attributes that we can change like
+
+225
+00:12:36,640 --> 00:12:38,890
+the width and the height and the background color,
+
+226
+00:12:38,920 --> 00:12:43,660
+which is standard across all of the widgets. And some other things like file
+
+227
+00:12:43,660 --> 00:12:47,020
+here are some of the more specific keyword arguments.
+
+228
+00:12:47,680 --> 00:12:51,760
+So let's apply this yellow to the background of the canvas,
+
+229
+00:12:52,180 --> 00:12:55,570
+and you can see that the canvas is now yellow as well.
+
+230
+00:12:55,990 --> 00:12:58,270
+But it's still got this little white border
+
+231
+00:12:58,300 --> 00:13:02,590
+which denotes the edges of our canvas. To get rid of that
+
+232
+00:13:02,620 --> 00:13:07,000
+I found a specific keyword argument that would actually help
+
+233
+00:13:07,390 --> 00:13:10,840
+and it took quite a bit of digging around, quite a bit of Stack Overflow
+
+234
+00:13:10,840 --> 00:13:13,540
+searching and googling in order to find this.
+
+235
+00:13:13,540 --> 00:13:17,800
+It wasn't very straightforward because tkinter is not well-documented
+
+236
+00:13:17,800 --> 00:13:20,680
+unfortunately. But thankfully for you,
+
+237
+00:13:20,740 --> 00:13:25,740
+all you have to do is find your canvas and on the line where you've created it,
+
+238
+00:13:26,320 --> 00:13:29,260
+go ahead and add this keyword argument.
+
+239
+00:13:29,410 --> 00:13:33,820
+It's called a highlightthickness,
+
+240
+00:13:34,300 --> 00:13:37,240
+and be sure that you spell it right, because it's really long.
+
+241
+00:13:37,300 --> 00:13:41,860
+And remember that there's two Ts cause it's highlight and thickness and there's
+
+242
+00:13:41,860 --> 00:13:44,770
+nothing in between, no underscore, no nothing to separate it.
+
+243
+00:13:45,190 --> 00:13:47,920
+I think that the tkinter team could have really done a little bit better here,
+
+244
+00:13:48,010 --> 00:13:48,843
+but hey.
+
+245
+00:13:49,030 --> 00:13:53,590
+If we set the highlightthickness to zero and we rerun our code,
+
+246
+00:13:53,650 --> 00:13:57,280
+then you should see that it now looks pretty good.
+
+247
+00:13:57,430 --> 00:14:02,430
+And our canvas is now completely the same color as the background of the window.
+
+248
+00:14:04,090 --> 00:14:08,110
+And you can't tell it where the window begins and the canvas ends. Now,
+
+249
+00:14:08,110 --> 00:14:13,110
+the only problem is once we've removed that border around the canvas,
+
+250
+00:14:13,750 --> 00:14:16,780
+our tomato is once again, shifted a little bit.
+
+251
+00:14:17,140 --> 00:14:22,140
+So we can actually adjust this and we can change this back to 100 and I'm going
+
+252
+00:14:23,800 --> 00:14:25,930
+to change it both for the text and the image.
+
+253
+00:14:26,590 --> 00:14:30,160
+And we can make that tomato image perfectly round
+
+254
+00:14:30,220 --> 00:14:34,900
+once more. With tkinter I've found that you have to do quite a bit of tweaking
+
+255
+00:14:34,900 --> 00:14:37,060
+around especially with these positions.
+
+256
+00:14:37,570 --> 00:14:39,490
+And you'll spend some time judging it by eye
+
+257
+00:14:39,790 --> 00:14:43,420
+in terms of the size and the width and where to place it.
+
+258
+00:14:43,900 --> 00:14:48,900
+But we have now successfully managed to place an image onto the screen,
+
+259
+00:14:49,720 --> 00:14:50,950
+changed the background of the window,
+
+260
+00:14:51,830 --> 00:14:56,560
+keep it consistent and add a little bit of text onto our tomato.
+
+261
+00:14:57,160 --> 00:15:01,720
+So now we're ready for the next step. In the next lesson,
+
+262
+00:15:02,020 --> 00:15:05,230
+we're going to create the rest of the user interface.
+
+263
+00:15:05,440 --> 00:15:08,920
+And that is mostly going to be up to you. So for all of that and more,
+
+264
+00:15:09,010 --> 00:15:10,090
+I'll see you in the next lesson.
+
+
+265
+00:00:00,390 --> 00:00:01,470
+In the last lesson,
+
+266
+00:00:01,500 --> 00:00:06,500
+we started setting up our user interface and we created this canvas,
+
+267
+00:00:06,870 --> 00:00:11,250
+placed our image onto it, and also on top of that, put some text.
+
+268
+00:00:11,700 --> 00:00:13,200
+This is how far we've gotten,
+
+269
+00:00:13,530 --> 00:00:17,070
+and we want to now complete setting up the user interface,
+
+270
+00:00:17,400 --> 00:00:19,410
+so adding in some more components.
+
+271
+00:00:19,860 --> 00:00:24,860
+And we wanted to end up looking a bit like this with a label at the top, a big
+
+272
+00:00:25,470 --> 00:00:28,380
+bit of text, some buttons at the bottom,
+
+273
+00:00:28,680 --> 00:00:32,430
+and also a label that keeps track of how many Pomodoros we've done.
+
+274
+00:00:32,759 --> 00:00:36,330
+So each 25 minute work session gets us a
+
+275
+00:00:36,410 --> 00:00:38,370
+check mark. So you are
+
+276
+00:00:38,660 --> 00:00:43,370
+going to be using a lot of the stuff that you learned in yesterday's lessons in terms of
+
+277
+00:00:43,400 --> 00:00:48,400
+which tkinter widgets to use and how to set them up in order to create this.
+
+278
+00:00:49,160 --> 00:00:52,910
+So it's going to be a challenge for you, but before we get started,
+
+279
+00:00:52,910 --> 00:00:55,850
+there's just a couple of things I want to point out. So,
+
+280
+00:00:55,850 --> 00:00:58,850
+one thing to note is that we've got this bg
+
+281
+00:00:58,880 --> 00:01:01,130
+which stands for background color,
+
+282
+00:01:01,610 --> 00:01:06,350
+and we've used our constants up here to set those background colors.
+
+283
+00:01:06,920 --> 00:01:08,390
+Now you can see that here
+
+284
+00:01:08,390 --> 00:01:13,280
+I've got the label and also the check mark in a green color.
+
+285
+00:01:13,520 --> 00:01:17,300
+And that color comes from our constant right here.
+
+286
+00:01:17,840 --> 00:01:21,140
+So you'll be able to color a piece of text in a label,
+
+287
+00:01:21,350 --> 00:01:24,800
+not by using bg, but by using fg
+
+288
+00:01:24,800 --> 00:01:29,800
+which stands for a foreground. And that you can basically set to equal the green
+
+289
+00:01:30,890 --> 00:01:35,600
+color that we've got. And as long as that's added to the label,
+
+290
+00:01:35,750 --> 00:01:38,420
+then you should be able to see that show up. Now,
+
+291
+00:01:38,450 --> 00:01:41,810
+the other thing I want to show you is if you don't know how to get hold of a
+
+292
+00:01:41,840 --> 00:01:42,673
+check mark,
+
+293
+00:01:42,950 --> 00:01:47,930
+the easiest way is just to go onto Wikipedia and find the particular checkmark
+
+294
+00:01:47,930 --> 00:01:48,763
+that you like.
+
+295
+00:01:48,980 --> 00:01:53,980
+And then just copy it and paste it into here as the text.
+
+296
+00:01:54,290 --> 00:01:58,370
+So for example, if we had a label which had a text argument,
+
+297
+00:01:58,550 --> 00:02:02,120
+and I copy that a checkmark and I paste it here,
+
+298
+00:02:02,450 --> 00:02:06,410
+then that checkmark is what's going to show up on screen. Now,
+
+299
+00:02:06,410 --> 00:02:10,100
+the final thing I want to mention before I let you get on with the challenge is
+
+300
+00:02:10,100 --> 00:02:12,860
+that we've packed our canvas onto the screen.
+
+301
+00:02:13,490 --> 00:02:17,240
+But as we've got quite a few things that we need to lay out on the screen,
+
+302
+00:02:17,540 --> 00:02:20,480
+it's much easier to do this using the grid.
+
+303
+00:02:21,230 --> 00:02:25,070
+So I want you to change the canvas to using the grid system.
+
+304
+00:02:25,490 --> 00:02:30,200
+And here I've created a more or less sort of breakdown of how that grid might
+
+305
+00:02:30,200 --> 00:02:34,640
+look like. So you probably will end up with one, two, three,
+
+306
+00:02:34,640 --> 00:02:37,640
+four rows and three columns,
+
+307
+00:02:37,700 --> 00:02:41,900
+and have a think about how you might lay out the labels and the buttons and the
+
+308
+00:02:41,900 --> 00:02:45,170
+check marks relative to those rows and columns.
+
+309
+00:02:45,770 --> 00:02:47,510
+Keeping this page on screen,
+
+310
+00:02:47,570 --> 00:02:51,230
+I want you to pause the video and give this challenge it go.
+
+311
+00:02:51,590 --> 00:02:55,130
+And if you don't know the sizes for things or the fonts, don't worry,
+
+312
+00:02:55,130 --> 00:02:56,990
+just guess them. It doesn't really matter.
+
+313
+00:02:57,020 --> 00:02:59,860
+As long as you've got the rough layout and the correct widgets,
+
+314
+00:03:00,100 --> 00:03:03,760
+then that would be considered a win. Pause the video now and give it a go.
+
+315
+00:03:06,760 --> 00:03:07,090
+All right.
+
+316
+00:03:07,090 --> 00:03:11,680
+So I'm going to get started by creating this top label here and that I'm going
+
+317
+00:03:11,680 --> 00:03:16,390
+to call the title_label and that's going to be created from the label class.
+
+318
+00:03:16,990 --> 00:03:20,980
+Now, the text in this is just going to read timer for now,
+
+319
+00:03:21,580 --> 00:03:26,580
+and I want to change its color by using the foreground keyword argument.
+
+320
+00:03:28,090 --> 00:03:31,900
+And I'm going to change it to that green color that we've got up here.
+
+321
+00:03:32,920 --> 00:03:36,400
+Now, I want to be able to show that label on screen,
+
+322
+00:03:36,400 --> 00:03:40,000
+so I have to give it some form of layout. And as we mentioned,
+
+323
+00:03:40,030 --> 00:03:44,290
+we're going to use the grid system. So I'm going to change the grid.
+
+324
+00:03:45,490 --> 00:03:49,540
+And if we refer to this image, you can see there's going to be three columns.
+
+325
+00:03:49,810 --> 00:03:52,360
+This is going to be in the middle column,
+
+326
+00:03:52,720 --> 00:03:54,880
+and then it's going to be on the first row.
+
+327
+00:03:55,120 --> 00:03:56,800
+So that we're going to start from zero.
+
+328
+00:03:56,800 --> 00:04:01,800
+So I'm going to say column = 1 and row = 0.
+
+329
+00:04:03,190 --> 00:04:08,190
+Now I have to change this canvas pack because otherwise it's going to give me an
+
+330
+00:04:08,560 --> 00:04:11,650
+error. And in terms of where the canvas is,
+
+331
+00:04:11,680 --> 00:04:15,310
+it's going to be again in the same column as that label,
+
+332
+00:04:15,520 --> 00:04:17,170
+but it's going to be on the next row.
+
+333
+00:04:20,740 --> 00:04:25,210
+So column 1, row 1. And now when I run it,
+
+334
+00:04:25,210 --> 00:04:30,160
+you can see our label shows up and then our canvas shows up and it's all
+
+335
+00:04:30,160 --> 00:04:31,390
+correctly positioned.
+
+336
+00:04:32,050 --> 00:04:37,030
+Now I want to change this label so that it looks a little bit more like the demo
+
+337
+00:04:37,030 --> 00:04:39,460
+that I showed you, like this.
+
+338
+00:04:39,490 --> 00:04:43,180
+So I have to change the font and the text to make it a lot bigger.
+
+339
+00:04:44,230 --> 00:04:48,520
+As we've seen before, we can simply add the font when we create the label.
+
+340
+00:04:49,240 --> 00:04:52,090
+So we can set that to a tuple.
+
+341
+00:04:52,210 --> 00:04:56,260
+And first I'm going to use my font name that I've got as a constant
+
+342
+00:04:56,590 --> 00:05:00,040
+which I've used when I created the text, it's just going to be Courier.
+
+343
+00:05:00,730 --> 00:05:03,040
+And then in terms of the size,
+
+344
+00:05:04,450 --> 00:05:07,870
+you can simply just make a guess. It's going to be something pretty large.
+
+345
+00:05:07,900 --> 00:05:12,250
+So I'm going to go with 50 and I'm not going to have it bold or italic or
+
+346
+00:05:12,250 --> 00:05:16,750
+anything, so that's the end of that font. And now when I run it again,
+
+347
+00:05:16,780 --> 00:05:21,370
+you can see its a lot bigger and it looks a lot more like the example that we
+
+348
+00:05:21,370 --> 00:05:22,203
+had here.
+
+349
+00:05:22,390 --> 00:05:27,280
+But the only difference is that it actually still has a white background. Instead
+
+350
+00:05:27,280 --> 00:05:28,750
+of just changing the foreground,
+
+351
+00:05:28,750 --> 00:05:32,650
+I'm also going to change the background and I'm going to make it the same yellow
+
+352
+00:05:32,650 --> 00:05:35,170
+color that I have in the background of the window.
+
+353
+00:05:35,860 --> 00:05:40,860
+So now it looks like it's all blended in and it's all a part of the same
+
+354
+00:05:41,170 --> 00:05:45,310
+application. Let's move on to the next row,
+
+355
+00:05:45,340 --> 00:05:46,930
+which is going to be our buttons.
+
+356
+00:05:47,290 --> 00:05:51,910
+So I'm going to have a start button and I'm also going to have a reset button
+
+357
+00:05:52,150 --> 00:05:54,730
+and they're both going to be created from the button class.
+
+358
+00:05:55,300 --> 00:06:00,300
+The start button is just going to have the text start and the reset button is going
+
+359
+00:06:02,420 --> 00:06:07,370
+to have the word reset. The start
+
+360
+00:06:07,370 --> 00:06:12,370
+button is also going to be laid out on our grid and it's going to be column 0
+
+361
+00:06:14,060 --> 00:06:16,280
+row 2.
+
+362
+00:06:18,230 --> 00:06:22,940
+And the reset button is going to be column 2, row 2.
+
+363
+00:06:24,350 --> 00:06:29,350
+So now you can see the start and the reset buttons are now on the next row after
+
+364
+00:06:29,930 --> 00:06:34,190
+the canvas and it's either side of it. Now notice how there's a little
+
+365
+00:06:34,190 --> 00:06:38,720
+bit of a white background around each of the buttons. If that bothers you,
+
+366
+00:06:38,780 --> 00:06:43,010
+then you can actually fix that by doing the same thing that we did with the
+
+367
+00:06:43,010 --> 00:06:43,843
+canvas
+
+368
+00:06:43,880 --> 00:06:48,880
+which got rid of the border by changing that highlightthickness to zero.
+
+369
+00:06:50,150 --> 00:06:52,250
+And because that's really prone to typos,
+
+370
+00:06:52,280 --> 00:06:54,020
+I'm actually just going to paste it in.
+
+371
+00:06:56,120 --> 00:06:59,870
+So now you can see that whiteboard has pretty much all but disappeared.
+
+372
+00:07:01,190 --> 00:07:04,550
+Now we're onto our very final thing that we showed,
+
+373
+00:07:05,480 --> 00:07:08,150
+which is the checkmark right here.
+
+374
+00:07:09,530 --> 00:07:13,670
+So I'm going to call it check_marks because eventually there'll probably be
+
+375
+00:07:13,670 --> 00:07:14,570
+quite a few of them
+
+376
+00:07:15,320 --> 00:07:20,320
+hopefully if we do lots of good work, and our label is going to have to text
+
+377
+00:07:20,810 --> 00:07:24,200
+which is going to have the checkmark. Now, if you are on a Mac,
+
+378
+00:07:24,230 --> 00:07:29,230
+you can actually go into edit and go to emojis and symbols and pick a checkmark
+
+379
+00:07:31,340 --> 00:07:32,330
+from here.
+
+380
+00:07:32,870 --> 00:07:37,100
+But on Windows you can simply just use the trick that I showed you.
+
+381
+00:07:37,340 --> 00:07:42,320
+Go ahead and copy and paste it from a piece of text, say like Wikipedia.
+
+382
+00:07:43,520 --> 00:07:47,570
+Once we've got our texts, I'm going to change the foreground color of
+
+383
+00:07:47,570 --> 00:07:50,120
+that text again, and I'm going to change it to green.
+
+384
+00:07:50,900 --> 00:07:55,520
+And it's also going to require a background color of yellow
+
+385
+00:07:55,910 --> 00:07:58,850
+just so that we get rid of the white. And finally,
+
+386
+00:07:58,850 --> 00:08:01,700
+I'm going to add this on using the grid,
+
+387
+00:08:03,170 --> 00:08:07,970
+setting the column to 1 and the row to
+
+388
+00:08:08,030 --> 00:08:11,870
+3. So this is basically going to be in the last row.
+
+389
+00:08:12,350 --> 00:08:14,600
+So you can see after all of that work,
+
+390
+00:08:14,630 --> 00:08:19,630
+we finally managed to complete the user interface and we've now achieved the
+
+391
+00:08:20,330 --> 00:08:21,290
+final look.
+
+392
+00:08:21,530 --> 00:08:26,530
+And all we need to do now is to actually add the timer functionality,
+
+393
+00:08:27,020 --> 00:08:29,780
+which we'll do in the next lesson. Now,
+
+394
+00:08:29,810 --> 00:08:33,799
+if you found any of the tkinter widgets difficult to use
+
+395
+00:08:33,799 --> 00:08:38,150
+or you got stuck or you couldn't figure out certain things about it,
+
+396
+00:08:38,270 --> 00:08:41,419
+then be sure to have a review of yesterday's lessons
+
+397
+00:08:41,750 --> 00:08:44,030
+where we talked about the widgets in more detail.
+
+
+398
+00:00:00,540 --> 00:00:01,560
+In the last lesson,
+
+399
+00:00:01,589 --> 00:00:05,880
+we completed the user interface for our Pomodoro timer,
+
+400
+00:00:06,450 --> 00:00:11,130
+and we've managed to get all the components that we need onto our graphical user
+
+401
+00:00:11,130 --> 00:00:16,050
+interface. Now, the next step is to actually give it some functionality.
+
+402
+00:00:16,770 --> 00:00:21,480
+I want to be able to create some sort of countdown mechanism that just does
+
+403
+00:00:21,480 --> 00:00:24,000
+something really simple. For example,
+
+404
+00:00:24,000 --> 00:00:28,830
+if it was just able to count down from five, four, three, two,
+
+405
+00:00:29,220 --> 00:00:33,600
+one going down by one each time, that would be great.
+
+406
+00:00:34,110 --> 00:00:36,420
+That's what we're going to be working on in this lesson.
+
+407
+00:00:36,480 --> 00:00:40,530
+And we're going to go and see the countdown mechanism section to do that.
+
+408
+00:00:41,490 --> 00:00:46,470
+One of the ways that you might think about approaching this is to use our time
+
+409
+00:00:46,470 --> 00:00:47,303
+module
+
+410
+00:00:47,340 --> 00:00:52,020
+cause we've seen before that we can say time.sleep and we can tell it to
+
+411
+00:00:52,020 --> 00:00:53,550
+sleep for a second.
+
+412
+00:00:54,000 --> 00:00:58,980
+So then we could maybe set up a while loop and while something or other is true,
+
+413
+00:00:59,280 --> 00:01:04,260
+go ahead and sleep for one second. And then afterwards just,
+
+414
+00:01:04,319 --> 00:01:04,590
+you know,
+
+415
+00:01:04,590 --> 00:01:09,240
+subtract one from some sort of counter. So that we could start count at five
+
+416
+00:01:09,240 --> 00:01:14,240
+and then each time we subtract by one and then each time we just simply update
+
+417
+00:01:15,360 --> 00:01:16,890
+our label here,
+
+418
+00:01:17,250 --> 00:01:21,750
+which we created in the canvas to whatever value count might be.
+
+419
+00:01:22,560 --> 00:01:24,990
+Now, that sounds great in principle.
+
+420
+00:01:25,200 --> 00:01:30,200
+The only problem is that we're working within a graphical user interface
+
+421
+00:01:30,690 --> 00:01:31,523
+program.
+
+422
+00:01:32,310 --> 00:01:36,750
+The reason why that's relevant is because if we think about a command line
+
+423
+00:01:36,750 --> 00:01:38,640
+program, say for example,
+
+424
+00:01:38,640 --> 00:01:43,020
+if we were to get our console to do something, print
+
+425
+00:01:43,080 --> 00:01:43,980
+hello, well,
+
+426
+00:01:43,980 --> 00:01:48,980
+it's only going to do something when you actually give it an instruction and you
+
+427
+00:01:49,380 --> 00:01:50,213
+hit enter.
+
+428
+00:01:50,760 --> 00:01:55,530
+It doesn't really need to keep an eye out for what you might do in between.
+
+429
+00:01:56,130 --> 00:01:59,190
+But a graphical user interface is a little bit different.
+
+430
+00:01:59,520 --> 00:02:03,690
+It needs to keep watching the screen to see whether
+
+431
+00:02:03,690 --> 00:02:06,870
+if a user clicks on a button, for example.
+
+432
+00:02:07,350 --> 00:02:12,350
+So it's basically going to refresh and keep listening for events.
+
+433
+00:02:13,110 --> 00:02:14,880
+So every fraction of a second,
+
+434
+00:02:14,880 --> 00:02:16,890
+it's going to keep checking, did something happene, did
+
+435
+00:02:16,920 --> 00:02:20,760
+something happen, did something happen. And the moment when it does,
+
+436
+00:02:20,850 --> 00:02:24,510
+then it's got to react. It's got to react to that event.
+
+437
+00:02:25,050 --> 00:02:30,030
+In this case, we tend to call these types of GUI programs event-driven.
+
+438
+00:02:30,690 --> 00:02:35,040
+And the way that it's driven is through our main loop.
+
+439
+00:02:35,490 --> 00:02:39,450
+So when we set up our window and we start off the main loop,
+
+440
+00:02:39,780 --> 00:02:44,780
+it's basically looping through and every millisecond it's checking to see did
+
+441
+00:02:44,940 --> 00:02:47,730
+something happen, did something happen, did something happen?
+
+442
+00:02:48,210 --> 00:02:51,090
+So that means if we have another loop in our program,
+
+443
+00:02:51,120 --> 00:02:55,200
+it actually won't be able to reach the main loop. And in this case,
+
+444
+00:02:55,230 --> 00:02:57,780
+when you actually try to run it, nothing happens.
+
+445
+00:02:57,840 --> 00:02:59,830
+Our program doesn't even launch.
+
+446
+00:03:00,340 --> 00:03:05,260
+So we have to rethink this and we have to do it a little bit differently. In
+
+447
+00:03:05,260 --> 00:03:08,950
+order to create interactive and interesting programs,
+
+448
+00:03:09,370 --> 00:03:12,640
+you kind of need something to happen on screen, right?
+
+449
+00:03:12,640 --> 00:03:16,750
+Every so often. You need this timing mechanism. Luckily,
+
+450
+00:03:16,780 --> 00:03:18,820
+tkinter already thought of this.
+
+451
+00:03:19,150 --> 00:03:23,800
+And we can in fact use one of the builtin methods to every widget.
+
+452
+00:03:24,220 --> 00:03:26,140
+So if we tap into our window widget,
+
+453
+00:03:26,290 --> 00:03:31,290
+we can get hold of a method called after and after is quite simple.
+
+454
+00:03:32,230 --> 00:03:36,760
+It's a method that takes an amount of time that it should wait
+
+455
+00:03:37,270 --> 00:03:39,190
+and then after that amount of time,
+
+456
+00:03:39,460 --> 00:03:44,460
+it simply calls a particular function that you tell it to call passing in any
+
+457
+00:03:44,650 --> 00:03:48,760
+arguments that you want to give it. Here's how it works.
+
+458
+00:03:48,820 --> 00:03:53,820
+We call window.after, we first provide the amount of time to wait in
+
+459
+00:03:54,460 --> 00:03:58,720
+milliseconds. So if we want one second, then that's 1000 milliseconds.
+
+460
+00:03:59,320 --> 00:04:02,200
+Next we pass in a function to call.
+
+461
+00:04:02,530 --> 00:04:07,390
+So let's create a function up here. Let's just call it, say something,
+
+462
+00:04:07,990 --> 00:04:10,330
+and then we'll pass in the thing,
+
+463
+00:04:12,610 --> 00:04:16,420
+like this. And then all we do is we just print that thing.
+
+464
+00:04:16,959 --> 00:04:18,760
+So super simple function.
+
+465
+00:04:18,790 --> 00:04:23,790
+And then we give the name of this function as the function to call after 1000
+
+466
+00:04:24,310 --> 00:04:25,143
+milliseconds.
+
+467
+00:04:25,600 --> 00:04:29,590
+Now the final thing in this list of arguments,
+
+468
+00:04:29,920 --> 00:04:34,090
+if I just go ahead and cut that and show you again, when it gives me the prompt,
+
+469
+00:04:34,510 --> 00:04:39,010
+the last thing is actually a *args.
+
+470
+00:04:39,490 --> 00:04:44,230
+This, if you remember, allows us to put in an unlimited number 
+
+471
+00:04:44,290 --> 00:04:46,090
+of positional arguments.
+
+472
+00:04:46,600 --> 00:04:50,890
+What that means is we can give as many arguments as we want
+
+473
+00:04:51,220 --> 00:04:56,220
+and those arguments, in this case, is simply going to be passed to the function
+
+474
+00:04:56,350 --> 00:04:59,920
+that we want to call. So in this case, it's going to be that thing.
+
+475
+00:05:00,190 --> 00:05:03,580
+So if I put hello here then I run my code,
+
+476
+00:05:03,940 --> 00:05:07,990
+you can see that after 1000 milliseconds, basically one second,
+
+477
+00:05:08,440 --> 00:05:10,750
+it calls this function,
+
+478
+00:05:10,810 --> 00:05:15,400
+say_something, and it passes this hello as the input
+
+479
+00:05:15,580 --> 00:05:18,370
+to that function. As I said,
+
+480
+00:05:18,400 --> 00:05:22,000
+you can have an infinite amount of positional arguments.
+
+481
+00:05:22,330 --> 00:05:26,530
+So let's put in some other arguments which we'll call a,
+
+482
+00:05:26,530 --> 00:05:27,363
+b, and c,
+
+483
+00:05:27,610 --> 00:05:32,320
+and then we'll print a, print b, and print c.
+
+484
+00:05:33,970 --> 00:05:36,640
+And now instead of passing in hello,
+
+485
+00:05:36,670 --> 00:05:41,650
+we're going to pass in lots of positional parameters. So we'll say 3, 5,
+
+486
+00:05:41,680 --> 00:05:44,500
+and 8. Now, when I hit run,
+
+487
+00:05:44,560 --> 00:05:46,840
+you will see it waits for one second
+
+488
+00:05:47,170 --> 00:05:51,850
+and then it passes all three of these parameters to say something
+
+489
+00:05:52,270 --> 00:05:55,480
+and it goes ahead and prints all of those out at once.
+
+490
+00:05:56,050 --> 00:06:01,010
+So this is how the after method works. But what we wanted to do though,
+
+491
+00:06:01,370 --> 00:06:03,920
+is we want it to repeat itself,
+
+492
+00:06:04,010 --> 00:06:09,010
+to essentially loop. One way of getting that behavior is to simply put this
+
+493
+00:06:10,760 --> 00:06:11,240
+method,
+
+494
+00:06:11,240 --> 00:06:16,240
+call somewhere inside a function and then call itself.
+
+495
+00:06:16,370 --> 00:06:20,930
+So here's what I mean. Let's create a function called a count_down,
+
+496
+00:06:21,740 --> 00:06:26,740
+and this is going to take a input in the form of the number to count down by.
+
+497
+00:06:28,550 --> 00:06:32,270
+And then inside this function, we call window.after.
+
+498
+00:06:32,720 --> 00:06:35,510
+And we say that after 1000 milliseconds,
+
+499
+00:06:35,750 --> 00:06:40,750
+call this function count_down and then pass in a count number.
+
+500
+00:06:44,570 --> 00:06:47,390
+If that count number started out as 5,
+
+501
+00:06:47,630 --> 00:06:50,840
+then we want to say count - 1.
+
+502
+00:06:51,320 --> 00:06:55,700
+Now all we have to do is to call this countdown method.
+
+503
+00:06:56,030 --> 00:07:00,530
+So let's call count_down and passing the starting count,
+
+504
+00:07:00,590 --> 00:07:04,430
+let's say 5 seconds. So now when I run the code,
+
+505
+00:07:04,430 --> 00:07:07,760
+it's going to call this method passing in 5 over here,
+
+506
+00:07:08,300 --> 00:07:11,720
+and then it's going to wait for one second,
+
+507
+00:07:12,110 --> 00:07:17,060
+and then it's going to call this function count_down passing in five minus one
+
+508
+00:07:17,240 --> 00:07:21,920
+so it becomes four. And then afterward it repeats again, becomes three,
+
+509
+00:07:21,950 --> 00:07:26,180
+two, one. So now if we catch that number
+
+510
+00:07:26,360 --> 00:07:30,500
+which we can print, then we'll be able to see it count down
+
+511
+00:07:30,530 --> 00:07:34,190
+when we run the code; five, four, three,
+
+512
+00:07:34,580 --> 00:07:38,390
+two, one. One every second,
+
+513
+00:07:38,450 --> 00:07:42,770
+and it basically keeps on going and it even continues to the negatives.
+
+514
+00:07:43,310 --> 00:07:46,310
+So if we don't want it to go to negative time,
+
+515
+00:07:46,340 --> 00:07:49,220
+then all we have to do is add an if statement.
+
+516
+00:07:49,640 --> 00:07:54,620
+If count is greater than zero, then go ahead and execute this line of code.
+
+517
+00:07:55,880 --> 00:07:59,780
+So now it'll go from five, four, three, two,
+
+518
+00:07:59,810 --> 00:08:02,570
+one, zero, and then it will stop.
+
+519
+00:08:03,470 --> 00:08:08,450
+This is the kind of behavior that we would need if we want to update our
+
+520
+00:08:08,450 --> 00:08:11,180
+countdown in our Pomodoro timer.
+
+521
+00:08:11,900 --> 00:08:14,180
+So how can we instead of printing
+
+522
+00:08:14,180 --> 00:08:19,180
+the count actually change this text on our canvas? We'll,
+
+523
+00:08:19,820 --> 00:08:24,820
+the way that we do that is by assigning this text a variable.
+
+524
+00:08:25,430 --> 00:08:28,460
+So I'm going to call it timer_text
+
+525
+00:08:29,870 --> 00:08:34,870
+and now that we've got timer_text being a set as the text that was created in
+
+526
+00:08:35,360 --> 00:08:38,870
+the canvas, then we can access it right here.
+
+527
+00:08:39,620 --> 00:08:44,120
+And the way that we'd change a piece of text or anything for that matter in a
+
+528
+00:08:44,120 --> 00:08:48,110
+canvas is slightly different from how we would do for a label.
+
+529
+00:08:48,530 --> 00:08:52,070
+If it was just the title label that we wanted to change, we would say title_
+
+530
+00:08:52,070 --> 00:08:56,310
+label.config, and then let's change the text to something new.
+
+531
+00:08:56,940 --> 00:08:58,920
+But to change a canvas element,
+
+532
+00:08:58,950 --> 00:09:02,640
+you actually have to tap into the particular canvas you want to change and
+
+533
+00:09:03,240 --> 00:09:08,220
+Then you call a method called itemconfig. And then in this method,
+
+534
+00:09:08,280 --> 00:09:12,240
+you pass in the particular item that you actually want to configure,
+
+535
+00:09:12,540 --> 00:09:14,910
+so in our case it's the timer_text,
+
+536
+00:09:15,570 --> 00:09:20,570
+and then you pass in the thing about it that you actually want to change in
+
+537
+00:09:20,970 --> 00:09:24,300
+terms of a kwarg, so this is a keyword argument.
+
+538
+00:09:24,870 --> 00:09:28,380
+We're going to change the text to the current count.
+
+539
+00:09:28,650 --> 00:09:31,620
+Now notice how this is not the string count,
+
+540
+00:09:31,830 --> 00:09:34,290
+because then it would just show that word,
+
+541
+00:09:34,620 --> 00:09:39,270
+but its actually the live countdown time. At this point in time
+
+542
+00:09:39,300 --> 00:09:40,500
+if I run the code,
+
+543
+00:09:40,500 --> 00:09:45,500
+I actually get a error and it tells us that the name canvas is not defined
+
+544
+00:09:46,320 --> 00:09:50,940
+and that's because I'm calling this method countdown before I actually created
+
+545
+00:09:50,940 --> 00:09:51,690
+the canvas.
+
+546
+00:09:51,690 --> 00:09:56,250
+So if I move that to below this line and I run it again,
+
+547
+00:09:56,280 --> 00:09:58,020
+then you'll see it actually work.
+
+548
+00:09:58,320 --> 00:10:02,370
+And you see it starts out from five and it counts down to zero.
+
+549
+00:10:03,180 --> 00:10:08,180
+Now how can we tie that behavior to the start button so that I can press the
+
+550
+00:10:08,250 --> 00:10:13,140
+start button and then and only then does it start counting down from five,
+
+551
+00:10:13,140 --> 00:10:17,700
+four, three, two, one? Well, let's go ahead and add 
+
+552
+00:10:17,760 --> 00:10:22,500
+another function and I'm gonna add it in the timer mechanism section and I'm
+
+553
+00:10:22,500 --> 00:10:24,120
+going to call it start_timer.
+
+554
+00:10:24,900 --> 00:10:27,750
+Now this function is super simple.
+
+555
+00:10:27,930 --> 00:10:32,930
+All it's going to do is it's going to be responsible for calling that function
+
+556
+00:10:33,030 --> 00:10:36,660
+countdown and it's going to count down from five seconds.
+
+557
+00:10:36,810 --> 00:10:39,840
+So I'll move that inside the start_timer.
+
+558
+00:10:40,500 --> 00:10:45,500
+And now the start timer is going to be the function that needs to be triggered
+
+559
+00:10:47,070 --> 00:10:49,560
+when the start button gets pressed.
+
+560
+00:10:49,920 --> 00:10:53,280
+Do you remember how to tie a function to a button in
+
+561
+00:10:53,280 --> 00:10:58,260
+tkinter? Pause the video and see if you can solve this challenge so that you'll
+
+562
+00:10:58,260 --> 00:11:03,260
+be able to run the code, hit start and the timer to start counting down.
+
+563
+00:11:06,630 --> 00:11:11,630
+So the keyword argument is command and all we have to do is to tie it to the
+
+564
+00:11:12,210 --> 00:11:15,990
+start_timer function, but without the parentheses.
+
+565
+00:11:16,500 --> 00:11:19,920
+So now when I hit run and I click start,
+
+566
+00:11:20,340 --> 00:11:24,840
+it starts the timer setting that text from five, four, three,
+
+567
+00:11:24,930 --> 00:11:25,763
+two, one.
+
+568
+00:11:26,220 --> 00:11:31,220
+So the main loop is listening and when the user interacts with the start button
+
+569
+00:11:31,890 --> 00:11:36,660
+it actually calls the start_timer function which calls the count_down function
+
+570
+00:11:36,960 --> 00:11:39,900
+and get it to count down from five seconds.
+
+571
+00:11:40,560 --> 00:11:43,980
+Now we don't actually want to count down from five seconds.
+
+572
+00:11:44,010 --> 00:11:48,750
+We want to count down in minutes because we're probably not going to be working
+
+573
+00:11:48,750 --> 00:11:50,130
+for five seconds at a time.
+
+574
+00:11:50,160 --> 00:11:54,040
+We're going to be working for 25 minutes or having a minute break.
+
+575
+00:11:54,580 --> 00:11:59,580
+So how can I change this countdown to interpret this instead of as five seconds
+
+576
+00:12:01,390 --> 00:12:04,990
+to five minutes? Well, let's have a think about that.
+
+577
+00:12:05,680 --> 00:12:09,850
+If we wanted to count down, let's say one minute,
+
+578
+00:12:10,240 --> 00:12:14,230
+then that in terms of seconds would be 60 seconds.
+
+579
+00:12:14,860 --> 00:12:18,670
+All we have to do is to take the number of minutes that we want to count down
+
+580
+00:12:18,670 --> 00:12:22,540
+by and multiply it by 60. In this case,
+
+581
+00:12:22,540 --> 00:12:27,040
+if we wanted to count down it by five minutes instead of five seconds,
+
+582
+00:12:27,400 --> 00:12:30,160
+all we have to do is multiply by 60.
+
+583
+00:12:30,670 --> 00:12:33,880
+So then when we call this function count_down,
+
+584
+00:12:34,150 --> 00:12:36,790
+instead of getting five seconds to count down,
+
+585
+00:12:36,820 --> 00:12:39,190
+we get 300 seconds to count from.
+
+586
+00:12:39,880 --> 00:12:44,470
+But now if we run our code, you can see it's going to start from 300.
+
+587
+00:12:44,740 --> 00:12:49,240
+It's going to go down all the way down to zero. Now in terms of time,
+
+588
+00:12:49,390 --> 00:12:54,040
+that is five minutes, but this is not a very good way to visualize it.
+
+589
+00:12:54,370 --> 00:12:58,570
+Nobody thinks in terms of 288 seconds remaining, right?
+
+590
+00:12:59,140 --> 00:13:04,140
+So we have to format this count so that we can display it in the format of 
+
+591
+00:13:04,720 --> 00:13:09,010
+00:00 like the usual kind of time, where for example,
+
+592
+00:13:09,010 --> 00:13:14,010
+you have one minute and 35 seconds remaining or something like that.
+
+593
+00:13:15,520 --> 00:13:20,520
+So how can we create something like this? If we have the count in terms of
+
+594
+00:13:20,680 --> 00:13:21,220
+seconds,
+
+595
+00:13:21,220 --> 00:13:26,220
+so let's say we have 300, and we wanted to know how many minutes where in that
+
+596
+00:13:26,800 --> 00:13:31,800
+then all we have to do is take 300 and then divide it by 60 and we would get
+
+597
+00:13:32,680 --> 00:13:37,150
+5, so that's 5 minutes. But what if the countdown has already been going
+
+598
+00:13:37,210 --> 00:13:42,210
+and instead we had 245 seconds remaining?
+
+599
+00:13:42,790 --> 00:13:43,000
+Well,
+
+600
+00:13:43,000 --> 00:13:48,000
+we can actually get hold of how many minutes and seconds that is equivalent to.
+
+601
+00:13:50,020 --> 00:13:54,430
+And the way we would do that is by taking that number, say 245,
+
+602
+00:13:54,760 --> 00:13:56,920
+dividing it by 60 seconds
+
+603
+00:13:57,280 --> 00:14:02,280
+and we would get a number 245 / 60 is 4.08,
+
+604
+00:14:05,440 --> 00:14:06,820
+3 recurring.
+
+605
+00:14:07,570 --> 00:14:12,570
+If we rounded that number down to get rid of all of the decimal places,
+
+606
+00:14:13,240 --> 00:14:16,060
+then that would be equal to 4 minutes.
+
+607
+00:14:16,810 --> 00:14:21,810
+And then if we want to get hold of how many seconds there are after we've gotten
+
+608
+00:14:22,420 --> 00:14:23,620
+hold of the four minutes,
+
+609
+00:14:24,010 --> 00:14:29,010
+then the way we do that is to use the modular because remember the modular
+
+610
+00:14:29,650 --> 00:14:34,450
+divides a number by another number, so 245 divided by 60,
+
+611
+00:14:34,870 --> 00:14:37,240
+and then it will give us the remainder.
+
+612
+00:14:37,420 --> 00:14:42,280
+How much is left after it's cleanly divided. And in this case,
+
+613
+00:14:42,340 --> 00:14:47,340
+this would actually be the number of seconds remaining after the four minutes
+
+614
+00:14:48,100 --> 00:14:51,650
+has been taken away. So let's write this code out.
+
+615
+00:14:52,550 --> 00:14:57,550
+The count minutes would be the count divided by 60,
+
+616
+00:14:59,780 --> 00:15:04,330
+but then we have to round it down so that we get rid of all of the remainder.
+
+617
+00:15:04,330 --> 00:15:09,110
+Now we don't want to round it so that if it was something like 3.6
+
+618
+00:15:09,170 --> 00:15:10,640
+it becomes 4.
+
+619
+00:15:10,910 --> 00:15:15,770
+We actually just want to get rid of everything after the decimal place. To do
+
+620
+00:15:15,770 --> 00:15:16,310
+that,
+
+621
+00:15:16,310 --> 00:15:21,310
+the easiest way is to import the math module and then use a function called math
+
+622
+00:15:23,870 --> 00:15:27,800
+.floor and this math.floor,
+
+623
+00:15:27,830 --> 00:15:32,830
+if I hover over it, is going to return the largest whole number that is less than
+
+624
+00:15:36,020 --> 00:15:37,310
+or equal to x.
+
+625
+00:15:37,790 --> 00:15:42,790
+If this was a 4.8, then the largest hole number less than 4.8 is 4.
+
+626
+00:15:46,250 --> 00:15:47,960
+So that's basically what this is going to do.
+
+627
+00:15:48,170 --> 00:15:51,020
+And this is going to give us the number of minutes. Now,
+
+628
+00:15:51,020 --> 00:15:53,000
+the next thing we want to do is to know, well,
+
+629
+00:15:53,000 --> 00:15:58,000
+how many seconds is left after we've taken away the minutes. To do this,
+
+630
+00:15:58,700 --> 00:15:59,660
+we're going to do counts
+
+631
+00:15:59,720 --> 00:16:03,200
+and then we're going to use the modulo to divide it by 60.
+
+632
+00:16:03,770 --> 00:16:08,770
+So the modulo is going to give us the remainder number of seconds after we've
+
+633
+00:16:09,440 --> 00:16:12,650
+cleanly divided it by 600. For example,
+
+634
+00:16:12,650 --> 00:16:16,250
+if we had 100 seconds and we divide that by 60, well,
+
+635
+00:16:16,250 --> 00:16:17,870
+that's going to be equal to one.
+
+636
+00:16:18,290 --> 00:16:23,290
+So we can minus 60 from 100 and we get 40 as the remainder.
+
+637
+00:16:25,010 --> 00:16:27,830
+That is what we will get after doing the modulo.
+
+638
+00:16:28,430 --> 00:16:31,220
+So that's basically the number of seconds that remains.
+
+639
+00:16:32,240 --> 00:16:36,260
+So now that we've got the minute and the second, we can actually change this
+
+640
+00:16:36,260 --> 00:16:41,260
+count to use an f-string and we can format it so that we add the count minute
+
+641
+00:16:42,170 --> 00:16:43,003
+first,
+
+642
+00:16:43,130 --> 00:16:48,130
+and then we add a colon and then we add our count in seconds.
+
+643
+00:16:49,430 --> 00:16:53,900
+Now look at what happens. We're going to try and count down five minutes.
+
+644
+00:16:54,260 --> 00:16:58,490
+So we get hold of the number of seconds, we pass it over to this function,
+
+645
+00:16:58,880 --> 00:17:03,080
+we work out what the count is equivalent to in minutes and seconds
+
+646
+00:17:03,470 --> 00:17:06,920
+and then afterwards we subtract one second each time.
+
+647
+00:17:07,520 --> 00:17:10,310
+So now when I run the code and I hit start,
+
+648
+00:17:10,640 --> 00:17:14,270
+notice how it starts from 5 minutes, goes down to 4 minutes,
+
+649
+00:17:14,270 --> 00:17:15,980
+50, 59,
+
+650
+00:17:16,069 --> 00:17:19,310
+and then it keeps ongoing like a real timer.
+
+651
+00:17:20,180 --> 00:17:21,440
+That's pretty cool.
+
+652
+00:17:21,650 --> 00:17:26,650
+The only thing left to figure out is how can we get it to not display 5:0?
+
+653
+00:17:27,349 --> 00:17:32,060
+How can we get it to display 5:00
+
+654
+00:17:32,840 --> 00:17:36,260
+like you would see on a clock? To find out how to do that
+
+655
+00:17:36,290 --> 00:17:39,170
+we have to learn about Python dynamic typing.
+
+656
+00:17:39,440 --> 00:17:43,370
+We have to understand how that works and that is what we're going to be talking
+
+657
+00:17:43,370 --> 00:17:46,340
+about in the next lesson. So I'll see you there.
+
+
+658
+00:00:00,780 --> 00:00:04,830
+In the last lesson, we managed to get our countdown mechanism to work,
+
+659
+00:00:05,160 --> 00:00:10,100
+and we got it to count down from five minutes to zero. Now, everything works,
+
+660
+00:00:10,580 --> 00:00:14,510
+but there's just something a little bit niggling and you'll see it when I hit
+
+661
+00:00:14,510 --> 00:00:18,200
+start. Notice how it says 5:0.
+
+662
+00:00:18,740 --> 00:00:21,880
+Wouldn't it be so much better if it said 5:00?
+
+663
+00:00:23,450 --> 00:00:25,280
+So how would we do that? Well,
+
+664
+00:00:25,550 --> 00:00:30,320
+that is the zero comes from this count_sec because it's taking the count in
+
+665
+00:00:30,320 --> 00:00:35,210
+seconds, dividing it by 60 and finding the remainder using the modulo.
+
+666
+00:00:35,720 --> 00:00:39,140
+Now, when there is no remainder, it's just going to be equal to zero.
+
+667
+00:00:39,620 --> 00:00:42,500
+So we could use an if statement and check well
+
+668
+00:00:42,740 --> 00:00:45,800
+if the count_sec is equal to zero,
+
+669
+00:00:46,190 --> 00:00:50,990
+then instead of making it zero, let's set it to equal a string
+
+670
+00:00:51,020 --> 00:00:52,160
+which is "00".
+
+671
+00:00:52,790 --> 00:00:56,150
+Now this actually, believe it or not, works.
+
+672
+00:00:56,900 --> 00:00:58,310
+And you'll see it when I run it.
+
+673
+00:00:58,340 --> 00:01:01,250
+When I hit start, doesn't that look so much better?
+
+674
+00:01:02,330 --> 00:01:07,330
+But some of you might've realized that there's something a little bit crazy going on
+
+675
+00:01:07,640 --> 00:01:09,380
+here in these two lines of code.
+
+676
+00:01:09,830 --> 00:01:14,830
+We're checking to see if this variable holds data that is equal to the integer,
+
+677
+00:01:16,610 --> 00:01:18,650
+the whole number zero,
+
+678
+00:01:19,250 --> 00:01:21,890
+and then we're setting it to a string.
+
+679
+00:01:22,310 --> 00:01:26,000
+So these are completely two different data types.
+
+680
+00:01:26,030 --> 00:01:29,120
+That's an int and that is a string.
+
+681
+00:01:29,540 --> 00:01:32,450
+So how is it that we're able to do this?
+
+682
+00:01:33,350 --> 00:01:36,350
+So let me pull up the Python console.
+
+683
+00:01:36,560 --> 00:01:39,260
+We know that if we took a integer,
+
+684
+00:01:39,290 --> 00:01:44,180
+say 3, and we try to add it to a string, say a 4,
+
+685
+00:01:44,480 --> 00:01:45,800
+this is not going to work
+
+686
+00:01:45,830 --> 00:01:50,330
+and we get a type error because this is type int
+
+687
+00:01:50,420 --> 00:01:52,250
+and this is type string.
+
+688
+00:01:52,520 --> 00:01:57,520
+So you can't actually add these two together because there's a mismatch.
+
+689
+00:01:58,250 --> 00:01:59,720
+Now here's the crazy thing.
+
+690
+00:01:59,840 --> 00:02:04,550
+Let's create a variable a and let's make it hold the integer with 3.
+
+691
+00:02:05,150 --> 00:02:10,150
+And at this point, you can see that this a variable has a data type of int.
+
+692
+00:02:11,390 --> 00:02:16,130
+If I decide to change that variable and make it hold a different type of data,
+
+693
+00:02:16,430 --> 00:02:19,400
+let's say the number 4, or let's make it simpler,
+
+694
+00:02:19,400 --> 00:02:23,870
+let's make it hold the piece of text, Hello. As soon as that goes through,
+
+695
+00:02:23,870 --> 00:02:27,410
+you can see that a is now of data type string.
+
+696
+00:02:28,010 --> 00:02:30,950
+And the very fact that I'm able to do that,
+
+697
+00:02:31,100 --> 00:02:36,100
+change a variable's data type by changing the content in that variable,
+
+698
+00:02:37,310 --> 00:02:42,310
+this is what's known as dynamic typing. In this sense,
+
+699
+00:02:42,770 --> 00:02:47,770
+Python is a language that's quite unique because on one hand it is strongly
+
+700
+00:02:48,380 --> 00:02:53,380
+typed, in the sense that it holds on to the data type of the variable,
+
+701
+00:02:54,230 --> 00:02:58,670
+so this a is a string and it knows that it's a string
+
+702
+00:02:59,110 --> 00:03:02,650
+and if you do something that is not meant for a string,
+
+703
+00:03:03,010 --> 00:03:06,640
+say if you try to raise a to the power of 2,
+
+704
+00:03:07,090 --> 00:03:11,440
+then that is going to be a type error. Types matter
+
+705
+00:03:11,800 --> 00:03:15,280
+and when you call a function that's expecting a particular type,
+
+706
+00:03:15,610 --> 00:03:18,070
+say if you use the power function
+
+707
+00:03:18,100 --> 00:03:22,600
+which is expecting a integer and you pass in something
+
+708
+00:03:22,630 --> 00:03:26,980
+that's obviously not an integer say, our string here
+
+709
+00:03:27,700 --> 00:03:32,020
+and you try to get it to do some things, say raise it to the power of 3,
+
+710
+00:03:32,380 --> 00:03:34,300
+then again, we get type error.
+
+711
+00:03:34,330 --> 00:03:37,510
+It knows what type is supposed to go into that function
+
+712
+00:03:37,840 --> 00:03:40,570
+and it makes sure that you comply with that.
+
+713
+00:03:40,600 --> 00:03:43,150
+This is where the language is strongly typed.
+
+714
+00:03:43,660 --> 00:03:48,660
+But the part where the language is dynamically typed is that even though it
+
+715
+00:03:48,700 --> 00:03:51,160
+knows what type a variable is,
+
+716
+00:03:51,220 --> 00:03:54,100
+it knows what type a function expects,
+
+717
+00:03:54,580 --> 00:03:59,580
+you can also dynamically change the data type of any variable like this.
+
+718
+00:04:02,500 --> 00:04:06,130
+That is basically what we're using here. We're using dynamic
+
+719
+00:04:06,130 --> 00:04:07,510
+typing to change
+
+720
+00:04:07,510 --> 00:04:12,510
+the data type of count_sec from a integer to a string.
+
+721
+00:04:13,210 --> 00:04:18,209
+And then we use that string to display inside this canvas text.
+
+722
+00:04:19,390 --> 00:04:20,529
+Now there is however,
+
+723
+00:04:20,529 --> 00:04:25,530
+still a bit of a bug with this and you'll see it once it dips below 10 seconds.
+
+724
+00:04:27,430 --> 00:04:30,430
+Notice that as soon as it goes to 9 seconds,
+
+725
+00:04:30,820 --> 00:04:34,660
+instead of saying 09, which is what you would want or 08,
+
+726
+00:04:34,690 --> 00:04:35,523
+06,
+
+727
+00:04:35,740 --> 00:04:40,740
+it just lists the number of seconds until it reaches 00.
+
+728
+00:04:41,380 --> 00:04:43,690
+So how can we fix this?
+
+729
+00:04:44,770 --> 00:04:47,050
+The key lies in these two lines of code.
+
+730
+00:04:47,740 --> 00:04:49,810
+See if you can do this as a challenge,
+
+731
+00:04:50,290 --> 00:04:55,290
+pause the video and see if you can make it so that when it's nine seconds
+
+732
+00:04:55,390 --> 00:04:56,200
+remaining,
+
+733
+00:04:56,200 --> 00:05:01,200
+it says 09 or 08 or 07 and also 00 of course.
+
+734
+00:05:03,370 --> 00:05:07,840
+Pause the video and see if you can complete this challenge. All right.
+
+735
+00:05:07,840 --> 00:05:12,700
+So basically what we want to check for is when the count in seconds is less
+
+736
+00:05:12,700 --> 00:05:17,050
+than 10, because now it's going to be in the single digits
+
+737
+00:05:17,230 --> 00:05:20,590
+and instead of having just one digit,
+
+738
+00:05:20,650 --> 00:05:22,870
+we wanna add a zero in front of it.
+
+739
+00:05:23,470 --> 00:05:26,890
+So the way we can do this is through just an f-string.
+
+740
+00:05:27,340 --> 00:05:32,340
+We can use an f-string to add the zero in front and then add the count in
+
+741
+00:05:32,620 --> 00:05:34,390
+seconds afterwards,
+
+742
+00:05:34,600 --> 00:05:39,220
+formatting that into the standard kind of time format.
+
+743
+00:05:40,270 --> 00:05:44,290
+Now that we fixed that if we run our app again
+
+744
+00:05:44,590 --> 00:05:46,450
+it goes down to 10 seconds
+
+745
+00:05:47,140 --> 00:05:51,190
+you can see it now says 09, 08, 07
+
+746
+00:05:51,460 --> 00:05:54,430
+and it's nicely formatted using our f-string.
+
+747
+00:05:55,660 --> 00:06:00,660
+And we're able to do because of the flexibility of the data types in Python,
+
+748
+00:06:01,130 --> 00:06:02,480
+checking it as a number,
+
+749
+00:06:02,510 --> 00:06:07,430
+making sure it's less than 10 and then formatting it as a string and using the
+
+750
+00:06:07,430 --> 00:06:08,263
+f-string.
+
+751
+00:06:08,900 --> 00:06:13,070
+Now, this is not a feature that's available in all programming languages.
+
+752
+00:06:13,370 --> 00:06:17,090
+For example, languages like C or Java or Swift,
+
+753
+00:06:17,420 --> 00:06:19,280
+you won't be able to do this.
+
+754
+00:06:19,880 --> 00:06:24,470
+Once you create a variable and you give it a certain type of data,
+
+755
+00:06:24,680 --> 00:06:27,830
+then it must forever hold on to that type of data.
+
+756
+00:06:28,520 --> 00:06:33,520
+But Python allows you to change the data type of a variable just by assigning it
+
+757
+00:06:34,820 --> 00:06:36,980
+to a different type of value.
+
+758
+00:06:37,970 --> 00:06:42,800
+There's a really well-worded Stack Overflow answer that addresses this exact
+
+759
+00:06:42,800 --> 00:06:43,040
+thing
+
+760
+00:06:43,040 --> 00:06:47,870
+I'm talking about, talking about the fact that Python is a strongly dynamically
+
+761
+00:06:47,870 --> 00:06:52,220
+typed language. And I recommend that if you want to dig more into this,
+
+762
+00:06:52,370 --> 00:06:56,870
+to have a read of this answer and I'll link to this in the course resources.
+
+
+763
+00:00:00,240 --> 00:00:02,820
+Now we're almost there. When we hit start,
+
+764
+00:00:02,880 --> 00:00:07,880
+our countdown works and it starts counting down from however minutes we tell it
+
+765
+00:00:08,550 --> 00:00:11,130
+to. Here's a challenge for you.
+
+766
+00:00:11,700 --> 00:00:16,700
+We know that the Pomodoro technique requires us to work for 25 minutes and then
+
+767
+00:00:18,180 --> 00:00:21,300
+after 25 minutes to take a short break,
+
+768
+00:00:21,780 --> 00:00:26,780
+and then it goes back to 25 and this repeats until we've done four sets of 25
+
+769
+00:00:27,690 --> 00:00:30,390
+minutes, and then we get a long break.
+
+770
+00:00:31,050 --> 00:00:36,050
+So I want you to have a think about how you could create a variable called reps,
+
+771
+00:00:36,570 --> 00:00:41,010
+which is going to be a global variable, and you can access it inside
+
+772
+00:00:41,040 --> 00:00:46,040
+start_timer by tapping into this global reps. Now using the modulo or some other
+
+773
+00:00:48,180 --> 00:00:52,890
+sort of mechanism that you can think of see if you can figure out how to get our
+
+774
+00:00:52,890 --> 00:00:57,840
+countdown timer to count down a different number of minutes.
+
+775
+00:00:58,440 --> 00:01:02,820
+For example, we would start out with work_seconds
+
+776
+00:01:03,120 --> 00:01:07,410
+which is going to be the work in minutes times 60,
+
+777
+00:01:08,310 --> 00:01:11,910
+and then we have our short_break_sec
+
+778
+00:01:14,040 --> 00:01:16,620
+and our long break seconds.
+
+779
+00:01:19,530 --> 00:01:22,530
+Now, how can we call this countdown timer
+
+780
+00:01:22,530 --> 00:01:27,530
+so that if it's the first third,
+
+781
+00:01:30,180 --> 00:01:31,013
+fifth,
+
+782
+00:01:31,830 --> 00:01:35,550
+seventh, rep that we're actually doing our countdown,
+
+783
+00:01:35,910 --> 00:01:40,710
+then we want this countdown to do our 25 minutes in terms of work seconds.
+
+784
+00:01:41,400 --> 00:01:44,550
+But on the other hand, if it is, um,
+
+785
+00:01:44,610 --> 00:01:47,460
+the eighth rep,
+
+786
+00:01:47,490 --> 00:01:52,260
+then we want the countdown to work on our long break seconds.
+
+787
+00:01:52,920 --> 00:01:57,920
+But if it's the second or fourth or sixth rep then it should count down to our
+
+788
+00:02:03,720 --> 00:02:05,460
+short break seconds.
+
+789
+00:02:06,900 --> 00:02:11,520
+Essentially what we're trying to achieve is for our countdown timer to do 25
+
+790
+00:02:11,520 --> 00:02:14,580
+minutes, then 5 minutes, then 25, 5,
+
+791
+00:02:15,030 --> 00:02:18,000
+and until we've done four sets of 25,
+
+792
+00:02:18,330 --> 00:02:21,120
+then do we get a 20 minute break.
+
+793
+00:02:21,570 --> 00:02:25,650
+So have a think about what you've done before using the modulo and see if you
+
+794
+00:02:25,650 --> 00:02:29,160
+can figure out how to get this to work in your code.
+
+795
+00:02:29,790 --> 00:02:32,700
+Pause the video and see if you can complete this challenge.
+
+796
+00:02:35,220 --> 00:02:35,610
+All right.
+
+797
+00:02:35,610 --> 00:02:40,610
+So what we want to do is first when we start the timer to increase the reps.
+
+798
+00:02:41,790 --> 00:02:44,130
+So we're going to increase it by one.
+
+799
+00:02:44,580 --> 00:02:49,580
+So now it starts out at the first rep or the first repetition.
+
+800
+00:02:50,610 --> 00:02:52,500
+Now on this first repetition,
+
+801
+00:02:52,590 --> 00:02:56,760
+it's going to need to run this particular line of code.
+
+802
+00:02:57,420 --> 00:02:59,650
+And then when it gets to the second repetition, 
+
+803
+00:02:59,650 --> 00:03:02,290
+it needs to run this line of code. And finally,
+
+804
+00:03:02,290 --> 00:03:06,520
+when it gets to the eighth repetition then it needs to run this line of code.
+
+805
+00:03:07,030 --> 00:03:11,410
+So we can actually use a if statement to check for all of these things.
+
+806
+00:03:11,890 --> 00:03:16,890
+So here we can check to see if the reps modulo by 8 is equal to zero.
+
+807
+00:03:19,990 --> 00:03:23,170
+If the number of reps divided by 8 has no remainder,
+
+808
+00:03:23,440 --> 00:03:27,130
+then that means it's actually the time for a long break.
+
+809
+00:03:28,270 --> 00:03:29,740
+Now, Elif though,
+
+810
+00:03:29,740 --> 00:03:33,850
+or else if the reps is actually even,
+
+811
+00:03:33,880 --> 00:03:37,810
+so if modulo 2 is equal to zero, then in this case
+
+812
+00:03:37,870 --> 00:03:40,720
+it should be time for a short break.
+
+813
+00:03:42,910 --> 00:03:44,140
+And finally,
+
+814
+00:03:44,200 --> 00:03:48,340
+if it's none of those conditions and we have an else statement,
+
+815
+00:03:48,760 --> 00:03:52,450
+then it's just a normal work time.
+
+816
+00:03:53,530 --> 00:03:55,840
+Now we might think that's all that's required,
+
+817
+00:03:55,960 --> 00:03:59,080
+but as usual we have to test it to be sure.
+
+818
+00:03:59,620 --> 00:04:04,620
+So let's go ahead and change our work minute down to one minute so that we can
+
+819
+00:04:04,960 --> 00:04:09,640
+run it and have a reasonable chance of seeing when it actually finally reaches
+
+820
+00:04:09,670 --> 00:04:10,503
+zero.
+
+821
+00:04:10,930 --> 00:04:14,740
+Once our timer counter goes down to zero,
+
+822
+00:04:15,130 --> 00:04:19,180
+we would expect it to go to a five minute break,
+
+823
+00:04:19,540 --> 00:04:22,600
+but it doesn't. It actually just stops.
+
+824
+00:04:23,260 --> 00:04:28,260
+And this is why we need to test our code and test our programs as frequently as
+
+825
+00:04:29,170 --> 00:04:33,400
+we write code so that we can catch these bugs in terms of our logic.
+
+826
+00:04:33,970 --> 00:04:35,890
+So what's happening here? Well,
+
+827
+00:04:35,920 --> 00:04:39,880
+basically it's counting down to
+
+828
+00:04:39,880 --> 00:04:42,820
+the number of seconds that we told it to count down to.
+
+829
+00:04:43,330 --> 00:04:47,080
+And then once it's done that, well, that's kind of the end.
+
+830
+00:04:47,200 --> 00:04:52,200
+There's no other way of triggering start timer unless we press the button.
+
+831
+00:04:53,140 --> 00:04:58,140
+So what we actually need to do is to add a else statement here and catch when the
+
+832
+00:05:01,270 --> 00:05:02,770
+count goes to zero,
+
+833
+00:05:03,190 --> 00:05:07,540
+because it's in that moment that we want to actually call start timer
+
+834
+00:05:07,780 --> 00:05:08,613
+once again.
+
+835
+00:05:09,130 --> 00:05:13,600
+And this time it's going to increase the reps and figure out which countdown we
+
+836
+00:05:13,600 --> 00:05:14,740
+actually need to go to.
+
+837
+00:05:15,430 --> 00:05:19,000
+So if we run this code again and I fast forward through the timer,
+
+838
+00:05:19,450 --> 00:05:22,360
+you can see that now, once it hits zero,
+
+839
+00:05:23,260 --> 00:05:27,760
+it's going to go straight to our five minute break and it continues the timer.
+
+840
+00:05:28,660 --> 00:05:31,870
+Now, as the user though, it's quite hard to tell whether
+
+841
+00:05:31,870 --> 00:05:36,870
+if I'm in a work section or if I'm in a break section and what's actually
+
+842
+00:05:37,180 --> 00:05:38,013
+going on.
+
+843
+00:05:38,260 --> 00:05:42,910
+So we should improve the user experience by changing this title from saying
+
+844
+00:05:42,940 --> 00:05:46,300
+timer to whatever it is that the user should be doing.
+
+845
+00:05:46,900 --> 00:05:51,880
+So if they are in this long break countdown then it should say
+
+846
+00:05:51,910 --> 00:05:55,360
+break, if they're in a short break section it should say break,
+
+847
+00:05:55,420 --> 00:05:58,250
+and if they're in the work section then it should say work.
+
+848
+00:05:58,760 --> 00:06:02,450
+So the label that we need to change is this title label.
+
+849
+00:06:02,960 --> 00:06:07,040
+And I also want to change the color, the foreground color,
+
+850
+00:06:07,400 --> 00:06:12,170
+so that when it's work, it's green, when its a short break it's pink,
+
+851
+00:06:12,500 --> 00:06:14,930
+when it was a long break it's red. So of course,
+
+852
+00:06:14,930 --> 00:06:17,330
+I'm referring to these constants over here.
+
+853
+00:06:18,050 --> 00:06:22,580
+See if you can complete this as a challenge and get that label to change
+
+854
+00:06:22,640 --> 00:06:25,730
+to display to the user, what they should be doing each time.
+
+855
+00:06:26,390 --> 00:06:31,280
+Pause the video and complete this challenge. Okay.
+
+856
+00:06:31,310 --> 00:06:33,110
+So when they're on a long break,
+
+857
+00:06:33,140 --> 00:06:38,140
+we're going to get our title label to configure it and change the text to say
+
+858
+00:06:41,120 --> 00:06:41,953
+break.
+
+859
+00:06:42,590 --> 00:06:46,940
+And we're also going to configure the foreground color at the same time
+
+860
+00:06:47,300 --> 00:06:48,650
+and we're going to make this
+
+861
+00:06:48,680 --> 00:06:52,670
+the red color. Now for the next one,
+
+862
+00:06:52,670 --> 00:06:57,320
+which is the short break, it's also going to read break, but in this case,
+
+863
+00:06:57,380 --> 00:07:02,000
+the foreground color is going to be pink. And finally,
+
+864
+00:07:02,330 --> 00:07:03,680
+when they should be working,
+
+865
+00:07:03,740 --> 00:07:08,720
+the foreground color is going to be green and the label is going to read work.
+
+866
+00:07:09,350 --> 00:07:14,210
+So now when it's during a work session, it will say work.
+
+867
+00:07:14,630 --> 00:07:17,030
+And when it switches to the break time,
+
+868
+00:07:18,170 --> 00:07:22,340
+then it's going to say break. And because this is pink,
+
+869
+00:07:22,370 --> 00:07:26,000
+this is, of course, the short break where we can also see that we've got five
+
+870
+00:07:26,000 --> 00:07:29,180
+minutes and counting. And when it gets to the long break
+
+871
+00:07:29,300 --> 00:07:31,010
+after four sessions of work,
+
+872
+00:07:31,040 --> 00:07:35,720
+then the text would be red and the countdown would show 20 minutes.
+
+873
+00:07:36,980 --> 00:07:40,880
+We're pretty much almost there. There's just a couple of loose ends to tie off.
+
+874
+00:07:41,240 --> 00:07:46,240
+One is to change this part so that we actually get a checkmark for every
+
+875
+00:07:47,150 --> 00:07:52,150
+successful work session we complete, and also to make sure that our reset button
+
+876
+00:07:52,460 --> 00:07:56,690
+works so that when we click on it, the timer stops and goes back to zero.
+
+877
+00:07:57,470 --> 00:08:00,470
+So for all of that and more, I'll see you in the next lesson.
+
+
+878
+00:00:00,240 --> 00:00:05,220
+Now we're at the final stretch. Our Pomodoro program is almost complete.
+
+879
+00:00:05,520 --> 00:00:07,740
+We've got this beautiful user interface,
+
+880
+00:00:07,770 --> 00:00:11,520
+we've got beautiful colors from our colorhunt.io color palette,
+
+881
+00:00:11,970 --> 00:00:15,600
+and we've got pretty much everything functioning other than just some loose
+
+882
+00:00:15,600 --> 00:00:16,433
+ends.
+
+883
+00:00:16,560 --> 00:00:21,000
+So the first thing I want to fix is the section with the check marks. So
+
+884
+00:00:21,000 --> 00:00:22,890
+we've created the checkmarks
+
+885
+00:00:22,920 --> 00:00:27,570
+which is a label that currently just contains a single checkmark.
+
+886
+00:00:28,080 --> 00:00:33,080
+Now I'm actually going to cut this checkmark and delete the text here because I
+
+887
+00:00:33,510 --> 00:00:37,140
+want that label to start out as empty. Now,
+
+888
+00:00:37,170 --> 00:00:40,860
+the only time when I want that label to get an extra check
+
+889
+00:00:40,860 --> 00:00:45,860
+mark is when the user has completed a work countdown.
+
+890
+00:00:47,070 --> 00:00:49,980
+So once they've completed their 25 minute session,
+
+891
+00:00:50,190 --> 00:00:53,850
+then they should get that checkmark. To do that
+
+892
+00:00:53,880 --> 00:00:58,880
+I'm going to write the code inside this else statement because every single time a
+
+893
+00:00:59,520 --> 00:01:00,990
+countdown completes,
+
+894
+00:01:01,230 --> 00:01:05,610
+it's going to go into this else statement because the count goes down to zero.
+
+895
+00:01:06,240 --> 00:01:10,710
+Now, currently we're just getting the timer to restart itself and go to the next
+
+896
+00:01:10,740 --> 00:01:11,573
+session.
+
+897
+00:01:11,910 --> 00:01:16,910
+But what we want to do here is we want to check to see how many reps we have, and
+
+898
+00:01:18,450 --> 00:01:20,280
+for every two reps
+
+899
+00:01:20,340 --> 00:01:25,340
+then that means we've completed one work session because it's work then rest,
+
+900
+00:01:26,400 --> 00:01:29,820
+then work, then rest. So for every two reps,
+
+901
+00:01:29,850 --> 00:01:32,790
+we've completed one 25 minute work session.
+
+902
+00:01:33,630 --> 00:01:35,130
+So here's a challenge for you.
+
+903
+00:01:35,610 --> 00:01:40,610
+So have a think about how you can use our variable reps to check so that for
+
+904
+00:01:41,520 --> 00:01:44,040
+every two reps we've completed,
+
+905
+00:01:44,340 --> 00:01:48,930
+we add a checkmark to this checkmark label.
+
+906
+00:01:49,830 --> 00:01:52,710
+Pause the video and see if you can complete this challenge,
+
+907
+00:01:52,830 --> 00:01:55,320
+then test it out and see if you managed to get it right.
+
+908
+00:01:55,880 --> 00:01:56,713
+Okay.
+
+909
+00:01:59,450 --> 00:01:59,810
+All right.
+
+910
+00:01:59,810 --> 00:02:04,610
+So we know that the reps is equal to the number of sessions we've had.
+
+911
+00:02:04,940 --> 00:02:07,130
+So for example, if we've done for reps,
+
+912
+00:02:07,160 --> 00:02:10,490
+then that means we've had two work sessions and two breaks.
+
+913
+00:02:11,030 --> 00:02:16,030
+That means we can basically divide reps by two to get the total number of work
+
+914
+00:02:16,280 --> 00:02:17,210
+sessions we've done.
+
+915
+00:02:17,930 --> 00:02:22,930
+What I can do is I can create a temporary variable called mark,
+
+916
+00:02:23,450 --> 00:02:26,840
+which is just going to be in an empty string to start off.
+
+917
+00:02:27,800 --> 00:02:31,490
+And then I can create a for loop to loop through a range.
+
+918
+00:02:32,000 --> 00:02:36,950
+And the range is going to go from zero up to our reps divided by 2.
+
+919
+00:02:37,880 --> 00:02:42,880
+Now this is giving us a warning at the moment because reps divided by 2 or
+
+920
+00:02:42,920 --> 00:02:47,570
+anything divided by anything becomes a floating type number.
+
+921
+00:02:48,140 --> 00:02:53,140
+In our case we want to do is we want to use that math.floor again so that we
+
+922
+00:02:53,420 --> 00:02:58,370
+can floor this reps divided by 2 to a whole number
+
+923
+00:02:58,930 --> 00:03:02,230
+and that way we get the correct number of work sessions.
+
+924
+00:03:02,950 --> 00:03:05,500
+If you want to make this a little bit more clear
+
+925
+00:03:05,680 --> 00:03:07,660
+the next time you read your code,
+
+926
+00:03:07,720 --> 00:03:12,720
+you can actually create a work_sessions and we can move this part of our code
+
+927
+00:03:14,470 --> 00:03:15,303
+over to here.
+
+928
+00:03:15,850 --> 00:03:20,740
+So the total number of work sessions is equal to the reps divided by 2 and
+
+929
+00:03:20,740 --> 00:03:23,050
+then rounded down to the nearest integer.
+
+930
+00:03:23,590 --> 00:03:27,010
+And then we can use that number of work sessions to create our range.
+
+931
+00:03:27,850 --> 00:03:29,260
+When we've created our range,
+
+932
+00:03:29,290 --> 00:03:33,010
+we know that this loop is going to run for that many times.
+
+933
+00:03:33,370 --> 00:03:38,370
+So we can add to our mark. For every single time the loop runs,
+
+934
+00:03:38,890 --> 00:03:41,680
+I'm going to paste in a checkmark.
+
+935
+00:03:42,220 --> 00:03:45,580
+You should have that checkmark that you had from a previously,
+
+936
+00:03:45,790 --> 00:03:49,150
+and you can paste it into here. Now,
+
+937
+00:03:49,150 --> 00:03:54,100
+once we've completed that loop, then all we need to do is the update
+
+938
+00:03:54,160 --> 00:03:59,160
+our checkmarks label by calling config and then changing the text to equal our
+
+939
+00:04:00,580 --> 00:04:02,710
+mark. Now, in this case,
+
+940
+00:04:02,710 --> 00:04:05,740
+it probably makes sense for that to actually be plural.
+
+941
+00:04:06,040 --> 00:04:08,350
+So I'm gonna use my refactor -> rename
+
+942
+00:04:08,440 --> 00:04:12,130
+to just add an 's' to everywhere I'm using this.
+
+943
+00:04:13,540 --> 00:04:17,709
+Now let's test it out. When I hit start,
+
+944
+00:04:17,769 --> 00:04:22,660
+it should start counting down. And once that work session completes,
+
+945
+00:04:22,990 --> 00:04:27,580
+then you'll see the timer go to zero and our first checkmark show up.
+
+946
+00:04:28,510 --> 00:04:32,800
+And for every work session we complete, we get an extra checkmark
+
+947
+00:04:33,010 --> 00:04:36,220
+just to nudge us towards working a little bit harder.
+
+948
+00:04:37,390 --> 00:04:42,370
+The final thing that I want to address is our reset mechanism.
+
+949
+00:04:42,910 --> 00:04:45,220
+So we have this lovely reset button,
+
+950
+00:04:45,250 --> 00:04:47,410
+but it's not really doing anything at the moment.
+
+951
+00:04:48,070 --> 00:04:51,640
+What I'm going to do is create a new function here
+
+952
+00:04:51,670 --> 00:04:53,860
+which I'll call reset_timer.
+
+953
+00:04:54,760 --> 00:04:59,760
+And what this reset_timer is going to do is basically it's going to reset all
+
+954
+00:04:59,770 --> 00:05:04,330
+the checkmarks, reset the text inside the timer,
+
+955
+00:05:04,600 --> 00:05:09,600
+stop the timer and change this title back to the text that it originally had,
+
+956
+00:05:10,630 --> 00:05:14,350
+which is just the word timer. Now,
+
+957
+00:05:14,470 --> 00:05:19,450
+the hardest part about this is actually stopping the timer because what we have
+
+958
+00:05:19,450 --> 00:05:23,740
+to do is we actually need to tap into that window.after again.
+
+959
+00:05:24,280 --> 00:05:26,080
+But instead of calling after,
+
+960
+00:05:26,140 --> 00:05:30,130
+we actually want to call after_cancel. This way
+
+961
+00:05:30,160 --> 00:05:34,510
+we can actually cancel the timer that we had set up previously.
+
+962
+00:05:35,920 --> 00:05:40,750
+This is the thing that we want to cancel. And if we want to cancel it,
+
+963
+00:05:40,870 --> 00:05:44,140
+we have to give it a name and we have to put it inside a variable.
+
+964
+00:05:44,920 --> 00:05:46,990
+So I'm going to call this my timer.
+
+965
+00:05:47,620 --> 00:05:52,620
+But because this is going to be a local variable because it's created inside
+
+966
+00:05:52,990 --> 00:05:56,500
+this particular function, I actually have to bring it out.
+
+967
+00:05:56,530 --> 00:06:01,370
+I have to make it a global variable, so after create it up here,
+
+968
+00:06:01,730 --> 00:06:04,910
+but what value do I give it? Well, initially,
+
+969
+00:06:04,970 --> 00:06:07,280
+it's actually not going to have any value at all.
+
+970
+00:06:07,550 --> 00:06:11,480
+So it's going to start out as none. And then later on,
+
+971
+00:06:11,540 --> 00:06:16,540
+I'm going to tap into that global timer in order to get it to hold on to this.
+
+972
+00:06:19,220 --> 00:06:23,840
+Now, then once I want to reset my timer and cancel it, well
+
+973
+00:06:23,840 --> 00:06:28,840
+then I can actually tap into this global timer and stop the timer.
+
+974
+00:06:29,900 --> 00:06:34,340
+So now to actually activate this function, reset_timer,
+
+975
+00:06:34,700 --> 00:06:38,360
+we have to add it as a command to our reset button.
+
+976
+00:06:38,900 --> 00:06:42,230
+So where we create our button, I'm gonna add it as a command.
+
+977
+00:06:42,680 --> 00:06:45,080
+And remember, we have to get rid of the parentheses.
+
+978
+00:06:45,680 --> 00:06:49,490
+So now if I run my program and I start my timer,
+
+979
+00:06:49,820 --> 00:06:53,240
+you can see that as soon as I click this reset button,
+
+980
+00:06:53,570 --> 00:06:57,230
+it stops my timer and it doesn't continue.
+
+981
+00:06:57,950 --> 00:07:00,590
+So now all we have to do is the add
+
+982
+00:07:00,590 --> 00:07:05,180
+all of the things that we have to reset, for example, the text in here,
+
+983
+00:07:05,420 --> 00:07:07,850
+we want that to read 00.
+
+984
+00:07:09,140 --> 00:07:11,390
+So that was the timer_text from our canvas.
+
+985
+00:07:11,780 --> 00:07:15,170
+And then the other thing we want to do is the title label.
+
+986
+00:07:15,350 --> 00:07:18,350
+We want to set that to just read timer.
+
+987
+00:07:20,270 --> 00:07:21,320
+And finally,
+
+988
+00:07:21,380 --> 00:07:26,380
+we want to reset our check marks so that once you hit the reset button,
+
+989
+00:07:26,810 --> 00:07:28,850
+it resets this title label,
+
+990
+00:07:29,120 --> 00:07:34,120
+the timer text here stops the timer and gets rid of all the checkmarks, like
+
+991
+00:07:35,360 --> 00:07:39,080
+this. Pause the video and give that a go.
+
+992
+00:07:42,290 --> 00:07:45,860
+Alright. So the first thing we want to change is our timer text.
+
+993
+00:07:46,250 --> 00:07:48,860
+And because the timer text is created in the canvas,
+
+994
+00:07:48,890 --> 00:07:50,990
+we have a slightly different way of changing that.
+
+995
+00:07:51,440 --> 00:07:53,900
+So we call canvas.itemconfig,
+
+996
+00:07:54,200 --> 00:07:57,830
+and then pass in the thing that we want to change, which is the timer text.
+
+997
+00:07:58,220 --> 00:08:02,000
+And then the attribute that we want to change, which is it's text.
+
+998
+00:08:02,390 --> 00:08:06,590
+And then we change that to just say 00:00,
+
+999
+00:08:07,100 --> 00:08:11,300
+go back to the beginning. Now the title label is a lot easier to change.
+
+1000
+00:08:11,360 --> 00:08:13,700
+We can say title_label.config,
+
+1001
+00:08:14,030 --> 00:08:18,140
+and then we can configure its text to basically just read timer.
+
+1002
+00:08:18,860 --> 00:08:21,350
+Finally, we're going to reset our checkmarks.
+
+1003
+00:08:21,410 --> 00:08:24,560
+So we tap into our checkmarks' label again,
+
+1004
+00:08:24,560 --> 00:08:28,880
+using config to change the text back to empty.
+
+1005
+00:08:30,500 --> 00:08:33,140
+However, there's still a slight problem with our code.
+
+1006
+00:08:33,440 --> 00:08:36,010
+What happens if while our timer is counting down
+
+1007
+00:08:36,020 --> 00:08:39,320
+I hit the reset button and then hit the start button again?
+
+1008
+00:08:40,580 --> 00:08:46,790
+Did you spot that? Our timer jumped from "Work" to "Break" because our reps are still increasing.
+
+1009
+00:08:47,690 --> 00:08:51,710
+So far we haven't reset the number of reps to zero when we reset the timer.
+
+1010
+00:08:51,830 --> 00:08:56,120
+So all we need to do to fix this bug is add: global reps
+
+1011
+00:08:56,390 --> 00:08:59,450
+reps = 0  to the reset time function.
+
+1012
+00:09:00,500 --> 00:09:09,380
+That's all there is to it! Now if we reset our WORK_MIN to 25, SHORT_BREAK 5, LONG_BREAK 20 or whatever
+
+1013
+00:09:09,380 --> 00:09:16,520
+it is that you want it to be. Then once we hit run, we will end up with our final Pomodoro timer.
+
+1014
+00:09:16,970 --> 00:09:24,200
+And it will be now ready for you to start practicing doing Pomodoros and improving your work and your
+
+1015
+00:09:24,200 --> 00:09:25,030
+productivity.
+
+1016
+00:09:25,700 --> 00:09:32,780
+So I hope you enjoyed making this fully functional tkinter application with me and that I hope you
+
+1017
+00:09:32,780 --> 00:09:39,710
+will modify this, customize it, make it truly your own and be able to show off to us what it is that
+
+1018
+00:09:39,710 --> 00:09:46,130
+you have done. Because this really is a useful application that you can use or you can get your friends
+
+1019
+00:09:46,130 --> 00:09:49,430
+and your family to start using and show off your hard work.
+
+

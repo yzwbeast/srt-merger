@@ -1,0 +1,2538 @@
+1
+00:00:00,480 --> 00:00:01,050
+Hey guys,
+
+2
+00:00:01,050 --> 00:00:06,050
+welcome to Day 19 of 100 Days of Code. Today
+
+3
+00:00:06,150 --> 00:00:09,060
+we're going to be learning more about turtle graphics,
+
+4
+00:00:09,330 --> 00:00:14,220
+but we're also going to look at event listeners, higher order functions, state,
+
+5
+00:00:14,310 --> 00:00:16,950
+and multiple instances of an object.
+
+6
+00:00:17,160 --> 00:00:21,540
+And we're going to be using this knowledge to build a whole bunch of games. We're
+
+7
+00:00:21,540 --> 00:00:24,960
+going to be making Etch-a-Sketch, one of my favorite childhood toys.
+
+8
+00:00:25,320 --> 00:00:30,320
+And this game is going to allow us to use the up and down arrows to move our
+
+9
+00:00:30,360 --> 00:00:32,040
+turtle forwards and back
+
+10
+00:00:32,369 --> 00:00:37,370
+and then we can turn our turtle clockwise and anticlockwise to continue
+
+11
+00:00:38,640 --> 00:00:39,270
+drawing.
+
+12
+00:00:39,270 --> 00:00:44,270
+So we can use this to create circles or to create lines.
+
+13
+00:00:46,140 --> 00:00:50,430
+And we can basically create drawings using our turtle program.
+
+14
+00:00:51,060 --> 00:00:51,660
+In addition,
+
+15
+00:00:51,660 --> 00:00:56,660
+we're also going to be making a turtle racing game where we will get to bet on
+
+16
+00:00:56,820 --> 00:00:59,850
+the color of a turtle who will win the race.
+
+17
+00:01:00,270 --> 00:01:02,850
+And then once we click okay to the popup,
+
+18
+00:01:03,150 --> 00:01:08,150
+then all of our turtles go to the starting line and they start moving at a
+
+19
+00:01:08,340 --> 00:01:09,360
+random pace.
+
+20
+00:01:09,990 --> 00:01:14,250
+And then once the first turtle hits the right edge of the screen,
+
+21
+00:01:14,520 --> 00:01:19,520
+it will be declared the winner and we will get to see if our turtle won or not.
+
+22
+00:01:20,340 --> 00:01:24,300
+So at the moment, the red turtle is not looking like it's going to make it.
+
+23
+00:01:24,500 --> 00:01:28,010
+I think the orange is probably-- Oh, the yellow's overtaking it.
+
+24
+00:01:30,500 --> 00:01:34,040
+And there we go. We lose. The purple turtle
+
+25
+00:01:34,140 --> 00:01:36,920
+was the winner of the race. So I hope you're
+
+26
+00:01:37,130 --> 00:01:41,660
+as excited as I am to build these projects together. Once you're ready,
+
+27
+00:01:41,690 --> 00:01:46,280
+head over to the next lesson and let's learn about how we can listen to key
+
+28
+00:01:46,280 --> 00:01:47,810
+strokes on the keyboard.
+
+
+29
+00:00:00,270 --> 00:00:03,870
+Now in order to be able to create a lot of the games that we've spoken about,
+
+30
+00:00:04,290 --> 00:00:09,290
+we need a way of being able to listen to things the user does,
+
+31
+00:00:10,020 --> 00:00:14,580
+like when the user taps a specific key on the keyboard. And the code that allows
+
+32
+00:00:14,580 --> 00:00:17,220
+us to do this are called event listeners.
+
+33
+00:00:17,610 --> 00:00:20,370
+So if we look at the turtle documentation,
+
+34
+00:00:20,520 --> 00:00:24,150
+you can see that there's a whole section on screen events,
+
+35
+00:00:24,540 --> 00:00:29,540
+including listening to key presses or listening to a click or other things that
+
+36
+00:00:31,050 --> 00:00:35,700
+you can listen to. So the important thing is this listen method.
+
+37
+00:00:36,150 --> 00:00:41,150
+This allows the turtle screen to start listening and waiting for events that the
+
+38
+00:00:42,180 --> 00:00:44,910
+user might trigger, like tapping on a key.
+
+39
+00:00:45,540 --> 00:00:50,460
+I've gone ahead and created a new PyCharm project which I've called day-19
+
+40
+00:00:50,850 --> 00:00:54,810
+and I've created my main.py file inside the project. Now,
+
+41
+00:00:54,810 --> 00:00:59,810
+the first thing I'm going to do is I'm going to import the turtle class and the
+
+42
+00:01:00,090 --> 00:01:02,400
+screen class from the turtle module.
+
+43
+00:01:02,850 --> 00:01:06,600
+And then I'm going to use them to create my Tim the turtle,
+
+44
+00:01:08,310 --> 00:01:12,000
+and also create a screen object.
+
+45
+00:01:12,390 --> 00:01:17,130
+This is basically going to control the window when we run our code.
+
+46
+00:01:17,160 --> 00:01:19,560
+So you saw it just flash just now.
+
+47
+00:01:20,160 --> 00:01:22,770
+Now in order to start listening for events,
+
+48
+00:01:22,800 --> 00:01:27,570
+we have to get hold of the screen object and then tell it to start listening.
+
+49
+00:01:28,140 --> 00:01:29,970
+And once it starts listening,
+
+50
+00:01:30,000 --> 00:01:34,920
+we have to bind a function that will be triggered when a particular key is
+
+51
+00:01:34,920 --> 00:01:37,470
+pressed on the keyboard. Now,
+
+52
+00:01:37,530 --> 00:01:41,730
+in order to bind a key stroke to an event in our code,
+
+53
+00:01:42,090 --> 00:01:44,460
+we have to use an event listener.
+
+54
+00:01:45,090 --> 00:01:48,990
+So the one that we're going to be using is this onkey method.
+
+55
+00:01:49,350 --> 00:01:54,350
+And you can see it expects a function with no arguments and also a key,
+
+56
+00:01:56,250 --> 00:01:57,060
+like the
+
+57
+00:01:57,060 --> 00:02:02,060
+'a' key on your keyboard or a key symbol, so the space or up or down.
+
+58
+00:02:02,700 --> 00:02:05,610
+So I'm going to say screen.onkey
+
+59
+00:02:06,180 --> 00:02:10,259
+and then I have to bind some sort of function to this method.
+
+60
+00:02:10,500 --> 00:02:14,400
+So let's create a function and we'll call it move_
+
+61
+00:02:14,990 --> 00:02:15,860
+forwards.
+
+62
+00:02:17,510 --> 00:02:22,340
+And all that this function is going to do is it's going to get Tim to go forward
+
+63
+00:02:22,400 --> 00:02:26,780
+by 10 paces. And let's not forget our colon here.
+
+64
+00:02:27,320 --> 00:02:30,200
+Now, coming back to my onkey method,
+
+65
+00:02:30,440 --> 00:02:35,330
+I'm going to say that when the space key, so the space bar, is pressed,
+
+66
+00:02:35,750 --> 00:02:38,450
+then trigger the function move_forwards.
+
+67
+00:02:38,990 --> 00:02:43,990
+Now here's a really important point; when we use a function as a argument,
+
+68
+00:02:44,270 --> 00:02:48,230
+so something that is going to be passed into another function,
+
+69
+00:02:48,650 --> 00:02:51,440
+we don't actually add the parentheses at the end.
+
+70
+00:02:51,920 --> 00:02:55,430
+The parentheses triggers the function to happen there and then.
+
+71
+00:02:55,880 --> 00:03:00,880
+But what we want is we want this method, onkey, to listen for when the space bar
+
+72
+00:03:02,710 --> 00:03:07,710
+is pressed and only when that happens to trigger this move_forwards function.
+
+73
+00:03:08,770 --> 00:03:13,750
+Now, the final thing I need to do is to add the exitonclick so that my screen
+
+74
+00:03:13,750 --> 00:03:15,460
+doesn't disappear when I run it.
+
+75
+00:03:16,180 --> 00:03:20,470
+And now what I'm going to try is when I hit the spacebar,
+
+76
+00:03:20,860 --> 00:03:25,780
+you should see my turtle move forwards by 10 paces each time.
+
+77
+00:03:26,440 --> 00:03:30,790
+So we're now controlling our turtle using a keystroke.
+
+78
+00:03:31,360 --> 00:03:36,360
+What we've essentially got here is a function that's being used as an input.
+
+79
+00:03:37,270 --> 00:03:39,970
+Let's say we have a function called function_a
+
+80
+00:03:39,970 --> 00:03:42,490
+that takes some sort of input.
+
+81
+00:03:43,090 --> 00:03:48,090
+And then we have a function called function_b, we can actually pass function_b
+
+82
+00:03:48,280 --> 00:03:50,980
+into function_a like this.
+
+83
+00:03:51,400 --> 00:03:54,370
+So notice that when we pass a function as an input,
+
+84
+00:03:54,670 --> 00:03:58,480
+we only pass the name without the parentheses at the end.
+
+85
+00:03:59,050 --> 00:04:03,220
+But how exactly does this function onkey work?
+
+86
+00:04:03,250 --> 00:04:08,250
+Because it's kind of crazy to use a function as the input to another function,
+
+87
+00:04:09,670 --> 00:04:10,390
+right?
+
+88
+00:04:10,390 --> 00:04:15,390
+So want to show you a quick example of passing a function into another function,
+
+89
+00:04:16,540 --> 00:04:21,190
+and I'm going to use the calculator example that we did many,
+
+90
+00:04:21,190 --> 00:04:26,080
+many moons ago. Um, when we created a calculator that could take two numbers,
+
+91
+00:04:26,170 --> 00:04:29,410
+add, subtract, multiply, or divide those numbers.
+
+92
+00:04:29,980 --> 00:04:32,260
+So we've got our four functions here. Now,
+
+93
+00:04:32,290 --> 00:04:35,260
+you don't actually have to write any of this out, cause it's quite tedious.
+
+94
+00:04:35,590 --> 00:04:37,480
+I just want you to watch and listen.
+
+95
+00:04:38,170 --> 00:04:42,880
+So let's say I create a final function, which I'll call calculator.
+
+96
+00:04:43,630 --> 00:04:48,610
+And this function is going to take a n1 and n2, two numbers,
+
+97
+00:04:49,000 --> 00:04:53,050
+but it's also going to take a function as an input.
+
+98
+00:04:53,770 --> 00:04:56,110
+Now, inside this calculator function,
+
+99
+00:04:56,260 --> 00:05:00,010
+I'm going to take the function name that was passed in
+
+100
+00:05:00,460 --> 00:05:05,460
+and then call that function by adding the parentheses and then passing in n1
+
+101
+00:05:06,100 --> 00:05:10,300
+and n2. So now I have my calculator function
+
+102
+00:05:10,690 --> 00:05:13,840
+which can take any function as an input.
+
+103
+00:05:14,140 --> 00:05:16,630
+And once that function has been passed in here,
+
+104
+00:05:17,050 --> 00:05:22,050
+then that function will get triggered passing in n1 and n2. Let's return
+
+105
+00:05:23,590 --> 00:05:25,510
+this result as the output,
+
+106
+00:05:25,900 --> 00:05:28,690
+and then let's call our calculator function,
+
+107
+00:05:28,990 --> 00:05:33,340
+let's pass in some numbers and let's pass in the name of a function.
+
+108
+00:05:34,060 --> 00:05:39,060
+So now let's go ahead and save this into a variable and then print that variable
+
+109
+00:05:40,450 --> 00:05:43,000
+result. So now when I run the code,
+
+110
+00:05:43,030 --> 00:05:48,030
+you can see I get five printed and that's because I've got add as the third
+
+111
+00:05:48,070 --> 00:05:52,630
+input here. But what happens if I change this to multiply? Well,
+
+112
+00:05:52,630 --> 00:05:54,700
+I get six instead of five.
+
+113
+00:05:55,150 --> 00:05:59,360
+And what happens if I put divide? Well, I get zero because,
+
+114
+00:05:59,380 --> 00:06:01,210
+because it's rounding up to a whole number.
+
+115
+00:06:01,690 --> 00:06:05,470
+But essentially what I'm trying to demonstrate to you is this concept
+
+116
+00:06:05,620 --> 00:06:09,640
+which is known in Python as Higher Order Functions.
+
+117
+00:06:10,150 --> 00:06:15,150
+And the idea of a higher order function is a function that can work with other
+
+118
+00:06:15,670 --> 00:06:17,650
+functions. So in this case,
+
+119
+00:06:17,710 --> 00:06:22,710
+our calculator is a higher order function because it's actually taking another
+
+120
+00:06:23,230 --> 00:06:28,180
+function as an input, and then working with it inside the body of the function.
+
+121
+00:06:28,870 --> 00:06:33,190
+Now there are certain programming languages where you can't do this at all.
+
+122
+00:06:33,460 --> 00:06:36,280
+But in Python, this is pretty commonly used.
+
+123
+00:06:36,550 --> 00:06:41,550
+And it's really useful when we need to listen for events and then trigger a
+
+124
+00:06:42,160 --> 00:06:46,270
+particular function. Now, while we're on the topic of functions,
+
+125
+00:06:46,450 --> 00:06:51,340
+I recommend that when you're using methods that you haven't created yourself
+
+126
+00:06:51,370 --> 00:06:55,330
+like for example onkey, to use keyword arguments
+
+127
+00:06:55,360 --> 00:06:59,050
+instead of positional arguments especially if like in this case,
+
+128
+00:06:59,260 --> 00:07:01,390
+the position doesn't actually have any meaning.
+
+129
+00:07:02,230 --> 00:07:04,630
+So now that you've seen how event listeners work,
+
+130
+00:07:04,870 --> 00:07:08,980
+we're going to be using event listeners to build out our Etch-A-Sketch program
+
+131
+00:07:09,040 --> 00:07:12,790
+in the next lesson. So for all of that and more, I'll see you there.
+
+
+132
+00:00:00,030 --> 00:00:04,080
+Now that you've seen how event listeners work, here's a challenge for you.
+
+133
+00:00:04,650 --> 00:00:07,680
+I want you to build a Etch-A-Sketch app.
+
+134
+00:00:08,370 --> 00:00:09,840
+This is what you're aiming for.
+
+135
+00:00:10,320 --> 00:00:15,320
+You should be able to create a turtle that will allow you to press the W key to
+
+136
+00:00:15,990 --> 00:00:19,980
+go forwards, the S key to go backwards,
+
+137
+00:00:20,310 --> 00:00:25,310
+the A key to go counterclockwise or leftwards and the D key to go right or
+
+138
+00:00:26,970 --> 00:00:31,440
+clockwise. And then be able to draw things like this,
+
+139
+00:00:31,530 --> 00:00:36,000
+or you could do up and right to draw curves like this.
+
+140
+00:00:36,330 --> 00:00:40,410
+We're kind of creating that childhood game which is Etch-A-Sketch.
+
+141
+00:00:41,070 --> 00:00:42,660
+When you press the C key,
+
+142
+00:00:42,720 --> 00:00:47,100
+it should clear all your drawings and put your turtle back in the center.
+
+143
+00:00:47,640 --> 00:00:51,450
+So think about what you've learned so far about how event listeners work,
+
+144
+00:00:51,690 --> 00:00:53,880
+and then use the turtle documentation,
+
+145
+00:00:54,120 --> 00:00:56,550
+read through the different methods that you have access to,
+
+146
+00:00:56,910 --> 00:01:00,900
+and then try to figure out how you can get this Etch-A-Sketch program to work in
+
+147
+00:01:00,900 --> 00:01:04,739
+the way that it's shown here. So pause the video and give this challenge a go.
+
+148
+00:01:08,870 --> 00:01:11,780
+This is the demo code from previously
+
+149
+00:01:11,870 --> 00:01:16,870
+and this is a really simplified version of how the event handlers work.
+
+150
+00:01:17,960 --> 00:01:21,740
+So for example, we've got our move_forwards function
+
+151
+00:01:22,040 --> 00:01:27,040
+which is going to be triggered when the space key is detected by the screen.
+
+152
+00:01:28,880 --> 00:01:33,620
+And the screen is able to detect it because it's listening for those keyboard
+
+153
+00:01:33,620 --> 00:01:35,720
+strokes and clicks. Now,
+
+154
+00:01:35,720 --> 00:01:40,720
+because the onkey function can only receive a function with no arguments,
+
+155
+00:01:41,270 --> 00:01:43,640
+at least this is what we see in the documentation,
+
+156
+00:01:43,970 --> 00:01:48,680
+then that means we have to create four separate functions, moveforwards,
+
+157
+00:01:48,710 --> 00:01:50,810
+move back, turn left, and turn right.
+
+158
+00:01:51,260 --> 00:01:55,970
+So now all I need is three more of these functions,
+
+159
+00:01:56,360 --> 00:02:01,070
+move backwards, turn left, and turn right. Now,
+
+160
+00:02:01,130 --> 00:02:06,130
+I'm going to change this binding from space to w which is going to be move
+
+161
+00:02:07,080 --> 00:02:07,913
+forwards.
+
+162
+00:02:08,330 --> 00:02:13,330
+And then I'm going to copy this and make three more of these so that I've got my
+
+163
+00:02:13,730 --> 00:02:15,950
+w as move_forwards,
+
+164
+00:02:16,430 --> 00:02:20,210
+and then I've got my S as move_backwards,
+
+165
+00:02:21,050 --> 00:02:26,050
+my a as turn_left and my d as turn_
+
+166
+00:02:28,070 --> 00:02:28,903
+right.
+
+167
+00:02:29,840 --> 00:02:34,520
+So now all we need to do is to actually create these functions.
+
+168
+00:02:35,000 --> 00:02:37,850
+So let's create our move_backwards
+
+169
+00:02:40,130 --> 00:02:44,990
+which is going to take Tim backwards by 10 paces.
+
+170
+00:02:45,380 --> 00:02:49,160
+And then the next function we're going to create is to turn_left.
+
+171
+00:02:49,760 --> 00:02:54,760
+And this is going to get the current heading of our turtle and add 10 degrees to
+
+172
+00:02:58,400 --> 00:02:59,050
+it.
+
+173
+00:02:59,050 --> 00:03:03,940
+So if you imagine that the turtle starts out pointing towards East
+
+174
+00:03:04,120 --> 00:03:08,620
+and this heading is going to be zero. And we know that to point North,
+
+175
+00:03:08,680 --> 00:03:12,400
+it becomes 90. So if we want this to turn leftwards,
+
+176
+00:03:12,700 --> 00:03:16,960
+then we have to add to the current heading value like this.
+
+177
+00:03:17,470 --> 00:03:19,570
+So this could be our new_heading,
+
+178
+00:03:20,200 --> 00:03:23,170
+and then we can get Tim to set
+
+179
+00:03:23,230 --> 00:03:28,230
+it's heading to that new heading so that we turn left by 10 degrees each time.
+
+180
+00:03:30,520 --> 00:03:34,240
+Now you could have also used simply just the left function.
+
+181
+00:03:34,240 --> 00:03:38,590
+So you could have said tim.left by 10 degrees. Both methods work
+
+182
+00:03:38,680 --> 00:03:43,630
+and it's totally up to you which one you choose. Now in order to turn right
+
+183
+00:03:43,660 --> 00:03:48,610
+it's basically the opposite. So instead of adding 10 degrees,
+
+184
+00:03:48,850 --> 00:03:53,620
+all we have to do is subtract 10 degrees or alternatively calling
+
+185
+00:03:53,620 --> 00:03:55,870
+tim.right, passing in 10 degrees.
+
+186
+00:03:56,590 --> 00:04:01,590
+Now we have all four functions defined and tied to a keystroke
+
+187
+00:04:02,470 --> 00:04:03,730
+let's go ahead and test it out.
+
+188
+00:04:04,240 --> 00:04:08,320
+So w should take us forwards, s should take us backwards,
+
+189
+00:04:08,680 --> 00:04:12,160
+a should turn left and D should turn right.
+
+190
+00:04:12,670 --> 00:04:13,750
+So perfect.
+
+191
+00:04:14,500 --> 00:04:18,760
+Now the last thing we wanted to code in was some sort of way of clearing the
+
+192
+00:04:18,760 --> 00:04:22,750
+screen. And we said we would bind that to the C key.
+
+193
+00:04:23,290 --> 00:04:27,790
+So I'm going to create a function called clear which I'll define here.
+
+194
+00:04:28,570 --> 00:04:33,160
+And this function is going to clear the screen wipe out all the drawing
+
+195
+00:04:33,520 --> 00:04:36,940
+and then take our turtle back to the beginning,
+
+196
+00:04:36,940 --> 00:04:38,950
+which was at the middle of the screen.
+
+197
+00:04:39,490 --> 00:04:43,750
+This is going to require a little bit of reading in the turtle documentation.
+
+198
+00:04:43,960 --> 00:04:48,670
+If you scroll through this list, you'll actually find two clear methods.
+
+199
+00:04:49,150 --> 00:04:53,680
+One is a method that is for the turtle
+
+200
+00:04:54,130 --> 00:04:58,750
+and another is a clear method for the screen,
+
+201
+00:04:59,650 --> 00:05:04,330
+which is the window basically. Now this clear is going to clear everything.
+
+202
+00:05:04,330 --> 00:05:08,260
+It's going to delete our turtle and everything else that's onscreen.
+
+203
+00:05:08,710 --> 00:05:10,450
+Whereas this clear,
+
+204
+00:05:10,450 --> 00:05:15,220
+which is tied to the turtle, is just going to delete this particular turtle's
+
+205
+00:05:15,220 --> 00:05:18,220
+drawings. So this is what we need to do.
+
+206
+00:05:18,250 --> 00:05:23,250
+We need to get hold of Tim and then call clear on him to get rid of all the
+
+207
+00:05:23,800 --> 00:05:25,630
+drawings he's made so far. Now,
+
+208
+00:05:25,630 --> 00:05:30,220
+the next thing we're going to do is we're going to bring our turtle back to the
+
+209
+00:05:30,220 --> 00:05:32,230
+center, to the starting point.
+
+210
+00:05:32,560 --> 00:05:37,420
+And this is going to be aided by one of the methods called home.
+
+211
+00:05:37,450 --> 00:05:41,710
+So I found this in the documentation and it says that it moves the turtle to the
+
+212
+00:05:41,710 --> 00:05:45,190
+origin, which is in the middle of the screen. Now,
+
+213
+00:05:45,190 --> 00:05:50,190
+all we need to do is to call home and notice what happens if I run this as it is.
+
+214
+00:05:52,120 --> 00:05:56,530
+So I can draw and basically make a mess.
+
+215
+00:05:57,740 --> 00:06:00,170
+And then when I hit C
+
+216
+00:06:02,180 --> 00:06:04,160
+you can see it goes back to the home,
+
+217
+00:06:04,190 --> 00:06:09,190
+but it's actually drawing its whole path back there as well. To prevent this from
+
+218
+00:06:09,740 --> 00:06:13,250
+happening we have to pull the pen up, which we've used before.
+
+219
+00:06:13,760 --> 00:06:17,960
+And then once Tim has reached home, then we're going to put the pen down
+
+220
+00:06:18,200 --> 00:06:19,850
+ready for the next drawing.
+
+221
+00:06:20,390 --> 00:06:25,390
+So now we can make a drawing, hit C, and then it goes back to the center.
+
+222
+00:06:26,420 --> 00:06:30,470
+Did you manage to complete this challenge? Don't beat yourself up
+
+223
+00:06:30,500 --> 00:06:34,400
+if you didn't manage to find some of the methods like home or clear.
+
+224
+00:06:34,820 --> 00:06:38,630
+It's a matter of getting practice with reading the documentation and having the
+
+225
+00:06:38,630 --> 00:06:42,200
+patience to go through it and look for the relevant methods.
+
+226
+00:06:42,680 --> 00:06:45,950
+And on top of that, it's just a matter of messing around with the code.
+
+227
+00:06:46,280 --> 00:06:50,600
+Try things out, see what happens. And each time you add something, run the code,
+
+228
+00:06:50,600 --> 00:06:54,020
+see if it does what you want it to do. And if not, fix it.
+
+229
+00:06:54,320 --> 00:06:56,810
+And that is the endless cycle of software development.
+
+230
+00:06:57,140 --> 00:06:59,450
+So don't get frustrated if you got stuck.
+
+231
+00:06:59,660 --> 00:07:01,520
+As long as you managed to make it work in the end
+
+232
+00:07:01,790 --> 00:07:03,680
+and you've learned some lessons from this process,
+
+233
+00:07:04,130 --> 00:07:07,190
+then you can congratulate yourself on completing the job.
+
+234
+00:07:07,550 --> 00:07:10,310
+And I find that I always learn more when I make more mistakes
+
+235
+00:07:10,340 --> 00:07:13,670
+and when I struggle more. Once you're done playing around with the code,
+
+236
+00:07:13,820 --> 00:07:17,770
+head over to the next lesson, and we're going to be learning about object
+
+237
+00:07:17,770 --> 00:07:22,770
+state and creating multiple instances of the same object.
+
+238
+00:07:23,360 --> 00:07:26,300
+So for all of that and more, I'll see you on the next lesson.
+
+
+239
+00:00:00,540 --> 00:00:04,530
+The objective is we want to be able to build a turtle race,
+
+240
+00:00:04,860 --> 00:00:09,860
+where we have multiple turtles to run along a line and then see who actually
+
+241
+00:00:10,860 --> 00:00:14,400
+reaches the finish line first. Now here's a question though.
+
+242
+00:00:14,970 --> 00:00:18,660
+We know how to build one turtle from the turtle blueprint,
+
+243
+00:00:18,930 --> 00:00:23,130
+but what if we need more turtles? How do we get hold of them?
+
+244
+00:00:23,490 --> 00:00:24,210
+Well,
+
+245
+00:00:24,210 --> 00:00:29,210
+we know that we can use a class or a blueprint to define what a turtle should
+
+246
+00:00:31,950 --> 00:00:34,350
+appear like and how it should behave.
+
+247
+00:00:34,710 --> 00:00:37,830
+So what it has and what it can do. Now,
+
+248
+00:00:37,830 --> 00:00:42,830
+we can then take this class and construct an actual turtle object from it
+
+249
+00:00:43,470 --> 00:00:46,980
+which is then doing all the drawing and walking around on the screen.
+
+250
+00:00:47,430 --> 00:00:51,900
+So this is what the code has looked like so far. We have Timmy
+
+251
+00:00:51,960 --> 00:00:56,960
+which is our turtle object, and turtle coming from the turtle module is the
+
+252
+00:00:57,330 --> 00:01:00,060
+class which is used to construct this object.
+
+253
+00:01:00,420 --> 00:01:05,420
+But that's not the end of the story because the whole reason why we can have
+
+254
+00:01:06,120 --> 00:01:10,440
+these blueprints is so we can make more objects.
+
+255
+00:01:10,830 --> 00:01:15,060
+So, we're not limited to just one turtle object.
+
+256
+00:01:15,090 --> 00:01:19,980
+We can create as many as we need in the same way that we have created Timmy.
+
+257
+00:01:20,220 --> 00:01:23,910
+We create Tommy, Johnny, Jenny, and Benny.
+
+258
+00:01:24,840 --> 00:01:28,890
+Even though both Timmy and Tommy are turtle objects,
+
+259
+00:01:29,130 --> 00:01:32,610
+they actually function completely independent of each other.
+
+260
+00:01:32,940 --> 00:01:37,920
+So in programming, we would say that they are each a separate instance.
+
+261
+00:01:38,100 --> 00:01:39,750
+So what does that mean? Well,
+
+262
+00:01:39,750 --> 00:01:43,830
+that means that they're each an example of the turtle object.
+
+263
+00:01:44,160 --> 00:01:48,810
+So just as you and I are both examples of human objects,
+
+264
+00:01:48,930 --> 00:01:52,140
+Timmy and Tommy are both examples of turtle objects.
+
+265
+00:01:52,650 --> 00:01:55,020
+And that means that at any moment in time,
+
+266
+00:01:55,140 --> 00:01:59,070
+they could have different attributes and they could be doing different things.
+
+267
+00:01:59,730 --> 00:02:01,260
+So that means, for example,
+
+268
+00:02:01,290 --> 00:02:06,290
+Timmy could have his color set to green while Tommy could have its color set to
+
+269
+00:02:06,960 --> 00:02:09,360
+something completely different, like purple.
+
+270
+00:02:09,750 --> 00:02:14,750
+Now the fact that each of these objects can have different attributes and can be
+
+271
+00:02:16,050 --> 00:02:21,050
+performing different methods at any one time in programming is known as their
+
+272
+00:02:21,660 --> 00:02:22,493
+state.
+
+273
+00:02:23,070 --> 00:02:28,070
+So the state of Timmy's color attribute is green and Tommy's color attribute is
+
+274
+00:02:29,370 --> 00:02:31,260
+purple. So in this case,
+
+275
+00:02:31,290 --> 00:02:35,970
+they have different state in terms of their attribute or their appearance.
+
+276
+00:02:36,510 --> 00:02:39,780
+But they can also have different state in terms of whether
+
+277
+00:02:39,780 --> 00:02:42,780
+if they are doing something. For example,
+
+278
+00:02:42,810 --> 00:02:47,810
+Timmy could be asked to move forwards while Tommy is staying completely
+
+279
+00:02:48,750 --> 00:02:51,900
+stationary. So Timmy is in the middle of a method call
+
+280
+00:02:51,930 --> 00:02:56,340
+whereas Tommy is not doing anything at all. Now in the next lesson,
+
+281
+00:02:56,370 --> 00:02:59,200
+we're going to be building out our turtle racing game
+
+282
+00:02:59,620 --> 00:03:01,360
+and we're going to see this in action.
+
+283
+00:03:01,540 --> 00:03:06,540
+The idea that you could have separate versions of the same object each with a
+
+284
+00:03:07,480 --> 00:03:12,480
+different state and acting completely independently from each other in order to
+
+285
+00:03:13,600 --> 00:03:17,560
+race against each other. So don't worry if this doesn't make sense
+
+286
+00:03:17,560 --> 00:03:20,440
+a hundred percent just yet. Head over to the next lesson
+
+287
+00:03:20,740 --> 00:03:24,190
+and we're going to start writing some real code to better understand this
+
+288
+00:03:24,190 --> 00:03:24,850
+concept.
+
+
+289
+00:00:00,060 --> 00:00:04,470
+All right guys. In this lesson, we're going to be building out our turtle race.
+
+290
+00:00:04,830 --> 00:00:06,060
+And through building this race,
+
+291
+00:00:06,090 --> 00:00:11,090
+we're going to get more familiar with these concepts of state and instances.
+
+292
+00:00:11,820 --> 00:00:15,720
+And that's because we need to create multiple turtles to join our race.
+
+293
+00:00:16,110 --> 00:00:18,390
+This is what we're aiming for. In the beginning,
+
+294
+00:00:18,450 --> 00:00:23,450
+there's going to be a little popup that will ask us to bet who will win the
+
+295
+00:00:23,610 --> 00:00:26,640
+race. And it asked me to choose a color.
+
+296
+00:00:27,000 --> 00:00:29,370
+Now the turtles are in the color of the rainbow,
+
+297
+00:00:29,370 --> 00:00:33,060
+so I'm just going to pick the red one. Once I hit okay,
+
+298
+00:00:33,060 --> 00:00:37,830
+we have all of our turtles lined up in the starting position and they will start
+
+299
+00:00:37,860 --> 00:00:42,450
+making random steps towards the right edge of the screen. Now,
+
+300
+00:00:42,450 --> 00:00:46,620
+the first hurdle that reaches past the right edge of the screen is going to be
+
+301
+00:00:46,620 --> 00:00:47,453
+the winner.
+
+302
+00:00:47,670 --> 00:00:52,670
+And at the moment it looks like the green turtle is probably going to get there
+
+303
+00:00:52,770 --> 00:00:57,750
+first. There we go. So as soon as a turtle crosses the finish line,
+
+304
+00:00:58,920 --> 00:01:03,390
+then it will print out a line telling us whether if we won or whether
+
+305
+00:01:03,390 --> 00:01:06,990
+if we lost our bets and which turtle won the game.
+
+306
+00:01:07,200 --> 00:01:08,430
+So this is the goal.
+
+307
+00:01:08,970 --> 00:01:13,800
+Now I'm going to get started by deleting all of the code inside our previous
+
+308
+00:01:13,800 --> 00:01:17,220
+Etch-A-Sketch project other than these few lines.
+
+309
+00:01:17,280 --> 00:01:19,890
+So I've got Tim my turtle, screen
+
+310
+00:01:19,890 --> 00:01:24,890
+which is a screen object that is going to hold the screen until I click on it so
+
+311
+00:01:26,130 --> 00:01:30,150
+that I can see what's going on. Now, because in this game
+
+312
+00:01:30,180 --> 00:01:35,180
+the dimensions of the screen or of the window is really crucial,
+
+313
+00:01:35,940 --> 00:01:40,020
+I'm not just going to get the default screen size show up. Instead
+
+314
+00:01:40,020 --> 00:01:44,430
+I'm actually going to use one of the methods that is in the screen object
+
+315
+00:01:44,460 --> 00:01:48,060
+which is called setup. And setup, as you can see,
+
+316
+00:01:48,060 --> 00:01:52,290
+allows me to set up the width and the height of this window
+
+317
+00:01:52,290 --> 00:01:53,310
+that's going to show up.
+
+318
+00:01:54,510 --> 00:01:59,510
+So I'm going to set the width of my screen to 500 and the height to 400.
+
+319
+00:02:00,360 --> 00:02:05,000
+So I should end up with a 500 pixel wide, 400 pixel high screen.
+
+320
+00:02:05,480 --> 00:02:09,710
+And once I hit run, you can see this is what it gets resized to.
+
+321
+00:02:10,370 --> 00:02:13,700
+Now, if you came across this code and it was somebody else's code,
+
+322
+00:02:14,030 --> 00:02:17,960
+then these numbers and their positions don't actually make a lot of sense,
+
+323
+00:02:17,990 --> 00:02:21,230
+which one's the height, which one's the width. So in these situations,
+
+324
+00:02:21,260 --> 00:02:25,880
+I recommend using keyword arguments rather than positional arguments. Oh,
+
+325
+00:02:25,910 --> 00:02:29,000
+let's write out the parameters explicitly. Our width
+
+326
+00:02:29,030 --> 00:02:32,540
+to be 500 and our height to be 400. This way
+
+327
+00:02:32,540 --> 00:02:34,880
+when somebody else comes along and reads your code,
+
+328
+00:02:34,910 --> 00:02:38,990
+it's a lot easier to understand rather than just 500 and 400,
+
+329
+00:02:38,990 --> 00:02:40,880
+cause it could be both ways.
+
+330
+00:02:41,630 --> 00:02:44,120
+So now that we've got our screen set up,
+
+331
+00:02:44,180 --> 00:02:49,180
+the next thing I want to do is to bring up that popup and ask the user to make a
+
+332
+00:02:49,280 --> 00:02:53,510
+bet. Now, if we take a look at the Python documentation,
+
+333
+00:02:53,960 --> 00:02:56,750
+um, where we've been spending a lot of time recently,
+
+334
+00:02:57,020 --> 00:03:00,910
+you can see that there is a method on the screen
+
+335
+00:03:00,970 --> 00:03:03,670
+which is called textinput.
+
+336
+00:03:04,060 --> 00:03:09,060
+And this is going to show up a popup window and it allow the user to look at the
+
+337
+00:03:09,940 --> 00:03:13,960
+prompt and the title and to enter a piece of text.
+
+338
+00:03:14,410 --> 00:03:18,100
+And if you want the user to enter a number, then you would use numinput.
+
+339
+00:03:18,550 --> 00:03:22,570
+So let's go ahead and add that here. So it will be a method from screen
+
+340
+00:03:22,600 --> 00:03:26,800
+which is called textinput and then it's got two parameters.
+
+341
+00:03:26,860 --> 00:03:31,000
+One is the title which in my case
+
+342
+00:03:31,000 --> 00:03:33,220
+I'm just going to say 'Make your bet'.
+
+343
+00:03:33,850 --> 00:03:38,710
+And then the second parameter is going to be the prompt. And in my case,
+
+344
+00:03:38,740 --> 00:03:40,750
+I will probably say, um,
+
+345
+00:03:40,870 --> 00:03:45,610
+which turtle win the race and tell them to enter a color.
+
+346
+00:03:46,120 --> 00:03:48,490
+Now, this works really similarly to our input
+
+347
+00:03:48,490 --> 00:03:53,350
+which we've been really used to because it will return the string and we can
+
+348
+00:03:53,350 --> 00:03:56,170
+catch that string inside a variable.
+
+349
+00:03:56,200 --> 00:04:01,200
+So we'll call it user_bet and we'll set it to equal the output from this
+
+350
+00:04:02,620 --> 00:04:03,453
+method.
+
+351
+00:04:06,870 --> 00:04:09,150
+Now let's give this a shot.
+
+352
+00:04:09,570 --> 00:04:14,130
+Let's run the code and then let's enter a color, hit okay.
+
+353
+00:04:14,190 --> 00:04:16,350
+And if we take a look in our console,
+
+354
+00:04:16,589 --> 00:04:20,550
+you can see that that bet string is printed in here.
+
+355
+00:04:21,540 --> 00:04:25,680
+So now the next thing we're going to do is we need to do something with our
+
+356
+00:04:25,680 --> 00:04:28,200
+turtle. I'm going to move it down a little bit.
+
+357
+00:04:28,590 --> 00:04:33,590
+And what I want my turtle to do is I want it to go to the start of the line.
+
+358
+00:04:35,130 --> 00:04:39,810
+So the very left edge of my screen. Now I could,
+
+359
+00:04:39,810 --> 00:04:43,890
+of course, just say tim.backward by, um,
+
+360
+00:04:43,920 --> 00:04:45,330
+however many paces,
+
+361
+00:04:45,750 --> 00:04:50,520
+but thinking forward and knowing that I'm going to have six or seven of these
+
+362
+00:04:50,520 --> 00:04:51,240
+turtles,
+
+363
+00:04:51,240 --> 00:04:54,720
+I can't just tell them all to go backwards because they're going to go to the
+
+364
+00:04:54,720 --> 00:04:59,660
+same position. Instead, we're going to use a method that the turtle has
+
+365
+00:04:59,710 --> 00:05:01,110
+which is called goto.
+
+366
+00:05:01,650 --> 00:05:06,210
+And this allows us to define an X value and a Y value.
+
+367
+00:05:06,600 --> 00:05:10,650
+But how do we know what X and Y values to give it? Well,
+
+368
+00:05:10,650 --> 00:05:14,640
+we first have to understand how the Python turtle coordinate system works.
+
+369
+00:05:14,970 --> 00:05:19,970
+So if you imagine your program window as a graph where the center of it is at
+
+370
+00:05:20,460 --> 00:05:22,740
+the coordinate (0, 0). Well
+
+371
+00:05:22,740 --> 00:05:27,330
+then if you have a window that has a height of 400,
+
+372
+00:05:27,690 --> 00:05:32,690
+then that graph will have a Y-axis that extends from the center at zero all the
+
+373
+00:05:34,590 --> 00:05:37,740
+way up to the top edge and then from the middle
+
+374
+00:05:37,740 --> 00:05:42,630
+it goes down to the very bottom edge, which is going to be -200.
+
+375
+00:05:42,840 --> 00:05:47,840
+So 200 plus 200 makes up 400 and the same happens with the X-axis.
+
+376
+00:05:49,500 --> 00:05:52,530
+So if the width of the screen is 500, then
+
+377
+00:05:52,750 --> 00:05:57,750
+the X-axis goes from the center 0 to positive 250,
+
+378
+00:05:58,310 --> 00:06:03,050
+so half of 500. And then from zero to -250.
+
+379
+00:06:03,470 --> 00:06:07,310
+So here's a question. Let's say we wanted to move our turtle here.
+
+380
+00:06:07,430 --> 00:06:10,370
+What do you think would be the X and Y coordinate of that point?
+
+381
+00:06:13,210 --> 00:06:14,350
+Okay. So let's say
+
+382
+00:06:14,460 --> 00:06:19,460
+that this is roughly halfway on the X-axis and about halfway on the Y-axis.
+
+383
+00:06:21,250 --> 00:06:26,250
+Then half of 250 is 125 and half of 200 is 100.
+
+384
+00:06:28,300 --> 00:06:33,300
+So at this point would have the coordinate of 125 by 100.
+
+385
+00:06:35,500 --> 00:06:40,210
+If we wanted our turtle to go all the way to the left side of the screen
+
+386
+00:06:40,420 --> 00:06:44,020
+say maybe starting over here or starting over here, well,
+
+387
+00:06:44,020 --> 00:06:45,520
+then we would have to use that
+
+388
+00:06:45,550 --> 00:06:50,550
+goto method and then specify a X-value and a Y-value. Following the logic of the
+
+389
+00:06:54,700 --> 00:06:59,560
+total coordinate system then in order to move our turtle to the very left edge,
+
+390
+00:06:59,800 --> 00:07:03,520
+then we should supply an X-value of minus 250
+
+391
+00:07:03,610 --> 00:07:05,770
+which is half of the width of 500.
+
+392
+00:07:06,400 --> 00:07:11,400
+Now the Y-value will determine where on the Y-axis our turtle moves to.
+
+393
+00:07:12,850 --> 00:07:14,500
+So if we had it at zero
+
+394
+00:07:14,500 --> 00:07:18,730
+then it would basically just go straight backwards and it would not go up or
+
+395
+00:07:18,730 --> 00:07:21,970
+down. But let's say that we put it at, um,
+
+396
+00:07:22,060 --> 00:07:26,260
+-100. So now if I run this code,
+
+397
+00:07:26,920 --> 00:07:29,170
+you can see that it goes in the right direction,
+
+398
+00:07:29,380 --> 00:07:31,180
+but it's actually gone off the screen.
+
+399
+00:07:31,510 --> 00:07:36,510
+So what's happened here is that -250 is on the very,
+
+400
+00:07:36,730 --> 00:07:38,530
+very edge of the window.
+
+401
+00:07:38,890 --> 00:07:42,910
+And once our turtle moves over there and the arrow is at the back,
+
+402
+00:07:43,150 --> 00:07:45,160
+then you can't actually see it at all.
+
+403
+00:07:45,400 --> 00:07:50,320
+So let's try changing that X-value and shifting our turtle a little bit more to
+
+404
+00:07:50,320 --> 00:07:55,270
+the right. Then you can see it moves to pretty much the start of the window.
+
+405
+00:07:55,840 --> 00:08:00,840
+So I recommend using this goto method and trying out some different numbers
+
+406
+00:08:02,170 --> 00:08:04,570
+just to see where it ends up on the screen.
+
+407
+00:08:05,080 --> 00:08:07,300
+And once you put in some different numbers in here,
+
+408
+00:08:07,510 --> 00:08:11,350
+you'll start to get the hang of how this coordinate system actually works.
+
+409
+00:08:11,740 --> 00:08:15,280
+But just remember that the X-axis is along the horizontal.
+
+410
+00:08:15,580 --> 00:08:18,790
+It goes from zero to positive and zero to negative.
+
+411
+00:08:19,120 --> 00:08:21,790
+And then the Y-axis is along the vertical,
+
+412
+00:08:21,820 --> 00:08:24,940
+going from zero to positive and zero to negative.
+
+413
+00:08:25,930 --> 00:08:30,930
+So we want to get rid of this line and we don't actually want our turtle to draw
+
+414
+00:08:31,660 --> 00:08:36,549
+at all. So to do that, we're going to do tim.penup,
+
+415
+00:08:37,000 --> 00:08:40,299
+and we're actually never going to put the pen down because we're going to be
+
+416
+00:08:40,299 --> 00:08:42,130
+moving the turtle itself.
+
+417
+00:08:42,640 --> 00:08:46,360
+And the other thing is that it would be really nice if instead of an arrow,
+
+418
+00:08:46,360 --> 00:08:48,250
+we actually got a turtle.
+
+419
+00:08:48,640 --> 00:08:53,640
+So we can of course say tim.shape and set it to a turtle shape,
+
+420
+00:08:54,960 --> 00:08:59,370
+but here's an even easier way. When we create a new turtle,
+
+421
+00:08:59,700 --> 00:09:01,770
+look at the prompt that it's giving us.
+
+422
+00:09:02,040 --> 00:09:07,040
+It's actually giving us a way to initialize a new turtle object already with a
+
+423
+00:09:08,730 --> 00:09:09,720
+shape set up.
+
+424
+00:09:10,230 --> 00:09:14,130
+Now this shape is set to have a default value
+
+425
+00:09:14,160 --> 00:09:15,600
+which is basically the arrow.
+
+426
+00:09:16,020 --> 00:09:21,020
+But we can also specify the shape and give it the turtle shape to begin with.
+
+427
+00:09:23,580 --> 00:09:27,570
+Now, when I run the code you can see that firstly,
+
+428
+00:09:27,990 --> 00:09:32,990
+I get a turtle shape and then the pen is up and I'm not drawing
+
+429
+00:09:33,120 --> 00:09:37,980
+and then it moves to this place on the graph; -230, -100.
+
+430
+00:09:38,880 --> 00:09:43,880
+So now the next thing we want to do is to be able to create lots of turtles,
+
+431
+00:09:44,430 --> 00:09:45,263
+right?
+
+432
+00:09:45,420 --> 00:09:50,420
+What if we had all of the colors in the rainbow and we create a turtle for each
+
+433
+00:09:51,420 --> 00:09:52,253
+color?
+
+434
+00:09:52,290 --> 00:09:56,580
+So there's six colors in this list and these of course,
+
+435
+00:09:56,670 --> 00:10:00,600
+correspond to the colors which turtle will recognize.
+
+436
+00:10:01,050 --> 00:10:02,760
+So here's a challenge for you.
+
+437
+00:10:03,330 --> 00:10:06,360
+I want you to create six turtles,
+
+438
+00:10:06,840 --> 00:10:10,050
+one for each of the colors in this list of colors.
+
+439
+00:10:10,320 --> 00:10:15,320
+You're aiming for the turtles to all go to the starting line in a distribution
+
+440
+00:10:15,960 --> 00:10:19,350
+that looks something like this. It doesn't have to be precise,
+
+441
+00:10:19,380 --> 00:10:21,150
+you don't have to get it perfectly right.
+
+442
+00:10:21,480 --> 00:10:25,980
+But just make sure that they're sort of evenly spaced out and they are at the
+
+443
+00:10:25,980 --> 00:10:30,570
+starting line. So this is what you're aiming for; six turtles, six colors,
+
+444
+00:10:30,600 --> 00:10:34,650
+all starting at the starting point along a different point on the Y axis.
+
+445
+00:10:35,340 --> 00:10:36,780
+Pause the video and give that a go.
+
+446
+00:10:39,060 --> 00:10:41,610
+So we know that in order to create lots of turtles,
+
+447
+00:10:41,670 --> 00:10:43,920
+we're going to need some sort of a loop.
+
+448
+00:10:44,370 --> 00:10:49,370
+So let's go ahead and use a for loop to say turtle_index
+
+449
+00:10:50,130 --> 00:10:55,130
+and we're going to create a range to specify how many turtles we need.
+
+450
+00:10:56,730 --> 00:11:00,900
+Our range function will go from 0 to 6.
+
+451
+00:11:01,380 --> 00:11:05,880
+And remember that the range function actually doesn't include the number six,
+
+452
+00:11:05,910 --> 00:11:10,890
+so it'll create a range from 0 to 5. And once we've done that,
+
+453
+00:11:10,890 --> 00:11:15,890
+then we can indent this block of code so that we create six turtles.
+
+454
+00:11:17,160 --> 00:11:19,650
+But at the moment, they're all going to the same position.
+
+455
+00:11:20,790 --> 00:11:23,220
+So how can we change this? Well,
+
+456
+00:11:23,580 --> 00:11:27,900
+we want the X-position to always be the same for all the turtles,
+
+457
+00:11:27,960 --> 00:11:31,260
+because the X-position is along the horizontal axis
+
+458
+00:11:31,410 --> 00:11:34,680
+and we want all the turtles to start at the starting point.
+
+459
+00:11:35,010 --> 00:11:39,780
+Nobody gets a headstart. But the Y-position is the thing that we want to change.
+
+460
+00:11:40,290 --> 00:11:45,290
+A really simple way of doing this is to simply create a list of Y-positions
+
+461
+00:11:46,650 --> 00:11:50,400
+and you can work out some sort of reasonable position that you want to take.
+
+462
+00:11:50,670 --> 00:11:55,660
+So let's say we start out at -70 and then we just increased by 30 each
+
+463
+00:11:55,660 --> 00:11:56,380
+time.
+
+464
+00:11:56,380 --> 00:12:01,380
+So then that becomes -40 and then -10 and then 20,
+
+465
+00:12:01,720 --> 00:12:04,000
+50 and 80.
+
+466
+00:12:04,060 --> 00:12:08,410
+So it's roughly distributed somewhere along the middle. Now,
+
+467
+00:12:08,410 --> 00:12:11,380
+instead of using this Y-position
+
+468
+00:12:11,380 --> 00:12:13,630
+which is hardcoded -100,
+
+469
+00:12:14,020 --> 00:12:19,020
+we're going to take the Y-positions and then pass in our turtle_index like
+
+470
+00:12:19,080 --> 00:12:21,900
+this. So now when we rerun this code,
+
+471
+00:12:21,960 --> 00:12:24,270
+you can see that for each of the turtles
+
+472
+00:12:24,300 --> 00:12:27,060
+they're all going to get an individual Y-position
+
+473
+00:12:27,450 --> 00:12:30,660
+and they're all separated by 30 in distance.
+
+474
+00:12:31,080 --> 00:12:34,650
+Now we've got our turtles neatly lined up at the starting point.
+
+475
+00:12:34,950 --> 00:12:37,530
+The next thing is to give them a different color.
+
+476
+00:12:37,650 --> 00:12:42,030
+So we're going to use the list of colors and then picking out the color using
+
+477
+00:12:42,090 --> 00:12:43,440
+the turtle_index.
+
+478
+00:12:43,770 --> 00:12:48,770
+So now we should get some multicolored turtles and it will be much easier to bet
+
+479
+00:12:49,830 --> 00:12:53,280
+on a turtle. So now that we have our turtle race
+
+480
+00:12:53,340 --> 00:12:55,020
+all set up and ready to go,
+
+481
+00:12:55,350 --> 00:12:58,890
+the next step is to actually get the turtles to start moving.
+
+482
+00:12:59,310 --> 00:13:00,750
+But before we can do that,
+
+483
+00:13:00,840 --> 00:13:05,840
+I really want you to get a good grasp of how the coordinate system works in
+
+484
+00:13:05,940 --> 00:13:08,220
+turtle. So in the next lesson,
+
+485
+00:13:08,310 --> 00:13:11,850
+I've got a quick quiz for you just to make sure that you really understand
+
+486
+00:13:11,880 --> 00:13:12,930
+what's going on here.
+
+
+487
+00:00:00,030 --> 00:00:01,140
+In the last lesson,
+
+488
+00:00:01,170 --> 00:00:06,170
+we figured out how we can get our turtle race up and running and get our turtles
+
+489
+00:00:06,930 --> 00:00:09,270
+at the starting positions. Now,
+
+490
+00:00:09,300 --> 00:00:13,980
+the next job we have is to figure out how we can get these turtles to start
+
+491
+00:00:14,010 --> 00:00:18,150
+moving. The movement is going to have to be randomized
+
+492
+00:00:18,540 --> 00:00:23,540
+and each step they take will have to be a random number. That way they don't go
+
+493
+00:00:23,580 --> 00:00:24,690
+straight to the end
+
+494
+00:00:24,960 --> 00:00:28,620
+and we end up with a terrible gaming experience.
+
+495
+00:00:29,190 --> 00:00:33,360
+So what we're going to do is we're going to create a random number,
+
+496
+00:00:33,390 --> 00:00:36,000
+let's say between 0 and 10,
+
+497
+00:00:36,450 --> 00:00:40,860
+and then we're going to tell the turtle to go forward by that random amount.
+
+498
+00:00:40,860 --> 00:00:43,230
+So it could be anywhere between 0 and 10.
+
+499
+00:00:43,950 --> 00:00:47,490
+And then we're going to get this to repeat itself many, many times.
+
+500
+00:00:48,840 --> 00:00:49,740
+As you might've guessed,
+
+501
+00:00:49,770 --> 00:00:52,740
+this is probably going to involve some sort of while loop.
+
+502
+00:00:53,160 --> 00:00:58,160
+So let's say we start out with a variable called is_race_on and it starts out as
+
+503
+00:00:59,460 --> 00:01:00,293
+false.
+
+504
+00:01:00,570 --> 00:01:05,570
+But then once the user has made their bet and we can check to see
+
+505
+00:01:05,880 --> 00:01:10,170
+user_bet exists, then in that case
+
+506
+00:01:10,230 --> 00:01:13,800
+we're going to switch that is_race_on to true.
+
+507
+00:01:16,050 --> 00:01:20,430
+And then we can use our is_race_on inside our while loop.
+
+508
+00:01:20,910 --> 00:01:25,910
+Now this way we prevent our while loop from starting up while the user is still
+
+509
+00:01:25,980 --> 00:01:28,920
+deciding on which turtle they're going to bet on.
+
+510
+00:01:29,160 --> 00:01:31,020
+So it doesn't start prematurely.
+
+511
+00:01:31,710 --> 00:01:36,480
+Now when the user has made their bet and the race is now on, well
+
+512
+00:01:36,480 --> 00:01:40,080
+now we're going to need to get hold of a random number.
+
+513
+00:01:43,130 --> 00:01:48,130
+We're going to use the random module to get hold of a random int between the
+
+514
+00:01:49,430 --> 00:01:52,220
+range of 0 and 10.
+
+515
+00:01:52,610 --> 00:01:55,250
+Now randint is actually inclusive,
+
+516
+00:01:55,250 --> 00:01:59,060
+so the random number could be zero all the way up to 10.
+
+517
+00:01:59,780 --> 00:02:03,740
+So now we're gonna call this the rand_distance,
+
+518
+00:02:04,520 --> 00:02:09,520
+and this is going to be the distance that one of our turtles is going to move
+
+519
+00:02:09,949 --> 00:02:10,580
+forwards by.
+
+520
+00:02:10,580 --> 00:02:15,580
+So we want some sort of turtle.forward and the distance that it goes forward
+
+521
+00:02:18,350 --> 00:02:20,030
+is the random distance.
+
+522
+00:02:20,750 --> 00:02:23,720
+Now we have lots of turtles that we've created,
+
+523
+00:02:24,050 --> 00:02:26,240
+but we kind of haven't really done anything with them.
+
+524
+00:02:26,690 --> 00:02:31,280
+What we want to do instead is to have some sort of list of turtle.
+
+525
+00:02:31,310 --> 00:02:33,380
+So we'll call all_turtles,
+
+526
+00:02:34,070 --> 00:02:36,350
+and this list starts out as empty.
+
+527
+00:02:36,740 --> 00:02:39,290
+But every single time we create a new turtle,
+
+528
+00:02:39,560 --> 00:02:43,970
+then we can append that turtle to this list. So at this stage,
+
+529
+00:02:44,000 --> 00:02:47,870
+it doesn't really make sense to call all the turtles tim anymore, right?
+
+530
+00:02:47,870 --> 00:02:50,900
+Because they're all going to be individual instances.
+
+531
+00:02:51,470 --> 00:02:56,470
+So let's go ahead and refactor and rename this to a new_turtle.
+
+532
+00:02:58,900 --> 00:03:03,900
+And now what's happening in our for loop is we're creating a new turtle and
+
+533
+00:03:04,060 --> 00:03:09,060
+each of those new turtles are going to be appended to our all_turtles list.
+
+534
+00:03:11,320 --> 00:03:15,730
+So now we're going to have a list of multiple turtle instances,
+
+535
+00:03:16,270 --> 00:03:20,260
+and each of those instances is going to have a different state.
+
+536
+00:03:20,530 --> 00:03:21,490
+So for example,
+
+537
+00:03:21,520 --> 00:03:25,780
+they already start out with a different Y-position and a different color.
+
+538
+00:03:26,320 --> 00:03:27,340
+But later on,
+
+539
+00:03:27,400 --> 00:03:31,600
+we're also going to get them to move forwards by a different amount.
+
+540
+00:03:32,170 --> 00:03:35,560
+So we can loop through our list of turtles,
+
+541
+00:03:35,590 --> 00:03:38,080
+so for turtle in all_turtles,
+
+542
+00:03:40,980 --> 00:03:45,980
+let's go ahead and create a random distance for each of them and then move that
+
+543
+00:03:46,740 --> 00:03:49,320
+turtle forward by the random distance.
+
+544
+00:03:49,860 --> 00:03:52,050
+So now if we run our code
+
+545
+00:03:53,670 --> 00:03:55,200
+and see it in action,
+
+546
+00:03:55,620 --> 00:03:59,580
+you can see that once all of the turtles have gone into their starting
+
+547
+00:03:59,580 --> 00:04:04,560
+positions, they stop creeping along each time by a different amount.
+
+548
+00:04:08,190 --> 00:04:12,990
+Now, however, our turtles are actually going to keep going until forever.
+
+549
+00:04:13,110 --> 00:04:16,140
+It's basically a loop that's never going to stop.
+
+550
+00:04:16,620 --> 00:04:20,700
+So let's think about what the stopping conditions should be. Well,
+
+551
+00:04:20,730 --> 00:04:25,730
+once any of these turtles have actually reached the end of the screen
+
+552
+00:04:26,730 --> 00:04:31,170
+which is the X-value of +250,
+
+553
+00:04:31,170 --> 00:04:35,820
+once they've reached this line, then that's kind of the end of the race,
+
+554
+00:04:35,850 --> 00:04:36,683
+right?
+
+555
+00:04:36,990 --> 00:04:41,490
+But a turtle object is a 40 by 40 object.
+
+556
+00:04:41,910 --> 00:04:45,390
+So if we're only detecting for the 250,
+
+557
+00:04:45,660 --> 00:04:48,390
+then our turtle would have already overshot.
+
+558
+00:04:48,480 --> 00:04:53,480
+So instead, we want to detect when the turtle has reached the 230 mark. Back in our
+
+559
+00:04:55,230 --> 00:04:56,700
+code in our for-loop,
+
+560
+00:04:57,060 --> 00:05:01,620
+we can check to see if the turtle that we're currently looping through,
+
+561
+00:05:02,190 --> 00:05:07,190
+if it's X-coordinate is greater than 
+
+562
+00:05:09,210 --> 00:05:13,710
+230. Well, in this case, it's basically won.
+
+563
+00:05:14,190 --> 00:05:15,510
+Now at this stage,
+
+564
+00:05:15,600 --> 00:05:19,890
+if we print this current turtle's color,
+
+565
+00:05:20,340 --> 00:05:23,370
+then you'll actually see something a little bit strange.
+
+566
+00:05:25,530 --> 00:05:27,360
+You can see that firstly,
+
+567
+00:05:27,360 --> 00:05:31,890
+it prints multiple values because the while loop is still continuing and the
+
+568
+00:05:31,890 --> 00:05:34,020
+other turtles continue to go forward.
+
+569
+00:05:34,470 --> 00:05:37,770
+But the first value is going to be the turtle that won.
+
+570
+00:05:38,340 --> 00:05:41,370
+And you can see it prints yellow and yellow.
+
+571
+00:05:41,880 --> 00:05:45,840
+So what's going on here? Well, if we look at this color method,
+
+572
+00:05:45,930 --> 00:05:50,790
+you can see that you can either use it to set the pen color and fill color,
+
+573
+00:05:51,090 --> 00:05:54,720
+or it will return the pen color and fill color.
+
+574
+00:05:55,170 --> 00:05:56,940
+So when it prints out two colors,
+
+575
+00:05:57,650 --> 00:06:01,430
+the first one is going to be the pen color and the second is going to be the
+
+576
+00:06:01,430 --> 00:06:05,720
+fill color. So if we only want to know the pen color,
+
+577
+00:06:06,050 --> 00:06:10,910
+then we can just get hold of the turtle.pencolor.
+
+578
+00:06:10,970 --> 00:06:15,290
+This is going to be the color of the body of the turtle. So in our code,
+
+579
+00:06:15,320 --> 00:06:20,320
+we can say that the winning color is equal to the current turtle.pencolor.
+
+580
+00:06:25,100 --> 00:06:30,100
+And then we can now check to see if the winning color is equal to the user's
+
+581
+00:06:31,100 --> 00:06:35,420
+bet, because if this is the case, well then the user has won, right?
+
+582
+00:06:35,450 --> 00:06:38,090
+So we can tell them you've won.
+
+583
+00:06:38,330 --> 00:06:41,300
+And then we can tell them the color of the winning turtle.
+
+584
+00:06:44,200 --> 00:06:45,070
+Now, however,
+
+585
+00:06:45,070 --> 00:06:49,480
+if this is false or rather in the else statement,
+
+586
+00:06:49,870 --> 00:06:53,140
+well, in that case, we're going to have to print the same thing
+
+587
+00:06:53,470 --> 00:06:56,770
+but now we're going to tell them that they've lost.
+
+588
+00:06:59,020 --> 00:06:59,410
+Yeah.
+
+589
+00:06:59,410 --> 00:07:03,790
+Finally, when the first turtle reaches the X-coordinate,
+
+590
+00:07:03,790 --> 00:07:06,160
+when this first color gets printed,
+
+591
+00:07:06,280 --> 00:07:09,160
+we want to stop the while loop. This way
+
+592
+00:07:09,160 --> 00:07:12,490
+the remaining turtles don't continue to nudge forward
+
+593
+00:07:12,790 --> 00:07:17,170
+and we get end up with lots of winners like this. So inside this
+
+594
+00:07:17,200 --> 00:07:21,520
+if statement, when the turtle's X-coordinate has surpassed 230,
+
+595
+00:07:21,820 --> 00:07:25,390
+we're going to change the is_race_on to false.
+
+596
+00:07:26,020 --> 00:07:30,190
+Now we're ready to test out our code. And again,
+
+597
+00:07:30,190 --> 00:07:34,390
+I'm going to bet on the red turtle and I'm going to speed up the playback speed
+
+598
+00:07:34,420 --> 00:07:36,640
+of this race when I'm editing this video.
+
+599
+00:07:37,240 --> 00:07:42,240
+And now the game has ended and you can see that the blue turtle is the one that
+
+600
+00:07:42,760 --> 00:07:44,920
+first got its head across the finish line.
+
+601
+00:07:45,460 --> 00:07:50,260
+And it tells me just as much. I've lost and the blue turtle is the winner.
+
+602
+00:07:51,070 --> 00:07:56,070
+So we've now used Python turtle to build a very simple turtle racing game.
+
+603
+00:07:56,680 --> 00:08:01,680
+And we're starting to use these X and Y positions in the turtle coordinate
+
+604
+00:08:02,350 --> 00:08:06,520
+system. Now, these coordinates take a little bit of getting used to,
+
+605
+00:08:06,850 --> 00:08:11,850
+especially thinking about things such as if a turtle is 40 pixels wide,
+
+606
+00:08:12,160 --> 00:08:14,770
+then in order to get the turtle to the starting line
+
+607
+00:08:14,980 --> 00:08:19,300
+we have to subtract half of the width of the turtle, which is 20.
+
+608
+00:08:19,540 --> 00:08:23,350
+So then 250 minus 20 becomes 230.
+
+609
+00:08:23,680 --> 00:08:26,740
+And it's things like this that takes a little bit of getting used to.
+
+610
+00:08:27,220 --> 00:08:31,480
+So what I really recommend is to have a play around with these values,
+
+611
+00:08:31,750 --> 00:08:36,429
+make it smaller, or make it larger, change the size of the screen.
+
+612
+00:08:36,730 --> 00:08:41,049
+And just until you're really familiar with how the coordinate system works
+
+613
+00:08:41,080 --> 00:08:44,620
+before you proceed to the next lesson, because as you keep going,
+
+614
+00:08:44,620 --> 00:08:48,160
+I'm going to presume that you've already had a play around with it and you know
+
+615
+00:08:48,160 --> 00:08:50,560
+exactly how it works. Now,
+
+616
+00:08:50,590 --> 00:08:55,150
+the other thing that we saw a lot of in this project is this concept of having
+
+617
+00:08:55,380 --> 00:08:59,700
+multiple objects created from the same class. So in this case,
+
+618
+00:08:59,700 --> 00:09:04,590
+we're using the turtle class to construct a turtle object called Timmy,
+
+619
+00:09:04,860 --> 00:09:09,860
+but we've also got a separate object called Tommy. And Timmy and Tommy are both
+
+620
+00:09:10,020 --> 00:09:14,900
+Tuttle objects, but they're different instances. So they can act independently,
+
+621
+00:09:14,900 --> 00:09:18,110
+they can have different appearances, they can have different colors,
+
+622
+00:09:18,110 --> 00:09:21,380
+different attributes, and also a different speed of movement.
+
+623
+00:09:21,830 --> 00:09:26,830
+So we've seen in our turtle race that each of these instances can act of their
+
+624
+00:09:27,140 --> 00:09:29,690
+own accord and have different state.
+
+625
+00:09:29,930 --> 00:09:33,860
+And that's shown in the different speed of movement and this capability of
+
+626
+00:09:33,860 --> 00:09:37,580
+creating multiple objects which can act and behave independently
+
+627
+00:09:37,880 --> 00:09:42,590
+is really the secret to why Object Oriented Programming can be so
+
+628
+00:09:42,590 --> 00:09:43,423
+powerful.
+
+629
+00:09:43,550 --> 00:09:48,050
+We can create so many of these objects and get them to do our bidding in various
+
+630
+00:09:48,050 --> 00:09:50,480
+parts of our program. And in the coming lessons
+
+631
+00:09:50,510 --> 00:09:52,970
+as we build more and more complex projects,
+
+632
+00:09:53,270 --> 00:09:58,130
+you'll see this concept of having multiple instances with different state being
+
+633
+00:09:58,130 --> 00:10:02,060
+shown again and again. And we're going to come to see and enjoy the benefits.
+
+

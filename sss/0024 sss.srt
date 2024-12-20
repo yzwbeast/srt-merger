@@ -1,0 +1,3351 @@
+1
+00:00:00,300 --> 00:00:05,070
+Hey guys, welcome to Day 24 of 100 Days of Code. Today
+
+2
+00:00:05,070 --> 00:00:09,000
+we're going to learn about working with the local file system and also
+
+3
+00:00:09,060 --> 00:00:13,320
+understanding how directories work. And by the end of the day,
+
+4
+00:00:13,380 --> 00:00:18,380
+we will have improved our previous snake game where previously or currently the
+
+5
+00:00:19,350 --> 00:00:24,350
+way that it works is it just games over once we hit a wall or once we hit a
+
+6
+00:00:24,600 --> 00:00:27,510
+tail, which is fun, but it could be better.
+
+7
+00:00:28,080 --> 00:00:31,980
+Imagine if we could also keep track of the high score.
+
+8
+00:00:32,130 --> 00:00:36,930
+So if a user gets a score that's higher than the previous high score,
+
+9
+00:00:37,530 --> 00:00:42,530
+then if they game over, then the high score is going to be updated so that we can
+
+10
+00:00:42,960 --> 00:00:45,570
+keep trying to better ourselves at snake.
+
+11
+00:00:46,440 --> 00:00:50,400
+And once we've learned all of those skills of manipulating file systems,
+
+12
+00:00:50,400 --> 00:00:54,150
+reading and writing to file, then we're going to create a project
+
+13
+00:00:54,510 --> 00:00:59,220
+that's going to save us a lot of hassle and automate our lives a little bit
+
+14
+00:00:59,220 --> 00:01:02,430
+using Python. So the situation is
+
+15
+00:01:02,430 --> 00:01:06,510
+let's say you need to write lots of letters. Maybe you having a birthday party,
+
+16
+00:01:06,510 --> 00:01:09,420
+maybe you need to write wedding invites,
+
+17
+00:01:09,420 --> 00:01:12,720
+or maybe you just need to email all your clients. Well,
+
+18
+00:01:12,720 --> 00:01:17,280
+let's say that you wanted to personalize a part of that file
+
+19
+00:01:17,670 --> 00:01:21,840
+say, for example, the part where you say dear name. Well,
+
+20
+00:01:21,900 --> 00:01:26,900
+if you had a list of names and you wanted to create separate letters using each
+
+21
+00:01:27,570 --> 00:01:32,220
+of those names, so maybe one that says 'Dear James', one that says
+
+22
+00:01:32,220 --> 00:01:33,150
+'Dear Emily'
+
+23
+00:01:33,420 --> 00:01:37,500
+and then we just worked down the list and keep replacing parts of our letter
+
+24
+00:01:37,770 --> 00:01:39,450
+with the names in our list.
+
+25
+00:01:40,260 --> 00:01:44,010
+So we end up with a whole bunch of letters ready to send out.
+
+26
+00:01:45,360 --> 00:01:47,490
+Depending on what kind of jobs you might have,
+
+27
+00:01:47,520 --> 00:01:52,410
+this is something that could come in really handy as a part of your work
+
+28
+00:01:52,470 --> 00:01:54,660
+or maybe just in your day to day lives.
+
+29
+00:01:55,110 --> 00:02:00,000
+And we're going to get started using Python to automate parts of our lives,
+
+30
+00:02:00,060 --> 00:02:04,110
+and get Python to do a lot of the repetitive tasks that we don't want to do.
+
+31
+00:02:04,650 --> 00:02:08,190
+And so we can spend more time watching Netflix and playing video games.
+
+
+32
+00:00:00,420 --> 00:00:04,110
+First, let's start by improving our snake game,
+
+33
+00:00:04,650 --> 00:00:09,150
+getting it to be able to keep track of the high score that we attain each time
+
+34
+00:00:09,150 --> 00:00:14,150
+we play the game so that we can see what our high score is and keep striving to
+
+35
+00:00:14,310 --> 00:00:15,150
+better ourselves.
+
+36
+00:00:16,200 --> 00:00:21,180
+Open up the snake game in PyCharm that you created a few days back. Now,
+
+37
+00:00:21,180 --> 00:00:23,430
+if you can't find your snake game project,
+
+38
+00:00:23,820 --> 00:00:28,170
+or if you've made some significant changes to it where it might be confusing to
+
+39
+00:00:28,170 --> 00:00:32,490
+follow along with the tutorial, then simply just head over to this URL
+
+40
+00:00:32,670 --> 00:00:34,770
+which is in the course resources
+
+41
+00:00:35,220 --> 00:00:39,980
+and then you can go ahead and hit download as a zip, unzip
+
+42
+00:00:39,980 --> 00:00:43,470
+the downloaded file, and then open it inside PyCharm
+
+43
+00:00:43,860 --> 00:00:47,190
+and you should end up with the same project as I have here.
+
+44
+00:00:47,940 --> 00:00:49,260
+And once you've done that,
+
+45
+00:00:49,410 --> 00:00:53,880
+then we can begin to start adding the functionality to keep track of the high
+
+46
+00:00:53,880 --> 00:00:57,060
+score. Firstly, I'm going to add
+
+47
+00:00:57,060 --> 00:01:01,410
+another attribute to my scoreboard, which is going to be called high_score.
+
+48
+00:01:01,920 --> 00:01:06,060
+And again, it's going to start out as zero. Now,
+
+49
+00:01:06,090 --> 00:01:11,090
+the next thing I'm going to do is I'm going to replace this game over method
+
+50
+00:01:11,910 --> 00:01:16,680
+with a new method. We're not going to stop the game and write game over anymore.
+
+51
+00:01:17,130 --> 00:01:19,770
+Instead, we're going to reset the scoreboard.
+
+52
+00:01:20,430 --> 00:01:23,730
+So what happens when we reset the scoreboard? Well,
+
+53
+00:01:23,730 --> 00:01:28,730
+we need to figure out if the current score that the user has attained is greater
+
+54
+00:01:29,640 --> 00:01:34,170
+than the high score of all time. And if that is the case,
+
+55
+00:01:34,260 --> 00:01:38,850
+then we're going to update the high score with the value of the current score.
+
+56
+00:01:39,420 --> 00:01:42,150
+So the code for that would look something like this.
+
+57
+00:01:42,540 --> 00:01:47,250
+If self.score is greater than self.high_score,
+
+58
+00:01:47,670 --> 00:01:52,670
+well in that case then self.high_score is going to be equal to self.score.
+
+59
+00:01:53,910 --> 00:01:56,400
+Now, this looks a little bit confusing at first,
+
+60
+00:01:56,730 --> 00:02:00,780
+but if you just go through the logic and think about how you would create a high
+
+61
+00:02:00,780 --> 00:02:02,250
+score saving mechanism,
+
+62
+00:02:02,700 --> 00:02:07,290
+then you'll pretty quickly understand what's going on here. Now,
+
+63
+00:02:07,290 --> 00:02:12,270
+once we've updated the high score, the next thing to do is to reset the score.
+
+64
+00:02:12,690 --> 00:02:17,340
+So I'm going to reset it down to zero. Now, remember the order of your code
+
+65
+00:02:17,340 --> 00:02:21,780
+matters a huge deal because if you first set the score to zero,
+
+66
+00:02:22,050 --> 00:02:25,350
+then it's never going to be greater than the current high score.
+
+67
+00:02:25,560 --> 00:02:27,450
+So this will never get triggered.
+
+68
+00:02:27,870 --> 00:02:32,550
+So as always, be careful where you're writing your code. Now,
+
+69
+00:02:32,640 --> 00:02:36,990
+after we've set the score, then we need to update the scoreboard.
+
+70
+00:02:37,740 --> 00:02:38,010
+Now,
+
+71
+00:02:38,010 --> 00:02:42,870
+one thing that I've changed about the scoreboard is previously when we increased
+
+72
+00:02:42,930 --> 00:02:43,950
+the score,
+
+73
+00:02:44,340 --> 00:02:48,780
+I've used the self.clear and then self.update_scoreboard.
+
+74
+00:02:49,230 --> 00:02:52,350
+But it actually makes more sense for this clear to happen
+
+75
+00:02:52,380 --> 00:02:54,780
+every single time we update the scoreboard.
+
+76
+00:02:55,230 --> 00:02:59,010
+So I've added this method call here before we actually write the score.
+
+77
+00:03:00,160 --> 00:03:04,330
+The reason why I couldn't do this previously is because when we wanted to show
+
+78
+00:03:04,330 --> 00:03:05,200
+game over,
+
+79
+00:03:05,620 --> 00:03:10,000
+we wanted to keep the score on the screen and then for
+
+80
+00:03:10,000 --> 00:03:15,000
+the score board turtle to go to the center and write game over so that both of
+
+81
+00:03:15,280 --> 00:03:17,080
+these things show up on screen.
+
+82
+00:03:17,740 --> 00:03:20,680
+But now that we're getting rid of our game over method,
+
+83
+00:03:21,130 --> 00:03:26,130
+then we can go ahead and move that clear to update scoreboard
+
+84
+00:03:26,590 --> 00:03:30,400
+and then we don't have to call it twice, both in reset and increase_score.
+
+85
+00:03:31,390 --> 00:03:34,600
+Now, in addition to writing the score,
+
+86
+00:03:34,900 --> 00:03:37,330
+I'm now also going to write the high score,
+
+87
+00:03:37,960 --> 00:03:42,490
+and this is going to be using an f-string to insert self.high_score.
+
+88
+00:03:43,420 --> 00:03:45,910
+Now, if we run this game as it is,
+
+89
+00:03:45,970 --> 00:03:48,580
+you can see it says score 0, high score
+
+90
+00:03:48,580 --> 00:03:51,430
+0 using these initial values.
+
+91
+00:03:52,180 --> 00:03:54,550
+But as soon as it hits the wall,
+
+92
+00:03:54,580 --> 00:03:57,430
+it ends because in our main.py
+
+93
+00:03:57,760 --> 00:04:02,760
+we change this game_is_on to false and that ends our while loop.
+
+94
+00:04:04,060 --> 00:04:04,840
+Instead,
+
+95
+00:04:04,840 --> 00:04:09,840
+what I'm going to do is I'm going to delete this game_is_on equals false and
+
+96
+00:04:10,660 --> 00:04:13,390
+also delete it when we collide with the tail.
+
+97
+00:04:14,020 --> 00:04:18,250
+And I'm also going to delete the part where we call game over from the score
+
+98
+00:04:18,250 --> 00:04:23,020
+board. Instead, I'm going to get the scoreboard to reset itself.
+
+99
+00:04:24,490 --> 00:04:29,490
+So that way the score gets reset to zero and we're ready with the next round.
+
+100
+00:04:30,730 --> 00:04:35,080
+So now if I run this game again, you can see it says, score is 0,
+
+101
+00:04:35,380 --> 00:04:40,000
+and then as soon as we get a higher score and we end up dying, like
+
+102
+00:04:40,000 --> 00:04:43,930
+so, then our high score goes to 2.
+
+103
+00:04:44,560 --> 00:04:49,560
+But our snake kind of just disappears because it continues moving in the same
+
+104
+00:04:50,560 --> 00:04:54,850
+direction and it's now probably somewhere, all the way down to the left.
+
+105
+00:04:55,420 --> 00:05:00,100
+What we do instead? Well, our snake also needs to be reset.
+
+106
+00:05:00,610 --> 00:05:04,990
+So let's create a reset method inside the snake class as well.
+
+107
+00:05:05,680 --> 00:05:10,680
+And all we're going to do is we're going to get all of the segments to clear.
+
+108
+00:05:11,770 --> 00:05:13,510
+And when I hover over this clear,
+
+109
+00:05:13,510 --> 00:05:18,510
+you can see what it does is it's going to remove all of the items from that
+
+110
+00:05:18,760 --> 00:05:19,360
+list.
+
+111
+00:05:19,360 --> 00:05:24,360
+So all of the segments that we've added already to the list of segments is
+
+112
+00:05:24,490 --> 00:05:28,780
+going to be deleted. And then once we've gotten rid of all the segments,
+
+113
+00:05:28,810 --> 00:05:31,540
+we're going to call self.create_snake again,
+
+114
+00:05:31,810 --> 00:05:36,490
+so that we create another three-segment snake in the starting position.
+
+115
+00:05:37,660 --> 00:05:38,650
+Now, in addition,
+
+116
+00:05:38,680 --> 00:05:43,680
+I'm also going to set the self.head as the zeroth element from that list
+
+117
+00:05:44,920 --> 00:05:45,753
+of segments.
+
+118
+00:05:46,150 --> 00:05:50,620
+So basically we're doing everything that is in the init because we're going to
+
+119
+00:05:50,620 --> 00:05:53,620
+initialize the snake again, back at the center.
+
+120
+00:05:54,220 --> 00:05:59,120
+So now if I go back to main.py, and in addition to resetting the scoreboard,
+
+121
+00:05:59,450 --> 00:06:02,000
+I also get my snake to reset,
+
+122
+00:06:02,770 --> 00:06:03,603
+Right?
+
+123
+00:06:06,160 --> 00:06:07,930
+At this point, when I run the code,
+
+124
+00:06:07,990 --> 00:06:12,990
+you'll notice that it's not behaving quite the way you expect it to. So I can go
+
+125
+00:06:13,990 --> 00:06:17,830
+ahead and score, and when I die, I get the high score,
+
+126
+00:06:18,250 --> 00:06:22,060
+but my old snake is still lingering on screen.
+
+127
+00:06:22,480 --> 00:06:25,480
+So even though we've cleared the segments,
+
+128
+00:06:25,690 --> 00:06:30,400
+we don't actually get rid of the turtles that are still onscreen.
+
+129
+00:06:31,030 --> 00:06:32,710
+And in order to get rid of them,
+
+130
+00:06:32,740 --> 00:06:37,740
+we actually have to send them to a different location. In our snake reset method,
+
+131
+00:06:40,000 --> 00:06:42,610
+just before we clear our segments,
+
+132
+00:06:42,940 --> 00:06:45,340
+so while we still have access to all of them,
+
+133
+00:06:45,850 --> 00:06:50,850
+we're going to use a for loop to loop through all of the segments in the list of
+
+134
+00:06:51,100 --> 00:06:56,100
+segments and tell each of them to go to a place that is off the screen.
+
+135
+00:06:57,940 --> 00:07:01,420
+So our screen is only 600 by 600
+
+136
+00:07:01,840 --> 00:07:05,590
+and I'm going to tell it to go to 1000 X, 1000 Y.
+
+137
+00:07:05,950 --> 00:07:10,420
+So it's gonna disappear off the screen. So this way,
+
+138
+00:07:10,450 --> 00:07:11,283
+notice how
+
+139
+00:07:11,470 --> 00:07:16,470
+when the snake hits one of the walls or when it hits its tail,
+
+140
+00:07:16,930 --> 00:07:18,940
+instead of sort of just staying there,
+
+141
+00:07:18,970 --> 00:07:23,230
+it actually disappears into a location that's off the screen.
+
+142
+00:07:23,890 --> 00:07:26,890
+So that way we can keep track of our high scores,
+
+143
+00:07:27,190 --> 00:07:29,680
+we can continue to get higher scores,
+
+144
+00:07:30,100 --> 00:07:34,000
+and if we get a score that's not quite as high as the high score
+
+145
+00:07:34,480 --> 00:07:39,220
+and we end up dying, then the high score stays as the previous value.
+
+146
+00:07:40,180 --> 00:07:44,560
+Now, the only thing about this game is that in order to end it,
+
+147
+00:07:44,710 --> 00:07:49,570
+we have to hit the stop button here. But once we've done that,
+
+148
+00:07:49,750 --> 00:07:53,140
+it also reveals the crucial flaw in our code.
+
+149
+00:07:53,500 --> 00:07:57,580
+Because if I run our program again, you can see that, wait,
+
+150
+00:07:57,610 --> 00:07:59,410
+what happened to the high score, right?
+
+151
+00:07:59,620 --> 00:08:03,910
+We had a high score of 3 previously. So, huh?
+
+152
+00:08:04,300 --> 00:08:08,470
+What exactly is happening? Well, the reason is actually quite simple.
+
+153
+00:08:09,010 --> 00:08:13,450
+We know that if we create a variable, let's say we create a variable called a
+
+154
+00:08:13,480 --> 00:08:15,070
+set it to equal three,
+
+155
+00:08:15,550 --> 00:08:20,320
+and then at some point we set a to be from the input.
+
+156
+00:08:20,710 --> 00:08:22,540
+So now when I run this code,
+
+157
+00:08:22,570 --> 00:08:25,780
+you can see that initially a is equal to three,
+
+158
+00:08:26,200 --> 00:08:31,030
+but then the next line I asked the user, 'what do you want a to equals?'
+
+159
+00:08:31,030 --> 00:08:34,419
+I'm going to make it equal to 12. Now at this point,
+
+160
+00:08:34,419 --> 00:08:38,500
+if I go ahead and access this variable a inside the console
+
+161
+00:08:38,530 --> 00:08:42,880
+just by typing a and then hitting enter, you can see it's equal to 12.
+
+162
+00:08:43,480 --> 00:08:46,630
+Now, similarly, I can add some print statements here.
+
+163
+00:08:46,660 --> 00:08:48,370
+I can print the value of a
+
+164
+00:08:48,700 --> 00:08:53,350
+and then also print the value of a after we modify it. So again,
+
+165
+00:08:53,530 --> 00:08:57,810
+you can see initially it's equal to 3, but then I decided to change it to 12.
+
+166
+00:08:58,020 --> 00:08:59,460
+So now it's equal to 12.
+
+167
+00:09:00,300 --> 00:09:05,300
+Now what happens if I rerun the code. A is equal to three
+
+168
+00:09:05,880 --> 00:09:06,300
+aain.
+
+169
+00:09:06,300 --> 00:09:11,300
+Its reset itself because the code is being rerun and the previous state is not
+
+170
+00:09:13,680 --> 00:09:18,450
+being remembered. In our case, we've got this high score variable
+
+171
+00:09:18,840 --> 00:09:21,570
+which initially starts out as zero.
+
+172
+00:09:22,170 --> 00:09:26,580
+And at some point during the game as we progress,
+
+173
+00:09:26,820 --> 00:09:31,820
+we modify this high score variable to equal a new value,
+
+174
+00:09:31,920 --> 00:09:32,850
+let's say three.
+
+175
+00:09:33,480 --> 00:09:37,140
+So now if I go ahead and print my high score,
+
+176
+00:09:37,620 --> 00:09:39,720
+you can see that it's equal to 3.
+
+177
+00:09:40,290 --> 00:09:44,130
+But as soon as I rerun the code and this goes through,
+
+178
+00:09:44,430 --> 00:09:46,980
+then all of that progress gets reset.
+
+179
+00:09:47,280 --> 00:09:51,900
+And now if I print the value of high score, you can see it's again,
+
+180
+00:09:51,990 --> 00:09:56,340
+equal to zero. So this is what's happening in our program as well.
+
+181
+00:09:57,180 --> 00:10:02,180
+So how might you keep track of the score if you weren't using Python?
+
+182
+00:10:03,150 --> 00:10:03,450
+Well,
+
+183
+00:10:03,450 --> 00:10:08,400
+you might open up a word document and then write down your high score in that
+
+184
+00:10:08,400 --> 00:10:11,970
+document, close it down, and then the next time you play the game,
+
+185
+00:10:12,330 --> 00:10:16,170
+open up that file again and see what your previous high score is.
+
+186
+00:10:16,710 --> 00:10:18,570
+We're going to try and do the same thing,
+
+187
+00:10:18,870 --> 00:10:23,870
+but using Python to read and write to a file so that we can save our progress
+
+188
+00:10:25,800 --> 00:10:29,280
+and be able to retrieve our previous high scores
+
+189
+00:10:29,370 --> 00:10:34,370
+each time we play the snake game. To find out how to do that and to solve this
+
+190
+00:10:35,100 --> 00:10:37,470
+problem, head over to the next lesson
+
+191
+00:10:37,800 --> 00:10:42,270
+and we'll talk about how to use Python to open, read, write,
+
+192
+00:10:42,360 --> 00:10:44,250
+and close files on your system.
+
+
+193
+00:00:00,270 --> 00:00:01,110
+In this lesson,
+
+194
+00:00:01,140 --> 00:00:06,140
+I want to talk about the file system and how you could use Python to open up
+
+195
+00:00:06,750 --> 00:00:11,730
+files, read files, write to the files, and also close them down again,
+
+196
+00:00:12,150 --> 00:00:14,370
+all without touching the mouse.
+
+197
+00:00:14,580 --> 00:00:18,870
+So that way we can start saving our high scores into a file and retrieve 
+
+198
+00:00:18,870 --> 00:00:20,880
+it the next time we open up our program.
+
+199
+00:00:21,630 --> 00:00:26,070
+Let's start out by trying to do some of the simplest things with a file, reading
+
+200
+00:00:26,100 --> 00:00:26,933
+and writing.
+
+201
+00:00:28,050 --> 00:00:32,490
+Now I've created a new project using PyCharm called day-24,
+
+202
+00:00:33,000 --> 00:00:36,450
+and I've created my main.py where we're going to write our Python code.
+
+203
+00:00:36,990 --> 00:00:40,890
+But in addition, I'm also going to create a new file
+
+204
+00:00:41,130 --> 00:00:46,130
+which is going to be called my_file.txt.
+
+205
+00:00:46,950 --> 00:00:51,090
+So this is going to be a text file. Now, inside this text file,
+
+206
+00:00:51,090 --> 00:00:56,040
+I'm going to write some text. Hello, my name is Angela. And if you want,
+
+207
+00:00:56,070 --> 00:01:01,070
+you can actually find this text file inside your project folder,
+
+208
+00:01:02,280 --> 00:01:06,540
+and you can actually open it up with your native text editing software.
+
+209
+00:01:06,540 --> 00:01:10,140
+So TextEdit on Mac or Notepad on Windows.
+
+210
+00:01:10,560 --> 00:01:14,970
+And you can see it's just a bunch of text. There's nothing really special here.
+
+211
+00:01:16,200 --> 00:01:20,940
+But what we can do using Python is that we can actually open up that file.
+
+212
+00:01:21,510 --> 00:01:26,010
+So, notice how this method, open, is a inbuilt method.
+
+213
+00:01:26,010 --> 00:01:29,340
+So you don't have to import anything, you can use it directly.
+
+214
+00:01:29,970 --> 00:01:31,830
+And it takes a number of inputs;
+
+215
+00:01:31,980 --> 00:01:36,120
+the file that you want to open, the mode that you want to open that file in,
+
+216
+00:01:36,360 --> 00:01:41,360
+and a whole bunch of other optional things that you can specify. In our case,
+
+217
+00:01:41,520 --> 00:01:44,850
+I'm going to specify the name of my file as a string,
+
+218
+00:01:45,150 --> 00:01:48,480
+so my_file.txt.
+
+219
+00:01:48,900 --> 00:01:50,550
+So remember that extension.
+
+220
+00:01:51,120 --> 00:01:56,040
+And then I'm going to open this file and I'm going to save it inside a variable
+
+221
+00:01:56,040 --> 00:02:00,600
+called file. So when we hit run right now, nothing's really going to happen.
+
+222
+00:02:00,750 --> 00:02:04,020
+You're not going to see anything happening, but behind the scenes,
+
+223
+00:02:04,290 --> 00:02:08,789
+Python has already opened up this file and its ready for the next operation that
+
+224
+00:02:08,789 --> 00:02:10,770
+you might want to do on that file.
+
+225
+00:02:11,340 --> 00:02:16,340
+So the next thing I wanna do is I wanna read the file and this read method
+
+226
+00:02:16,710 --> 00:02:20,400
+returns the contents of that file as a string.
+
+227
+00:02:20,790 --> 00:02:25,050
+So we can now save it inside a variable called contents
+
+228
+00:02:25,500 --> 00:02:28,470
+and I can go ahead and print out this contents.
+
+229
+00:02:28,950 --> 00:02:32,280
+So when I hit run right now, you can see what gets printed out
+
+230
+00:02:32,580 --> 00:02:35,490
+is the content from my_file.txt.
+
+231
+00:02:36,870 --> 00:02:41,870
+And if I go ahead and modify my file to add some more lines and I hit run again,
+
+232
+00:02:42,180 --> 00:02:45,360
+you can see that all of the lines are being printed
+
+233
+00:02:45,480 --> 00:02:49,080
+once we've opened the file, we've read the file,
+
+234
+00:02:49,440 --> 00:02:54,440
+and we print the contents that we have read. At the end of all of our work,
+
+235
+00:02:56,130 --> 00:03:00,130
+what we have to do once we're done with that file that we've opened
+
+236
+00:03:00,310 --> 00:03:03,760
+we also have to close it. If there's an open,
+
+237
+00:03:03,760 --> 00:03:07,900
+there's probably going to be a close. Now, why do we need to close the file?
+
+238
+00:03:08,110 --> 00:03:10,930
+Well, once Python opens up that file,
+
+239
+00:03:11,410 --> 00:03:15,010
+it basically takes up some of the resources of your computer.
+
+240
+00:03:15,640 --> 00:03:16,990
+And at some point later on,
+
+241
+00:03:16,990 --> 00:03:20,860
+it might decide to close it and free up those resources,
+
+242
+00:03:21,070 --> 00:03:24,160
+but we don't know when that's going to happen and if it will happen.
+
+243
+00:03:24,580 --> 00:03:29,170
+So instead, we're going to tell it to close down the file manually using this
+
+244
+00:03:29,170 --> 00:03:30,003
+line of code.
+
+245
+00:03:30,880 --> 00:03:35,710
+It's a similar concept to having lots and lots of tabs open in your browser.
+
+246
+00:03:36,130 --> 00:03:39,460
+While it's kind of convenient to have all of these tabs open,
+
+247
+00:03:40,030 --> 00:03:43,510
+if you actually want your computer to perform at its best
+
+248
+00:03:43,810 --> 00:03:47,800
+you actually want to only use as many tabs as you need.
+
+249
+00:03:48,400 --> 00:03:52,750
+Every extra tab is going to add a little bit of burden to your computer
+
+250
+00:03:53,170 --> 00:03:57,280
+and especially if you're using a very heavy application like Chrome
+
+251
+00:03:57,520 --> 00:04:01,540
+which likes to take up a lot of resources of your CPU and your computer.
+
+252
+00:04:01,930 --> 00:04:04,210
+If you have more than 20 or 30 tabs,
+
+253
+00:04:04,450 --> 00:04:09,220
+you'll notice a significant decrease in the speed of your computer.
+
+254
+00:04:09,730 --> 00:04:12,490
+So here's a computer tip as well as Programming tip,
+
+255
+00:04:12,850 --> 00:04:17,850
+always close down tabs that you've opened and always close out on files that
+
+256
+00:04:18,399 --> 00:04:23,400
+you've opened. Now because it's kind of hard to remember to close a file because
+
+257
+00:04:24,220 --> 00:04:28,060
+we might be doing lots of other things in between the open and close, right?
+
+258
+00:04:28,060 --> 00:04:29,890
+We might be writing to the file,
+
+259
+00:04:29,890 --> 00:04:34,890
+we might be modifying it or reading it line by line or doing lots of different
+
+260
+00:04:35,380 --> 00:04:37,210
+things. So instead,
+
+261
+00:04:37,480 --> 00:04:42,480
+what many Python developers opt for is a different way of opening the file.
+
+262
+00:04:43,390 --> 00:04:48,390
+We can use a 'with' keyword. And 'with' we can open this file and then we can open
+
+263
+00:04:50,620 --> 00:04:55,330
+it as whatever it is we decide to name. So this you can name to anything.
+
+264
+00:04:55,330 --> 00:04:57,820
+You can name it as f, you can name it as file.
+
+265
+00:04:58,030 --> 00:05:02,170
+It's basically the equivalent to that variable that we created earlier on which
+
+266
+00:05:02,170 --> 00:05:04,300
+stored the opened file.
+
+267
+00:05:04,990 --> 00:05:09,990
+Now we can indent the rest of this and I can delete this file.close.
+
+268
+00:05:11,170 --> 00:05:14,080
+And you can see that it works exactly the same as before,
+
+269
+00:05:14,440 --> 00:05:19,440
+but now we no longer have to remember to close our file just by adding some
+
+270
+00:05:20,170 --> 00:05:21,040
+keywords here.
+
+271
+00:05:21,760 --> 00:05:25,810
+This 'with' keyword is going to manage that file directly.
+
+272
+00:05:26,050 --> 00:05:30,520
+So as soon as it notices that we're done with it, it'll close down the file.
+
+273
+00:05:31,120 --> 00:05:34,870
+It kinda makes me wish that something similar for tabs existed,
+
+274
+00:05:35,230 --> 00:05:37,540
+but let's get back to our Python code.
+
+275
+00:05:38,110 --> 00:05:41,350
+So now that we've opened up my_file.txt,
+
+276
+00:05:41,530 --> 00:05:43,780
+we've saved into a variable called file,
+
+277
+00:05:44,080 --> 00:05:49,080
+we've read that file and saved the contents that we read into a variable called
+
+278
+00:05:49,330 --> 00:05:54,190
+contents, and then we've printed it. Now, what if instead of reading the file,
+
+279
+00:05:54,220 --> 00:05:57,160
+I wanted to write to it? Well,
+
+280
+00:05:57,200 --> 00:06:02,200
+it's just as simple. So we can get hold of our file and then call
+
+281
+00:06:02,900 --> 00:06:03,733
+write.
+
+282
+00:06:04,160 --> 00:06:09,160
+And we can put any sort of string inside this write method to put into our file.
+
+283
+00:06:11,810 --> 00:06:14,840
+So let's put some text, let's call it new text.
+
+284
+00:06:15,290 --> 00:06:19,640
+And I want this new text to be written into my_file.txt.
+
+285
+00:06:20,420 --> 00:06:24,320
+And if we run the code as it is, you'll notice that it doesn't work
+
+286
+00:06:24,650 --> 00:06:27,860
+cause it says that unsupported operation,
+
+287
+00:06:28,100 --> 00:06:30,410
+this file is not writable.
+
+288
+00:06:30,830 --> 00:06:34,760
+And this is because we opened up the file in read-only mode.
+
+289
+00:06:35,210 --> 00:06:39,590
+So remember when we took a look at some of the parameters for this method open,
+
+290
+00:06:39,980 --> 00:06:44,980
+one of them was called mode and by default, it's set to read-only,
+
+291
+00:06:45,230 --> 00:06:50,030
+so 'r.' Now if we want to write to it, so make it editable,
+
+292
+00:06:50,060 --> 00:06:53,030
+we have the change, the mode to 'w' for write.
+
+293
+00:06:53,540 --> 00:06:55,640
+So now if I run the code again,
+
+294
+00:06:55,850 --> 00:06:58,460
+you can see that process finished with exit code zero
+
+295
+00:06:58,460 --> 00:07:01,040
+which we know to mean that everything was successful.
+
+296
+00:07:01,430 --> 00:07:05,330
+And if I take a look inside my_file.txt, all of the previous text
+
+297
+00:07:05,330 --> 00:07:10,330
+got magically deleted and replaced with the new text that I wanted to write.
+
+298
+00:07:11,240 --> 00:07:14,690
+Now, if you don't want to delete everything that is in the file
+
+299
+00:07:14,930 --> 00:07:17,060
+but you just want to add to it,
+
+300
+00:07:17,390 --> 00:07:22,390
+then you can change this mode from 'w' to 'a' and 'a' stands for append.
+
+301
+00:07:22,910 --> 00:07:26,390
+So just as we like to use list.append
+
+302
+00:07:26,420 --> 00:07:29,870
+and then we can add something to the end of the list, well,
+
+303
+00:07:29,870 --> 00:07:34,870
+the same thing happens with appending and writing. So I can write my new text and
+
+304
+00:07:36,380 --> 00:07:41,360
+I can add a new line, remember we can use \n to
+
+305
+00:07:41,360 --> 00:07:44,090
+add a new line, and then add the new text.
+
+306
+00:07:44,660 --> 00:07:49,660
+And now take a look at the after version when I hit run and we write this new
+
+307
+00:07:50,090 --> 00:07:54,050
+line and new text by appending it to my file.
+
+308
+00:07:54,350 --> 00:07:58,910
+It's gone at the very end of the file here. Now,
+
+309
+00:07:58,910 --> 00:08:03,200
+one of the important things you need to know when you're writing files is when
+
+310
+00:08:03,200 --> 00:08:08,200
+you try to open a file in write mode and that file doesn't exist,
+
+311
+00:08:08,750 --> 00:08:12,260
+then it's going to actually create it for you from scratch.
+
+312
+00:08:12,620 --> 00:08:14,990
+So let's go ahead and create a file
+
+313
+00:08:15,080 --> 00:08:19,160
+which I'll call new_file.txt,
+
+314
+00:08:19,520 --> 00:08:21,260
+make sure you've got the extension in there.
+
+315
+00:08:21,620 --> 00:08:26,620
+And we have the mode as write set. Because this new_file.txt doesn't exist
+
+316
+00:08:27,680 --> 00:08:31,640
+in this folder, then it's actually going to create it for us.
+
+317
+00:08:32,030 --> 00:08:36,590
+So now when I hit run, you can see that once this goes through,
+
+318
+00:08:36,830 --> 00:08:41,690
+that new file gets created and the new text has been written inside.
+
+319
+00:08:42,020 --> 00:08:46,550
+Now, remember this only works when you're in the write mode and when that file
+
+320
+00:08:46,580 --> 00:08:47,930
+doesn't currently exist.
+
+321
+00:08:48,580 --> 00:08:50,380
+So those are some basic 
+
+322
+00:08:50,380 --> 00:08:55,380
+ways of working with the file system. We can open and read, we can open and
+
+323
+00:08:56,640 --> 00:09:00,990
+write. And by using these different modes, append, read,
+
+324
+00:09:01,110 --> 00:09:01,943
+or write,
+
+325
+00:09:02,130 --> 00:09:06,150
+we can define what it is that we want to do with that file that we've opened.
+
+326
+00:09:07,110 --> 00:09:11,430
+Now that we've learned how to work with the file system, in the next lesson
+
+327
+00:09:11,490 --> 00:09:16,490
+I want to show you how we can fix our snake game so that we can write to
+
+328
+00:09:16,650 --> 00:09:21,600
+a text file our high score. And every time we open up and run our game,
+
+329
+00:09:21,870 --> 00:09:26,850
+we fetch that file and see what the previous high score was so that we can load
+
+330
+00:09:26,850 --> 00:09:31,470
+it into our game. So for all of that and more, I'll see you in the next lesson.
+
+
+331
+00:00:00,300 --> 00:00:02,520
+It's time for your challenge.
+
+332
+00:00:02,969 --> 00:00:05,760
+You've already seen how we've managed to get the snake game
+
+333
+00:00:05,939 --> 00:00:08,160
+to keep track of the high score.
+
+334
+00:00:08,760 --> 00:00:13,320
+And when the user scores a number that's greater than the high score,
+
+335
+00:00:13,620 --> 00:00:18,090
+then we replace that high score with the new value. But unfortunately
+
+336
+00:00:18,180 --> 00:00:23,180
+as you saw previously, at the moment when we run this game and we achieve a new
+
+337
+00:00:23,580 --> 00:00:27,780
+high score, the next time that we run the game again
+
+338
+00:00:27,840 --> 00:00:29,490
+that is completely lost.
+
+339
+00:00:30,090 --> 00:00:34,290
+So the first thing I want you to do is to right click on your project,
+
+340
+00:00:34,380 --> 00:00:38,280
+create a new file and call it data.txt.
+
+341
+00:00:38,340 --> 00:00:41,280
+So we're going to create a data text file.
+
+342
+00:00:41,880 --> 00:00:46,680
+Now this data text file is just going to contain a single number,
+
+343
+00:00:47,100 --> 00:00:47,933
+zero.
+
+344
+00:00:48,240 --> 00:00:53,240
+And we're going to use the data that's in this data.txt file to keep track of
+
+345
+00:00:54,030 --> 00:00:54,863
+the high score.
+
+346
+00:00:55,440 --> 00:01:00,240
+And it's your job to figure out how you can convert this simple attribute here,
+
+347
+00:01:00,240 --> 00:01:05,239
+high score, to instead of using a number that we've just created in the code,
+
+348
+00:01:06,630 --> 00:01:10,530
+I want you to use the number that's inside data.txt.
+
+349
+00:01:10,770 --> 00:01:14,040
+So you'll need to read from it here and then later on,
+
+350
+00:01:14,070 --> 00:01:18,450
+you'll need to write to it when we reset the game and check
+
+351
+00:01:18,480 --> 00:01:22,800
+if there is a new high score. Everything going well,
+
+352
+00:01:22,800 --> 00:01:24,330
+you should be able to run the game,
+
+353
+00:01:24,360 --> 00:01:29,360
+achieve a new high score and then stop and rerun the game and still see that
+
+354
+00:01:29,520 --> 00:01:33,870
+high score showing up. Think about what you learned in the last lesson,
+
+355
+00:01:34,110 --> 00:01:39,110
+have a think about how you can convert the text in here into a number using
+
+356
+00:01:40,080 --> 00:01:43,890
+what you've learned in previous lessons and pause the video and give this
+
+357
+00:01:43,890 --> 00:01:44,723
+challenge a go.
+
+358
+00:01:48,680 --> 00:01:49,100
+All right.
+
+359
+00:01:49,100 --> 00:01:53,990
+So we know that we've already got this file, data.txt, and it already
+
+360
+00:01:53,990 --> 00:01:58,850
+contains the number zero. So instead of using this line of code,
+
+361
+00:01:59,180 --> 00:02:02,600
+we're going to be reading from that file to get that zero.
+
+362
+00:02:03,110 --> 00:02:06,050
+Let's delete this line of code. And instead,
+
+363
+00:02:06,380 --> 00:02:09,889
+I'm going to open my file with the file name
+
+364
+00:02:09,889 --> 00:02:14,600
+that is data.txt. And the file name is, of course, a string
+
+365
+00:02:14,630 --> 00:02:17,510
+like you see here wrapped in quotation marks,
+
+366
+00:02:18,080 --> 00:02:21,650
+and we're going to use the with keywords so that we don't have to bother about
+
+367
+00:02:21,860 --> 00:02:23,240
+closing the file again.
+
+368
+00:02:23,450 --> 00:02:28,040
+We can get Python to manage it for us. with opening this file,
+
+369
+00:02:28,100 --> 00:02:32,000
+and I'm going to save that file to a variable called data.
+
+370
+00:02:32,750 --> 00:02:37,700
+Now I'm going to use that data and read from it. Now,
+
+371
+00:02:37,730 --> 00:02:39,110
+once I've read from it,
+
+372
+00:02:39,200 --> 00:02:44,200
+I should end up with some sort of string that's going to represent the contents
+
+373
+00:02:44,810 --> 00:02:45,740
+of this file.
+
+374
+00:02:46,370 --> 00:02:50,270
+So that string will need to be converted to an integer
+
+375
+00:02:50,360 --> 00:02:52,460
+if we want to use it as a number
+
+376
+00:02:52,730 --> 00:02:55,850
+which we can increase and change in our game.
+
+377
+00:02:56,240 --> 00:03:01,060
+So I'm going to type convert it into an integer. And then finally,
+
+378
+00:03:01,090 --> 00:03:05,320
+I'm going to save that as the value for our new attribute,
+
+379
+00:03:05,380 --> 00:03:09,940
+self.high_score. That's the reading part done
+
+380
+00:03:10,000 --> 00:03:12,190
+and if we run our code as it is,
+
+381
+00:03:12,250 --> 00:03:15,130
+it should already work as it did before,
+
+382
+00:03:15,460 --> 00:03:17,560
+but it won't have the feature that we want
+
+383
+00:03:17,560 --> 00:03:21,340
+which is to be able to quit out of the game,
+
+384
+00:03:21,700 --> 00:03:23,620
+stop and rerun.
+
+385
+00:03:23,920 --> 00:03:28,780
+So it still not saving the latest high score to that data.txt.
+
+386
+00:03:28,780 --> 00:03:33,220
+You can see it's still zero. So where do we want to save it? Well,
+
+387
+00:03:33,220 --> 00:03:36,610
+it's got to happen every time we adjust the high score.
+
+388
+00:03:37,060 --> 00:03:40,450
+When the score is greater than the current high score,
+
+389
+00:03:40,690 --> 00:03:44,950
+we set the high score to the new score. But in addition,
+
+390
+00:03:44,980 --> 00:03:47,830
+we're going to read from a file data.txt.
+
+391
+00:03:48,130 --> 00:03:50,020
+So let's use our syntax with,
+
+392
+00:03:50,260 --> 00:03:55,260
+and then open, again, and let's pass in the name of our file, data.txt.
+
+393
+00:03:56,320 --> 00:04:01,000
+And remember that we also need to change the mode to 'w' for
+
+394
+00:04:01,000 --> 00:04:05,830
+write because otherwise, it's not going to let us write to that file. Now,
+
+395
+00:04:05,860 --> 00:04:10,390
+once we've opened it and we've saved it as a variable called data,
+
+396
+00:04:10,720 --> 00:04:15,340
+then we can write to that data using data.write.
+
+397
+00:04:15,850 --> 00:04:19,600
+And what are we going to write to it? Well, we have to write a string.
+
+398
+00:04:19,630 --> 00:04:24,630
+So let's use an f-string to convert our current self.high_score into a
+
+399
+00:04:26,260 --> 00:04:31,240
+string, and then write that into our file, data.txt.
+
+400
+00:04:32,770 --> 00:04:36,490
+Now notice what happens when I run my code.
+
+401
+00:04:36,490 --> 00:04:41,350
+So I'm going to achieve a new high score of, um,
+
+402
+00:04:41,560 --> 00:04:45,670
+2, which I'm very proud of. And now if I hit stop,
+
+403
+00:04:45,700 --> 00:04:48,490
+take a look at data.txt. It's been updated,
+
+404
+00:04:48,490 --> 00:04:51,880
+it's been rewritten by these two lines of code.
+
+405
+00:04:52,240 --> 00:04:54,760
+So now if I rerun my program,
+
+406
+00:04:55,000 --> 00:05:00,000
+you can see it already is showing my previous high score of 2,
+
+407
+00:05:00,460 --> 00:05:03,880
+and I can keep playing this game and accumulate my high score
+
+408
+00:05:04,150 --> 00:05:07,570
+and all of that data will be saved to my file
+
+409
+00:05:07,630 --> 00:05:10,450
+data.txt, like that.
+
+410
+00:05:11,230 --> 00:05:14,080
+So did you manage to get this right? And by the way,
+
+411
+00:05:14,080 --> 00:05:16,420
+if you see this keyboard interrupt, don't worry.
+
+412
+00:05:16,420 --> 00:05:21,070
+That's just because we clicked on the stop button to stop our program because it
+
+413
+00:05:21,070 --> 00:05:25,330
+wants to keep on going forever until we achieve the highest score of them
+
+414
+00:05:25,330 --> 00:05:30,330
+all. The point of this exercise is to try and get you to review what we learned
+
+415
+00:05:30,790 --> 00:05:34,810
+in the last lesson, which is opening a file, reading the file,
+
+416
+00:05:35,020 --> 00:05:39,760
+and also writing to the file and remembering the mode that we have to change.
+
+417
+00:05:40,360 --> 00:05:45,360
+And hopefully, you'll start to see how this could be really useful in terms of
+
+418
+00:05:45,700 --> 00:05:50,650
+improving the usability of our programs in our games.
+
+419
+00:05:51,850 --> 00:05:55,330
+Now in the next lesson, we're going to talk more than just about files.
+
+420
+00:05:55,360 --> 00:05:58,810
+We're going to talk about file paths and directories.
+
+421
+00:05:59,260 --> 00:06:01,810
+So for all of that and more, I'll see you there.
+
+
+422
+00:00:00,690 --> 00:00:01,020
+All right.
+
+423
+00:00:01,020 --> 00:00:06,020
+So we've seen how we can open and close files as well as read them and write to
+
+424
+00:00:07,680 --> 00:00:11,670
+them. But files don't just have a name.
+
+425
+00:00:11,700 --> 00:00:16,140
+They also have a path or a way of getting to them.
+
+426
+00:00:16,680 --> 00:00:18,870
+For example, here in this map,
+
+427
+00:00:19,110 --> 00:00:21,990
+if we wanted this dinosaur to get to the golden egg,
+
+428
+00:00:22,320 --> 00:00:24,690
+there's many paths that it could take.
+
+429
+00:00:24,900 --> 00:00:29,900
+But if we wanted to give it some directions as to how it might arrive on this
+
+430
+00:00:30,180 --> 00:00:35,100
+path, well we might say, you know, continue forwards at the volcano turn, right.
+
+431
+00:00:35,490 --> 00:00:38,340
+And then when you see a snake turn right again,
+
+432
+00:00:38,700 --> 00:00:42,900
+and when you see the coconut tree turn left and you will get to the cave with
+
+433
+00:00:42,900 --> 00:00:47,100
+the egg. Now on computers, it works quite similarly,
+
+434
+00:00:47,400 --> 00:00:52,380
+but we have to remember that on the computer there's files and there's folders.
+
+435
+00:00:52,890 --> 00:00:57,890
+So files can live within folders and you can navigate through several folders
+
+436
+00:00:58,050 --> 00:01:00,420
+deep in order to get to a particular file.
+
+437
+00:01:01,260 --> 00:01:06,260
+So let's think about what the file paths might be for a computer that has a
+
+438
+00:01:08,160 --> 00:01:09,570
+structure that looks like this.
+
+439
+00:01:10,020 --> 00:01:15,020
+So the first thing to note is that at the very root of all of the files and the
+
+440
+00:01:16,170 --> 00:01:20,940
+folders is basically the origin, right? This is the root folder.
+
+441
+00:01:21,420 --> 00:01:22,800
+And on a Mac,
+
+442
+00:01:22,830 --> 00:01:27,830
+you can see that our PyCharm projects live within my users folder, inside a
+
+443
+00:01:30,120 --> 00:01:33,990
+folder called users inside a folder called Macintosh HD.
+
+444
+00:01:34,410 --> 00:01:38,250
+So if I have this folder selected right here, I can say
+
+445
+00:01:38,280 --> 00:01:41,880
+go to enclosing folder, which is this one.
+
+446
+00:01:42,270 --> 00:01:43,860
+And then if I keep doing this,
+
+447
+00:01:43,860 --> 00:01:48,270
+you can see it keeps jumping up until it can go no further.
+
+448
+00:01:48,810 --> 00:01:53,790
+So the root on a Mac is the Macintosh HD, the hard drive.
+
+449
+00:01:54,330 --> 00:01:59,330
+And that in terms of a path is represented by a single forward slash.
+
+450
+00:02:01,500 --> 00:02:04,260
+Now when you're on a Windows computer however,
+
+451
+00:02:04,860 --> 00:02:08,759
+the root folder is usually your C drive.
+
+452
+00:02:09,449 --> 00:02:14,160
+So that becomes your root folder. Inside our root folder, our
+
+453
+00:02:14,440 --> 00:02:16,950
+Macintosh HD or a C drive,
+
+454
+00:02:17,190 --> 00:02:20,670
+we have a folder called work. Inside that folder
+
+455
+00:02:20,790 --> 00:02:25,650
+I've got a report Word document as well as a project folder.
+
+456
+00:02:25,710 --> 00:02:30,120
+And then inside that project folder, there's a PowerPoint called talk.
+
+457
+00:02:30,660 --> 00:02:34,380
+Now, if we think about the file paths for each of these things,
+
+458
+00:02:34,650 --> 00:02:36,450
+this is what they might look like.
+
+459
+00:02:36,510 --> 00:02:41,510
+The route is obviously just a /, the work folder will be 
+
+460
+00:02:41,700 --> 00:02:46,700
+/work, report will be /work/ report.doc, project will
+
+461
+00:02:48,240 --> 00:02:51,840
+be /work/project, and finally,
+
+462
+00:02:51,840 --> 00:02:56,840
+the talk will be /work/project/talk.
+
+463
+00:02:57,000 --> 00:02:57,833
+ppt.
+
+464
+00:02:58,140 --> 00:03:02,230
+So this path is kind of like the direction that we were talking about
+
+465
+00:03:02,230 --> 00:03:03,063
+previously.
+
+466
+00:03:03,370 --> 00:03:07,690
+It's a way for the computer to navigate to the file of interest
+
+467
+00:03:07,990 --> 00:03:10,930
+which in this case might be the talk.ppt.
+
+468
+00:03:11,590 --> 00:03:15,790
+And we have to give it directions for which folder to go into and then which
+
+469
+00:03:15,790 --> 00:03:20,440
+folder, and then you'll find the file with this name. Now,
+
+470
+00:03:20,470 --> 00:03:23,740
+this is known as an absolute file path.
+
+471
+00:03:23,830 --> 00:03:28,830
+Absolute file paths always start off relative to the root.
+
+472
+00:03:29,290 --> 00:03:32,590
+So you always see a forward slash to begin with, and sometimes you'll see
+
+473
+00:03:32,590 --> 00:03:34,720
+C: or on a Mac
+
+474
+00:03:34,720 --> 00:03:38,680
+you'll just see the /. This absolute file
+
+475
+00:03:38,680 --> 00:03:42,010
+path is basically a path that starts from the origin,
+
+476
+00:03:42,040 --> 00:03:44,680
+the route of the computer storage system.
+
+477
+00:03:45,370 --> 00:03:49,630
+Now there's also something called a relative file path.
+
+478
+00:03:49,960 --> 00:03:52,180
+Taking this talk.ppt,
+
+479
+00:03:52,270 --> 00:03:57,270
+we know that the absolute file path is /work/project/
+
+480
+00:03:57,640 --> 00:03:59,860
+talk.ppt. But
+
+481
+00:04:00,000 --> 00:04:04,980
+what if we were actually inside this project folder?
+
+482
+00:04:05,460 --> 00:04:10,140
+So let's say that at the time when we're trying to get to this talk.ppt
+
+483
+00:04:10,440 --> 00:04:12,450
+we're actually right here.
+
+484
+00:04:13,350 --> 00:04:18,089
+Now this, in computer-speak, is called the working directory.
+
+485
+00:04:18,450 --> 00:04:23,100
+It's basically the directory or folder that we're currently working from.
+
+486
+00:04:23,700 --> 00:04:27,210
+And once we've established a working directory,
+
+487
+00:04:27,390 --> 00:04:29,310
+say that we are right here,
+
+488
+00:04:29,670 --> 00:04:34,380
+then we can use what's called a relative file path to get to a file that we're
+
+489
+00:04:34,380 --> 00:04:38,430
+interested in. So given that we're here and we're trying to get here,
+
+490
+00:04:38,790 --> 00:04:43,790
+the relative file path is simply just ./talk.ppt.
+
+491
+00:04:45,780 --> 00:04:47,730
+The ./ signifies
+
+492
+00:04:47,970 --> 00:04:51,780
+look in the current folder for this file.
+
+493
+00:04:52,350 --> 00:04:57,350
+If we switch up our working directory and let's say we are now working from the
+
+494
+00:04:58,350 --> 00:05:02,820
+work folder, how do we get to this talk.ppt? Well,
+
+495
+00:05:02,850 --> 00:05:05,820
+the absolute file path would not change for this file,
+
+496
+00:05:06,150 --> 00:05:11,150
+but the relative file path would now be ./project/talk.ppt.
+
+497
+00:05:13,530 --> 00:05:17,310
+So we're walking from here to here to here.
+
+498
+00:05:18,030 --> 00:05:22,260
+Now, what if we wanted to go upwards in the directory tree?
+
+499
+00:05:22,620 --> 00:05:26,220
+Let's say we wanted to get a hold of this report.doc,
+
+500
+00:05:26,520 --> 00:05:31,200
+but we all currently working inside this project folder.
+
+501
+00:05:31,500 --> 00:05:36,360
+How do we go one step up? Well, we would right ..,
+
+502
+00:05:36,420 --> 00:05:40,620
+so two dots now, /report.doc.
+
+503
+00:05:40,860 --> 00:05:45,600
+So we're inside this project folder, we're coming out of it to the parent folder
+
+504
+00:05:45,600 --> 00:05:49,800
+which is the work folder, and then we're getting hold of this file.
+
+505
+00:05:50,130 --> 00:05:55,130
+So that two dots represents going one step up in the hierarchy to the parent
+
+506
+00:05:56,160 --> 00:05:58,700
+folder, which this case is the work folder.
+
+507
+00:05:59,480 --> 00:06:04,480
+Now what we've been doing is we've been writing code inside our main.py.
+
+508
+00:06:05,360 --> 00:06:10,250
+And that main.py has usually been inside some sort of project folder. When
+
+509
+00:06:10,250 --> 00:06:14,780
+we're trying to get hold of a file this is basically where we are at.
+
+510
+00:06:14,810 --> 00:06:18,260
+So our working directory is the work folder.
+
+511
+00:06:18,980 --> 00:06:23,980
+So that means if we wanted to get access to this report.doc file from our
+
+512
+00:06:24,590 --> 00:06:25,580
+main.py,
+
+513
+00:06:25,910 --> 00:06:30,910
+all we need to do is write ./report.doc because we're working within
+
+514
+00:06:32,240 --> 00:06:36,230
+the same directory and we're just getting hold of this file.
+
+515
+00:06:36,860 --> 00:06:41,510
+Now, when you're using relative file path, you can use this ./
+
+516
+00:06:41,750 --> 00:06:44,870
+but you can also shorten it and get rid of it as well.
+
+517
+00:06:45,560 --> 00:06:50,560
+This is why we've been able to open this my_file.txt
+
+518
+00:06:50,930 --> 00:06:55,930
+which is in the same folder as my main.py and notice how these two files are at
+
+519
+00:06:57,710 --> 00:07:02,060
+the same hierarchical level. So let's do a quick challenge.
+
+520
+00:07:02,090 --> 00:07:06,050
+I'm going to delete the part where we write to the file and I'm going to change
+
+521
+00:07:06,050 --> 00:07:06,560
+my file
+
+522
+00:07:06,560 --> 00:07:11,560
+so it just has one sentence and I'm going to locate this file by using 'Reveal in
+
+523
+00:07:14,120 --> 00:07:17,990
+Finder' and on Windows that would be right-
+
+524
+00:07:17,990 --> 00:07:20,390
+click and Show in Explorer.
+
+525
+00:07:21,350 --> 00:07:26,350
+And it would show you the location of that file in your computer system.
+
+526
+00:07:27,740 --> 00:07:32,090
+Now, what we're going to do is we're going to move this file to the desktop.
+
+527
+00:07:32,380 --> 00:07:33,213
+Right?
+
+528
+00:07:37,330 --> 00:07:41,320
+And what I want you to do is I want you to go to the desktop, right-
+
+529
+00:07:41,320 --> 00:07:45,820
+click on that file. And if you want a Mac, I want you to click on get info.
+
+530
+00:07:46,360 --> 00:07:47,710
+And if you are on a Windows,
+
+531
+00:07:47,740 --> 00:07:51,400
+I want you to right-click and go to properties.
+
+532
+00:07:52,000 --> 00:07:55,510
+Now what you're looking for is this location here.
+
+533
+00:07:56,350 --> 00:07:58,930
+Now you can see that this current file,
+
+534
+00:07:58,960 --> 00:08:03,340
+new_file, is located under the root folder,
+
+535
+00:08:03,370 --> 00:08:08,370
+which in this case is the C:\Users\London
+
+536
+00:08:09,220 --> 00:08:14,220
+AppBrewery\Desktop\new_file.txt. On a Mac
+
+537
+00:08:15,640 --> 00:08:18,880
+you can see that it's located under the root folder,
+
+538
+00:08:18,910 --> 00:08:23,910
+which is Macintosh HD slash users slash Angela slash desktop slash my_file.
+
+539
+00:08:26,290 --> 00:08:29,470
+txt. Here comes your challenge.
+
+540
+00:08:29,590 --> 00:08:33,010
+Now that we've moved our file away from our project,
+
+541
+00:08:33,490 --> 00:08:37,120
+I want you to fix this code so that when you run it,
+
+542
+00:08:37,299 --> 00:08:42,299
+it won't give you this file not found error because at the moment there is no my_
+
+543
+00:08:43,419 --> 00:08:48,220
+file.txt in the same working directory as our main.py.
+
+544
+00:08:48,280 --> 00:08:50,350
+It doesn't exist inside this folder.
+
+545
+00:08:51,010 --> 00:08:55,620
+Have a think about what you've learned so far and see if you can change this
+
+546
+00:08:55,620 --> 00:08:58,740
+path so that our code works again.
+
+547
+00:08:59,310 --> 00:09:00,990
+And it's the same on Windows.
+
+548
+00:09:01,380 --> 00:09:05,760
+Use the location of the file on your computer and use the absolute path in the
+
+549
+00:09:05,760 --> 00:09:08,430
+code to get it to work. Pause the video now.
+
+550
+00:09:08,630 --> 00:09:09,463
+Okay
+
+551
+00:09:12,020 --> 00:09:16,250
+All right. Here's how you would use the absolute path. So we know that our,
+
+552
+00:09:16,280 --> 00:09:21,280
+my_file.txt is located in the root folder and then it's
+
+553
+00:09:21,470 --> 00:09:25,670
+users, angela, desktop. So let's go ahead and change this string.
+
+554
+00:09:25,700 --> 00:09:29,750
+Let's start at the root and then let's add the next folder,
+
+555
+00:09:29,780 --> 00:09:31,640
+which is users.
+
+556
+00:09:32,180 --> 00:09:36,200
+And then let's add another slash and then we go to the next folder,
+
+557
+00:09:36,230 --> 00:09:41,090
+which is Angela. Now of course, this will be different for you,
+
+558
+00:09:41,630 --> 00:09:46,630
+but finally we go to our desktop and then we can get to our,
+
+559
+00:09:48,320 --> 00:09:49,670
+my_file.txt.
+
+560
+00:09:49,940 --> 00:09:53,420
+So this is the full path to get to this file.
+
+561
+00:09:53,930 --> 00:09:58,370
+So now if I run this code again, you can see it's able to read the file,
+
+562
+00:09:58,370 --> 00:10:02,090
+there is no errors, and it's getting hold of the contents of the file.
+
+563
+00:10:02,810 --> 00:10:05,480
+Now on Windows, it's a similar story.
+
+564
+00:10:05,720 --> 00:10:08,930
+So we know that the location of the file is root,
+
+565
+00:10:09,320 --> 00:10:12,650
+then users, then LondonAppBrewery, then desktop. Again,
+
+566
+00:10:12,710 --> 00:10:15,980
+this of course will be different for you depending on your username,
+
+567
+00:10:16,280 --> 00:10:18,260
+but you should see it in your location
+
+568
+00:10:18,290 --> 00:10:22,100
+when you take a look at the file properties. So let's change this.
+
+569
+00:10:22,280 --> 00:10:25,040
+Let's start out at the root, which is the C drive,
+
+570
+00:10:25,550 --> 00:10:27,770
+and then let's go to users.
+
+571
+00:10:30,590 --> 00:10:34,670
+And then we go to our username which is LondonAppBrewery
+
+572
+00:10:34,880 --> 00:10:35,713
+,
+
+573
+00:10:38,690 --> 00:10:43,690
+and then we go to our desktop and that is where it should find this new_file.
+
+574
+00:10:45,410 --> 00:10:48,140
+txt. So now when I hit run,
+
+575
+00:10:48,200 --> 00:10:53,200
+you can see that it's able to fetch that file and print the content without any
+
+576
+00:10:54,170 --> 00:10:55,760
+errors. Now,
+
+577
+00:10:55,760 --> 00:11:00,760
+one of the peculiarities about file paths in Windows and Mac is that in a Mac,
+
+578
+00:11:02,780 --> 00:11:03,740
+the path,
+
+579
+00:11:03,890 --> 00:11:08,390
+each of the folders are separated by a / whereas on Windows,
+
+580
+00:11:08,420 --> 00:11:12,710
+they're separated by a \. But as you've noticed,
+
+581
+00:11:12,770 --> 00:11:16,070
+when we're writing Python code, we don't care about that.
+
+582
+00:11:16,100 --> 00:11:21,100
+We can just write it as / and making sure that we have the root,
+
+583
+00:11:21,350 --> 00:11:25,010
+which represents the C drive, so this entire part,
+
+584
+00:11:25,430 --> 00:11:29,150
+and then we have our folder, the next folder, the next folder,
+
+585
+00:11:29,150 --> 00:11:33,650
+the next folder, et cetera. So now comes the next challenge.
+
+586
+00:11:34,110 --> 00:11:38,570
+You can see that this path follows from the root folder,
+
+587
+00:11:38,570 --> 00:11:41,810
+which is the C drive and on the Mac,
+
+588
+00:11:42,050 --> 00:11:44,420
+it's also from the Macintosh HD.
+
+589
+00:11:44,840 --> 00:11:49,840
+So what if we wanted to change this so that it's relative to our current main
+
+590
+00:11:50,570 --> 00:11:52,790
+.py? Our main.py
+
+591
+00:11:53,350 --> 00:11:55,960
+if we go to 'Show in Explorer',
+
+592
+00:11:56,290 --> 00:12:01,030
+you can see that the path for this file is the following.
+
+593
+00:12:01,120 --> 00:12:01,720
+It's under
+
+594
+00:12:01,720 --> 00:12:06,720
+Users/LondonAppBrewery/PyCharmProjects/WindowsDemo.
+
+595
+00:12:07,780 --> 00:12:12,280
+So that's the name of my project. And then afterwards,
+
+596
+00:12:12,340 --> 00:12:17,050
+it's my main.py. So this is a bit of a tricky question.
+
+597
+00:12:17,470 --> 00:12:22,470
+Given that this file is inside this current folder or whatever it is that you
+
+598
+00:12:23,170 --> 00:12:26,290
+have as your folder which contains this file,
+
+599
+00:12:26,890 --> 00:12:31,890
+how can you get it to use a relative file path so that it jumps back two folders
+
+600
+00:12:33,790 --> 00:12:38,790
+to the LondonAppBrewery folder and then goes to Desktop and then to new file?
+
+601
+00:12:40,150 --> 00:12:44,590
+On our Mac, it's a similar story. So we go to 'Reveal in Finder'.
+
+602
+00:12:44,620 --> 00:12:47,260
+We can see this is where we are currently.
+
+603
+00:12:47,530 --> 00:12:52,530
+So our current working directory is this day-24 project folder.
+
+604
+00:12:53,080 --> 00:12:57,040
+So if we go one level up and the shortcut is command + up,
+
+605
+00:12:57,370 --> 00:13:02,260
+we go to our day-24 folder. So this is our working directory.
+
+606
+00:13:02,740 --> 00:13:04,810
+Now, if we want to go up one level,
+
+607
+00:13:04,810 --> 00:13:08,620
+we can go to go, and then go to including folder,
+
+608
+00:13:08,860 --> 00:13:11,800
+so one level up that gets us to PyCharm projects.
+
+609
+00:13:12,160 --> 00:13:16,690
+And then if we go one level up further, we get to our Angela folder
+
+610
+00:13:17,080 --> 00:13:21,760
+at which point we can then navigate downwards to Desktop/my_file.txt.
+
+611
+00:13:22,450 --> 00:13:23,770
+This is your challenge.
+
+612
+00:13:23,980 --> 00:13:28,120
+Figure out what the relative path to the text file on your desktop should be
+
+613
+00:13:28,390 --> 00:13:31,600
+then modify the code and get it to work. Pause the video now.
+
+614
+00:13:34,600 --> 00:13:39,460
+The way that we would modify this is in order to get to this Angela folder where
+
+615
+00:13:39,460 --> 00:13:42,940
+we can continue to our Desktop and then to my file,
+
+616
+00:13:43,240 --> 00:13:45,130
+we have to go up two levels.
+
+617
+00:13:45,190 --> 00:13:48,850
+So that translates to ../../
+
+618
+00:13:48,940 --> 00:13:50,770
+and now we're inside the Angela folder.
+
+619
+00:13:50,950 --> 00:13:55,750
+So we can start going down. And PyCharm is smart enough to know what your
+
+620
+00:13:55,780 --> 00:13:57,220
+folder structure looks like.
+
+621
+00:13:57,520 --> 00:14:01,960
+So it will start giving you hints as to what folders are accessible at this
+
+622
+00:14:01,960 --> 00:14:02,793
+level.
+
+623
+00:14:02,890 --> 00:14:07,420
+So I can get to Desktop and then I can get to my_file.txt.
+
+624
+00:14:07,840 --> 00:14:10,060
+And if I go ahead and run my code,
+
+625
+00:14:10,150 --> 00:14:15,070
+you can see it's able to read and print the content of that file.
+
+626
+00:14:15,940 --> 00:14:20,650
+The main difference between an absolute file path and a relative file path is
+
+627
+00:14:20,650 --> 00:14:25,650
+the absolute file path is always relative to the root of your computer. On
+
+628
+00:14:26,710 --> 00:14:29,740
+Windows that's the C drive, usually anyways
+
+629
+00:14:29,740 --> 00:14:32,290
+unless you've changed it. And on a Mac,
+
+630
+00:14:32,380 --> 00:14:34,780
+it is the Macintosh HD.
+
+631
+00:14:35,620 --> 00:14:40,210
+Now the relative file path is relative to your current working directory.
+
+632
+00:14:40,210 --> 00:14:44,380
+So it depends on where you are and where you're trying to get to. Now,
+
+633
+00:14:44,410 --> 00:14:49,360
+depending on the situation and where that file you are interested in is located,
+
+634
+00:14:49,630 --> 00:14:53,870
+you might decide to use the absolute file path or the relative file path.
+
+635
+00:14:54,550 --> 00:14:56,200
+And you can see that in this case
+
+636
+00:14:56,200 --> 00:15:01,200
+it's not necessarily that much shorter or that much more easier to understand.
+
+637
+00:15:01,840 --> 00:15:04,090
+So if you know how to do both,
+
+638
+00:15:04,480 --> 00:15:08,050
+then you can adapt to the situation and figure out which one is most
+
+639
+00:15:08,050 --> 00:15:12,130
+appropriate. Now I know that paths can be confusing.
+
+640
+00:15:12,430 --> 00:15:16,330
+So that's why I've come up with a whole bunch of quiz exercises for you in the
+
+641
+00:15:16,330 --> 00:15:20,530
+next lesson for you to get more the practice with file paths so that you can
+
+642
+00:15:20,530 --> 00:15:22,540
+feel confident leaving this lesson.
+
+643
+00:15:23,110 --> 00:15:26,140
+So for all of that and more, I'll see you on the next lesson.
+
+
+644
+00:00:00,180 --> 00:00:05,550
+All right, guys, it's time to put what you've learned to the test. Now in this project, we're going
+
+645
+00:00:05,550 --> 00:00:08,220
+to be doing a little bit of mail merging.
+
+646
+00:00:08,550 --> 00:00:12,630
+So mail merging is where you take something like what
+
+647
+00:00:12,630 --> 00:00:20,210
+we have a list of names, for example, and we want to insert each of these names into a letter.
+
+648
+00:00:20,490 --> 00:00:26,040
+So instead of saying dear [name], you are invited to my birthday the Saturday, it should say dear
+
+649
+00:00:26,040 --> 00:00:29,240
+and then it would replace that with whatever is here.
+
+650
+00:00:29,580 --> 00:00:31,710
+Take a look at this example file.
+
+651
+00:00:32,040 --> 00:00:38,070
+You can see that it replaced the name placeholder with the first name in the invited_names.txt
+
+652
+00:00:38,070 --> 00:00:38,550
+file.
+
+653
+00:00:39,060 --> 00:00:42,930
+Your objective is to write some python code to automate the process.
+
+654
+00:00:43,950 --> 00:00:50,940
+So what you're going to end up with is a bunch of letters, one for each of the names inside the invited_
+
+655
+00:00:50,940 --> 00:00:58,590
+names.txt and the letters are going to be named like this: letter_for_ and
+
+656
+00:00:58,590 --> 00:01:00,120
+then the name of the person.
+
+657
+00:01:00,360 --> 00:01:07,770
+And they're going to be saved in a txt format, which you can open either in Google Docs or in Microsoft
+
+658
+00:01:07,770 --> 00:01:08,190
+Word.
+
+659
+00:01:08,670 --> 00:01:10,950
+And it's basically ready for printing.
+
+660
+00:01:11,530 --> 00:01:16,770
+So I've made it a little bit harder for you by adding in a whole bunch of folders.
+
+661
+00:01:16,980 --> 00:01:21,330
+And each of these files are nested inside a bunch of folders.
+
+662
+00:01:21,330 --> 00:01:25,230
+So, for example, starting letter is inside letters, which is inside input.
+
+663
+00:01:25,770 --> 00:01:31,500
+And then the letters that you're going to generate are going to need to go into this folder called Ready
+
+664
+00:01:31,500 --> 00:01:35,430
+ToSend, which is inside output. And no cheating.
+
+665
+00:01:35,430 --> 00:01:38,010
+I don't want you moving around any of these files.
+
+666
+00:01:38,160 --> 00:01:44,730
+You're going to be using what you've learned about directories and file paths to do everything without
+
+667
+00:01:44,730 --> 00:01:47,850
+needing to drag and drop or move anything around manually.
+
+668
+00:01:48,750 --> 00:01:50,340
+I've got some starting files for you.
+
+669
+00:01:50,430 --> 00:01:56,520
+So the first thing I want you to do is to go to the course resources and download the zip file, which
+
+670
+00:01:56,520 --> 00:01:58,140
+will be your starting project code.
+
+671
+00:01:58,740 --> 00:02:05,130
+Once you open it within PyCharm, it's going to ask you to configure the interpreter. So you can either
+
+672
+00:02:05,130 --> 00:02:10,229
+go ahead and click on that pop-up, or if it disappears, then just click on the event log and then click
+
+673
+00:02:10,229 --> 00:02:15,330
+on Configure Python Interpreter and then select the latest interpreter that you have installed.
+
+674
+00:02:15,660 --> 00:02:19,200
+So in my case, it's 3.8, but by the time you're watching this, it'll probably be 
+
+675
+00:02:19,200 --> 00:02:21,120
+3.9 or even later.
+
+676
+00:02:21,660 --> 00:02:27,290
+And once that's done, then you can go ahead and have a look inside main.py.
+
+677
+00:02:27,840 --> 00:02:30,030
+So here I've got some instructions for you.
+
+678
+00:02:30,540 --> 00:02:36,750
+First, you're going to create a letter using the starting_letter.txt, which is right here
+
+679
+00:02:36,750 --> 00:02:43,130
+nested two folders deep, and then you're going to use each of the names inside invited_names.
+
+680
+00:02:43,140 --> 00:02:52,320
+txt to replace the part where it says name with the actual names that you see in invited_names.txt.
+
+681
+00:02:53,190 --> 00:02:58,200
+And then you're going to save each of those letters that you've generated inside the folder ReadyTo
+
+682
+00:02:58,200 --> 00:02:58,620
+Send.
+
+683
+00:02:59,310 --> 00:03:05,250
+And you can take a look at the example if you want to see what the final outcome looks like.
+
+684
+00:03:05,260 --> 00:03:10,030
+So it's going to be the name without any spaces afterwards, just a comma.
+
+685
+00:03:10,770 --> 00:03:14,850
+Now there's going to be a few things that will trip you up along the way.
+
+686
+00:03:15,000 --> 00:03:21,240
+And I'm hoping that you're going to use your knowledge about how to get help from Google and Stack overflow,
+
+687
+00:03:21,600 --> 00:03:24,690
+as well as some of these hints that I've left in here for you.
+
+688
+00:03:25,260 --> 00:03:32,520
+So the hints take you to three pages of Python documentation, and they're chosen because the methods
+
+689
+00:03:32,550 --> 00:03:36,200
+that are featured in them will definitely help you in this project.
+
+690
+00:03:36,450 --> 00:03:41,670
+In fact, some of the things that you're going to try to do won't be possible unless you take a look
+
+691
+00:03:41,670 --> 00:03:46,920
+at each of these pages of documentation, read through it, and understand what the methods do.
+
+692
+00:03:47,520 --> 00:03:53,490
+Now, as always, with a lot of tutorials, it's impossible to teach you every single method.
+
+693
+00:03:53,490 --> 00:03:58,800
+And it would be really, really tedious if I just went through all of the methods that are available in Python
+
+694
+00:03:59,070 --> 00:04:01,050
+and showed them to you individually.
+
+695
+00:04:01,530 --> 00:04:08,190
+So instead, you have to work just as a pro developer does which is to find out information when you
+
+696
+00:04:08,190 --> 00:04:14,940
+need it and to quickly understand what's happening and how to use the information you found on the fly.
+
+697
+00:04:15,480 --> 00:04:21,750
+Don't worry if you haven't seen me use these methods before. You will get more practice by using
+
+698
+00:04:21,750 --> 00:04:27,200
+the documentation, figuring things out yourself, and implementing things that you haven't seen before.
+
+699
+00:04:28,080 --> 00:04:35,490
+Once you're ready, go ahead and take a look at each of these links, see what each of the methods I've
+
+700
+00:04:35,490 --> 00:04:40,830
+linked to does, and then go ahead and try to tackle this challenge.
+
+701
+00:04:41,250 --> 00:04:44,100
+So pause the video and I'll see you on the other side.
+
+
+702
+00:00:00,210 --> 00:00:05,890
+I hope you've given that a good go and now I'm going to run through the solution with you. Here,
+
+703
+00:00:05,910 --> 00:00:12,660
+I've got those three links open and they're all documentation on W3schools for different methods
+
+704
+00:00:12,660 --> 00:00:13,470
+in Python.
+
+705
+00:00:13,980 --> 00:00:17,010
+The first one is a method called readlines.
+
+706
+00:00:17,340 --> 00:00:19,050
+It's really important that you have that
+
+707
+00:00:19,050 --> 00:00:23,250
+'s' because there's also another method called readline, the singular form.
+
+708
+00:00:23,760 --> 00:00:31,770
+What readlines does is it returns all the lines in the file as a list where each line is an item in
+
+709
+00:00:31,770 --> 00:00:32,700
+the list object.
+
+710
+00:00:33,150 --> 00:00:40,680
+For example, we can run this example and you can see that inside this demo file, readlines, there's
+
+711
+00:00:40,680 --> 00:00:49,800
+several lines in that file, and each line after running this method, gets added as a item inside a list
+
+712
+00:00:50,190 --> 00:00:51,210
+like this.
+
+713
+00:00:52,170 --> 00:00:57,450
+Now, the next method I showed you is the python string replace method.
+
+714
+00:00:58,050 --> 00:01:04,080
+And what this method does is it will replace a specified phrase with another specified phrase.
+
+715
+00:01:04,500 --> 00:01:10,410
+If the starting text was 'I like bananas' and you do txt.replace, you can replace the part where
+
+716
+00:01:10,410 --> 00:01:12,180
+it says bananas with apples.
+
+717
+00:01:12,480 --> 00:01:18,150
+And when you print, you can see the end outcome changes that text to I like apples.
+
+718
+00:01:18,930 --> 00:01:23,430
+Now, the final method that I showed you is the string strip method.
+
+719
+00:01:23,760 --> 00:01:29,720
+And what this does is it will remove the spaces at the beginning and at the end of the string.
+
+720
+00:01:30,030 --> 00:01:35,340
+So if our starting text has a lot of whitespace at the beginning and the end, and then we do txt.
+
+721
+00:01:35,490 --> 00:01:41,440
+strip, it'll get rid of all of that extra space and it ends up with just the word.
+
+722
+00:01:41,940 --> 00:01:45,360
+Now, if you have a space in between, another word
+
+723
+00:01:47,850 --> 00:01:54,420
+like this, if we hit run, then you can see that it keeps the space in between the words, but it gets
+
+724
+00:01:54,420 --> 00:01:59,280
+rid of any spaces on either side, which is really, really handy.
+
+725
+00:01:59,730 --> 00:02:03,370
+And you're going to see hopefully why it's really, really useful.
+
+726
+00:02:03,960 --> 00:02:10,710
+So now that we've reviewed these three methods that we haven't seen before, and normally you would probably
+
+727
+00:02:10,710 --> 00:02:14,670
+find these when you actually get stuck and when you're searching Stack Overflow.
+
+728
+00:02:15,480 --> 00:02:22,150
+But now that you're aware of those methods, let's go ahead and create a letter using our starting letter.
+
+729
+00:02:22,440 --> 00:02:25,170
+So I'm going to go ahead and delete everything in here.
+
+730
+00:02:25,560 --> 00:02:28,880
+And now let's go ahead and tackle this challenge.
+
+731
+00:02:29,220 --> 00:02:33,720
+So the first thing I want to do is to get hold of all of the invited names
+
+732
+00:02:33,930 --> 00:02:36,780
+and I want to turn them into a list. Now
+
+733
+00:02:36,780 --> 00:02:43,590
+I can, of course, rather tediously go and add some square brackets, add some quotation marks around
+
+734
+00:02:43,590 --> 00:02:46,400
+it, and then add it into my main.py.
+
+735
+00:02:46,830 --> 00:02:48,120
+But I don't want to do that.
+
+736
+00:02:48,460 --> 00:02:51,320
+Instead, I'm going to get Python to read the file.
+
+737
+00:02:51,690 --> 00:02:57,210
+So using our classic syntax with open, I'm going to open up that file.
+
+738
+00:02:57,690 --> 00:03:03,870
+But in order to open it up, I need to specify a string which is going to be the path that leads me
+
+739
+00:03:04,020 --> 00:03:06,160
+from here to here.
+
+740
+00:03:06,660 --> 00:03:08,880
+So let's think about how we might get there.
+
+741
+00:03:09,210 --> 00:03:16,350
+Now, this input output folder is on the same hierarchical level as our current file where we're writing
+
+742
+00:03:16,350 --> 00:03:16,980
+our code.
+
+743
+00:03:17,550 --> 00:03:24,240
+If we want to use a relative file path, we can simply say go into the current folder which is mail-
+
+744
+00:03:24,240 --> 00:03:28,410
+merge-project-start and then find a folder called Input.
+
+745
+00:03:29,730 --> 00:03:31,700
+Inside this folder called Input,
+
+746
+00:03:31,740 --> 00:03:35,430
+we're going to go to another folder called Names.
+
+747
+00:03:36,120 --> 00:03:41,640
+And then inside that folder of names, we're going to get a hold of that file called invited_names
+
+748
+00:03:41,640 --> 00:03:42,360
+.txt.
+
+749
+00:03:42,780 --> 00:03:46,980
+And PyCharm is super clever and it helps you out with a lot of typing.
+
+750
+00:03:47,250 --> 00:03:48,810
+So it saves you some time as well.
+
+751
+00:03:49,380 --> 00:03:52,260
+And then I'm going to save it as names_file.
+
+752
+00:03:53,390 --> 00:03:55,350
+Now that I've got this file open
+
+753
+00:03:55,350 --> 00:03:57,800
+I'm going to go ahead and read it.
+
+754
+00:03:57,810 --> 00:04:05,520
+So names_file.read. And once I've read it, I'm going to save it to a variable called names and
+
+755
+00:04:05,520 --> 00:04:07,410
+then I'm going to print out my names.
+
+756
+00:04:08,010 --> 00:04:15,960
+So now if I go ahead and hit run my main.py, you can see that it prints out all of these names individually
+
+757
+00:04:16,200 --> 00:04:19,690
+because it's getting hold of everything that's in here and just printing it out.
+
+758
+00:04:20,370 --> 00:04:25,650
+Now, at this point, I would really like these names to be in the format of a list.
+
+759
+00:04:25,980 --> 00:04:32,400
+So if you remember, that's where this readlines method is going to be really helpful because it returns
+
+760
+00:04:32,400 --> 00:04:36,290
+a list containing each line inside the file as a list item.
+
+761
+00:04:37,380 --> 00:04:42,330
+Now, instead of saying names_file.read, let's replace that with readlines.
+
+762
+00:04:43,080 --> 00:04:50,760
+Now, when I hit run, you can see it prints out names, and names is now magically turned into a list.
+
+763
+00:04:51,180 --> 00:04:59,340
+So now that we have our list of names which we've extracted from our invited_names.txt, then
+
+764
+00:04:59,340 --> 00:05:06,480
+we can go ahead and proceed to the next step where we're going to replace this placeholder in our starting
+
+765
+00:05:06,480 --> 00:05:09,160
+letter with each of these names.
+
+766
+00:05:09,690 --> 00:05:15,840
+Let's go ahead and create a constant at the top which I'll call PLACEHOLDER, and I'm going to set
+
+767
+00:05:15,840 --> 00:05:23,790
+it as the string which is the square brackets and then the word name because this is the string
+
+768
+00:05:23,790 --> 00:05:27,200
+that we want to replace from our starting letter.
+
+769
+00:05:27,900 --> 00:05:31,300
+The next step is to open up our starting letter.
+
+770
+00:05:31,320 --> 00:05:35,400
+So again, I'm going to use open and then I'm going to specify the path.
+
+771
+00:05:35,680 --> 00:05:40,820
+So from here, I'm going to go into the folder that's at the same level as this file,
+
+772
+00:05:41,160 --> 00:05:48,510
+so using the ./ and then I'm going to go into input again and then I'm going to go into instead
+
+773
+00:05:48,510 --> 00:05:50,340
+of names, I'm going to go to letters.
+
+774
+00:05:52,320 --> 00:06:00,210
+And I'm going to get hold of my starting letter and I'm going to open this as the letter_file. With the
+
+775
+00:06:00,210 --> 00:06:00,970
+letter_file
+
+776
+00:06:00,990 --> 00:06:08,430
+I'm simply just going to get a hold of the letter_contents by saying letter_file.read.
+
+777
+00:06:08,580 --> 00:06:14,640
+And this is going to be a normal read because I want all of the content inside that letter and it's
+
+778
+00:06:14,640 --> 00:06:18,390
+now going to be saved as a string inside my letter_contents.
+
+779
+00:06:19,290 --> 00:06:27,120
+The next step is to go through the letter contents and replace that placeholder with the actual name
+
+780
+00:06:27,120 --> 00:06:28,590
+that we've got in our list.
+
+781
+00:06:29,130 --> 00:06:35,940
+To do that we'll need the second method that I showed you which is the replace method. So we can get
+
+782
+00:06:35,940 --> 00:06:38,640
+hold of the text call, replace,
+
+783
+00:06:38,880 --> 00:06:44,310
+and then the output of this method will be a new string which has modified
+
+784
+00:06:44,310 --> 00:06:52,620
+this tex. I in our case we'll need a loop. So we can say for name in our list of names, let's go through
+
+785
+00:06:52,620 --> 00:07:00,390
+each of the names in that list and then let's get the letter_contents and replace the placeholder,
+
+786
+00:07:00,390 --> 00:07:05,400
+so the old string, with a new string which is going to be the name.
+
+787
+00:07:06,120 --> 00:07:11,130
+And once we've replaced it, then we're going to save it into a new_letter.
+
+788
+00:07:12,610 --> 00:07:18,220
+Now that we have our new letter, let's go ahead and print it out and see what it looks like.
+
+789
+00:07:21,520 --> 00:07:27,460
+So you can see all the contents of each of the letters being printed, but other than the very last
+
+790
+00:07:27,460 --> 00:07:33,550
+letter that looks pretty normal, every other letter has a new line after the name.
+
+791
+00:07:34,120 --> 00:07:40,630
+So remember when we printed out each of these names, you can see that after each of the names that
+
+792
+00:07:40,630 --> 00:07:46,930
+they've extracted from this list of invited names, there's a new line that's being added,
+
+793
+00:07:47,140 --> 00:07:49,440
+and you can see that with this \n.
+
+794
+00:07:49,450 --> 00:07:53,950
+The only one that doesn't have a new line is the very last one.
+
+795
+00:07:54,670 --> 00:08:00,200
+What we need to do is to strip the new line. Does that remind you of something?
+
+796
+00:08:00,220 --> 00:08:06,550
+Well, we have a method that we saw called strip which can take away any of the spaces at the beginning
+
+797
+00:08:06,550 --> 00:08:07,870
+and at the end of the string.
+
+798
+00:08:08,350 --> 00:08:14,980
+And then we can end up with an output which is the string without any of those leading and trailing
+
+799
+00:08:14,980 --> 00:08:15,580
+spaces.
+
+800
+00:08:16,300 --> 00:08:21,370
+We're going to loop through each of the names and then we're going to take the name and we're going
+
+801
+00:08:21,370 --> 00:08:23,830
+to call strip on each of those names.
+
+802
+00:08:24,250 --> 00:08:28,420
+And then we can save it to a variable called stripped_name.
+
+803
+00:08:29,800 --> 00:08:33,580
+And now we can use that stripped_name instead of the name.
+
+804
+00:08:34,780 --> 00:08:39,370
+Now if I go ahead and print out our new_letter,
+
+805
+00:08:41,820 --> 00:08:48,390
+you can see that each of the letters look exactly like how we want them to be. All we need to do now
+
+806
+00:08:48,420 --> 00:08:53,650
+is to write them into a new file. In previous lessons
+
+807
+00:08:53,670 --> 00:09:01,290
+I mentioned that when you open a file that doesn't exist, Python will actually create that file for
+
+808
+00:09:01,290 --> 00:09:01,580
+you.
+
+809
+00:09:02,190 --> 00:09:09,180
+Again, using our with open, I'm going to navigate to this ReadyToSend folder. Going from where we
+
+810
+00:09:09,180 --> 00:09:10,390
+are in main.py,
+
+811
+00:09:10,440 --> 00:09:15,950
+we're going to go to the output folder and then we're going to go to the ReadyToSend folder.
+
+812
+00:09:16,380 --> 00:09:21,430
+And then inside the ReadyToSend folder is where we're going to create our new file.
+
+813
+00:09:21,960 --> 00:09:27,150
+So let's think about what we want our file name to look like. In the intro I showed you
+
+814
+00:09:27,150 --> 00:09:33,400
+this is the format for each of the files; letter_for_Aang.txt.
+
+815
+00:09:33,540 --> 00:09:36,270
+And then this part is replaced by each of the names.
+
+816
+00:09:36,930 --> 00:09:45,620
+So let's write that letter_for_ the name and then .txt.
+
+817
+00:09:45,990 --> 00:09:50,600
+We can use an fstring to replace this part with the stripped_name.
+
+818
+00:09:51,030 --> 00:09:57,240
+So now we should be creating a new letter for each of the names in our list of names.
+
+819
+00:09:57,930 --> 00:10:03,090
+So now let's refer to this file as the completed_letter.
+
+820
+00:10:05,100 --> 00:10:10,500
+What we want to do with this completed_letter, which at the moment is blank, is we want to write to
+
+821
+00:10:10,500 --> 00:10:10,640
+it.
+
+822
+00:10:11,070 --> 00:10:18,150
+So to do that, we have to change the open mode from default which is 'r' for read to 'w' for
+
+823
+00:10:18,150 --> 00:10:18,610
+write.
+
+824
+00:10:19,110 --> 00:10:24,150
+And this will allow us to get our completed letter and write to it.
+
+825
+00:10:24,690 --> 00:10:25,980
+What do we want to write in there?
+
+826
+00:10:26,010 --> 00:10:30,120
+Well, we want to write the new letter that we've created, of course.
+
+827
+00:10:31,780 --> 00:10:40,300
+That's pretty much the end of our code, and all we have to do is to go ahead and hit run. And once I
+
+828
+00:10:40,300 --> 00:10:45,460
+hit run, you can see there's a whole bunch of letters that have been generated over here,
+
+829
+00:10:45,740 --> 00:10:51,610
+and if I click on each of them, you can see that the name placeholder has now been replaced
+
+830
+00:10:51,880 --> 00:10:56,050
+and I'm now ready to go to the printers and print all of these out.
+
+831
+00:10:57,160 --> 00:11:01,570
+So did you manage to figure out how to complete this project?
+
+832
+00:11:02,080 --> 00:11:08,050
+If not, be sure to review the relevant parts of the lessons today so that you're really confident with
+
+833
+00:11:08,050 --> 00:11:11,080
+what's going on and you understand all of this code.
+
+834
+00:11:11,920 --> 00:11:16,990
+If you want to take a look at the completed solution, then head over to the course resources and you'll
+
+835
+00:11:16,990 --> 00:11:22,810
+find a link to the final project code which actually works even within repl.it.
+
+836
+00:11:22,810 --> 00:11:26,940
+So you can delete all of these files and you can see it generate them from scratch.
+
+

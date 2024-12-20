@@ -1,0 +1,2507 @@
+1
+00:00:00,570 --> 00:00:04,110
+Hey, it's Angela here. Congratulations on making it through the
+
+2
+00:00:04,190 --> 00:00:08,870
+first 10 days. Today, I've got something very special lined up for you,
+
+3
+00:00:09,380 --> 00:00:13,100
+our first capstone project. Today
+
+4
+00:00:13,140 --> 00:00:17,750
+we'll challenge you to apply everything you've learned so far into one big
+
+5
+00:00:17,780 --> 00:00:18,613
+project.
+
+6
+00:00:18,770 --> 00:00:22,670
+You're going to need to dig deep and apply all your Python skills for this
+
+7
+00:00:22,670 --> 00:00:25,130
+capstone project. But by the end of the day,
+
+8
+00:00:25,160 --> 00:00:28,040
+you'll have built an awesome blackjack game to enjoy.
+
+9
+00:00:28,850 --> 00:00:31,610
+This is probably going to be one of the hardest things you'll build yet,
+
+10
+00:00:31,880 --> 00:00:36,140
+but at the same time, the end result is also going to be the most fun.
+
+11
+00:00:37,010 --> 00:00:40,130
+The final project you're going to be building is blackjack.
+
+12
+00:00:40,640 --> 00:00:42,530
+And if you had over to
+
+13
+00:00:42,530 --> 00:00:47,530
+247blackjack.com or search for any other free online blackjack game,
+
+14
+00:00:48,380 --> 00:00:53,380
+you can hit play and you can click deal for the dealer to give you some cards.
+
+15
+00:00:54,140 --> 00:00:56,150
+The game is really simple. Essentially
+
+16
+00:00:56,150 --> 00:01:01,150
+you're trying to get as close to 21 as possible and all of the cards which have
+
+17
+00:01:02,060 --> 00:01:05,720
+a Jack, a Queen, or a King count as 10.
+
+18
+00:01:05,930 --> 00:01:10,130
+So you're adding these two cards up 5 + 10 equals 15.
+
+19
+00:01:10,520 --> 00:01:14,090
+And you're trying to figure out if you can risk getting another card.
+
+20
+00:01:14,570 --> 00:01:18,620
+So I'm going to click hit, and I'm going to get one other card
+
+21
+00:01:18,830 --> 00:01:23,120
+but that takes me over 21 and so the dealer wins.
+
+22
+00:01:24,260 --> 00:01:26,480
+So this is the game that we're trying to create.
+
+23
+00:01:27,050 --> 00:01:29,870
+This is what your version of Blackjack is going to look like.
+
+24
+00:01:30,200 --> 00:01:32,480
+Now the user interface is a little bit simpler,
+
+25
+00:01:32,780 --> 00:01:34,640
+but it's just as fun to play with.
+
+26
+00:01:34,820 --> 00:01:37,820
+So our first two cards are a 9 and a 10,
+
+27
+00:01:38,480 --> 00:01:41,720
+and it also shows us one of the computers cards.
+
+28
+00:01:42,560 --> 00:01:45,440
+Now I'm already on 19,10 + 9.
+
+29
+00:01:45,980 --> 00:01:48,020
+I'm close to going over 21.
+
+30
+00:01:48,350 --> 00:01:51,650
+So I'm going to type 'n' and end the game right there.
+
+31
+00:01:52,160 --> 00:01:53,510
+I end on 19,
+
+32
+00:01:53,540 --> 00:01:57,560
+the computer ends on 18 and because 19 is greater than 18,
+
+33
+00:01:57,710 --> 00:01:58,730
+that means I win.
+
+34
+00:01:59,600 --> 00:02:04,600
+Have a go at playing the final game by going to black-jack-final.appbrewery.repl.run.
+
+35
+00:02:05,330 --> 00:02:06,710
+But once you're ready,
+
+36
+00:02:06,770 --> 00:02:10,669
+head over to the next lesson so that we can actually build this game ourselves.
+
+37
+00:02:10,970 --> 00:02:14,360
+For all of that and more, I'll see you on the next lesson. Have fun.
+
+
+38
+00:00:00,240 --> 00:00:00,630
+All right.
+
+39
+00:00:00,630 --> 00:00:04,230
+Let's talk about the mechanics and the program requirements for the Blackjack 
+
+40
+00:00:04,230 --> 00:00:08,100
+game that you'll create. For those of you who are not familiar with the game of
+
+41
+00:00:08,100 --> 00:00:10,170
+Blackjack  also known as 21,
+
+42
+00:00:10,560 --> 00:00:13,290
+I'm just going to spend a few minutes to go through the rules with you.
+
+43
+00:00:14,040 --> 00:00:16,980
+Blackjack is a game that's played using cards.
+
+44
+00:00:17,550 --> 00:00:22,550
+And the goal of the game is to add up your cards to the largest number without
+
+45
+00:00:23,730 --> 00:00:27,840
+going over 21. If the cards in your hand
+
+46
+00:00:27,960 --> 00:00:32,430
+add up two more than 21, then it's called a bust
+
+47
+00:00:32,700 --> 00:00:34,890
+and it means that you lose immediately.
+
+48
+00:00:35,610 --> 00:00:40,560
+And it doesn't matter how much you've gone over 21, as long as it's over 21,
+
+49
+00:00:40,620 --> 00:00:44,610
+then you lose. Now the way that the cause are counted
+
+50
+00:00:44,840 --> 00:00:49,790
+is that all the cards from 2 to 10 count as their face value.
+
+51
+00:00:50,090 --> 00:00:53,060
+So a six is a six and a nine is a nine, et cetera.
+
+52
+00:00:53,810 --> 00:00:58,810
+But the Jack, Queen and King each count as 10 and the other special card is the
+
+53
+00:01:00,350 --> 00:01:01,183
+Ace.
+
+54
+00:01:01,370 --> 00:01:05,720
+Now the Ace can either count as a one towards your total,
+
+55
+00:01:05,990 --> 00:01:09,770
+or it can count as an 11. And depending on whether,
+
+56
+00:01:09,770 --> 00:01:13,190
+if you've gone over 21 or whether if you're under 21,
+
+57
+00:01:13,220 --> 00:01:17,330
+you can decide which value you want your Ace to represent.
+
+58
+00:01:18,320 --> 00:01:22,370
+Let's play a sample game. Let's say that the dealer over here got
+
+59
+00:01:23,000 --> 00:01:28,000
+a 10 to begin with and you got a queen which also counts as a 10 to begin with.
+
+60
+00:01:29,660 --> 00:01:30,200
+So these
+
+61
+00:01:30,200 --> 00:01:34,730
+are the first cars that are dealt and both of these cards are revealed.
+
+62
+00:01:35,390 --> 00:01:40,100
+And then the dealer deals another card to each of you. Now the dealer's
+
+63
+00:01:40,130 --> 00:01:44,690
+second hand is concealed so you can't work out what their total is,
+
+64
+00:01:45,350 --> 00:01:47,120
+but you can see your own card.
+
+65
+00:01:47,720 --> 00:01:50,720
+So the moment we don't know what the dealer has,
+
+66
+00:01:50,720 --> 00:01:53,090
+it might be 10 plus anything,
+
+67
+00:01:53,630 --> 00:01:57,800
+but we know that our score is 13, 10 + 3.
+
+68
+00:01:59,540 --> 00:02:02,900
+At this point you might ask the dealer for another card.
+
+69
+00:02:03,380 --> 00:02:08,380
+So now you have three cards and luckily it adds up to 20 without going over 21.
+
+70
+00:02:11,150 --> 00:02:15,530
+But there is also a possibility that you might've gotten a card that would have
+
+71
+00:02:15,530 --> 00:02:20,180
+pushed your total over 21 at which point you now lose.
+
+72
+00:02:20,420 --> 00:02:23,180
+And it doesn't matter what the dealer has in their hand,
+
+73
+00:02:23,480 --> 00:02:26,000
+you've already lost because you've gone over 21.
+
+74
+00:02:27,050 --> 00:02:31,190
+Now let's say that we got lucky and our total adds up to 20.
+
+75
+00:02:31,910 --> 00:02:35,180
+Now at this point we say we don't want any more cards
+
+76
+00:02:35,540 --> 00:02:39,830
+and the dealer reveals their hand. If. like in this case,
+
+77
+00:02:39,980 --> 00:02:42,830
+they end up with 20 and we have 20,
+
+78
+00:02:43,310 --> 00:02:45,170
+then we end up in a draw.
+
+79
+00:02:45,590 --> 00:02:48,590
+So whenever your score equals the dealer score,
+
+80
+00:02:48,890 --> 00:02:53,150
+then you will draw rather than win or lose. Now,
+
+81
+00:02:53,180 --> 00:02:56,360
+if on the other hand, the dealer ended up with an Ace,
+
+82
+00:02:56,420 --> 00:03:01,420
+which we know can count as an 11 and they actually scored higher than us.
+
+83
+00:03:02,110 --> 00:03:06,550
+They have 21 and we have 20, well, in this case, we would lose.
+
+84
+00:03:07,510 --> 00:03:12,510
+Now the rules also state that if the dealer ends up with a hand that's smaller
+
+85
+00:03:13,720 --> 00:03:16,540
+than 17, so 16 or under,
+
+86
+00:03:16,900 --> 00:03:19,270
+then they must take another card.
+
+87
+00:03:19,840 --> 00:03:22,180
+Those are the basic rules of blackjack,
+
+88
+00:03:22,600 --> 00:03:27,100
+but I'd recommend that before you get started head over to the link that's in
+
+89
+00:03:27,100 --> 00:03:31,390
+the Blackjack starting file and have a few games of Blackjack
+
+90
+00:03:31,690 --> 00:03:36,370
+just so that you can see for yourself how it actually works and how you win and
+
+91
+00:03:36,370 --> 00:03:37,270
+how you lose.
+
+92
+00:03:38,140 --> 00:03:43,140
+And then head over to the final version of the completed project and play our
+
+93
+00:03:45,160 --> 00:03:49,060
+simplified version of Blackjack. This way
+
+94
+00:03:49,090 --> 00:03:52,540
+you'll see what the end result is that you're trying to create
+
+95
+00:03:52,900 --> 00:03:56,620
+and it will be easier when you're creating the code yourself. Now,
+
+96
+00:03:56,650 --> 00:03:57,550
+as I mentioned,
+
+97
+00:03:57,610 --> 00:04:01,780
+we're going to try and keep our version of Blackjack a little bit simpler,
+
+98
+00:04:02,560 --> 00:04:04,420
+and we're going to assume a couple of things.
+
+99
+00:04:04,990 --> 00:04:09,430
+The first thing is that the card's that we're starting with comes from this
+
+100
+00:04:09,430 --> 00:04:13,090
+list. You'll notice that I've got 2 through to 10,
+
+101
+00:04:13,120 --> 00:04:14,890
+all represented in the list.
+
+102
+00:04:15,430 --> 00:04:19,660
+And then I've got Jack, Queen and King represented as tens as well.
+
+103
+00:04:20,110 --> 00:04:25,110
+So this means that the 10 has four times the probability of occurring compared
+
+104
+00:04:25,870 --> 00:04:27,040
+to the other cards.
+
+105
+00:04:27,670 --> 00:04:31,660
+Now the Ace is going to start off being represented as 11,
+
+106
+00:04:31,990 --> 00:04:36,070
+and it's going to count as 11 until the user goes over 21.
+
+107
+00:04:37,060 --> 00:04:41,050
+Now finally, we're going to assume that we have an infinite deck.
+
+108
+00:04:41,470 --> 00:04:44,320
+So it means that when a card is drawn from the deck,
+
+109
+00:04:44,380 --> 00:04:48,130
+it's not removed from the deck. Whereas in a real casino,
+
+110
+00:04:48,280 --> 00:04:52,780
+they have maybe six or eight decks of cards. When a card is drawn,
+
+111
+00:04:53,050 --> 00:04:57,310
+then there's less probability of that same card occurring again.
+
+112
+00:04:57,790 --> 00:05:00,220
+And this is how professional card counters,
+
+113
+00:05:00,280 --> 00:05:02,260
+the people that the casinos hate the most,
+
+114
+00:05:02,680 --> 00:05:06,640
+actually go about trying to optimize and improve their chances.
+
+115
+00:05:07,240 --> 00:05:10,000
+But in order to keep things simple in our game,
+
+116
+00:05:10,270 --> 00:05:14,770
+we're not going to deal with things regarding probability or removing cards from
+
+117
+00:05:14,770 --> 00:05:15,460
+the deck.
+
+118
+00:05:15,460 --> 00:05:19,930
+We're going to assume that each of these cards in the list have equal chance of
+
+119
+00:05:19,930 --> 00:05:23,770
+occurring. If you head over to the App Brewery Blackjack 
+
+120
+00:05:23,790 --> 00:05:25,000
+starting project,
+
+121
+00:05:25,360 --> 00:05:28,870
+you'll see each of these rules written out in more detail.
+
+122
+00:05:29,260 --> 00:05:32,890
+Take a look at it so that you're aware what our house rules dictate.
+
+123
+00:05:34,030 --> 00:05:37,090
+Now, if you scroll to the very top of the Blackjack project,
+
+124
+00:05:37,360 --> 00:05:41,590
+I've given you four tracks. So just as when you start a video game
+
+125
+00:05:41,620 --> 00:05:46,330
+you have the choice of normal, hard, extra hard or expert,
+
+126
+00:05:46,720 --> 00:05:51,520
+it's the same in this project. You can limit yourself to using only one
+
+127
+00:05:51,520 --> 00:05:55,060
+hint if you are at expert level in Python.
+
+128
+00:05:55,630 --> 00:05:57,860
+You can only use hint 1 and 2
+
+129
+00:05:57,890 --> 00:06:02,890
+if you want an extra hard challenge and maybe a little bit of a cry at the end,
+
+130
+00:06:04,010 --> 00:06:08,510
+there's also hard and normal. So I'll leave the choice up to you.
+
+131
+00:06:09,050 --> 00:06:12,500
+And if you scroll down, you'll find all the hints listed in here.
+
+132
+00:06:13,070 --> 00:06:16,130
+Now I recommend everybody, no matter your experience,
+
+133
+00:06:16,550 --> 00:06:21,260
+everybody should try out the Blackjack game and also look at how the final
+
+134
+00:06:21,260 --> 00:06:23,000
+project is supposed to work.
+
+135
+00:06:23,510 --> 00:06:28,510
+But then I've got other things such as a list where I've broken down the program
+
+136
+00:06:29,090 --> 00:06:32,840
+requirements. You know how we always say, when you have a big problem,
+
+137
+00:06:33,080 --> 00:06:35,750
+always try to break it down into smaller pieces.
+
+138
+00:06:36,290 --> 00:06:41,290
+Now you can of course create this list yourself by exploring the game,
+
+139
+00:06:41,540 --> 00:06:43,070
+exploring the final project,
+
+140
+00:06:43,370 --> 00:06:47,210
+and then writing your own to do list of things that need to be coded up.
+
+141
+00:06:47,570 --> 00:06:48,770
+Or alternatively,
+
+142
+00:06:48,800 --> 00:06:53,800
+you can look at the one that I've created inside hint 2. Inside hint 3
+
+143
+00:06:54,650 --> 00:06:56,720
+I've created a flowchart for you
+
+144
+00:06:57,200 --> 00:07:01,580
+which takes the to-do list and breaks it down into a flowchart where you can
+
+145
+00:07:01,580 --> 00:07:06,020
+look at the logic in more detail. Now, of course, as always,
+
+146
+00:07:06,020 --> 00:07:08,390
+it's a good idea to create your own flowchart
+
+147
+00:07:08,750 --> 00:07:12,650
+using a tool like draw.io or using a piece of pen and paper.
+
+148
+00:07:13,190 --> 00:07:14,270
+But if you need help,
+
+149
+00:07:14,330 --> 00:07:18,170
+it's there for you and you can download the PDF and read through it.
+
+150
+00:07:19,010 --> 00:07:20,480
+Now the rest of the hints
+
+151
+00:07:20,510 --> 00:07:24,590
+will go through how to solve this project in even smaller
+
+152
+00:07:24,590 --> 00:07:29,510
+bite-size chunks. Depending on your own level of Python at the moment,
+
+153
+00:07:29,780 --> 00:07:31,880
+choose your own difficulty level.
+
+154
+00:07:32,270 --> 00:07:37,270
+But I just want to say before you get started that this project is difficult and
+
+155
+00:07:37,910 --> 00:07:42,560
+I wanted to give you a bit of a challenge and to push yourself so that you get
+
+156
+00:07:42,560 --> 00:07:43,393
+stronger.
+
+157
+00:07:43,970 --> 00:07:48,970
+But it will inevitably be moments where you will have doubt and you will be
+
+158
+00:07:49,010 --> 00:07:53,000
+wondering, what am I doing? I don't understand anything. And in this moment,
+
+159
+00:07:53,000 --> 00:07:56,510
+I want you to look yourself in the mirror and tell yourself that you got this.
+
+160
+00:07:56,540 --> 00:08:00,770
+You can do it. And that remember that I'm here rooting for you.
+
+161
+00:08:01,100 --> 00:08:02,300
+I believe you can do it.
+
+162
+00:08:02,300 --> 00:08:06,260
+You've got everything that you've learned so far will enable you to do it.
+
+163
+00:08:06,470 --> 00:08:09,140
+There's nothing new in this challenge.
+
+164
+00:08:09,470 --> 00:08:11,750
+You just have to put all the pieces together.
+
+165
+00:08:12,020 --> 00:08:16,370
+You have to push through the difficult parts and maybe sleep on a problem and
+
+166
+00:08:16,370 --> 00:08:21,050
+think about it and then come back to it. But I believe you can do it. Once
+
+167
+00:08:21,050 --> 00:08:23,030
+you're ready, pause the video,
+
+168
+00:08:23,660 --> 00:08:27,050
+head over to the starting project and give it a go.
+
+169
+00:08:28,310 --> 00:08:29,780
+And once you're satisfied,
+
+170
+00:08:29,840 --> 00:08:33,289
+then head over to the next lesson and I'll walk through the solution with you.
+
+
+171
+00:00:00,280 --> 00:00:02,009
+Right. So how did that go?
+
+172
+00:00:02,580 --> 00:00:06,150
+I hope it went really well and you've managed to complete it all by yourself.
+
+173
+00:00:06,660 --> 00:00:11,310
+If you got stuck, I really recommend just having a sandwich, have a cup of tea,
+
+174
+00:00:11,580 --> 00:00:13,500
+take a break, and then come back to it.
+
+175
+00:00:13,740 --> 00:00:17,460
+You'd be surprised what your brain can do when it just has a little bit of rest.
+
+176
+00:00:18,120 --> 00:00:21,840
+But I want you to make sure that you've really given it a proper go before you
+
+177
+00:00:21,840 --> 00:00:23,700
+come here and watch the solution.
+
+178
+00:00:24,120 --> 00:00:27,990
+Cause I'm going to walk you through the solution step by step in case there are
+
+179
+00:00:28,200 --> 00:00:32,159
+little bits or something that you didn't understand or something that you want
+
+180
+00:00:32,159 --> 00:00:33,960
+to check. But I really,
+
+181
+00:00:33,960 --> 00:00:38,250
+really hope that you've managed to tackle most of this yourself. All right.
+
+182
+00:00:38,250 --> 00:00:42,660
+So without further ado, let's get started coding up our Blackjack project.
+
+183
+00:00:43,740 --> 00:00:47,130
+Hopefully you've already used hints 1, 2 or 3,
+
+184
+00:00:47,550 --> 00:00:52,320
+and I'm going to get started with hint 4 and build up our Blackjack project
+
+185
+00:00:52,350 --> 00:00:56,760
+step-by-step. Now the idea of the hints 1, 2,
+
+186
+00:00:56,760 --> 00:01:01,760
+and 3 is to get you to create these small to-dos of your own so that you
+
+187
+00:01:03,300 --> 00:01:08,220
+can have practice breaking down the problem into a list and then breaking it
+
+188
+00:01:08,220 --> 00:01:13,170
+down into a flowchart and then breaking it down into smaller bite-size to-dos.
+
+189
+00:01:13,860 --> 00:01:15,750
+So let's start out with the first one,
+
+190
+00:01:16,350 --> 00:01:21,350
+we have to create a deal_card function that uses the list below to return a
+
+191
+00:01:22,470 --> 00:01:27,180
+random card and 11 is going to be the Ace in this deck.
+
+192
+00:01:27,990 --> 00:01:32,850
+So let's get started by forking a copy of this repl and we're going to go and
+
+193
+00:01:32,850 --> 00:01:34,740
+create our deal_card function.
+
+194
+00:01:35,610 --> 00:01:39,810
+Now this function is going to contain these cards,
+
+195
+00:01:39,840 --> 00:01:43,770
+so I'm going to go ahead and paste it in, make sure it's indented
+
+196
+00:01:43,830 --> 00:01:48,830
+so it's inside the function. And now I'm going to use these cards to randomly
+
+197
+00:01:49,650 --> 00:01:52,650
+pick one out of this list. So to do that,
+
+198
+00:01:52,680 --> 00:01:57,210
+we can of course import our random module.
+
+199
+00:01:57,840 --> 00:02:02,840
+And then I'm going to use random.choice to pick a random card from my list
+
+200
+00:02:03,900 --> 00:02:07,740
+of cards. And then this of course has an output,
+
+201
+00:02:07,770 --> 00:02:09,030
+this random.choice
+
+202
+00:02:09,330 --> 00:02:14,330
+so I'm gonna save that output, namely the random card, inside a variable called
+
+203
+00:02:15,480 --> 00:02:16,313
+card.
+
+204
+00:02:16,770 --> 00:02:21,540
+And then finally we're going to return this chosen card as the output.
+
+205
+00:02:22,200 --> 00:02:23,910
+So that's step 4 done.
+
+206
+00:02:25,590 --> 00:02:27,480
+Now let's move on to step 5.
+
+207
+00:02:28,110 --> 00:02:33,030
+So we're going to deal the user and computer two cards each using the deal card
+
+208
+00:02:33,030 --> 00:02:35,310
+function, and very helpfully
+
+209
+00:02:35,340 --> 00:02:38,760
+the hint tells us that we can start out with a blank
+
+210
+00:02:39,030 --> 00:02:42,810
+user_card and a blank computer_card list.
+
+211
+00:02:43,020 --> 00:02:46,110
+So we basically just have to add two cards to
+
+212
+00:02:46,110 --> 00:02:48,660
+each of these lists. To do this,
+
+213
+00:02:48,660 --> 00:02:53,660
+I'm going to use a for loop and I'm going to use the range operator to run this
+
+214
+00:02:55,560 --> 00:02:56,790
+for-loop twice.
+
+215
+00:02:57,150 --> 00:03:01,480
+So you've seen this syntax before when we talked about for loops and I've got an
+
+216
+00:03:01,510 --> 00:03:05,620
+underscore here because we don't actually need this particular variable.
+
+217
+00:03:05,920 --> 00:03:08,650
+All we need is for this loop to run twice
+
+218
+00:03:08,770 --> 00:03:13,390
+and this code is going to achieve that. Every single time this loop runs
+
+219
+00:03:13,420 --> 00:03:16,840
+we're going to get a new card by calling deal_card.
+
+220
+00:03:17,530 --> 00:03:20,440
+Now remember that deal_card has an output,
+
+221
+00:03:20,740 --> 00:03:23,800
+it outputs a random card. So if you want,
+
+222
+00:03:23,800 --> 00:03:27,160
+it's actually quite helpful to add some documentation to this.
+
+223
+00:03:27,400 --> 00:03:32,400
+So we could say returns a random card from the deck.
+
+224
+00:03:34,720 --> 00:03:37,510
+And now when I write deal_card
+
+225
+00:03:37,570 --> 00:03:41,560
+you can see that the doc tells me that this function is going to return a random
+
+226
+00:03:41,560 --> 00:03:46,330
+card from the deck. So that random card is going to replace this function call
+
+227
+00:03:46,420 --> 00:03:50,320
+so we can capture that data by storing it inside of a variable.
+
+228
+00:03:50,740 --> 00:03:55,740
+So we'll call that new_card and set it equal to the output from the function
+
+229
+00:03:57,670 --> 00:03:59,680
+deal_card. Now,
+
+230
+00:03:59,770 --> 00:04:04,690
+the next thing we're going to do is we're going to add this new_card to the
+
+231
+00:04:04,690 --> 00:04:05,860
+user's cards.
+
+232
+00:04:06,100 --> 00:04:11,100
+So at the moment, it's an empty list and all we have to do is say user_cards
+
+233
+00:04:11,890 --> 00:04:13,060
+.append
+
+234
+00:04:13,510 --> 00:04:17,890
+and then the object that we want to add to that list is going to be the new_
+
+235
+00:04:17,890 --> 00:04:18,723
+card.
+
+236
+00:04:19,240 --> 00:04:24,240
+Now some of you might be tempted to instead use the plus equals.
+
+237
+00:04:25,360 --> 00:04:30,280
+You might want to write something like this; user_cards += new_card.
+
+238
+00:04:30,970 --> 00:04:34,030
+And I want to show you what actually happens when yourun this.
+
+239
+00:04:34,030 --> 00:04:35,770
+cause this is a really common error.
+
+240
+00:04:36,370 --> 00:04:39,160
+We get a trace back and we get a type error.
+
+241
+00:04:39,370 --> 00:04:44,370
+It tells us that the int object is not iterable and it highlights this line 49
+
+242
+00:04:46,390 --> 00:04:50,500
+as the reason for the error. So what's going on here?
+
+243
+00:04:51,130 --> 00:04:51,400
+Well,
+
+244
+00:04:51,400 --> 00:04:56,400
+this += is actually shorthand for writing the extend function.
+
+245
+00:04:58,180 --> 00:05:02,410
+Now you can see that the extend function is something that extends a list
+
+246
+00:05:02,770 --> 00:05:07,360
+by appending elements from the iterable. So what does this mean? Well,
+
+247
+00:05:07,360 --> 00:05:11,410
+it means that whatever you put inside this parentheses,
+
+248
+00:05:11,770 --> 00:05:15,340
+it has to be a list itself. For example,
+
+249
+00:05:15,850 --> 00:05:20,680
+if this new_card was a list of cards,
+
+250
+00:05:20,830 --> 00:05:24,970
+so maybe just the first dealt card and another card
+
+251
+00:05:25,300 --> 00:05:29,500
+or even just it by itself inside a set of square brackets
+
+252
+00:05:29,590 --> 00:05:34,240
+which turns it into a list, well then if we run this code right now
+
+253
+00:05:35,680 --> 00:05:40,420
+we no longer have any errors and if I convert this back to what you saw before,
+
+254
+00:05:40,450 --> 00:05:44,260
+which is using the plus equals, we also have no errors.
+
+255
+00:05:44,920 --> 00:05:49,780
+But when you only want to add a single item, not a list, to an existing list
+
+256
+00:05:50,020 --> 00:05:53,770
+then you have to use append. So hopefully you didn't have this issue,
+
+257
+00:05:54,100 --> 00:05:54,940
+but if you did,
+
+258
+00:05:55,000 --> 00:05:59,750
+this is the reason. Now that we've created these two lines,
+
+259
+00:05:59,810 --> 00:06:04,340
+you can see that it's a little bit redundant because we're creating this new
+
+260
+00:06:04,340 --> 00:06:08,120
+card variable just to hold the output from this function.
+
+261
+00:06:08,600 --> 00:06:12,710
+And then we're immediately putting it into this list using the append.
+
+262
+00:06:13,220 --> 00:06:18,220
+So instead we can actually just get rid of the middleman and put deal_card
+
+263
+00:06:18,980 --> 00:06:21,440
+directly inside the append.
+
+264
+00:06:22,010 --> 00:06:25,460
+And this does exactly the same thing in a single line of code.
+
+265
+00:06:26,360 --> 00:06:28,430
+Once we've done this for user_cards,
+
+266
+00:06:28,460 --> 00:06:31,610
+we'd probably want to do the same thing for the computers cards.
+
+267
+00:06:32,000 --> 00:06:36,620
+So it computer_cards.append, and then we call deal_card again,
+
+268
+00:06:36,680 --> 00:06:37,970
+remembering the parentheses.
+
+269
+00:06:38,210 --> 00:06:43,210
+So we've got a total of three parentheses at the end and this way we deal a new
+
+270
+00:06:43,520 --> 00:06:47,360
+card and that new card gets appended to the end of this 
+
+271
+00:06:47,920 --> 00:06:48,010
+list.
+
+
+272
+00:00:00,120 --> 00:00:03,090
+All right. So now let's tackle hint number 6.
+
+273
+00:00:03,660 --> 00:00:06,870
+We're going to create a function called calculate_score
+
+274
+00:00:06,900 --> 00:00:09,570
+that's going to take a list of cards as an input,
+
+275
+00:00:09,990 --> 00:00:13,110
+and then it returns the score after calculation.
+
+276
+00:00:13,890 --> 00:00:16,050
+And it tells us that if we get stuck,
+
+277
+00:00:16,110 --> 00:00:18,420
+we can look up the sum function to help us.
+
+278
+00:00:19,080 --> 00:00:22,440
+So let's create a function called calculate_score
+
+279
+00:00:23,190 --> 00:00:27,720
+and this calculate_score is going to take some cards as an input,
+
+280
+00:00:28,350 --> 00:00:29,790
+and then inside the body
+
+281
+00:00:29,820 --> 00:00:34,670
+it's going to calculate the total of all the cards in this list.
+
+282
+00:00:35,360 --> 00:00:38,780
+So if we take a look at the sum function in Python,
+
+283
+00:00:39,260 --> 00:00:43,100
+the way that it works is you can put a iterable,
+
+284
+00:00:43,220 --> 00:00:47,930
+so like a list inside the parentheses as an input
+
+285
+00:00:48,440 --> 00:00:52,310
+and then it's going to add up all of the items in the list
+
+286
+00:00:52,640 --> 00:00:56,570
+and it's going to return the total. Back in our code
+
+287
+00:00:56,870 --> 00:01:00,950
+we can simply write sum, and then inside these parentheses
+
+288
+00:01:00,980 --> 00:01:05,980
+we can pass over the cards and we can return this value as the output.
+
+289
+00:01:07,760 --> 00:01:08,450
+Basically
+
+290
+00:01:08,450 --> 00:01:13,310
+if we had cards equal to a list with 1, 5,
+
+291
+00:01:13,340 --> 00:01:14,173
+3,
+
+292
+00:01:14,180 --> 00:01:19,180
+4, then the sum function is going to end up being equal to 1 + 5 +
+
+293
+00:01:19,580 --> 00:01:23,060
+3 + 4, which is going to be equal to 13.
+
+294
+00:01:23,360 --> 00:01:26,450
+And then that will become the output of this function.
+
+295
+00:01:27,530 --> 00:01:29,660
+So now let's move on to hint 7.
+
+296
+00:01:30,710 --> 00:01:32,660
+A Blackjack only happens when
+
+297
+00:01:32,740 --> 00:01:37,740
+we have a hand with only two cards and those cards have to be an Ace and a 10
+
+298
+00:01:39,470 --> 00:01:42,470
+value card. In our deck
+
+299
+00:01:42,500 --> 00:01:47,500
+we know that an Ace is represented by 11 and we have a number of 10 value cards.
+
+300
+00:01:50,570 --> 00:01:54,410
+So there's a number of ways that we can check for this Blackjack.
+
+301
+00:01:54,980 --> 00:01:59,980
+One of the ways is by checking to see if the 11 is in our deck of cards,
+
+302
+00:02:02,180 --> 00:02:07,180
+and then we can combine that with an and to check if the 10 is also in our deck
+
+303
+00:02:07,850 --> 00:02:09,800
+of cards. And finally,
+
+304
+00:02:09,830 --> 00:02:13,730
+we can check to make sure that we've got a hand size of two.
+
+305
+00:02:14,240 --> 00:02:19,070
+So we can check that the length of our cards is equal to two,
+
+306
+00:02:19,790 --> 00:02:24,790
+and this would represent this logic: a hand with only two cards, an Ace
+
+307
+00:02:25,220 --> 00:02:29,900
+which is represented by 11 and a 10. Now, on the other hand
+
+308
+00:02:29,930 --> 00:02:34,930
+we could actually also simplify this because a hand with only two cards that
+
+309
+00:02:35,630 --> 00:02:38,600
+must contain an 11 and a 10, we can
+
+310
+00:02:38,600 --> 00:02:42,380
+instead of checking for both 11 and 10, we can check to
+
+311
+00:02:42,410 --> 00:02:44,390
+see if the total,
+
+312
+00:02:44,420 --> 00:02:49,420
+so that if we summed the cards and if this was equal to 21,
+
+313
+00:02:50,750 --> 00:02:55,010
+then it would be exactly the same thing, right? 10 + 11 is 21
+
+314
+00:02:55,490 --> 00:02:59,740
+and we've still only got a deck of two. In this case
+
+315
+00:02:59,770 --> 00:03:04,600
+what we want to happen is we want to return zero instead of the actual score.
+
+316
+00:03:05,110 --> 00:03:10,110
+So this way we can indicate that the user or the computer has got a score of
+
+317
+00:03:10,720 --> 00:03:15,010
+Blackjack. That's hint number 7 sorted,
+
+318
+00:03:15,190 --> 00:03:20,110
+let's move onto a hint number 8. It tells us that inside calculate_score,
+
+319
+00:03:20,320 --> 00:03:23,770
+we should check also for an 11, which is an Ace.
+
+320
+00:03:24,400 --> 00:03:26,620
+If the score is already over 21,
+
+321
+00:03:27,010 --> 00:03:32,010
+then we should remove the 11 from the cards and we could replace it with a one,
+
+322
+00:03:32,920 --> 00:03:36,940
+because remember that an Ace can count as an 11 or 1.
+
+323
+00:03:37,420 --> 00:03:41,140
+So in the beginning, when the user's score is very small,
+
+324
+00:03:41,380 --> 00:03:43,840
+then we probably want to count it as an 11.
+
+325
+00:03:44,260 --> 00:03:46,690
+But once the user goes over 21,
+
+326
+00:03:46,960 --> 00:03:50,470
+then we probably want to change it and count it as a 1 instead
+
+327
+00:03:50,500 --> 00:03:55,000
+so they don't go over and they don't lose. Let's first write
+
+328
+00:03:55,000 --> 00:03:55,870
+the if statement.
+
+329
+00:03:56,140 --> 00:04:01,140
+So if there is the 11 inside our deck of cards and the
+
+330
+00:04:03,670 --> 00:04:08,650
+sum of the cards, so the total_score, is already over 21,
+
+331
+00:04:09,220 --> 00:04:11,140
+then we want to do something about it.
+
+332
+00:04:11,680 --> 00:04:15,550
+And the hint tells us to look up the append and remove functions.
+
+333
+00:04:16,089 --> 00:04:19,180
+So we've already seen the append function many times,
+
+334
+00:04:19,360 --> 00:04:23,500
+and we know that it just adds a single element to the end of the list.
+
+335
+00:04:24,520 --> 00:04:28,180
+Now the one that we haven't used a lot of is the remove function
+
+336
+00:04:28,750 --> 00:04:33,750
+and this we'll search for the first instance of the given element and removes it
+
+337
+00:04:34,870 --> 00:04:38,260
+out of the list. This is kind of what we need to do.
+
+338
+00:04:38,590 --> 00:04:43,360
+We need to go ahead and remove the 11 from the list of cards. So we can write
+
+339
+00:04:43,360 --> 00:04:47,080
+cards.remove, and inside the parentheses,
+
+340
+00:04:47,380 --> 00:04:52,030
+we use the 11 and then we do cards.append,
+
+341
+00:04:52,360 --> 00:04:55,960
+so that we end up adding a 1 instead of the 11.
+
+342
+00:04:56,740 --> 00:05:00,310
+This way we remove the 11 and replace it with a 1.
+
+343
+00:05:01,210 --> 00:05:05,140
+And hopefully our cards will now take the user to below 21.
+
+
+344
+00:00:00,810 --> 00:00:04,620
+Now let's move on to a hint 9. So we want to call
+
+345
+00:00:04,620 --> 00:00:07,350
+calculate_score at some point in our code
+
+346
+00:00:07,920 --> 00:00:10,830
+and if the computer or the user has a Blackjack 
+
+347
+00:00:11,250 --> 00:00:15,390
+or if the user's score is over 21, then the game is going to end.
+
+348
+00:00:15,900 --> 00:00:19,440
+This might be a good time to start tidying up our code a little bit,
+
+349
+00:00:19,860 --> 00:00:22,320
+because we've got our function over here,
+
+350
+00:00:23,310 --> 00:00:25,140
+the calculate score function.
+
+351
+00:00:25,710 --> 00:00:29,790
+And remember that you can only call a function after it's been declared.
+
+352
+00:00:30,150 --> 00:00:34,500
+So for example, if I wanted to call this function over here,
+
+353
+00:00:34,860 --> 00:00:36,090
+then I actually can't.
+
+354
+00:00:36,090 --> 00:00:40,710
+I can't say calculate_score because it hasn't yet been declared.
+
+355
+00:00:41,310 --> 00:00:42,210
+So instead,
+
+356
+00:00:42,240 --> 00:00:46,980
+what I'm going to do is I'm going to take this function and I'm going to move it
+
+357
+00:00:47,220 --> 00:00:51,720
+to where we dealt our cards and I'm going to collapse some of these functions so
+
+358
+00:00:51,720 --> 00:00:55,080
+I can see my hints and my code a little bit easier.
+
+359
+00:00:56,040 --> 00:01:00,360
+So now that I've moved my function to above the line where I want to call it,
+
+360
+00:01:00,690 --> 00:01:02,430
+it's now become valid code.
+
+361
+00:01:02,970 --> 00:01:07,530
+And this is the place where I want to call it because it's only after I've dealt
+
+362
+00:01:07,530 --> 00:01:12,390
+the user and the computer some cards can I actually calculate their scores.
+
+363
+00:01:12,900 --> 00:01:16,740
+Firstly, I want to calculate the score using the user's cards.
+
+364
+00:01:17,160 --> 00:01:22,160
+So this list of cards from the user gets passed into this function and uses
+
+365
+00:01:22,800 --> 00:01:26,280
+all of the logic to output some sort of score.
+
+366
+00:01:27,180 --> 00:01:29,820
+And then I'm going to store that score in a variable
+
+367
+00:01:29,820 --> 00:01:31,290
+which I'll call user_score.
+
+368
+00:01:32,190 --> 00:01:35,160
+And I'm going to do the same thing for the computer,
+
+369
+00:01:35,190 --> 00:01:40,170
+so computer_score equals calculate_score. And remember,
+
+370
+00:01:40,440 --> 00:01:45,440
+it's always helpful to add a little bit of a docstring to tell ourselves and
+
+371
+00:01:45,870 --> 00:01:49,650
+other programmers what this function does. Let's quickly summarize it.
+
+372
+00:01:49,650 --> 00:01:54,650
+So this function is going to take a list of cards and return the score
+
+373
+00:01:57,120 --> 00:01:58,980
+calculated from the cards.
+
+374
+00:02:00,780 --> 00:02:02,790
+So now when I open that parentheses,
+
+375
+00:02:03,150 --> 00:02:07,200
+I know that I probably have to pass in my list of cards in order to get back the
+
+376
+00:02:07,200 --> 00:02:08,032
+score.
+
+377
+00:02:08,130 --> 00:02:12,480
+So let's put in the computer_cards in as the inputs,
+
+378
+00:02:12,900 --> 00:02:15,690
+and now we've got the user_score and the computer_score.
+
+379
+00:02:16,110 --> 00:02:18,000
+So this score could equal zero
+
+380
+00:02:18,030 --> 00:02:22,890
+if they got a Blackjack or it could just simply be the value of the cards that
+
+381
+00:02:22,890 --> 00:02:24,930
+they hold all added up together.
+
+382
+00:02:26,070 --> 00:02:28,620
+Now that we've called calculate_score
+
+383
+00:02:29,040 --> 00:02:34,040
+we also want to make sure that if the computer or the user has a Blackjack 
+
+384
+00:02:34,710 --> 00:02:39,450
+or if the user's score is over 21, then we have to end the game.
+
+385
+00:02:40,740 --> 00:02:45,510
+Let's write our if statements. If the user_score is equal to zero,
+
+386
+00:02:46,080 --> 00:02:50,130
+or the computer_score is equal to zero,
+
+387
+00:02:50,760 --> 00:02:55,740
+or the user_score is greater than 21, then in this case
+
+388
+00:02:55,770 --> 00:02:58,140
+we're going to tell the game to end.
+
+389
+00:02:58,560 --> 00:03:03,130
+So we could create a new variable called is_game_over
+
+390
+00:03:04,450 --> 00:03:08,890
+and we start out with false, of course. But then when this happens,
+
+391
+00:03:08,950 --> 00:03:12,160
+we're going to change that variable to true instead.
+
+392
+00:03:13,180 --> 00:03:16,960
+Our is_game_over variable is just a simple boolean.
+
+393
+00:03:17,620 --> 00:03:21,100
+It starts out as false and when certain conditions are met,
+
+394
+00:03:21,310 --> 00:03:25,660
+then we change it to true. Now at the moment, our program is not finished.
+
+395
+00:03:25,750 --> 00:03:29,880
+So it was not really obvious how we're going to be using this is_game_over
+
+396
+00:03:29,890 --> 00:03:33,220
+variable. But we're setting ourselves up for the next steps.
+
+397
+00:03:33,670 --> 00:03:36,190
+Now that we're tracking if the game should end,
+
+398
+00:03:36,400 --> 00:03:39,520
+we can look at this value to determine what to do next.
+
+399
+00:03:39,880 --> 00:03:44,740
+So that's hint 9 completed. Let's test our code and see how everything works so
+
+400
+00:03:44,740 --> 00:03:45,573
+far.
+
+401
+00:03:45,820 --> 00:03:49,840
+I'm going to add some print statements here so that I can see what the user's
+
+402
+00:03:49,840 --> 00:03:54,670
+cards are and what the user's score is. Using an fstring
+
+403
+00:03:54,730 --> 00:03:59,470
+I'm going to show your cards, so the user's cards, and the current score.
+
+404
+00:04:00,880 --> 00:04:04,810
+And I'm also going to print the computers first card.
+
+405
+00:04:05,320 --> 00:04:08,350
+Remember when I first explained the rules of Blackjack,
+
+406
+00:04:08,710 --> 00:04:12,220
+the dealer will reveal their first card
+
+407
+00:04:12,640 --> 00:04:17,050
+so you get a little bit of a clue as to what kind of hand they might have.
+
+408
+00:04:18,160 --> 00:04:21,310
+So in here, we're going to insert the computer's cards
+
+409
+00:04:21,760 --> 00:04:26,470
+and we're only gonna pick out the first item, so that the one at index zero,
+
+410
+00:04:26,590 --> 00:04:30,610
+and we do that using a square bracket after the name of the list.
+
+411
+00:04:31,960 --> 00:04:36,220
+Now let's give our program a run and see if it actually works.
+
+412
+00:04:36,820 --> 00:04:40,780
+The first thing that prints is a list of our cards.
+
+413
+00:04:40,840 --> 00:04:41,920
+So in our hand,
+
+414
+00:04:41,950 --> 00:04:46,180
+we have a 2 and we have a 6 and 2 + 6 added together
+
+415
+00:04:46,210 --> 00:04:48,040
+of course makes the score of 8.
+
+416
+00:04:48,670 --> 00:04:52,630
+And then it reveals to us the computer's first card, which is a 10.
+
+417
+00:04:53,320 --> 00:04:57,730
+Now we can be reasonably assured that our code is working.
+
+418
+00:04:58,330 --> 00:05:02,170
+And it's a good idea to regularly test your code so that you don't wait until
+
+419
+00:05:02,170 --> 00:05:04,120
+the end when they're a lot of problems
+
+420
+00:05:04,360 --> 00:05:06,790
+and you don't know which part of the code is responsible.
+
+
+421
+00:00:00,390 --> 00:00:02,940
+Now let's move on to hint number 10.
+
+422
+00:00:03,660 --> 00:00:06,750
+It says that if the game has not ended ask the user
+
+423
+00:00:06,750 --> 00:00:09,630
+if they want to draw another card. If yes
+
+424
+00:00:09,660 --> 00:00:13,470
+then use the deal card function to add another card to the user's card list.
+
+425
+00:00:13,830 --> 00:00:15,840
+If no, then the game has again
+
+426
+00:00:15,900 --> 00:00:19,680
+ended. Over here in the if statement
+
+427
+00:00:19,740 --> 00:00:24,540
+we can add an else because if the game hasn't ended, as in
+
+428
+00:00:24,570 --> 00:00:27,840
+they haven't gone over 21 or nobody's got a Blackjack,
+
+429
+00:00:28,140 --> 00:00:31,920
+then we're going to ask the user if they want to get another card.
+
+430
+00:00:32,340 --> 00:00:34,410
+I'm going to use a input
+
+431
+00:00:35,370 --> 00:00:38,700
+and I'm going to ask the user to type 'y' to get another card,
+
+432
+00:00:39,120 --> 00:00:41,340
+otherwise type 'n' to pass.
+
+433
+00:00:42,000 --> 00:00:45,360
+And I'm going to save this input inside a variable, which I'll
+
+434
+00:00:45,410 --> 00:00:47,900
+call user_should_deal.
+
+435
+00:00:49,340 --> 00:00:54,340
+Now we can check to see if this variable is equal to 'y'. Well in that case,
+
+436
+00:00:57,410 --> 00:00:59,810
+we're going to add another card to
+
+437
+00:00:59,810 --> 00:01:03,980
+the user's card list by doing the same thing that we did in the beginning
+
+438
+00:01:04,069 --> 00:01:07,550
+where we dealt two cards to each player by saying
+
+439
+00:01:07,580 --> 00:01:12,380
+user_cards.append and inside the parentheses
+
+440
+00:01:12,400 --> 00:01:16,790
+the thing that we want to append is the output from deal_card.
+
+441
+00:01:18,080 --> 00:01:22,730
+So just a quick check to make sure you've got all the parentheses there and then
+
+442
+00:01:22,760 --> 00:01:26,990
+we're ready to address the else. If they didn't type 'y',
+
+443
+00:01:27,140 --> 00:01:30,920
+then that means they don't want another card. Well, then in this case,
+
+444
+00:01:30,950 --> 00:01:32,630
+the game has again ended.
+
+445
+00:01:32,780 --> 00:01:35,960
+So we can say is_game_over equals true.
+
+446
+00:01:38,210 --> 00:01:39,740
+Let's test this out as well.
+
+447
+00:01:40,340 --> 00:01:44,600
+We got 7 and 11 with the current score of 18.
+
+448
+00:01:45,140 --> 00:01:48,500
+If we type 'y' hopefully we'll get another card.
+
+449
+00:01:49,520 --> 00:01:52,460
+And we did see that prompt and we saw something happen,
+
+450
+00:01:52,820 --> 00:01:57,530
+but our program then promptly ended. Let's take a look at the next step.
+
+451
+00:01:57,650 --> 00:02:00,110
+How can we get our game to repeat itself?
+
+452
+00:02:00,830 --> 00:02:04,580
+So hint number 11 tells us that the score will need to be rechecked with
+
+453
+00:02:04,580 --> 00:02:05,990
+every new card drawn
+
+454
+00:02:06,470 --> 00:02:10,940
+and the checks in hint 9 needs to be repeated until the game ends.
+
+455
+00:02:11,510 --> 00:02:15,890
+Notice how we've got this flag, is_game_over, which is set to true
+
+456
+00:02:16,160 --> 00:02:19,880
+whenever the game ends. It starts off being false
+
+457
+00:02:20,240 --> 00:02:23,900
+and what this means is we can actually create a while loop
+
+458
+00:02:24,260 --> 00:02:27,260
+which basically keeps on calculating the user_score
+
+459
+00:02:27,350 --> 00:02:30,590
+and the computer_score, makes all of these checks
+
+460
+00:02:30,800 --> 00:02:32,390
+which are in hint 9,
+
+461
+00:02:32,780 --> 00:02:36,050
+and then repeats itself until the game ends.
+
+462
+00:02:36,860 --> 00:02:40,370
+Let's go ahead and do that. After all the initial setup,
+
+463
+00:02:40,520 --> 00:02:45,320
+we're going to create a while loop and the while loop is going to be active
+
+464
+00:02:45,500 --> 00:02:48,560
+until the game is over. So we can say
+
+465
+00:02:48,560 --> 00:02:50,900
+while not is_game_over,
+
+466
+00:02:51,770 --> 00:02:55,460
+then go ahead and carry out all of these instructions.
+
+467
+00:02:55,760 --> 00:02:59,060
+So calculate the user_score, calculate the computer_score,
+
+468
+00:02:59,380 --> 00:03:03,670
+check that nobody's gone over 21 and nobody's gotten a Blackjack.
+
+469
+00:03:04,090 --> 00:03:08,190
+And if the user wants more cards than they should, if they don't then the
+
+470
+00:03:08,190 --> 00:03:12,040
+the game is over. So let's run this and try it again.
+
+471
+00:03:14,160 --> 00:03:18,270
+Our cards are 10 and 10 which probably means we shouldn't get another card
+
+472
+00:03:18,270 --> 00:03:22,320
+cause we're already so close to 21, but I'm going to be daring and press
+
+473
+00:03:22,320 --> 00:03:26,730
+'y' anyways. And it tells us that our cords are now 10,
+
+474
+00:03:26,760 --> 00:03:28,260
+10 plus two.
+
+475
+00:03:28,590 --> 00:03:32,490
+So we got an extra card and that takes up our score to 22.
+
+476
+00:03:33,030 --> 00:03:34,620
+That worked perfectly.
+
+477
+00:03:35,310 --> 00:03:38,820
+So now let's go back and tackle the next part. Hint
+
+478
+00:03:38,820 --> 00:03:42,960
+number 12 says once the user is done, it's time to let the computer play.
+
+479
+00:03:43,410 --> 00:03:48,270
+The computer should keep drawing cards as long as it has a score less than 17.
+
+480
+00:03:49,200 --> 00:03:53,940
+So the while loop is responsible for dealing with when the user wants to keep
+
+481
+00:03:53,940 --> 00:03:56,880
+drawing cards. But once that's done,
+
+482
+00:03:56,970 --> 00:03:59,280
+then we can tackle hint number 12,
+
+483
+00:03:59,700 --> 00:04:04,110
+which is how does the computer actually play? What is its strategy?
+
+484
+00:04:04,680 --> 00:04:08,010
+Well, we know that the computer has to keep drawing cards
+
+485
+00:04:08,520 --> 00:04:13,020
+as long as it has a score of less than 17. But, of course,
+
+486
+00:04:13,260 --> 00:04:17,370
+0 which represents a Blackjack is also less than 17,
+
+487
+00:04:17,670 --> 00:04:21,420
+but we don't want it to draw a card if it has a Blackjack.
+
+488
+00:04:22,230 --> 00:04:27,230
+We can represent this logic using a while loop; while the computer_score is not
+
+489
+00:04:29,460 --> 00:04:34,460
+equal to zero and the computer_score is less than 17,
+
+490
+00:04:37,380 --> 00:04:40,410
+then in this case we want to keep drawing cards.
+
+491
+00:04:41,100 --> 00:04:43,350
+We're going to take the computers cards
+
+492
+00:04:43,830 --> 00:04:48,830
+and we're going to use the append to add a card by dealing another card to the
+
+493
+00:04:49,560 --> 00:04:50,393
+computer.
+
+494
+00:04:51,120 --> 00:04:56,120
+And then we're going to recalculate the computer_score so that it updates
+
+495
+00:04:56,760 --> 00:05:00,570
+and this while loop is evaluated on the latest score.
+
+496
+00:05:01,260 --> 00:05:06,150
+So the computer_score is going to equal calculate_score using the computer's
+
+497
+00:05:06,150 --> 00:05:06,983
+cards.
+
+498
+00:05:07,740 --> 00:05:12,740
+And that means that the updated computer_score is equal to the return value from
+
+499
+00:05:13,680 --> 00:05:18,600
+calculate_score. So that's hint 12 complete. In the next step
+
+500
+00:05:18,660 --> 00:05:22,020
+we're going to start comparing our player's hand with the dealer's hand.
+
+501
+00:05:22,350 --> 00:05:23,430
+See you in the next lesson.
+
+
+502
+00:00:00,690 --> 00:00:03,420
+At this point, we've created two while loops.
+
+503
+00:00:03,540 --> 00:00:08,070
+The first while loop is for the user so that they can continue taking cards
+
+504
+00:00:08,370 --> 00:00:12,660
+and the second while loop is for the computer so that the dealer can follow
+
+505
+00:00:12,660 --> 00:00:16,410
+their strategy. Now it's time to tackle hint 13
+
+506
+00:00:16,470 --> 00:00:18,870
+where we create a function called compare.
+
+507
+00:00:20,220 --> 00:00:23,520
+We pass in the final user_score and computer_score,
+
+508
+00:00:24,180 --> 00:00:28,380
+and then we compare the scores to see who has won, who has lost,
+
+509
+00:00:28,560 --> 00:00:30,330
+or if they have a draw.
+
+510
+00:00:31,740 --> 00:00:34,080
+So remember that in order to call a function,
+
+511
+00:00:34,470 --> 00:00:37,710
+it has to be declared before the line we want to use it.
+
+512
+00:00:38,160 --> 00:00:41,640
+So let's go back up and after hint number six
+
+513
+00:00:41,640 --> 00:00:43,560
+where we had the last function,
+
+514
+00:00:43,890 --> 00:00:47,880
+let's add this hint here and create our compare function here.
+
+515
+00:00:48,600 --> 00:00:53,600
+This compare function is going to take the user_score and also the computer_
+
+516
+00:00:54,060 --> 00:00:57,420
+score and it's going to compare these two scores.
+
+517
+00:00:58,080 --> 00:01:02,040
+If the user_score is equal to the computer_score,
+
+518
+00:01:02,790 --> 00:01:06,390
+then we said this should mean that it's a draw.
+
+519
+00:01:07,170 --> 00:01:11,430
+So we'll return some sort of message that represents this.
+
+520
+00:01:12,090 --> 00:01:17,090
+But elif or else if the computer has a Blackjack,
+
+521
+00:01:19,140 --> 00:01:23,610
+so the computer_score is equal to zero, well in this case
+
+522
+00:01:23,640 --> 00:01:28,640
+we should return that the user has lost and the opponent has a Blackjack.
+
+523
+00:01:29,460 --> 00:01:32,940
+And then we go through this list and we add in all of these other conditions.
+
+524
+00:01:33,090 --> 00:01:34,260
+So I'm gonna speed it up a bit.
+
+525
+00:01:37,440 --> 00:01:39,090
+Now for the final condition,
+
+526
+00:01:39,780 --> 00:01:43,110
+it says that the player with the highest score should win.
+
+527
+00:01:43,680 --> 00:01:48,680
+So we can write an elif that compares the user_score against the computer score
+
+528
+00:01:50,910 --> 00:01:55,890
+and we're basically saying if the user_score is greater than the computer score,
+
+529
+00:01:56,160 --> 00:01:58,800
+well, then that means that the user wins.
+
+530
+00:02:00,420 --> 00:02:05,250
+But if that's not true and because we've covered everything else,
+
+531
+00:02:05,640 --> 00:02:09,090
+we now have the final return, which is you lose.
+
+532
+00:02:11,700 --> 00:02:12,030
+Now,
+
+533
+00:02:12,030 --> 00:02:17,030
+remember that if, elif, else statements are evaluated from top to bottom.
+
+534
+00:02:18,570 --> 00:02:22,800
+Even though if the computer score is a zero which is a Blackjack
+
+535
+00:02:23,160 --> 00:02:26,490
+which is obviously much less than whatever score the user might have,
+
+536
+00:02:27,060 --> 00:02:32,060
+because it's going to return at this point and it's going to exit the function,
+
+537
+00:02:32,700 --> 00:02:37,020
+it will never get to this comparison if this is already true.
+
+538
+00:02:37,620 --> 00:02:40,770
+If you get confused about how if elif and else works
+
+539
+00:02:41,130 --> 00:02:44,580
+especially the order in which you add the conditions,
+
+540
+00:02:44,910 --> 00:02:48,630
+have a look back at the lesson where we talked about this in more detail.
+
+541
+00:02:49,050 --> 00:02:51,660
+This might be a good time to revise that concept.
+
+542
+00:02:52,380 --> 00:02:55,440
+But now that we've completed our compare function,
+
+543
+00:02:55,560 --> 00:02:58,830
+we're going to use it at the end of our code here
+
+544
+00:02:59,290 --> 00:03:02,440
+because this is a time that the user is done drawing cards,
+
+545
+00:03:02,500 --> 00:03:04,210
+the computer's done drawing cards
+
+546
+00:03:04,690 --> 00:03:07,660
+and now we can call that compare function
+
+547
+00:03:09,370 --> 00:03:14,370
+and pass in the user_score and also the computer_score.
+
+548
+00:03:16,060 --> 00:03:20,080
+So this should hopefully give us the final result
+
+549
+00:03:20,290 --> 00:03:24,550
+as a piece of text. Let's run the code as it is and see what happens.
+
+550
+00:03:25,120 --> 00:03:29,020
+We started out with a 3 and a 6 making a 9.
+
+551
+00:03:29,740 --> 00:03:34,000
+Now we know the computer at least got a 10, so let's add another card.
+
+552
+00:03:34,690 --> 00:03:38,050
+So now we have a score of 11 with 3, 6, and 2,
+
+553
+00:03:38,380 --> 00:03:43,330
+so we can still keep going. And luckily we've managed to get a total of 21.
+
+554
+00:03:43,870 --> 00:03:48,310
+Now we're pretty much invincible I think. So if I go ahead and hit no
+
+555
+00:03:48,310 --> 00:03:52,360
+cause I don't want to take any more cards, then let's see what the result is.
+
+556
+00:03:52,930 --> 00:03:56,230
+So it tells us we win and a big smiley face.
+
+557
+00:03:56,620 --> 00:03:59,590
+So we can probably give the user a little bit more information,
+
+558
+00:03:59,650 --> 00:04:04,630
+like revealing the final deck; what the computer got, and what we got.
+
+559
+00:04:05,350 --> 00:04:09,070
+I'm going to go ahead and create some other print statements above this one.
+
+560
+00:04:09,910 --> 00:04:14,910
+Maybe I'll tell the user that your final hand is this,
+
+561
+00:04:17,320 --> 00:04:20,290
+and the final score was...
+
+562
+00:04:21,519 --> 00:04:24,700
+And then let's reveal to them the computer_score,
+
+563
+00:04:27,190 --> 00:04:31,930
+and then finally we can print the user_score and the computer_score to
+
+564
+00:04:31,930 --> 00:04:35,110
+tell them who won, who lost, or whether if its a draw.
+
+565
+00:04:37,510 --> 00:04:41,380
+In this deck, we've got 14, so let's add another card to it.
+
+566
+00:04:41,740 --> 00:04:45,040
+Unfortunately we went over because we've got another 10.
+
+567
+00:04:45,340 --> 00:04:48,970
+So our final hand is 10, 4, 10
+
+568
+00:04:49,480 --> 00:04:54,220
+and the final score was 24. The computer's final hand was 21,
+
+569
+00:04:54,250 --> 00:04:55,083
+lucky them.
+
+570
+00:04:55,150 --> 00:05:00,150
+So we went over and we lost. If we wanted to play another game because we are
+
+571
+00:05:01,300 --> 00:05:02,470
+Blackjack addicts,
+
+572
+00:05:02,740 --> 00:05:06,160
+then we want to give the user some sort of means of doing this right?
+
+573
+00:05:06,730 --> 00:05:09,430
+And that's what the last hint addresses.
+
+574
+00:05:09,640 --> 00:05:12,790
+So we're going to ask the user if they want to restart the game.
+
+575
+00:05:13,120 --> 00:05:14,230
+If the answer is yes,
+
+576
+00:05:14,290 --> 00:05:18,580
+then we're going to clear the console and start a new game of Blackjack and also
+
+577
+00:05:18,760 --> 00:05:21,850
+show the logo from art.py while we're at it.
+
+578
+00:05:23,290 --> 00:05:27,580
+Let's go ahead and add a input and we can ask them,
+
+579
+00:05:27,670 --> 00:05:31,570
+do you wanna play a game of Blackjack? Type yes or no.
+
+580
+00:05:32,800 --> 00:05:37,800
+So remember that this entire function is going to be evaluated and the result or
+
+581
+00:05:38,620 --> 00:05:41,920
+the output is going to replace this part of the code.
+
+582
+00:05:42,520 --> 00:05:46,000
+So we can say that while the input is equal to y
+
+583
+00:05:46,660 --> 00:05:49,000
+then we're going to keep playing the game.
+
+584
+00:05:49,630 --> 00:05:54,630
+The game is all the code between hint 5 and the end where we compare.
+
+585
+00:05:57,140 --> 00:06:00,830
+So if we actually put this inside a function by
+
+586
+00:06:00,830 --> 00:06:05,830
+indenting it over and then creating a function here called play_game,
+
+587
+00:06:07,430 --> 00:06:10,280
+well then we can actually call this function,
+
+588
+00:06:10,340 --> 00:06:13,940
+play_game, every time the user types 'y'.
+
+589
+00:06:16,790 --> 00:06:20,810
+Now we don't want to clutter up our screen with all the previous games.
+
+590
+00:06:21,050 --> 00:06:23,480
+So before we call play_game,
+
+591
+00:06:23,540 --> 00:06:27,440
+we also want to clear the console. And to do that
+
+592
+00:06:27,470 --> 00:06:32,470
+we obviously have to import the clear function from the replit module.
+
+593
+00:06:33,110 --> 00:06:34,340
+So from replit
+
+594
+00:06:34,340 --> 00:06:39,340
+import clear, and now we can call this clear function to clear the console in
+
+595
+00:06:42,320 --> 00:06:43,880
+here after each game.
+
+596
+00:06:44,450 --> 00:06:49,450
+And then we can call play_game so that the code in this function gets repeated.
+
+597
+00:06:52,190 --> 00:06:55,220
+And we also said that at the beginning when we play game
+
+598
+00:06:55,340 --> 00:06:59,330
+we're going to show the user the logo from art.py.
+
+599
+00:06:59,930 --> 00:07:02,870
+So let's go back and import that as well.
+
+600
+00:07:02,870 --> 00:07:05,960
+So from art import logo,
+
+601
+00:07:07,580 --> 00:07:12,140
+and then at the beginning of every game, we're going to print our logo.
+
+602
+00:07:13,190 --> 00:07:16,490
+That's all there is to this project
+
+603
+00:07:16,880 --> 00:07:21,440
+and now let's run it one final time and see the whole thing in action.
+
+604
+00:07:22,520 --> 00:07:25,040
+Do you wanna play a game of Blackjack? Yes.
+
+605
+00:07:26,060 --> 00:07:28,730
+And it reveals our beautiful Blackjack logo.
+
+606
+00:07:29,150 --> 00:07:32,390
+It tells us the cards that we have, so current score of 11.
+
+607
+00:07:32,420 --> 00:07:36,590
+I'm going to take another card. I'm on 21, which is perfect.
+
+608
+00:07:36,620 --> 00:07:41,150
+So I'm going to pass now. And it tells me that my final hand was 21,
+
+609
+00:07:41,390 --> 00:07:46,390
+the computer's final hand was 17 and I win. And now I can play another game just
+
+610
+00:07:47,330 --> 00:07:48,950
+by typing 'y' again.
+
+611
+00:07:49,880 --> 00:07:54,200
+And I can keep going on and on playing my game of Blackjack.
+
+612
+00:07:54,950 --> 00:07:57,620
+So I hope you had fun at building this game with me.
+
+613
+00:07:57,980 --> 00:08:02,390
+I know this was a really difficult project and I know that some of you would
+
+614
+00:08:02,390 --> 00:08:03,710
+have probably had some issues,
+
+615
+00:08:03,710 --> 00:08:07,850
+but I really hope that you persevered and you got through it in the end. And
+
+616
+00:08:07,850 --> 00:08:09,020
+through the process
+
+617
+00:08:09,050 --> 00:08:12,740
+you've managed to apply a lot of the things that we've learned in the last 10
+
+618
+00:08:12,740 --> 00:08:13,573
+days.
+
+619
+00:08:13,760 --> 00:08:17,900
+This is a good time to review the concepts you've learned and have a think about
+
+620
+00:08:17,900 --> 00:08:22,460
+what you might need to revise or revisit so that you're really,
+
+621
+00:08:22,460 --> 00:08:24,740
+really strong on all the concepts
+
+622
+00:08:25,070 --> 00:08:29,450
+and you're comfortable to continue on to the next 10 days. Now,
+
+623
+00:08:29,480 --> 00:08:32,809
+if you want to take a look at the final code that I've got here,
+
+624
+00:08:33,080 --> 00:08:37,400
+then just head over to repl.it/@appbrewery/blackjack-final
+
+625
+00:08:37,820 --> 00:08:41,419
+and you'll see all the code that I went through with you just now.
+
+

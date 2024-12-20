@@ -1,0 +1,2909 @@
+1
+00:00:00,510 --> 00:00:04,010
+Hey guys, welcome to Day 20 of 100
+
+2
+00:00:04,010 --> 00:00:05,560
+Days of Code. Today
+
+3
+00:00:05,680 --> 00:00:09,200
+is really exciting because we're going to be using the knowledge that we've
+
+4
+00:00:09,200 --> 00:00:11,630
+gained about Object Oriented Programming
+
+5
+00:00:11,990 --> 00:00:16,370
+as well as what we learned about how to use the turtle module to build the
+
+6
+00:00:16,370 --> 00:00:18,830
+famous snake game. Now,
+
+7
+00:00:18,830 --> 00:00:22,430
+this is probably one of the most famous mobile games that ever was,
+
+8
+00:00:22,490 --> 00:00:27,490
+and it's definitely one of my favorite. And my history with it goes back all the
+
+9
+00:00:28,760 --> 00:00:32,390
+way to my very first mobile phone,
+
+10
+00:00:32,420 --> 00:00:37,280
+the Nokia 3310. It might be showing my age a little bit here,
+
+11
+00:00:37,340 --> 00:00:40,580
+but this was my first ever mobile phone.
+
+12
+00:00:40,890 --> 00:00:45,830
+I remember loving it so much that I actually had it next to my pillow when I
+
+13
+00:00:45,830 --> 00:00:50,180
+went to sleep. And this was probably one of the first affordable mobile phones.
+
+14
+00:00:50,270 --> 00:00:55,270
+And it was endlessly customizable with different cases and different keys.
+
+15
+00:00:56,360 --> 00:00:58,640
+But the most exciting thing about it
+
+16
+00:00:58,880 --> 00:01:01,090
+was the snake game. I would compare
+
+17
+00:01:01,190 --> 00:01:04,489
+with my friends and see who got the highest score in snake
+
+18
+00:01:04,730 --> 00:01:09,590
+and we would spend days and days playing this game. And compared to the iPhone
+
+19
+00:01:09,590 --> 00:01:14,060
+games of today, of course, this was very, very simple, but nonetheless,
+
+20
+00:01:14,060 --> 00:01:17,990
+it is still super addictive. Over the next two days
+
+21
+00:01:18,110 --> 00:01:22,700
+this is the game that we're going to build. A snake game that has,
+
+22
+00:01:22,760 --> 00:01:26,180
+um, a moving snake, which you control using your keyboard,
+
+23
+00:01:26,630 --> 00:01:29,030
+and you can go and get food,
+
+24
+00:01:29,300 --> 00:01:31,910
+and then it grows in length as it eats more food.
+
+25
+00:01:32,240 --> 00:01:35,480
+And you have to make sure that you don't end up getting tangled or hitting the
+
+26
+00:01:35,480 --> 00:01:36,170
+wall.
+
+27
+00:01:36,170 --> 00:01:40,940
+And the goal is to eat as much food as you can while staying alive.
+
+28
+00:01:41,600 --> 00:01:45,350
+There are some people who are truly masters at this game, um,
+
+29
+00:01:45,410 --> 00:01:47,420
+which I personally am not,
+
+30
+00:01:47,780 --> 00:01:52,430
+but they managed to get their snakes to crazy lengths and start having these
+
+31
+00:01:52,430 --> 00:01:57,430
+strategies for how you can avoid hitting your tail and how you can keep going.
+
+32
+00:01:58,100 --> 00:02:01,400
+So once you've built your snake game, you'll be able to play with it,
+
+33
+00:02:01,550 --> 00:02:04,700
+and you'll be able to show off your high scores to the rest of us,
+
+34
+00:02:04,910 --> 00:02:07,310
+but I'm sure you're going to do a lot better than me.
+
+35
+00:02:07,700 --> 00:02:10,850
+It's not that hard to beat me at snake. As always,
+
+36
+00:02:10,850 --> 00:02:13,040
+when we're thinking about a complex problem
+
+37
+00:02:13,070 --> 00:02:16,340
+the first step is to break down the problem.
+
+38
+00:02:16,940 --> 00:02:21,940
+And I'm going to break down this problem of building the snake game into seven
+
+39
+00:02:22,040 --> 00:02:23,150
+separate steps.
+
+40
+00:02:23,420 --> 00:02:26,660
+And the way we're going to do it is we're going to tackle the first three steps
+
+41
+00:02:26,660 --> 00:02:30,470
+on Day 1 and the last four steps on Day 2.
+
+42
+00:02:30,950 --> 00:02:34,730
+So we're going to split up this game into two parts and we're going to tackle it
+
+43
+00:02:34,760 --> 00:02:39,680
+over two days. The first step is to create a snake body,
+
+44
+00:02:40,070 --> 00:02:43,880
+and we're going to do that by creating three squares on the screen,
+
+45
+00:02:44,270 --> 00:02:45,950
+all lined up next to each other.
+
+46
+00:02:46,760 --> 00:02:51,290
+And then we're going to figure out how to move the snake so that it continuously
+
+47
+00:02:51,290 --> 00:02:52,250
+moves forward
+
+48
+00:02:52,460 --> 00:02:57,170
+and all we have to do is tell it to change direction. Afterwards,
+
+49
+00:02:57,230 --> 00:03:01,300
+we're going to figure out how to control the snake using keyboard controls.
+
+50
+00:03:01,570 --> 00:03:06,570
+So we're going to be using the up, left, down, and right arrow keys to move our
+
+51
+00:03:07,240 --> 00:03:08,680
+snake across the screen.
+
+52
+00:03:09,070 --> 00:03:12,520
+And that is what we're aiming for by the end of today,
+
+53
+00:03:12,520 --> 00:03:14,920
+Day 20. On Day 21,
+
+54
+00:03:15,070 --> 00:03:18,340
+we're going to continue and we're going to build out the last four steps of the
+
+55
+00:03:18,340 --> 00:03:19,173
+snake game.
+
+56
+00:03:19,630 --> 00:03:24,100
+Then we'll need to start putting some food onto the screen and started to detect
+
+57
+00:03:24,100 --> 00:03:28,210
+the collision with the food so that once the snake hits the food,
+
+58
+00:03:28,450 --> 00:03:33,400
+then a new piece of food gets created randomly on the screen at some sort of
+
+59
+00:03:33,520 --> 00:03:34,570
+random location.
+
+60
+00:03:35,410 --> 00:03:40,240
+And then it's a matter of keeping track of the score and creating a scoreboard.
+
+61
+00:03:40,510 --> 00:03:45,430
+So we're going to learn how to write text in our program so that once the snake
+
+62
+00:03:45,430 --> 00:03:48,970
+hits a piece of food, the score automatically updates.
+
+63
+00:03:49,480 --> 00:03:52,870
+And then next we're going to figure out when the game should end.
+
+64
+00:03:53,020 --> 00:03:58,020
+So one of the cases when the game should end is when the snake has collided with
+
+65
+00:03:58,480 --> 00:04:02,470
+the wall. And at this point we should see game over,
+
+66
+00:04:02,470 --> 00:04:06,430
+show up on screen and the snake should no longer move.
+
+67
+00:04:06,910 --> 00:04:08,140
+And then finally,
+
+68
+00:04:08,200 --> 00:04:12,880
+the other reason why our game could end is when the snake has collided with its
+
+69
+00:04:12,880 --> 00:04:17,470
+own tail. So the snake basically can't chase his own tail.
+
+70
+00:04:17,740 --> 00:04:21,610
+And as the snake gets longer, this problem is more likely to occur.
+
+71
+00:04:22,060 --> 00:04:26,500
+And when their head hits any part of the body of the snake, then it's again,
+
+72
+00:04:26,560 --> 00:04:29,860
+game over. So these are the seven steps
+
+73
+00:04:29,890 --> 00:04:32,040
+that it takes to create the snake game.
+
+74
+00:04:32,670 --> 00:04:37,440
+And once you're ready, we're gonna get started with step one on the next lesson.
+
+75
+00:04:37,650 --> 00:04:38,340
+So I'll see you there.
+
+
+76
+00:00:00,330 --> 00:00:01,650
+So to start off,
+
+77
+00:00:01,740 --> 00:00:06,210
+go ahead and create a new project called snake_game in PyCharm.
+
+78
+00:00:06,870 --> 00:00:11,340
+And then inside this project, we're going to create a new main.py file.
+
+79
+00:00:12,450 --> 00:00:16,500
+And inside our file, we're going to need our normal imports.
+
+80
+00:00:16,860 --> 00:00:21,860
+So I'm going to say from turtle import the screen class and also the turtle
+
+81
+00:00:24,120 --> 00:00:25,890
+class. Now,
+
+82
+00:00:25,920 --> 00:00:29,880
+the first thing we're going to do is we're going to create a new screen,
+
+83
+00:00:29,940 --> 00:00:32,820
+which is basically going to be the window that shows up.
+
+84
+00:00:33,390 --> 00:00:38,390
+And then we're going to set up our screen so that it is 600 by 600.
+
+85
+00:00:40,380 --> 00:00:45,380
+So the width is going to be 600 pixels and the height is also going to be 600
+
+86
+00:00:47,310 --> 00:00:51,780
+pixels. And notice how I'm using these keyword arguments
+
+87
+00:00:51,810 --> 00:00:55,530
+so that it's a little bit clearer to the next person looking at this code
+
+88
+00:00:55,770 --> 00:00:58,290
+what's actually happening here. Now,
+
+89
+00:00:58,320 --> 00:01:01,770
+the other thing I want to change is the screen's background color.
+
+90
+00:01:02,160 --> 00:01:06,570
+So there's a method called bgcolor and inside here
+
+91
+00:01:06,570 --> 00:01:11,310
+we're going to write the text black so that we end up with a black screen.
+
+92
+00:01:11,880 --> 00:01:12,300
+Now,
+
+93
+00:01:12,300 --> 00:01:17,300
+another thing that you might not have seen before is how to set the title of
+
+94
+00:01:17,340 --> 00:01:21,600
+the window that shows up. And we do that through a method called title,
+
+95
+00:01:21,870 --> 00:01:26,430
+and you can name your program here. So I'm going to call it 'My Snake Game',
+
+96
+00:01:26,790 --> 00:01:30,870
+but you can of course call it whatever it is you want. Now finally,
+
+97
+00:01:30,870 --> 00:01:35,550
+at the very bottom of the file, I'm going to say screen.exitonclick.
+
+98
+00:01:35,790 --> 00:01:40,050
+So this way, when I actually run it, it doesn't just disappear straight away
+
+99
+00:01:40,770 --> 00:01:44,640
+and it waits for me and I can look at what's actually happened so far.
+
+100
+00:01:45,090 --> 00:01:49,230
+So I'm going to click run and then select my main file.
+
+101
+00:01:49,680 --> 00:01:51,000
+And once it pops up,
+
+102
+00:01:51,030 --> 00:01:56,030
+this is what you should see, a 600 by 600 square window
+
+103
+00:01:56,520 --> 00:01:59,880
+and then at the top of the window, you'll see the name of your program,
+
+104
+00:01:59,910 --> 00:02:04,620
+which is My Snake Game. And the background is now black.
+
+105
+00:02:05,640 --> 00:02:07,500
+Now that we've set up our screen,
+
+106
+00:02:07,530 --> 00:02:11,039
+we're ready to tackle the first of our seven steps,
+
+107
+00:02:11,340 --> 00:02:13,500
+which is to create a snake body.
+
+108
+00:02:14,160 --> 00:02:17,520
+And we're going to create three squares
+
+109
+00:02:17,610 --> 00:02:19,590
+which are each going to be turtles,
+
+110
+00:02:19,830 --> 00:02:24,090
+and they're going to be lined up next to each other along the horizontal axis.
+
+111
+00:02:24,210 --> 00:02:28,020
+So let's think about this. When we create a new turtle,
+
+112
+00:02:28,290 --> 00:02:33,290
+it has a dimension of 20 pixels wide by 20 pixels tall.
+
+113
+00:02:34,530 --> 00:02:38,100
+And if we want three of them lined up next to each other,
+
+114
+00:02:38,370 --> 00:02:43,050
+then we have to think about how we create their coordinates. As a challenge,
+
+115
+00:02:43,170 --> 00:02:46,260
+I want you to think about how we can create this. Here
+
+116
+00:02:46,260 --> 00:02:48,990
+we have three separate squares
+
+117
+00:02:49,050 --> 00:02:54,050
+which are each a turtle object and they're shaped like a square and they have a
+
+118
+00:02:54,330 --> 00:02:57,420
+white color. Now, they're positioned
+
+119
+00:02:57,450 --> 00:03:00,130
+so that the first one is (0, 0),
+
+120
+00:03:00,490 --> 00:03:04,810
+the next one is 20 pixels to the left and the next one is again
+
+121
+00:03:04,870 --> 00:03:08,920
+20 pixels to the left so that none of the squares overlap with each other,
+
+122
+00:03:09,100 --> 00:03:12,940
+but there's also no gaps. So it looks like a whole snake.
+
+123
+00:03:13,510 --> 00:03:14,980
+This is your challenge
+
+124
+00:03:15,160 --> 00:03:18,820
+and you might have to think about a few of the things that we've done before in
+
+125
+00:03:18,820 --> 00:03:22,450
+order to achieve this. So browse the documentation,
+
+126
+00:03:22,810 --> 00:03:26,650
+look back to the previous code that you've written and see if you can solve this
+
+127
+00:03:26,650 --> 00:03:28,240
+challenge. Pause the video now.
+
+128
+00:03:32,590 --> 00:03:32,980
+Alright.
+
+129
+00:03:32,980 --> 00:03:37,060
+So the first thing we're going to need to do is to create some sort of turtle,
+
+130
+00:03:37,060 --> 00:03:37,660
+right?
+
+131
+00:03:37,660 --> 00:03:42,660
+So let's call this segment_1 and this is going to be a new turtle.
+
+132
+00:03:43,150 --> 00:03:45,880
+And remember that when we initialize the turtle,
+
+133
+00:03:46,090 --> 00:03:48,310
+we can already specify the shape.
+
+134
+00:03:48,580 --> 00:03:51,850
+So we can either say shape = "square",
+
+135
+00:03:51,940 --> 00:03:56,740
+or simply just leave it as square. So now at this point,
+
+136
+00:03:56,740 --> 00:04:01,150
+we should end up with a square turtle, but because it's black,
+
+137
+00:04:01,180 --> 00:04:04,630
+when we run the code, we won't actually see it on screen.
+
+138
+00:04:05,140 --> 00:04:09,970
+So let's change this segment color to white.
+
+139
+00:04:10,570 --> 00:04:14,920
+And all we have to do is write the word for the color
+
+140
+00:04:15,370 --> 00:04:18,279
+and now when we rerun our code,
+
+141
+00:04:18,339 --> 00:04:22,330
+you can see a white square at the center,
+
+142
+00:04:22,360 --> 00:04:24,790
+which is at position (0, 0).
+
+143
+00:04:25,690 --> 00:04:30,690
+Now the next step is to create our other two white squares.
+
+144
+00:04:32,290 --> 00:04:35,560
+So let's go ahead and copy these bits of code,
+
+145
+00:04:36,070 --> 00:04:39,340
+and I'm going to create three of them in total.
+
+146
+00:04:39,340 --> 00:04:43,300
+So segment_2 and segment_3.
+
+147
+00:04:45,130 --> 00:04:47,860
+Now here, we're going to create the same thing,
+
+148
+00:04:48,040 --> 00:04:52,600
+but we obviously have to change the positioning because otherwise we end up with
+
+149
+00:04:52,630 --> 00:04:55,000
+three squares all on top of each other,
+
+150
+00:04:55,030 --> 00:04:58,960
+and we can only see one square because this is a 2-D image.
+
+151
+00:04:59,530 --> 00:05:04,530
+So let's go ahead and make segment_2 go to a different position.
+
+152
+00:05:05,320 --> 00:05:09,070
+So the first thing we have to specify is the X,
+
+153
+00:05:09,220 --> 00:05:12,790
+which you remember is the horizontal axis here.
+
+154
+00:05:13,030 --> 00:05:15,550
+And if we want another square to the left of it,
+
+155
+00:05:15,970 --> 00:05:20,970
+then we're going to have to go to -20 from zero.
+
+156
+00:05:21,550 --> 00:05:25,240
+That way it will be shifted to the left by 20 pixels.
+
+157
+00:05:25,840 --> 00:05:28,750
+Let's say go to -20
+
+158
+00:05:29,110 --> 00:05:32,650
+and then the Y-axis is going to be zero because it's not going to move up or
+
+159
+00:05:32,650 --> 00:05:33,483
+down.
+
+160
+00:05:33,640 --> 00:05:38,200
+Now let's take a look at the result of this and you can see we've now got two
+
+161
+00:05:38,200 --> 00:05:40,210
+squares lining side by side,
+
+162
+00:05:40,540 --> 00:05:43,990
+but the third square is still at the center.
+
+163
+00:05:44,620 --> 00:05:49,030
+So the third segment is going to be shifted a further 20 pixels.
+
+164
+00:05:49,390 --> 00:05:54,310
+This is centered on (0, 0), this is at (-20, 0),
+
+165
+00:05:54,610 --> 00:05:57,100
+then this has to be at (-40, 0).
+
+166
+00:05:57,350 --> 00:06:01,700
+So let's tell our segment_3 to go to (-40, 0).
+
+167
+00:06:02,150 --> 00:06:03,800
+And this is what we see.
+
+168
+00:06:04,190 --> 00:06:08,810
+Did you manage to achieve this or did you do it in a different way? Now,
+
+169
+00:06:08,900 --> 00:06:13,700
+a much easier way of creating this would have been to use a for loop.
+
+170
+00:06:14,090 --> 00:06:14,990
+For example, we
+
+171
+00:06:15,250 --> 00:06:17,340
+could have created a list of
+
+172
+00:06:17,480 --> 00:06:18,940
+starting positions
+
+173
+00:06:20,860 --> 00:06:24,370
+and this could contain some tuples.
+
+174
+00:06:24,850 --> 00:06:29,850
+So we know that in order to specify where the segment should go to,
+
+175
+00:06:30,280 --> 00:06:34,240
+we have to provide a tuple, which is a X and a Y value.
+
+176
+00:06:34,840 --> 00:06:39,220
+And we know that we can create a tuple just by using a set of parentheses and
+
+177
+00:06:39,220 --> 00:06:42,130
+then adding values in there, separated by commas.
+
+178
+00:06:42,610 --> 00:06:46,990
+So if the first segment has to be at the center, then that's going to be 
+
+179
+00:06:46,990 --> 00:06:51,910
+(0, 0), and then the second piece is going to be at (-20, 0),
+
+180
+00:06:52,510 --> 00:06:55,720
+and the third piece is going to be at (-40, 0).
+
+181
+00:06:56,410 --> 00:06:57,780
+Now we can create
+
+182
+00:06:57,940 --> 00:07:00,100
+a for loop. So for
+
+183
+00:07:00,370 --> 00:07:03,040
+position in starting_positions,
+
+184
+00:07:03,490 --> 00:07:08,490
+let's loop through this list and create a new segment for each of those
+
+185
+00:07:09,490 --> 00:07:13,870
+positions. So now we're going to create a new segment
+
+186
+00:07:13,870 --> 00:07:16,360
+that's a square turtle, that's going to be white,
+
+187
+00:07:16,750 --> 00:07:21,750
+and we're going to get the segment to go to the position that we're currently
+
+188
+00:07:21,940 --> 00:07:25,570
+looping on. Now we can delete all of that code
+
+189
+00:07:25,900 --> 00:07:30,370
+and when we run our code again, you can see we have the same effect.
+
+190
+00:07:30,400 --> 00:07:35,380
+We have all three pieces. So if you can't remember how tuples work,
+
+191
+00:07:35,620 --> 00:07:38,890
+be sure to go back to the lessons on tuples in Day 18,
+
+192
+00:07:39,220 --> 00:07:42,040
+where we talked about how to write them and how they work.
+
+193
+00:07:42,760 --> 00:07:45,070
+But that completes our first step.
+
+194
+00:07:45,280 --> 00:07:50,280
+We've managed to create three segments that will comprise our snake
+
+195
+00:07:50,650 --> 00:07:51,910
+and in the next lesson,
+
+196
+00:07:51,940 --> 00:07:55,690
+we're going to figure out how to get our snake to start moving by itself on the
+
+197
+00:07:55,690 --> 00:07:59,380
+screen. So for all of that and more, I'll see you on the next lesson.
+
+
+198
+00:00:00,630 --> 00:00:05,630
+In the last lesson, we managed to create our snake's body by creating three
+
+199
+00:00:05,640 --> 00:00:10,260
+squares that were each turtle objects. Now in this lesson,
+
+200
+00:00:10,290 --> 00:00:14,280
+we're going to move on to the next step where we actually move our snake
+
+201
+00:00:14,520 --> 00:00:18,570
+automatically across the screen without having to do anything.
+
+202
+00:00:19,050 --> 00:00:24,050
+So this way the snake is continuously moving forwards and all we have to do as
+
+203
+00:00:24,120 --> 00:00:27,570
+the user is just to change its direction. Now,
+
+204
+00:00:27,600 --> 00:00:30,990
+how would we go about moving the snake? Well,
+
+205
+00:00:31,020 --> 00:00:36,000
+we've already got these different segments that are created, but at the moment,
+
+206
+00:00:36,030 --> 00:00:39,360
+there's no way of organizing all the segments.
+
+207
+00:00:39,720 --> 00:00:42,480
+They're kind of just created and placed on screen.
+
+208
+00:00:43,140 --> 00:00:47,310
+So let's put them into a list called segments,
+
+209
+00:00:47,820 --> 00:00:52,020
+and let's start out that list as an empty list. And then later on,
+
+210
+00:00:52,020 --> 00:00:54,180
+once we've created each new segment,
+
+211
+00:00:54,420 --> 00:00:57,300
+we go ahead and append it to this list.
+
+212
+00:00:58,770 --> 00:01:02,250
+If we want something to continuously happen in our program,
+
+213
+00:01:02,700 --> 00:01:05,910
+the way that we've usually done that is through a while loop.
+
+214
+00:01:06,510 --> 00:01:11,510
+So let's create a new variable called game_is_on and let's set it to true.
+
+215
+00:01:14,520 --> 00:01:16,680
+And while game is on,
+
+216
+00:01:17,100 --> 00:01:20,280
+then we're going to move each of the segments.
+
+217
+00:01:20,670 --> 00:01:25,440
+The simplest way that I could think of to move this segment is to loop through
+
+218
+00:01:25,560 --> 00:01:29,190
+each of the segments in our list of segments,
+
+219
+00:01:29,730 --> 00:01:34,730
+and then to get each of these to go ahead and move forward.
+
+220
+00:01:35,640 --> 00:01:38,160
+So let's say we move forwards by 20 pixels.
+
+221
+00:01:38,580 --> 00:01:41,340
+Let's go ahead and run this program and see what we get.
+
+222
+00:01:42,450 --> 00:01:46,290
+The first thing we notice is that the behavior is very weird.
+
+223
+00:01:46,710 --> 00:01:49,080
+We've got a line that's being drawn
+
+224
+00:01:49,470 --> 00:01:52,260
+and that comes from each of the segments
+
+225
+00:01:52,620 --> 00:01:55,320
+which are individual turtles.
+
+226
+00:01:55,410 --> 00:01:57,810
+And they're all drawing this line as they're moving.
+
+227
+00:01:58,590 --> 00:02:00,690
+The first thing we want to fix is that line.
+
+228
+00:02:00,960 --> 00:02:03,630
+So when we create each new segment,
+
+229
+00:02:03,750 --> 00:02:07,020
+before we tell it to go to its position,
+
+230
+00:02:07,410 --> 00:02:11,760
+let's go ahead and tell it to pull the pen up. This way
+
+231
+00:02:11,760 --> 00:02:13,260
+it won't actually draw
+
+232
+00:02:13,470 --> 00:02:16,950
+and all that we'll see is the actual turtle pieces.
+
+233
+00:02:19,110 --> 00:02:24,110
+So now we see our three turtle pieces scurrying along like some sort of weird
+
+234
+00:02:24,960 --> 00:02:28,500
+Caterpillar, but definitely not in a snake like way.
+
+235
+00:02:29,420 --> 00:02:30,620
+How can we fix this?
+
+236
+00:02:31,490 --> 00:02:36,490
+One of the things that you notice about turtle is it will first create the
+
+237
+00:02:37,400 --> 00:02:39,500
+turtle when it runs this line,
+
+238
+00:02:39,800 --> 00:02:44,780
+the turtle will get created at the center positions, so coordinate (0, 0).
+
+239
+00:02:45,530 --> 00:02:49,730
+And then it will be moved to whatever position we tell it to go to.
+
+240
+00:02:49,940 --> 00:02:54,890
+For example, for the third segment, it starts out life at (0, 0)
+
+241
+00:02:55,070 --> 00:03:00,040
+and then as soon as it gets told to go to this position, it goes to (-40, 0).
+
+242
+00:03:00,580 --> 00:03:03,310
+Now we can see that happening on screen.
+
+243
+00:03:03,940 --> 00:03:05,920
+When we created our snake body,
+
+244
+00:03:06,190 --> 00:03:10,960
+you could see each individual piece being created and then moved to their
+
+245
+00:03:10,960 --> 00:03:14,560
+location. Now, if we wanted to turn off that animation,
+
+246
+00:03:14,800 --> 00:03:18,670
+then we would have to use one of the screen class'
+
+247
+00:03:18,670 --> 00:03:23,670
+methods called tracer. And tracer takes a number as a input,
+
+248
+00:03:26,050 --> 00:03:28,870
+and it turns the animation on or off.
+
+249
+00:03:29,140 --> 00:03:31,570
+And when the tracer is turned off,
+
+250
+00:03:32,020 --> 00:03:37,020
+then we can use the update method to tell our program when to refresh and redraw
+
+251
+00:03:38,380 --> 00:03:43,150
+the screen. When we think back to the old TV monitors,
+
+252
+00:03:43,180 --> 00:03:46,360
+the cathode ray tube monitors or CRT monitors,
+
+253
+00:03:46,720 --> 00:03:51,720
+the way that they worked is by painting on a strip of color line by line
+
+254
+00:03:53,920 --> 00:03:57,550
+by line, slowly covering the entire screen.
+
+255
+00:03:58,060 --> 00:04:02,020
+And then once it's done one screen, it's going to go back to the top
+
+256
+00:04:02,110 --> 00:04:07,090
+and then it's going to paint the pixels for the next scene. And effectively,
+
+257
+00:04:07,090 --> 00:04:10,240
+it's kind of like how a GIF animation works.
+
+258
+00:04:10,420 --> 00:04:14,380
+A gif animation is composed of many images. So for example,
+
+259
+00:04:14,380 --> 00:04:15,730
+if we wanted to animate,
+
+260
+00:04:15,730 --> 00:04:20,730
+we would increase this line and then we would start drawing out a leaf until
+
+261
+00:04:21,339 --> 00:04:25,900
+eventually we end up with an animation like this. Now,
+
+262
+00:04:26,020 --> 00:04:29,170
+when that's all combined and played back very quickly,
+
+263
+00:04:29,200 --> 00:04:33,460
+then this is the animation you see. In our game
+
+264
+00:04:33,490 --> 00:04:38,490
+what we could do is we could describe each of these scenes and tell our program
+
+265
+00:04:40,900 --> 00:04:43,270
+when it should redraw each picture.
+
+266
+00:04:44,140 --> 00:04:49,140
+So that way we could start out with one picture and then hit update and then do
+
+267
+00:04:50,260 --> 00:04:51,610
+something else on screen,
+
+268
+00:04:51,640 --> 00:04:56,260
+maybe move each of our segments and then tell the screen to update again
+
+269
+00:04:56,260 --> 00:04:58,180
+to show the user the new result.
+
+270
+00:04:58,660 --> 00:05:01,900
+And then each time we make the changes we want to happen
+
+271
+00:05:02,230 --> 00:05:05,500
+and then call that update method to tell the screen
+
+272
+00:05:05,590 --> 00:05:10,590
+to show a new image each time. Let's first turn off the tracer.
+
+273
+00:05:11,770 --> 00:05:14,770
+So the tracer is a method in the screen class
+
+274
+00:05:15,220 --> 00:05:18,670
+and in order to turn it off, we're going to set it to zero.
+
+275
+00:05:19,210 --> 00:05:23,470
+So now once the tracer is off, if we actually try to run our program,
+
+276
+00:05:23,710 --> 00:05:26,890
+you can see it's just a black screen and nothing will happen.
+
+277
+00:05:27,400 --> 00:05:32,260
+Even though we've got our while loop and we've got our for loop and lots of
+
+278
+00:05:32,260 --> 00:05:35,980
+things are meant to be happening, but until we call update,
+
+279
+00:05:36,160 --> 00:05:39,700
+the screen is not going to refresh and it's not going to show us what's been
+
+280
+00:05:39,700 --> 00:05:41,110
+happening in our code.
+
+281
+00:05:41,680 --> 00:05:46,680
+So let's say that we decide to call update after all of the segments have been
+
+282
+00:05:48,820 --> 00:05:53,200
+created, so right about here. Let's call screen.
+
+283
+00:05:53,350 --> 00:05:56,620
+update. And now if I hit run,
+
+284
+00:05:56,890 --> 00:06:01,280
+you'll notice that pretty much immediately. As soon as you run the program,
+
+285
+00:06:01,610 --> 00:06:04,970
+our snake body will show up, not piece by piece,
+
+286
+00:06:05,060 --> 00:06:08,930
+but in its entirety. Now, if on the other hand
+
+287
+00:06:09,020 --> 00:06:14,020
+I move our screen.update line of code into the while loop so that once each
+
+288
+00:06:16,940 --> 00:06:20,600
+segment moves, I get the screen to update,
+
+289
+00:06:20,930 --> 00:06:22,850
+then this is what you're going to see.
+
+290
+00:06:23,210 --> 00:06:26,840
+You see each of the pieces moving along one by one.
+
+291
+00:06:27,290 --> 00:06:29,810
+Now it's not really clear what's happening.
+
+292
+00:06:29,840 --> 00:06:31,730
+So I'm going to slow it down a little bit.
+
+293
+00:06:32,210 --> 00:06:35,240
+And I'm going to do this by importing the time module.
+
+294
+00:06:35,690 --> 00:06:40,690
+Now I'm going to add the time.sleep and I'm going to get it to sleep by one
+
+295
+00:06:41,900 --> 00:06:42,733
+second.
+
+296
+00:06:42,830 --> 00:06:47,830
+So this basically just add a one-second delay after each segment moves.
+
+297
+00:06:49,280 --> 00:06:52,040
+So each segment moves, the screen updates,
+
+298
+00:06:52,190 --> 00:06:55,670
+and then we sleep for a second before the next time this happens.
+
+299
+00:06:56,240 --> 00:06:58,190
+Notice how in this case,
+
+300
+00:06:58,280 --> 00:07:01,280
+our snake is moving piece by piece.
+
+301
+00:07:01,520 --> 00:07:04,730
+So first this first piece, and then the second piece,
+
+302
+00:07:04,760 --> 00:07:08,810
+the third piece with a one-second delay between each movement.
+
+303
+00:07:09,440 --> 00:07:09,800
+Now,
+
+304
+00:07:09,800 --> 00:07:14,800
+what happens if we move this screen.update to outside this for-loop?
+
+305
+00:07:16,490 --> 00:07:18,920
+So basically we only update the screen
+
+306
+00:07:19,190 --> 00:07:21,770
+once all of the segments have moved forwards.
+
+307
+00:07:21,950 --> 00:07:26,950
+Now notice how our snake is moving forwards as an entire piece.
+
+308
+00:07:27,590 --> 00:07:32,180
+It's going to move all three segments forward before the update gets triggered
+
+309
+00:07:32,450 --> 00:07:34,160
+and we refresh the graphics.
+
+310
+00:07:34,370 --> 00:07:38,870
+So it looks like as if the whole snake is moving as one piece. Now,
+
+311
+00:07:38,900 --> 00:07:43,580
+instead of getting it to delay by one second after each segment has moved,
+
+312
+00:07:43,880 --> 00:07:45,950
+if I move this up here
+
+313
+00:07:46,190 --> 00:07:48,950
+then it's only going to be delayed by one second
+
+314
+00:07:49,220 --> 00:07:52,550
+after all three segments have moved. This way
+
+315
+00:07:52,580 --> 00:07:56,990
+our snake is moving a little bit faster. And we can make it move faster still
+
+316
+00:07:57,050 --> 00:07:59,690
+if we cut the amount of time that we're sleeping.
+
+317
+00:08:00,080 --> 00:08:02,840
+So let's change it to 0.1 second sleep
+
+318
+00:08:03,290 --> 00:08:06,470
+and you can see our snake is now moving at a reasonable speed.
+
+319
+00:08:06,890 --> 00:08:11,270
+Now you might think that we've solved the challenge and we've now got our snake
+
+320
+00:08:11,270 --> 00:08:15,800
+to move automatically forwards, but there's a problem.
+
+321
+00:08:16,040 --> 00:08:17,780
+How do we turn our snake?
+
+322
+00:08:18,170 --> 00:08:22,280
+Let's see what would happen if we control the snake head and change direction.
+
+323
+00:08:22,910 --> 00:08:27,680
+Let's say that at some point, we want to turn the snake so that it turns left.
+
+324
+00:08:28,280 --> 00:08:29,750
+Well, what happens then?
+
+325
+00:08:30,380 --> 00:08:33,409
+So this first piece is now facing up,
+
+326
+00:08:33,770 --> 00:08:38,299
+the second piece is going to continue moving forwards as does the third piece.
+
+327
+00:08:39,020 --> 00:08:42,590
+Now on the next iteration of that for loop,
+
+328
+00:08:43,010 --> 00:08:47,780
+that first piece is going to keep moving towards North while the second and
+
+329
+00:08:47,780 --> 00:08:51,950
+third pieces are going to keep moving forward because they're not going to
+
+330
+00:08:51,950 --> 00:08:53,210
+change their own heading.
+
+331
+00:08:53,750 --> 00:08:58,590
+We'll get this strange behavior because our snake segments are not linked. To
+
+332
+00:08:58,590 --> 00:09:03,270
+illustrate this, let me go ahead and change the first segment,
+
+333
+00:09:03,270 --> 00:09:08,270
+so the segment at index zero, and get it to turn left by 90 degrees.
+
+334
+00:09:10,350 --> 00:09:12,180
+And notice when I run the code,
+
+335
+00:09:12,570 --> 00:09:16,380
+you see how that head is moving in a circle all by itself,
+
+336
+00:09:16,710 --> 00:09:21,300
+and the body has completely left the head and has continued to go forward.
+
+337
+00:09:21,950 --> 00:09:24,290
+So how can we solve this? Well,
+
+338
+00:09:24,380 --> 00:09:29,240
+we have to rethink the way that we move our segments. Again,
+
+339
+00:09:29,270 --> 00:09:34,040
+we have our three segments, but if instead of moving everything forwards,
+
+340
+00:09:34,460 --> 00:09:38,840
+what if we get our last segment, so segment_3
+
+341
+00:09:38,840 --> 00:09:43,340
+in this case, to move to the position of the second to last segment,
+
+342
+00:09:43,760 --> 00:09:48,650
+and then the second segment to move to the position of the first segment,
+
+343
+00:09:49,040 --> 00:09:53,570
+and then the first segment itself to go forward by 20 paces?
+
+344
+00:09:53,900 --> 00:09:58,400
+And if we go back to that situation where we're trying to turn our snake,
+
+345
+00:09:58,880 --> 00:10:02,060
+then in this method, it will still continue to work.
+
+346
+00:10:02,390 --> 00:10:04,970
+So we've got our three segments, one, two, and three.
+
+347
+00:10:05,480 --> 00:10:08,840
+Our third segment goes to where the second segment used to be,
+
+348
+00:10:09,050 --> 00:10:11,300
+second goes to where the one used to be,
+
+349
+00:10:11,570 --> 00:10:15,620
+and then the one is going to turn and then move to the left.
+
+350
+00:10:15,980 --> 00:10:18,710
+Now the next turn is the interesting part
+
+351
+00:10:19,070 --> 00:10:21,680
+because at this point we saw how
+
+352
+00:10:21,770 --> 00:10:24,680
+if these two pieces just continue moving forward,
+
+353
+00:10:24,980 --> 00:10:28,610
+they're going to move away from the head of the snake and it's going to move in
+
+354
+00:10:28,610 --> 00:10:31,610
+opposite directions. But using this method,
+
+355
+00:10:31,880 --> 00:10:36,110
+our third segment is going to move to where the second segment used to be,
+
+356
+00:10:36,380 --> 00:10:38,750
+the second goes to where the first used to be,
+
+357
+00:10:38,990 --> 00:10:42,560
+and the first continues moving forward. This way,
+
+358
+00:10:42,560 --> 00:10:47,270
+our snake has pretty much straightened out as you would expect this snake to
+
+359
+00:10:47,270 --> 00:10:51,980
+behave. Now, it's just the matter of actually implementing this,
+
+360
+00:10:52,010 --> 00:10:53,090
+which is the hard part.
+
+361
+00:10:53,600 --> 00:10:57,500
+So I'm going to go ahead and delete the part where I told the snake to turn left
+
+362
+00:10:58,040 --> 00:11:00,620
+and I'm going to delete this for loop
+
+363
+00:11:00,650 --> 00:11:05,330
+which just moved each of the segments in our list of segments forward by 20
+
+364
+00:11:05,330 --> 00:11:09,980
+paces. Now, instead, what I'm going to do is I'm going to create a for loop,
+
+365
+00:11:10,340 --> 00:11:15,340
+but this time I'm going to loop through each of the segments going from the last
+
+366
+00:11:15,980 --> 00:11:18,170
+segment to the first segment,
+
+367
+00:11:18,380 --> 00:11:22,040
+so basically in reverse order. Now to do this,
+
+368
+00:11:22,040 --> 00:11:24,710
+I'm going to use the range type of for-loop.
+
+369
+00:11:24,950 --> 00:11:29,950
+So I'm going to say for segment number or seg_num in the range,
+
+370
+00:11:31,490 --> 00:11:34,020
+and this range is going to have
+
+371
+00:11:34,160 --> 00:11:37,580
+a start, a stop,
+
+372
+00:11:38,150 --> 00:11:40,340
+and also a step.
+
+373
+00:11:40,820 --> 00:11:44,420
+So the start is the number that we're going to start
+
+374
+00:11:44,420 --> 00:11:47,450
+the range from, the stop is where the range is going to end,
+
+375
+00:11:47,810 --> 00:11:52,370
+and the step is how we're going to get from the start to the stop. For example,
+
+376
+00:11:52,400 --> 00:11:56,710
+if we wanted a range of 1, 2, 3, then of course start is going to be 1,
+
+377
+00:11:56,920 --> 00:12:01,480
+stop is going to be 3 and step is going to be +1. Now,
+
+378
+00:12:01,480 --> 00:12:05,770
+if we wanted a range of 3, 2, 1, however,
+
+379
+00:12:05,830 --> 00:12:07,870
+then the start is going to be 3,
+
+380
+00:12:08,140 --> 00:12:12,730
+the stop is going to be 1 and the step is going to be -1.
+
+381
+00:12:13,420 --> 00:12:14,230
+In our case,
+
+382
+00:12:14,230 --> 00:12:18,640
+what we actually want is actually to go from 2,
+
+383
+00:12:19,120 --> 00:12:21,040
+1, 0.
+
+384
+00:12:21,550 --> 00:12:26,550
+So the start will be 2, the stop will be 0, and the step will be -1.
+
+385
+00:12:28,960 --> 00:12:33,400
+Now, unfortunately, even though we have these named parameters,
+
+386
+00:12:33,760 --> 00:12:38,560
+because the range function in Python is actually something that's not quite pure
+
+387
+00:12:38,560 --> 00:12:41,860
+Python, it's something that comes from the C language,
+
+388
+00:12:42,220 --> 00:12:45,520
+it doesn't actually let us use these names.
+
+389
+00:12:45,820 --> 00:12:49,180
+I'll show you when we run our code, this is actually going to give us an error.
+
+390
+00:12:49,480 --> 00:12:50,710
+But for the time being,
+
+391
+00:12:50,740 --> 00:12:55,240
+it's actually much easier to visualize this as we write the code inside this
+
+392
+00:12:55,240 --> 00:12:57,610
+for-loop. So in this case,
+
+393
+00:12:57,640 --> 00:13:02,640
+the segment number is going to be equal to 2, and then 1,
+
+394
+00:13:03,430 --> 00:13:04,870
+and then finally 0.
+
+395
+00:13:05,440 --> 00:13:10,440
+Now we're going to use that to get hold of the last segment from our list of
+
+396
+00:13:11,620 --> 00:13:12,453
+segments.
+
+397
+00:13:12,580 --> 00:13:16,720
+So we can tap into that list and then get hold of the last one
+
+398
+00:13:16,990 --> 00:13:18,580
+using that seg_num.
+
+399
+00:13:19,060 --> 00:13:23,860
+And then we're going to set it to go to a particular X and Y position.
+
+400
+00:13:24,380 --> 00:13:29,380
+Now the X and Y position that we want it to go to is going to be the second to
+
+401
+00:13:30,370 --> 00:13:32,200
+last segment's position.
+
+402
+00:13:32,680 --> 00:13:35,800
+So how can we get hold of the second to last segment? Well,
+
+403
+00:13:36,040 --> 00:13:40,720
+we're going to get hold of the segments and then pass in seg_num but then 
+
+404
+00:13:40,720 --> 00:13:44,230
+-1. So when we first start out, we start out with 2.
+
+405
+00:13:44,530 --> 00:13:49,120
+So the segment at position two is going to be the last segment.
+
+406
+00:13:49,480 --> 00:13:54,400
+And then the segment at 2 - 1 is going to be the second to last segment.
+
+407
+00:13:54,850 --> 00:13:58,450
+Now this one we're going to get hold of it's X coordinate
+
+408
+00:13:59,050 --> 00:14:03,250
+and we're going to set this to a variable called new_x,
+
+409
+00:14:03,760 --> 00:14:08,760
+and then we're going to do the same and get hold of the new_y.
+
+410
+00:14:09,820 --> 00:14:13,660
+So we're going to get hold of the second to last segment's Y coordinate,
+
+411
+00:14:14,020 --> 00:14:19,020
+and then we're going to use these coordinates, new_x and new_y to tell this last
+
+412
+00:14:19,600 --> 00:14:24,040
+segment to go to the position of the second to last segment.
+
+413
+00:14:24,790 --> 00:14:26,260
+Now, as I mentioned before,
+
+414
+00:14:26,650 --> 00:14:30,790
+this range function comes from the C language.
+
+415
+00:14:31,060 --> 00:14:34,330
+So if we run it with these keyword arguments
+
+416
+00:14:34,630 --> 00:14:36,430
+it's actually going to give us an error
+
+417
+00:14:36,550 --> 00:14:40,840
+and it tells us that this range function takes no keyword arguments.
+
+418
+00:14:41,260 --> 00:14:44,410
+So while it's really nice to use it to visualize it,
+
+419
+00:14:44,440 --> 00:14:48,040
+if we actually want it to work, we have to delete these.
+
+420
+00:14:48,220 --> 00:14:50,200
+But just before I delete it,
+
+421
+00:14:50,470 --> 00:14:55,190
+I want to this so that we're no longer using these hard-coded numbers.
+
+422
+00:14:55,310 --> 00:14:57,560
+So instead of going from 2 to 0,
+
+423
+00:14:57,980 --> 00:15:02,570
+we want to go to the length of the segments.
+
+424
+00:15:02,600 --> 00:15:06,410
+So in the future, if we had 10 segments or 20 segments,
+
+425
+00:15:06,620 --> 00:15:08,660
+that our code would still work. Now,
+
+426
+00:15:08,660 --> 00:15:11,750
+the length of the segment is actually three to begin with.
+
+427
+00:15:12,170 --> 00:15:15,800
+And we know that lists start counting from zero,
+
+428
+00:15:15,800 --> 00:15:20,800
+so 0, 1, 2, ... the last position is going to be the length - 1,
+
+429
+00:15:21,440 --> 00:15:25,190
+and then we're going to stop at the zeroth segment.
+
+430
+00:15:25,760 --> 00:15:30,560
+So now we can go ahead and delete these named arguments.
+
+431
+00:15:33,260 --> 00:15:37,640
+And we end up with this. Now we can run our code and we won't get any errors.
+
+432
+00:15:38,600 --> 00:15:43,040
+Notice how all three of the segments went to the same position,
+
+433
+00:15:43,580 --> 00:15:48,560
+the position of the first segment. So in addition to moving these segments,
+
+434
+00:15:48,590 --> 00:15:53,590
+remember that we also have to move the very first segment actually forwards by
+
+435
+00:15:55,940 --> 00:16:00,380
+say, 20 paces. So at the very end of all of this code
+
+436
+00:16:00,560 --> 00:16:01,910
+outside of the four loop,
+
+437
+00:16:02,180 --> 00:16:06,890
+we're going to get hold of the first segment, so segment at position zero,
+
+438
+00:16:07,280 --> 00:16:10,700
+and then we're going to get it to move forward by 20 paces.
+
+439
+00:16:11,420 --> 00:16:12,980
+So now when I run this again,
+
+440
+00:16:13,010 --> 00:16:17,810
+you can see our snake is now moving freely forwards and even if at some point,
+
+441
+00:16:17,840 --> 00:16:20,120
+the snake needed to turn,
+
+442
+00:16:20,450 --> 00:16:23,150
+let's say it turned left by 90 degrees,
+
+443
+00:16:23,540 --> 00:16:25,880
+then our code is still going to work.
+
+444
+00:16:25,970 --> 00:16:30,320
+Notice how our snake is now turning in a circle and all of the subsequent
+
+445
+00:16:30,320 --> 00:16:34,400
+pieces are following the head along its path. That's it.
+
+446
+00:16:34,670 --> 00:16:39,670
+This is the code that will get our snake to automatically move forwards.
+
+447
+00:16:40,850 --> 00:16:43,970
+Now, there was quite a few concepts mentioned in here,
+
+448
+00:16:44,480 --> 00:16:49,480
+and you have to think about the segments in terms of how they move in the graph
+
+449
+00:16:50,720 --> 00:16:55,610
+and also this idea of getting hold of the last segment and then telling it to go
+
+450
+00:16:55,610 --> 00:17:00,380
+to the position of the second to last segment and then doing this for all of the
+
+451
+00:17:00,380 --> 00:17:01,213
+segments.
+
+452
+00:17:01,370 --> 00:17:05,720
+So it's a little bit mind-bending and it might be worth just taking a second
+
+453
+00:17:05,720 --> 00:17:10,550
+look at this code and going back in the video where I explain how this worked in
+
+454
+00:17:10,550 --> 00:17:14,329
+the slides, just so that you're really clear with how this works.
+
+455
+00:17:14,720 --> 00:17:18,890
+Once you are, then you can move forward and head over to the next lesson.
+
+
+456
+00:00:00,150 --> 00:00:00,750
+So far,
+
+457
+00:00:00,750 --> 00:00:05,750
+we've managed to get our starting segments for our snake to appear on screen.
+
+458
+00:00:06,630 --> 00:00:11,630
+And then we managed to get our snake to automatically move forwards and to
+
+459
+00:00:12,930 --> 00:00:17,930
+figure out a way for the tail of the snake to follow where the head is going.
+
+460
+00:00:18,750 --> 00:00:23,750
+Now it's time to tidy up our code a little bit so that all the parts that are
+
+461
+00:00:24,390 --> 00:00:29,390
+related to the snake's behavior and the snake's appearance go into a separate
+
+462
+00:00:30,090 --> 00:00:33,300
+class. So that by the end of the whole project,
+
+463
+00:00:33,330 --> 00:00:37,410
+we should end up with three classes; a snake class, a food class,
+
+464
+00:00:37,500 --> 00:00:41,130
+and a scoreboard. And all of these classes will be in separate files,
+
+465
+00:00:41,370 --> 00:00:43,170
+managing only one thing.
+
+466
+00:00:43,650 --> 00:00:48,150
+And the goal of the refactoring is so that you could create a separate file,
+
+467
+00:00:48,150 --> 00:00:52,860
+snake.py, import the snake class that you've created in that file.
+
+468
+00:00:53,430 --> 00:00:55,500
+And then once you initialize this snake,
+
+469
+00:00:55,560 --> 00:01:00,330
+it will do everything that we have so far and create our three segments snake
+
+470
+00:01:00,600 --> 00:01:04,890
+onto the screen. And then finally, while the game loop is running,
+
+471
+00:01:05,129 --> 00:01:10,110
+we're going to get the snake to continuously move forward just by calling snake
+
+472
+00:01:10,140 --> 00:01:13,140
+.move. This is what you're aiming for.
+
+473
+00:01:14,310 --> 00:01:17,910
+Have a think about how you can take the existing code that you've got in the
+
+474
+00:01:17,910 --> 00:01:22,910
+main.py and extract all of the snake related functionality into a separate
+
+475
+00:01:23,610 --> 00:01:28,230
+snake class and make your main.py end up looking like this.
+
+476
+00:01:28,740 --> 00:01:31,860
+The program should do the exact same things as before.
+
+477
+00:01:32,160 --> 00:01:36,450
+The only difference is how the code is organized. Have a think about this.
+
+478
+00:01:36,660 --> 00:01:39,810
+You might need to revise some of the things you learned about how to create
+
+479
+00:01:39,810 --> 00:01:43,860
+classes, how to create objects from the previous lessons.
+
+480
+00:01:44,010 --> 00:01:45,060
+But pause the video,
+
+481
+00:01:45,330 --> 00:01:49,230
+I want you to give this a good try before you come back when we'll go through
+
+482
+00:01:49,230 --> 00:01:50,250
+the solution together.
+
+483
+00:01:53,960 --> 00:01:54,380
+Alright.
+
+484
+00:01:54,380 --> 00:01:57,020
+So the first thing we need to do is of course,
+
+485
+00:01:57,050 --> 00:02:02,050
+to create our snake class. And remember that in Python, class names are in Pascal
+
+486
+00:02:03,350 --> 00:02:06,470
+case, so the first letter needs to be capitalized.
+
+487
+00:02:07,070 --> 00:02:10,280
+And then inside this class, I'm going to create my init.
+
+488
+00:02:11,000 --> 00:02:15,590
+Now the code in here is going to determine what should happen when we initialize
+
+489
+00:02:15,620 --> 00:02:19,250
+a new snake object. So firstly,
+
+490
+00:02:19,310 --> 00:02:24,310
+I'm going to take the starting positions and take it over to our snake.py.
+
+491
+00:02:25,460 --> 00:02:29,960
+Now, I'm actually going to put this in as a constant. So right at the top,
+
+492
+00:02:30,350 --> 00:02:32,150
+and remember that in Python,
+
+493
+00:02:32,480 --> 00:02:36,380
+the constants are named with all caps like this,
+
+494
+00:02:36,530 --> 00:02:40,550
+and also with snake case with underscores separating each of the words.
+
+495
+00:02:41,000 --> 00:02:46,000
+Now we can use these starting positions inside our snake class to create our new
+
+496
+00:02:47,430 --> 00:02:51,410
+snake. So we're going to need to move our segments over as well.
+
+497
+00:02:51,830 --> 00:02:55,850
+So let's create a new attribute that's associated with our snake class called
+
+498
+00:02:55,850 --> 00:02:57,650
+segments. And remember,
+
+499
+00:02:57,650 --> 00:03:01,120
+we're going to need to use self when we're working within a class.
+
+500
+00:03:02,020 --> 00:03:05,290
+After that, we're going to create our snake.
+
+501
+00:03:05,620 --> 00:03:10,210
+So I'm going to create a method called create_snake down here.
+
+502
+00:03:13,350 --> 00:03:18,350
+And this method is going to do everything that we previously had over here,
+
+503
+00:03:19,680 --> 00:03:22,320
+but we're going to move that into this method.
+
+504
+00:03:22,740 --> 00:03:25,230
+Now there's a couple of things we need to change. Firstly,
+
+505
+00:03:25,230 --> 00:03:28,260
+we change these starting positions into a constant,
+
+506
+00:03:28,560 --> 00:03:30,270
+so let's make that consistent.
+
+507
+00:03:30,750 --> 00:03:35,700
+Second thing is that we need to import turtle into this file from the turtle
+
+508
+00:03:35,700 --> 00:03:39,720
+module in order to use it to create a new segment.
+
+509
+00:03:40,350 --> 00:03:44,640
+And then finally, in order to refer to our attribute segments,
+
+510
+00:03:44,730 --> 00:03:49,730
+we have to say self.segments and then append this new segment to our snake
+
+511
+00:03:51,030 --> 00:03:53,610
+segments. That's this part done.
+
+512
+00:03:53,910 --> 00:03:58,910
+The next thing we need to do is to get rid of this code and move it inside the
+
+513
+00:04:00,480 --> 00:04:02,010
+snake. So again,
+
+514
+00:04:02,040 --> 00:04:06,780
+I'm going to create another method that's associated with the snake class called
+
+515
+00:04:06,810 --> 00:04:09,600
+move. So when the snake moves,
+
+516
+00:04:09,660 --> 00:04:14,660
+it's going to look to this code to figure out how it should do that. Again,
+
+517
+00:04:15,090 --> 00:04:18,510
+because we're inside our class, it's no longer just segments.
+
+518
+00:04:18,779 --> 00:04:21,029
+It's now self.segments.
+
+519
+00:04:21,510 --> 00:04:25,500
+So let's go ahead and replace it in all the places where we have our red
+
+520
+00:04:25,530 --> 00:04:29,220
+underlines and now that's pretty much it for our snake class.
+
+521
+00:04:29,520 --> 00:04:33,780
+We can create a new snake object and each time we do that,
+
+522
+00:04:33,930 --> 00:04:38,930
+it creates a three-segment snake using the starting positions
+
+523
+00:04:39,600 --> 00:04:44,490
+which are declared at the top. So if we want the snake to show up on screen,
+
+524
+00:04:44,760 --> 00:04:49,260
+then we're going to have to first import the snake class from the snake file,
+
+525
+00:04:49,800 --> 00:04:54,800
+and then we're going to create a new snake object from that class.
+
+526
+00:04:55,830 --> 00:05:00,060
+And once this line gets triggered, then we're going to be calling
+
+527
+00:05:00,060 --> 00:05:04,800
+create_snake and our three-segment snake will show up on screen like this.
+
+528
+00:05:05,610 --> 00:05:08,490
+Now the next step is while the game is on,
+
+529
+00:05:08,670 --> 00:05:12,780
+the screen is going to update every 0.1 second.
+
+530
+00:05:13,080 --> 00:05:15,000
+So that's essentially what this is doing.
+
+531
+00:05:15,030 --> 00:05:19,620
+It's saying that delay for 0.1 second and then refresh the screen.
+
+532
+00:05:20,250 --> 00:05:22,530
+And every time the screen refreshes,
+
+533
+00:05:22,770 --> 00:05:26,640
+we're going to get the snake to move forwards by one step.
+
+534
+00:05:27,120 --> 00:05:31,410
+Now at the moment, each step is defined here as 20.
+
+535
+00:05:31,830 --> 00:05:36,270
+So again, I want to extract that into a constant up here,
+
+536
+00:05:36,630 --> 00:05:39,450
+so we're going to call it the MOVE_DISTANCE
+
+537
+00:05:40,950 --> 00:05:45,950
+and we can set that to 20 and then change this to use the constant here.
+
+538
+00:05:47,430 --> 00:05:51,600
+And the reason why we have all these constants is so that if we wanted to tweak
+
+539
+00:05:51,600 --> 00:05:52,240
+our game,
+
+540
+00:05:52,240 --> 00:05:56,940
+say if we wanted the snake to start at a different position or for it to move
+
+541
+00:05:56,990 --> 00:06:01,250
+further each time, then we don't have to dig through the body of our code.
+
+542
+00:06:01,430 --> 00:06:03,290
+All we have to do is look at the top,
+
+543
+00:06:03,320 --> 00:06:06,680
+look at all the things that we can change and then change it accordingly.
+
+544
+00:06:07,160 --> 00:06:10,100
+So now coming back to our code here,
+
+545
+00:06:10,490 --> 00:06:15,490
+all we now really have here is just these few lines of code and everything that
+
+546
+00:06:15,830 --> 00:06:17,360
+is snake related,
+
+547
+00:06:17,390 --> 00:06:22,390
+creating the snake or moving the snake is now abstracted into it's own class.
+
+548
+00:06:24,350 --> 00:06:26,690
+This way when something goes wrong with our snake,
+
+549
+00:06:26,780 --> 00:06:30,470
+we know who's responsible and which file to dig through
+
+550
+00:06:30,470 --> 00:06:33,380
+to figure out the reason. Now, at this point,
+
+551
+00:06:33,380 --> 00:06:35,900
+if we go ahead and rerun our code,
+
+552
+00:06:36,260 --> 00:06:39,710
+you can see that our program works exactly the same as before.
+
+553
+00:06:39,740 --> 00:06:43,820
+Nothing should have changed and nothing should have broken ow because our game
+
+554
+00:06:43,820 --> 00:06:46,550
+isn't yet able to go into the game over sequence,
+
+555
+00:06:46,760 --> 00:06:50,150
+there's no way of stopping the snake other than hitting the stop button.
+
+556
+00:06:50,450 --> 00:06:53,420
+So don't worry if at this stage inside your console
+
+557
+00:06:53,450 --> 00:06:57,020
+you see a lot of red and it says things like keyboard interrupt,
+
+558
+00:06:57,020 --> 00:07:00,050
+or trace back errors. All of these are normal.
+
+559
+00:07:00,380 --> 00:07:04,520
+The thing that you're more concerned about is whether if, when you run the game,
+
+560
+00:07:04,700 --> 00:07:07,430
+whether if it actually works like it used to,
+
+561
+00:07:07,460 --> 00:07:10,220
+so namely your snake moving across the screen.
+
+562
+00:07:10,760 --> 00:07:15,760
+If it does exactly what it used to and your main.py is now much simpler and
+
+563
+00:07:17,180 --> 00:07:22,040
+all of your snake functionality and behavior and appearance is now inside its
+
+564
+00:07:22,040 --> 00:07:26,060
+own class, then you have successfully achieved the goal of this lesson.
+
+
+565
+00:00:00,240 --> 00:00:03,750
+So we've now managed to create a snake body, move the snake,
+
+566
+00:00:03,810 --> 00:00:08,810
+and we've even managed to put our snake related code into a separate class.
+
+567
+00:00:10,410 --> 00:00:14,940
+Now the next step is to figure out how to control the snake.
+
+568
+00:00:15,600 --> 00:00:20,600
+Now we're going to control the snake by using the up, down, left, and right arrow
+
+569
+00:00:21,810 --> 00:00:22,643
+keys.
+
+570
+00:00:22,920 --> 00:00:27,150
+And we're going to be using our key bindings that we learned in yesterday's
+
+571
+00:00:27,150 --> 00:00:32,150
+lessons to be able to translate this into a change in direction of the snake. In
+
+572
+00:00:33,600 --> 00:00:36,780
+our code right after we create our snake,
+
+573
+00:00:37,140 --> 00:00:42,140
+we're going to call the screen.listen method to start listening for
+
+574
+00:00:42,450 --> 00:00:43,283
+keystrokes.
+
+575
+00:00:43,740 --> 00:00:48,740
+And the keystrokes that we're going to listen for are the up, down, left, and right
+
+576
+00:00:50,010 --> 00:00:54,510
+arrow keys. Now those keys are described by a string.
+
+577
+00:00:54,810 --> 00:00:59,370
+So it's a uppercase 'U' and then a 'p' so this would be up.
+
+578
+00:00:59,760 --> 00:01:03,750
+And then it's again, uppercase 'Down', 'Left',
+
+579
+00:01:04,319 --> 00:01:06,810
+and 'Right'.
+
+580
+00:01:07,320 --> 00:01:11,340
+These are the keys that it will detect, obviously the up,
+
+581
+00:01:11,340 --> 00:01:13,710
+down, left, and right arrow keys on the keyboard.
+
+582
+00:01:14,400 --> 00:01:19,110
+The function that you're going to bind it to is going to be a function in the
+
+583
+00:01:19,110 --> 00:01:23,490
+snake object and it's going to have the same name. So for example,
+
+584
+00:01:23,490 --> 00:01:25,230
+it'd be snake.up,
+
+585
+00:01:25,320 --> 00:01:29,100
+and that will be triggered when the up key is pressed.
+
+586
+00:01:29,550 --> 00:01:34,470
+And then the same thing happens with snake.down when the down key gets
+
+587
+00:01:34,470 --> 00:01:37,530
+pressed and then again with left and right.
+
+588
+00:01:38,130 --> 00:01:43,130
+Your job is to have a think about how you can create these methods up,
+
+589
+00:01:44,160 --> 00:01:46,920
+down, left, and right, in the snake class
+
+590
+00:01:47,370 --> 00:01:51,930
+so that when the up key or the down key is detected,
+
+591
+00:01:52,260 --> 00:01:56,820
+you can move the snake and change its heading accordingly.
+
+592
+00:01:57,240 --> 00:02:02,240
+So remember that up is going to be towards North, down is going to be South, left
+
+593
+00:02:03,510 --> 00:02:07,560
+is going to be towards the left of the screen and right is going to be towards
+
+594
+00:02:07,560 --> 00:02:08,430
+the right of the screen.
+
+595
+00:02:08,820 --> 00:02:13,590
+So have a think about the headings that we spoke about in previous lessons.
+
+596
+00:02:14,070 --> 00:02:18,090
+And if you need to, it might be worth just setting up a brand new project,
+
+597
+00:02:18,390 --> 00:02:23,070
+getting a turtle up and running and then setting it's heading from zero all the
+
+598
+00:02:23,070 --> 00:02:27,120
+way to 360, just to see which direction it's actually facing.
+
+599
+00:02:27,510 --> 00:02:29,250
+If you managed to complete the challenge,
+
+600
+00:02:29,280 --> 00:02:31,410
+you should be able to control the snake
+
+601
+00:02:31,680 --> 00:02:34,410
+and even though it's going to continue moving forward,
+
+602
+00:02:34,650 --> 00:02:39,450
+you now determine which direction it moves in by using the arrow keys.
+
+603
+00:02:40,080 --> 00:02:43,320
+Pause the video now and see if you can complete this challenge.
+
+604
+00:02:46,140 --> 00:02:49,860
+All right. So I've already created all of these lines of code
+
+605
+00:02:49,890 --> 00:02:53,130
+which is going to get the screen to listen for these key strokes.
+
+606
+00:02:53,580 --> 00:02:55,020
+And then when it detects it,
+
+607
+00:02:55,050 --> 00:02:58,350
+it's going to call these methods in the snake class.
+
+608
+00:02:58,710 --> 00:03:02,350
+So inside our snake class, let's go ahead and create those methods.
+
+609
+00:03:02,470 --> 00:03:03,570
+So we've got up,
+
+610
+00:03:05,820 --> 00:03:06,690
+down,
+
+611
+00:03:08,910 --> 00:03:10,410
+left, and right.
+
+612
+00:03:10,890 --> 00:03:15,890
+Let's think about how we can turn the snake up. In order to turn the snake,
+
+613
+00:03:17,160 --> 00:03:20,820
+the segment that we're most interested in is the first segment.
+
+614
+00:03:20,850 --> 00:03:22,740
+That's basically the head of the snake.
+
+615
+00:03:23,040 --> 00:03:28,040
+So we could tap into self.segments and then get hold of the zeroth segment,
+
+616
+00:03:29,070 --> 00:03:33,150
+which is the first one, and then change its heading by calling setheading.
+
+617
+00:03:33,810 --> 00:03:36,900
+And then we can tell it to, for example, if it's up,
+
+618
+00:03:36,930 --> 00:03:40,950
+then it should actually be turning to the 90-degree direction,
+
+619
+00:03:40,980 --> 00:03:42,540
+which is actually towards North.
+
+620
+00:03:43,230 --> 00:03:48,230
+Now I'm going to go ahead and put a pass on all of these other methods,
+
+621
+00:03:49,110 --> 00:03:53,190
+just so that we can actually test our code and it doesn't give us any errors
+
+622
+00:03:53,490 --> 00:03:58,020
+because these functions are currently empty. Now, if you don't have the pass,
+
+623
+00:03:58,140 --> 00:04:02,280
+it won't like it because Python doesn't like the idea of empty functions.
+
+624
+00:04:02,760 --> 00:04:05,970
+But now we can at least just test this one thing.
+
+625
+00:04:06,600 --> 00:04:08,040
+So when we run our code,
+
+626
+00:04:08,070 --> 00:04:12,570
+we should be able to hit the up key and you can see the snake changed direction.
+
+627
+00:04:12,960 --> 00:04:13,950
+Let me just do that again.
+
+628
+00:04:14,520 --> 00:04:18,209
+And this is because we managed to get the first segment,
+
+629
+00:04:18,240 --> 00:04:20,190
+the head of the snake, to change
+
+630
+00:04:20,190 --> 00:04:25,020
+it's heading to 90 degrees and then the rest of the body will follow because
+
+631
+00:04:25,020 --> 00:04:28,110
+it's continuously moving on every tick of the clock.
+
+632
+00:04:28,710 --> 00:04:32,550
+So using this, we can now set the rest of the methods.
+
+633
+00:04:32,910 --> 00:04:36,660
+But because we're going to need the head of the snake quite a few times in our
+
+634
+00:04:36,660 --> 00:04:41,610
+code, it might make sense to actually create a separate attribute.
+
+635
+00:04:42,060 --> 00:04:46,980
+So after we've created the snake, after we've got some segments inside this list,
+
+636
+00:04:47,310 --> 00:04:49,500
+we can create an attribute called head,
+
+637
+00:04:49,590 --> 00:04:51,180
+which is going to be the head of the snake.
+
+638
+00:04:51,540 --> 00:04:56,160
+And this can be equal to self.segments at index zero. Now,
+
+639
+00:04:56,160 --> 00:04:59,430
+remember if you have this line of code above the create_snake,
+
+640
+00:04:59,460 --> 00:05:03,990
+it's probably going to error out because at this point the segments is empty
+
+641
+00:05:04,350 --> 00:05:08,160
+and if you try to get the first item from it, it's not going to allow you to.
+
+642
+00:05:08,610 --> 00:05:13,440
+So look at the positioning of the code here. Now, once we've got this set,
+
+643
+00:05:13,500 --> 00:05:16,500
+we can go down here and change everywhere
+
+644
+00:05:16,500 --> 00:05:19,590
+where we need to use the head of the snake. So for example,
+
+645
+00:05:19,830 --> 00:05:24,030
+when we're moving the head forwards and when we're moving it up,
+
+646
+00:05:24,060 --> 00:05:28,080
+left, down, and right. Now we can set
+
+647
+00:05:28,110 --> 00:05:33,110
+each of these headings. Up is going to be a heading of 90, down is going to be 
+
+648
+00:05:34,560 --> 00:05:35,393
+270,
+
+649
+00:05:36,000 --> 00:05:41,000
+left is 180 and right is 0.
+
+650
+00:05:41,760 --> 00:05:45,420
+These directions are just simply counter-clockwise.
+
+651
+00:05:45,450 --> 00:05:49,740
+So the turtle starts out pointing towards East and that's a heading of zero,
+
+652
+00:05:50,070 --> 00:05:55,070
+and then going anticlockwise, up is 90, left is 180, down as 270.
+
+653
+00:05:55,920 --> 00:06:00,020
+This can be easily verified just by testing out some numbers, right?
+
+654
+00:06:00,020 --> 00:06:04,190
+You could just put some numbers in there and then just try it out and see which
+
+655
+00:06:04,190 --> 00:06:07,130
+direction it goes and then you'll be able to figure it out.
+
+656
+00:06:07,580 --> 00:06:10,040
+But we've also mentioned this in previous lessons
+
+657
+00:06:10,040 --> 00:06:13,730
+so you could also go back and take a look at when we looked at the heading of
+
+658
+00:06:13,760 --> 00:06:18,020
+the turtle. So now if I go ahead and run this,
+
+659
+00:06:18,320 --> 00:06:23,240
+then you should see that I can now freely control the snake by going left or
+
+660
+00:06:23,240 --> 00:06:28,100
+right or down or up. And if you managed to do this,
+
+661
+00:06:28,160 --> 00:06:32,000
+then you should consider yourself successful. Now,
+
+662
+00:06:32,030 --> 00:06:34,160
+while I was testing this code,
+
+663
+00:06:34,400 --> 00:06:39,020
+I realized that there's something about the snake game that we haven't really
+
+664
+00:06:39,380 --> 00:06:40,213
+accounted for.
+
+665
+00:06:40,730 --> 00:06:44,390
+And it's the fact that the snake can't move back on itself.
+
+666
+00:06:44,780 --> 00:06:49,310
+It can't go forwards and then go the opposite direction because that requires
+
+667
+00:06:49,310 --> 00:06:52,040
+the head to change directions.
+
+668
+00:06:52,280 --> 00:06:54,590
+And this is not allowed in the official snake game.
+
+669
+00:06:55,070 --> 00:06:59,420
+So how can we code this into our game? Well,
+
+670
+00:06:59,750 --> 00:07:04,750
+we have to figure out when the head is pointing towards down direction,
+
+671
+00:07:06,980 --> 00:07:11,360
+then we shouldn't allow it to go up. And similarly, when it's pointing up,
+
+672
+00:07:11,390 --> 00:07:14,000
+we shouldn't let it go down, when it's pointing right
+
+673
+00:07:14,030 --> 00:07:17,150
+we shouldn't let it go left. So at the top here,
+
+674
+00:07:17,180 --> 00:07:18,740
+I'm going to create some constants.
+
+675
+00:07:18,770 --> 00:07:23,770
+I'm going to create a UP direction and it's going to be 90, DOWN direction is going to
+
+676
+00:07:24,920 --> 00:07:29,920
+be 270, LEFT is going to be equal to 180 and RIGHT is going to be equal to
+
+677
+00:07:33,230 --> 00:07:37,730
+0. So now that I've got all of these as constants,
+
+678
+00:07:37,880 --> 00:07:42,880
+I can go in here and set the heading to instead say UP when it needs to go up,
+
+679
+00:07:47,620 --> 00:07:51,640
+DOWN, LEFT and RIGHT. In addition,
+
+680
+00:07:51,670 --> 00:07:53,530
+we're going to do an if check.
+
+681
+00:07:53,560 --> 00:07:58,560
+So we're going to say if the current self.head.heading
+
+682
+00:08:01,810 --> 00:08:06,190
+is not equal to down, well, in that case,
+
+683
+00:08:06,250 --> 00:08:09,190
+it's allowed to move up. So this way,
+
+684
+00:08:09,190 --> 00:08:12,700
+it just means that if the current heading is pointed down,
+
+685
+00:08:13,150 --> 00:08:16,510
+it can't move up. But for all other directions,
+
+686
+00:08:16,540 --> 00:08:18,970
+if it's already moving up or left or right,
+
+687
+00:08:19,240 --> 00:08:21,280
+then it can change the heading to up.
+
+688
+00:08:23,350 --> 00:08:27,430
+Now be really careful here because it's not just self.head.heading,
+
+689
+00:08:27,700 --> 00:08:32,700
+it's actually heading as a method because remember that the head of the snake is
+
+690
+00:08:34,150 --> 00:08:37,150
+the first segment of our list of segments
+
+691
+00:08:37,630 --> 00:08:40,809
+and each segment is a individual turtle.
+
+692
+00:08:41,409 --> 00:08:44,230
+The turtle has a heading method
+
+693
+00:08:44,410 --> 00:08:48,820
+which will give you a direction in terms of these 360-degree numbers,
+
+694
+00:08:49,270 --> 00:08:53,950
+and then we can use that to check to see if it's equal to down.
+
+695
+00:08:54,370 --> 00:08:57,780
+And if it is, then it's not allowed to go up.
+
+696
+00:08:58,590 --> 00:09:00,780
+So using this logic,
+
+697
+00:09:00,810 --> 00:09:05,810
+see if you can complete the rest of the three methods so that when you run your
+
+698
+00:09:06,990 --> 00:09:10,020
+code, you can turn in all directions.
+
+699
+00:09:10,440 --> 00:09:12,660
+But when you're facing one direction,
+
+700
+00:09:12,690 --> 00:09:15,750
+you can't go backwards, like this.
+
+701
+00:09:16,520 --> 00:09:17,353
+Okay?
+
+702
+00:09:20,480 --> 00:09:22,880
+Alright. So it's going to be pretty straightforward.
+
+703
+00:09:23,240 --> 00:09:27,950
+If it's already going up, then it's not allowed to go down.
+
+704
+00:09:28,640 --> 00:09:31,520
+If it's already going right,
+
+705
+00:09:31,820 --> 00:09:35,990
+then it's not allowed to go left. And finally,
+
+706
+00:09:36,050 --> 00:09:40,310
+if it's already going left, then it's not allowed to go right.
+
+707
+00:09:41,810 --> 00:09:45,950
+So this way, even though our snake can move freely through the space,
+
+708
+00:09:46,280 --> 00:09:49,880
+it can't go back on itself. And there we have it.
+
+709
+00:09:49,910 --> 00:09:53,990
+We've now managed to create our snake, get it to move and control it
+
+710
+00:09:54,080 --> 00:09:56,150
+using our key presses.
+
+711
+00:09:56,690 --> 00:10:00,590
+Even though it seems like our game is still not quite there,
+
+712
+00:10:00,860 --> 00:10:02,660
+we've already come so far.
+
+713
+00:10:02,990 --> 00:10:05,930
+So this comes up to our hour mark
+
+714
+00:10:06,290 --> 00:10:10,010
+and it's now time to take a break, refresh your minds,
+
+715
+00:10:10,370 --> 00:10:13,850
+look at some of the concepts that you might be confused about that we covered
+
+716
+00:10:13,850 --> 00:10:14,683
+today,
+
+717
+00:10:14,720 --> 00:10:19,040
+especially this concept of using the update to refresh the screen,
+
+718
+00:10:19,460 --> 00:10:21,680
+as well as using the timer
+
+719
+00:10:21,710 --> 00:10:26,570
+to delay the refresh so that we can control how often it happens.
+
+720
+00:10:26,960 --> 00:10:31,610
+And then using our key bindings as well as separating all classes.
+
+721
+00:10:31,880 --> 00:10:34,910
+We looked at a lot of things today. Now, tomorrow,
+
+722
+00:10:34,970 --> 00:10:37,370
+once you're rested and fresh and ready,
+
+723
+00:10:37,640 --> 00:10:39,860
+we're going to be finishing up the snake game.
+
+724
+00:10:40,310 --> 00:10:44,330
+And we're going to be learning about inheritance as well as slicing
+
+725
+00:10:44,750 --> 00:10:48,350
+and we're going to be building out the full functionality of this game.
+
+726
+00:10:48,680 --> 00:10:53,600
+So I hope you're looking forward to it. I certainly am. I'll see you tomorrow.
+
+

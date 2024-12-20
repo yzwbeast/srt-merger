@@ -1,0 +1,4451 @@
+1
+00:00:00,480 --> 00:00:04,530
+Hey guys, welcome to Day 25 of 100 Days of Code.
+
+2
+00:00:04,980 --> 00:00:09,690
+So today we're going to be learning about how to work with CSV files,
+
+3
+00:00:09,960 --> 00:00:13,620
+so not just text files as we saw in yesterday's lessons.
+
+4
+00:00:13,950 --> 00:00:17,460
+But we're going to be working with data files and we're going to be analyzing
+
+5
+00:00:17,460 --> 00:00:20,400
+that data with a library called Pandas.
+
+6
+00:00:20,790 --> 00:00:24,000
+This is one of the most popular Python data analysis libraries,
+
+7
+00:00:24,390 --> 00:00:27,960
+and we're going to get to grips with how we can use it to start getting some
+
+8
+00:00:27,960 --> 00:00:31,680
+insight into our data. By the end of the day,
+
+9
+00:00:31,710 --> 00:00:35,790
+you're going to be building a educational and interesting game,
+
+10
+00:00:35,880 --> 00:00:40,880
+which gets you to guess and learn all of the States in the US. And the
+
+11
+00:00:40,950 --> 00:00:43,800
+inspiration comes from a quiz on Sporcle
+
+12
+00:00:44,130 --> 00:00:46,710
+where it has a map of all the States,
+
+13
+00:00:46,740 --> 00:00:49,590
+it's all blank until you start guessing some States,
+
+14
+00:00:49,890 --> 00:00:54,420
+and then you keep going until you've managed to get all 50. Or like me,
+
+15
+00:00:54,420 --> 00:00:56,400
+you get stuck at 30 out of 50.
+
+16
+00:00:56,730 --> 00:01:01,730
+This game tests you on your knowledge of the names of the 50 States in the US.
+
+17
+00:01:02,370 --> 00:01:06,930
+So for example, if I go and add another state and I hit
+
+18
+00:01:06,930 --> 00:01:07,763
+OK,
+
+19
+00:01:07,890 --> 00:01:12,120
+then that name appears on the map at the location of the state.
+
+20
+00:01:12,720 --> 00:01:17,720
+The aim of the game is to remember all of the names of the states and to name as
+
+21
+00:01:20,010 --> 00:01:21,600
+many of them as you can.
+
+22
+00:01:22,140 --> 00:01:25,980
+So I managed to get to about only 30, um,
+
+23
+00:01:26,070 --> 00:01:29,760
+but I've never lived in the US so my knowledge just comes from watching TV
+
+24
+00:01:29,760 --> 00:01:33,030
+shows and general knowledge,
+
+25
+00:01:33,390 --> 00:01:36,000
+but if you're from the US then you're probably going to do a lot better than
+
+26
+00:01:36,000 --> 00:01:36,660
+me.
+
+27
+00:01:36,660 --> 00:01:41,580
+So this is an interactive and educational game that I think that you are going
+
+28
+00:01:41,580 --> 00:01:45,600
+to enjoy playing. So once you are ready, head over to the next lesson,
+
+29
+00:01:45,720 --> 00:01:50,070
+and let's get started learning about how to work with data files.
+
+
+30
+00:00:00,180 --> 00:00:02,340
+When I was really young, I remember 
+
+31
+00:00:02,370 --> 00:00:06,420
+a piece of homework that I had to do for Geography in school.
+
+32
+00:00:06,510 --> 00:00:11,340
+And the teacher asked us to basically watch the weather report every single day
+
+33
+00:00:11,400 --> 00:00:14,550
+on the news and note down what was the temperature,
+
+34
+00:00:14,880 --> 00:00:17,280
+what was the weather condition of that day.
+
+35
+00:00:17,640 --> 00:00:20,910
+And then we would end up with the weather condition and temperature for the
+
+36
+00:00:20,910 --> 00:00:23,460
+previous week. Now at the time,
+
+37
+00:00:23,460 --> 00:00:27,930
+it was the point in time where a lot of teachers didn't actually really know what
+
+38
+00:00:27,930 --> 00:00:30,510
+the internet did. So, um,
+
+39
+00:00:30,810 --> 00:00:35,550
+I realized that I could actually just wait until the day before I have to give
+
+40
+00:00:35,550 --> 00:00:37,920
+the homework in, go onto the internet,
+
+41
+00:00:37,980 --> 00:00:40,380
+find the weather conditions for the previous seven days
+
+42
+00:00:40,500 --> 00:00:43,980
+and then write it out instead of having to watch the weather forecast every
+
+43
+00:00:43,980 --> 00:00:46,770
+single day. So I don't know what that says about me,
+
+44
+00:00:46,800 --> 00:00:51,800
+but if you are somebody who enjoys taking shortcuts in life and refuse to do
+
+45
+00:00:52,410 --> 00:00:56,760
+work that can be done by computers, then you are in the right place.
+
+46
+00:00:56,910 --> 00:00:59,310
+Learning Python is definitely the way to go.
+
+47
+00:01:00,510 --> 00:01:02,730
+So inside Google sheets
+
+48
+00:01:02,760 --> 00:01:06,420
+which you can access by going to sheets.google.com,
+
+49
+00:01:06,930 --> 00:01:11,930
+I have created a new spreadsheet of the days of the week and the temperature of
+
+50
+00:01:13,140 --> 00:01:18,120
+each of those days in Celsius and also the weather condition on those days.
+
+51
+00:01:18,630 --> 00:01:22,560
+This is a replica of that homework from many, many moons ago,
+
+52
+00:01:23,040 --> 00:01:28,040
+but we're going to be working with this data to learn how we can read data files
+
+53
+00:01:28,290 --> 00:01:31,350
+and then analyze them and how we can do lots of things with it.
+
+54
+00:01:31,860 --> 00:01:36,330
+So the first thing I want you to do is the head over to the link in the course
+
+55
+00:01:36,330 --> 00:01:39,090
+resources which will take you to this spreadsheet.
+
+56
+00:01:39,570 --> 00:01:43,320
+And then once you've got it open, then go to file download
+
+57
+00:01:43,410 --> 00:01:48,410
+and I want you to download it in the comma separated values or CSV format.
+
+58
+00:01:51,210 --> 00:01:53,970
+And you should end up with a file like this.
+
+59
+00:01:54,540 --> 00:01:59,540
+Now I want you to rename this file so that it's just weather_data.csv
+
+60
+00:01:59,700 --> 00:02:04,260
+, and then I've want you to create a new PyCharm project
+
+61
+00:02:04,410 --> 00:02:06,120
+which you can call anything you want.
+
+62
+00:02:06,180 --> 00:02:10,169
+I've called it day 25. And also create your main.py.
+
+63
+00:02:10,860 --> 00:02:15,860
+Now I'm going to drag my weather_data.csv into my folder day-25 and click
+
+64
+00:02:16,980 --> 00:02:21,570
+refactor to move that file into my project folder. Now,
+
+65
+00:02:21,600 --> 00:02:22,433
+at this point,
+
+66
+00:02:22,440 --> 00:02:27,440
+PyCharm recognizes that this is a CSV file and it asks you whether if you want to
+
+67
+00:02:27,750 --> 00:02:32,550
+install some plugins to make it easier to view this file. Now,
+
+68
+00:02:32,550 --> 00:02:33,060
+at this point,
+
+69
+00:02:33,060 --> 00:02:38,060
+you can click cancel because we want to view the data as the raw data,
+
+70
+00:02:38,700 --> 00:02:41,880
+which is in this CSV format. Now,
+
+71
+00:02:41,910 --> 00:02:46,710
+CSVs are a very common way of representing tabula data,
+
+72
+00:02:46,710 --> 00:02:51,710
+so data that fits into tables like a spreadsheet. And CSV,
+
+73
+00:02:51,900 --> 00:02:55,260
+as you've already seen stands for comma separated values.
+
+74
+00:02:56,250 --> 00:02:58,050
+So that's why when you look at the data,
+
+75
+00:02:58,080 --> 00:03:03,080
+you can see each row here is a single set of data and each piece of data is
+
+76
+00:03:06,100 --> 00:03:08,830
+separated by a comma without space.
+
+77
+00:03:09,610 --> 00:03:13,060
+So we've seen how we can open files, read files, write
+
+78
+00:03:13,060 --> 00:03:15,070
+to files. As a challenge,
+
+79
+00:03:15,100 --> 00:03:20,100
+I want you to go ahead and open up this weather_data.csv file inside your
+
+80
+00:03:20,560 --> 00:03:25,560
+main.py and add each line of data into a list which we'll call data.
+
+81
+00:03:28,870 --> 00:03:30,580
+Pause the video and give that a go.
+
+82
+00:03:30,630 --> 00:03:31,463
+Okay.
+
+83
+00:03:33,390 --> 00:03:36,360
+All right. So we know that we're going to need to open the file.
+
+84
+00:03:36,660 --> 00:03:40,710
+So it's stored inside the same folder as our day-25.
+
+85
+00:03:40,770 --> 00:03:45,770
+So we can just use a relative file path to tap into this weather_data.csv.
+
+86
+00:03:46,890 --> 00:03:50,070
+And we're going to save this data as a data_file.
+
+87
+00:03:51,600 --> 00:03:55,290
+And then we're going to get the data by reading this data file.
+
+88
+00:03:55,620 --> 00:03:58,830
+So data = data_file.read.
+
+89
+00:03:59,280 --> 00:04:02,850
+And not only are we going to read it, we're going to use readlines
+
+90
+00:04:02,880 --> 00:04:07,880
+which we know will take each line in this file and turn it into an item in a
+
+91
+00:04:09,150 --> 00:04:12,450
+list. Now, if I go ahead and print my data,
+
+92
+00:04:16,170 --> 00:04:21,170
+then you can see I've got this list now where each item is a row in that list.
+
+93
+00:04:23,130 --> 00:04:27,030
+But as you can imagine, it would be pretty painful to work with the data,
+
+94
+00:04:27,300 --> 00:04:29,400
+which is all in a string format.
+
+95
+00:04:29,460 --> 00:04:32,400
+And they are still separated by commas.
+
+96
+00:04:32,730 --> 00:04:36,930
+It would take a lot of cleaning to actually be able to extract each column and
+
+97
+00:04:36,930 --> 00:04:41,760
+each row. So what can we do instead? Well,
+
+98
+00:04:41,760 --> 00:04:46,760
+there's actually a inbuilt library that helps us with CSVs because Python is a
+
+99
+00:04:48,000 --> 00:04:52,290
+language that's used really heavily for data processing, data analysis.
+
+100
+00:04:52,590 --> 00:04:56,700
+There's a lot of great tools for working with tabula data,
+
+101
+00:04:56,910 --> 00:05:01,320
+like our weather data. First, we're going to import the CSV library,
+
+102
+00:05:01,740 --> 00:05:04,440
+and then we're going to, again, open up a file,
+
+103
+00:05:04,530 --> 00:05:07,740
+weather_data.csv as our data file,
+
+104
+00:05:08,550 --> 00:05:11,670
+and then we're going to use this CSV library.
+
+105
+00:05:12,210 --> 00:05:14,850
+And it has a method called reader,
+
+106
+00:05:15,450 --> 00:05:19,380
+which takes the file in question, which has already been opened
+
+107
+00:05:19,410 --> 00:05:24,410
+so this is going to be all data_file, and it can read it an output
+
+108
+00:05:24,480 --> 00:05:25,313
+the data.
+
+109
+00:05:25,710 --> 00:05:29,550
+So now let's go ahead and print this data and let's see what we've got.
+
+110
+00:05:30,420 --> 00:05:33,720
+You can see that it's created a CSV reader
+
+111
+00:05:33,750 --> 00:05:37,560
+object. This object can be looped through.
+
+112
+00:05:37,920 --> 00:05:42,120
+So if we wanted to get each row inside this data,
+
+113
+00:05:42,120 --> 00:05:44,790
+we can say for row in data,
+
+114
+00:05:45,090 --> 00:05:49,860
+go ahead and print each row. And once you've done that,
+
+115
+00:05:49,890 --> 00:05:54,540
+you can see it's taken each of the rows inside our weather_data.csv,
+
+116
+00:05:55,050 --> 00:06:00,050
+and separated out each item into a single value.
+
+117
+00:06:00,770 --> 00:06:03,980
+So for example, on the Monday row,
+
+118
+00:06:04,010 --> 00:06:06,740
+we've got the Monday as a string,
+
+119
+00:06:06,740 --> 00:06:10,850
+we've got the temperature as a string and also the condition as a string.
+
+120
+00:06:11,150 --> 00:06:14,660
+So now it's much easier for us to work with this data.
+
+121
+00:06:15,680 --> 00:06:18,320
+Using what you know about Python lists
+
+122
+00:06:18,590 --> 00:06:22,790
+I want you to create a new list called temperatures,
+
+123
+00:06:23,360 --> 00:06:28,360
+and this list is going to contain all of the temperatures that is inside this
+
+124
+00:06:29,060 --> 00:06:32,990
+weather_data.csv, like this 12 degrees, 14, 15,
+
+125
+00:06:33,350 --> 00:06:36,140
+and it's going to be in the format of an integer.
+
+126
+00:06:36,200 --> 00:06:40,040
+I don't want to see it as a string with quotation marks around.
+
+127
+00:06:40,370 --> 00:06:43,460
+It should be a pure number so that we can work with it more easily.
+
+128
+00:06:44,090 --> 00:06:45,890
+So this is your challenge.
+
+129
+00:06:46,190 --> 00:06:50,390
+Pause the video and see if you can extract all of the temperatures from this
+
+130
+00:06:50,390 --> 00:06:52,430
+file into this new list.
+
+131
+00:06:52,630 --> 00:06:53,463
+Okay.
+
+132
+00:06:55,600 --> 00:06:58,660
+All right. So when we printed out each of the rows,
+
+133
+00:06:58,720 --> 00:07:03,720
+we can see that we've created several lists where each list contains an entire
+
+134
+00:07:04,840 --> 00:07:07,600
+row of data from our weather data CSV.
+
+135
+00:07:08,260 --> 00:07:10,840
+If we wanted to get the temperature,
+
+136
+00:07:10,930 --> 00:07:15,730
+then it's going to be the item at index one in that list. For example,
+
+137
+00:07:15,730 --> 00:07:18,970
+if we wanted to get the Monday temperature,
+
+138
+00:07:19,300 --> 00:07:24,300
+then all we have to do is to tap into each of these rows and get the item at
+
+139
+00:07:24,520 --> 00:07:27,670
+index 1. If I go ahead and print this,
+
+140
+00:07:27,700 --> 00:07:30,730
+then you can see we get all of the temperatures,
+
+141
+00:07:31,090 --> 00:07:33,550
+but also the label for that column.
+
+142
+00:07:34,090 --> 00:07:36,730
+So if we want to exclude that label,
+
+143
+00:07:36,760 --> 00:07:41,760
+then all we have to do is use an if statement and check if row at index one
+
+144
+00:07:43,090 --> 00:07:47,320
+does not equal temp, which is the name of that column label,
+
+145
+00:07:47,740 --> 00:07:52,740
+then we're going to tap into our list of temperatures and append this row at
+
+146
+00:07:53,410 --> 00:07:56,410
+index one, which is going to be a temperature number.
+
+147
+00:07:57,040 --> 00:07:59,980
+So now after we've done the entire for loop,
+
+148
+00:08:00,010 --> 00:08:04,480
+then we can print out our list of temperatures. And if you take a look,
+
+149
+00:08:04,510 --> 00:08:07,030
+you can see we've now got a list of all the temperatures
+
+150
+00:08:07,300 --> 00:08:12,130
+excluding that column title, but they are all in the format of strings.
+
+151
+00:08:12,550 --> 00:08:15,130
+So if we want to convert that into an integer,
+
+152
+00:08:15,370 --> 00:08:18,580
+then all we have to do is wrap that around an int.
+
+153
+00:08:19,900 --> 00:08:23,530
+So that's the goal of the challenge. Now you can of course,
+
+154
+00:08:23,530 --> 00:08:26,320
+separate out this line into many more lines,
+
+155
+00:08:26,620 --> 00:08:31,620
+but I think this should make enough sense for you at this stage. While CSV is the
+
+156
+00:08:32,710 --> 00:08:36,580
+inbuilt CSV reading and writing library,
+
+157
+00:08:37,210 --> 00:08:42,210
+notice how much faff was involved in just simply getting a single column of
+
+158
+00:08:43,059 --> 00:08:47,500
+data. What are we going to do if we have more data,
+
+159
+00:08:47,500 --> 00:08:50,920
+more complex data with way more columns, way more rows and
+
+160
+00:08:51,140 --> 00:08:53,440
+we want to do more interesting things with it?
+
+161
+00:08:53,920 --> 00:08:56,460
+This is going to be quite painful to work with.
+
+162
+00:08:57,060 --> 00:09:00,840
+This is the point where we want to get the help of some pandas.
+
+163
+00:09:01,170 --> 00:09:03,750
+Not these kinds of pandas. As cute as they are
+
+164
+00:09:03,750 --> 00:09:06,300
+they're not going to help us with our data analysis.
+
+165
+00:09:06,630 --> 00:09:11,630
+But instead, I'm talking about the Pandas library and this is a Python data
+
+166
+00:09:12,780 --> 00:09:14,190
+analysis library
+
+167
+00:09:14,520 --> 00:09:19,520
+which is super helpful and super powerful to perform data analysis on tabula
+
+168
+00:09:21,090 --> 00:09:25,410
+data like the one that we have. In order to work with it,
+
+169
+00:09:25,440 --> 00:09:30,000
+we have to import this library. But because it's not in built,
+
+170
+00:09:30,060 --> 00:09:32,700
+you'll need to install it into your project.
+
+171
+00:09:33,090 --> 00:09:36,870
+So the shortcut way of this is simply just a type import pandas
+
+172
+00:09:36,960 --> 00:09:38,400
+and then once you see the red line,
+
+173
+00:09:38,700 --> 00:09:42,840
+go ahead and hover over it and then click install package pandas,
+
+174
+00:09:43,020 --> 00:09:47,250
+and then you can watch the progress down here. Now, while that's installing,
+
+175
+00:09:47,310 --> 00:09:50,940
+I want to quickly introduce you to the documentation for this library.
+
+176
+00:09:51,240 --> 00:09:54,690
+It's really well documented and it's really powerful,
+
+177
+00:09:54,690 --> 00:09:58,470
+so it has a lot of things in the documentation. If you head over
+
+178
+00:09:58,470 --> 00:10:02,970
+to pandas.pydata.org and then click on documentation,
+
+179
+00:10:03,300 --> 00:10:06,360
+then you will be able to see all the things that you can do with it.
+
+180
+00:10:06,780 --> 00:10:08,730
+So there's a API reference,
+
+181
+00:10:08,730 --> 00:10:13,730
+there's a quick getting started guide as well as a user guide on the key
+
+182
+00:10:13,770 --> 00:10:18,770
+concepts of pandas. When you're using a new library of any sort, a good idea is
+
+183
+00:10:20,490 --> 00:10:23,700
+to take a look at their getting started guide if they have one,
+
+184
+00:10:24,060 --> 00:10:28,530
+because it tells you how you can install it and a number of questions that you
+
+185
+00:10:28,530 --> 00:10:29,790
+might have, for example,
+
+186
+00:10:29,790 --> 00:10:34,790
+what kind of data does pandas handle or how can I read and write tabula data.
+
+187
+00:10:35,100 --> 00:10:38,100
+And it's actually done really, really well. So if you have a moment,
+
+188
+00:10:38,220 --> 00:10:43,080
+take a quick look at this page. And once you head back to PyCharm,
+
+189
+00:10:43,140 --> 00:10:46,800
+your packages should have installed successfully. Now,
+
+190
+00:10:46,800 --> 00:10:48,840
+once we've installed our pandas,
+
+191
+00:10:48,930 --> 00:10:51,960
+you'll see that it's still grey because we're not using it yet.
+
+192
+00:10:52,470 --> 00:10:57,150
+If we want to use pandas, all we have to do is say pandas.
+
+193
+00:10:57,900 --> 00:11:00,840
+and in our case, we actually want to read our CSV.
+
+194
+00:11:01,320 --> 00:11:03,480
+So we can say read_csv
+
+195
+00:11:04,050 --> 00:11:08,550
+and inside this method, you can do lots and lots of things,
+
+196
+00:11:08,610 --> 00:11:13,140
+as you can see by all of the attribute names. But most of these are optional.
+
+197
+00:11:13,560 --> 00:11:18,270
+The only one that is not optional is the path that leads to the CSV file.
+
+198
+00:11:18,750 --> 00:11:22,440
+So if we get hold of our weather_data.csv,
+
+199
+00:11:22,800 --> 00:11:25,860
+then we can read that CSV using pandas.
+
+200
+00:11:26,160 --> 00:11:29,940
+So notice how we don't have to open the file as a data file,
+
+201
+00:11:30,150 --> 00:11:34,350
+or you use a CSV reader, it's one step and you're done.
+
+202
+00:11:34,800 --> 00:11:39,060
+So now we've got hold of our data and if I print out the data,
+
+203
+00:11:39,090 --> 00:11:42,570
+you can see how beautifully formatted it is.
+
+204
+00:11:43,110 --> 00:11:45,930
+It's being printed out as an actual table,
+
+205
+00:11:45,960 --> 00:11:50,790
+it's got the column headings on top of each of the columns and each of the rows
+
+206
+00:11:50,790 --> 00:11:55,600
+gets given an index so that we can more easily identify how many records we have
+
+207
+00:11:55,900 --> 00:11:57,220
+and where each one is.
+
+208
+00:11:58,390 --> 00:12:01,840
+If we wanted to think about that previous task that we tried to do
+
+209
+00:12:01,840 --> 00:12:06,840
+where we just try to get hold of a single column of data from this table,
+
+210
+00:12:08,830 --> 00:12:10,240
+then using pandas,
+
+211
+00:12:10,330 --> 00:12:14,950
+it is literally as easy as saying data and then square brackets,
+
+212
+00:12:15,070 --> 00:12:19,750
+and then the name of that column. So in our case, it's temp.
+
+213
+00:12:20,860 --> 00:12:23,620
+And now if I go ahead and print this out,
+
+214
+00:12:24,640 --> 00:12:29,640
+you can see it's basically already identified the column and it's printed out
+
+215
+00:12:29,890 --> 00:12:31,720
+all of the data in that column.
+
+216
+00:12:32,140 --> 00:12:34,720
+So the really smart thing that Panda's doing here is
+
+217
+00:12:34,760 --> 00:12:39,700
+it takes that first row to be the names of each column
+
+218
+00:12:40,120 --> 00:12:43,480
+and it automatically knows how to find the data
+
+219
+00:12:43,750 --> 00:12:47,380
+when you just specify the name of the column like this.
+
+220
+00:12:48,280 --> 00:12:51,220
+So three lines versus eight lines,
+
+221
+00:12:51,730 --> 00:12:56,110
+and we get better formatting. It's no wonder that most Python developers,
+
+222
+00:12:56,170 --> 00:12:58,240
+as soon as they encounter a CSV fault,
+
+223
+00:12:58,270 --> 00:13:00,910
+they will start using pandas to work with it
+
+224
+00:13:01,210 --> 00:13:03,970
+no matter how simple the task or project.
+
+225
+00:13:04,300 --> 00:13:07,660
+So that was a quick introduction to CSV data,
+
+226
+00:13:08,020 --> 00:13:13,020
+working with CSV data and how to get started using pandas. In the next lesson,
+
+227
+00:13:14,080 --> 00:13:18,100
+we're going to dive deeper into this library and see all of the common things that
+
+228
+00:13:18,100 --> 00:13:19,300
+we can do with pandas.
+
+
+229
+00:00:00,480 --> 00:00:03,420
+In the last lesson we got started using pandas.
+
+230
+00:00:03,540 --> 00:00:07,890
+We installed the library and we imported it to read a CSV file.
+
+231
+00:00:08,370 --> 00:00:11,610
+And then we use that file to get hold of a column
+
+232
+00:00:11,910 --> 00:00:16,500
+which has been automatically identified as soon as it read this data CSV.
+
+233
+00:00:17,130 --> 00:00:20,460
+So what exactly are we dealing with here? Well,
+
+234
+00:00:20,460 --> 00:00:25,460
+one of the most useful things I find is to do type checks on any of the objects
+
+235
+00:00:25,920 --> 00:00:30,150
+that I'm working with from a new novel library. For example,
+
+236
+00:00:30,150 --> 00:00:32,369
+we can use the type method to check
+
+237
+00:00:32,430 --> 00:00:37,430
+what exactly is the data type of this data that we're getting back from pandas.
+
+238
+00:00:38,040 --> 00:00:43,040
+So if I go ahead and print this one and comment out the second line,
+
+239
+00:00:43,740 --> 00:00:48,240
+then you can see what we're getting is what's called a pandas data frame
+
+240
+00:00:48,270 --> 00:00:50,640
+object. In the package overview
+
+241
+00:00:50,670 --> 00:00:55,670
+they talk about the two primary data structures of pandas: series and a data
+
+242
+00:00:56,910 --> 00:00:57,743
+frame.
+
+243
+00:00:57,840 --> 00:01:02,010
+A data frame is kind of the equivalent of your whole table here.
+
+244
+00:01:02,460 --> 00:01:07,260
+So every single sheet inside an Excel file or inside a Google sheet file would
+
+245
+00:01:07,260 --> 00:01:10,020
+be considered a data frame in pandas.
+
+246
+00:01:11,010 --> 00:01:15,240
+Now what about the second part here where we've gotten hold of one of the
+
+247
+00:01:15,240 --> 00:01:17,160
+columns in our data frame.
+
+248
+00:01:17,520 --> 00:01:21,870
+If I do a type check on this object and I hit run,
+
+249
+00:01:22,140 --> 00:01:25,290
+then you can see this is a pandas series
+
+250
+00:01:25,320 --> 00:01:30,320
+object. The series is the other super important concept in pandas.
+
+251
+00:01:31,800 --> 00:01:36,800
+And the series is basically equivalent to a list. It's kind of like a single
+
+252
+00:01:37,500 --> 00:01:39,660
+column in your table.
+
+253
+00:01:39,990 --> 00:01:42,930
+So the temperature column would be a series,
+
+254
+00:01:43,140 --> 00:01:47,250
+the condition column would be a series and the day column would also be a
+
+255
+00:01:47,250 --> 00:01:48,810
+series. So once you've
+
+256
+00:01:48,810 --> 00:01:53,810
+grasped this idea that the whole table is basically a data frame in pandas and
+
+257
+00:01:54,720 --> 00:01:59,610
+every single column is a series kind of like a list in pandas,
+
+258
+00:01:59,820 --> 00:02:03,720
+then you're pretty much half of the way there to understanding how this library
+
+259
+00:02:03,720 --> 00:02:07,800
+works. Now, if we go over to the API reference,
+
+260
+00:02:07,890 --> 00:02:12,780
+you can see that this is basically a list of all of the things that you can do
+
+261
+00:02:12,810 --> 00:02:16,890
+with pandas. And it is a long list of things,
+
+262
+00:02:17,190 --> 00:02:20,460
+but let's take a look at those two core classes,
+
+263
+00:02:20,490 --> 00:02:24,210
+the data frame and the series. So if you go to the data frame,
+
+264
+00:02:24,390 --> 00:02:28,350
+you can see that it has things on how to construct a new data frame,
+
+265
+00:02:28,650 --> 00:02:30,120
+how to get hold of the index,
+
+266
+00:02:30,120 --> 00:02:35,120
+how to get hold of the column labels and this whole bunch of attributes that you
+
+267
+00:02:35,310 --> 00:02:39,660
+can tap into as well as many methods. For example,
+
+268
+00:02:39,660 --> 00:02:43,980
+if we take a look at this section on serialization IO conversion,
+
+269
+00:02:44,280 --> 00:02:49,050
+you can see that you can actually convert a data frame to various different file
+
+270
+00:02:49,050 --> 00:02:53,970
+types. You can convert it to an Excel file, you can convert it to HTML,
+
+271
+00:02:53,970 --> 00:02:57,960
+you can also convert it to a dictionary. So if you click on this,
+
+272
+00:02:57,960 --> 00:03:02,960
+this takes us to actual documentation on how you would use this method.
+
+273
+00:03:03,700 --> 00:03:08,590
+And if you look at the basic Python documentation versus Panda's documentation,
+
+274
+00:03:08,620 --> 00:03:10,630
+you'll see why this is so much better.
+
+275
+00:03:10,960 --> 00:03:14,260
+It lists out all of the possible parameters,
+
+276
+00:03:14,740 --> 00:03:17,950
+it gives you examples on how you can use each of the methods,
+
+277
+00:03:18,340 --> 00:03:22,360
+and it's also got some related methods that it thinks that you might want to
+
+278
+00:03:22,360 --> 00:03:26,650
+take a look at. So let's use this method
+
+279
+00:03:26,860 --> 00:03:31,860
+and what we're going to do is I'm going to get my data and I'm going to call to_
+
+280
+00:03:32,140 --> 00:03:35,320
+dict, which is going to convert it into a dictionary.
+
+281
+00:03:35,350 --> 00:03:39,070
+So it let's call that data_dict equals data.to_dict.
+
+282
+00:03:39,160 --> 00:03:42,400
+And then if we print out our new data dictionary,
+
+283
+00:03:42,790 --> 00:03:47,790
+you can see that pandas has taken our table and taken each column of the table
+
+284
+00:03:48,970 --> 00:03:53,350
+to create a separate dictionary for each of the columns.
+
+285
+00:03:53,590 --> 00:03:56,440
+So we've got day, temperature and condition,
+
+286
+00:03:56,860 --> 00:04:00,760
+and we can now work with this as if it were a real dictionary.
+
+287
+00:04:01,900 --> 00:04:02,170
+Now,
+
+288
+00:04:02,170 --> 00:04:07,170
+if we take a look at the series data type and you take a look at the conversion
+
+289
+00:04:08,680 --> 00:04:11,440
+section for this type of data,
+
+290
+00:04:11,740 --> 00:04:16,240
+then you can see that you can actually convert each of the series to a list
+
+291
+00:04:16,510 --> 00:04:20,170
+if you want to be able to work with it just as you would with any other list.
+
+292
+00:04:21,339 --> 00:04:26,340
+So we saw that we can get our data and then get the temperature column.
+
+293
+00:04:27,160 --> 00:04:30,070
+And this, when we printed out the type, was a series.
+
+294
+00:04:30,520 --> 00:04:34,360
+So we can get this series and then a call to_list,
+
+295
+00:04:34,990 --> 00:04:39,040
+and this will turn this data series into a Python list.
+
+296
+00:04:39,190 --> 00:04:43,840
+So let's call that temp_list and let's go ahead and print it out.
+
+297
+00:04:46,710 --> 00:04:47,280
+Okay.
+
+298
+00:04:47,280 --> 00:04:49,530
+It would be a list of all the temperatures
+
+299
+00:04:49,710 --> 00:04:54,060
+and this is now converted into the raw Python data type.
+
+300
+00:04:54,540 --> 00:04:57,810
+So we can do all of the things that we can do to a Python list
+
+301
+00:04:57,930 --> 00:05:00,270
+like for example, we could check its length.
+
+302
+00:05:01,200 --> 00:05:06,060
+So here comes another challenge for you. Given what we've spoken about so far,
+
+303
+00:05:06,420 --> 00:05:11,420
+can you figure out if you can work out the average temperature in our column of
+
+304
+00:05:11,430 --> 00:05:14,490
+temperatures? So remember you can always Google
+
+305
+00:05:14,520 --> 00:05:17,700
+if you don't remember how to calculate the average of something.
+
+306
+00:05:18,060 --> 00:05:19,980
+So pause the video and give that a go.
+
+307
+00:05:21,960 --> 00:05:22,430
+Yeah,
+
+308
+00:05:22,430 --> 00:05:22,740
+All right.
+
+309
+00:05:22,740 --> 00:05:27,740
+So we know that we can get a list of all of the temperatures in that list,
+
+310
+00:05:28,740 --> 00:05:32,220
+and we know that Python has a built-in method called sum,
+
+311
+00:05:32,610 --> 00:05:36,510
+so then we can get the sum of all of the temperatures in our list of
+
+312
+00:05:36,510 --> 00:05:37,343
+temperatures
+
+313
+00:05:37,530 --> 00:05:42,000
+and then we can divide it by the length of the temp_list.
+
+314
+00:05:43,080 --> 00:05:46,050
+The sum of all the values divided by the number of values
+
+315
+00:05:46,080 --> 00:05:49,710
+gives us the average, which is also known as the mean,
+
+316
+00:05:50,070 --> 00:05:51,960
+and so if we print this out,
+
+317
+00:05:52,890 --> 00:05:57,890
+then you can see the average temperature over the week was 17.4. Now an
+
+318
+00:05:59,390 --> 00:06:04,250
+alternative way of solving this challenge is maybe you took a look through this
+
+319
+00:06:04,280 --> 00:06:09,280
+list of methods and you might have come across some of the computations and
+
+320
+00:06:09,740 --> 00:06:14,510
+statistics that you can do with your series in pandas. Now,
+
+321
+00:06:14,510 --> 00:06:16,550
+one of those methods is the mean.
+
+322
+00:06:16,700 --> 00:06:21,700
+So you can actually get rid of all of this excess work and take our data series,
+
+323
+00:06:21,860 --> 00:06:26,860
+which has basically the column of data under the heading temp, and simply call
+
+324
+00:06:27,530 --> 00:06:31,400
+.mean on it. And now if I print this out,
+
+325
+00:06:32,570 --> 00:06:35,360
+you'll see it's the same result as before
+
+326
+00:06:35,600 --> 00:06:37,580
+without a lot of the extra work.
+
+327
+00:06:38,630 --> 00:06:43,430
+In addition to the mean you can get other things like the median or the mode and
+
+328
+00:06:43,430 --> 00:06:47,540
+a whole bunch of other things just by calling the right method on the data
+
+329
+00:06:47,540 --> 00:06:50,750
+series. So here's a challenge for you.
+
+330
+00:06:51,110 --> 00:06:55,850
+I want you to get hold of the maximum value from this column of temperatures
+
+331
+00:06:56,150 --> 00:06:59,930
+by using one of the data series methods. Pause the video,
+
+332
+00:07:00,020 --> 00:07:03,680
+have a look of the documentation and see if you can complete this challenge.
+
+333
+00:07:06,110 --> 00:07:08,060
+All right, to get the maximum value
+
+334
+00:07:08,180 --> 00:07:10,700
+we're probably going to need this max method.
+
+335
+00:07:11,120 --> 00:07:14,330
+So we call this method in the same way as we did before
+
+336
+00:07:14,630 --> 00:07:17,510
+which is get hold of the data series,
+
+337
+00:07:17,600 --> 00:07:20,060
+so our entire table is stored in data.
+
+338
+00:07:20,600 --> 00:07:25,600
+And then we can get the column under the heading temperature, so this is now a
+
+339
+00:07:25,640 --> 00:07:29,840
+data series, and then we can call that method max on it.
+
+340
+00:07:30,290 --> 00:07:31,610
+And if we print it out,
+
+341
+00:07:31,700 --> 00:07:35,360
+then you can see what we're getting is 24.
+
+342
+00:07:35,540 --> 00:07:38,060
+So the highest temperature was 24.
+
+343
+00:07:39,740 --> 00:07:41,960
+So you've seen that when we're working with pandas,
+
+344
+00:07:42,080 --> 00:07:46,220
+it's really easy to get hold of data in a particular column.
+
+345
+00:07:46,610 --> 00:07:48,860
+All we have to do is just take the data frame,
+
+346
+00:07:48,890 --> 00:07:53,480
+use a set of square brackets and then specify the name of the column,
+
+347
+00:07:53,870 --> 00:07:58,130
+which it takes by default as the first row of the data.
+
+348
+00:07:58,640 --> 00:08:02,180
+So the day column, the temp, the condition.
+
+349
+00:08:02,450 --> 00:08:05,720
+So if I wanted to get hold of all of the conditions,
+
+350
+00:08:05,750 --> 00:08:08,120
+then I would say data condition.
+
+351
+00:08:08,510 --> 00:08:10,880
+And if I go ahead and print this out,
+
+352
+00:08:12,050 --> 00:08:16,820
+you can see it gets hold of all of the weather conditions and select that column
+
+353
+00:08:16,880 --> 00:08:17,713
+to print out.
+
+354
+00:08:18,530 --> 00:08:23,150
+Now an alternative way to using the square bracket notation
+
+355
+00:08:23,360 --> 00:08:27,290
+where you have to be careful about the string you use here. It has the match
+
+356
+00:08:27,320 --> 00:08:29,630
+the name of the column, exactly.
+
+357
+00:08:30,470 --> 00:08:35,470
+Another way that you can work with the columns is simply by calling data.
+
+358
+00:08:36,440 --> 00:08:40,039
+condition. And the fact that this code is valid at all
+
+359
+00:08:40,280 --> 00:08:45,280
+means that pandas, behind the scenes, has taken each of these columns and each
+
+360
+00:08:46,370 --> 00:08:50,150
+of the headings and converted those headings into attributes.
+
+361
+00:08:50,330 --> 00:08:55,040
+So we can say data.condition or data.day. And if I print that out,
+
+362
+00:08:55,080 --> 00:09:00,080
+you can see it's actually going to be exactly the same as doing it like this.
+
+363
+00:09:02,190 --> 00:09:06,810
+So it's up to you which method you want to use to select the columns,
+
+364
+00:09:07,170 --> 00:09:11,550
+but be aware that if your column name has a capital 'C'
+
+365
+00:09:11,550 --> 00:09:16,290
+for example here, then your key has to be a capital C
+
+366
+00:09:16,650 --> 00:09:21,650
+and also your attribute has to be a capital C. So effectively when your using a
+
+367
+00:09:22,080 --> 00:09:23,310
+data frame like this,
+
+368
+00:09:23,580 --> 00:09:27,510
+it's almost like you're treating it as a dictionary and you are pulling out each
+
+369
+00:09:27,510 --> 00:09:31,860
+column by the key. Now, when you're using the data frame like this,
+
+370
+00:09:31,860 --> 00:09:33,960
+then you're kind of treating it more like an object.
+
+371
+00:09:33,990 --> 00:09:38,490
+You were saying data.attribute and you get a hold of the data in that
+
+372
+00:09:38,490 --> 00:09:39,323
+column.
+
+373
+00:09:39,630 --> 00:09:44,430
+So I'm going to restore everything to lowercase because I find it easier to read
+
+374
+00:09:44,430 --> 00:09:48,300
+the code. But the next thing I want to show you is a little bit harder,
+
+375
+00:09:48,330 --> 00:09:52,650
+which is how do you get data, which are in the rows of our data frame.
+
+376
+00:09:53,160 --> 00:09:58,160
+If I wanted to get hold of the entire row of data for where the day is equal to
+
+377
+00:09:59,670 --> 00:10:03,840
+Monday, then the way that I would do that in pandas is firstly,
+
+378
+00:10:03,900 --> 00:10:08,610
+get a hold of my entire data table. And then inside of that data table,
+
+379
+00:10:08,610 --> 00:10:11,550
+get a hold of the column that I want to search through.
+
+380
+00:10:12,060 --> 00:10:17,060
+So I'm going to search through the day column, so I can use data.day or data
+
+381
+00:10:17,640 --> 00:10:20,700
+[day]. Both will work the same.
+
+382
+00:10:21,480 --> 00:10:25,110
+But once I've got the column, then I can say, well,
+
+383
+00:10:25,140 --> 00:10:26,880
+we're inside that column
+
+384
+00:10:26,940 --> 00:10:31,940
+I want to check for the row where the value is equal to Monday.
+
+385
+00:10:33,570 --> 00:10:37,110
+This is basically gonna return my row that I want.
+
+386
+00:10:37,170 --> 00:10:41,700
+So I'm going to print this out and I'm going to comment out all of the previous
+
+387
+00:10:41,700 --> 00:10:45,510
+code other than the place where we created our data frame,
+
+388
+00:10:45,840 --> 00:10:50,820
+and then I'm going to run my code. And you can see it's pulled out that correct
+
+389
+00:10:50,880 --> 00:10:54,420
+row were the day is equal to Monday,
+
+390
+00:10:54,630 --> 00:10:57,660
+and it's given me all of the rest of the data for that row.
+
+391
+00:10:59,010 --> 00:11:00,330
+So here's a challenge for you.
+
+392
+00:11:00,330 --> 00:11:05,330
+Can you figure out how to pull out the row of data from our weather data
+
+393
+00:11:06,120 --> 00:11:08,850
+where the temperature was at the maximum?
+
+394
+00:11:09,210 --> 00:11:12,540
+So which row of data had the highest temperature in the week.
+
+395
+00:11:12,930 --> 00:11:14,580
+Pause the video and give that a go.
+
+396
+00:11:15,990 --> 00:11:20,160
+So we know that we can get the maximum temperature in the temperature column
+
+397
+00:11:20,430 --> 00:11:22,470
+just by using this code.
+
+398
+00:11:22,920 --> 00:11:27,090
+Now you can either use this method where you say data["temp"]
+
+399
+00:11:27,420 --> 00:11:31,140
+or you can use the attribute .temp, which is the code that I prefer.
+
+400
+00:11:31,260 --> 00:11:35,010
+I don't like writing a lot of strings if I can avoid it. In this case,
+
+401
+00:11:35,040 --> 00:11:40,040
+we're checking to see which row inside our column of temperatures is equal to
+
+402
+00:11:43,170 --> 00:11:44,640
+the maximum temperature.
+
+403
+00:11:45,420 --> 00:11:50,420
+We would say data.temp == data.temp.max.
+
+404
+00:11:51,930 --> 00:11:56,930
+And then we're going to get our data and access the row that fits that criteria.
+
+405
+00:11:58,330 --> 00:12:02,380
+Now, if I print out this row then you can see
+
+406
+00:12:02,380 --> 00:12:05,590
+it was the row for Sunday where the temperature was 24
+
+407
+00:12:05,650 --> 00:12:10,650
+and the condition was sunny. Essentially when we get our data frame and then we
+
+408
+00:12:11,530 --> 00:12:14,500
+use some square brackets, and inside those square brackets
+
+409
+00:12:14,530 --> 00:12:18,160
+if we only put the name of our column, day, temp, or condition,
+
+410
+00:12:18,370 --> 00:12:20,380
+then we would get the entire column.
+
+411
+00:12:20,950 --> 00:12:25,950
+But if we fill to that column by a condition say when a particular column is
+
+412
+00:12:27,190 --> 00:12:31,960
+equal to a particular value, then we actually get hold of the row instead.
+
+413
+00:12:32,590 --> 00:12:35,170
+Now, once you've gotten hold of the data in the row,
+
+414
+00:12:35,200 --> 00:12:40,200
+you can actually go one step further because we know that the row contains lots
+
+415
+00:12:40,450 --> 00:12:44,350
+of data, right? What if we wanted that particular row's
+
+416
+00:12:44,410 --> 00:12:48,190
+temperature or that particular row;s condition? Well,
+
+417
+00:12:48,190 --> 00:12:50,590
+let's say that we create a variable called monday
+
+418
+00:12:50,890 --> 00:12:54,880
+which is equal to our data frame and then searching through that data frame
+
+419
+00:12:55,120 --> 00:12:59,740
+where the data.day is equal to Monday.
+
+420
+00:13:00,460 --> 00:13:02,950
+So now with this row, Monday,
+
+421
+00:13:03,310 --> 00:13:08,310
+we can then tap into the values under different columns by using the same kind
+
+422
+00:13:09,070 --> 00:13:12,790
+of way that we got data in the entire column over here.
+
+423
+00:13:13,090 --> 00:13:16,000
+So we can say monday.condition
+
+424
+00:13:16,330 --> 00:13:21,280
+and if I print this out and just comment these other bits,
+
+425
+00:13:23,670 --> 00:13:23,910
+Right,
+
+426
+00:13:23,910 --> 00:13:28,470
+then you can see that I get the actual condition for that particular day,
+
+427
+00:13:28,500 --> 00:13:31,680
+which happens to be sunny. Now here's a challenge.
+
+428
+00:13:31,800 --> 00:13:34,800
+I want you to get Monday's temperature,
+
+429
+00:13:35,190 --> 00:13:37,620
+but because my temperatures are in Celsius,
+
+430
+00:13:37,980 --> 00:13:40,260
+I want you to convert it into Fahrenheit.
+
+431
+00:13:40,650 --> 00:13:43,800
+So pause the video and see if you can complete that challenge.
+
+432
+00:13:44,250 --> 00:13:45,083
+Oh
+
+433
+00:13:46,530 --> 00:13:46,830
+All right.
+
+434
+00:13:46,830 --> 00:13:51,830
+We know we can get hold of Monday's temperature by saying monday.
+
+435
+00:13:53,460 --> 00:13:56,040
+and then the name of that column in the row
+
+436
+00:13:56,400 --> 00:14:00,750
+which happens to be temp temp. Now,
+
+437
+00:14:00,750 --> 00:14:02,310
+once we've got that temperature
+
+438
+00:14:02,340 --> 00:14:07,340
+we can convert it into a normal integer by wrapping the int around that value.
+
+439
+00:14:10,200 --> 00:14:12,930
+And then if we want to convert Celsius to Fahrenheit,
+
+440
+00:14:13,260 --> 00:14:18,260
+all we have to do is to multiply the Celsius by 9/5 and then add 32.
+
+441
+00:14:21,030 --> 00:14:26,030
+So it will be monday_temp multiplied by 9/5
+
+442
+00:14:26,970 --> 00:14:29,100
+and then add 32.
+
+443
+00:14:29,130 --> 00:14:29,963
+Right.
+
+444
+00:14:36,240 --> 00:14:39,960
+So monday_temp_F and then we can print this value out.
+
+445
+00:14:42,420 --> 00:14:42,900
+Right?
+
+446
+00:14:42,900 --> 00:14:45,930
+So now when I run it, we get 53.6.
+
+447
+00:14:46,560 --> 00:14:50,610
+And if I put Monday's temperature 12 into this Google converter,
+
+448
+00:14:50,910 --> 00:14:53,420
+I get the same value, 53.6.
+
+449
+00:14:54,860 --> 00:14:59,860
+Now the final thing I want to show you is how you create a data frame from scratch.
+
+450
+00:15:02,380 --> 00:15:07,120
+So in our case, we created our data frame by reading from our CSV file.
+
+451
+00:15:07,420 --> 00:15:11,500
+But what if you wanted to create a data frame just from some data that you're
+
+452
+00:15:11,500 --> 00:15:16,450
+generating in Python? Let's say that I have this dictionary of values
+
+453
+00:15:16,450 --> 00:15:20,110
+I've got some students and these are their names held on a list.
+
+454
+00:15:20,440 --> 00:15:25,030
+And then each of them has a score and the scores correspond to the student.
+
+455
+00:15:25,030 --> 00:15:27,130
+So 76 is Amy's score,
+
+456
+00:15:27,130 --> 00:15:30,910
+James scored 56 and Angela scored 65. Now,
+
+457
+00:15:30,910 --> 00:15:34,540
+how would we create a data frame from this dictionary?
+
+458
+00:15:35,170 --> 00:15:36,250
+It's really simple.
+
+459
+00:15:36,490 --> 00:15:41,410
+We call our pandas library and we get hold of the data frame class.
+
+460
+00:15:41,740 --> 00:15:45,040
+And then we initialize that class with some data.
+
+461
+00:15:45,250 --> 00:15:49,390
+And the data in our case is just going to be our data dictionary.
+
+462
+00:15:49,990 --> 00:15:53,620
+And now if I go ahead and save this as our data,
+
+463
+00:15:54,070 --> 00:15:58,660
+so I'm gonna comment out what we had previously and then print out this data.
+
+464
+00:15:59,800 --> 00:16:04,450
+Then you can see I've now created a table using the values from that dictionary.
+
+465
+00:16:04,900 --> 00:16:09,340
+Now we can go even further than this. When we've created a data frame,
+
+466
+00:16:09,700 --> 00:16:14,700
+we can actually get that data frame to be converted to a CSV file.
+
+467
+00:16:15,460 --> 00:16:20,460
+And this to_csv method takes only one required input
+
+468
+00:16:20,770 --> 00:16:23,530
+which is the path that you want to save this file.
+
+469
+00:16:23,920 --> 00:16:26,800
+So let's just create a new file, um,
+
+470
+00:16:26,830 --> 00:16:30,400
+which we'll call new_data.csv
+
+471
+00:16:30,910 --> 00:16:34,210
+and when I run this code, then watch over here
+
+472
+00:16:34,300 --> 00:16:37,870
+you see a new CSV file of being created from thin air
+
+473
+00:16:38,230 --> 00:16:41,800
+and all of our data has been added to that CSV file.
+
+474
+00:16:43,300 --> 00:16:48,300
+So we're just getting a glimpse into how powerful this Panda library can be
+
+475
+00:16:49,180 --> 00:16:54,180
+and we're only really using it to read CSV data and write CSV data
+
+476
+00:16:55,330 --> 00:17:00,330
+which is a common format that you'll see being manipulated using Python. In later
+
+477
+00:17:01,120 --> 00:17:04,000
+lessons we're going to dive deeper into data analysis
+
+478
+00:17:04,030 --> 00:17:06,010
+and we're going to be looking not only at pandas,
+
+479
+00:17:06,040 --> 00:17:11,040
+but we're also going to be looking at NumPy, Matplotlib, and other libraries that make
+
+480
+00:17:11,290 --> 00:17:16,210
+it easier for us to work with large chunks of data. In the next lesson,
+
+481
+00:17:16,270 --> 00:17:20,349
+we're going to be what we've learned to use by analyzing some squirrel
+
+482
+00:17:20,619 --> 00:17:24,069
+data from central park. So for all of that and more,
+
+483
+00:17:24,220 --> 00:17:25,390
+I'll see you on the next lesson.
+
+
+484
+00:00:00,510 --> 00:00:04,950
+Now that you've learned how to do the basics of data analysis with pandas,
+
+485
+00:00:05,280 --> 00:00:08,250
+it's time to put your knowledge to the test.
+
+486
+00:00:08,700 --> 00:00:13,700
+And we're going to be working with a really interesting data set. Back in 2018/
+
+487
+00:00:13,950 --> 00:00:18,390
+2019, a bunch of volunteers went into New York  central park
+
+488
+00:00:18,450 --> 00:00:23,100
+and they basically combed the entire park to find all of the squirrels.
+
+489
+00:00:23,730 --> 00:00:28,680
+So this resulted in a huge dataset of squirrels, squirrel numbers,
+
+490
+00:00:28,680 --> 00:00:31,410
+squirrel fur color and a whole bunch of other things.
+
+491
+00:00:31,860 --> 00:00:36,860
+And all of this data can be found on the New York city open data website
+
+492
+00:00:37,020 --> 00:00:40,740
+which we'll link to in the course resources. When you head over here,
+
+493
+00:00:40,740 --> 00:00:44,130
+you can take a look at all of the data that they collected.
+
+494
+00:00:44,490 --> 00:00:48,540
+If you take a look at all of the columns in this dataset and click show
+
+495
+00:00:48,540 --> 00:00:52,770
+all, you can see they've logged the location of each of the squirrels,
+
+496
+00:00:53,010 --> 00:00:55,320
+they gave each squirrel a unique ID,
+
+497
+00:00:55,560 --> 00:00:59,730
+they evaluated whether if the squirrel was an adult or a juvenile,
+
+498
+00:01:00,030 --> 00:01:04,379
+and they looked at what the primary fur color was. So it could be gray, cinnamon
+
+499
+00:01:04,379 --> 00:01:07,860
+which is red, or black. Now, if you scroll down
+
+500
+00:01:07,860 --> 00:01:10,830
+there's actually a really interesting visualization of this data,
+
+501
+00:01:11,090 --> 00:01:13,130
+where they've plotted all of this squirrels
+
+502
+00:01:13,130 --> 00:01:15,800
+onto a map of central park.
+
+503
+00:01:16,220 --> 00:01:21,220
+So you can take a look at the distribution of the squirrel population in central
+
+504
+00:01:21,380 --> 00:01:21,680
+park.
+
+505
+00:01:21,680 --> 00:01:24,830
+So you can see where the red squirrels are, where the gray ones are and where the
+
+506
+00:01:24,830 --> 00:01:27,860
+black ones are. So there's only three colors, really.
+
+507
+00:01:28,040 --> 00:01:30,830
+So what you're going to do is you're going to go to this website,
+
+508
+00:01:30,860 --> 00:01:34,670
+click on export and download the CSV data.
+
+509
+00:01:35,780 --> 00:01:36,830
+Now, once you do that,
+
+510
+00:01:36,830 --> 00:01:41,830
+you'll end up with a 2018 central park squirrel data like this.
+
+511
+00:01:42,890 --> 00:01:47,890
+Now you're going to pull that data into your day-25 project folder and click
+
+512
+00:01:48,470 --> 00:01:49,770
+re-factor to move it in.
+
+513
+00:01:50,240 --> 00:01:55,130
+And you can see that this is a lot bigger than what ever data we had before.
+
+514
+00:01:55,430 --> 00:01:57,800
+There's thousands of entries,
+
+515
+00:01:57,860 --> 00:02:00,740
+and it's actually real dedication that these volunteers went around
+
+516
+00:02:00,740 --> 00:02:04,160
+logging all of this data, observing all the squirrels.
+
+517
+00:02:04,340 --> 00:02:07,040
+It must've been a very tedious task.
+
+518
+00:02:07,340 --> 00:02:09,740
+But now that somebody else has carried out the hard part,
+
+519
+00:02:10,039 --> 00:02:12,980
+we can do some data analysis on that data.
+
+520
+00:02:13,430 --> 00:02:18,020
+So I want you to comment out everything that you've got so far in your day-25
+
+521
+00:02:18,020 --> 00:02:18,853
+project
+
+522
+00:02:19,070 --> 00:02:24,070
+and the goal is for you to use that data and use what you've learned about
+
+523
+00:02:24,290 --> 00:02:25,123
+pandas
+
+524
+00:02:25,160 --> 00:02:30,160
+to be able to create a CSV that's called squirrel_count that has a small table
+
+525
+00:02:32,330 --> 00:02:36,050
+which just contains the fur color, so there's only three fur colors,
+
+526
+00:02:36,170 --> 00:02:40,580
+and they are logged under the primary fur color column.
+
+527
+00:02:41,090 --> 00:02:44,990
+And it can either basically be gray, cinnamon
+
+528
+00:02:45,020 --> 00:02:47,060
+which is red, or black.
+
+529
+00:02:47,090 --> 00:02:50,810
+There's only three possible values in that column. Now,
+
+530
+00:02:50,840 --> 00:02:55,460
+what you're going to do is you are going to figure out how many gray squirrels
+
+531
+00:02:55,460 --> 00:02:56,510
+there are in total,
+
+532
+00:02:56,540 --> 00:03:01,540
+how many cinnamon ones and how many black ones based on that primary fur color
+
+533
+00:03:02,020 --> 00:03:02,853
+column.
+
+534
+00:03:03,040 --> 00:03:07,330
+And then you're gonna take that data and build a new data frame from it,
+
+535
+00:03:07,660 --> 00:03:08,590
+and using that,
+
+536
+00:03:08,620 --> 00:03:13,620
+create this final CSV using pandas. Now that you know what you need to do,
+
+537
+00:03:14,260 --> 00:03:18,160
+have a think about the problem and see if you can complete this challenge.
+
+538
+00:03:18,400 --> 00:03:22,690
+Pause the video now. All right.
+
+539
+00:03:22,690 --> 00:03:25,870
+If you've commented out the line where you've imported pandas,
+
+540
+00:03:25,900 --> 00:03:27,760
+then you'll obviously have to do that again.
+
+541
+00:03:28,330 --> 00:03:32,320
+So let's think about what we want to do. We want to isolate the column
+
+542
+00:03:32,320 --> 00:03:36,190
+which is the primary fur color. And if it helps you,
+
+543
+00:03:36,190 --> 00:03:40,120
+you can actually better visualize the data on this website where they've got a
+
+544
+00:03:40,120 --> 00:03:44,740
+table preview. So you can see that here is the primary fur color,
+
+545
+00:03:44,800 --> 00:03:47,410
+and you can see the colors that have been logged.
+
+546
+00:03:48,130 --> 00:03:52,180
+So our goal is to somehow get hold of this data series
+
+547
+00:03:52,210 --> 00:03:56,170
+which contains this entire column, figure out how many of them are gray,
+
+548
+00:03:56,170 --> 00:04:01,060
+how many of them are black and how many are cinnamon. How do we do this?
+
+549
+00:04:01,150 --> 00:04:03,820
+Well, firstly, let's get hold of our data.
+
+550
+00:04:03,820 --> 00:04:08,820
+So we're going to use our pandas.read_csv method.
+
+551
+00:04:09,670 --> 00:04:14,650
+And then we're going to direct it towards this 2018 central parks squirrel census
+
+552
+00:04:14,650 --> 00:04:16,029
+data. Now, if you want,
+
+553
+00:04:16,029 --> 00:04:19,779
+you can actually right-click refactor and rename it to something a little bit
+
+554
+00:04:19,779 --> 00:04:23,890
+shorter. But because I know that PyCharm will actually fill this in for me
+
+555
+00:04:23,950 --> 00:04:25,720
+as long as I start out with a string
+
+556
+00:04:26,260 --> 00:04:28,840
+and that that file is in the same folder,
+
+557
+00:04:29,110 --> 00:04:33,460
+it'll actually type it all out if I just hit enter, then it doesn't really matter.
+
+558
+00:04:34,000 --> 00:04:34,780
+But of course,
+
+559
+00:04:34,780 --> 00:04:37,600
+make sure that you don't have any typos in here if you're typing it out,
+
+560
+00:04:37,870 --> 00:04:41,290
+because otherwise when you hit run, you're going to get a whole bunch of error
+
+561
+00:04:41,300 --> 00:04:43,000
+text inside your console.
+
+562
+00:04:43,870 --> 00:04:46,600
+So once I've successfully read that CSV,
+
+563
+00:04:46,630 --> 00:04:50,080
+I've now got a dataframe. From that data frame,
+
+564
+00:04:50,110 --> 00:04:53,980
+I can get hold of the column that I'm interested in
+
+565
+00:04:54,220 --> 00:04:56,530
+which is called primary fur color. Now,
+
+566
+00:04:56,530 --> 00:05:01,150
+because it's got spaces, it's easier to access that data by using a square
+
+567
+00:05:01,150 --> 00:05:04,900
+bracket and then putting in the name of that column like this.
+
+568
+00:05:04,990 --> 00:05:07,630
+This is one of the methods that we showed you. Now,
+
+569
+00:05:07,630 --> 00:05:09,790
+once I've gotten hold of that column, well
+
+570
+00:05:09,790 --> 00:05:14,080
+the next thing I need to do is to find all of the rows in that column
+
+571
+00:05:14,110 --> 00:05:17,470
+where the data is equal to each of the colors.
+
+572
+00:05:17,500 --> 00:05:20,980
+So there was the color which is gray,
+
+573
+00:05:20,980 --> 00:05:24,250
+so gray not 'ey'.
+
+574
+00:05:24,970 --> 00:05:28,600
+And then once we've got hold of all the gray squirrels,
+
+575
+00:05:28,870 --> 00:05:31,840
+then we're going to pull that out from our data.
+
+576
+00:05:32,440 --> 00:05:36,130
+So now we should have a bunch of gray squirrels,
+
+577
+00:05:36,580 --> 00:05:39,010
+and it's probably a good idea to print them out
+
+578
+00:05:39,040 --> 00:05:41,320
+just to see if that actually worked.
+
+579
+00:05:41,650 --> 00:05:45,280
+And because I expect there'll be lots of rows with gray squirrels,
+
+580
+00:05:45,490 --> 00:05:49,900
+it makes sense to make it a plural, grey_squirrels. So now if I hit run,
+
+581
+00:05:50,200 --> 00:05:55,200
+you can see listed here are all of the rows where it contains a gray squirrel.
+
+582
+00:05:57,260 --> 00:05:59,570
+Now it redacted this table
+
+583
+00:05:59,570 --> 00:06:03,710
+so that it can actually display it in the console because we know that there's many,
+
+584
+00:06:03,710 --> 00:06:05,900
+many columns and there's many, many rows.
+
+585
+00:06:06,140 --> 00:06:10,340
+It's just showing you the first few rows and then the last few rows and also the
+
+586
+00:06:10,340 --> 00:06:12,470
+first few columns and the last few columns.
+
+587
+00:06:12,890 --> 00:06:16,760
+So we can be pretty sure that we've managed to get hold of all of the rows that
+
+588
+00:06:16,760 --> 00:06:20,990
+contain gray squirrels as their primary fur color. Now,
+
+589
+00:06:20,990 --> 00:06:25,910
+what if we wanted to know the gray squirrels count? Well,
+
+590
+00:06:25,910 --> 00:06:30,910
+we could use our length method because remember, once we get hold of the rows
+
+591
+00:06:31,610 --> 00:06:35,000
+it kind of gets treated a bit like a iterable,
+
+592
+00:06:35,330 --> 00:06:40,330
+like a list, and can use methods like length on this data.
+
+593
+00:06:41,060 --> 00:06:44,330
+So now if we print grey_squirrels_count,
+
+594
+00:06:45,350 --> 00:06:50,350
+you can see that we've got a total of 2,473 grey squirrels.
+
+595
+00:06:51,620 --> 00:06:56,420
+So now all I need to do is to repeat this process for the other colored
+
+596
+00:06:56,420 --> 00:07:00,440
+squirrels. So I'm going to call it a red squirrel, even though theoretically,
+
+597
+00:07:00,470 --> 00:07:02,570
+their fur color is cinnamon.
+
+598
+00:07:02,990 --> 00:07:07,580
+So I'm just going to copy and paste that in there in case I make any typos and
+
+599
+00:07:07,580 --> 00:07:10,400
+the final squirrel is the black squirrel.
+
+600
+00:07:11,270 --> 00:07:13,910
+So those are all three squirrel types,
+
+601
+00:07:14,000 --> 00:07:17,240
+and if I go ahead and print out all of these,
+
+602
+00:07:17,510 --> 00:07:22,510
+so the reds squirrel count, the black squirrel count and the gray squirrel count,
+
+603
+00:07:23,390 --> 00:07:28,390
+you can see that you got mostly grey squirrels, a few red ones and very
+
+604
+00:07:28,610 --> 00:07:30,710
+rarely do you actually see a black squirrel.
+
+605
+00:07:30,920 --> 00:07:35,540
+I certainly haven't seen one recently. Now that we've got our three values,
+
+606
+00:07:35,570 --> 00:07:39,980
+it's time to construct our data frame. So to construct our data frame,
+
+607
+00:07:40,100 --> 00:07:43,640
+the easiest way is to actually just create a dictionary.
+
+608
+00:07:44,000 --> 00:07:48,470
+So I'm going to create a data dictionary and this dictionary is going to have
+
+609
+00:07:48,530 --> 00:07:50,450
+two key-value pairs.
+
+610
+00:07:50,630 --> 00:07:53,750
+So the first key is going to be the fur color
+
+611
+00:07:55,070 --> 00:07:59,690
+and this is going to contain the three fur colors, which is, um,
+
+612
+00:07:59,720 --> 00:08:04,400
+gray, cinnamon or red, and black.
+
+613
+00:08:05,210 --> 00:08:06,830
+And then, um,
+
+614
+00:08:06,890 --> 00:08:10,760
+the next key value pair is going to be the count.
+
+615
+00:08:11,420 --> 00:08:15,830
+So now we can create a list where the first value is going to be the gray squirrel 
+
+616
+00:08:15,830 --> 00:08:19,520
+count, next is going to be the red squirrel count and finally,
+
+617
+00:08:19,520 --> 00:08:24,050
+it's going to be the black squirrel count. So now that we've got our dictionary
+
+618
+00:08:24,320 --> 00:08:26,750
+and this is what it looks like,
+
+619
+00:08:27,500 --> 00:08:31,700
+then we can go ahead and actually turn this into a data frame.
+
+620
+00:08:32,090 --> 00:08:32,929
+So to do that,
+
+621
+00:08:32,929 --> 00:08:37,220
+we need to get hold of the pandas and then get hold of the data frame class,
+
+622
+00:08:37,580 --> 00:08:41,120
+and then initialize it using this data dictionary.
+
+623
+00:08:41,570 --> 00:08:44,300
+So I'm going to save that as df, df for data frame.
+
+624
+00:08:44,780 --> 00:08:48,860
+And then the final thing I need to do is to get my df
+
+625
+00:08:48,920 --> 00:08:51,620
+to convert to a CSV.
+
+626
+00:08:52,190 --> 00:08:54,530
+So now I get to specify the name of the file,
+
+627
+00:08:54,530 --> 00:08:59,250
+which I will call squirrel_count.csv
+
+628
+00:08:59,730 --> 00:09:03,540
+and once I hit run, you'll see that new file show up right here
+
+629
+00:09:03,990 --> 00:09:08,990
+and you can see that it's constructed my new CSV file with all of the data that
+
+630
+00:09:09,840 --> 00:09:13,260
+I've extracted from my central park squirrel census
+
+631
+00:09:13,620 --> 00:09:17,220
+and I've now got a new table with the data that I'm interested in.
+
+632
+00:09:17,790 --> 00:09:21,780
+So did you manage to complete this challenge? If you found it tricky
+
+633
+00:09:21,780 --> 00:09:25,950
+working with the data frames and figuring out how to get hold of the columns or
+
+634
+00:09:25,950 --> 00:09:29,490
+how to get hold of the rows depending on the conditions we're interested
+
+635
+00:09:29,490 --> 00:09:33,360
+in, then I strongly recommend to just head back the last lesson,
+
+636
+00:09:33,630 --> 00:09:37,830
+just try to write out the code that we're doing in each step of the video
+
+637
+00:09:37,830 --> 00:09:38,663
+yourself,
+
+638
+00:09:38,790 --> 00:09:41,910
+just to make sure that you're a hundred percent sure with what's going on.
+
+639
+00:09:42,630 --> 00:09:44,820
+Once you are ready, head of the next lesson
+
+640
+00:09:44,880 --> 00:09:49,350
+we're going to finally build our US states game.
+
+641
+00:09:50,030 --> 00:09:52,410
+For all of that and more, I'll see you on the next lesson.
+
+
+642
+00:00:00,240 --> 00:00:03,600
+All right. It's time to put some of the stuff that we've learned into practice.
+
+643
+00:00:04,140 --> 00:00:09,140
+And the product that we're trying to build towards is a US states quiz.
+
+644
+00:00:10,220 --> 00:00:14,030
+One of my favorite websites for quizzes is a website called Sporcle.
+
+645
+00:00:14,570 --> 00:00:19,100
+And they specialize in quizzes that are basically just you making a list.
+
+646
+00:00:19,730 --> 00:00:23,510
+And one of the best quizzes they have is the list of US
+
+647
+00:00:23,510 --> 00:00:27,290
+states. You can head over to this link in the course resources,
+
+648
+00:00:27,650 --> 00:00:32,240
+and you can start playing this game. They're presuming that there's 50 States in the
+
+649
+00:00:32,240 --> 00:00:36,890
+US and every single time you type in the name of a state,
+
+650
+00:00:37,160 --> 00:00:40,760
+then that state gets labelled and you score one point.
+
+651
+00:00:41,150 --> 00:00:45,680
+The goal is to be able to name as many states as you can remember.
+
+652
+00:00:46,190 --> 00:00:51,140
+This is basically the game that we're trying to replicate using turtle and using
+
+653
+00:00:51,140 --> 00:00:55,130
+some CSV data. And this is what the end result looks like.
+
+654
+00:00:55,730 --> 00:00:57,470
+We've got a turtle screen
+
+655
+00:00:57,860 --> 00:01:02,000
+which has a background that is an image of the US with all of the states 
+
+656
+00:01:02,090 --> 00:01:02,923
+blanked out.
+
+657
+00:01:03,410 --> 00:01:07,160
+And what we're going to do is by looking at the shape of the map
+
+658
+00:01:07,190 --> 00:01:09,410
+and by remembering what the states look like,
+
+659
+00:01:09,800 --> 00:01:12,530
+try to name as many as we can.
+
+660
+00:01:13,040 --> 00:01:17,300
+And once we've entered the name and we hit OK, then if it actually exists,
+
+661
+00:01:17,360 --> 00:01:20,780
+it gets added to the map. It seems simple,
+
+662
+00:01:21,080 --> 00:01:26,080
+but the code is going to need some of the new things we learn about using data,
+
+663
+00:01:26,360 --> 00:01:29,300
+especially data from CSVs. Now,
+
+664
+00:01:29,330 --> 00:01:32,690
+the first thing I want you to do is the head over to the link in the course
+
+665
+00:01:32,690 --> 00:01:37,370
+resources that takes you to the starting file for the US states game.
+
+666
+00:01:37,850 --> 00:01:42,650
+Now, once you're here, you're going to fork your own copy of this project
+
+667
+00:01:42,980 --> 00:01:45,560
+and then you're going to click on these three dots at the top,
+
+668
+00:01:45,620 --> 00:01:48,980
+and then download this entire project as a zip file.
+
+669
+00:01:49,280 --> 00:01:52,610
+Remember that you won't see this until you forked the project,
+
+670
+00:01:53,000 --> 00:01:56,690
+and also if you're not logged in, then when you fork it,
+
+671
+00:01:56,960 --> 00:01:59,450
+it's going to give you a random name,
+
+672
+00:01:59,780 --> 00:02:02,360
+which means that when you download it as a zip,
+
+673
+00:02:02,450 --> 00:02:07,450
+you will have to rename that zip file to us-states-game so that your project can
+
+674
+00:02:08,270 --> 00:02:09,530
+have the correct name.
+
+675
+00:02:10,610 --> 00:02:15,610
+So the easiest way, as always, is to just log in, fork a copy of the project and
+
+676
+00:02:16,220 --> 00:02:19,580
+then download it as a zip file. Once you've done that,
+
+677
+00:02:19,790 --> 00:02:22,580
+then you can open it up inside PyCharm.
+
+678
+00:02:23,150 --> 00:02:26,270
+And you can see that there's three files here.
+
+679
+00:02:26,390 --> 00:02:29,270
+One is called 50_states.csv,
+
+680
+00:02:29,630 --> 00:02:34,630
+and this is a CSV file that contains all 50 States in the US by name and then
+
+681
+00:02:35,870 --> 00:02:39,110
+some X and Y value, which we'll talk about a little bit later on.
+
+682
+00:02:39,800 --> 00:02:44,090
+The next thing you'll see is a blank_states_image.gif. Now,
+
+683
+00:02:44,090 --> 00:02:49,010
+the reason why it's a .gif rather than a .png or .jpg is actually because
+
+684
+00:02:49,040 --> 00:02:51,680
+turtle only works with this one image format.
+
+685
+00:02:51,980 --> 00:02:56,600
+So in order to display an image, we actually need to convert the image to 
+
+686
+00:02:56,690 --> 00:02:58,640
+a gif file, which I have done already.
+
+687
+00:02:59,200 --> 00:03:03,940
+This file is just an image of all the States of the US blanked out,
+
+688
+00:03:04,090 --> 00:03:08,320
+so it doesn't have the names. So it's ready for our user to start guessing.
+
+689
+00:03:08,950 --> 00:03:10,570
+Finally, you'll have a empty
+
+690
+00:03:10,570 --> 00:03:14,440
+main.py file and this is where we're going to get started.
+
+691
+00:03:14,920 --> 00:03:17,740
+So the first thing I'm going to do is I'm going to import turtle,
+
+692
+00:03:17,770 --> 00:03:22,770
+so straight-up import the module. And then I'm going to create a screen object
+
+693
+00:03:24,100 --> 00:03:27,940
+from turtle.Screen class. Now,
+
+694
+00:03:27,940 --> 00:03:29,350
+once I've got my screen,
+
+695
+00:03:29,380 --> 00:03:32,860
+then I'm going to change the title of the project to the
+
+696
+00:03:32,880 --> 00:03:37,200
+U.S. States Game.
+
+697
+00:03:38,340 --> 00:03:42,300
+And finally, I'm going to get my screen to only exit on click.
+
+698
+00:03:42,810 --> 00:03:45,600
+This is pretty basic, we've done this lots of times.
+
+699
+00:03:45,870 --> 00:03:49,710
+But the next thing that we're going to do is a little bit new because we haven't
+
+700
+00:03:49,710 --> 00:03:52,200
+actually worked with images in turtle before.
+
+701
+00:03:52,710 --> 00:03:57,330
+One of the things that you can do with turtle is that you can set the turtle's
+
+702
+00:03:57,630 --> 00:03:59,880
+shape to a new shape. So, 
+
+703
+00:03:59,880 --> 00:04:04,680
+you can set it to a circle or you can set it to a square, et cetera.
+
+704
+00:04:05,010 --> 00:04:08,940
+But you can actually load in a new image as a new shape.
+
+705
+00:04:09,420 --> 00:04:14,340
+And the way you do that is you get hold of your screen object and you say add
+
+706
+00:04:14,400 --> 00:04:19,079
+shape and this shape can be any image file.
+
+707
+00:04:19,470 --> 00:04:23,130
+So in our case, it's going to be the name of this file.
+
+708
+00:04:23,550 --> 00:04:27,870
+So I'm going to create a new variable called the image and it's going to store
+
+709
+00:04:27,900 --> 00:04:31,740
+the file name or the file path of my blank
+
+710
+00:04:31,920 --> 00:04:36,270
+_states_img.gif.
+
+711
+00:04:36,660 --> 00:04:41,660
+So this is basically the path to reach my image and that is the shape that I'm
+
+712
+00:04:42,570 --> 00:04:44,340
+going to load into my screen.
+
+713
+00:04:45,060 --> 00:04:47,760
+So once I've added the shape to the screen,
+
+714
+00:04:47,790 --> 00:04:50,970
+then it's now available to be used by a turtle.
+
+715
+00:04:51,060 --> 00:04:56,060
+So I can say turtle.shape and change it instead of to circle or square or
+
+716
+00:04:57,540 --> 00:05:01,230
+turtle, I'm going to change it to this image file.
+
+717
+00:05:01,710 --> 00:05:05,340
+So now when I run my project,
+
+718
+00:05:05,850 --> 00:05:10,170
+you might like, I have here, get a error like this;
+
+719
+00:05:10,410 --> 00:05:14,520
+couldn't open this file because there is no such file or directory.
+
+720
+00:05:14,850 --> 00:05:19,050
+This is really, really common and it might happen to you. In this case,
+
+721
+00:05:19,080 --> 00:05:23,670
+just be sure that whatever it is that you've typed here actually matches the
+
+722
+00:05:23,670 --> 00:05:26,430
+name of your image. So as you can see,
+
+723
+00:05:26,430 --> 00:05:29,040
+it's actually blank_states_img.gif,
+
+724
+00:05:29,430 --> 00:05:34,430
+and I've only got state without the 's'. So now when we run this again
+
+725
+00:05:34,590 --> 00:05:36,840
+there should be no problems and I can see 
+
+726
+00:05:36,850 --> 00:05:41,850
+the image show up here. Now that we've managed to load up our image onto our
+
+727
+00:05:42,480 --> 00:05:43,313
+turtle game,
+
+728
+00:05:43,560 --> 00:05:48,360
+the next thing we want to do is to figure out the coordinates of each of these
+
+729
+00:05:48,360 --> 00:05:50,070
+states. For example,
+
+730
+00:05:50,100 --> 00:05:53,820
+if we wanted the word California to show up over here,
+
+731
+00:05:54,090 --> 00:05:59,090
+then we need to know what is the X and Y coordinate of this location relative to
+
+732
+00:05:59,240 --> 00:06:00,860
+the entire game screen.
+
+733
+00:06:01,580 --> 00:06:06,050
+That way when we actually guess a state like California and hit OK,
+
+734
+00:06:06,050 --> 00:06:11,050
+it can actually show up with the text to be written on that state itself so that
+
+735
+00:06:11,960 --> 00:06:15,770
+the user knows which states they've guessed and which ones that they still need
+
+736
+00:06:15,770 --> 00:06:16,603
+to guess.
+
+737
+00:06:17,290 --> 00:06:18,750
+But how would you
+
+738
+00:06:18,910 --> 00:06:22,120
+place the texts on a particular point of the map?
+
+739
+00:06:22,420 --> 00:06:25,300
+How would you get the coordinates for this point? Well,
+
+740
+00:06:25,690 --> 00:06:27,520
+after a quick search on Google,
+
+741
+00:06:27,550 --> 00:06:31,930
+I find a Stack Overflow question that basically is trying to do exactly what we
+
+742
+00:06:31,930 --> 00:06:35,350
+want. So this is the code that we would need.
+
+743
+00:06:35,650 --> 00:06:40,480
+So let's go ahead and copy all of it and paste it into our project.
+
+744
+00:06:41,140 --> 00:06:44,530
+Let's take a look through this code and understand what it's trying to do.
+
+745
+00:06:45,220 --> 00:06:48,910
+So firstly, we've got a function here called get_mouse_click_coor,
+
+746
+00:06:49,240 --> 00:06:52,150
+and it takes two values as inputs, X and Y,
+
+747
+00:06:52,210 --> 00:06:54,580
+and then it prints those out. Next,
+
+748
+00:06:54,610 --> 00:06:57,940
+we've got our turtle module calling onscreenclick,
+
+749
+00:06:57,970 --> 00:06:59,770
+which is a event listener.
+
+750
+00:06:59,860 --> 00:07:04,690
+So it's gonna listen for when the mouse clicks and then it's going to call our
+
+751
+00:07:04,720 --> 00:07:06,670
+get get_mouse_click_coor function,
+
+752
+00:07:06,880 --> 00:07:11,770
+and it's going to pass over the X and Y coordinates of that click location.
+
+753
+00:07:12,310 --> 00:07:15,220
+Finally, we've got this turtle.mainloop.
+
+754
+00:07:15,520 --> 00:07:19,300
+So this is an alternative way of keeping our screen open
+
+755
+00:07:19,630 --> 00:07:21,700
+even though our code has finished running.
+
+756
+00:07:22,030 --> 00:07:26,800
+So it's basically an alternative to our screen.exitonclick. And in fact
+
+757
+00:07:26,800 --> 00:07:27,850
+if you think about it,
+
+758
+00:07:28,060 --> 00:07:32,800
+if we wanted to get the click location and our screen exits
+
+759
+00:07:32,860 --> 00:07:36,490
+as soon as we click on it, then it's not really gonna work very easily.
+
+760
+00:07:36,580 --> 00:07:40,720
+So we're going to delete this line and we're going to replace it with this
+
+761
+00:07:40,750 --> 00:07:43,990
+turtle.mainloop, which is going to keep our screen open.
+
+762
+00:07:44,260 --> 00:07:48,130
+So if I comment out all of this previous code and when I run my project,
+
+763
+00:07:48,160 --> 00:07:51,400
+you can see it's still keeps the window open. But without it,
+
+764
+00:07:51,580 --> 00:07:54,730
+it's just going to flash up and disappear.
+
+765
+00:07:56,560 --> 00:08:00,460
+While this code is running if I click on one of the states,
+
+766
+00:08:00,490 --> 00:08:02,380
+let's say where California is,
+
+767
+00:08:02,680 --> 00:08:07,150
+you can see the X and Y values being printed in the console.
+
+768
+00:08:07,510 --> 00:08:12,510
+So we can repeat this for all of the States on this image and get hold of where
+
+769
+00:08:12,580 --> 00:08:17,350
+each state lies on this map relative to our turtle screen.
+
+770
+00:08:18,010 --> 00:08:22,030
+Now, if that sounds really tedious then I have to tell you, it really is.
+
+771
+00:08:22,390 --> 00:08:23,620
+But lucky for you,
+
+772
+00:08:23,620 --> 00:08:28,620
+I've actually gone through this entire process and I've logged all of the X and
+
+773
+00:08:28,720 --> 00:08:32,799
+Y values. Now some of them may be a little bit off the center of the state,
+
+774
+00:08:33,130 --> 00:08:35,830
+but you know, you can always tweak this if you want to.
+
+775
+00:08:36,280 --> 00:08:40,510
+But now you know where all of these X and Y values are coming from.
+
+776
+00:08:41,650 --> 00:08:46,270
+So you don't actually need any of this code because we already have all of the X
+
+777
+00:08:46,270 --> 00:08:49,450
+and Y values in our 50_states.csv.
+
+778
+00:08:50,140 --> 00:08:55,140
+All you have to do is to read from that CSV and get those X and Y values.
+
+779
+00:08:57,150 --> 00:09:01,590
+And then you're going to ask the user for a answer and we're going to do that
+
+780
+00:09:01,590 --> 00:09:03,330
+through the use of a input.
+
+781
+00:09:03,720 --> 00:09:08,720
+Remember we can call screen.textinput to create one of those popup boxes
+
+782
+00:09:08,970 --> 00:09:13,970
+and we can give it a title and we can also give it a prompt.
+
+783
+00:09:15,930 --> 00:09:19,620
+So when I run this, you can see that this popup box looks like this.
+
+784
+00:09:20,160 --> 00:09:25,160
+The title is at the top of the window and the prompt is inside the box.
+
+785
+00:09:29,450 --> 00:09:29,960
+Okay.
+
+786
+00:09:29,960 --> 00:09:33,350
+And once we type something in here like Ohio,
+
+787
+00:09:33,830 --> 00:09:38,630
+then I can actually get hold of what the user typed by tapping into this answer_
+
+788
+00:09:38,630 --> 00:09:40,880
+state. So if I go ahead and print it,
+
+789
+00:09:41,390 --> 00:09:45,440
+then you can see it will be whatever it is I type into this box.
+
+790
+00:09:46,040 --> 00:09:47,630
+So now, you know
+
+791
+00:09:47,750 --> 00:09:52,750
+what is the X and Y value of the location that we need to write our text for the
+
+792
+00:09:54,350 --> 00:09:57,920
+name of the state that the user has guessed correctly.
+
+793
+00:09:58,700 --> 00:10:03,700
+You also know how to get the user to enter a new answer through our text inputs.
+
+794
+00:10:05,660 --> 00:10:06,950
+So in the next lesson,
+
+795
+00:10:07,190 --> 00:10:11,900
+the challenge begins and you're going to use everything you've learned so far in
+
+796
+00:10:11,900 --> 00:10:15,260
+order to read from the CSV file and get the game to work.
+
+797
+00:10:15,650 --> 00:10:18,020
+So for all of that and more, I'll see you there.
+
+
+798
+00:00:00,390 --> 00:00:00,720
+All right.
+
+799
+00:00:00,720 --> 00:00:05,720
+So in the last lesson we did a lot of setup and we got our game to have the
+
+800
+00:00:05,880 --> 00:00:06,810
+basic features.
+
+801
+00:00:06,870 --> 00:00:11,250
+It's got a popup that asks us for a states' name,
+
+802
+00:00:11,610 --> 00:00:15,870
+and when I type a name in here, I can receive it inside my code
+
+803
+00:00:15,900 --> 00:00:17,340
+using this answer_state.
+
+804
+00:00:18,030 --> 00:00:22,590
+Now your job is to use that 50_states.csv
+
+805
+00:00:23,070 --> 00:00:23,430
+to
+
+806
+00:00:23,430 --> 00:00:28,430
+check the user's answer against all of the states inside this table and see if
+
+807
+00:00:29,580 --> 00:00:31,650
+it matches one of them. Now,
+
+808
+00:00:31,650 --> 00:00:36,210
+the user might spell it with a capital to begin with say, Ohio,
+
+809
+00:00:36,270 --> 00:00:40,740
+or they might just write ohio and it should work for both of these cases.
+
+810
+00:00:41,760 --> 00:00:42,510
+In addition,
+
+811
+00:00:42,510 --> 00:00:47,510
+when the user types in a state that is inside that 50_states.csv,
+
+812
+00:00:48,660 --> 00:00:53,660
+then that state should be written onto the screen at the location where it
+
+813
+00:00:53,820 --> 00:00:54,653
+exists.
+
+814
+00:00:54,750 --> 00:00:59,190
+So it remember the location corresponds to the X and Y values that we already
+
+815
+00:00:59,190 --> 00:01:01,710
+logged inside this data file.
+
+816
+00:01:02,310 --> 00:01:05,430
+But if the user guesses a state that's wrong,
+
+817
+00:01:05,970 --> 00:01:10,020
+then nothing happens and our input box appears again
+
+818
+00:01:10,410 --> 00:01:12,480
+asking for a new input.
+
+819
+00:01:13,860 --> 00:01:16,860
+Now notice how here in the title of the text input
+
+820
+00:01:16,920 --> 00:01:21,920
+I'm also keeping track of how many states they have guessed correctly out of 50.
+
+821
+00:01:22,590 --> 00:01:25,560
+And every time they add a new, um,
+
+822
+00:01:25,620 --> 00:01:28,380
+new state, then that number updates.
+
+823
+00:01:29,700 --> 00:01:34,290
+his is going to rely on the knowledge that you've learned about reading from
+
+824
+00:01:34,290 --> 00:01:35,370
+CSV data,
+
+825
+00:01:35,730 --> 00:01:39,390
+getting hold of the specific parts of the CSV data,
+
+826
+00:01:39,720 --> 00:01:43,500
+finding for example, a particular row or a particular column,
+
+827
+00:01:43,950 --> 00:01:48,950
+and working with that data in order to check to see if the user got the state
+
+828
+00:01:49,530 --> 00:01:50,363
+right,
+
+829
+00:01:50,370 --> 00:01:55,370
+and then using the data inside that row to figure out where to write some text
+
+830
+00:01:55,980 --> 00:01:57,960
+at which X and Y location
+
+831
+00:01:58,200 --> 00:02:02,670
+so that we can get the actual name of the state written at the location where
+
+832
+00:02:02,670 --> 00:02:06,120
+they appear on the map. So this is quite a challenge
+
+833
+00:02:06,180 --> 00:02:09,660
+and I expect that you'll have to think about it and play around with the code
+
+834
+00:02:09,660 --> 00:02:13,050
+for at least 10 to 20 minutes. So give it the time that it needs,
+
+835
+00:02:13,350 --> 00:02:17,970
+have a think about how you would break down this problem and try and complete
+
+836
+00:02:17,970 --> 00:02:20,220
+this challenge. So pause the video now.
+
+837
+00:02:25,700 --> 00:02:26,210
+Okay.
+
+838
+00:02:26,210 --> 00:02:28,640
+All right. So I'm going to walk through the solution with you,
+
+839
+00:02:28,910 --> 00:02:31,070
+but I want you to do a conscience check.
+
+840
+00:02:31,670 --> 00:02:35,930
+If you haven't spent at least 20 minutes working on this problem, fixing it,
+
+841
+00:02:36,080 --> 00:02:40,400
+getting it to do what you want it to do, then go back, try again.
+
+842
+00:02:40,460 --> 00:02:42,860
+You need to feel the struggle in order to learn.
+
+843
+00:02:43,220 --> 00:02:47,150
+I can tell you how to do anything, but if that answer didn't come from you,
+
+844
+00:02:47,390 --> 00:02:50,840
+then you're not actually going to make progress. So I really,
+
+845
+00:02:50,840 --> 00:02:55,460
+really urge you to give it a go before you watch the solution. All right.
+
+846
+00:02:55,460 --> 00:02:58,910
+So back to our code, the first thing I'm going to do is
+
+847
+00:02:59,260 --> 00:03:02,320
+I'm going to import the pandas module.
+
+848
+00:03:02,710 --> 00:03:04,450
+So I'm going to import pandas.
+
+849
+00:03:04,960 --> 00:03:09,760
+Now I've already installed pandas on the starting project that you downloaded,
+
+850
+00:03:10,090 --> 00:03:14,170
+but if you're doing this completely from scratch from your own starting file,
+
+851
+00:03:14,380 --> 00:03:18,010
+then you'll probably get a red squiggly line under the pandas
+
+852
+00:03:18,040 --> 00:03:21,640
+and it will ask you to install the package. But if you don't have it,
+
+853
+00:03:21,640 --> 00:03:24,160
+then it means it's already installed and ready to use.
+
+854
+00:03:24,640 --> 00:03:29,640
+Now we're going to get our pandas to go ahead and read our CSV file, and the
+
+855
+00:03:30,190 --> 00:03:33,940
+CSV file is called the 50_states.csv.
+
+856
+00:03:34,420 --> 00:03:36,370
+So once the prompt comes up,
+
+857
+00:03:36,670 --> 00:03:40,570
+then I'm going to hit enter to get PyCharm to just insert it automatically.
+
+858
+00:03:41,410 --> 00:03:45,550
+Now I'm going to save that data frame that comes from reading that CSV to a
+
+859
+00:03:45,550 --> 00:03:47,110
+variable called data.
+
+860
+00:03:47,890 --> 00:03:52,890
+Now our data has 50 rows of data and the first row is the column headings
+
+861
+00:03:54,550 --> 00:03:59,230
+for each of them. So we've got the state, the X and the Y values.
+
+862
+00:04:00,310 --> 00:04:04,420
+Let's have a think about how we might break down this problem that we have.
+
+863
+00:04:04,840 --> 00:04:07,000
+So when the user types an answer,
+
+864
+00:04:07,450 --> 00:04:10,630
+we have to check to see if that, um,
+
+865
+00:04:10,930 --> 00:04:15,930
+answer_state is one of the states in all the states of the 50_states.csv.
+
+866
+00:04:23,230 --> 00:04:27,250
+The first column is a list of all 50 States.
+
+867
+00:04:27,790 --> 00:04:32,790
+So if we could somehow check to see if this state that they've guessed is one of
+
+868
+00:04:34,120 --> 00:04:39,010
+the states in that column, then we know whether if they got it right or wrong.
+
+869
+00:04:39,520 --> 00:04:41,470
+If they got it right,
+
+870
+00:04:41,950 --> 00:04:46,950
+then we need to figure out how we can create a turtle to write
+
+871
+00:04:50,050 --> 00:04:55,050
+the name of the state at the state's X and Y coordinate.
+
+872
+00:04:57,940 --> 00:04:59,980
+For example, if the user guessed
+
+873
+00:05:00,010 --> 00:05:04,210
+South Carolina and indeed South Carolina is one of the 50 States,
+
+874
+00:05:04,510 --> 00:05:08,410
+then we should be able to pull out this entire row and then create a turtle,
+
+875
+00:05:08,440 --> 00:05:11,110
+make it go to this X and Y location,
+
+876
+00:05:11,470 --> 00:05:16,470
+and to write the name of the state onto this blank state image in our turtle
+
+877
+00:05:18,640 --> 00:05:22,540
+game. Let's see if we can tackle this. Now,
+
+878
+00:05:22,540 --> 00:05:27,010
+the first thing we need to figure out is how do we get hold of all the states of
+
+879
+00:05:27,010 --> 00:05:30,070
+the 50_states.csv? So we've got our data frame
+
+880
+00:05:30,280 --> 00:05:34,900
+and if I go ahead and say data, then I can pull out one of the columns.
+
+881
+00:05:35,350 --> 00:05:37,390
+So the column name is state,
+
+882
+00:05:37,870 --> 00:05:41,950
+and I can either use that as a key with a set of square brackets,
+
+883
+00:05:42,220 --> 00:05:45,190
+or I can use it as simply a attribute name.
+
+884
+00:05:46,510 --> 00:05:51,280
+This gets me the data series which is that first column.
+
+885
+00:05:52,180 --> 00:05:54,850
+And if I want to be able to turn that into a list,
+
+886
+00:05:55,150 --> 00:05:58,070
+remember that we saw that method to_list,
+
+887
+00:05:58,700 --> 00:06:01,970
+and that means we can work with it just like any other list.
+
+888
+00:06:02,480 --> 00:06:04,730
+So let's call this all_states.
+
+889
+00:06:06,110 --> 00:06:08,900
+And once we've got whole of this all_states, well,
+
+890
+00:06:08,900 --> 00:06:13,900
+we can check to see if the answer_state is in the all_states.
+
+891
+00:06:17,210 --> 00:06:19,670
+This is something that you won't be able to do,
+
+892
+00:06:19,670 --> 00:06:23,120
+so checking for membership using the in keyword
+
+893
+00:06:23,450 --> 00:06:26,420
+unless you have converted this into a list.
+
+894
+00:06:27,350 --> 00:06:32,350
+So once we've figured out that this answer of the user provided is in fact,
+
+895
+00:06:32,450 --> 00:06:35,270
+one of the states in our 50 States,
+
+896
+00:06:35,600 --> 00:06:39,200
+then the next thing we need to do is to create a turtle.
+
+897
+00:06:39,830 --> 00:06:42,410
+So let's create a new turtle, which we'll call t,
+
+898
+00:06:42,920 --> 00:06:47,510
+and we're going to use the turtle.Turtle class to construct it.
+
+899
+00:06:47,990 --> 00:06:52,100
+And then we're going to get the turtle to hide the actual turtle shape,
+
+900
+00:06:52,460 --> 00:06:57,020
+and we're also going to get it to pen up so that it doesn't actually do any
+
+901
+00:06:57,020 --> 00:06:57,853
+drawing.
+
+902
+00:06:58,190 --> 00:07:03,190
+But what we do need it to do is we needed to go to a particular X and Y
+
+903
+00:07:03,560 --> 00:07:04,393
+location.
+
+904
+00:07:04,910 --> 00:07:09,910
+The X and Y location is going to correspond to the state that the user has
+
+905
+00:07:10,070 --> 00:07:15,070
+correctly guessed and the row of data from our 50_states.csv.
+
+906
+00:07:17,570 --> 00:07:22,570
+So how can we get hold of the actual row of data that corresponds to this state?
+
+907
+00:07:24,350 --> 00:07:28,790
+Well, we can take our data and then inside some square brackets,
+
+908
+00:07:29,000 --> 00:07:34,000
+we can check that the data.state is double equal to the answer_state.
+
+909
+00:07:37,220 --> 00:07:42,220
+This is going to pull out the row where the state is equal to the answer_state.
+
+910
+00:07:44,960 --> 00:07:49,160
+So I'm going to save that under something called state_data.
+
+911
+00:07:50,270 --> 00:07:55,270
+And now I can tell my turtle to go to state_data.x and state_data.y.
+
+912
+00:07:59,180 --> 00:08:01,730
+So, because this is a row of data,
+
+913
+00:08:02,330 --> 00:08:06,710
+then I can tap into it's attributes using the name of the columns,
+
+914
+00:08:07,100 --> 00:08:08,870
+the X and the Y.
+
+915
+00:08:10,400 --> 00:08:12,620
+And once my turtle gets there,
+
+916
+00:08:12,710 --> 00:08:16,910
+then I want it to write the name of the state.
+
+917
+00:08:17,360 --> 00:08:22,340
+So it's going to be state_data.state. Now,
+
+918
+00:08:22,340 --> 00:08:27,320
+when we hit run on this code and guess the name of a state that definitely
+
+919
+00:08:27,320 --> 00:08:30,740
+exists, when we click OK, we're going to get an error.
+
+920
+00:08:31,340 --> 00:08:34,159
+And it's really important that you get used to seeing errors
+
+921
+00:08:34,429 --> 00:08:37,460
+because they're going to happen to you all the time. Just as in life
+
+922
+00:08:37,700 --> 00:08:42,200
+the only certainties are death and taxes, in Programming the only certainty
+
+923
+00:08:42,230 --> 00:08:44,179
+is you will get bugs and you will get errors.
+
+924
+00:08:44,570 --> 00:08:48,110
+The important thing is to figure out what's causing the error.
+
+925
+00:08:48,620 --> 00:08:53,270
+So if we go ahead and copy this error at the end, bad screen distance,
+
+926
+00:08:53,300 --> 00:08:55,710
+that seems to be telling us what is actually going on.
+
+927
+00:08:56,460 --> 00:09:00,720
+And then I go into Google and I search for this particular error,
+
+928
+00:09:01,200 --> 00:09:05,040
+then I can see other people who've encountered this issue.
+
+929
+00:09:05,700 --> 00:09:09,660
+So if we read through all of this, between all of the subtext,
+
+930
+00:09:09,720 --> 00:09:14,720
+it tells us that the issue is actually that our coordinates are stored as
+
+931
+00:09:15,090 --> 00:09:19,710
+strings. We need to get the coordinates into actual numbers.
+
+932
+00:09:20,880 --> 00:09:24,450
+So the one oversight that you might've made which is really common
+
+933
+00:09:24,840 --> 00:09:28,200
+is to simply tell it to go to date state_data.x,
+
+934
+00:09:28,260 --> 00:09:33,260
+state_data.y without first converting them into integers.
+
+935
+00:09:35,610 --> 00:09:40,610
+So now if we bring back our screen.exitonclick and then run our code,
+
+936
+00:09:41,370 --> 00:09:45,030
+we can type the name of the state click OK,
+
+937
+00:09:45,300 --> 00:09:50,300
+and you can see the state data show up on the location that corresponds to that
+
+938
+00:09:50,400 --> 00:09:52,320
+particular state. Now,
+
+939
+00:09:52,350 --> 00:09:56,280
+the only problem is we don't want all of this junk to be written here, right?
+
+940
+00:09:56,610 --> 00:10:01,530
+And this is showing up because we're getting this data from our data series.
+
+941
+00:10:01,920 --> 00:10:04,440
+So what's a much simpler way? Well,
+
+942
+00:10:04,470 --> 00:10:07,950
+we've already got hold of the answer that the user typed, right?
+
+943
+00:10:08,280 --> 00:10:12,000
+So why don't we just write the answer_state?
+
+944
+00:10:13,110 --> 00:10:18,000
+So now when I type in the state and it matches one of the states in the 50
+
+945
+00:10:18,000 --> 00:10:18,833
+states,
+
+946
+00:10:18,840 --> 00:10:23,840
+then it's going to go to the X and Y location of that state and print the name
+
+947
+00:10:23,910 --> 00:10:26,550
+of the state that the user has typed in.
+
+948
+00:10:27,060 --> 00:10:31,710
+And because we've made sure that it's a correct state with a correct spelling,
+
+949
+00:10:31,980 --> 00:10:34,740
+then it doesn't actually matter if we use the answer_state
+
+950
+00:10:34,950 --> 00:10:38,220
+or if we use the state_data. Now,
+
+951
+00:10:38,250 --> 00:10:42,360
+if you really want to use state_data instead of answer_state
+
+952
+00:10:42,450 --> 00:10:46,380
+because say you're writing a different program and you need this functionality,
+
+953
+00:10:46,710 --> 00:10:51,390
+then you can actually tap into state_data.state,
+
+954
+00:10:51,990 --> 00:10:56,910
+which will get us the state name from the row corresponding to the matching
+
+955
+00:10:56,910 --> 00:11:01,830
+state. And then we can use a method called item.
+
+956
+00:11:02,670 --> 00:11:06,030
+Now, item is a method on the pandas series.
+
+957
+00:11:06,840 --> 00:11:09,990
+So we know that this is a Panda data series
+
+958
+00:11:10,050 --> 00:11:13,410
+and you can do a type check on that if you want to confirm.
+
+959
+00:11:13,830 --> 00:11:18,830
+But what the item does is it looks into the underlying data and it basically
+
+960
+00:11:18,990 --> 00:11:23,400
+just grabs the first element. So now, if I run the game
+
+961
+00:11:23,400 --> 00:11:26,520
+as it is and I type in the name of a state,
+
+962
+00:11:26,790 --> 00:11:31,790
+you can see it fetches the actual value under state_data.state without any
+
+963
+00:11:32,790 --> 00:11:36,750
+of the index, the zero or any of the other parts of the data series.
+
+964
+00:11:37,380 --> 00:11:42,380
+So I just wanted to show you that you can actually get a row of data from a data
+
+965
+00:11:42,390 --> 00:11:46,230
+frame and then get a particular value from that row,
+
+966
+00:11:46,560 --> 00:11:51,540
+and get the actual raw value from that. But personally, in this line of code,
+
+967
+00:11:51,570 --> 00:11:56,410
+I prefer using the answer_state because we know it's already been title cased, its
+
+968
+00:11:56,410 --> 00:11:57,910
+already formatted correctly
+
+969
+00:11:58,180 --> 00:12:02,050
+and it just makes the code look a bit cleaner and it's easier to understand.
+
+970
+00:12:02,170 --> 00:12:05,860
+So I'm going to stick with this. So now that it's working,
+
+971
+00:12:06,070 --> 00:12:07,870
+all we need to do is to get this
+
+972
+00:12:07,870 --> 00:12:12,280
+to repeat itself every single time the user makes a new guess.
+
+973
+00:12:12,700 --> 00:12:16,600
+That means we're probably going to have to put it inside some sort of while loop,
+
+974
+00:12:17,320 --> 00:12:20,080
+what should be our while condition? Well,
+
+975
+00:12:20,110 --> 00:12:24,310
+we know that the user is going to guess all of the states. And once they've
+
+976
+00:12:24,310 --> 00:12:26,920
+guessed all of them, then they win, right?
+
+977
+00:12:27,310 --> 00:12:32,310
+So why don't we create a list of guessed states and set that to equal a empty
+
+978
+00:12:33,940 --> 00:12:34,773
+list.
+
+979
+00:12:34,960 --> 00:12:39,960
+And we can check while the length of the guessed_states is less than 50,
+
+980
+00:12:41,980 --> 00:12:45,550
+then we can continue rerunning all of this code,
+
+981
+00:12:45,790 --> 00:12:50,320
+getting them to put a new input, checking the input and writing the state name.
+
+982
+00:12:51,160 --> 00:12:54,580
+But every time the user guesses a state correctly,
+
+983
+00:12:54,910 --> 00:12:59,910
+then we're going to add this answer_states to the guessed_state.
+
+984
+00:13:00,310 --> 00:13:02,740
+So we can say guessed_states.append,
+
+985
+00:13:03,100 --> 00:13:06,100
+and then we're going to append this new answer_state.
+
+986
+00:13:06,820 --> 00:13:11,800
+So now when I run this code again, then you can see that every time
+
+987
+00:13:11,800 --> 00:13:16,240
+I guess a new state, this text input pops up again
+
+988
+00:13:16,540 --> 00:13:21,070
+and I can basically just keep going until I've named all the states.
+
+989
+00:13:21,790 --> 00:13:26,440
+Now, the next thing I want to change is the title of this text input window.
+
+990
+00:13:26,980 --> 00:13:28,540
+Instead of saying Guess the state,
+
+991
+00:13:28,690 --> 00:13:33,070
+I want it to keep track of the number of states I've guessed correctly.
+
+992
+00:13:33,430 --> 00:13:38,430
+So I basically want to say something like zero or 10 or whatever, out of 50
+
+993
+00:13:38,590 --> 00:13:40,000
+states correct.
+
+994
+00:13:40,630 --> 00:13:44,260
+This zero is going to be replaced by a f-string
+
+995
+00:13:44,650 --> 00:13:49,060
+and we're going to use the length of our guessed_states in order to get that
+
+996
+00:13:49,060 --> 00:13:53,230
+number. So now when I run this code, you can see that
+
+997
+00:13:53,230 --> 00:13:57,400
+I start out with zero states, 0/50, and every time I guess
+
+998
+00:13:57,400 --> 00:14:01,780
+a new state, then it adds to that count
+
+999
+00:14:01,810 --> 00:14:05,020
+so I can keep track of how many I have guessed and how many I've got left.
+
+1000
+00:14:06,610 --> 00:14:06,820
+Now,
+
+1001
+00:14:06,820 --> 00:14:11,820
+the next thing you'll realize if you test this a few times is even if you get a
+
+1002
+00:14:12,190 --> 00:14:13,180
+state right
+
+1003
+00:14:13,480 --> 00:14:18,400
+but if you actually didn't spell it with a capital C or capital letter to begin
+
+1004
+00:14:18,400 --> 00:14:22,990
+with, then it's not going to accept it. So we don't see 'california' showing up.
+
+1005
+00:14:23,350 --> 00:14:25,780
+And this is because in our state data,
+
+1006
+00:14:25,930 --> 00:14:30,490
+they all have a title case were the first letter is capitalized.
+
+1007
+00:14:31,090 --> 00:14:34,150
+So how can we make sure that our game works
+
+1008
+00:14:34,150 --> 00:14:38,830
+if the user types all lower case or all upper case or title case?
+
+1009
+00:14:38,890 --> 00:14:42,610
+As long as they got the spelling right we should ignore the casing.
+
+1010
+00:14:44,080 --> 00:14:48,310
+So one way of doing this is to take this answer_state
+
+1011
+00:14:48,340 --> 00:14:52,430
+which comes from that text input that the user has entered,
+
+1012
+00:14:52,820 --> 00:14:57,290
+and then at the very end, we can change that to a title case.
+
+1013
+00:14:57,560 --> 00:15:00,200
+So this is a method that's on all strings.
+
+1014
+00:15:00,590 --> 00:15:05,270
+So that means if I start out with a string, which is,
+
+1015
+00:15:05,300 --> 00:15:09,770
+um, angela, and then I say str.title,
+
+1016
+00:15:10,280 --> 00:15:13,490
+then this will give me the same string back
+
+1017
+00:15:13,520 --> 00:15:15,710
+but it will make the first letter capitalized.
+
+1018
+00:15:16,400 --> 00:15:18,650
+This is what we're going to do to the user's answer.
+
+1019
+00:15:19,100 --> 00:15:22,070
+And then we'll be able to check it against all the States.
+
+1020
+00:15:22,400 --> 00:15:27,020
+And now it doesn't matter if the user has typed everything in all caps,
+
+1021
+00:15:27,350 --> 00:15:30,680
+or if they have typed it with all lower case,
+
+1022
+00:15:31,100 --> 00:15:34,370
+or if they've done something really crazy like this,
+
+1023
+00:15:34,430 --> 00:15:36,350
+it will still be accepted.
+
+1024
+00:15:37,990 --> 00:15:39,130
+So we've now got most of
+
+1025
+00:15:39,370 --> 00:15:42,940
+the functionality of our game. In the next lesson,
+
+1026
+00:15:43,000 --> 00:15:46,690
+we're going to figure out how we can get this game to become more of an
+
+1027
+00:15:46,690 --> 00:15:50,950
+educational tool and for it to create a final CSV
+
+1028
+00:15:51,340 --> 00:15:52,960
+when we're ready to exit the game
+
+1029
+00:15:53,230 --> 00:15:57,400
+that's going to tell us all the states that we missed so that we can learn them,
+
+1030
+00:15:57,670 --> 00:16:02,320
+so that we can come back to the game with more knowledge. For all of that and
+
+1031
+00:16:02,320 --> 00:16:04,270
+more, I'll see you on the next lesson.
+
+
+1032
+00:00:00,270 --> 00:00:04,410
+So we've now got pretty much all the functionality that we want in order for
+
+1033
+00:00:04,410 --> 00:00:06,930
+this to function as a game.
+
+1034
+00:00:07,620 --> 00:00:10,680
+But if we want to be able to use this as a learning tool,
+
+1035
+00:00:11,010 --> 00:00:15,510
+then it would be great for us to be able to have some sort of way of typing an
+
+1036
+00:00:15,540 --> 00:00:18,000
+exit code. Say, if I typed exit,
+
+1037
+00:00:18,030 --> 00:00:23,030
+then I could exit out of the game and then I could get my code to generate a CSV
+
+1038
+00:00:24,600 --> 00:00:29,600
+file that contains all of the states that I missed from all 50 states.
+
+1039
+00:00:30,600 --> 00:00:34,170
+We know that in our while loop we can exit out of it
+
+1040
+00:00:34,290 --> 00:00:37,440
+as long as we use the break statement.
+
+1041
+00:00:38,100 --> 00:00:40,920
+What we can do is we can use an if statement to check
+
+1042
+00:00:40,920 --> 00:00:45,270
+well, if the answer_state was actually equal to the secret code
+
+1043
+00:00:45,300 --> 00:00:49,860
+which is exit, remember that the answer_state is going to be title cased
+
+1044
+00:00:49,890 --> 00:00:54,540
+so we have to check for it with a capital E, and if that happens,
+
+1045
+00:00:54,780 --> 00:00:57,210
+then we're gonna break out of our while loop
+
+1046
+00:00:57,270 --> 00:01:00,060
+which means it's going to end the while loop prematurely,
+
+1047
+00:01:00,360 --> 00:01:04,560
+and we can delete this line so that it actually ends the game
+
+1048
+00:01:04,620 --> 00:01:08,730
+and exits out of the window. So if we test this out,
+
+1049
+00:01:09,480 --> 00:01:14,040
+then you can see we can type our states or we can type exit
+
+1050
+00:01:14,640 --> 00:01:16,290
+and that will exit the game
+
+1051
+00:01:16,410 --> 00:01:19,260
+and we end up with process finished with exit code zero.
+
+1052
+00:01:20,010 --> 00:01:23,310
+This is the moment where we want to generate a new file
+
+1053
+00:01:24,030 --> 00:01:28,410
+and that file is going to be called states_to_learn.csv.
+
+1054
+00:01:29,070 --> 00:01:31,800
+And I want you to generate the CSV
+
+1055
+00:01:31,830 --> 00:01:35,250
+which is going to contain just the names of states
+
+1056
+00:01:35,610 --> 00:01:40,610
+which have not been guessed by the user when they exit the game.
+
+1057
+00:01:41,820 --> 00:01:43,770
+Have a think about how you would achieve this,
+
+1058
+00:01:44,040 --> 00:01:45,750
+pause the video and give that a go.
+
+1059
+00:01:50,690 --> 00:01:53,300
+All right. So let's think about this.
+
+1060
+00:01:53,600 --> 00:01:58,600
+What we want to do is to take the guessed states and compare it against all
+
+1061
+00:01:59,840 --> 00:02:00,673
+states,
+
+1062
+00:02:01,100 --> 00:02:05,240
+and then we want to create a new list of all the missing states.
+
+1063
+00:02:05,720 --> 00:02:10,720
+So let's create a new list called missing_states and then we can use a for loop
+
+1064
+00:02:12,770 --> 00:02:17,270
+to loop through each of the states inside all of the states.
+
+1065
+00:02:17,780 --> 00:02:22,780
+And if we find that a state is not in the guessed_states,
+
+1066
+00:02:23,930 --> 00:02:25,820
+well, then that means it's missing, right?
+
+1067
+00:02:26,030 --> 00:02:30,590
+So then we can tap into our missing states and append this state. And 
+
+1068
+00:02:32,360 --> 00:02:33,260
+by the end of this,
+
+1069
+00:02:33,290 --> 00:02:37,430
+we should end up with a list of all of the missing states.
+
+1070
+00:02:38,060 --> 00:02:42,530
+So let's test this code. So I'm just going to type in a few states,
+
+1071
+00:02:42,680 --> 00:02:47,660
+some of the ones beginning with A, so Alaska, um,
+
+1072
+00:02:47,720 --> 00:02:48,830
+Arizona,
+
+1073
+00:02:49,280 --> 00:02:51,680
+Um, uh,
+
+1074
+00:02:51,740 --> 00:02:55,550
+Arkansas,
+
+1075
+00:02:56,780 --> 00:02:59,620
+and what's the last one, Alabama.
+
+1076
+00:03:02,350 --> 00:03:05,890
+Okay. So I think that's all of the states beginning with A,
+
+1077
+00:03:06,610 --> 00:03:11,610
+so now I'm going to hit exit and it's going to give me a list of all the states
+
+1078
+00:03:12,910 --> 00:03:16,240
+that I'm missing. So if we take a look at all the A states,
+
+1079
+00:03:16,330 --> 00:03:20,500
+if we compare it against this list of 50 states, there's no Alabama,
+
+1080
+00:03:20,500 --> 00:03:24,910
+there's no Alaska, and there is no Arkansas because I guessed it correctly.
+
+1081
+00:03:25,210 --> 00:03:28,660
+So this is now just a list of all the ones I didn't manage to get.
+
+1082
+00:03:29,650 --> 00:03:33,820
+So now how can we turn this list into a CSV?
+
+1083
+00:03:35,110 --> 00:03:35,440
+Well,
+
+1084
+00:03:35,440 --> 00:03:40,440
+we can create a new data and that new data is going to be a data frame
+
+1085
+00:03:42,250 --> 00:03:45,250
+which is created from our missing_states.
+
+1086
+00:03:45,700 --> 00:03:48,910
+So this is just going to be a one column data frame.
+
+1087
+00:03:50,410 --> 00:03:52,180
+Once we've created that new data,
+
+1088
+00:03:52,240 --> 00:03:55,990
+then we can go ahead and save it as a CSV.
+
+1089
+00:03:56,410 --> 00:04:01,270
+And we're going to call that states_to_learn.csv,
+
+1090
+00:04:01,900 --> 00:04:04,540
+just as we've typed here. Now,
+
+1091
+00:04:04,540 --> 00:04:07,990
+when I run this code and I've typed
+
+1092
+00:04:10,180 --> 00:04:13,600
+all of the A states, and now I hit exit.
+
+1093
+00:04:14,050 --> 00:04:16,839
+Then you can see we've got a new file
+
+1094
+00:04:16,839 --> 00:04:20,079
+that's just been generated fresh out of the press
+
+1095
+00:04:20,200 --> 00:04:25,200
+and it is our states to learn with all 44 States that I'm missing from my game.
+
+1096
+00:04:29,320 --> 00:04:31,870
+I hope you had fun building this game with me,
+
+1097
+00:04:32,080 --> 00:04:36,220
+and I would love to know how many states you can name the first time you play
+
+1098
+00:04:36,220 --> 00:04:39,760
+this game. Cause obviously the more you play it, the more you get better.
+
+1099
+00:04:39,910 --> 00:04:43,990
+And I hope you'll use this as an educational tool. If you have students,
+
+1100
+00:04:43,990 --> 00:04:46,330
+if you are a geography teacher, if you have kids,
+
+1101
+00:04:46,690 --> 00:04:50,500
+you can get them to play with this awesome program that you've built.
+
+1102
+00:04:50,920 --> 00:04:54,220
+Remember what we've done here can be endlessly customized.
+
+1103
+00:04:54,550 --> 00:04:56,740
+You can make a version for your own country,
+
+1104
+00:04:56,800 --> 00:05:00,640
+or you can make one for the whole world where you have to name each country on
+
+1105
+00:05:00,640 --> 00:05:03,880
+the world map, or you can do some other sort of list,
+
+1106
+00:05:04,060 --> 00:05:08,890
+like name all of the plants on an image or name all of the animals.
+
+1107
+00:05:09,100 --> 00:05:10,840
+The world is really your oyster
+
+1108
+00:05:10,900 --> 00:05:15,900
+and I can't wait to see what you've created using your imagination and how
+
+1109
+00:05:16,060 --> 00:05:19,060
+you've customized the code. So once you've done that,
+
+1110
+00:05:19,090 --> 00:05:24,090
+be sure to post it in the Q/A of this lesson and so that we can all play and
+
+1111
+00:05:24,430 --> 00:05:25,510
+admire your code.
+
+

@@ -1,0 +1,2823 @@
+1
+00:00:00,540 --> 00:00:01,110
+Hey guys,
+
+2
+00:00:01,110 --> 00:00:05,610
+welcome to Day 21 of 100 Days of Code. Today
+
+3
+00:00:05,610 --> 00:00:09,180
+we're going to learn about class inheritance, slicing,
+
+4
+00:00:09,390 --> 00:00:12,840
+and we're going to be finishing up our snake game. Today
+
+5
+00:00:12,870 --> 00:00:17,870
+I wanted to introduce you to another really important concept in Object Oriented
+
+6
+00:00:18,420 --> 00:00:19,253
+Programming,
+
+7
+00:00:19,350 --> 00:00:24,350
+which is the idea that classes can inherit from other classes,
+
+8
+00:00:24,960 --> 00:00:27,480
+inheriting attributes, inheriting methods,
+
+9
+00:00:27,720 --> 00:00:30,030
+basically a way to make it simpler
+
+10
+00:00:30,180 --> 00:00:33,690
+to modify classes and give them more capabilities.
+
+11
+00:00:34,290 --> 00:00:39,290
+Now we're also going to be looking at how Python allows us to slice things like
+
+12
+00:00:39,600 --> 00:00:44,310
+lists and dictionaries. And we're going to be looking at how we can do that.
+
+13
+00:00:44,880 --> 00:00:47,160
+And once we've acquired all of these skills,
+
+14
+00:00:47,430 --> 00:00:52,260
+then we'll be able to finish up our snake game and complete the last four
+
+15
+00:00:52,260 --> 00:00:56,490
+stages. So detecting collision with food, creating a scoreboard,
+
+16
+00:00:56,550 --> 00:00:59,220
+detecting collision with the wall and with the tail.
+
+17
+00:01:00,090 --> 00:01:04,050
+Once you are ready, head over to the next lesson and let's get started learning
+
+18
+00:01:04,050 --> 00:01:05,489
+about class inheritance.
+
+
+19
+00:00:00,060 --> 00:00:03,780
+Let's talk about another feature of Object Oriented
+
+20
+00:00:03,780 --> 00:00:06,090
+Programming that's really, really handy.
+
+21
+00:00:06,510 --> 00:00:11,040
+And it's something that we call class inheritance. How does this work?
+
+22
+00:00:11,250 --> 00:00:11,660
+Well,
+
+23
+00:00:11,660 --> 00:00:16,280
+let's say that you codet up a robot chef and you give it a bunch of
+
+24
+00:00:16,280 --> 00:00:21,170
+functionality. You tell it how to bake, how to stir, how to measure.
+
+25
+00:00:21,650 --> 00:00:25,190
+And then at some point you decide actually, you know, in my restaurant,
+
+26
+00:00:25,190 --> 00:00:27,080
+I also need a pastry chef.
+
+27
+00:00:27,380 --> 00:00:31,940
+Now this pastry chef will need to know some of the things that a chef knows how
+
+28
+00:00:31,940 --> 00:00:34,760
+to do, but it also needs something extra.
+
+29
+00:00:35,000 --> 00:00:39,830
+So you don't want to create this pastry chef entirely from scratch. Instead,
+
+30
+00:00:39,860 --> 00:00:43,580
+what you want to do is you want to be able to take the methods you've already
+
+31
+00:00:43,580 --> 00:00:47,360
+defined for the chef class and then just add to it,
+
+32
+00:00:47,570 --> 00:00:50,030
+add a few other relevant methods
+
+33
+00:00:50,060 --> 00:00:53,270
+like how to knead dough or how to whisk some eggs.
+
+34
+00:00:53,720 --> 00:00:58,720
+So it's process of inheriting behavior and appearance from an existing class is
+
+35
+00:01:00,350 --> 00:01:04,760
+known as class inheritance. When we're talking about class inheritance,
+
+36
+00:01:05,030 --> 00:01:08,600
+you can inherit both appearance, so attributes,
+
+37
+00:01:08,960 --> 00:01:13,310
+like for example, if you inherited the same eyes as your mother,
+
+38
+00:01:13,610 --> 00:01:16,310
+or if you inherited the same nose as your grandfather,
+
+39
+00:01:16,820 --> 00:01:19,100
+but you can also inherit behavior.
+
+40
+00:01:19,550 --> 00:01:24,550
+So maybe you chop tomatoes in the same way that your dad chops tomatoes.
+
+41
+00:01:25,220 --> 00:01:30,220
+And if you believe my mother, I'm lazy in the same way that my dad is lazy.
+
+42
+00:01:30,800 --> 00:01:35,360
+So not only can inherit appearance, but we can also inherit behavior.
+
+43
+00:01:36,080 --> 00:01:40,340
+Now, how does inheritance actually work in terms of the code? Well,
+
+44
+00:01:40,340 --> 00:01:43,310
+we can define a class, let's call it Fish,
+
+45
+00:01:43,760 --> 00:01:46,130
+and it has an initializer.
+
+46
+00:01:46,610 --> 00:01:51,260
+Now in order to get this Fish class to inherit from another class,
+
+47
+00:01:51,710 --> 00:01:53,600
+all we have to do is to
+
+48
+00:01:53,630 --> 00:01:58,630
+add a set of parentheses after the name of the class and then provide the
+
+49
+00:01:58,730 --> 00:02:00,680
+class that we want to inherit from.
+
+50
+00:02:01,130 --> 00:02:04,820
+So in this case our fish is inheriting from the animal class.
+
+51
+00:02:05,360 --> 00:02:10,360
+And then in order to get a hold of everything that an animal has and is, so its
+
+52
+00:02:11,510 --> 00:02:15,350
+attributes and methods, all we have to do is inside the init,
+
+53
+00:02:15,500 --> 00:02:17,930
+add this super().__init__().
+
+54
+00:02:18,410 --> 00:02:21,680
+And the super refers to the superclass.
+
+55
+00:02:21,890 --> 00:02:26,890
+So basically, initialize everything that the superclass can do in our fish
+
+56
+00:02:27,530 --> 00:02:31,580
+class. Let's take a look at this in terms of real code.
+
+57
+00:02:32,180 --> 00:02:32,630
+First,
+
+58
+00:02:32,630 --> 00:02:37,630
+I'm going to create a animal class and this animal class is going to have an
+
+59
+00:02:37,940 --> 00:02:42,650
+initializer where we're able to define some attributes, right?
+
+60
+00:02:42,650 --> 00:02:47,090
+So let's say that all animals have, um, two eyes.
+
+61
+00:02:47,180 --> 00:02:51,680
+So num_eyes = 2. Now at the same time,
+
+62
+00:02:51,710 --> 00:02:55,820
+I'm also gonna define a method associated with this animal class.
+
+63
+00:02:56,150 --> 00:02:58,940
+Let's say that all animals know how to breathe.
+
+64
+00:02:59,470 --> 00:03:03,430
+So inside this breathe method, I'm going to keep it quite simple.
+
+65
+00:03:03,430 --> 00:03:05,890
+I'm just going to say inhale, exhale.
+
+66
+00:03:06,850 --> 00:03:10,210
+So that's breathing done. Now later on,
+
+67
+00:03:10,210 --> 00:03:15,210
+I decide to define a fish class and this fish class probably also knows how to
+
+68
+00:03:15,820 --> 00:03:20,500
+do certain things. So for example, maybe it knows how to swim, right?
+
+69
+00:03:22,900 --> 00:03:26,620
+Right now, if I create a object from this Fish class,
+
+70
+00:03:26,650 --> 00:03:30,910
+let's say I create an object called nemo that's created from the Fish class,
+
+71
+00:03:31,240 --> 00:03:33,790
+then I can say nemo.swim.
+
+72
+00:03:34,840 --> 00:03:39,370
+And you can see when I run this code, it says that Nemo is moving in water.
+
+73
+00:03:40,030 --> 00:03:40,240
+Now,
+
+74
+00:03:40,240 --> 00:03:45,240
+what if I wanted this Fish class to inherit everything that the animal class can
+
+75
+00:03:45,970 --> 00:03:46,600
+do,
+
+76
+00:03:46,600 --> 00:03:51,600
+including the attribute number of eyes and also the method breathe.
+
+77
+00:03:52,330 --> 00:03:57,330
+All I have to do is to add this animal class after the name of the fish class
+
+78
+00:03:58,750 --> 00:03:59,950
+inside parentheses,
+
+79
+00:04:00,580 --> 00:04:05,580
+and then I have to add the initializer and inside the initializer,
+
+80
+00:04:06,550 --> 00:04:10,540
+I have to trigger a call to the superclass, which is in this case,
+
+81
+00:04:10,540 --> 00:04:11,650
+the animal class.
+
+82
+00:04:12,040 --> 00:04:16,540
+And then I'm going to call the initializer, like this.
+
+83
+00:04:17,019 --> 00:04:22,019
+So now what these two parts of the code does is it allows anything that's
+
+84
+00:04:22,390 --> 00:04:27,390
+created from my fish class to inherit all of the attributes and methods from the
+
+85
+00:04:28,060 --> 00:04:30,160
+superclass, which is the animal class.
+
+86
+00:04:30,610 --> 00:04:35,610
+Now I can get my Nemo to start breathing. And you can see 
+
+87
+00:04:35,770 --> 00:04:40,180
+if I hit run, then it will also inhale and exhale.
+
+88
+00:04:40,780 --> 00:04:41,800
+And in addition,
+
+89
+00:04:42,010 --> 00:04:45,850
+if I wanted to print nemo.num_eyes,
+
+90
+00:04:45,940 --> 00:04:48,520
+then you can see this is also going to print 2.
+
+91
+00:04:49,030 --> 00:04:54,030
+So now my object that's created from the Fish class now has access to all the
+
+92
+00:04:54,490 --> 00:04:59,490
+attributes and methods from the superclass that inherited from the animal class.
+
+93
+00:05:00,940 --> 00:05:04,360
+Now, what if I wanted to inherit a method?
+
+94
+00:05:04,660 --> 00:05:09,130
+So get all the things that it does, for example, the breathe method.
+
+95
+00:05:09,430 --> 00:05:13,690
+But what if I wanted to modify it a little bit? So for example,
+
+96
+00:05:13,750 --> 00:05:17,560
+a fish does, in fact, breathe, but it kind of breathes underwater.
+
+97
+00:05:18,040 --> 00:05:21,520
+So let's say I want to define the breathe function
+
+98
+00:05:21,790 --> 00:05:26,200
+and I wanted to have the same functionality as the superclass
+
+99
+00:05:26,200 --> 00:05:30,070
+which I'm inheriting from. So I want to print inhale, exhale,
+
+100
+00:05:30,340 --> 00:05:33,640
+but I also want to do something extra. Well, in this case,
+
+101
+00:05:33,670 --> 00:05:38,230
+we would get hold of the superclass and then call breathe on it.
+
+102
+00:05:39,700 --> 00:05:44,050
+This means we're going to do everything that the breathe method from the
+
+103
+00:05:44,050 --> 00:05:47,650
+superclass does, so all of this, but afterwards
+
+104
+00:05:47,680 --> 00:05:51,370
+we're going to do something a little bit more special. So we're going to say
+
+105
+00:05:51,640 --> 00:05:55,870
+we're doing this underwater. Now,
+
+106
+00:05:55,900 --> 00:05:59,330
+when this line nemo.breathe gets run,
+
+107
+00:05:59,630 --> 00:06:03,950
+you can see what happens is it will print out inhale, exhale
+
+108
+00:06:04,310 --> 00:06:08,540
+and this comes from the super class' breathe method here.
+
+109
+00:06:09,080 --> 00:06:13,520
+And then afterwards, it will print its own unique twist on breathing,
+
+110
+00:06:13,550 --> 00:06:18,290
+which is doing this underwater. By learning about inheritance,
+
+111
+00:06:18,320 --> 00:06:23,030
+what it allows us to do is to take an existing class that we've created or
+
+112
+00:06:23,030 --> 00:06:24,380
+somebody else has created,
+
+113
+00:06:24,800 --> 00:06:29,690
+and then build on top of it without having to reinvent the wheel and redefine
+
+114
+00:06:29,690 --> 00:06:33,200
+everything that's in that class. So in the next lesson,
+
+115
+00:06:33,230 --> 00:06:37,700
+I'm going to show you how we can inherit from the turtle class to upgrade the
+
+116
+00:06:37,700 --> 00:06:38,420
+turtle
+
+117
+00:06:38,420 --> 00:06:43,100
+to be able to do extra things such as creating a piece of food or creating a
+
+118
+00:06:43,100 --> 00:06:47,120
+scoreboard. For all of that and more, I'll see you on the next lesson.
+
+
+119
+00:00:00,060 --> 00:00:02,910
+All right. So now that we've learned all about inheritance,
+
+120
+00:00:03,000 --> 00:00:06,300
+it's time to apply the theory to our snake game,
+
+121
+00:00:06,570 --> 00:00:09,900
+and we're going to use it to detect collision with food.
+
+122
+00:00:10,470 --> 00:00:13,590
+Our snake should be able to head a piece of food,
+
+123
+00:00:13,860 --> 00:00:17,580
+which is just going to be a blue circle. And every time it touches the food,
+
+124
+00:00:17,790 --> 00:00:21,480
+the circle moves to a new, random location on the screen.
+
+125
+00:00:22,480 --> 00:00:23,940
+If we take a look at our code,
+
+126
+00:00:24,270 --> 00:00:27,780
+you can see that the main.py controls the entire game.
+
+127
+00:00:27,930 --> 00:00:32,640
+It dictates how the screen should behave and how the snake behaves.
+
+128
+00:00:33,150 --> 00:00:35,160
+Now, everything that's to do with a snake,
+
+129
+00:00:35,190 --> 00:00:40,190
+it's a parent's and behavior, is all captured inside a class.
+
+130
+00:00:40,650 --> 00:00:43,950
+So everything snake related is inside the snake class.
+
+131
+00:00:44,460 --> 00:00:49,460
+So what we want to be able to do is to create a new food.py file
+
+132
+00:00:51,510 --> 00:00:55,320
+and this food.py is going to be its own class.
+
+133
+00:00:55,890 --> 00:01:00,890
+And the food class is going to know how to render itself as a small circle on
+
+134
+00:01:01,170 --> 00:01:04,530
+the screen. And then every time the snake touches the food,
+
+135
+00:01:04,950 --> 00:01:09,030
+then that food is going to move to a new random location.
+
+136
+00:01:09,690 --> 00:01:13,410
+So let's create the initializer for this food class.
+
+137
+00:01:14,010 --> 00:01:18,450
+And one of the things that we're going to need to do is we're going to need to
+
+138
+00:01:18,480 --> 00:01:21,990
+import turtle. So from the turtle module,
+
+139
+00:01:21,990 --> 00:01:23,880
+let's import the turtle class.
+
+140
+00:01:24,570 --> 00:01:29,570
+And this piece of food that we're going to see onscreen is going to be a turtle
+
+141
+00:01:30,240 --> 00:01:34,320
+object. Instead of creating it as an attribute in this class,
+
+142
+00:01:34,320 --> 00:01:37,710
+so self.food = turtle like this,
+
+143
+00:01:38,010 --> 00:01:43,010
+what we want to be able to do is we actually want this class, food, to inherit
+
+144
+00:01:43,500 --> 00:01:44,790
+from the turtle class.
+
+145
+00:01:45,300 --> 00:01:50,280
+So that way this food class is going to have all of the capabilities of the
+
+146
+00:01:50,280 --> 00:01:51,120
+turtle class,
+
+147
+00:01:51,450 --> 00:01:55,170
+but it's also going to have some specific things that we're going to tell it
+
+148
+00:01:55,200 --> 00:01:59,070
+how to do so that it behaves like an actual piece of food.
+
+149
+00:01:59,370 --> 00:02:02,700
+Here's a quick challenge. From what you learned in the last lesson,
+
+150
+00:02:02,730 --> 00:02:07,650
+can you figure out how to make this food class inherit from the turtle class?
+
+151
+00:02:07,980 --> 00:02:09,300
+Pause the video and give that a
+
+152
+00:02:09,410 --> 00:02:10,243
+go.
+
+153
+00:02:12,920 --> 00:02:13,310
+All right.
+
+154
+00:02:13,310 --> 00:02:17,780
+So we mentioned that there's only two steps we need to do. First is after the
+
+155
+00:02:17,780 --> 00:02:18,710
+name of the class
+
+156
+00:02:18,740 --> 00:02:22,940
+we add some parentheses and then put in the name of the class that we want to
+
+157
+00:02:22,940 --> 00:02:26,030
+inherit from. So in this case, it's the turtle class.
+
+158
+00:02:26,630 --> 00:02:31,520
+And then the next thing we need to do is we need to call the turtle's init
+
+159
+00:02:31,520 --> 00:02:34,550
+method inside the food's init method.
+
+160
+00:02:35,150 --> 00:02:39,470
+And you can see that as soon as you've added this inheritance here, this init
+
+161
+00:02:39,470 --> 00:02:44,090
+starts giving us a warning. And when you click on it, you can see
+
+162
+00:02:44,090 --> 00:02:47,360
+it says call to __init__ of superclass is missed.
+
+163
+00:02:47,690 --> 00:02:49,970
+So it actually knows what we need to do next.
+
+164
+00:02:50,120 --> 00:02:51,950
+That means if we click on the light bulb,
+
+165
+00:02:52,190 --> 00:02:56,930
+we can actually automatically just add in the superclass' call. This,
+
+166
+00:02:56,990 --> 00:03:00,010
+of course, you could just type it out and it's good for practice,
+
+167
+00:03:00,340 --> 00:03:03,280
+but in case you're ever wondering if you get these warnings,
+
+168
+00:03:03,490 --> 00:03:06,850
+you can always take a look at what PyCharm is recommending.
+
+169
+00:03:07,660 --> 00:03:12,660
+Now we've actually created our food class and we've inherited from the turtle
+
+170
+00:03:12,700 --> 00:03:13,533
+class.
+
+171
+00:03:13,690 --> 00:03:18,580
+What that means is we can now start using things that are from the turtle class.
+
+172
+00:03:19,360 --> 00:03:22,750
+For example, I can straight up say self.shape,
+
+173
+00:03:22,960 --> 00:03:24,460
+and it knows what shape is.
+
+174
+00:03:24,760 --> 00:03:29,470
+This is a method that the turtle class has that I'm now going to modify in my
+
+175
+00:03:29,470 --> 00:03:33,070
+food class. So when I initialize a new piece of food,
+
+176
+00:03:33,370 --> 00:03:36,160
+I'm going to make sure that it has a circular shape,
+
+177
+00:03:36,820 --> 00:03:40,780
+and I'm also going to get it to pen up so that it doesn't draw.
+
+178
+00:03:41,410 --> 00:03:44,020
+And then I'm going to define it's size.
+
+179
+00:03:44,470 --> 00:03:47,290
+And there's something called a shape size which I can use.
+
+180
+00:03:47,860 --> 00:03:52,860
+And what this allows me to do is to stretch the turtle along its length and
+
+181
+00:03:52,990 --> 00:03:56,890
+along its width. Now I'm not actually going to stretch it bigger than it is.
+
+182
+00:03:57,130 --> 00:03:59,350
+It's normally 20 by 20 pixels,
+
+183
+00:03:59,680 --> 00:04:02,860
+but I wanna turn it into 10 by 10 pixels.
+
+184
+00:04:03,340 --> 00:04:06,160
+So I'm going to stretch the length by 0.5,
+
+185
+00:04:06,160 --> 00:04:07,780
+so I'm basically going to half it.
+
+186
+00:04:08,200 --> 00:04:11,260
+And then I'm going to stretch the width also by 0.5.
+
+187
+00:04:11,740 --> 00:04:15,400
+So now it should be a 10 by 10 circle
+
+188
+00:04:15,700 --> 00:04:19,240
+which I've created by defining the shape size. Now,
+
+189
+00:04:19,269 --> 00:04:21,490
+remember all of these methods, shape, size,
+
+190
+00:04:21,490 --> 00:04:26,380
+pen up, shape, comes from this turtle superclass and we're only able to use it
+
+191
+00:04:26,650 --> 00:04:31,650
+because we're inheriting from the superclass so that our food class is now also
+
+192
+00:04:32,980 --> 00:04:37,780
+sort of a turtle, but it's more like a souped-up turtle. Finally,
+
+193
+00:04:37,780 --> 00:04:41,740
+it let's go ahead and define the color which I'm going to set as blue,
+
+194
+00:04:42,070 --> 00:04:44,620
+but of course, feel free to set it as anything you like.
+
+195
+00:04:45,190 --> 00:04:50,190
+And I'm also going to set the speed of my turtle to fastest. This way
+
+196
+00:04:51,310 --> 00:04:55,720
+I don't have to look at the animation of the food being created at the center of
+
+197
+00:04:55,720 --> 00:04:58,840
+the screen, and then moving to the location that I want it to.
+
+198
+00:04:59,560 --> 00:05:03,580
+Speaking of moving, we're going to need to use the goto to get it
+
+199
+00:05:03,580 --> 00:05:06,790
+to go to a random X, Y location.
+
+200
+00:05:07,150 --> 00:05:11,950
+So let's import the random module and let's create a random X,
+
+201
+00:05:13,420 --> 00:05:18,420
+which is going to be random.randint. Remember that our screen is 600 by 600
+
+202
+00:05:20,500 --> 00:05:24,820
+so that means our X-axis goes from -300 to +300
+
+203
+00:05:25,090 --> 00:05:29,560
+and our Y-axis goes from +300 to -300.
+
+204
+00:05:30,010 --> 00:05:33,430
+Now we don't want our food to be right at the edge of the screen,
+
+205
+00:05:33,430 --> 00:05:37,450
+cause it will be really hard to get the snake to go to right at the edge.
+
+206
+00:05:37,480 --> 00:05:39,430
+It'll probably just die on the wall.
+
+207
+00:05:39,850 --> 00:05:42,100
+So we want to maybe subtract this a little bit.
+
+208
+00:05:42,100 --> 00:05:47,100
+So we can go from -280 to +280 and the same on the Y-axis.
+
+209
+00:05:47,950 --> 00:05:52,950
+So let's generate a random integer from -280 to +280
+
+210
+00:05:54,340 --> 00:05:59,330
+and let's generate a random Y-integer in the same range.
+
+211
+00:05:59,780 --> 00:06:04,780
+So now we can tell our food to go to a random X and a random Y. All of this
+
+212
+00:06:07,100 --> 00:06:08,180
+is going to happen
+
+213
+00:06:08,240 --> 00:06:12,590
+as soon as we create a new food object from the food class.
+
+214
+00:06:12,860 --> 00:06:16,760
+Remember, whenever you initialize a new object from the class, the
+
+215
+00:06:16,760 --> 00:06:20,420
+init gets called. Back in our main.py
+
+216
+00:06:20,600 --> 00:06:25,280
+right below where we initialized our snake, we're going to initialize our food.
+
+217
+00:06:25,490 --> 00:06:29,750
+So food equals the food class and then parentheses.
+
+218
+00:06:30,290 --> 00:06:35,290
+And of course we need to get hold of our Food class from the food file,
+
+219
+00:06:36,800 --> 00:06:37,633
+like this.
+
+220
+00:06:38,270 --> 00:06:42,530
+Another thing you'll notice is that this turtle is now grayed out because we're
+
+221
+00:06:42,530 --> 00:06:47,360
+not using that class anywhere inside the main.py. So we can delete that
+
+222
+00:06:47,390 --> 00:06:49,880
+which gets rid of all our warnings on this page
+
+223
+00:06:50,030 --> 00:06:54,170
+and we get the green checkmark. Our food.py looks good,
+
+224
+00:06:54,320 --> 00:06:56,330
+our snake.py looks good,
+
+225
+00:06:56,720 --> 00:07:00,020
+and we're now ready to go ahead and run this code.
+
+226
+00:07:00,800 --> 00:07:04,760
+Notice how we've got our snake moving around on screen.
+
+227
+00:07:05,000 --> 00:07:08,030
+And at this point it doesn't really matter about the walls.
+
+228
+00:07:08,030 --> 00:07:11,630
+It's just moving around anywhere it likes. But more importantly,
+
+229
+00:07:11,690 --> 00:07:16,580
+we've got our food being randomly generated on the screen right here.
+
+230
+00:07:17,270 --> 00:07:22,270
+Now the next step is how can we detect when the snake and the food have come
+
+231
+00:07:22,910 --> 00:07:27,500
+into contact and then to tell the food to move itself to a new
+
+232
+00:07:27,530 --> 00:07:32,150
+random location? Well, we're going to do that inside our main.py.
+
+233
+00:07:32,360 --> 00:07:36,920
+Right after we've got our screen updating, our snake moving,
+
+234
+00:07:36,980 --> 00:07:38,630
+then we're going to detect
+
+235
+00:07:40,310 --> 00:07:42,410
+collision with food.
+
+236
+00:07:43,070 --> 00:07:47,600
+And we're going to do that by using a method from the turtle class called 
+
+237
+00:07:47,630 --> 00:07:48,463
+distance.
+
+238
+00:07:48,860 --> 00:07:53,860
+The distance method works by comparing the distance from this turtle to whatever
+
+239
+00:07:55,160 --> 00:07:57,890
+it is that you put inside the parentheses.
+
+240
+00:07:58,310 --> 00:08:02,720
+So the X could be a pair of numbers, X and Y,
+
+241
+00:08:03,140 --> 00:08:06,200
+or it could simply just be a turtle instance.
+
+242
+00:08:06,500 --> 00:08:10,190
+So you're comparing this turtle against another turtle,
+
+243
+00:08:10,340 --> 00:08:13,670
+and you're trying to get hold of the distance between the two turtles.
+
+244
+00:08:14,150 --> 00:08:19,150
+So what that means is we can check to see if the distance from the first segment
+
+245
+00:08:20,990 --> 00:08:21,823
+of the snake,
+
+246
+00:08:21,980 --> 00:08:26,960
+so it remember that would be snake.head.distance,
+
+247
+00:08:27,920 --> 00:08:31,850
+and then the distance that we want to know is what is the distance from the
+
+248
+00:08:31,850 --> 00:08:35,809
+snake's head to the food. At this point,
+
+249
+00:08:35,809 --> 00:08:39,289
+you can check to see if it is less than a certain amount,
+
+250
+00:08:39,590 --> 00:08:44,590
+then it's pretty likely that the snake head is now colliding with the food.
+
+251
+00:08:45,200 --> 00:08:48,260
+So we know that the food is 10 by 10.
+
+252
+00:08:48,530 --> 00:08:51,260
+So if we add a bit of a buffer, let's just say,
+
+253
+00:08:51,440 --> 00:08:56,440
+if this snake head is within 15 pixels of the food or even closer,
+
+254
+00:08:57,060 --> 00:08:59,790
+so if the distance is less than 15,
+
+255
+00:09:00,030 --> 00:09:02,760
+then we can be pretty much certain that they've collided.
+
+256
+00:09:03,090 --> 00:09:06,990
+So let's go ahead and print something. I'll just write nom nom nom.
+
+257
+00:09:07,440 --> 00:09:12,440
+So if we go ahead and run our code and let's just get our snake back into view,
+
+258
+00:09:14,160 --> 00:09:18,900
+and if I now go and touch this piece of food, if I can,
+
+259
+00:09:19,650 --> 00:09:22,890
+then you can see nom nom nom being printed in the console.
+
+260
+00:09:23,280 --> 00:09:25,830
+Now let's go ahead and touch it again. You can see,
+
+261
+00:09:25,830 --> 00:09:28,410
+as soon as I collide with that food,
+
+262
+00:09:28,680 --> 00:09:31,860
+I get that print statement executing.
+
+263
+00:09:33,630 --> 00:09:36,990
+So now, instead of just writing nom nom nom,
+
+264
+00:09:37,380 --> 00:09:39,210
+let's figure out what we need to do next.
+
+265
+00:09:39,240 --> 00:09:44,240
+What we want to happen is the food should go to a new random location.
+
+266
+00:09:45,390 --> 00:09:48,690
+And, of course, that comes from this part of the code.
+
+267
+00:09:49,200 --> 00:09:54,200
+So why don't we go ahead and create a new method which we'll call refresh.
+
+268
+00:09:54,960 --> 00:09:59,960
+And this refresh method is going to create a new random X,
+
+269
+00:10:00,030 --> 00:10:04,950
+a new random Y, and then get the food to go to that new, random location.
+
+270
+00:10:05,730 --> 00:10:10,680
+Then inside our init, we can simply just call self.refresh.
+
+271
+00:10:11,400 --> 00:10:15,420
+So be careful that you didn't right reset because that's one of the methods from
+
+272
+00:10:15,480 --> 00:10:17,850
+the turtle class that we're inheriting from.
+
+273
+00:10:18,150 --> 00:10:22,830
+But what we actually want is to call this refresh method so that the food goes
+
+274
+00:10:22,830 --> 00:10:27,300
+to a new random location. And then back inside our main.py,
+
+275
+00:10:27,720 --> 00:10:30,360
+when the snake head collides with the food,
+
+276
+00:10:30,660 --> 00:10:35,130
+then we're going to get the food to refresh its own location.
+
+277
+00:10:35,610 --> 00:10:39,780
+So check this out. Now, when I hit the food,
+
+278
+00:10:41,400 --> 00:10:44,820
+then you can see the food now appears at a new,
+
+279
+00:10:44,880 --> 00:10:48,870
+random location. Like that. Now,
+
+280
+00:10:48,900 --> 00:10:53,340
+depending on how accurate you want the snake to hit the food,
+
+281
+00:10:53,730 --> 00:10:55,860
+so it might need to hit it dead on,
+
+282
+00:10:56,100 --> 00:11:01,100
+or if you're happy with it just gliding past and counting that as a collision,
+
+283
+00:11:01,440 --> 00:11:06,180
+then you could decrease the number here from 15 to 10.
+
+284
+00:11:06,540 --> 00:11:11,520
+Now I've done a bit of testing and this number seems to be the best distance in
+
+285
+00:11:11,520 --> 00:11:13,230
+order to get a valid collision,
+
+286
+00:11:13,560 --> 00:11:18,060
+but feel free to tweak around with the number and see how it goes. There we go.
+
+287
+00:11:18,060 --> 00:11:22,110
+We've managed to figure out how to create a piece of food by inheriting from the
+
+288
+00:11:22,110 --> 00:11:25,620
+turtle class, get the food to be generated,
+
+289
+00:11:25,830 --> 00:11:28,650
+and then to move to a new random location
+
+290
+00:11:29,070 --> 00:11:31,650
+every time the snake head collides with the food.
+
+291
+00:11:32,250 --> 00:11:33,870
+Now I know that in the snake game,
+
+292
+00:11:33,930 --> 00:11:38,460
+the snake segments increase once it hits a piece of food,
+
+293
+00:11:38,790 --> 00:11:43,230
+but we're only going to add that functionality at the very end of this project
+
+294
+00:11:43,530 --> 00:11:46,080
+when we're detecting collision with the snake tail.
+
+295
+00:11:46,230 --> 00:11:47,910
+So don't worry about that for now.
+
+
+296
+00:00:00,420 --> 00:00:02,580
+Guys, we've already come really, really far.
+
+297
+00:00:03,090 --> 00:00:08,090
+We've done all of this and now we're on this stage, creating a scoreboard.
+
+298
+00:00:08,760 --> 00:00:13,760
+So what we want is to be able to write some text in our program that keeps track
+
+299
+00:00:13,950 --> 00:00:18,390
+of the score, of how many pieces of food we've actually managed to eat. Now,
+
+300
+00:00:18,390 --> 00:00:22,620
+the score should update every single time we hit a new piece of food and it's
+
+301
+00:00:22,620 --> 00:00:25,560
+going to stay there and keep updating itself
+
+302
+00:00:25,620 --> 00:00:27,480
+every time we hit a new piece of food.
+
+303
+00:00:28,710 --> 00:00:32,729
+Now this scoreboard is also going to be a turtle.
+
+304
+00:00:33,330 --> 00:00:38,160
+So one of the things that you can do with your turtle is you can get it to write
+
+305
+00:00:38,250 --> 00:00:39,330
+a piece of text.
+
+306
+00:00:40,140 --> 00:00:43,620
+And this is what the method looks like in the documentation.
+
+307
+00:00:44,040 --> 00:00:48,570
+You can tell it what it should write, what kind of alignment you want,
+
+308
+00:00:48,570 --> 00:00:50,250
+do you want it to be in the center of the screen,
+
+309
+00:00:50,250 --> 00:00:54,570
+on the left or right side of the screen? And then what kind of font you want?
+
+310
+00:00:55,110 --> 00:00:58,860
+So the font name, font size and font type,
+
+311
+00:00:58,870 --> 00:01:02,820
+so normal or heavy or bold or underlined,
+
+312
+00:01:03,510 --> 00:01:05,940
+and we would call it more or less like this.
+
+313
+00:01:06,900 --> 00:01:08,520
+So here's a challenge for you.
+
+314
+00:01:08,820 --> 00:01:13,820
+I want you to go ahead and create a new file called a scoreboard.py.
+
+315
+00:01:15,420 --> 00:01:20,370
+And inside this file, I want you to create a new scoreboard class.
+
+316
+00:01:20,850 --> 00:01:21,060
+Now,
+
+317
+00:01:21,060 --> 00:01:26,060
+this scoreboard class is going to inherit from the turtle class,
+
+318
+00:01:26,430 --> 00:01:28,560
+just as we did with the food class.
+
+319
+00:01:29,190 --> 00:01:31,950
+And then the scoreboard is going to be a turtle
+
+320
+00:01:32,130 --> 00:01:37,130
+which knows how to keep track of the score and how to display it in our program.
+
+321
+00:01:38,670 --> 00:01:42,090
+Feel free to choose whatever font you want, whatever size you want,
+
+322
+00:01:42,360 --> 00:01:46,740
+but the end outcome we're looking for is something that looks a bit like this
+
+323
+00:01:47,160 --> 00:01:51,210
+and the score is going to need to be tracked inside that scoreboard class.
+
+324
+00:01:51,540 --> 00:01:55,530
+And it needs to be increased by one every single time the snake eats a piece of
+
+325
+00:01:55,530 --> 00:01:59,550
+food. You're going to need the help of the documentation,
+
+326
+00:01:59,550 --> 00:02:04,470
+you're going to need to read up on how this turtle.write method works,
+
+327
+00:02:04,860 --> 00:02:09,509
+and you're also probably going to need this turtle.clear so that you clear
+
+328
+00:02:09,509 --> 00:02:11,910
+the writing every time you update the score.
+
+329
+00:02:12,510 --> 00:02:16,110
+Have a think about how you would solve this and then go ahead,
+
+330
+00:02:16,170 --> 00:02:17,820
+pause the video and give it a go.
+
+331
+00:02:18,740 --> 00:02:22,070
+[inaudible]
+
+332
+00:02:22,760 --> 00:02:23,090
+All right.
+
+333
+00:02:23,090 --> 00:02:27,230
+So the first thing I'm going to do is I'm going to create my scoreboard class.
+
+334
+00:02:27,860 --> 00:02:29,030
+And as I mentioned,
+
+335
+00:02:29,030 --> 00:02:32,990
+this class needs to inherit from the turtle class.
+
+336
+00:02:33,230 --> 00:02:34,760
+So from the turtle module,
+
+337
+00:02:34,790 --> 00:02:39,790
+let's get hold of the actual turtle class so we can use it inside this file.
+
+338
+00:02:40,640 --> 00:02:45,440
+And then I'm going to add it to my scoreboard as the superclass.
+
+339
+00:02:46,040 --> 00:02:48,140
+Now, if I create my inits,
+
+340
+00:02:48,230 --> 00:02:53,230
+I can go ahead and use this light bulb to insert the superclass call.
+
+341
+00:02:54,290 --> 00:02:59,290
+So now my scoreboard is a class that can do everything a turtle class do.
+
+342
+00:03:00,460 --> 00:03:05,460
+And one of the things I want it to do is I want it to keep track of the score.
+
+343
+00:03:06,760 --> 00:03:08,830
+So let's say it starts out at zero,
+
+344
+00:03:09,130 --> 00:03:14,080
+and we want to be able to write this onto the screen. So we can say self.
+
+345
+00:03:14,080 --> 00:03:18,310
+write, and let's use an f-string to say score,
+
+346
+00:03:18,790 --> 00:03:23,290
+and then we can insert the self.score value in here.
+
+347
+00:03:24,010 --> 00:03:29,010
+And then we can add whether if we want it to be aligned to the center,
+
+348
+00:03:29,410 --> 00:03:34,210
+for example, and then we can also add a font if we need to.
+
+349
+00:03:34,600 --> 00:03:37,330
+Let's use the same font as here, Arial,
+
+350
+00:03:37,660 --> 00:03:39,760
+and then we're going to make the font size a bit bigger,
+
+351
+00:03:39,790 --> 00:03:41,350
+and then we're going to keep it as normal.
+
+352
+00:03:42,100 --> 00:03:46,240
+So I'm going to choose an Arial font, size 24,
+
+353
+00:03:46,540 --> 00:03:48,700
+and then the style is going to be normal.
+
+354
+00:03:50,500 --> 00:03:51,820
+And as you can see here,
+
+355
+00:03:51,820 --> 00:03:56,380
+I'm getting a warning here and it's telling me that it expected a tuple,
+
+356
+00:03:56,590 --> 00:03:58,840
+but instead it just got a single string.
+
+357
+00:03:59,110 --> 00:04:02,920
+So let's just compare this against the documentation code
+
+358
+00:04:03,310 --> 00:04:07,690
+and you can see that this is meant to be a tuple instead of just a single piece
+
+359
+00:04:07,690 --> 00:04:10,120
+of string. So let me go ahead and fix that.
+
+360
+00:04:10,600 --> 00:04:13,300
+Let's add some parentheses around this,
+
+361
+00:04:13,840 --> 00:04:16,839
+and then this Arial is going to be a string,
+
+362
+00:04:17,140 --> 00:04:21,100
+this 24 is going to be a number and the normal is going to be a string.
+
+363
+00:04:21,339 --> 00:04:23,170
+And now our errors have gone away.
+
+364
+00:04:23,890 --> 00:04:26,770
+So now going back to our main.py
+
+365
+00:04:27,130 --> 00:04:29,500
+let's go ahead and create our scoreboard
+
+366
+00:04:31,330 --> 00:04:34,630
+as an object from the scoreboard class,
+
+367
+00:04:34,900 --> 00:04:38,290
+which of course means that we need to import it into this file.
+
+368
+00:04:38,530 --> 00:04:43,530
+So from the scoreboard file import the Scoreboard class.
+
+369
+00:04:45,220 --> 00:04:48,760
+And now if I run this code, somewhere in the middle
+
+370
+00:04:48,760 --> 00:04:50,560
+there I've got a scoreboard,
+
+371
+00:04:51,130 --> 00:04:55,540
+but because it's actually black, you can't really see it.
+
+372
+00:04:56,200 --> 00:05:01,200
+It's really important that we change the color of the scoreboard turtle before
+
+373
+00:05:02,770 --> 00:05:04,270
+we write the text,
+
+374
+00:05:04,510 --> 00:05:08,590
+because if it was written as black and then we change it to white,
+
+375
+00:05:08,620 --> 00:05:10,330
+you still won't notice a difference.
+
+376
+00:05:10,780 --> 00:05:15,780
+So if I change the self.color right here to white and I hit run,
+
+377
+00:05:16,690 --> 00:05:19,000
+then you can see that scoreboard showing up.
+
+378
+00:05:19,270 --> 00:05:23,530
+But if I move this line of code to after we've written it,
+
+379
+00:05:23,830 --> 00:05:26,590
+then it won't actually make a difference. It's still written in black
+
+380
+00:05:26,590 --> 00:05:29,770
+somewhere on there. Now, in addition,
+
+381
+00:05:29,800 --> 00:05:34,800
+we want to get rid of the turtle that shows up when we create our scoreboard
+
+382
+00:05:35,290 --> 00:05:37,990
+because all we want it to do is we want it to write,
+
+383
+00:05:38,050 --> 00:05:42,850
+we don't want it to actually show up a turtle. Self.hideturtle, and
+
+384
+00:05:43,210 --> 00:05:45,280
+now that little arrow disappears.
+
+385
+00:05:45,790 --> 00:05:49,450
+And we probably don't want this scoreboard to be bang in the middle.
+
+386
+00:05:49,540 --> 00:05:51,010
+So let's move it.
+
+387
+00:05:51,340 --> 00:05:55,510
+Let's tell it to go to a particular X and Y position.
+
+388
+00:05:56,560 --> 00:06:00,290
+Now, in example, here, I've got it in the center, right at the top.
+
+389
+00:06:01,130 --> 00:06:05,960
+So we can keep the X as zero, but let's move the Y further up to the top.
+
+390
+00:06:05,960 --> 00:06:10,700
+So let's say something around 270. And now if we test it again,
+
+391
+00:06:10,970 --> 00:06:14,540
+you can see that the turtle went to the top,
+
+392
+00:06:14,840 --> 00:06:19,490
+but this happened after this line was already written. So again,
+
+393
+00:06:19,520 --> 00:06:22,520
+this needs to happen before we write.
+
+394
+00:06:23,270 --> 00:06:26,390
+And now if we refresh, you can see it's moved to the top,
+
+395
+00:06:26,840 --> 00:06:30,470
+but it's also drawn on a path to do that. So instead of doing that,
+
+396
+00:06:30,500 --> 00:06:35,500
+we can tell it to self.penup before it moves to this location.
+
+397
+00:06:38,480 --> 00:06:43,250
+There we have it. We've got our score showing up at the top. Now,
+
+398
+00:06:43,250 --> 00:06:48,250
+all that's left to do is to keep track of the score and to increase it whenever
+
+399
+00:06:48,620 --> 00:06:50,390
+the snake hits a new piece of food.
+
+400
+00:06:51,020 --> 00:06:54,500
+So we know that that happens inside this if statement,
+
+401
+00:06:54,860 --> 00:06:59,000
+when the snake head collides with the food, then we refresh the food,
+
+402
+00:06:59,240 --> 00:07:01,730
+but we also want to increase the score.
+
+403
+00:07:02,330 --> 00:07:07,250
+So let's go ahead and create a function inside our scoreboard class called
+
+404
+00:07:07,280 --> 00:07:08,990
+increase_score.
+
+405
+00:07:09,830 --> 00:07:14,830
+And this function is going to take the self.score and add one to it.
+
+406
+00:07:17,360 --> 00:07:20,750
+And then it's going to call self.write.
+
+407
+00:07:22,220 --> 00:07:24,590
+So now back inside our main.py,
+
+408
+00:07:24,920 --> 00:07:29,920
+we can get whole of our scoreboard object and tell it to increase score
+
+409
+00:07:30,860 --> 00:07:35,000
+whenever the snake collides with the food. So let's test this again.
+
+410
+00:07:35,660 --> 00:07:39,110
+And if I manage to hit the food, 
+
+411
+00:07:42,730 --> 00:07:46,090
+then you can see that the score is being updated,
+
+412
+00:07:46,330 --> 00:07:51,330
+but what's happening is that the score is being written on top of the previous
+
+413
+00:07:52,210 --> 00:07:55,600
+scores. So it's just all overlapping with each other.
+
+414
+00:07:56,980 --> 00:07:57,940
+So instead,
+
+415
+00:07:57,970 --> 00:08:02,290
+what we need to do is between each time we update the scoreboard,
+
+416
+00:08:02,620 --> 00:08:05,860
+we actually have to delete what was previously on there.
+
+417
+00:08:06,910 --> 00:08:09,940
+And because we've now got these two lines
+
+418
+00:08:09,970 --> 00:08:12,730
+which are pretty much identical in two places,
+
+419
+00:08:13,240 --> 00:08:17,860
+let's go ahead and create a function instead. We'll call update_scoreboard,
+
+420
+00:08:19,450 --> 00:08:23,560
+and inside this function, we'll have our self.write.
+
+421
+00:08:28,720 --> 00:08:33,720
+And we can call self.update_scoreboard here and also here.
+
+422
+00:08:39,880 --> 00:08:44,110
+So now before we increase the score and call update scoreboard,
+
+423
+00:08:44,440 --> 00:08:49,440
+we can call self.clear to clear the previous text that was written by this
+
+424
+00:08:50,620 --> 00:08:55,090
+turtle, which is the scoreboard. Now, if we run this again
+
+425
+00:08:55,860 --> 00:08:57,840
+you can see that when I do score,
+
+426
+00:08:58,140 --> 00:09:03,000
+my scoreboard is wiped and then the new text code is written.
+
+427
+00:09:04,380 --> 00:09:07,560
+So it doesn't overlap with the previous scoreboard.
+
+428
+00:09:08,730 --> 00:09:13,730
+The final thing I want to do just as a finishing touch is I don't like having
+
+429
+00:09:13,830 --> 00:09:18,420
+these hard-coded pieces of text inside the body of my programs.
+
+430
+00:09:18,810 --> 00:09:23,810
+So instead it would be much better if we could take these pieces of texts out
+
+431
+00:09:24,240 --> 00:09:25,890
+and create constants with them.
+
+432
+00:09:25,920 --> 00:09:30,920
+So we could have one that's called ALIGNMENT set to center,
+
+433
+00:09:31,230 --> 00:09:33,120
+and then another one called a FONT,
+
+434
+00:09:33,480 --> 00:09:36,240
+which is going to be set to this tuple.
+
+435
+00:09:37,170 --> 00:09:40,350
+And then I can use these constants down here,
+
+436
+00:09:40,350 --> 00:09:45,210
+so align = ALIGNMENT, font = FONT. That way,
+
+437
+00:09:45,210 --> 00:09:49,380
+when I decide that I want to change something about the alignment or the font,
+
+438
+00:09:49,620 --> 00:09:51,750
+so for example instead of Arial,
+
+439
+00:09:51,780 --> 00:09:55,350
+I might go for something that is a little bit more video-gamey
+
+440
+00:09:55,530 --> 00:09:57,420
+sort of font like courier,
+
+441
+00:09:57,840 --> 00:10:01,560
+then I don't have to dig through the body of my program to find out where it was
+
+442
+00:10:01,560 --> 00:10:04,170
+defined. I can just look at the top
+
+443
+00:10:04,350 --> 00:10:09,350
+which contains all the constants and then fix it right here. That shouldn't have
+
+444
+00:10:09,570 --> 00:10:14,570
+changed any of the functionality. It's just made our scoreboard look a bit more
+
+445
+00:10:14,880 --> 00:10:18,480
+video-gamey, and you can see how it works perfectly.
+
+
+446
+00:00:00,150 --> 00:00:03,450
+We've coded up the majority of this game now already.
+
+447
+00:00:03,960 --> 00:00:08,960
+All that's left to do is to define the two situations where we might get game
+
+448
+00:00:09,060 --> 00:00:09,893
+over.
+
+449
+00:00:10,110 --> 00:00:14,280
+And that is detecting collision with wall and detecting collision with tail.
+
+450
+00:00:14,730 --> 00:00:18,360
+So let's tackle the easier one first. We want the snake
+
+451
+00:00:18,450 --> 00:00:20,640
+once it gets past a certain point
+
+452
+00:00:20,880 --> 00:00:25,800
+that's very close to the four walls to trigger the game over sequence.
+
+453
+00:00:26,400 --> 00:00:31,400
+So we know that we have a 600 by 600 screen and the X and Y axis go to 300 and
+
+454
+00:00:35,340 --> 00:00:37,980
+-300 at all four sides.
+
+455
+00:00:38,520 --> 00:00:42,960
+So if we create a boundary box that say 280 here,
+
+456
+00:00:42,960 --> 00:00:45,840
+280 here, -280 and -280,
+
+457
+00:00:46,290 --> 00:00:49,800
+then as soon as the snake head touches that position,
+
+458
+00:00:50,160 --> 00:00:52,290
+then once it zoomed past it,
+
+459
+00:00:52,410 --> 00:00:56,040
+then we can say that the snake has pretty much hit the wall.
+
+460
+00:00:56,970 --> 00:00:59,010
+Now this number is not perfect,
+
+461
+00:00:59,040 --> 00:01:02,370
+it's just what I found to work after doing a lot of testing.
+
+462
+00:01:02,760 --> 00:01:06,060
+And this is the case with a lot of games, you have to test it, run it,
+
+463
+00:01:06,270 --> 00:01:10,950
+see if it works the way you want it to. But let's go ahead and add a comment,
+
+464
+00:01:11,010 --> 00:01:13,830
+detect collision with a wall,
+
+465
+00:01:14,430 --> 00:01:16,140
+and let's create our if statement.
+
+466
+00:01:16,440 --> 00:01:21,440
+So what we want to say is if the snake.head has a X coordinate that is
+
+467
+00:01:26,250 --> 00:01:30,210
+greater than 280, so it's gone too far to the right,
+
+468
+00:01:30,690 --> 00:01:35,690
+or if it has a X coordinate that is less than -280,
+
+469
+00:01:37,290 --> 00:01:39,150
+so it's gone too far to the left,
+
+470
+00:01:39,840 --> 00:01:43,080
+or if it has a Y coordinate
+
+471
+00:01:43,290 --> 00:01:47,040
+that's greater than 280, so too far to the top,
+
+472
+00:01:47,460 --> 00:01:52,460
+or if it has a Y coordinate that is less than -280
+
+473
+00:01:53,580 --> 00:01:58,500
+so it's gone too far to the bottom, if any of these four situations occur
+
+474
+00:01:58,560 --> 00:02:01,560
+then it basically means that the snake has hit the wall.
+
+475
+00:02:01,980 --> 00:02:05,160
+So what do we want to happen when the snake hits the wall? Well,
+
+476
+00:02:05,160 --> 00:02:10,160
+we want to change this game_is_on to false because what that's going to allow us
+
+477
+00:02:11,070 --> 00:02:14,280
+to do is to exit the while loop and basically
+
+478
+00:02:14,610 --> 00:02:17,580
+end the snake movement and end the game.
+
+479
+00:02:18,270 --> 00:02:19,920
+Let's go ahead and test this out.
+
+480
+00:02:20,040 --> 00:02:24,090
+So let's let the snake hit the wall and you can see it no longer continues
+
+481
+00:02:24,090 --> 00:02:28,110
+moving forward. But for the user, this might be a little bit confusing.
+
+482
+00:02:28,110 --> 00:02:32,790
+It doesn't seem like it's actually game over. It seems like it's just crushed.
+
+483
+00:02:33,360 --> 00:02:35,820
+So let's go ahead into our scoreboard
+
+484
+00:02:35,850 --> 00:02:40,380
+which does a lot of the writing and let's create a new function
+
+485
+00:02:40,440 --> 00:02:42,510
+which is going to be called game_over.
+
+486
+00:02:43,770 --> 00:02:48,770
+And this game_over function is going to simply just write some texts,
+
+487
+00:02:49,260 --> 00:02:51,030
+not the score, but instead
+
+488
+00:02:51,030 --> 00:02:56,030
+it's just going to write 'GAME OVER' onto the screen using the same alignment and
+
+489
+00:02:56,760 --> 00:03:01,210
+the same font. But instead of it at the position
+
+490
+00:03:01,210 --> 00:03:03,790
+which we initially defined which is right at the top,
+
+491
+00:03:04,210 --> 00:03:09,130
+let's go ahead and get it to go to the center, which is at (0, 0).
+
+492
+00:03:09,700 --> 00:03:12,040
+So now when the snake hits the wall,
+
+493
+00:03:12,370 --> 00:03:14,770
+not only does the snake stop moving,
+
+494
+00:03:15,040 --> 00:03:19,720
+but we're also going to get the scoreboard to trigger the game over a sequence.
+
+495
+00:03:20,560 --> 00:03:24,730
+So that means when it hits the wall, game over shows up in the middle of the
+
+496
+00:03:24,730 --> 00:03:28,360
+screen, and you can still see the score that was written previously
+
+497
+00:03:28,660 --> 00:03:33,100
+because we don't actually hit clear before we write this game over.
+
+498
+00:03:33,700 --> 00:03:37,720
+And this means that the user can see that the game is over, the snake has stopped
+
+499
+00:03:37,750 --> 00:03:40,570
+moving, and they can see their final score.
+
+500
+00:03:42,160 --> 00:03:46,780
+So let's try to score some points. And once I've done that,
+
+501
+00:03:46,810 --> 00:03:51,550
+I'm gonna hit a wall and it's game over and I can see that my score was 2.
+
+
+502
+00:00:00,660 --> 00:00:03,000
+All right guys, we're at the final stretch.
+
+503
+00:00:03,210 --> 00:00:08,189
+All we have left to do now is to figure out how we can detect when the snake
+
+504
+00:00:08,400 --> 00:00:12,810
+collides with its own tail. As a snake gets longer and longer,
+
+505
+00:00:12,900 --> 00:00:17,900
+it's more likely that at some point the head might hit some part of the tail. And
+
+506
+00:00:18,690 --> 00:00:21,150
+in the snake game, this means it's game over.
+
+507
+00:00:21,480 --> 00:00:25,800
+So we have to figure out how we can detect this and then trigger the game over
+
+508
+00:00:25,800 --> 00:00:26,633
+sequence.
+
+509
+00:00:28,050 --> 00:00:33,050
+One of the things that we've left until now is a way of extending the snake
+
+510
+00:00:34,560 --> 00:00:37,110
+every time it gets some food,
+
+511
+00:00:37,530 --> 00:00:42,120
+because at the moment what's happening is our snake is staying the same size
+
+512
+00:00:42,150 --> 00:00:46,710
+with only three segments. But now we need to change that.
+
+513
+00:00:47,100 --> 00:00:52,080
+We need to add a segment to the snake every single time it hits the food so that
+
+514
+00:00:52,080 --> 00:00:56,070
+it grows in length and we can start detecting collision with the tail.
+
+515
+00:00:57,420 --> 00:01:00,750
+The place we're going to do that is inside our snake class.
+
+516
+00:01:01,290 --> 00:01:05,610
+So we're going to create a function that's going to be called extend.
+
+517
+00:01:06,540 --> 00:01:11,520
+And this extend function is going to add a new segment to the snake.
+
+518
+00:01:12,660 --> 00:01:14,910
+So we're probably going to need another function,
+
+519
+00:01:14,910 --> 00:01:17,700
+which is going to be called add_segment,
+
+520
+00:01:18,300 --> 00:01:23,300
+and this is going to require the position to add the segment to essentially.
+
+521
+00:01:25,350 --> 00:01:29,340
+Notice how this is the part of the code where we actually add the segment.
+
+522
+00:01:29,610 --> 00:01:33,780
+So lets take it out of the for loop and put it into the add_segment.
+
+523
+00:01:34,650 --> 00:01:39,450
+And so we can now call this function, self.add_segment
+
+524
+00:01:39,570 --> 00:01:42,420
+and then pass in this position that we're looping through.
+
+525
+00:01:42,990 --> 00:01:46,740
+These two functions together are going to create our snake.
+
+526
+00:01:47,190 --> 00:01:48,210
+But in addition,
+
+527
+00:01:48,240 --> 00:01:52,920
+we're going to use this add_segment when we want to extend the snake.
+
+528
+00:01:53,430 --> 00:01:57,690
+But what position do we want that last piece to go to? Well,
+
+529
+00:01:57,720 --> 00:02:02,720
+we're going to get hold of the list of segments and we're going to get hold of
+
+530
+00:02:02,880 --> 00:02:07,080
+the last one. Remember that with lists in Python,
+
+531
+00:02:07,200 --> 00:02:07,950
+you can write
+
+532
+00:02:07,950 --> 00:02:12,660
+a negative number so that you start counting from the end of the list.
+
+533
+00:02:13,020 --> 00:02:16,680
+For example, if our list was 1, 2, and 3,
+
+534
+00:02:17,040 --> 00:02:20,610
+then this list at minus one position would be
+
+535
+00:02:20,840 --> 00:02:21,673
+3.
+
+536
+00:02:22,880 --> 00:02:23,420
+Effectively
+
+537
+00:02:23,420 --> 00:02:27,770
+we're getting hold of the last segment in our list and then we're going to get
+
+538
+00:02:27,770 --> 00:02:30,620
+hold of it's position. And remember,
+
+539
+00:02:30,620 --> 00:02:35,620
+this is a method that comes from the turtle class and we can call it by writing
+
+540
+00:02:36,350 --> 00:02:40,250
+position and then parentheses and we'll get the position of that segment.
+
+541
+00:02:40,760 --> 00:02:42,470
+And then we're going to add this new segment
+
+542
+00:02:42,680 --> 00:02:45,410
+to the same position as the last segment.
+
+543
+00:02:46,640 --> 00:02:49,670
+So now if inside our main.py
+
+544
+00:02:50,210 --> 00:02:53,660
+every time our snake collides with the food,
+
+545
+00:02:53,960 --> 00:02:56,270
+then not only are we going to refresh the food,
+
+546
+00:02:56,540 --> 00:02:59,830
+but we're also going to get the snake to extend itself.
+
+547
+00:03:00,370 --> 00:03:05,370
+So lets go ahead and run this game again. And notice how this time,
+
+548
+00:03:05,860 --> 00:03:07,870
+once I hit the food,
+
+549
+00:03:08,200 --> 00:03:12,190
+the snake actually extends itself and it gets longer each time.
+
+550
+00:03:13,030 --> 00:03:18,030
+So now we're able to think about how to detect tail collision because as the
+
+551
+00:03:18,820 --> 00:03:23,380
+snake gets longer, this tail collision becomes more of a problem.
+
+552
+00:03:23,740 --> 00:03:26,980
+We're more likely to get tangled with our own tail.
+
+553
+00:03:28,870 --> 00:03:32,320
+Let's go ahead and add a comment here which will say 'Detect
+
+554
+00:03:32,380 --> 00:03:37,380
+collision with tail.' And the way that we want to check this is we wanna say if
+
+555
+00:03:39,760 --> 00:03:44,620
+the head collides with any segment
+
+556
+00:03:46,330 --> 00:03:48,040
+in the tail,
+
+557
+00:03:48,490 --> 00:03:53,490
+then this means that we're going to trigger the game over sequence.
+
+558
+00:03:56,530 --> 00:04:01,420
+So how can we detect if the head collides with any segment in the tail?
+
+559
+00:04:02,290 --> 00:04:02,650
+Well,
+
+560
+00:04:02,650 --> 00:04:07,650
+we could loop through our list of segments in the snake.
+
+561
+00:04:08,020 --> 00:04:13,020
+So we could say for segment in snake.segments,
+
+562
+00:04:14,350 --> 00:04:18,339
+so out of all the snakes segments, let's go through each one of them.
+
+563
+00:04:18,850 --> 00:04:20,800
+And then we can say that well,
+
+564
+00:04:21,160 --> 00:04:26,160
+if the snake.head has a distance of,
+
+565
+00:04:26,860 --> 00:04:28,090
+let's say, I don't know,
+
+566
+00:04:28,120 --> 00:04:33,120
+less than 10 from any of those segments that we're currently looping through, well
+
+567
+00:04:35,710 --> 00:04:38,890
+that probably is a collision, right? So in that case,
+
+568
+00:04:38,920 --> 00:04:43,300
+we're going to set the game_is_on to false and we're going to get the
+
+569
+00:04:43,300 --> 00:04:46,720
+scoreboard to trigger the game over sequence.
+
+570
+00:04:48,160 --> 00:04:51,970
+Now there's just one problem with this. If we go ahead and run the code
+
+571
+00:04:52,030 --> 00:04:55,570
+as it is, you can see that immediately we get game over.
+
+572
+00:04:56,140 --> 00:04:59,410
+And the reason is because out of all of the snake segments,
+
+573
+00:04:59,530 --> 00:05:02,230
+the head is the first segment.
+
+574
+00:05:02,620 --> 00:05:05,050
+So when we loop through each of the segments,
+
+575
+00:05:05,230 --> 00:05:07,750
+the first segment is going to be the snake head.
+
+576
+00:05:08,080 --> 00:05:11,710
+And so we're detecting if the snake head has a distance to
+
+577
+00:05:11,710 --> 00:05:15,280
+the snake head of less than 10, which of course it is going to.
+
+578
+00:05:15,760 --> 00:05:19,180
+So we need some sort of way of bypassing the snakehead.
+
+579
+00:05:19,630 --> 00:05:24,630
+So we could say if the current segment that we're looping through is equal to, so
+
+580
+00:05:25,390 --> 00:05:30,370
+double equal, to the snake.head, well, in this case,
+
+581
+00:05:30,400 --> 00:05:35,170
+we're going to pass. But if this is not the case, so in the elif
+
+582
+00:05:35,200 --> 00:05:36,460
+after the if statement,
+
+583
+00:05:36,820 --> 00:05:41,820
+then we can check to see if the snake head has a distance to the segment of less
+
+584
+00:05:41,980 --> 00:05:45,100
+than 10. Now, if we rerun this code,
+
+585
+00:05:46,330 --> 00:05:49,960
+you'll see that it works exactly as we expect it to.
+
+586
+00:05:52,000 --> 00:05:55,810
+We can move our snake around and as soon as the head hits the body,
+
+587
+00:05:56,080 --> 00:05:57,830
+then it's game over for us.
+
+588
+00:05:59,180 --> 00:06:03,590
+We've pretty much now completed the snake game. But in the next lesson,
+
+589
+00:06:03,680 --> 00:06:07,310
+I want to talk about a special functionality in Python
+
+590
+00:06:07,340 --> 00:06:08,690
+which is called slicing.
+
+591
+00:06:09,200 --> 00:06:12,770
+And this is something that you will often see in code in the wild,
+
+592
+00:06:13,100 --> 00:06:16,640
+and we'll use that to improve our code just a little bit more. So
+
+593
+00:06:17,330 --> 00:06:19,310
+for all of that and more, I'll see you there.
+
+
+594
+00:00:00,450 --> 00:00:04,920
+Now while our snake game works now with all of the functionality that we set out
+
+595
+00:00:04,920 --> 00:00:05,753
+to create,
+
+596
+00:00:06,000 --> 00:00:11,000
+there's just one thing that bothers me a little bit about this code, and it's how
+
+597
+00:00:11,370 --> 00:00:12,900
+wordy this section is.
+
+598
+00:00:13,350 --> 00:00:18,350
+All that we're trying to do is make sure that we're detecting the distance from
+
+599
+00:00:19,200 --> 00:00:23,130
+all of the segments that we're looping through in snake.segments
+
+600
+00:00:23,340 --> 00:00:24,810
+other than the first one.
+
+601
+00:00:25,350 --> 00:00:29,400
+Surely there's an easier way of doing this rather than writing all of these
+
+602
+00:00:29,400 --> 00:00:34,080
+lines of code. And indeed there is. But in order to use it,
+
+603
+00:00:34,290 --> 00:00:38,520
+we have to learn about a Python concept known as slicing.
+
+604
+00:00:39,540 --> 00:00:44,540
+Let's say that we had a list of piano keys all the way from a to g, and we wanted
+
+605
+00:00:46,050 --> 00:00:49,680
+to get hold of a small section of this list.
+
+606
+00:00:50,130 --> 00:00:54,270
+Let's say we wanted to slice the list so that we only get the c,
+
+607
+00:00:54,270 --> 00:00:58,620
+d, and e keys from this list. How would we do that
+
+608
+00:00:58,620 --> 00:01:00,390
+using Python? Well,
+
+609
+00:01:00,390 --> 00:01:04,830
+one way of doing that is you could write a for loop and you could check, well,
+
+610
+00:01:04,830 --> 00:01:09,300
+is it c, is a d, is it d. If so, then add it to a new list.
+
+611
+00:01:09,510 --> 00:01:12,690
+But that's really convoluted. We have a much,
+
+612
+00:01:12,690 --> 00:01:16,890
+much better way of doing that in Python. And it's known as slicing.
+
+613
+00:01:17,400 --> 00:01:20,940
+This is what the syntax would look like. We would get hold of our lists,
+
+614
+00:01:21,000 --> 00:01:24,750
+piano_keys, and then we would use a set of square brackets,
+
+615
+00:01:25,110 --> 00:01:28,980
+but instead of accessing just one item with a position,
+
+616
+00:01:29,400 --> 00:01:34,400
+we get a set of items by slicing it from position 2 to position 5.
+
+617
+00:01:36,360 --> 00:01:40,770
+This might be a little bit confusing because we know that a is that position
+
+618
+00:01:40,770 --> 00:01:44,220
+0, b is at 1, c is at 2,
+
+619
+00:01:44,640 --> 00:01:49,640
+but the one at position 5 is actually f, so how does this get us c, d, and e?
+
+620
+00:01:52,590 --> 00:01:54,690
+Well, you have to visualize it like this.
+
+621
+00:01:55,170 --> 00:02:00,170
+Imagine that zero position is actually at the beginning of the list before where
+
+622
+00:02:00,870 --> 00:02:04,440
+a starts. And at the end of the list,
+
+623
+00:02:04,470 --> 00:02:07,350
+we're actually at the slicing position of 7.
+
+624
+00:02:08,160 --> 00:02:09,810
+If we think about it this way,
+
+625
+00:02:09,870 --> 00:02:14,870
+then the way that we're slicing this list is going all the way from position 2
+
+626
+00:02:15,990 --> 00:02:20,790
+to position 5 then of course, we would end up with c, d, and e.
+
+627
+00:02:22,020 --> 00:02:24,240
+If you take a look at this code in my Repl.it,
+
+628
+00:02:24,420 --> 00:02:27,000
+I've essentially got the same code that we saw in the slides
+
+629
+00:02:27,360 --> 00:02:31,890
+and we're slicing this list of piano keys from position 2 to 5.
+
+630
+00:02:32,370 --> 00:02:35,790
+When I hit run, you will see that what gets printed is c,
+
+631
+00:02:35,790 --> 00:02:40,320
+d, and e, exactly the slice that we wanted. Now,
+
+632
+00:02:40,350 --> 00:02:43,890
+there's other things that you can do with slicing that's pretty cool. So,
+
+633
+00:02:43,890 --> 00:02:47,130
+for example, if you wanted to slice from position 2,
+
+634
+00:02:47,160 --> 00:02:48,660
+which remember is right here
+
+635
+00:02:48,750 --> 00:02:52,560
+because we're starting at 0, 1, and 2,
+
+636
+00:02:52,890 --> 00:02:56,430
+and you want to slice it all the way to the end of the list, well,
+
+637
+00:02:56,430 --> 00:03:00,820
+you can just emit the second number. You can have two and then a colon.
+
+638
+00:03:01,330 --> 00:03:04,840
+Now, when you slice this you get all of the rest of the list
+
+639
+00:03:05,050 --> 00:03:07,840
+starting from the position that you specified.
+
+640
+00:03:08,500 --> 00:03:10,900
+And this works in the opposite direction as well.
+
+641
+00:03:11,320 --> 00:03:15,790
+Let's say that we want to get hold of everything up to position 5. Well,
+
+642
+00:03:15,790 --> 00:03:18,850
+we could omit the first number, add a colon,
+
+643
+00:03:19,030 --> 00:03:22,510
+and then after the colon specify the end slice position.
+
+644
+00:03:22,900 --> 00:03:27,700
+And now we get all of the items in the list up to that position 5.
+
+645
+00:03:28,900 --> 00:03:32,830
+In addition to just slicing between two numbers,
+
+646
+00:03:33,100 --> 00:03:37,630
+we can actually specify a third number after another colon.
+
+647
+00:03:38,290 --> 00:03:42,790
+And what this number does is it sets the increment. For example,
+
+648
+00:03:42,790 --> 00:03:46,780
+we wanted the slice from a position 2 to position 5,
+
+649
+00:03:47,080 --> 00:03:50,800
+but we want to only get every other item.
+
+650
+00:03:51,190 --> 00:03:54,580
+So then it would give c, it would skip over the second one,
+
+651
+00:03:54,670 --> 00:03:59,050
+and then it would give us e. And if I hit run, this is exactly what you see.
+
+652
+00:04:00,460 --> 00:04:04,000
+So let's say I wanted to get hold of everything in this list
+
+653
+00:04:04,450 --> 00:04:09,400
+but I wanted every second item. Well, then this is what my code would look like,
+
+654
+00:04:09,430 --> 00:04:13,900
+go from the beginning to the end and then skip every second one.
+
+655
+00:04:14,590 --> 00:04:17,140
+And I end up with a, c, e, and g. 
+
+656
+00:04:18,430 --> 00:04:21,250
+Now to extend this a little bit further,
+
+657
+00:04:21,640 --> 00:04:26,640
+we can actually use this neat trick to specify a -1 as the increment
+
+658
+00:04:27,430 --> 00:04:32,430
+and what this does is it will actually reverse this list for us going from right
+
+659
+00:04:33,040 --> 00:04:37,300
+to the end to the beginning. So essentially the increments are by one,
+
+660
+00:04:37,540 --> 00:04:41,710
+but it's by -1, so that way we get the list starting from the end
+
+661
+00:04:41,950 --> 00:04:43,210
+all the way back to the beginning.
+
+662
+00:04:43,630 --> 00:04:47,020
+And this is a really neat trick that you'll see a lot of people use when it
+
+663
+00:04:47,020 --> 00:04:51,310
+comes to manipulating lists and tuples. So speaking of tuples,
+
+664
+00:04:51,490 --> 00:04:55,810
+this method of slicing also works for tuples.
+
+665
+00:04:56,320 --> 00:04:58,540
+So let's say we had a piano tuple,
+
+666
+00:04:58,570 --> 00:05:03,570
+which remember is defined by a set of parentheses with items inside separated by
+
+667
+00:05:04,120 --> 00:05:06,220
+commas. Well,
+
+668
+00:05:06,220 --> 00:05:10,780
+we can use the same method of slicing to work with our tuple.
+
+669
+00:05:11,140 --> 00:05:12,880
+So we use our square brackets,
+
+670
+00:05:13,180 --> 00:05:17,230
+let's get hold of the items from section 2 to 5.
+
+671
+00:05:17,530 --> 00:05:20,920
+Then when we hit run, you'll see it gives us mi, fa, so.
+
+672
+00:05:20,920 --> 00:05:25,330
+So coming back to our code, I have a challenge for you.
+
+673
+00:05:25,330 --> 00:05:30,330
+Can you figure out how to use what we've just learned about slicing to
+
+674
+00:05:30,610 --> 00:05:33,850
+change this code so that we get rid of this
+
+675
+00:05:33,850 --> 00:05:38,850
+if statement where we're passing over the snake head so that we are in fact only
+
+676
+00:05:39,430 --> 00:05:44,430
+checking that the snake head has a distance to every segment other than the first
+
+677
+00:05:45,040 --> 00:05:49,870
+segment, less than 10? If you managed successfully to do this,
+
+678
+00:05:49,900 --> 00:05:51,340
+you should be able to get rid of this
+
+679
+00:05:51,340 --> 00:05:56,340
+if statement, change this to a single if statement and somehow figure out a way of
+
+680
+00:05:57,590 --> 00:06:02,590
+making this code work using slicing. Pause the video and give this a go.
+
+681
+00:06:05,680 --> 00:06:06,130
+Alright,
+
+682
+00:06:06,130 --> 00:06:11,130
+so we know that we want to loop through every segment in snake.segments
+
+683
+00:06:11,530 --> 00:06:14,560
+other than the first one. Well,
+
+684
+00:06:15,010 --> 00:06:20,010
+all we need to do is simply slice this list of segments. So we can get hold of
+
+685
+00:06:21,640 --> 00:06:26,290
+everything that starts off from position 1 to the end,
+
+686
+00:06:26,620 --> 00:06:29,350
+by writing 1: nothing.
+
+687
+00:06:29,860 --> 00:06:34,860
+This will give us everything inside the list other than the first item, like
+
+688
+00:06:35,740 --> 00:06:36,573
+so.
+
+689
+00:06:37,150 --> 00:06:42,150
+And then we can use that segment to loop through it and then check every segment
+
+690
+00:06:42,490 --> 00:06:46,840
+in the tail against the distance to the head. And now when you run the code,
+
+691
+00:06:47,080 --> 00:06:50,440
+you can see that it works just as perfectly as before,
+
+692
+00:06:51,400 --> 00:06:56,400
+but we've now vastly simplified our code using the power of Python
+
+693
+00:06:56,860 --> 00:06:57,693
+slicing.
+
+694
+00:06:58,600 --> 00:07:03,160
+Have fun playing with your snake game and be sure to let me know your highest
+
+695
+00:07:03,160 --> 00:07:05,500
+score because I can't seem to get past 10.
+
+696
+00:07:05,890 --> 00:07:09,280
+And you've pretty much seen in this tutorial how bad I am at this game,
+
+697
+00:07:09,580 --> 00:07:13,450
+but I'm sure you can do much better. And on top of that,
+
+698
+00:07:13,480 --> 00:07:17,200
+think about ways that you might want to customize your snake game.
+
+699
+00:07:17,530 --> 00:07:21,370
+Maybe you want to change the food to have a different color or a different
+
+700
+00:07:21,370 --> 00:07:25,210
+shape, maybe your snake is actually going to eat turtles, I don't know.
+
+701
+00:07:25,420 --> 00:07:27,220
+The world is your oyster.
+
+702
+00:07:27,430 --> 00:07:30,760
+Now that you've learned about so many more concepts in Programming
+
+703
+00:07:31,000 --> 00:07:35,620
+including inheritance in OOP as well as slicing lists and tuples.
+
+704
+00:07:36,490 --> 00:07:40,180
+So I hope you've had fun building this game and I'll see you tomorrow.
+
+

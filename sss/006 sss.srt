@@ -1,0 +1,4812 @@
+1
+00:00:00,130 --> 00:00:00,730
+Hey guys,
+
+2
+00:00:00,730 --> 00:00:05,730
+welcome to Day 6 of 100 Days of code. And well done from making it this
+
+3
+00:00:07,150 --> 00:00:07,983
+far.
+
+4
+00:00:08,200 --> 00:00:13,200
+So today we're going to talk about code blocks and indentation as well as
+
+5
+00:00:13,540 --> 00:00:18,540
+functions and also a different flavor from the for loops that we saw yesterday.
+
+6
+00:00:19,810 --> 00:00:20,110
+Today
+
+7
+00:00:20,110 --> 00:00:24,580
+we're going to talk about while loops as well. And to learn all of these things,
+
+8
+00:00:24,880 --> 00:00:26,530
+we're going to use the help of something
+
+9
+00:00:26,680 --> 00:00:28,930
+that's very similar to Karel the robot.
+
+10
+00:00:29,560 --> 00:00:32,409
+And this is something I use when I first learnt how to code
+
+11
+00:00:32,800 --> 00:00:35,950
+and it's one of my favorite tools for learning programming
+
+12
+00:00:36,130 --> 00:00:41,130
+especially as we get into more difficult concepts like functions and while loops
+
+13
+00:00:41,140 --> 00:00:45,970
+et cetera. And by the end of the day, we're going to be writing the code
+
+14
+00:00:46,210 --> 00:00:51,210
+that's required to instruct our little robot to be able to complete any
+
+15
+00:00:51,640 --> 00:00:55,390
+randomly generated maze. So that's the goal
+
+16
+00:00:55,690 --> 00:00:57,430
+and if you head over to the next lesson,
+
+17
+00:00:57,640 --> 00:01:00,820
+let's get started and let's start learning about some of these things.
+
+1
+00:00:00,640 --> 00:00:05,590
+The first concept I want to introduce you to is something called functions.
+
+2
+00:00:06,250 --> 00:00:11,200
+And just as we perform many different functions could be mother, father,
+
+3
+00:00:11,220 --> 00:00:12,490
+son, daughter,
+
+4
+00:00:12,970 --> 00:00:17,470
+we can also get our code to perform different pieces of functionality.
+
+5
+00:00:18,250 --> 00:00:20,110
+Now, if we think back,
+
+6
+00:00:20,230 --> 00:00:25,230
+we've actually already come across functions and I've been referring to them
+
+7
+00:00:25,750 --> 00:00:27,610
+every time we've needed to use one.
+
+8
+00:00:28,510 --> 00:00:31,960
+If you take a look at this link in the course resources
+
+9
+00:00:32,020 --> 00:00:34,750
+which takes you to the Python documentation,
+
+10
+00:00:35,290 --> 00:00:39,340
+then you can see that Python has a whole bunch of built in functions that we've
+
+11
+00:00:39,340 --> 00:00:42,370
+been using. For example, the len function,
+
+12
+00:00:42,400 --> 00:00:47,400
+which gives us the number of items in a collection or the int function
+
+13
+00:00:47,860 --> 00:00:52,420
+which turns something into an integer or the print function,
+
+14
+00:00:52,420 --> 00:00:55,840
+the range function, and other ones that we haven't seen yet.
+
+15
+00:00:56,770 --> 00:00:58,720
+If you head over to the Day 6
+
+16
+00:00:58,750 --> 00:01:03,070
+starting Repl.it and go ahead and forward a copy of it.
+
+17
+00:01:03,910 --> 00:01:08,290
+Then we can start typing one of the functions that we've been using a lot,
+
+18
+00:01:08,320 --> 00:01:09,850
+which is the print function.
+
+19
+00:01:10,480 --> 00:01:14,680
+And the reason why we know it's a function is because it's the name of a
+
+20
+00:01:14,680 --> 00:01:18,010
+function followed by a set of parentheses.
+
+21
+00:01:18,550 --> 00:01:22,960
+Now we know that if we put something inside these parentheses,
+
+22
+00:01:23,290 --> 00:01:27,070
+say, for example, hello, then when I run the code,
+
+23
+00:01:27,430 --> 00:01:29,110
+whatever is inside those parentheses
+
+24
+00:01:29,110 --> 00:01:32,650
+will get outputted over here in the console.
+
+25
+00:01:33,820 --> 00:01:37,360
+Now all of the functions work pretty much the same.
+
+26
+00:01:37,450 --> 00:01:41,560
+So if I wanted to use the len function to see, well,
+
+27
+00:01:41,560 --> 00:01:45,580
+how many characters are there in this word Hello? I, again,
+
+28
+00:01:45,640 --> 00:01:50,260
+put my hello inside the parentheses because of the parentheses
+
+29
+00:01:50,290 --> 00:01:55,290
+we know that this is a function and then I can save the outcome of this length
+
+30
+00:01:55,870 --> 00:01:59,680
+function to a variable, say,
+
+31
+00:01:59,740 --> 00:02:02,230
+let's call it number of characters, num_char.
+
+32
+00:02:02,740 --> 00:02:07,270
+And then I can go ahead and print it in order to view it inside the console.
+
+33
+00:02:07,270 --> 00:02:10,870
+So let's print the num_char,
+
+34
+00:02:11,560 --> 00:02:15,610
+and now you can see that this len function gets to work, calculates the
+
+35
+00:02:15,610 --> 00:02:18,970
+number of characters, it's five, and then it gets printed.
+
+36
+00:02:19,300 --> 00:02:24,300
+So all of this functionality has been achieved by these built-in functions from
+
+37
+00:02:25,240 --> 00:02:27,430
+Python, like print and len.
+
+38
+00:02:28,810 --> 00:02:32,350
+Now what if we wanted to make our own functions?
+
+39
+00:02:32,410 --> 00:02:37,360
+How would we do that? Well, if we want to make our own function,
+
+40
+00:02:37,750 --> 00:02:40,780
+we first start out with a keyword,
+
+41
+00:02:41,260 --> 00:02:43,030
+which is called def.
+
+42
+00:02:43,540 --> 00:02:48,070
+And this is because we're creating or defining our function.
+
+43
+00:02:49,090 --> 00:02:50,740
+Now, after the def keyword,
+
+44
+00:02:51,070 --> 00:02:56,070
+we can give our function a name and I'm just going to call it my_function.
+
+45
+00:02:57,220 --> 00:03:00,910
+Now, the thing that differentiates a function from a variable, however,
+
+46
+00:03:01,330 --> 00:03:05,980
+is the parentheses. So after the name comes the parentheses,
+
+47
+00:03:06,580 --> 00:03:08,170
+and now the final thing,
+
+48
+00:03:08,170 --> 00:03:13,170
+the finishing touch to our function definition is a colon because that says
+
+49
+00:03:13,720 --> 00:03:18,720
+everything that comes after that line and is indented belongs with the
+
+50
+00:03:19,180 --> 00:03:20,013
+function.
+
+51
+00:03:20,710 --> 00:03:24,280
+Let's make a really simple function that just has two lines of code.
+
+52
+00:03:24,340 --> 00:03:29,080
+Maybe it prints Hello and then it prints Bye.
+
+53
+00:03:29,980 --> 00:03:32,590
+So now I've created my function,
+
+54
+00:03:32,740 --> 00:03:37,090
+I've placed the lines of code that are associated with this function all indented
+
+55
+00:03:37,090 --> 00:03:40,600
+after the definition. But notice how,
+
+56
+00:03:40,660 --> 00:03:45,370
+if I go ahead and run my code, actually nothing will happen.
+
+57
+00:03:45,580 --> 00:03:49,930
+And the reason is because we haven't yet executed the function.
+
+58
+00:03:50,590 --> 00:03:54,460
+Now we can define lots and lots of functions ahead of time.
+
+59
+00:03:54,850 --> 00:03:57,100
+And it's only when we actually need it
+
+60
+00:03:57,280 --> 00:04:02,280
+do we go ahead and trigger it and to trigger it or in programming lingo,
+
+61
+00:04:02,320 --> 00:04:04,720
+we would say to call the function,
+
+62
+00:04:05,050 --> 00:04:08,140
+all we have to do is type the name of the function,
+
+63
+00:04:08,530 --> 00:04:10,180
+which is my_function
+
+64
+00:04:10,720 --> 00:04:15,720
+and then to add the parentheses and any necessary inputs. In our case,
+
+65
+00:04:16,060 --> 00:04:20,860
+our function doesn't require any inputs so we can leave the parentheses blank
+
+66
+00:04:20,950 --> 00:04:25,120
+again. And now if I go ahead and run my code once more,
+
+67
+00:04:25,480 --> 00:04:29,470
+then you'll see that by the time the computer reaches line 5,
+
+68
+00:04:29,770 --> 00:04:32,230
+it's going to search for this thing called my_ function.
+
+69
+00:04:32,590 --> 00:04:35,470
+It sees that it was defined right here on line 1
+
+70
+00:04:35,770 --> 00:04:40,770
+and it goes through all of the content and executes them in turn, line by line.
+
+71
+00:04:41,650 --> 00:04:44,890
+And that's why we get hello and bye being printed here.
+
+72
+00:04:46,420 --> 00:04:50,710
+So just to recap, this is how we create a function in Python.
+
+73
+00:04:51,190 --> 00:04:56,140
+There's two steps to it. The first step is to actually define the function,
+
+74
+00:04:56,440 --> 00:04:58,480
+to specify what it should do.
+
+75
+00:04:58,990 --> 00:05:03,990
+And we do that by first using the def keyword and then we give our function a
+
+76
+00:05:04,390 --> 00:05:06,370
+name. So for example, in this case,
+
+77
+00:05:06,370 --> 00:05:11,370
+I called it my_function and then comes a set of parentheses and a colon.
+
+78
+00:05:12,670 --> 00:05:16,030
+And then after that, we get to put the lines of code
+
+79
+00:05:16,030 --> 00:05:20,260
+which will be included in this function. And remember that these lines of code
+
+80
+00:05:20,260 --> 00:05:22,180
+which goes into the function
+
+81
+00:05:22,210 --> 00:05:24,880
+which will be carried out when this function is triggered
+
+82
+00:05:25,150 --> 00:05:27,790
+must be indented like this.
+
+83
+00:05:28,720 --> 00:05:32,410
+So once you've defined the function, you've created the recipe,
+
+84
+00:05:32,440 --> 00:05:36,610
+the next step is to actually use it, which in programming lingo,
+
+85
+00:05:36,640 --> 00:05:41,640
+we would say calling the function. And we call the function just by specifying
+
+86
+00:05:42,520 --> 00:05:45,130
+the name and a set of parentheses.
+
+87
+00:05:45,640 --> 00:05:50,640
+And once the computer sees this line of code it'll know to go and carry out all
+
+88
+00:05:50,770 --> 00:05:52,570
+the instructions inside
+
+89
+00:05:52,600 --> 00:05:56,560
+where we defined our function. And to learn about functions,
+
+90
+00:05:56,890 --> 00:06:01,190
+I'm to introduce you to something that's very similar to Karel the robot.
+
+91
+00:06:02,030 --> 00:06:07,030
+The robot is going to be something that is just going to perform the tasks that
+
+92
+00:06:07,070 --> 00:06:10,550
+we want it to, and no more and no less.
+
+93
+00:06:11,060 --> 00:06:12,290
+So for example,
+
+94
+00:06:12,470 --> 00:06:17,470
+if we wanted a robot to go to the store and pick up some milk for us,
+
+95
+00:06:18,410 --> 00:06:20,510
+we can't simply just tell it, Oh yeah,
+
+96
+00:06:20,540 --> 00:06:24,620
+just go and buy some milk because it won't know how to do that
+
+97
+00:06:24,800 --> 00:06:25,580
+unless
+
+98
+00:06:25,580 --> 00:06:29,810
+we give it specific instructions such as leave the house,
+
+99
+00:06:29,840 --> 00:06:34,550
+walk two blocks to the right, walk four blocks back and then two blocks to the right.
+
+100
+00:06:34,940 --> 00:06:36,140
+When you go to the store,
+
+101
+00:06:36,140 --> 00:06:39,590
+give them some money and then take the milk and come back.
+
+102
+00:06:40,130 --> 00:06:44,030
+We have to program each and every step. But say,
+
+103
+00:06:44,030 --> 00:06:49,010
+if this functionality of getting the robot to go and pick up some milk for us is
+
+104
+00:06:49,010 --> 00:06:51,110
+needed every single day
+
+105
+00:06:51,500 --> 00:06:55,970
+then we have to write out all of those instructions day after day,
+
+106
+00:06:55,970 --> 00:07:00,260
+day after day. And at some point our fingers are going to hurt, right?
+
+107
+00:07:00,350 --> 00:07:05,350
+We're typing so much code that's repeated because we don't have a way of bundling
+
+108
+00:07:05,450 --> 00:07:08,870
+all of those instructions together. And that's where functions come in.
+
+109
+00:07:09,260 --> 00:07:12,890
+Functions will give us a way of referring to all those instructions
+
+110
+00:07:13,010 --> 00:07:14,240
+at the same time.
+
+111
+00:07:14,690 --> 00:07:19,610
+That way we can give our robot a single instruction and it will carry out all of
+
+112
+00:07:19,610 --> 00:07:22,430
+those little steps for us and get us some milk.
+
+113
+00:07:23,510 --> 00:07:25,460
+Now to try this out yourself,
+
+114
+00:07:25,490 --> 00:07:30,490
+I want you to head over to the course resources and click on the link that takes
+
+115
+00:07:31,070 --> 00:07:32,690
+you to Reeborg's World.
+
+116
+00:07:33,290 --> 00:07:37,610
+Now Reeborg's World is very similar to Karel the robot that I showed you
+
+117
+00:07:37,640 --> 00:07:38,473
+earlier on,
+
+118
+00:07:38,630 --> 00:07:43,630
+but it allows us to write Python code. And it's very easy to get started.
+
+119
+00:07:44,570 --> 00:07:48,710
+Now we've got this area here which we're going to use to write our Python code.
+
+120
+00:07:49,370 --> 00:07:52,340
+And then once we're done, we can click on play to
+
+121
+00:07:52,340 --> 00:07:57,340
+run the Python code and see the instructions carried out by our robot.
+
+122
+00:07:58,340 --> 00:08:00,650
+But if you click on Reeborg's keyboard,
+
+123
+00:08:00,980 --> 00:08:05,480
+you can see all of the functions that we can use to command our robot,
+
+124
+00:08:05,930 --> 00:08:09,950
+like move or turn left, or build a wall, et cetera.
+
+125
+00:08:11,270 --> 00:08:15,170
+Let's see if we go ahead and run this line of code here, move.
+
+126
+00:08:16,280 --> 00:08:18,380
+What happens? When I click play
+
+127
+00:08:18,710 --> 00:08:23,710
+you can see that our robot moves forward in the direction that it's facing by
+
+128
+00:08:23,720 --> 00:08:28,550
+one step. So if we wanted it to move, say for example, three steps,
+
+129
+00:08:28,880 --> 00:08:32,270
+all we have to do is the call the move function three times.
+
+130
+00:08:32,900 --> 00:08:37,280
+Now let's reset by clicking the return button to return our robot back to the
+
+131
+00:08:37,280 --> 00:08:38,299
+starting position.
+
+132
+00:08:38,750 --> 00:08:42,950
+Now let's click play again in order for our robot to carry out the new
+
+133
+00:08:42,950 --> 00:08:43,789
+instructions.
+
+134
+00:08:44,840 --> 00:08:49,640
+Notice how all the instructions were carried out very quickly. To execute each
+
+135
+00:08:49,640 --> 00:08:52,850
+instruction one step at a time, line by line,
+
+136
+00:08:53,030 --> 00:08:55,200
+we can use this step-through button.
+
+137
+00:08:55,680 --> 00:09:00,680
+This button allows us to see how each instruction is executed and after each
+
+138
+00:09:01,380 --> 00:09:05,490
+instruction, it pauses and highlights the next instruction.
+
+139
+00:09:05,760 --> 00:09:07,530
+This is very helpful for debugging.
+
+140
+00:09:08,370 --> 00:09:13,080
+So notice how we're highlighting line 2. So if I click on step again,
+
+141
+00:09:13,380 --> 00:09:17,220
+it's going to carry out that function and then it's going to carry out line
+
+142
+00:09:17,220 --> 00:09:20,430
+3 and finally it reaches the end.
+
+143
+00:09:20,730 --> 00:09:25,710
+And that's the end of our code. Now,
+
+144
+00:09:25,740 --> 00:09:29,760
+in addition, we can use some of the other commands in the keyboard
+
+145
+00:09:30,120 --> 00:09:31,890
+for example, turn left.
+
+146
+00:09:32,550 --> 00:09:37,550
+If I decide to say move three times and then turn left and then maybe move three
+
+147
+00:09:38,250 --> 00:09:42,660
+times again, can you predict which square the robot is going to end up in?
+
+148
+00:09:44,250 --> 00:09:49,230
+Are you ready? Let's go ahead and run the code. There we go.
+
+149
+00:09:49,440 --> 00:09:51,810
+We end up on the square 4,4.
+
+150
+00:09:51,990 --> 00:09:56,160
+It moves three forwards turns left and then moves three steps again,
+
+151
+00:09:56,430 --> 00:09:59,250
+because that's what we told it to do with our Python code.
+
+152
+00:10:00,150 --> 00:10:04,440
+So now here's a question. If you take a look inside the set of commands,
+
+153
+00:10:04,500 --> 00:10:08,790
+you'll notice that there is move and there is turn left. But there is no turn
+
+154
+00:10:08,790 --> 00:10:11,460
+right and there is no turn around.
+
+155
+00:10:12,030 --> 00:10:16,680
+So how could we use a function to create those commands?
+
+156
+00:10:17,310 --> 00:10:20,340
+Because, of course, we could just simply write,
+
+157
+00:10:20,400 --> 00:10:25,140
+turn left and then turn left again.
+
+158
+00:10:27,180 --> 00:10:31,470
+And this would effectively turn the robot around, right?
+
+159
+00:10:32,280 --> 00:10:35,700
+But if we want to do that many times, say for example,
+
+160
+00:10:35,700 --> 00:10:39,510
+if we wanted to go to three, turn around, go back to one, turn around,
+
+161
+00:10:39,510 --> 00:10:44,340
+go back to three, then we would have to write code that looks a bit like this.
+
+162
+00:10:44,340 --> 00:10:45,960
+We would have to say move
+
+163
+00:10:47,550 --> 00:10:51,360
+two times to get to square three, turn left, turn left,
+
+164
+00:10:51,480 --> 00:10:56,480
+and then move two times again to get to one and then turn left,
+
+165
+00:10:57,120 --> 00:10:59,640
+turn left again in order to turn around.
+
+166
+00:11:00,390 --> 00:11:05,390
+This is all the code we would have to write to achieve this kind of effect.
+
+167
+00:11:06,900 --> 00:11:11,430
+But instead of all of this, we could just define a new function.
+
+168
+00:11:11,970 --> 00:11:15,930
+So we use the def keyword to say that this code is defining a new function
+
+169
+00:11:16,200 --> 00:11:17,880
+called turn_around
+
+170
+00:11:19,410 --> 00:11:24,410
+and this function is simply going to be turn left twice. And remember, all the
+
+171
+00:11:26,190 --> 00:11:29,640
+code that's going to go inside the function has to be indented.
+
+172
+00:11:30,330 --> 00:11:33,480
+And now instead of writing, turn left, turn left,
+
+173
+00:11:33,510 --> 00:11:37,950
+we can simplify our code by telling it to call the function,
+
+174
+00:11:38,250 --> 00:11:42,960
+turn_around, and we can do that here and we can do that here.
+
+175
+00:11:43,710 --> 00:11:45,780
+So now when we run the code,
+
+176
+00:11:45,840 --> 00:11:48,930
+you'll see that it does exactly the same thing as before,
+
+177
+00:11:49,500 --> 00:11:52,590
+but this time we've cut down two lines of code.
+
+178
+00:11:53,320 --> 00:11:56,350
+So instead of eight lines of code for our instructions,
+
+179
+00:11:56,680 --> 00:11:58,870
+we only now need six lines.
+
+180
+00:11:59,410 --> 00:12:02,950
+And you can see that the more that you need to use this function,
+
+181
+00:12:03,310 --> 00:12:08,080
+the more typing it will save you. But more important than reducing
+
+182
+00:12:08,080 --> 00:12:13,080
+the number of lines of code is that our code has also become a lot more
+
+183
+00:12:13,090 --> 00:12:13,923
+readable.
+
+184
+00:12:14,350 --> 00:12:19,350
+So the turn_around function is much more clear than having turn left twice.
+
+185
+00:12:20,260 --> 00:12:23,140
+Now let's see what happens when we use the step through button.
+
+186
+00:12:23,560 --> 00:12:26,830
+Look closely at how each line in our code is executed.
+
+187
+00:12:27,850 --> 00:12:32,320
+So now what we're going to carry out the move by one, move by one
+
+188
+00:12:32,740 --> 00:12:37,740
+and now it's going to call turn_around, that function. And it jumps over to find
+
+189
+00:12:38,020 --> 00:12:42,610
+this function and carries out the code inside in turn from the top to the
+
+190
+00:12:42,610 --> 00:12:46,870
+bottom. So turn left, turn left. And now once that function's done,
+
+191
+00:12:46,900 --> 00:12:51,280
+it goes back to where it was before and continues running, move, move,
+
+192
+00:12:51,700 --> 00:12:53,770
+and then turn around again.
+
+193
+00:12:55,330 --> 00:12:57,310
+So here's your challenge.
+
+194
+00:12:57,610 --> 00:13:02,560
+Try and create a separate function that turns our robot to the right.
+
+195
+00:13:03,310 --> 00:13:04,240
+Pause the video,
+
+196
+00:13:04,360 --> 00:13:09,070
+head over to the course resources and click on the link that takes you to
+
+197
+00:13:09,070 --> 00:13:10,030
+Reeborg's World
+
+198
+00:13:10,420 --> 00:13:14,500
+and then go ahead and create your own function called a turn_right.
+
+199
+00:13:15,860 --> 00:13:16,693
+Right.
+
+200
+00:13:16,780 --> 00:13:17,140
+All right.
+
+201
+00:13:17,140 --> 00:13:22,030
+So this should be pretty simple because all we have to do is to define a new
+
+202
+00:13:22,030 --> 00:13:23,770
+function called turn_right
+
+203
+00:13:24,580 --> 00:13:29,470
+and this function is going to simply be turn left three times
+
+204
+00:13:30,100 --> 00:13:30,933
+Right?
+
+205
+00:13:33,630 --> 00:13:37,890
+because turning left three times is going to effectively turn our robot
+
+206
+00:13:37,890 --> 00:13:38,723
+right.
+
+207
+00:13:38,940 --> 00:13:43,940
+So even though we only have this one way of turning our robot,
+
+208
+00:13:44,700 --> 00:13:47,790
+we can define our own functions to give it many,
+
+209
+00:13:47,790 --> 00:13:50,280
+many other commands that it could use.
+
+210
+00:13:50,940 --> 00:13:54,360
+So now using this turn right function,
+
+211
+00:13:54,810 --> 00:13:59,810
+see if you can write some code that makes our robot draw a little square going
+
+212
+00:14:00,450 --> 00:14:04,410
+from here to here then to here and back to the beginning.
+
+213
+00:14:05,340 --> 00:14:09,720
+Once you're done and you hit play, this is what should happen.
+
+214
+00:14:12,350 --> 00:14:15,710
+So pause the video now and see if you can complete that challenge.
+
+215
+00:14:19,730 --> 00:14:20,460
+Right?
+
+216
+00:14:20,460 --> 00:14:23,010
+All right. So let's go from the beginning.
+
+217
+00:14:23,430 --> 00:14:26,730
+We start out facing right at the position 1,1
+
+218
+00:14:26,730 --> 00:14:30,600
+one in order to draw the square, starting from this way,
+
+219
+00:14:30,840 --> 00:14:32,520
+we have to first turn left
+
+220
+00:14:34,110 --> 00:14:38,220
+and then we have to move one step and that should take us to here.
+
+221
+00:14:38,970 --> 00:14:43,740
+And now we have to turn right, move
+
+222
+00:14:43,740 --> 00:14:46,770
+one more step, turn right again,
+
+223
+00:14:49,080 --> 00:14:54,080
+move one more step and finally turn right for the last time and move one more
+
+224
+00:14:55,580 --> 00:14:56,413
+step.
+
+225
+00:14:57,770 --> 00:15:02,770
+So using our awesome function means that we don't have to right out turn left
+
+226
+00:15:03,110 --> 00:15:05,780
+three times each time we need to turn right.
+
+227
+00:15:06,260 --> 00:15:11,260
+So our code can just be eight lines long instead of 14 lines long
+
+228
+00:15:12,200 --> 00:15:16,070
+and we're using our function to cut down on a lot of typing.
+
+229
+00:15:16,970 --> 00:15:19,370
+But not only are there fewer lines of code,
+
+230
+00:15:19,670 --> 00:15:24,020
+look how much more readable our code has become thanks to our turn right
+
+231
+00:15:24,020 --> 00:15:28,670
+function. It's now so much easier to read, turn right,
+
+232
+00:15:28,820 --> 00:15:33,740
+and understand what it needs to do rather than seeing turn left three times in
+
+233
+00:15:33,740 --> 00:15:34,573
+the code.
+
+234
+00:15:35,210 --> 00:15:39,710
+So now it's easier to read and it's easier to follow the logic in our code.
+
+235
+00:15:40,400 --> 00:15:41,600
+In the next lesson,
+
+236
+00:15:41,690 --> 00:15:46,640
+I've got a challenge for you. Head over there and apply what you've learned
+
+237
+00:15:46,670 --> 00:15:50,120
+about functions to try and solve it. I'll see you there.
+
+1
+00:00:00,390 --> 00:00:03,150
+All right. So now that you've learned about functions,
+
+2
+00:00:03,300 --> 00:00:07,680
+I have a coding challenge for you. If you head over to this link,
+
+3
+00:00:07,800 --> 00:00:12,300
+which is in the course resources and head over to this challenge
+
+4
+00:00:12,300 --> 00:00:13,710
+which is called Hurdle 1,
+
+5
+00:00:14,310 --> 00:00:19,310
+the idea is that we've got a robot here which needs to do a number of hurdles to
+
+6
+00:00:19,590 --> 00:00:23,190
+jump over each of these barriers, to get to the final goal here.
+
+7
+00:00:23,820 --> 00:00:27,900
+Now you need to use your knowledge of functions
+
+8
+00:00:28,140 --> 00:00:30,810
+as well as some of the things you've learned before, such as the
+
+9
+00:00:30,810 --> 00:00:34,920
+for loop or the range function, to be able to achieve this.
+
+10
+00:00:35,640 --> 00:00:39,810
+Now, remember that you can tell the robot to move by typing, move(),
+
+11
+00:00:40,290 --> 00:00:43,350
+and when that's run, it will move by one space.
+
+12
+00:00:43,890 --> 00:00:46,200
+And you can also use, say,
+
+13
+00:00:46,230 --> 00:00:50,160
+turn_left to get the robot to turn left.
+
+14
+00:00:50,700 --> 00:00:52,320
+And in this case, when I run the code,
+
+15
+00:00:52,320 --> 00:00:55,530
+it's going to move one space and face to the left.
+
+16
+00:00:56,640 --> 00:00:59,130
+In order to complete this entire challenge,
+
+17
+00:00:59,190 --> 00:01:03,030
+you can see there's a number of steps that the robot has to go through before it
+
+18
+00:01:03,030 --> 00:01:07,830
+can get to this final goal. And if you were to write out each of these steps,
+
+19
+00:01:08,160 --> 00:01:12,360
+like I have done here one after the other, it would take many,
+
+20
+00:01:12,390 --> 00:01:16,950
+many tens of lines of code. And that's not what we're about. We're programmers.
+
+21
+00:01:16,980 --> 00:01:18,660
+So we're born to be lazy.
+
+22
+00:01:19,080 --> 00:01:23,400
+Try and see if you can minimize number lines of code while still keeping your
+
+23
+00:01:23,400 --> 00:01:28,400
+code readable and understandable by somebody else and be able to get your robot
+
+24
+00:01:28,710 --> 00:01:33,300
+to complete these instructions and take the robot to the final goalpost.
+
+25
+00:01:34,140 --> 00:01:36,930
+And once you've completed the challenge successfully,
+
+26
+00:01:37,200 --> 00:01:42,200
+you should get a green popup that says you're at the correct X and Y position.
+
+27
+00:01:42,990 --> 00:01:44,520
+So pause the video now,
+
+28
+00:01:44,550 --> 00:01:48,150
+head over to this link and give this challenge a go.
+
+29
+00:01:48,390 --> 00:01:49,223
+Right.
+
+30
+00:01:54,290 --> 00:01:57,050
+All right. So how did you get on with this challenge?
+
+31
+00:01:57,830 --> 00:02:02,720
+How many lines of code did it take you to tell this robot to get to the goal?
+
+32
+00:02:03,560 --> 00:02:06,230
+All right. Let's have a think about how we might tackle this.
+
+33
+00:02:06,500 --> 00:02:10,460
+We know that out of the things that we can tell the robot to do, the most useful
+
+34
+00:02:10,460 --> 00:02:13,190
+things are to move and to turn left.
+
+35
+00:02:13,670 --> 00:02:17,480
+But because the robot doesn't have a builtin turn right function,
+
+36
+00:02:17,720 --> 00:02:19,820
+then we have to define that ourselves.
+
+37
+00:02:20,360 --> 00:02:23,750
+And the reason why we need to do that is because you can see that at several
+
+38
+00:02:23,750 --> 00:02:27,920
+points during the hurdle, we'll have to turn right. For example,
+
+39
+00:02:27,920 --> 00:02:32,570
+when the robot is here at 2, 2, it will have to turn right,
+
+40
+00:02:32,630 --> 00:02:35,810
+and then move and then turn right again and then move.
+
+41
+00:02:36,290 --> 00:02:39,650
+So let's create a new function called turn_right.
+
+42
+00:02:40,190 --> 00:02:44,990
+So we start out with the def key keyword and then give our function a name which
+
+43
+00:02:44,990 --> 00:02:46,280
+is going to be turn_right.
+
+44
+00:02:47,270 --> 00:02:50,180
+And then we add the parentheses with nothing inside
+
+45
+00:02:50,210 --> 00:02:52,880
+because we're not passing any inputs to this function.
+
+46
+00:02:53,360 --> 00:02:58,360
+We're just going to use this function as a way of defining turn left three
+
+47
+00:02:59,350 --> 00:03:03,970
+times. So when you turn left three times, of course you turn right.
+
+48
+00:03:04,480 --> 00:03:07,330
+And now we have the ability to turn right.
+
+49
+00:03:07,870 --> 00:03:12,280
+So notice how this is the code block for our turn right function
+
+50
+00:03:12,730 --> 00:03:16,690
+and it ends at the last line, which is indented, which is line 4.
+
+51
+00:03:17,230 --> 00:03:19,030
+So every subsequent line
+
+52
+00:03:19,060 --> 00:03:22,560
+which starts at the very beginning of the code file next to
+
+53
+00:03:22,580 --> 00:03:27,430
+the left margin is outside this code block and it will act independently.
+
+54
+00:03:28,000 --> 00:03:28,810
+So in fact,
+
+55
+00:03:28,810 --> 00:03:33,430
+the first line of code that actually runs in our file is going to be this line
+
+56
+00:03:33,430 --> 00:03:36,760
+6. And you can see that when I press run,
+
+57
+00:03:36,820 --> 00:03:39,370
+you can see that's the first thing that gets highlighted.
+
+58
+00:03:40,030 --> 00:03:42,340
+And if I go through this step wise,
+
+59
+00:03:42,400 --> 00:03:47,260
+you can see the first line is going to be line 6 and it tells the computer to
+
+60
+00:03:47,260 --> 00:03:51,520
+go and find this function called turn_right. So if I skipped to the next step,
+
+61
+00:03:51,700 --> 00:03:55,930
+it's found that, and it's going to start going through lines 2, 3,
+
+62
+00:03:55,930 --> 00:03:56,763
+and 4,
+
+63
+00:03:57,040 --> 00:04:02,040
+turning our robot three times until it has turned right. Now that we have the
+
+64
+00:04:03,970 --> 00:04:05,440
+ability to turn right,
+
+65
+00:04:05,560 --> 00:04:10,560
+let's have a think about how we might be able to get our robot to make one jump.
+
+66
+00:04:11,440 --> 00:04:16,440
+Let's see. The first thing we'd probably want our robot to do is to move forwards
+
+67
+00:04:16,570 --> 00:04:19,120
+by one step, which should take it here.
+
+68
+00:04:19,630 --> 00:04:24,630
+And then the next thing we want it to do is the turn left so that it faces the
+
+69
+00:04:24,760 --> 00:04:25,593
+top.
+
+70
+00:04:28,680 --> 00:04:28,940
+Right?
+
+71
+00:04:28,940 --> 00:04:31,220
+And once it's in this position,
+
+72
+00:04:31,250 --> 00:04:34,580
+then we want to get it to move forward one step,
+
+73
+00:04:35,210 --> 00:04:39,920
+and then we'll probably want it to turn right. Now,
+
+74
+00:04:39,950 --> 00:04:44,950
+notice how I'm actually testing my code at pretty much every other line that I
+
+75
+00:04:45,260 --> 00:04:46,093
+write.
+
+76
+00:04:46,400 --> 00:04:50,570
+And this means that you don't end up in a situation where you get to the end and
+
+77
+00:04:50,570 --> 00:04:54,020
+you've written lots and lots of lines of code, and it doesn't work.
+
+78
+00:04:54,530 --> 00:04:58,430
+In which case you have to comb through all of the code you've written and find
+
+79
+00:04:58,430 --> 00:05:01,190
+out where the problem is. So in this case,
+
+80
+00:05:01,220 --> 00:05:04,310
+we've only got four lines and we've been testing it step wise.
+
+81
+00:05:04,700 --> 00:05:09,020
+So we can see that we're on track and our robot is now turned to the right,
+
+82
+00:05:09,350 --> 00:05:11,210
+ready to move one more step.
+
+83
+00:05:13,670 --> 00:05:15,350
+And then once it gets to here,
+
+84
+00:05:15,350 --> 00:05:18,410
+we have to turn right again and move one more step.
+
+85
+00:05:23,980 --> 00:05:24,280
+Right?
+
+86
+00:05:24,280 --> 00:05:27,910
+And now it should end up here, but let's just check it out.
+
+87
+00:05:28,630 --> 00:05:32,230
+So our robot turns left turns right, turns right again.
+
+88
+00:05:32,650 --> 00:05:35,110
+And it ends up here facing the bottom.
+
+89
+00:05:35,710 --> 00:05:40,480
+So the final thing we need to do is to get it, to turn left once more,
+
+90
+00:05:42,010 --> 00:05:44,350
+so that it will face the forward direction.
+
+91
+00:05:47,630 --> 00:05:47,900
+Right?
+
+92
+00:05:47,900 --> 00:05:50,750
+So once you've confirmed that your code is working,
+
+93
+00:05:51,230 --> 00:05:54,110
+then you should really think about what is the next step,
+
+94
+00:05:54,140 --> 00:05:57,950
+because we've managed to make one hurdle. And notice how,
+
+95
+00:05:57,980 --> 00:06:01,700
+when we're at this position, 3,1, this particular square,
+
+96
+00:06:02,120 --> 00:06:05,000
+it's almost the same as if we were at 1, 1,
+
+97
+00:06:05,120 --> 00:06:10,040
+because we have to move one step again, turn left, move, turn right, move,
+
+98
+00:06:10,070 --> 00:06:12,080
+turn, right, move, turn left.
+
+99
+00:06:12,380 --> 00:06:17,380
+So it's basically repeating all of these instructions, rather than executing
+
+100
+00:06:18,140 --> 00:06:22,490
+these instructions six times, because there are six hurdles.
+
+101
+00:06:23,120 --> 00:06:25,430
+So if I go back and I start,
+
+102
+00:06:25,520 --> 00:06:28,910
+then you'll see that this code actually will complete the challenge.
+
+103
+00:06:31,980 --> 00:06:32,813
+Right?
+
+104
+00:06:32,820 --> 00:06:35,790
+It says I'm done. And we're at the correct position,
+
+105
+00:06:35,940 --> 00:06:38,160
+but notice how many lines of code we've got.
+
+106
+00:06:38,160 --> 00:06:41,340
+We've got something like 58 lines of code.
+
+107
+00:06:41,400 --> 00:06:44,700
+I know I've left some spaces in their so that you can see which parts are
+
+108
+00:06:44,700 --> 00:06:49,290
+repeating, but still that's a massive amount of code for something very simple.
+
+109
+00:06:49,860 --> 00:06:53,040
+Now we know that we can use functions to package
+
+110
+00:06:53,100 --> 00:06:55,680
+a set of instructions together under one name,
+
+111
+00:06:56,040 --> 00:06:58,560
+just like what we've done here with the turn_right.
+
+112
+00:06:58,920 --> 00:07:02,010
+We've packaged the three lines of code turn left, turn left, turn
+
+113
+00:07:02,010 --> 00:07:05,040
+left into a single function called turn_right
+
+114
+00:07:05,460 --> 00:07:09,930
+so that when we need that functionality, all we need to do is just the call
+
+115
+00:07:09,930 --> 00:07:12,360
+the function and add the parentheses at the end.
+
+116
+00:07:12,960 --> 00:07:17,550
+So we can do exactly the same thing with this set of instructions,
+
+117
+00:07:17,610 --> 00:07:21,360
+which basically gets our robot to perform a single jump.
+
+118
+00:07:22,050 --> 00:07:25,260
+So let's create a def and let's call this function jump.
+
+119
+00:07:25,920 --> 00:07:30,420
+And then lets add the parentheses and the colon. And very importantly,
+
+120
+00:07:30,450 --> 00:07:34,590
+all of these lines of code must be indented. So to indent
+
+121
+00:07:34,590 --> 00:07:36,090
+a whole block of code together,
+
+122
+00:07:36,330 --> 00:07:41,330
+you hold down the command key and click the left square bracket or the right
+
+123
+00:07:41,460 --> 00:07:45,600
+square bracket. On windows it's holding down the control key and again,
+
+124
+00:07:45,600 --> 00:07:48,450
+the last square bracket or the right square bracket.
+
+125
+00:07:49,140 --> 00:07:54,140
+So now this basically says that all of these instructions live inside this block
+
+126
+00:07:54,660 --> 00:07:58,890
+of code called jump. And when we call jump,
+
+127
+00:07:59,760 --> 00:08:03,300
+then it will carry out all of these lines of code.
+
+128
+00:08:04,680 --> 00:08:09,680
+So now what we could do to complete the challenge is to simply call this
+
+129
+00:08:09,810 --> 00:08:11,610
+function jump six times.
+
+130
+00:08:12,690 --> 00:08:13,523
+Right?
+
+131
+00:08:14,740 --> 00:08:19,740
+And so now we could again solve this entire problem using just 21 lines of code.
+
+132
+00:08:23,050 --> 00:08:28,050
+And we managed to complete this challenge using two functions that have repeated
+
+133
+00:08:28,720 --> 00:08:32,559
+instructions and then calling the jump function six times.
+
+134
+00:08:33,130 --> 00:08:37,750
+But because we've learned about loops and the range function,
+
+135
+00:08:38,110 --> 00:08:41,350
+we know that we can actually cut this down even shorter.
+
+136
+00:08:41,890 --> 00:08:44,290
+So instead of calling jump six times,
+
+137
+00:08:44,320 --> 00:08:49,320
+we could actually write a for loop that loops through and calls this jump
+
+138
+00:08:50,290 --> 00:08:50,860
+function
+
+139
+00:08:50,860 --> 00:08:55,860
+six times. We could say something like for step in,
+
+140
+00:08:56,880 --> 00:09:00,090
+and remember that these two key words come from the
+
+141
+00:09:00,090 --> 00:09:02,730
+for...in loop and they always have to stay the same.
+
+142
+00:09:03,480 --> 00:09:05,280
+And then after the in keyword,
+
+143
+00:09:05,400 --> 00:09:09,600
+we define the rules for how many times we want our loop to repeat.
+
+144
+00:09:10,050 --> 00:09:13,020
+In my case, I'm going to use in range function.
+
+145
+00:09:13,530 --> 00:09:17,370
+And I'm going to say from 0 to 6,
+
+146
+00:09:17,700 --> 00:09:22,380
+but not including 6. So in this case it will be 0, 1, 2, 
+
+147
+00:09:22,410 --> 00:09:23,910
+3, 4, 5.
+
+148
+00:09:24,270 --> 00:09:27,420
+So that actually going to happen six times.
+
+149
+00:09:28,020 --> 00:09:32,070
+And now I'm going to add the colon. And finally,
+
+150
+00:09:32,160 --> 00:09:33,930
+inside this for loop,
+
+151
+00:09:33,960 --> 00:09:37,650
+I'm going to call jump just once. Now,
+
+152
+00:09:37,650 --> 00:09:41,790
+watch what happens. First it starts off at the for loop,
+
+153
+00:09:42,180 --> 00:09:47,180
+it calls jump and it goes through this once and then it comes back loops again,
+
+154
+00:09:47,880 --> 00:09:51,690
+calls it the next time. And then again,
+
+155
+00:09:51,840 --> 00:09:55,680
+the third time in the loop, fourth time in the loop,
+
+156
+00:09:56,280 --> 00:09:59,520
+fifth time in the loop and six time in the loop.
+
+157
+00:10:01,880 --> 00:10:03,500
+How far did you manage to get?
+
+158
+00:10:03,950 --> 00:10:08,630
+Did you get stuck on this section where we needed to create the for loop?
+
+159
+00:10:09,200 --> 00:10:10,610
+Well, in that case,
+
+160
+00:10:10,640 --> 00:10:14,840
+I recommend going back to the lesson where we covered for loops and reviewing
+
+161
+00:10:14,840 --> 00:10:19,520
+the for loop and the range function in detail before you come back and try to
+
+162
+00:10:19,520 --> 00:10:21,980
+solve this challenge again. It's really,
+
+163
+00:10:21,980 --> 00:10:26,600
+really important at this stage that you've understood and you've mastered some
+
+164
+00:10:26,600 --> 00:10:31,250
+of these ideas because we're going to be using them more and more in the future.
+
+165
+00:10:31,910 --> 00:10:35,360
+Really make sure that you've understood things before you keep going.
+
+1
+00:00:00,760 --> 00:00:02,260
+In previous lessons,
+
+2
+00:00:02,290 --> 00:00:07,150
+I've already mentioned how important it is in Python to be aware of your
+
+3
+00:00:07,150 --> 00:00:12,010
+indentation. So we know that when we create a function like this,
+
+4
+00:00:12,040 --> 00:00:15,850
+that every line that comes after this definition
+
+5
+00:00:16,120 --> 00:00:20,590
+that is indented is going to be inside this function.
+
+6
+00:00:21,130 --> 00:00:23,050
+So by indented, I mean
+
+7
+00:00:23,050 --> 00:00:26,650
+it's shifted to the right by four spaces like this.
+
+8
+00:00:27,280 --> 00:00:31,990
+So if you imagine each dot as a space, then this is a single block of code.
+
+9
+00:00:33,580 --> 00:00:37,900
+And if we want to continue adding to this block of code inside my function,
+
+10
+00:00:38,170 --> 00:00:41,650
+then we would continue adding lines of code, which are indented.
+
+11
+00:00:42,430 --> 00:00:47,430
+So you have to almost visualize for yourself this invisible line around these
+
+12
+00:00:47,560 --> 00:00:51,100
+blocks of code, which are indented. Now,
+
+13
+00:00:51,190 --> 00:00:54,190
+if my code was written like this on the other hand,
+
+14
+00:00:54,550 --> 00:00:59,550
+then the block of code is in fact only this part. And this print statement will
+
+15
+00:01:02,110 --> 00:01:07,000
+not get triggered when this function gets triggered because it's independent
+
+16
+00:01:07,270 --> 00:01:12,130
+from this function because it's not indented. Now, a simple way
+
+17
+00:01:12,130 --> 00:01:16,840
+that I like to think about this kind of indentation is kind of like the file
+
+18
+00:01:16,840 --> 00:01:19,840
+structure you see when you go into finder on the Mac,
+
+19
+00:01:19,870 --> 00:01:22,390
+or when you go into Explorer on Windows.
+
+20
+00:01:23,380 --> 00:01:24,910
+If we have a function,
+
+21
+00:01:25,000 --> 00:01:29,950
+it's kind of like a folder and anything that goes inside the function,
+
+22
+00:01:29,980 --> 00:01:33,100
+for example, if I throw this file inside the function,
+
+23
+00:01:33,460 --> 00:01:36,160
+then you notice that it gets indented, right?
+
+24
+00:01:36,670 --> 00:01:39,250
+And this way it shows to you very,
+
+25
+00:01:39,250 --> 00:01:42,130
+very clearly that these two files print-
+
+26
+00:01:42,130 --> 00:01:46,420
+hello and print-world are living inside this folder,
+
+27
+00:01:46,480 --> 00:01:50,920
+my function. And this is the equivalent of this code.
+
+28
+00:01:51,400 --> 00:01:56,400
+We have this folder say, my_function, and it contains these two lines of code.
+
+29
+00:01:58,090 --> 00:01:59,260
+Now, on the other hand,
+
+30
+00:01:59,290 --> 00:02:04,290
+if I take this print world and I put it outside of the function folder,
+
+31
+00:02:05,470 --> 00:02:09,490
+then you can see that this is completely independent from that folder.
+
+32
+00:02:10,030 --> 00:02:14,170
+And it's now indented at the same level as the function.
+
+33
+00:02:14,800 --> 00:02:19,780
+So this is the equivalent of this code, where we've got this print-
+
+34
+00:02:19,780 --> 00:02:21,820
+hello being inside the
+
+35
+00:02:21,820 --> 00:02:26,820
+my_function and this print-world being outside and at the same indentation level
+
+36
+00:02:28,240 --> 00:02:31,840
+as this function definition. Now,
+
+37
+00:02:31,840 --> 00:02:35,920
+the indentation gets a little bit more complicated when we have other blocks of
+
+38
+00:02:35,920 --> 00:02:40,240
+code. So for example, the, if/elif/else statements.
+
+39
+00:02:40,420 --> 00:02:41,800
+They have blocks of code,
+
+40
+00:02:42,190 --> 00:02:45,430
+which need to be indented to be inside the block.
+
+41
+00:02:45,940 --> 00:02:49,240
+For loops need to be indented to be inside the loop.
+
+42
+00:02:49,870 --> 00:02:54,820
+And it's very important that you get used to looking at blocks of code like
+
+43
+00:02:54,820 --> 00:02:58,720
+this. So for example, if we were to expand our simple
+
+44
+00:02:59,410 --> 00:03:03,640
+my_function and add a whole bunch of code into it,
+
+45
+00:03:04,150 --> 00:03:08,890
+then we would have to indent all of those lines of code by four spaces
+
+46
+00:03:09,070 --> 00:03:13,810
+represented by the four dots here. Now, if we wanted to have 
+
+47
+00:03:13,810 --> 00:03:17,740
+another block of code inside this if statement,
+
+48
+00:03:18,040 --> 00:03:20,950
+then this line has to be indented,
+
+49
+00:03:21,190 --> 00:03:23,470
+a further four spaces.
+
+50
+00:03:24,310 --> 00:03:27,070
+So this is the function block,
+
+51
+00:03:28,000 --> 00:03:30,910
+this is the if block,
+
+52
+00:03:31,600 --> 00:03:36,600
+this is the elif block and you have to be able to see all of this while just
+
+53
+00:03:38,230 --> 00:03:43,120
+looking at the indentation. If we wanted to represent this,
+
+54
+00:03:43,180 --> 00:03:47,500
+then it's almost like creating a new folder. Let's call it the
+
+55
+00:03:47,530 --> 00:03:50,770
+If sky == clear.
+
+56
+00:03:52,480 --> 00:03:56,740
+And this if block goes inside my function, so it's indented.
+
+57
+00:03:57,490 --> 00:04:01,810
+Now, if I wanted to have a print statement,
+
+58
+00:04:01,840 --> 00:04:06,190
+let's call it print-blue inside this if statement.
+
+59
+00:04:06,220 --> 00:04:10,390
+So this is what should be executed if this function gets called
+
+60
+00:04:10,510 --> 00:04:13,630
+and if the sky is equal to clear, well
+
+61
+00:04:13,630 --> 00:04:16,390
+then this line is indented twice.
+
+62
+00:04:17,140 --> 00:04:22,140
+And that is the equivalent of four spaces in our code, like this.
+
+63
+00:04:24,100 --> 00:04:26,470
+Now, every time I've talked about indentation,
+
+64
+00:04:26,500 --> 00:04:31,500
+I've been talking about spaces and actually there's two ways of creating
+
+65
+00:04:31,750 --> 00:04:35,080
+indentation. You don't have to just use spaces.
+
+66
+00:04:35,260 --> 00:04:40,260
+You can also use tabs and that's created using the tab key on your keyboard,
+
+67
+00:04:40,720 --> 00:04:42,730
+which can look a little bit like this.
+
+68
+00:04:43,840 --> 00:04:48,550
+Now there's a lot of debate around spaces and tabs where some people prefer
+
+69
+00:04:48,550 --> 00:04:52,570
+using spaces to indent, other people prefer tabs to indent.
+
+70
+00:04:53,050 --> 00:04:56,740
+And there's a lot of people arguing in the coding community.
+
+71
+00:04:57,250 --> 00:05:01,720
+And I think this excerpt from one of my favourite shows really demonstrates this.
+
+72
+00:05:11,980 --> 00:05:15,940
+Richard what's wrong? Nothing, nothing, literally. It's all good.
+
+73
+00:05:20,640 --> 00:05:24,750
+Come on. Oh my God. Your roommates are right. You really hate spaces.
+
+74
+00:05:25,050 --> 00:05:28,920
+No, no, no, no. I don't. It's not hate, hate is a strong word. Um,
+
+75
+00:05:29,460 --> 00:05:32,490
+truth be told I do have a slight preference for tabs,
+
+76
+00:05:32,520 --> 00:05:34,360
+but that's only because I'm anal
+
+77
+00:05:34,360 --> 00:05:37,590
+and because I prefer precision.
+
+78
+00:05:40,390 --> 00:05:42,160
+Well, not to pick a fight here,
+
+79
+00:05:42,160 --> 00:05:45,580
+but if you really care about precision why don't you use spaces?
+
+80
+00:05:46,360 --> 00:05:50,050
+But whatever, once it goes through the compiler, it's the same thing, right?
+
+81
+00:05:51,230 --> 00:05:53,300
+Yeah. Yeah. Technically, yes.
+
+82
+00:05:53,630 --> 00:05:54,463
+Right.
+
+83
+00:05:59,150 --> 00:06:03,380
+I guess I just, I just don't understand why anyone would use spaces over tabs.
+
+84
+00:06:03,380 --> 00:06:04,850
+Like if it's all the same,
+
+85
+00:06:04,920 --> 00:06:08,300
+why not just use tabs? Because it could look different on other people's
+
+86
+00:06:08,300 --> 00:06:11,480
+computers. Tabs create smaller file sizes. All right.
+
+87
+00:06:11,480 --> 00:06:13,160
+I run a compression company. Trust me.
+
+88
+00:06:13,160 --> 00:06:17,090
+I've devoted my life to minimalizing file sizes. It's what I do. I mean,
+
+89
+00:06:17,090 --> 00:06:21,440
+I do not get why anyone would use spaces over tabs. I mean,
+
+90
+00:06:21,440 --> 00:06:26,390
+why not just use VIM over Emacs? I do use VIM over Emacs. Oh, God help us.
+
+91
+00:06:26,930 --> 00:06:31,220
+Okay. Uh, you know what? I just, I don't think this is gonna work.
+
+92
+00:06:31,310 --> 00:06:33,080
+I'm so sorry. Uh, I mean like what,
+
+93
+00:06:33,260 --> 00:06:35,720
+we're going to bring kids into this world with that over the head.
+
+94
+00:06:35,720 --> 00:06:37,820
+Stuff's not really fair to them. Don't you think? Kids?
+
+95
+00:06:37,820 --> 00:06:39,800
+we haven't even slept together. And guess what?
+
+96
+00:06:40,010 --> 00:06:42,920
+It's never going to happen now because there is no way I'm going to be with
+
+97
+00:06:42,920 --> 00:06:45,440
+someone who uses spaces over tabs.
+
+98
+00:06:46,260 --> 00:06:50,520
+So should you be using spaces or should you be using tabs?
+
+99
+00:06:50,580 --> 00:06:55,580
+The age old question and the extent to which people obsess over this question,
+
+100
+00:06:56,430 --> 00:07:01,050
+it really shows in this 2017 Stack Overflow developer survey,
+
+101
+00:07:01,140 --> 00:07:05,070
+where they are asked the developers, do you use spaces or do you use tabs?
+
+102
+00:07:05,490 --> 00:07:08,010
+And then they compare it against their annual salary
+
+103
+00:07:08,070 --> 00:07:13,070
+and somehow have managed to show that the people who use spaces seem to earn a
+
+104
+00:07:13,320 --> 00:07:15,480
+lot more than the people who use tabs.
+
+105
+00:07:16,830 --> 00:07:21,830
+Now the official guide from the Python community is in fact to use spaces.
+
+106
+00:07:23,010 --> 00:07:25,890
+So if you click on the section, tabs or spaces,
+
+107
+00:07:26,220 --> 00:07:28,350
+they tell you in no uncertain words,
+
+108
+00:07:28,350 --> 00:07:31,650
+that spaces are the preferred indentation method.
+
+109
+00:07:32,220 --> 00:07:34,620
+And in fact, in Python 3,
+
+110
+00:07:34,980 --> 00:07:39,980
+you can't mix a code file that uses tabs and spaces for indentation in the same
+
+111
+00:07:41,190 --> 00:07:45,720
+file. And it also tells you that in order to indent a line of code,
+
+112
+00:07:45,750 --> 00:07:49,110
+it should be indented using four spaces,
+
+113
+00:07:49,350 --> 00:07:53,520
+so four hits of the space bar. Now,
+
+114
+00:07:53,520 --> 00:07:57,270
+for a lot of people, that may seem quite inefficient because I have to hit my
+
+115
+00:07:57,270 --> 00:07:58,103
+space bar
+
+116
+00:08:00,060 --> 00:08:03,480
+four times in order to achieve a single indent.
+
+117
+00:08:03,600 --> 00:08:08,070
+And you've seen how much we indent throughout our code. So it seems very,
+
+118
+00:08:08,130 --> 00:08:09,420
+very inefficient.
+
+119
+00:08:10,110 --> 00:08:13,410
+But luckily in most code editors,
+
+120
+00:08:13,680 --> 00:08:18,680
+they actually have a setting that allows you to indent using spaces,
+
+121
+00:08:19,830 --> 00:08:22,860
+changing the indent size to four.
+
+122
+00:08:23,430 --> 00:08:25,140
+And when you hit the tab key,
+
+123
+00:08:25,500 --> 00:08:28,920
+it will automatically insert four spaces,
+
+124
+00:08:29,220 --> 00:08:33,030
+which you can tell when you're trying to highlight this space,
+
+125
+00:08:33,030 --> 00:08:36,120
+you can see the cursor is jumping four times.
+
+126
+00:08:36,990 --> 00:08:41,990
+This means that you get to hit tab once and that your code is in line with the
+
+127
+00:08:42,840 --> 00:08:45,510
+guidance because the hind the scenes
+
+128
+00:08:45,510 --> 00:08:48,900
+your code editor is inserting four spaces.
+
+129
+00:08:50,430 --> 00:08:54,420
+So I hope that clears up a little bit on tabs versus spaces.
+
+130
+00:08:54,750 --> 00:08:59,400
+And I highly recommend you to head over to the course resources and click on the link
+
+131
+00:08:59,430 --> 00:09:03,660
+to go to the style guide for Python code and take a look through the parts about
+
+132
+00:09:03,660 --> 00:09:08,190
+indentation. Now in the next lesson, I've got a quick quiz for you
+
+133
+00:09:08,370 --> 00:09:12,720
+to test your knowledge on indentation. So for all of that and more,
+
+134
+00:09:13,110 --> 00:09:14,340
+I'll see you on the next lesson.
+
+1
+00:00:00,430 --> 00:00:02,080
+All right guys, in this lesson
+
+2
+00:00:02,110 --> 00:00:07,110
+I want to talk about the while loop, the loop that will continue going while a
+
+3
+00:00:07,810 --> 00:00:09,640
+particular condition is true.
+
+4
+00:00:10,660 --> 00:00:15,100
+This is a really simple version of a robot that's using a while loop.
+
+5
+00:00:15,520 --> 00:00:16,810
+So in this case,
+
+6
+00:00:16,990 --> 00:00:21,580
+the instruction would be while you are plugged into the wall and you have
+
+7
+00:00:21,580 --> 00:00:26,050
+electricity move forwards. So this is what happens.
+
+8
+00:00:26,260 --> 00:00:31,260
+It will stop once it pulls the socket out of the wall and it stops receiving
+
+9
+00:00:31,720 --> 00:00:34,990
+electricity. Let's compare this against the
+
+10
+00:00:34,990 --> 00:00:39,190
+for loop that we've seen before. So we've seen sort of two flavors of the
+
+11
+00:00:39,190 --> 00:00:43,660
+for loop: one where we're looping through a list of items to do something with
+
+12
+00:00:43,690 --> 00:00:45,070
+each item in the list,
+
+13
+00:00:45,490 --> 00:00:50,490
+and the other is using a range function where we create a range between a and b
+
+14
+00:00:51,160 --> 00:00:55,990
+and then we use every number in that range to do something. For example,
+
+15
+00:00:55,990 --> 00:01:00,610
+in this case would be to print it out. The while loop looks
+
+16
+00:01:00,640 --> 00:01:03,520
+something like this. And in this case,
+
+17
+00:01:03,880 --> 00:01:07,810
+while this particular condition is true,
+
+18
+00:01:08,440 --> 00:01:12,400
+then we go inside the loop and we do something repeatedly.
+
+19
+00:01:12,910 --> 00:01:17,290
+And it's only when the something becomes false does the loop stop.
+
+20
+00:01:18,610 --> 00:01:22,120
+So let's take a look at what the code would look like in real life.
+
+21
+00:01:22,570 --> 00:01:27,250
+So here I have the Hurdle 1 challenge that you did previously.
+
+22
+00:01:27,850 --> 00:01:28,750
+And for this
+
+23
+00:01:28,810 --> 00:01:33,810
+we created a for loop in order to get our robot to jump over the hurdle six
+
+24
+00:01:34,450 --> 00:01:36,970
+times to get to the final destination.
+
+25
+00:01:37,630 --> 00:01:42,010
+Now we could also do the same thing, but using a while loop.
+
+26
+00:01:42,280 --> 00:01:43,540
+And this is how we would do it.
+
+27
+00:01:43,930 --> 00:01:48,310
+Let's say we create a variable called a number_of_hurdles,
+
+28
+00:01:48,730 --> 00:01:52,120
+and we set that equal to six because there are six hurdles.
+
+29
+00:01:52,690 --> 00:01:57,690
+And then we use a while loop to loop through these hurdles until this goes down
+
+30
+00:01:59,140 --> 00:02:02,800
+to zero. So we can say while number_of_hurdles
+
+31
+00:02:02,850 --> 00:02:03,683
+Right,
+
+32
+00:02:07,100 --> 00:02:11,390
+> 0:
+
+33
+00:02:12,050 --> 00:02:14,360
+and then we get it to do something. Well in this case,
+
+34
+00:02:14,360 --> 00:02:17,900
+what we need it to do is to perform the jump function.
+
+35
+00:02:18,860 --> 00:02:23,150
+And at the end of the loop, just before we go back to the beginning,
+
+36
+00:02:23,270 --> 00:02:26,270
+we're going to decrease the number of hurdles,
+
+37
+00:02:26,390 --> 00:02:27,223
+Right
+
+38
+00:02:28,700 --> 00:02:31,040
+by one., -= 1.
+
+39
+00:02:31,730 --> 00:02:36,730
+So now let's go ahead and delete this version using the for loop. And in order to
+
+40
+00:02:37,610 --> 00:02:39,350
+better visualize what's happening here
+
+41
+00:02:39,350 --> 00:02:44,120
+I'm actually also going to add a print statement to print that variable.
+
+42
+00:02:44,700 --> 00:02:45,533
+Right?
+
+43
+00:02:47,930 --> 00:02:49,880
+So now let's step through this.
+
+44
+00:02:50,300 --> 00:02:55,300
+And the first time we enter the while loop, number_of_hurdles equals six,
+
+45
+00:02:55,430 --> 00:02:56,900
+six is greater than zero.
+
+46
+00:02:57,200 --> 00:03:01,900
+Then that is a go ahead to jump into the loop and execute these three lines of
+
+47
+00:03:01,900 --> 00:03:06,730
+code. So now we go in and it performs the jump function.
+
+48
+00:03:09,430 --> 00:03:13,090
+And then once that's done, it comes back, goes onto the next line,
+
+49
+00:03:13,450 --> 00:03:17,620
+number_of_hurdles minus equals one, so six should become five.
+
+50
+00:03:17,860 --> 00:03:22,750
+So now when it executes this print function, we should see five printed.
+
+51
+00:03:23,530 --> 00:03:28,270
+So lets move this little pop up away on the side and let's keep going.
+
+52
+00:03:28,270 --> 00:03:31,900
+So now it's gone back to the beginning of the while loop and it's testing this
+
+53
+00:03:31,900 --> 00:03:36,900
+condition once more: is the number of hurdles, five, still greater than zero.
+
+54
+00:03:37,330 --> 00:03:38,770
+Well, so if it's true,
+
+55
+00:03:38,860 --> 00:03:43,860
+then it goes into the while loop again and performs all of those lines of code.
+
+56
+00:03:45,250 --> 00:03:49,000
+So now it's minus one and it should now be four.
+
+57
+00:03:49,720 --> 00:03:54,720
+And it keeps on going until the point where this condition number_of_hurdles
+
+58
+00:03:56,140 --> 00:03:59,020
+greater than zero becomes false.
+
+59
+00:04:00,280 --> 00:04:05,280
+So now this is the moment where we're going to subtract a further one from our
+
+60
+00:04:05,980 --> 00:04:08,650
+number of hurdles, which is currently one.
+
+61
+00:04:08,980 --> 00:04:12,760
+So that should take it down to zero. And once that's done,
+
+62
+00:04:13,120 --> 00:04:17,709
+this condition is no longer true. Zero is not greater than zero.
+
+63
+00:04:18,040 --> 00:04:20,529
+Zero is equal to zero, but it's not greater.
+
+64
+00:04:20,980 --> 00:04:25,980
+So now this is false and we exit out of the while loop and we end our program.
+
+65
+00:04:27,700 --> 00:04:31,000
+This is what the syntax for the while loop looks like. First,
+
+66
+00:04:31,030 --> 00:04:34,960
+we have the while keyword and then we have some sort of condition that we're
+
+67
+00:04:34,960 --> 00:04:35,860
+going to test.
+
+68
+00:04:36,130 --> 00:04:40,660
+So previously you saw it was number of hurdles being greater than zero,
+
+69
+00:04:41,110 --> 00:04:43,240
+and whenever that condition is true,
+
+70
+00:04:43,540 --> 00:04:48,070
+then it's going to look inside the while loop at the indented lines of code to
+
+71
+00:04:48,070 --> 00:04:52,420
+carry out those instructions, to do this, then do this, then do this.
+
+72
+00:04:52,720 --> 00:04:55,120
+And finally, when it gets to the end of the while loop,
+
+73
+00:04:55,150 --> 00:04:59,080
+it comes back to the beginning and tests this condition again.
+
+74
+00:04:59,230 --> 00:05:00,370
+And if it's still true,
+
+75
+00:05:00,640 --> 00:05:05,230
+then it's going to go through and loop and loop and loop until this condition
+
+76
+00:05:05,230 --> 00:05:09,310
+becomes false at which point it ends an exits the while loop.
+
+77
+00:05:10,120 --> 00:05:13,390
+So now coming back to our Reeborg's World,
+
+78
+00:05:13,450 --> 00:05:17,260
+I want you to click on this dropdown and go to hurdle number 2.
+
+79
+00:05:17,950 --> 00:05:19,930
+Now this is a little bit different.
+
+80
+00:05:20,080 --> 00:05:22,630
+And if you want to see the explanation for this exercise,
+
+81
+00:05:22,960 --> 00:05:27,550
+then simply just click on this 'World Info' and you'll see the explanation.
+
+82
+00:05:28,210 --> 00:05:32,380
+So essentially this hurdle's race is a little bit different from the last one.
+
+83
+00:05:33,010 --> 00:05:34,000
+Whereas the last one
+
+84
+00:05:34,000 --> 00:05:38,890
+we knew that we had to always complete six hurdles to get to the goalpost.
+
+85
+00:05:39,190 --> 00:05:43,570
+In this case, we no longer know where the flag is going to be.
+
+86
+00:05:43,570 --> 00:05:47,080
+So it could be here, it could be here, it could be here, et cetera.
+
+87
+00:05:47,290 --> 00:05:50,890
+And it's going to be set randomly to one of these positions.
+
+88
+00:05:51,460 --> 00:05:55,780
+But what we now get is some sort of condition called at_goal.
+
+89
+00:05:56,470 --> 00:06:01,470
+And if this at_goal is true then it means our robot has landed on a flag.
+
+90
+00:06:03,320 --> 00:06:05,540
+But if this at_goal is not true,
+
+91
+00:06:06,020 --> 00:06:09,320
+then it means that it's not yet reached the flag.
+
+92
+00:06:09,860 --> 00:06:14,860
+So we can use our knowledge of while loops as well as this condition to use our
+
+93
+00:06:15,110 --> 00:06:20,110
+code that we had from previously to get our robot to complete this hurdle race.
+
+94
+00:06:21,260 --> 00:06:24,830
+So you should still have the code from the previous challenge up
+
+95
+00:06:25,220 --> 00:06:30,220
+and all you have to do is to think about how you would create a while loop so
+
+96
+00:06:31,190 --> 00:06:36,190
+that when you run this program and the flag is set randomly...
+
+97
+00:06:36,890 --> 00:06:41,030
+So this time it was set to be here, but the next time I run it,
+
+98
+00:06:41,120 --> 00:06:45,380
+you can see it's now set here. It doesn't matter where the flag is,
+
+99
+00:06:45,500 --> 00:06:49,700
+your robot should be able to detect if it's at flag, if its at the goal,
+
+100
+00:06:50,000 --> 00:06:53,030
+and if it's not then it should continue jumping.
+
+101
+00:06:53,720 --> 00:06:58,280
+Pause the video quickly and see if you can complete this challenge and then come
+
+102
+00:06:58,280 --> 00:07:00,440
+back and we'll walk through the solution together.
+
+103
+00:07:03,250 --> 00:07:03,980
+Right?
+
+104
+00:07:03,980 --> 00:07:04,300
+All right.
+
+105
+00:07:04,300 --> 00:07:08,650
+So first things first, we know that we're going to need to use a while loop and
+
+106
+00:07:08,650 --> 00:07:13,650
+the condition that we're going to be testing for is this one, at_goal.
+
+107
+00:07:14,230 --> 00:07:17,800
+This condition can be true or it can be false.
+
+108
+00:07:18,490 --> 00:07:23,490
+And basically we're looking to see while at_goal is not equal to true,
+
+109
+00:07:27,940 --> 00:07:30,790
+so while our robot is not at the goal,
+
+110
+00:07:31,150 --> 00:07:33,970
+then we want to perform the jump function.
+
+111
+00:07:34,630 --> 00:07:39,630
+So we're going to jump for as many times as it is required until this at_goal
+
+112
+00:07:40,810 --> 00:07:41,830
+becomes true.
+
+113
+00:07:42,850 --> 00:07:47,850
+Another way of expressing this at_goal is not true is to say while not at_goal.
+
+114
+00:07:52,690 --> 00:07:56,980
+So this is what they mean by the negation of this condition.
+
+115
+00:07:58,030 --> 00:08:01,900
+Either way of testing this will work. And now if I hit run,
+
+116
+00:08:01,930 --> 00:08:05,500
+you can see that even though we only need to perform one hurdle,
+
+117
+00:08:05,800 --> 00:08:10,800
+as soon as our robot gets here and it checks that at_goal is true then it will
+
+118
+00:08:12,340 --> 00:08:14,560
+stop this loop.
+
+119
+00:08:15,610 --> 00:08:19,660
+But if our loop goes on for much longer, say the goal is over here,
+
+120
+00:08:20,170 --> 00:08:24,040
+then once it reaches here and at_goal is still false,
+
+121
+00:08:24,580 --> 00:08:29,230
+then it's going to continue jumping until at_goal becomes true.
+
+122
+00:08:30,250 --> 00:08:32,919
+So that required a little bit of mental jujitsu
+
+123
+00:08:32,919 --> 00:08:36,669
+I think because this entire condition has to be true,
+
+124
+00:08:37,210 --> 00:08:42,210
+but this at_goal is actually going to be false until the moment where we
+
+125
+00:08:42,730 --> 00:08:45,580
+reached the goal. So by adding this not
+
+126
+00:08:45,610 --> 00:08:49,390
+we effectively flip this at_goal. So if it was true,
+
+127
+00:08:49,390 --> 00:08:54,390
+becomes false or if it's false becomes true in order to continue jumping while
+
+128
+00:08:54,910 --> 00:08:56,100
+we're not at the goal.
+
+129
+00:08:56,610 --> 00:09:01,610
+I prefer this particular type of syntax because it reads more like English: while
+
+130
+00:09:01,830 --> 00:09:04,770
+not at goal then perform jump.
+
+131
+00:09:05,220 --> 00:09:09,420
+And if it is at_goal then it will stop.
+
+132
+00:09:10,680 --> 00:09:13,560
+And one of the things you might be wondering right now is,
+
+133
+00:09:13,650 --> 00:09:17,310
+so I've learned about the for loop and I've learned about a while loop.
+
+134
+00:09:17,880 --> 00:09:22,050
+And if I can use both of them, why would I choose one over the other?
+
+135
+00:09:22,110 --> 00:09:26,640
+When would I use a for loop? And when would I use a while loop? Well,
+
+136
+00:09:26,700 --> 00:09:30,480
+what I would tend to say is that for loops are really great
+
+137
+00:09:30,480 --> 00:09:35,480
+when you want to iterate over something and you need to do something with each
+
+138
+00:09:35,580 --> 00:09:40,320
+thing that you are iterating over. So for example,
+
+139
+00:09:40,320 --> 00:09:45,320
+if you're iterating through a list and you're saying for each fruit in our list
+
+140
+00:09:45,780 --> 00:09:50,670
+of fruits and you want to be able to say, I don't know,
+
+141
+00:09:50,730 --> 00:09:55,110
+do something with each of these items in here. For instance,
+
+142
+00:09:55,320 --> 00:09:59,010
+it can be as simple as just printing it. Well,
+
+143
+00:09:59,010 --> 00:10:01,320
+then this will require a for loop.
+
+144
+00:10:01,470 --> 00:10:05,130
+You can't do this very easily using a while loop. Now,
+
+145
+00:10:05,130 --> 00:10:08,520
+similarly we've used the range function, right?
+
+146
+00:10:08,520 --> 00:10:13,520
+So for range from one to six print each number in the range.
+
+147
+00:10:15,420 --> 00:10:18,330
+Well this it's also easy to do with a for loop.
+
+148
+00:10:19,050 --> 00:10:23,850
+Now you want to be using a while loop when you don't really care what number in a
+
+149
+00:10:23,850 --> 00:10:24,450
+sequence you're
+
+150
+00:10:24,450 --> 00:10:29,450
+in, which item you're iterating through in a list and you just simply want to carry
+
+151
+00:10:30,270 --> 00:10:32,760
+out some sort of functionality many,
+
+152
+00:10:32,760 --> 00:10:36,690
+many times until some sort of condition that you set.
+
+153
+00:10:37,740 --> 00:10:42,240
+And this is also a good point to mention that while loops are a little bit more
+
+154
+00:10:42,240 --> 00:10:46,710
+dangerous than for loops because in for loops, you're setting ahead of time
+
+155
+00:10:46,740 --> 00:10:48,750
+how many times something is going to run.
+
+156
+00:10:49,110 --> 00:10:52,650
+It's going to stop once it reaches the end of the list of items in this case,
+
+157
+00:10:52,950 --> 00:10:57,120
+and it's going to stop once it reaches the upper bound of the range in this
+
+158
+00:10:57,120 --> 00:10:58,950
+case. But for while loops,
+
+159
+00:10:58,980 --> 00:11:03,980
+they will continue running until this particular condition switches to false.
+
+160
+00:11:05,670 --> 00:11:10,230
+So if you have some sort of condition that actually never becomes false, well
+
+161
+00:11:10,230 --> 00:11:15,230
+then your while loop becomes something known as an infinite loop. Because let's
+
+162
+00:11:15,840 --> 00:11:20,490
+say that our while loop tested while five is greater than three,
+
+163
+00:11:20,850 --> 00:11:23,730
+then carry out these three lines of code. Well,
+
+164
+00:11:23,760 --> 00:11:28,760
+five is always going to be larger than three until the end of time.
+
+165
+00:11:29,580 --> 00:11:34,470
+And so that means your code is also going to run until the end of time,
+
+166
+00:11:34,710 --> 00:11:39,330
+which is probably not what you want in most cases. If
+
+167
+00:11:39,330 --> 00:11:43,320
+instead of saying, while not at_goal, I said, while five is greater than three,
+
+168
+00:11:43,680 --> 00:11:48,360
+then you're going to see this robot perform this jump until eternity.
+
+169
+00:11:48,450 --> 00:11:53,450
+And it's basically going to stop only once it's crashed and timed out.
+
+170
+00:11:55,090 --> 00:12:00,090
+Now every single program at some point in their lives will create an infinite
+
+171
+00:12:00,460 --> 00:12:03,790
+loop. Don't worry about it. Just quit the program,
+
+172
+00:12:03,850 --> 00:12:08,050
+restart and try to prevent this from happening in the future.
+
+173
+00:12:10,240 --> 00:12:15,240
+And very often I find that it's really helpful when you don't know why you're
+
+174
+00:12:15,250 --> 00:12:19,210
+getting an infinite loop to simply just print out your condition.
+
+175
+00:12:19,750 --> 00:12:23,350
+So in this case, if I printed out five greater than three,
+
+176
+00:12:23,590 --> 00:12:26,170
+then it's always going to print true.
+
+177
+00:12:27,820 --> 00:12:32,680
+And it's never going to become false basically. In the next lesson,
+
+178
+00:12:32,740 --> 00:12:36,880
+I've got more exercises coming up for you, namely hurdles 3 and 4.
+
+179
+00:12:37,240 --> 00:12:41,320
+So head over there and put what you've learned about while loops into practice.
+
+1
+00:00:00,760 --> 00:00:04,210
+All right guys, it's time for yet another coding challenge.
+
+2
+00:00:04,240 --> 00:00:08,320
+And this coding challenge is going to put into use what you've learned about
+
+3
+00:00:08,320 --> 00:00:09,153
+while loops,
+
+4
+00:00:09,490 --> 00:00:13,540
+while also testing some of the previous knowledge you got on functions.
+
+5
+00:00:13,990 --> 00:00:18,190
+So I want you to head back to Reeborg's World and change to hurdle number 3.
+
+6
+00:00:18,790 --> 00:00:23,380
+And take a look at the premise for this particular race.
+
+7
+00:00:24,680 --> 00:00:25,513
+Right?
+
+8
+00:00:25,670 --> 00:00:30,670
+Essentially what's happened this time is that the wall placement has become
+
+9
+00:00:31,100 --> 00:00:35,240
+random. So let's say we restart this game, you can see that in this case,
+
+10
+00:00:35,240 --> 00:00:38,960
+there's a wall here, one here, one here, one here. There's four in total.
+
+11
+00:00:39,410 --> 00:00:41,660
+But if we try a different version,
+
+12
+00:00:41,690 --> 00:00:45,590
+then you can see that there is different wall placement each time.
+
+13
+00:00:46,820 --> 00:00:49,310
+Not only don't we know where the wall is going to be,
+
+14
+00:00:49,340 --> 00:00:52,250
+we also don't know how many walls there will be.
+
+15
+00:00:52,370 --> 00:00:55,730
+So code such as what we did before using a for loop
+
+16
+00:00:55,970 --> 00:00:59,870
+telling our robot to jump six times is not going to work.
+
+17
+00:01:01,310 --> 00:01:04,400
+And instead, we're going to have to use the conditions
+
+18
+00:01:04,459 --> 00:01:09,350
+whether if front is clear or whether if there's a wall in front or whether
+
+19
+00:01:09,350 --> 00:01:12,740
+if we're at the goal and also their negations,
+
+20
+00:01:12,770 --> 00:01:15,980
+so not front is clear, not wall in front,
+
+21
+00:01:16,070 --> 00:01:20,960
+not at goal. See if you can use what you've learned about while loops
+
+22
+00:01:21,080 --> 00:01:25,670
+as well as your previous knowledge on if statements and functions to complete
+
+23
+00:01:25,730 --> 00:01:29,450
+this challenge. When you have written the correct code,
+
+24
+00:01:29,690 --> 00:01:34,670
+no matter what kind of wall situation or hurdle setup they have,
+
+25
+00:01:34,910 --> 00:01:37,760
+it should always be able to get to the goal.
+
+26
+00:01:38,810 --> 00:01:42,530
+And while I've been looking at this challenge, I know there is a very,
+
+27
+00:01:42,560 --> 00:01:45,380
+very simple way of bypassing this challenge,
+
+28
+00:01:45,410 --> 00:01:49,490
+which is simply to get the robots go up here and all the way down here,
+
+29
+00:01:49,880 --> 00:01:52,040
+going past all the hurdles.
+
+30
+00:01:52,130 --> 00:01:56,450
+But that's not the point of the challenge. In order to complete this challenge,
+
+31
+00:01:56,510 --> 00:02:00,650
+you must get your robot to follow the path that set out in the dotted lines
+
+32
+00:02:00,950 --> 00:02:04,460
+instead of bypassing it and doing something completely different
+
+33
+00:02:04,460 --> 00:02:09,410
+just to get to the final goal. Pause the video, have a think about this,
+
+34
+00:02:09,620 --> 00:02:12,440
+have a read of the world info popup here,
+
+35
+00:02:12,830 --> 00:02:16,700
+and then think about how you can solve this challenge. So give it a go now.
+
+36
+00:02:17,170 --> 00:02:18,003
+Right?
+
+37
+00:02:21,740 --> 00:02:26,300
+All right. So essentially, if we don't know where the walls are going to be,
+
+38
+00:02:26,600 --> 00:02:30,470
+then we have to test to see if there is a wall in front,
+
+39
+00:02:30,830 --> 00:02:33,680
+or if there is no wall in front.
+
+40
+00:02:34,610 --> 00:02:37,970
+And if there is a wall in front, then we're going to jump.
+
+41
+00:02:38,120 --> 00:02:41,570
+But if there's no wall in front, then we're just going to move forwards.
+
+42
+00:02:42,170 --> 00:02:47,170
+And we're going to do this and test this for as long as we're not at the goal.
+
+43
+00:02:47,780 --> 00:02:49,460
+So we're going to need a while loop
+
+44
+00:02:49,460 --> 00:02:54,350
+that's very similar to our previous while loop that I showed you in the demo. While
+
+45
+00:02:54,350 --> 00:02:58,820
+we're not at goal or rather while
+
+46
+00:02:58,900 --> 00:03:02,890
+this particular condition is not true,
+
+47
+00:03:03,580 --> 00:03:08,110
+then we're going to repeat and loop some lines of code.
+
+48
+00:03:08,800 --> 00:03:13,090
+The first thing we're going to do is we're going to use an if statement to check
+
+49
+00:03:13,150 --> 00:03:16,240
+whether if there is a wall in front.
+
+50
+00:03:17,260 --> 00:03:20,890
+So I'm going to say, if wall in front,
+
+51
+00:03:21,880 --> 00:03:23,530
+if this is true,
+
+52
+00:03:23,980 --> 00:03:28,980
+then I'm going to perform the jump function and get it to jump over the wall.
+
+53
+00:03:30,430 --> 00:03:34,570
+But if there is no wall in front, so namely else,
+
+54
+00:03:35,230 --> 00:03:38,860
+well, in this case, we're simply just going to move forwards.
+
+55
+00:03:39,370 --> 00:03:44,370
+And because our jump function is always going to get us to face the right way,
+
+56
+00:03:44,590 --> 00:03:47,200
+which is this direction here towards the goal,
+
+57
+00:03:47,620 --> 00:03:52,620
+then this move forward by one function is always going to take us in this
+
+58
+00:03:53,050 --> 00:03:53,883
+direction.
+
+59
+00:03:54,130 --> 00:03:58,390
+So let's take a look at this code and let's step through it step by step.
+
+60
+00:03:59,170 --> 00:04:03,460
+So the first thing we're going to check is are we at the goal. At_goal is going
+
+61
+00:04:03,460 --> 00:04:07,180
+to be false. So not false is going to be true.
+
+62
+00:04:07,510 --> 00:04:09,340
+So while this condition is true,
+
+63
+00:04:09,340 --> 00:04:11,800
+we're going to carry out all the lines of code inside.
+
+64
+00:04:12,310 --> 00:04:16,480
+So that means we should jump into this if statement and check
+
+65
+00:04:16,750 --> 00:04:19,899
+is there a wall in front? So at this point,
+
+66
+00:04:19,930 --> 00:04:23,440
+this should be false because there is nothing in front.
+
+67
+00:04:23,980 --> 00:04:28,980
+So it should bypass the if statement and it should go to the else statement.
+
+68
+00:04:29,650 --> 00:04:34,600
+In which case it should move forward by one step. So that's the end of one loop
+
+69
+00:04:34,720 --> 00:04:38,920
+and we go back to the beginning: are we at the goal yet? Nope, we are not.
+
+70
+00:04:39,190 --> 00:04:41,770
+But now when we run into our if statement,
+
+71
+00:04:42,070 --> 00:04:44,380
+this check should now come up as true,
+
+72
+00:04:44,500 --> 00:04:48,910
+because there is a wall right in front of our robot. So in this case,
+
+73
+00:04:48,910 --> 00:04:53,770
+it's going to go into the if statement and perform the jump function. 
+
+74
+00:04:55,270 --> 00:04:59,560
+Now our jump function that we defined previously actually gets us to move
+
+75
+00:04:59,560 --> 00:05:01,900
+forward by one step first,
+
+76
+00:05:02,170 --> 00:05:06,700
+before we actually hurdle over this wall. So in this case,
+
+77
+00:05:06,700 --> 00:05:08,380
+if we try to do the same thing,
+
+78
+00:05:08,410 --> 00:05:11,320
+then it's actually going to hit our robot into a wall.
+
+79
+00:05:11,770 --> 00:05:16,770
+We have to modify our jump function by removing this first move function.
+
+80
+00:05:19,090 --> 00:05:23,410
+So instead we get it to just turn left, go up, turn right,
+
+81
+00:05:23,470 --> 00:05:28,240
+go right, turn right, go down and then turn left to face the right direction.
+
+82
+00:05:28,540 --> 00:05:32,710
+This is a pure hurdle without that extra step in the beginning.
+
+83
+00:05:33,370 --> 00:05:37,300
+And instead we're going to only move if there is no wall in front.
+
+84
+00:05:38,020 --> 00:05:39,250
+So we've changed the code.
+
+85
+00:05:39,280 --> 00:05:43,030
+Let's back it up and try this again with a different setup.
+
+86
+00:05:44,230 --> 00:05:47,710
+And in this case, you can see as my code is going through the different steps,
+
+87
+00:05:47,920 --> 00:05:50,860
+it's checking to see if there's a wall in front. If there is,
+
+88
+00:05:50,920 --> 00:05:53,350
+then it's going to jump over it. If there isn't,
+
+89
+00:05:53,350 --> 00:05:57,830
+it's just going to move forward by one step and then it's going to reevaluate.
+
+90
+00:05:58,160 --> 00:06:00,380
+So this way, once it gets to here,
+
+91
+00:06:00,470 --> 00:06:04,460
+it's actually going to reevaluate the while loop quite a few times
+
+92
+00:06:04,760 --> 00:06:07,520
+and every time it's going to be the else statement that fires.
+
+93
+00:06:07,520 --> 00:06:11,450
+It's going to move, move, move, move, move until it hits a wall again
+
+94
+00:06:11,600 --> 00:06:15,320
+and then it's going to jump over and take us to the finishing line.
+
+95
+00:06:15,980 --> 00:06:20,090
+Did you manage to get this correct? Did you manage to get the solution right?
+
+96
+00:06:20,510 --> 00:06:25,070
+If not be sure to review the previous lessons on the while loop so that you
+
+97
+00:06:25,070 --> 00:06:26,600
+familiarize yourself with it
+
+98
+00:06:27,050 --> 00:06:30,350
+and also if you got stuck on changing the jump function,
+
+99
+00:06:30,680 --> 00:06:33,620
+then be sure to remember that whenever you get stuck,
+
+100
+00:06:33,680 --> 00:06:37,700
+it's important to test your assumptions. And in this case,
+
+101
+00:06:37,970 --> 00:06:42,350
+you could have pressed the step-through button many times to see which line of
+
+102
+00:06:42,350 --> 00:06:43,970
+code is being triggered at which point,
+
+103
+00:06:44,330 --> 00:06:47,840
+and which is the moment where our code actually fails
+
+104
+00:06:47,870 --> 00:06:50,090
+so you can figure it out and fix it.
+
+105
+00:06:51,290 --> 00:06:54,590
+Now on the next lesson, I've got yet another code challenge for you.
+
+106
+00:06:54,650 --> 00:06:56,780
+So head over there and give it a go.
+
+1
+00:00:00,070 --> 00:00:03,220
+All right guys, it's time for the final hurdle
+
+2
+00:00:03,250 --> 00:00:07,060
+before we get to our goal post. In this lesson,
+
+3
+00:00:07,090 --> 00:00:11,200
+I want you to switch over to the final hurdle challenge, which is hurdle 4.
+
+4
+00:00:11,770 --> 00:00:15,250
+And in this particular version of the hurdle,
+
+5
+00:00:15,730 --> 00:00:20,730
+the wall that the robot has to jump over to now has a variable height.
+
+6
+00:00:21,280 --> 00:00:24,550
+So the height of each of these hurdles is completely random,
+
+7
+00:00:24,610 --> 00:00:27,190
+the position of the hurdles are random
+
+8
+00:00:27,550 --> 00:00:31,240
+and also the number of hurdles is also going to be random.
+
+9
+00:00:31,600 --> 00:00:35,050
+You can see that every single time that this regenerates,
+
+10
+00:00:35,770 --> 00:00:40,270
+it comes up with a completely different set of hurdle profiles.
+
+11
+00:00:40,780 --> 00:00:45,780
+And now we can't just jump because we don't know what the height will be each
+
+12
+00:00:47,590 --> 00:00:48,423
+time.
+
+13
+00:00:48,520 --> 00:00:53,520
+So we have to use what we've learned about while loops to modify this jump
+
+14
+00:00:54,190 --> 00:00:59,190
+function and see if we can get the jump to jump as high as necessary
+
+15
+00:01:00,520 --> 00:01:04,930
+depending on the height of these walls. Just as a reminder,
+
+16
+00:01:04,930 --> 00:01:06,580
+in order to complete this challenge,
+
+17
+00:01:06,580 --> 00:01:11,580
+you should take a look at the Reeborg's keyboard window and go to this tab called
+
+18
+00:01:12,070 --> 00:01:17,050
+conditions and see that you can check if the front of the robot is clear,
+
+19
+00:01:17,380 --> 00:01:21,280
+if it's right is clear, if there's a wall on the front,
+
+20
+00:01:21,280 --> 00:01:24,940
+if there's a wall on the right and various other things.
+
+21
+00:01:25,630 --> 00:01:29,950
+The ones that are probably going to be the most useful is this top row here.
+
+22
+00:01:30,280 --> 00:01:32,950
+So I want you to take a look at these conditions,
+
+23
+00:01:33,130 --> 00:01:35,290
+see how they're spelt and how you can use them,
+
+24
+00:01:35,740 --> 00:01:40,270
+and then try to use them and test them out using your Reeborg robot.
+
+25
+00:01:40,840 --> 00:01:42,130
+Now, the goal is of course
+
+26
+00:01:42,130 --> 00:01:46,000
+to reach this final flag going over various hurdles
+
+27
+00:01:46,030 --> 00:01:50,860
+using this dotted line as the path, which is going to be different each time.
+
+28
+00:01:51,250 --> 00:01:56,170
+Just as a head up, this is going to require you to modify this jump function.
+
+29
+00:01:56,560 --> 00:02:00,610
+Have a serious think about it because it's not easy
+
+30
+00:02:01,030 --> 00:02:06,030
+and you're going to need to use more while loops to achieve this end outcome. And
+
+31
+00:02:06,550 --> 00:02:11,440
+try to see if you can solve this challenge in the least lines of code possible.
+
+32
+00:02:11,800 --> 00:02:14,950
+So I managed to do it in as little as 24 lines of code,
+
+33
+00:02:15,220 --> 00:02:17,590
+so see if you can aim to achieve that.
+
+34
+00:02:18,190 --> 00:02:20,980
+Pause the video now and give this challenge a go.
+
+35
+00:02:22,310 --> 00:02:23,143
+Right?
+
+36
+00:02:25,680 --> 00:02:26,100
+All right.
+
+37
+00:02:26,100 --> 00:02:31,100
+So the key difference between this particular hurdle and the previous version is
+
+38
+00:02:31,650 --> 00:02:36,650
+that the height of the wall is now random. Instead of just jumping over one
+
+39
+00:02:37,530 --> 00:02:40,860
+square, where we turn left, move, turn right, move, turn right move,
+
+40
+00:02:41,220 --> 00:02:44,700
+we have to now see if the right side has a wall,
+
+41
+00:02:44,940 --> 00:02:48,270
+or if it's completely clear. Now, in this case,
+
+42
+00:02:48,300 --> 00:02:52,950
+what I want to happen is I want to turn my robot to the left first of all,
+
+43
+00:02:53,460 --> 00:02:57,990
+and then I want to check if there is a wall on the right.
+
+44
+00:02:58,380 --> 00:03:02,620
+So I can use this condition wall on right to achieve this.
+
+45
+00:03:03,550 --> 00:03:04,720
+And if that is true,
+
+46
+00:03:04,750 --> 00:03:09,550
+then I want to continue moving forward until there is no longer a wall on the
+
+47
+00:03:09,550 --> 00:03:12,850
+right, in which case I'm going to turn right turn right
+
+48
+00:03:13,000 --> 00:03:17,290
+and then start going down. So let's modify this jump function.
+
+49
+00:03:17,740 --> 00:03:21,730
+We definitely need the robot turn left, but after it turns left,
+
+50
+00:03:21,760 --> 00:03:26,760
+we're going to use a while loop to say that while there is a wall on the right
+
+51
+00:03:28,360 --> 00:03:32,080
+then in this case, we're going to move forwards.
+
+52
+00:03:32,890 --> 00:03:35,800
+So we're going to go up in this direction basically
+
+53
+00:03:35,800 --> 00:03:37,570
+because we've turned left already.
+
+54
+00:03:38,260 --> 00:03:41,500
+Let's test this out and let's run this code.
+
+55
+00:03:41,800 --> 00:03:43,450
+You can see in this version of events,
+
+56
+00:03:43,510 --> 00:03:48,100
+my robot is going to keep going until the very end of the screen.
+
+57
+00:03:48,580 --> 00:03:49,780
+This is not what we want.
+
+58
+00:03:50,200 --> 00:03:54,970
+So what we want to do is when this is no longer true,
+
+59
+00:03:55,180 --> 00:03:58,330
+it's going to skip to line 10. So at this point,
+
+60
+00:03:58,360 --> 00:04:00,880
+there is no longer a wall on the right,
+
+61
+00:04:01,150 --> 00:04:05,530
+because otherwise it would have continued looping and calling this line 9
+
+62
+00:04:05,800 --> 00:04:09,880
+where it gets it to move forward. When there's no longer a wall on the right,
+
+63
+00:04:10,030 --> 00:04:12,190
+then we want to do what we did previously
+
+64
+00:04:12,190 --> 00:04:15,550
+which is to get our robot to turn right move,
+
+65
+00:04:15,850 --> 00:04:19,990
+and then turn right. Now at this point, we have to move down the wall.
+
+66
+00:04:20,350 --> 00:04:24,430
+And what we're going to check is whether if the front is clear,
+
+67
+00:04:24,460 --> 00:04:29,440
+because it's only when we reach the very bottom here, when the front is blocked,
+
+68
+00:04:29,650 --> 00:04:34,650
+do we actually turn left again and continue back to our while loop here to move
+
+69
+00:04:35,830 --> 00:04:40,450
+forward. To do this we're going to add yet another while loop.
+
+70
+00:04:41,410 --> 00:04:45,490
+And in this case, we're going to use the front_is_clear condition.
+
+71
+00:04:45,910 --> 00:04:48,070
+While the front is clear,
+
+72
+00:04:48,310 --> 00:04:51,430
+we're going to get the robot to continue moving forward.
+
+73
+00:04:51,760 --> 00:04:56,440
+So once it's turned to face this direction, and there's no wall in front,
+
+74
+00:04:56,440 --> 00:04:59,530
+it's going to keep going until this is no longer true.
+
+75
+00:04:59,950 --> 00:05:02,590
+And that is the end of our jump.
+
+76
+00:05:02,860 --> 00:05:07,860
+So now we've basically modified this jump function to take into account all of
+
+77
+00:05:08,080 --> 00:05:12,250
+these new things such as while there's a wall on the right
+
+78
+00:05:12,250 --> 00:05:16,540
+then continue moving upwards, while the front is clear when it's coming down
+
+79
+00:05:16,570 --> 00:05:20,980
+then continue moving downwards. And then at the very end,
+
+80
+00:05:21,010 --> 00:05:26,010
+we're going to get our robot to turn left so that we're ready to go and check if
+
+81
+00:05:28,240 --> 00:05:30,340
+we're at the goal. And if we're not at the goal,
+
+82
+00:05:30,370 --> 00:05:32,380
+then we're going to check if there's a wall in front,
+
+83
+00:05:32,740 --> 00:05:34,750
+if there is a wall in front that we're going to jump,
+
+84
+00:05:34,930 --> 00:05:39,610
+otherwise we're going to continue moving forwards or rather to the right to get
+
+85
+00:05:39,610 --> 00:05:42,700
+to the goal. So now this is the final code.
+
+86
+00:05:43,330 --> 00:05:46,540
+And depending on the number of spaces you've added in here,
+
+87
+00:05:46,600 --> 00:05:51,600
+obviously it's a little bit easier to read if you actually have it like this.
+
+88
+00:05:52,090 --> 00:05:56,410
+But depending on how you've spaced things out in your code,
+
+89
+00:05:56,530 --> 00:06:00,860
+you should end up with anywhere between say 20 to 24 lines of code.
+
+90
+00:06:01,880 --> 00:06:05,720
+So I want you to be able to see all of these lines of code on the right when we
+
+91
+00:06:05,720 --> 00:06:06,553
+run this code.
+
+92
+00:06:06,770 --> 00:06:10,970
+And I've actually got a typo in here that it's going to tell me.
+
+93
+00:06:11,180 --> 00:06:12,830
+So it's going to say invalid syntax
+
+94
+00:06:12,860 --> 00:06:17,270
+and the problem is just because I forgot a colon here. If you get that
+
+95
+00:06:17,270 --> 00:06:18,860
+pop-up invalid syntax
+
+96
+00:06:18,890 --> 00:06:23,890
+be sure to check if you have any problems in here and it can get a little bit
+
+97
+00:06:24,410 --> 00:06:28,310
+complicated if you leave your code for a long period of time before you test it.
+
+98
+00:06:28,340 --> 00:06:31,430
+So test your code after every little iteration
+
+99
+00:06:31,700 --> 00:06:34,700
+and then when you actually get something like an invalid syntax,
+
+100
+00:06:34,940 --> 00:06:36,530
+you'll be able to catch it more easily.
+
+101
+00:06:36,740 --> 00:06:41,740
+So now let's go ahead and regenerate our map and let's try it again.
+
+102
+00:06:42,620 --> 00:06:46,730
+So when we're going to make a jump and then we're gonna turn right,
+
+103
+00:06:46,880 --> 00:06:50,390
+and we're going to keep going down until we hit the wall and we turned left,
+
+104
+00:06:50,780 --> 00:06:53,660
+and now we're not out the goal, and there's still a wall in front.
+
+105
+00:06:53,660 --> 00:06:58,130
+So we make another jump and we go down this much, much larger wall.
+
+106
+00:06:58,640 --> 00:07:03,170
+And then we continue this process of using several while loops,
+
+107
+00:07:03,710 --> 00:07:06,590
+checking if there's a wall on the right, checking if the front is clear,
+
+108
+00:07:06,830 --> 00:07:07,250
+checking
+
+109
+00:07:07,250 --> 00:07:12,250
+if there's a wall in the front in order to achieve our goal and get to our final
+
+110
+00:07:12,440 --> 00:07:16,880
+destination. Now for your code to successfully complete this challenge,
+
+111
+00:07:17,270 --> 00:07:22,100
+the line that your robot draws should follow the line that started here,
+
+112
+00:07:22,130 --> 00:07:23,540
+just like what you see here.
+
+113
+00:07:24,050 --> 00:07:27,920
+So instead of going just over the top and getting to the final goal,
+
+114
+00:07:28,010 --> 00:07:30,770
+it should follow each of these steps and finally
+
+115
+00:07:30,770 --> 00:07:34,820
+you should get that green pop-up where it says it's at the right position.
+
+116
+00:07:35,570 --> 00:07:37,910
+So did you manage to complete this challenge?
+
+117
+00:07:38,240 --> 00:07:43,240
+If not, be sure to review the lesson on while loops and just have a play around
+
+118
+00:07:43,370 --> 00:07:44,120
+with while loops.
+
+119
+00:07:44,120 --> 00:07:48,800
+Try some of the different conditions and see what happens when you run the code
+
+120
+00:07:48,800 --> 00:07:53,480
+and see how the robot behaves so that you get a good grasp of how these things
+
+121
+00:07:53,480 --> 00:07:54,500
+actually work.
+
+122
+00:07:55,130 --> 00:08:00,110
+Now on the next lesson is our final project and we're going to get our robot to
+
+123
+00:08:00,110 --> 00:08:04,220
+be able to navigate a maze all by itself using what we've learned
+
+124
+00:08:04,250 --> 00:08:08,810
+including functions as well as while loops, as well as using good indentation.
+
+125
+00:08:09,170 --> 00:08:12,290
+So for all of that and more, I'll see you on the next lesson.
+
+1
+00:00:00,180 --> 00:00:04,230
+All right guys, it's time for the final project of today.
+
+2
+00:00:04,860 --> 00:00:09,860
+And the goal is to be able to write some code here in Reeborg's world,
+
+3
+00:00:10,590 --> 00:00:13,320
+to be able to get our the little robot
+
+4
+00:00:13,350 --> 00:00:17,730
+to be able to navigate to the goal and go through a maze
+
+5
+00:00:18,000 --> 00:00:22,230
+no matter what the maze look like. So if you go back to Reeborgs world,
+
+6
+00:00:22,230 --> 00:00:23,640
+if you already got a link open..
+
+7
+00:00:23,910 --> 00:00:28,080
+if you don't, then simply click on the direct link in the course resources
+
+8
+00:00:28,380 --> 00:00:29,760
+and it should take you here.
+
+9
+00:00:30,180 --> 00:00:34,770
+And we've got the maze selected in the dropdown, which is right here.
+
+10
+00:00:36,150 --> 00:00:41,130
+Here, we have a maze. And even though the maze doesn't change,
+
+11
+00:00:41,520 --> 00:00:46,520
+the robot does. The direction that the robot is going to face is completely
+
+12
+00:00:46,920 --> 00:00:51,390
+random, the position of the robot is also random.
+
+13
+00:00:51,420 --> 00:00:54,180
+So you can see every time I restart the game,
+
+14
+00:00:54,600 --> 00:00:58,800
+it will face a different direction. So in this case, it's facing up
+
+15
+00:00:59,160 --> 00:01:02,730
+But the next time it might be facing down, in this case.
+
+16
+00:01:03,210 --> 00:01:08,130
+And it's also always going to start at a random location in the maze.
+
+17
+00:01:08,640 --> 00:01:10,380
+If you click on the world info,
+
+18
+00:01:10,590 --> 00:01:15,240
+it will tell you that the secret to getting the robot to complete the maze is to
+
+19
+00:01:15,240 --> 00:01:18,540
+get it to follow along the right edge of the maze.
+
+20
+00:01:19,110 --> 00:01:23,520
+If it starts anywhere in the maze and it just continues following along
+
+21
+00:01:23,520 --> 00:01:24,510
+the right wall,
+
+22
+00:01:24,810 --> 00:01:28,770
+it should eventually get to the final destination.
+
+23
+00:01:29,340 --> 00:01:33,060
+For example, like this. Now in this case,
+
+24
+00:01:33,090 --> 00:01:38,090
+the robot is not making a beeline straight to the exit as if it could see what
+
+25
+00:01:38,940 --> 00:01:43,890
+we can see, but it is following a strategy or rather what you would call in
+
+26
+00:01:43,890 --> 00:01:45,600
+programming, an algorithm.
+
+27
+00:01:46,020 --> 00:01:50,760
+And the algorithm here is to simply follow along the right edge of the wall.
+
+28
+00:01:51,360 --> 00:01:52,980
+And if the right side is clear,
+
+29
+00:01:53,010 --> 00:01:58,010
+then continue going right until it's no longer clear at which point it should
+
+30
+00:01:59,010 --> 00:02:03,900
+just go straight. And if you can't go straight and you can't go right,
+
+31
+00:02:04,230 --> 00:02:07,710
+then the last option is to turn left.
+
+32
+00:02:08,160 --> 00:02:12,480
+It's almost like the robot is getting a set of instructions in terms of
+
+33
+00:02:12,480 --> 00:02:17,040
+hierarchy. The most important telling it to turn right if it can,
+
+34
+00:02:17,430 --> 00:02:20,520
+if it can't turn right then go straight ahead. And finally,
+
+35
+00:02:20,520 --> 00:02:22,770
+if it can't turn right or go straight ahead,
+
+36
+00:02:23,070 --> 00:02:25,920
+then to turn left as a last resort.
+
+37
+00:02:26,400 --> 00:02:30,120
+So you're going to need to use a lot of the functions that you saw previously
+
+38
+00:02:30,120 --> 00:02:33,240
+such as move, turn_left, and testing
+
+39
+00:02:33,240 --> 00:02:36,270
+whether if the front is clear or the right is clear,
+
+40
+00:02:36,660 --> 00:02:40,710
+or there's a wall in the front or a wall in the right. And whether
+
+41
+00:02:40,710 --> 00:02:45,300
+if the robot is the goal. Think about how you can use a while loop
+
+42
+00:02:45,660 --> 00:02:47,370
+and also the conditional
+
+43
+00:02:47,400 --> 00:02:51,990
+if, elif, else statements to achieve this goal and get our robot
+
+44
+00:02:52,140 --> 00:02:54,660
+to be able to go to the final destination
+
+45
+00:02:54,990 --> 00:02:59,160
+no matter where it starts out and what direction it's facing.
+
+46
+00:02:59,830 --> 00:03:00,820
+Pause the video now
+
+47
+00:03:00,850 --> 00:03:03,970
+and try to use what you've learned to complete this final project.
+
+48
+00:03:04,410 --> 00:03:09,410
+[inaudible]
+
+49
+00:03:10,620 --> 00:03:14,700
+All right. So did you manage to complete this challenge? If not,
+
+50
+00:03:14,910 --> 00:03:18,870
+let's work through the solution together. The first thing we need to do,
+
+51
+00:03:19,050 --> 00:03:23,880
+which we've always pretty much needed completing each of these challenges, is we
+
+52
+00:03:23,880 --> 00:03:27,180
+need a way to turn right. So I'm not gonna type it all out again.
+
+53
+00:03:27,480 --> 00:03:29,640
+This should be already pretty clear; turn_right
+
+54
+00:03:29,640 --> 00:03:32,280
+is just turning left three times. Now,
+
+55
+00:03:32,280 --> 00:03:36,960
+the next thing we need to do is we need to tell the robot to do things and to
+
+56
+00:03:36,960 --> 00:03:40,500
+check for things until it reaches the goal.
+
+57
+00:03:40,890 --> 00:03:44,310
+We know that we have this test called at_goal.
+
+58
+00:03:44,700 --> 00:03:49,700
+So we can use a while loop to get the robot to continue working until it reaches
+
+59
+00:03:50,880 --> 00:03:55,880
+the goal. To define that, we could say while not at goal,
+
+60
+00:03:57,270 --> 00:04:02,270
+so basically keep repeating the instructions inside this while loop until at_goal
+
+61
+00:04:03,510 --> 00:04:07,050
+becomes true and not true is false.
+
+62
+00:04:07,230 --> 00:04:11,100
+So once this condition becomes false, then our while loop stops.
+
+63
+00:04:12,090 --> 00:04:17,089
+So what we were told in the world info is we should follow along the right edge.
+
+64
+00:04:17,519 --> 00:04:22,520
+We should test to see if the right side is clear, and if it is,
+
+65
+00:04:22,920 --> 00:04:25,650
+then we should turn right and go straight.
+
+66
+00:04:25,830 --> 00:04:28,470
+So that basically means moving right.
+
+67
+00:04:28,950 --> 00:04:30,870
+Let's use an if statement to test
+
+68
+00:04:30,900 --> 00:04:35,900
+if right_is_clear and in this instance,
+
+69
+00:04:36,390 --> 00:04:40,890
+so in this if block, we're going to say well turn_right
+
+70
+00:04:40,920 --> 00:04:43,530
+using our prebuilt function up here.
+
+71
+00:04:44,250 --> 00:04:49,020
+And then once you're facing the right then move forwards.
+
+72
+00:04:49,680 --> 00:04:54,090
+This should achieve a right move, so from here to here
+
+73
+00:04:54,090 --> 00:04:54,923
+for example.
+
+74
+00:04:55,650 --> 00:05:00,030
+Now let's test this and see what happens. In this case, the right is clear
+
+75
+00:05:00,030 --> 00:05:03,270
+so it moved right The right is not clear
+
+76
+00:05:03,330 --> 00:05:05,160
+so it doesn't know what else to do
+
+77
+00:05:05,160 --> 00:05:09,270
+and it's now stuck in what we would call an infinite loop.
+
+78
+00:05:11,010 --> 00:05:16,010
+And it will never stop until the browser actually forces it to by crashing.
+
+79
+00:05:16,860 --> 00:05:21,860
+So what we have to do instead is we have to provide an alternative condition;
+
+80
+00:05:22,770 --> 00:05:25,860
+when the right is not clear, what should it do?
+
+81
+00:05:26,460 --> 00:05:29,790
+So we're going to provide that condition by using an elif statement.
+
+82
+00:05:30,300 --> 00:05:34,650
+And what we want to say is if the right is not clear,
+
+83
+00:05:35,460 --> 00:05:39,150
+well, then maybe you should check if the front is clear.
+
+84
+00:05:41,460 --> 00:05:45,450
+And if that is the case, then simply just move forwards.
+
+85
+00:05:46,410 --> 00:05:50,970
+Now, this would work unless we're in the situation that we're in right now
+
+86
+00:05:51,030 --> 00:05:52,260
+where we're boxed in
+
+87
+00:05:52,620 --> 00:05:56,820
+and the only side that's clear is actually the remaining one, which is the left.
+
+88
+00:05:58,040 --> 00:06:00,590
+That's why we have to put in the last line of code
+
+89
+00:06:00,950 --> 00:06:05,900
+which is going to be an else statement. So in all other conditions, um,
+
+90
+00:06:05,930 --> 00:06:09,170
+when the right is not clear and the front is not clear,
+
+91
+00:06:09,380 --> 00:06:12,230
+so once both of these have been checked and they're false,
+
+92
+00:06:12,590 --> 00:06:15,110
+then actually just turn left.
+
+93
+00:06:16,730 --> 00:06:17,540
+So now
+
+94
+00:06:17,540 --> 00:06:20,300
+you can see that when our robot is able to go right,
+
+95
+00:06:20,540 --> 00:06:23,420
+it will try to follow along the right wall.
+
+96
+00:06:24,110 --> 00:06:28,500
+But when it can't go right, it will go forwards instead.
+
+97
+00:06:28,500 --> 00:06:32,540
+And when it can't go right or go forward, then it's gonna turn left
+
+98
+00:06:32,810 --> 00:06:35,600
+and hopefully the next time it checks the loop,
+
+99
+00:06:35,900 --> 00:06:39,380
+the front will be clear and it will be able to move forwards.
+
+100
+00:06:40,010 --> 00:06:45,010
+So notice how our robot is somewhat haphazardly navigating through this maze,
+
+101
+00:06:45,980 --> 00:06:49,550
+but it is following the algorithm that we specified,
+
+102
+00:06:49,580 --> 00:06:54,580
+which is to follow along the right-handed wall until you reach the goal.
+
+103
+00:06:56,180 --> 00:07:01,180
+And that's what these few lines of code does using our while statements, our if,
+
+104
+00:07:01,490 --> 00:07:05,360
+elif, else statements and also our turn_right function.
+
+105
+00:07:06,260 --> 00:07:09,050
+Now, while everything seems to work all right,
+
+106
+00:07:09,440 --> 00:07:14,440
+there are select cases where the robot might start out in a position and face a
+
+107
+00:07:16,490 --> 00:07:21,200
+particular direction that gets the robot into an endless loop.
+
+108
+00:07:21,770 --> 00:07:23,360
+So here's an example.
+
+109
+00:07:23,720 --> 00:07:28,310
+Let's say the robot starts off at this particular position facing down.
+
+110
+00:07:28,850 --> 00:07:32,270
+If we go ahead and let the robot run the code,
+
+111
+00:07:32,720 --> 00:07:37,250
+you can see that firstly, there's over a thousand steps in the code.
+
+112
+00:07:37,850 --> 00:07:42,740
+And what happens is because the robot doesn't have a wall on it's right,
+
+113
+00:07:43,160 --> 00:07:48,160
+it's going to keep looping through the circle because after all we're telling it
+
+114
+00:07:49,520 --> 00:07:50,930
+if your right side is clear,
+
+115
+00:07:50,960 --> 00:07:55,910
+turn right and move. And the right is always clear when it's inside this
+
+116
+00:07:56,000 --> 00:08:00,560
+boundary box. So depending on where the robot starts out,
+
+117
+00:08:00,860 --> 00:08:04,940
+it might get itself into what we call it an infinite loop,
+
+118
+00:08:04,970 --> 00:08:08,180
+because you can see the code just goes again and again,
+
+119
+00:08:08,240 --> 00:08:12,950
+through this while statement, and the robot's never going to be able to escape
+
+120
+00:08:13,220 --> 00:08:14,210
+from this position.
+
+121
+00:08:15,050 --> 00:08:20,050
+So this is one of the things that happens to your programs.
+
+122
+00:08:20,540 --> 00:08:24,650
+Sometimes there are edge cases which you might not have thought of
+
+123
+00:08:25,010 --> 00:08:28,040
+but it's only through testing the code do you discover them.
+
+124
+00:08:28,940 --> 00:08:33,940
+Now this particular issue I would say is more of an intermediate debugging
+
+125
+00:08:34,940 --> 00:08:35,773
+problem.
+
+126
+00:08:36,169 --> 00:08:41,169
+So if you're somebody who's already really comfortable with Python and you want
+
+127
+00:08:42,260 --> 00:08:46,190
+to try out debugging this particular problem,
+
+128
+00:08:46,670 --> 00:08:51,670
+then I've included some problem worlds for you to test your code against.
+
+129
+00:08:54,530 --> 00:08:54,800
+Now,
+
+130
+00:08:54,800 --> 00:08:59,610
+if you are somebody who is still getting to grips with Python,
+
+131
+00:08:59,640 --> 00:09:03,600
+I would say this is not the right time point to tackle this challenge,
+
+132
+00:09:04,020 --> 00:09:09,020
+and I would go ahead and make a note to yourself that once you've completed day
+
+133
+00:09:09,330 --> 00:09:14,330
+15 and you're firmly within the intermediate territory of Python to come back to
+
+134
+00:09:16,260 --> 00:09:21,260
+this problem and to continue to debug this particular edge case.
+
+135
+00:09:22,350 --> 00:09:26,820
+Now, if you are a beginner, I recommend to skip the rest of the video
+
+136
+00:09:27,060 --> 00:09:31,680
+but make a bookmark and make a note here so that you know to come back. Now,
+
+137
+00:09:31,710 --> 00:09:33,990
+if you are more of an intermediate programmer,
+
+138
+00:09:34,350 --> 00:09:36,780
+then let's go ahead and debug this.
+
+139
+00:09:37,590 --> 00:09:42,590
+So what you can do with Reeborg's world is you can actually create a file to load
+
+140
+00:09:43,650 --> 00:09:46,530
+up a particular map and robot position.
+
+141
+00:09:47,610 --> 00:09:52,410
+So what I've done is I've created a bunch of problem worlds for you to test your
+
+142
+00:09:52,410 --> 00:09:56,070
+code against that we know if you use a normal code,
+
+143
+00:09:56,100 --> 00:09:58,140
+it's definitely going to get into an infinite loop.
+
+144
+00:09:58,860 --> 00:10:02,970
+So what you need to do is head to the course resources for this lesson
+
+145
+00:10:03,360 --> 00:10:05,610
+and then download the zip file
+
+146
+00:10:05,670 --> 00:10:09,720
+which contains three problem worlds for you to test your code against.
+
+147
+00:10:10,350 --> 00:10:14,490
+And then in Reeborgs world, you're going to click on additional options,
+
+148
+00:10:14,970 --> 00:10:19,020
+open world from file and you're going to select that folder
+
+149
+00:10:19,020 --> 00:10:23,340
+which hopefully you've unzipped, and go through each of these problem worlds
+
+150
+00:10:23,400 --> 00:10:27,630
+testing your code in all of the cases. Now, when you open this up,
+
+151
+00:10:27,660 --> 00:10:32,490
+you can close off this box and the robot will start at a particular problem
+
+152
+00:10:32,490 --> 00:10:37,490
+position, facing a direction that is going to cause it to go into an
+
+153
+00:10:37,590 --> 00:10:40,380
+infinite loop. And you can know this ahead of time
+
+154
+00:10:40,380 --> 00:10:45,380
+because when you actually go to start the robot and you hit play, when you 
+
+155
+00:10:45,660 --> 00:10:48,150
+see the number of steps here over a thousand,
+
+156
+00:10:48,510 --> 00:10:52,680
+it usually means that you're probably in a situation where it's going to turn into
+
+157
+00:10:52,680 --> 00:10:53,520
+an infinite loop.
+
+158
+00:10:54,180 --> 00:10:59,180
+So write your code here and then test it to make sure that the step count goes
+
+159
+00:10:59,250 --> 00:11:04,250
+down below 1000 and your robot doesn't get stuck in this endless circle. Now,
+
+160
+00:11:06,480 --> 00:11:10,680
+because the different problem worlds can have different solutions,
+
+161
+00:11:10,980 --> 00:11:15,630
+but what you're aiming for is one solution code that solves all of the problem
+
+162
+00:11:15,630 --> 00:11:16,350
+worlds,
+
+163
+00:11:16,350 --> 00:11:21,240
+I want you to test your code against all three of these problem worlds I've
+
+164
+00:11:21,240 --> 00:11:22,073
+created for you.
+
+165
+00:11:23,250 --> 00:11:27,660
+So here's the time, if you want to tackle this challenge, to go ahead and pause
+
+166
+00:11:27,660 --> 00:11:32,400
+the video and see if you can debug this pretty hard problem.
+
+167
+00:11:32,910 --> 00:11:36,450
+It took me a while. So I think it's going to take you a while as well.
+
+168
+00:11:36,690 --> 00:11:40,950
+But you might be smarter. It might take less time. So good luck,
+
+169
+00:11:41,100 --> 00:11:45,030
+pause the video and we'll go through the solution together a little bit later
+
+170
+00:11:45,030 --> 00:11:45,863
+on.
+
+171
+00:11:51,380 --> 00:11:55,510
+All right. So first let's try and figure out what the problem is.
+
+172
+00:11:55,870 --> 00:12:00,870
+The problem here is that every time when the robot's right side is clear,
+
+173
+00:12:01,600 --> 00:12:06,430
+our code tells it to turn to that direction, move forwards,
+
+174
+00:12:06,880 --> 00:12:11,860
+and then check to see if it's at the goal. So it's not, and again
+
+175
+00:12:11,860 --> 00:12:15,610
+the right side is clear so it turns right and moves, turns right and moves,
+
+176
+00:12:15,670 --> 00:12:20,200
+turns right and moves. So basically in any of these four positions,
+
+177
+00:12:20,590 --> 00:12:22,360
+depending on the way it's facing,
+
+178
+00:12:22,660 --> 00:12:26,170
+there might not be a wall on the right side of the robot.
+
+179
+00:12:26,620 --> 00:12:29,860
+So that is the key to solving this bug.
+
+180
+00:12:30,820 --> 00:12:35,820
+We have to get our robot to a starting position where it has a wall on the right
+
+181
+00:12:36,760 --> 00:12:38,050
+side of the robot.
+
+182
+00:12:39,520 --> 00:12:43,960
+Now I've been thinking about various ways of doing this and the shortest most
+
+183
+00:12:43,960 --> 00:12:48,910
+succinct way that's also most understandable, I think, is this.
+
+184
+00:12:49,510 --> 00:12:53,500
+So if we create another while loop before this while loop runs,
+
+185
+00:12:53,530 --> 00:12:55,750
+so remember the code goes from top to bottom,
+
+186
+00:12:55,810 --> 00:12:57,670
+it's going to hit this while loop first.
+
+187
+00:12:58,390 --> 00:13:03,220
+And we check while the front is clear,
+
+188
+00:13:04,030 --> 00:13:08,170
+well then the robot is not next to a wall, right? Such as in this case.
+
+189
+00:13:08,740 --> 00:13:13,270
+Well, if that is the case, we're going to tell our robot to just move forwards.
+
+190
+00:13:13,870 --> 00:13:18,580
+So this means that our robot is going to seek out a wall. So in this case,
+
+191
+00:13:18,580 --> 00:13:19,413
+for example,
+
+192
+00:13:20,080 --> 00:13:25,080
+it's going to go forwards until it reaches a wall.
+
+193
+00:13:27,970 --> 00:13:32,740
+So it's going to loop through that loop twice and it moves twice until it hits a
+
+194
+00:13:32,740 --> 00:13:35,950
+wall in front. Now this is the point which we want,
+
+195
+00:13:36,250 --> 00:13:40,240
+because we want to make sure that now that it's hit a wall in front,
+
+196
+00:13:40,690 --> 00:13:45,400
+that it's definitely got a wall on the right side of the robot. So what do we do?
+
+197
+00:13:45,790 --> 00:13:49,330
+Well, once it's hit a wall, so it's exited this while loop,
+
+198
+00:13:49,570 --> 00:13:52,000
+we're going to tell it to turn left.
+
+199
+00:13:52,420 --> 00:13:56,080
+So this loop makes sure that the robot has a wall in front of it.
+
+200
+00:13:56,590 --> 00:13:59,890
+And once it's found a wall in front, we tell it to turn left
+
+201
+00:14:00,190 --> 00:14:03,010
+to turn that wall on to the right side of the robot.
+
+202
+00:14:03,610 --> 00:14:08,350
+So now you can see we're going through this while loop. First front is clear,
+
+203
+00:14:08,350 --> 00:14:10,150
+so it's going to move.
+
+204
+00:14:12,220 --> 00:14:15,760
+And then front is still clear after that one move
+
+205
+00:14:15,820 --> 00:14:20,770
+so it's going to move again until it's hit a wall in front. Now,
+
+206
+00:14:20,770 --> 00:14:21,400
+at this point,
+
+207
+00:14:21,400 --> 00:14:24,910
+it exits the while loop and it goes to the next line of instruction
+
+208
+00:14:25,180 --> 00:14:29,770
+which tells it to turn left. Now that the robot has turned left
+
+209
+00:14:29,890 --> 00:14:34,890
+it now has a wall on the right side and it enters the next loop.
+
+210
+00:14:35,770 --> 00:14:40,420
+So in this loop, if the right side is clear, turn right and move.
+
+211
+00:14:40,720 --> 00:14:45,070
+If the front is clear, just simply move forward, otherwise turn left.
+
+212
+00:14:45,490 --> 00:14:50,230
+So as long as the robot started in a position where there is a wall on the right
+
+213
+00:14:50,230 --> 00:14:54,440
+side of it, right next to it, it's never going to get into that infinite loop with
+
+214
+00:14:55,130 --> 00:14:59,320
+this code. So this is one solution to this problem.
+
+215
+00:14:59,800 --> 00:15:02,080
+Now there's lots of other solutions,
+
+216
+00:15:02,320 --> 00:15:07,320
+but you gotta make sure that your solution works in every single one of these
+
+217
+00:15:08,410 --> 00:15:09,280
+test cases.
+
+218
+00:15:09,640 --> 00:15:13,870
+So we can go ahead and open up problem world 2 where the robot starts at a
+
+219
+00:15:13,870 --> 00:15:16,240
+different position, facing a different position,
+
+220
+00:15:16,570 --> 00:15:21,280
+and we want to make sure that still we don't have an infinite loop. In this case,
+
+221
+00:15:21,340 --> 00:15:25,930
+it doesn't. So that's great. And finally, let's test the last one,
+
+222
+00:15:26,170 --> 00:15:27,760
+which is a problem world 3,
+
+223
+00:15:28,420 --> 00:15:33,420
+and now we can run our program and you can see it's also less than a thousand
+
+224
+00:15:34,240 --> 00:15:36,190
+steps. So, it works.
+
+225
+00:15:37,000 --> 00:15:41,980
+So this is a bit of advanced debugging because we're now testing our
+
+226
+00:15:41,980 --> 00:15:46,980
+code against various terrible scenarios where the robot starts off at a position
+
+227
+00:15:48,310 --> 00:15:53,260
+where it's really dangerous and can get into these infinite loops. Now,
+
+228
+00:15:53,290 --> 00:15:55,600
+if you didn't manage to get the solution,
+
+229
+00:15:55,810 --> 00:15:59,410
+don't despair and don't be too hard on yourself. This is a really,
+
+230
+00:15:59,830 --> 00:16:00,670
+really hard one.
+
+231
+00:16:00,670 --> 00:16:05,470
+And it took me a long time to find a solution that I think is readable and
+
+232
+00:16:05,590 --> 00:16:08,080
+explainable and sort of makes sense.
+
+233
+00:16:08,800 --> 00:16:13,800
+Now, it might be that you should put in a note in your calendar to come and
+
+234
+00:16:14,440 --> 00:16:16,510
+revisit this issue in a week
+
+235
+00:16:16,690 --> 00:16:20,950
+once you've had some time to think about it, and to really digest and understand
+
+236
+00:16:20,950 --> 00:16:23,860
+the solution, then write the code yourself.
+
+237
+00:16:24,460 --> 00:16:27,460
+Because you would have forgotten exactly what the code was,
+
+238
+00:16:27,520 --> 00:16:32,470
+but you will still remember how it works. So if that is a case,
+
+239
+00:16:32,770 --> 00:16:37,240
+this is what you should do. If you solved it by yourself, then congratulations.
+
+240
+00:16:37,240 --> 00:16:40,450
+This is really, truly quite a difficult task.
+

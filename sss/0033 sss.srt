@@ -1,0 +1,3055 @@
+1
+00:00:00,540 --> 00:00:01,080
+Hey guys,
+
+2
+00:00:01,080 --> 00:00:06,080
+Welcome to Day 33 of 100 Days of Code. It's Angela here
+
+3
+00:00:06,720 --> 00:00:11,490
+and today we're going to be learning about application programming interfaces,
+
+4
+00:00:11,820 --> 00:00:16,110
+also known as APIs. What are we going to use it for? Well,
+
+5
+00:00:16,110 --> 00:00:21,110
+we're going to learn this technology so that we're able to create an ISS
+
+6
+00:00:21,390 --> 00:00:22,223
+tracker.
+
+7
+00:00:22,440 --> 00:00:26,880
+So this is the international space station and it floats high above in the sky
+
+8
+00:00:26,970 --> 00:00:29,610
+and it circles earth many, many times a day.
+
+9
+00:00:30,210 --> 00:00:35,040
+Here's a video that's taken from the ISS and you can see how glorious earth
+
+10
+00:00:35,070 --> 00:00:38,550
+looks in the eyes of the ISS.
+
+11
+00:00:39,000 --> 00:00:43,860
+And what we're going to try to do is we're going to try and track where the ISS
+
+12
+00:00:44,100 --> 00:00:47,700
+is currently at in the sky. And at the time point
+
+13
+00:00:47,970 --> 00:00:52,860
+when the ISS is in the night sky, right above where we are,
+
+14
+00:00:53,220 --> 00:00:55,350
+then we're going to send ourselves an email
+
+15
+00:00:55,440 --> 00:00:59,760
+telling us to look up and spot the fast-moving ISS.
+
+16
+00:01:00,600 --> 00:01:04,590
+Once you are ready, head over to the next lesson and we'll get started learning
+
+17
+00:01:04,590 --> 00:01:05,430
+about APIs.
+
+
+18
+00:00:00,690 --> 00:00:05,010
+First, let's take a look at what application programming interfaces
+
+19
+00:00:05,070 --> 00:00:10,070
+are and then we'll see how we can use them to start pulling in some data from the
+
+20
+00:00:10,560 --> 00:00:13,290
+internet. So when you're browsing the web,
+
+21
+00:00:13,320 --> 00:00:17,070
+you might've realized that there's a lot of websites out there that carry a
+
+22
+00:00:17,070 --> 00:00:19,140
+whole bunch of data. For example,
+
+23
+00:00:19,140 --> 00:00:24,140
+you could go onto Yahoo weather and see next week's weather predictions for
+
+24
+00:00:24,390 --> 00:00:25,650
+any city in the world,
+
+25
+00:00:26,100 --> 00:00:31,100
+you could go onto Coinbase and see what is the current market value of various
+
+26
+00:00:31,650 --> 00:00:34,500
+cryptocurrencies like Bitcoin and Ethereum.
+
+27
+00:00:35,130 --> 00:00:39,600
+You can also go onto the MBA website and look at various stats about your
+
+28
+00:00:39,600 --> 00:00:42,330
+favorite basketball players. Now,
+
+29
+00:00:42,480 --> 00:00:45,540
+what if we wanted to use the data that they have?
+
+30
+00:00:45,780 --> 00:00:50,250
+How can we tap into it and use it in our own programs? Well,
+
+31
+00:00:50,280 --> 00:00:53,790
+that's where application programming interfaces come into play.
+
+32
+00:00:54,390 --> 00:00:58,320
+They all are a set of commands, functions, protocols, and objects
+
+33
+00:00:58,680 --> 00:01:03,680
+that programmers can use to create software or interact with an external system.
+
+34
+00:01:05,430 --> 00:01:06,720
+In the upcoming lessons
+
+35
+00:01:06,750 --> 00:01:11,280
+what we're going to be focusing on is this interacting with external systems.
+
+36
+00:01:11,970 --> 00:01:12,510
+Namely,
+
+37
+00:01:12,510 --> 00:01:17,510
+we're going to try and interact with various websites and pull live data from
+
+38
+00:01:17,910 --> 00:01:20,010
+those websites. Essentially,
+
+39
+00:01:20,010 --> 00:01:25,010
+the API is an interface or rather a sort of barrier between your program and an
+
+40
+00:01:26,940 --> 00:01:27,900
+external system.
+
+41
+00:01:28,530 --> 00:01:33,530
+And what you're trying to do is you're trying to use the rules that the API has
+
+42
+00:01:33,810 --> 00:01:38,810
+prescribed to make a request to the external system for some piece of data.
+
+43
+00:01:40,650 --> 00:01:42,810
+And if you have structured your request
+
+44
+00:01:43,080 --> 00:01:48,080
+according to all of the requirements that this external system has set out in
+
+45
+00:01:48,090 --> 00:01:48,923
+their API,
+
+46
+00:01:49,200 --> 00:01:54,200
+then they will respond to you appropriately and give you the data that you want.
+
+47
+00:01:56,940 --> 00:01:58,830
+But if you don't follow the rules,
+
+48
+00:01:59,040 --> 00:02:03,090
+then your request will be invalid and they will tell you to go away.
+
+49
+00:02:04,260 --> 00:02:09,120
+So if we think about the websites we saw before, Yahoo weather has a Yahoo
+
+50
+00:02:09,120 --> 00:02:10,050
+weather  API
+
+51
+00:02:10,110 --> 00:02:14,700
+which you can tap into using your programs or apps and get things like 10-day
+
+52
+00:02:14,700 --> 00:02:18,330
+forecast, wind, atmosphere, astronomy conditions,
+
+53
+00:02:18,750 --> 00:02:21,360
+and Coinbase has their own API,
+
+54
+00:02:21,420 --> 00:02:26,420
+which lets you tap into the current live prices of various cryptocurrencies.
+
+55
+00:02:28,020 --> 00:02:32,310
+And of course, the MBA also has an API for you to be able to get various
+
+56
+00:02:32,310 --> 00:02:37,310
+information that you're interested in on leagues, teams, players, games and a whole
+
+57
+00:02:37,830 --> 00:02:38,663
+bunch more.
+
+58
+00:02:39,630 --> 00:02:44,630
+So essentially, you can imagine these websites as the sort of restaurant,
+
+59
+00:02:44,910 --> 00:02:45,330
+right?
+
+60
+00:02:45,330 --> 00:02:50,330
+And the data that powers these websites as the kitchen behind the scenes.
+
+61
+00:02:51,570 --> 00:02:56,570
+We can't really go to a restaurant as a member of the public and just go in to
+
+62
+00:02:57,660 --> 00:03:01,150
+the kitchen and start raiding their cupboards. You can't, you know,
+
+63
+00:03:01,810 --> 00:03:05,830
+imagine going to your favorite Japanese restaurant and heading straight into the
+
+64
+00:03:05,830 --> 00:03:08,830
+kitchen for some of your favorite Kewpie mayonnaise.
+
+65
+00:03:08,980 --> 00:03:12,160
+That's not really appropriate. In a restaurant
+
+66
+00:03:12,190 --> 00:03:17,190
+we have a menu and this menu is kind of like the interface between you and the
+
+67
+00:03:18,670 --> 00:03:19,503
+restaurant.
+
+68
+00:03:19,690 --> 00:03:24,400
+It's the thing that tells you what you can order and what you can't.
+
+69
+00:03:24,760 --> 00:03:28,420
+So maybe you can get a cake, a sandwich or tea from the restaurant,
+
+70
+00:03:28,720 --> 00:03:32,380
+but you can't just go into the kitchen and demand whatever it is that you want.
+
+71
+00:03:33,180 --> 00:03:37,170
+Essentially an API is exactly that. It's the menu.
+
+72
+00:03:37,530 --> 00:03:41,850
+It's all of the things that you can do to interact with
+
+73
+00:03:42,210 --> 00:03:45,240
+an external system such as a website
+
+74
+00:03:45,240 --> 00:03:47,430
+that carries data like Yahoo
+
+75
+00:03:47,430 --> 00:03:51,330
+weather or the MBA website. In the coming lessons
+
+76
+00:03:51,360 --> 00:03:56,360
+we're going to be looking at how we can read the documentation for the API and
+
+77
+00:03:56,520 --> 00:03:59,820
+interact with them to be able to pull pieces of data that
+
+78
+00:03:59,880 --> 00:04:04,880
+we want in the moment that we want it. So for all of that and more,
+
+79
+00:04:05,310 --> 00:04:06,360
+I'll see on the next lesson.
+
+
+80
+00:00:00,150 --> 00:00:00,360
+Now,
+
+81
+00:00:00,360 --> 00:00:05,360
+one of the most important aspects of an API is the API endpoint.
+
+82
+00:00:07,110 --> 00:00:10,710
+And you can imagine that as a location, right?
+
+83
+00:00:10,740 --> 00:00:15,740
+So we said that if we want to get data from a particular external service,
+
+84
+00:00:16,079 --> 00:00:20,940
+then we need to know what location that data is stored. So for example,
+
+85
+00:00:20,970 --> 00:00:22,710
+if you wanted to get money out of a bank,
+
+86
+00:00:22,950 --> 00:00:27,360
+then you need to know where that bank is and what is its address.
+
+87
+00:00:28,200 --> 00:00:30,090
+And that, when it comes to API
+
+88
+00:00:30,090 --> 00:00:35,090
+lingo, is called the API endpoint. And that's usually just a URL.
+
+89
+00:00:35,940 --> 00:00:38,580
+So for example, if you wanted to get crypto data,
+
+90
+00:00:38,610 --> 00:00:41,700
+you might use api.coinbase.com.
+
+91
+00:00:42,270 --> 00:00:46,740
+This is the location where the Coinbase data can be found.
+
+92
+00:00:47,940 --> 00:00:51,630
+Now, in addition to knowing the API endpoint,
+
+93
+00:00:51,720 --> 00:00:54,900
+you also have to make a request over the internet.
+
+94
+00:00:55,530 --> 00:01:00,530
+This API request is kind of similar to going to the bank and trying to get some
+
+95
+00:01:00,870 --> 00:01:04,530
+money out, so trying to withdraw some data from their vault.
+
+96
+00:01:05,400 --> 00:01:09,270
+As you can imagine, the world would be completely chaotic
+
+97
+00:01:09,270 --> 00:01:12,900
+if everybody was allowed to just go into a bank and take out the amount of money
+
+98
+00:01:12,900 --> 00:01:15,810
+they need without any sort of checks and balances.
+
+99
+00:01:16,380 --> 00:01:20,490
+So that's why, in the bank, you have a bank teller
+
+100
+00:01:20,550 --> 00:01:25,550
+so somebody who is there to ask you, "Can I help you? What you want?" and to prevent you
+
+101
+00:01:26,730 --> 00:01:30,420
+from going to the vault by yourself. And to also call the police
+
+102
+00:01:30,420 --> 00:01:35,190
+if you try to do that. Now this bank teller is kind of acting like the API.
+
+103
+00:01:35,520 --> 00:01:40,520
+It's the interface between you and the external system or between you and the
+
+104
+00:01:41,310 --> 00:01:45,510
+bank vault. And you can make a number of requests to this lady.
+
+105
+00:01:45,900 --> 00:01:48,540
+You could, of course, ask her to give you some money,
+
+106
+00:01:48,570 --> 00:01:51,390
+but that obviously is going to involve checking your ID,
+
+107
+00:01:51,630 --> 00:01:55,860
+making sure that you have your account number and she'll have to do a whole
+
+108
+00:01:55,860 --> 00:01:56,693
+bunch of checks.
+
+109
+00:01:57,150 --> 00:02:01,230
+But you can also go into the bank and ask the bank teller for things that
+
+110
+00:02:01,230 --> 00:02:06,000
+doesn't require any form of authentication. For example, you can say,
+
+111
+00:02:06,030 --> 00:02:07,830
+well, what are your opening hours?
+
+112
+00:02:08,370 --> 00:02:11,370
+And this is the equivalent of making a very,
+
+113
+00:02:11,370 --> 00:02:16,370
+very simple get request where you just try to get a piece of data from a website
+
+114
+00:02:17,550 --> 00:02:19,890
+using their API. Now,
+
+115
+00:02:19,890 --> 00:02:23,970
+one of the simplest APIs that I like to introduce students to is the
+
+116
+00:02:23,970 --> 00:02:27,570
+international space station current location API.
+
+117
+00:02:28,350 --> 00:02:30,660
+This is the endpoint,
+
+118
+00:02:31,080 --> 00:02:35,850
+and you can see that it returns the output in the form of a JSON,
+
+119
+00:02:35,880 --> 00:02:38,400
+which we've already played around with quite a bit.
+
+120
+00:02:39,870 --> 00:02:42,990
+If you want to make a request to this API,
+
+121
+00:02:43,320 --> 00:02:47,880
+you can of course use your browser to do it. Just paste the end point,
+
+122
+00:02:47,880 --> 00:02:51,180
+which is a URL into the address bar.
+
+123
+00:02:51,510 --> 00:02:54,660
+And once you hit enter, you can see the result
+
+124
+00:02:54,690 --> 00:02:57,750
+come back in the format of a JSON.
+
+125
+00:02:58,380 --> 00:03:03,380
+And this describes the current ISS position in terms of its longitude and
+
+126
+00:03:04,570 --> 00:03:07,750
+latitude. If I refresh this,
+
+127
+00:03:07,870 --> 00:03:10,840
+then I will make a new request to this end point
+
+128
+00:03:11,230 --> 00:03:16,210
+and I will get a slightly different piece of data back because the ISS is moving
+
+129
+00:03:16,300 --> 00:03:20,040
+actually quite fast through the air. So every time you can see that
+
+130
+00:03:20,130 --> 00:03:23,000
+it's moved by a little bit. Now, if
+
+131
+00:03:23,160 --> 00:03:25,500
+reading the data like this is a bit difficult,
+
+132
+00:03:25,650 --> 00:03:30,270
+I recommend installing a free Chrome browser plugin quote, JSON Viewer
+
+133
+00:03:30,300 --> 00:03:31,133
+Awesome
+
+134
+00:03:31,410 --> 00:03:36,090
+and what it will do is whenever it sees JSON data being rendered in the
+
+135
+00:03:36,090 --> 00:03:36,923
+browser,
+
+136
+00:03:36,960 --> 00:03:41,960
+it will display it in a nice tree structure and it will look something like
+
+137
+00:03:42,240 --> 00:03:42,990
+this.
+
+138
+00:03:42,990 --> 00:03:47,370
+So you can collapse each of these parts and you can see that this is a
+
+139
+00:03:47,400 --> 00:03:52,020
+dictionary effectively with three items, timestamp, message, ISS position.
+
+140
+00:03:52,380 --> 00:03:54,570
+And then when you tap into the ISS position,
+
+141
+00:03:54,780 --> 00:03:56,640
+you can get the longitude and latitude.
+
+142
+00:03:57,570 --> 00:04:00,240
+Now we've already seen the JSON data format,
+
+143
+00:04:01,020 --> 00:04:04,020
+and we know that it was originally created for JavaScript,
+
+144
+00:04:04,320 --> 00:04:09,320
+but later became almost the standard way of transferring data across the
+
+145
+00:04:09,330 --> 00:04:12,120
+internet. And the reason for it is really simple.
+
+146
+00:04:12,420 --> 00:04:15,930
+If you take something like a Python dictionary, let's say you have a wardrobe,
+
+147
+00:04:15,960 --> 00:04:19,160
+right? It's kind of like you're going to Ikea. You spotted a wardrobe
+
+148
+00:04:19,170 --> 00:04:23,460
+you would like, but you don't want to carry this home in its entirety.
+
+149
+00:04:23,820 --> 00:04:28,260
+It might not even fit in your car. Well, what do you do? Well in Ikea,
+
+150
+00:04:28,320 --> 00:04:31,980
+at least the way they've solved it, is they sell you a flat pack.
+
+151
+00:04:32,250 --> 00:04:36,630
+So all the pieces flat against each other and you go home and you build it
+
+152
+00:04:36,630 --> 00:04:41,430
+yourself. This is the equivalent of a JSON. It's very minimalist,
+
+153
+00:04:41,730 --> 00:04:44,550
+it doesn't have a lot of spaces and a lot of indents.
+
+154
+00:04:44,850 --> 00:04:48,240
+It just has a couple of symbols to denote which are the keys,
+
+155
+00:04:48,270 --> 00:04:51,840
+which are the values, which are the separate key-value pairs.
+
+156
+00:04:52,230 --> 00:04:55,650
+And this can be transported across the internet very,
+
+157
+00:04:55,650 --> 00:04:59,640
+very quickly because of how small and flat it is. Now,
+
+158
+00:04:59,670 --> 00:05:01,620
+once you receive this JSON,
+
+159
+00:05:01,710 --> 00:05:06,710
+then you can reconstitute it back to your original Python dictionary or a
+
+160
+00:05:07,200 --> 00:05:11,010
+JavaScript object depending on what programming language you were working with.
+
+161
+00:05:11,370 --> 00:05:15,510
+And this is the equivalent of taking a screwdriver and putting it together that
+
+162
+00:05:15,510 --> 00:05:16,620
+Ikea furniture.
+
+163
+00:05:17,130 --> 00:05:22,130
+But luckily for you, this process is a lot less painful than putting together
+
+164
+00:05:22,470 --> 00:05:25,440
+Ikea furniture. It's actually super easy.
+
+165
+00:05:26,010 --> 00:05:27,750
+Let me demonstrate. Here
+
+166
+00:05:27,780 --> 00:05:32,780
+I've created a brand new project from scratch day-33 and inside my main.py
+
+167
+00:05:34,740 --> 00:05:39,740
+I'm going to try and make a request to the ISS location API.
+
+168
+00:05:41,430 --> 00:05:45,840
+So the first thing I need to do is I need to import a library to help me to do
+
+169
+00:05:45,840 --> 00:05:46,590
+that.
+
+170
+00:05:46,590 --> 00:05:51,590
+And the one that I'm going to import is called requests and note that there's an
+
+171
+00:05:51,720 --> 00:05:52,680
+'s' at the end.
+
+172
+00:05:53,310 --> 00:05:58,310
+And this has to be installed because it does not come prebuilt with Python.
+
+173
+00:05:58,880 --> 00:06:01,940
+So you can click on it, and then once you see the red light bulb,
+
+174
+00:06:01,970 --> 00:06:06,140
+click on it and get it to install the package called requests.
+
+175
+00:06:06,710 --> 00:06:09,800
+Once that's done, then you'll be able to use it. Now,
+
+176
+00:06:09,800 --> 00:06:13,820
+what we're going to do using this requests package is we're going to call one of
+
+177
+00:06:13,820 --> 00:06:15,740
+its methods called get.
+
+178
+00:06:16,130 --> 00:06:20,450
+So this is going to help us get the data that we want from the endpoint.
+
+179
+00:06:21,110 --> 00:06:24,710
+The endpoint goes in in an argument called the URL,
+
+180
+00:06:25,280 --> 00:06:29,390
+and we have the check the documentation to know what the endpoint is.
+
+181
+00:06:29,990 --> 00:06:33,890
+So in this case, if we want to get hold of the current location,
+
+182
+00:06:34,190 --> 00:06:36,770
+then this is the endpoint URL.
+
+183
+00:06:37,130 --> 00:06:41,690
+So we can simply copy it and paste it in here as a string.
+
+184
+00:06:43,100 --> 00:06:46,340
+Now, once we've gotten the data from this,
+
+185
+00:06:46,520 --> 00:06:51,050
+then it's going to be returned and we can capture it inside a new variable
+
+186
+00:06:51,050 --> 00:06:52,850
+which we'll call response.
+
+187
+00:06:53,540 --> 00:06:57,440
+So this is going to be equal to the response that we get back from this
+
+188
+00:06:57,440 --> 00:06:59,120
+particular website's API.
+
+189
+00:06:59,900 --> 00:07:02,630
+Now let's go ahead and print this response.
+
+190
+00:07:02,900 --> 00:07:07,310
+So let's run our project and making sure that you are connected to the internet
+
+191
+00:07:07,580 --> 00:07:11,630
+because this line of code is going to go across the internet and fetch this data
+
+192
+00:07:11,630 --> 00:07:14,450
+for us. We get back a response.
+
+193
+00:07:15,830 --> 00:07:20,630
+Now we have successfully made our very first API request from within our Python
+
+194
+00:07:20,630 --> 00:07:23,600
+code. However, when we print the response,
+
+195
+00:07:23,660 --> 00:07:28,660
+we don't see the JSON data like we did when we made the request directly inside
+
+196
+00:07:28,670 --> 00:07:33,230
+our browser. Instead, we see this number 200 printed here.
+
+197
+00:07:33,950 --> 00:07:37,250
+That is our response code. And in the next lesson,
+
+198
+00:07:37,340 --> 00:07:41,570
+we'll dive deeper into how to work with these responses and what exactly these
+
+199
+00:07:41,570 --> 00:07:42,800
+response codes mean.
+
+
+200
+00:00:00,900 --> 00:00:04,350
+So what are the response codes that we can get from an API?
+
+201
+00:00:04,890 --> 00:00:08,220
+Response codes actually have a very specific meaning,
+
+202
+00:00:08,400 --> 00:00:12,290
+but the most important thing they tell us is if our request succeeded or
+
+203
+00:00:12,590 --> 00:00:16,010
+if it failed. Now, if you've been using the internet for a while,
+
+204
+00:00:16,010 --> 00:00:20,630
+you've probably come across the 404 response code. And the 404
+
+205
+00:00:20,630 --> 00:00:24,230
+response code basically means that the thing that you're looking for doesn't
+
+206
+00:00:24,230 --> 00:00:28,880
+exist. And you can see various websites having fun with this 
+
+207
+00:00:28,880 --> 00:00:29,713
+404 page.
+
+208
+00:00:29,960 --> 00:00:33,530
+Basically when you're trying to retrieve something from a website and it doesn't
+
+209
+00:00:33,530 --> 00:00:36,650
+actually have the thing you're looking for, then this is the code you get.
+
+210
+00:00:37,100 --> 00:00:41,150
+But there's actually a lot more response codes other than just 404.
+
+211
+00:00:41,690 --> 00:00:42,650
+And in fact,
+
+212
+00:00:42,680 --> 00:00:46,700
+you could summarize these status codes just by looking at the first number.
+
+213
+00:00:47,240 --> 00:00:51,620
+If it is 100 and something, then it's telling you, hold on,
+
+214
+00:00:51,800 --> 00:00:54,050
+something's happening. This is not final.
+
+215
+00:00:54,410 --> 00:00:58,790
+If it's 200 something then it is saying, here you go. Everything was successful.
+
+216
+00:00:58,940 --> 00:01:00,980
+You should be getting the data you expected.
+
+217
+00:01:01,940 --> 00:01:06,800
+If it's 300 something then it usually means you don't actually have permission
+
+218
+00:01:06,800 --> 00:01:11,600
+to get this thing, so go away. 400 something, it means that 
+
+219
+00:01:11,630 --> 00:01:15,020
+you screwed up. Either it could be a 404
+
+220
+00:01:15,380 --> 00:01:16,910
+which means that you screwed up
+
+221
+00:01:16,970 --> 00:01:19,130
+and the thing you're looking for doesn't even exist,
+
+222
+00:01:19,610 --> 00:01:22,700
+or it could be 500 something, which means I,
+
+223
+00:01:22,760 --> 00:01:27,760
+as in the server that you are making the request to, screwed up. And maybe the
+
+224
+00:01:28,370 --> 00:01:32,720
+server is down, maybe the website is down or maybe there's some other issue.
+
+225
+00:01:33,620 --> 00:01:34,940
+So that's just a quick,
+
+226
+00:01:34,970 --> 00:01:38,870
+at a glance, sort of way of remembering what's actually happening
+
+227
+00:01:38,870 --> 00:01:40,970
+when you are getting these response codes.
+
+228
+00:01:42,110 --> 00:01:46,640
+Now you can actually dig deeper into this response object and you can get a
+
+229
+00:01:46,640 --> 00:01:49,310
+whole bunch of things from it. For example,
+
+230
+00:01:49,310 --> 00:01:54,020
+if you wanted to know the actual status code instead of just a response object,
+
+231
+00:01:54,350 --> 00:01:57,230
+then you can say response.status_code,
+
+232
+00:01:57,560 --> 00:02:01,040
+and you actually only get the status code. But notice how
+
+233
+00:02:01,040 --> 00:02:04,910
+if I change this URL and I make a typo in here,
+
+234
+00:02:05,240 --> 00:02:07,220
+instead of iss I have is,
+
+235
+00:02:07,580 --> 00:02:11,600
+then now I get a 404 as my response status code.
+
+236
+00:02:12,860 --> 00:02:17,300
+OK. So if we get the status code 200 then it means that we were successful.
+
+237
+00:02:17,780 --> 00:02:20,150
+But what do we do when we get a different status code?
+
+238
+00:02:20,420 --> 00:02:23,150
+What should our program do when the request fails?
+
+239
+00:02:23,690 --> 00:02:28,690
+We might be tempted to write code like this. By checking to see if the response
+
+240
+00:02:30,170 --> 00:02:33,620
+.status_code is not equal to 200,
+
+241
+00:02:33,920 --> 00:02:38,570
+we can actually figure out well, this means that there probably was an error.
+
+242
+00:02:39,260 --> 00:02:44,260
+Now it doesn't really make sense to just print out an error because the user who's
+
+243
+00:02:44,480 --> 00:02:47,930
+using our program might be expecting something to happen.
+
+244
+00:02:48,350 --> 00:02:52,700
+So in most, cases you might want to raise an exception instead.
+
+245
+00:02:52,700 --> 00:02:57,700
+You could say bad response from ISS API.
+
+246
+00:02:58,730 --> 00:03:02,230
+But we learned from our module on errors and exceptions,
+
+247
+00:03:02,560 --> 00:03:06,730
+this is not very good. Firstly, this is not a very specific exception.
+
+248
+00:03:07,090 --> 00:03:11,230
+It's going to raise a very general type of exception. And secondly,
+
+249
+00:03:11,260 --> 00:03:14,650
+all that we're catching is when the status code is not 200.
+
+250
+00:03:14,980 --> 00:03:19,240
+What if we wanted you to know specifically which status code we got back? Well,
+
+251
+00:03:19,240 --> 00:03:20,830
+we could, of course check well
+
+252
+00:03:20,840 --> 00:03:24,730
+if the response status code was equal to say
+
+253
+00:03:24,730 --> 00:03:29,730
+404, then we'll raise a particular type of exception that says that resource
+
+254
+00:03:31,870 --> 00:03:36,670
+does not exist. And then we can have,
+
+255
+00:03:36,700 --> 00:03:38,830
+um, an elif that says, well,
+
+256
+00:03:38,830 --> 00:03:42,940
+if the response status code was 401,
+
+257
+00:03:43,210 --> 00:03:48,210
+then that means that you should raise an exception because this particular code
+
+258
+00:03:50,170 --> 00:03:55,170
+only happens when you are not authorized to access this data.
+
+259
+00:03:58,660 --> 00:04:02,710
+Now there's a lot of status codes that you could be getting back.
+
+260
+00:04:03,040 --> 00:04:04,060
+And in the course
+
+261
+00:04:04,060 --> 00:04:08,680
+resources I'll link to this particular web page where it tells you all of the
+
+262
+00:04:08,680 --> 00:04:13,680
+possible codes that you could be getting and what it means. As you can imagine,
+
+263
+00:04:13,990 --> 00:04:16,959
+it's impossible for us to write this many
+
+264
+00:04:16,959 --> 00:04:21,880
+if statements checking for every single possibility. What do we do instead?
+
+265
+00:04:22,540 --> 00:04:26,680
+You can actually do away with all of this by getting the request module
+
+266
+00:04:26,950 --> 00:04:29,200
+to generate the exception instead.
+
+267
+00:04:29,860 --> 00:04:34,860
+The requests module is the most popular way for Python developers to work with
+
+268
+00:04:37,450 --> 00:04:42,310
+APIs. And you can see in their statistics just the number of stars,
+
+269
+00:04:42,340 --> 00:04:43,240
+number of forks,
+
+270
+00:04:43,870 --> 00:04:48,190
+and from these stats, you can see just how much active development there is and
+
+271
+00:04:48,220 --> 00:04:51,370
+how popular this particular module is. Now,
+
+272
+00:04:51,400 --> 00:04:53,560
+if you want to take a look at the documentation,
+
+273
+00:04:53,830 --> 00:04:58,240
+then you get taken to their website and it tells you all of the things that it
+
+274
+00:04:58,240 --> 00:05:01,750
+can do, which is quite a lot actually.
+
+275
+00:05:02,500 --> 00:05:04,450
+Now I won't read through all of this with you,
+
+276
+00:05:04,720 --> 00:05:08,170
+but if we take a look at one of the sections, Errors and Exceptions,
+
+277
+00:05:08,530 --> 00:05:13,530
+you can actually call raise for status on the response you get back in order
+
+278
+00:05:13,540 --> 00:05:15,490
+to raise a HTTP error
+
+279
+00:05:15,610 --> 00:05:18,790
+if the request returned an unsuccessful status code.
+
+280
+00:05:19,600 --> 00:05:24,600
+Basically instead of us trying to raise an exception for every single possible
+
+281
+00:05:24,670 --> 00:05:29,670
+status code and telling the developer what might be the reason, we can simply use
+
+282
+00:05:30,520 --> 00:05:35,520
+the request module by saying response.raise_for_status.
+
+283
+00:05:36,070 --> 00:05:40,840
+So now what you'll see is that if we don't get a 200
+
+284
+00:05:40,900 --> 00:05:45,220
+which is the pass-- Let's say I mess up this end point again,
+
+285
+00:05:45,610 --> 00:05:49,270
+then you'll see an exception being raised and it's telling us, look,
+
+286
+00:05:49,270 --> 00:05:53,590
+it's a 404 client error. This URL is not found.
+
+287
+00:05:54,970 --> 00:05:59,720
+So this request module is actually really powerful and we're going to see how to use
+
+288
+00:05:59,750 --> 00:06:03,170
+various aspects of it in the upcoming lessons.
+
+289
+00:06:03,680 --> 00:06:08,510
+But for now, the first thing we need to get hold of is the actual data from this
+
+290
+00:06:08,510 --> 00:06:11,270
+particular API. To do that,
+
+291
+00:06:11,450 --> 00:06:15,650
+we tap into our response and we get the JSON data.
+
+292
+00:06:16,010 --> 00:06:19,640
+So this is the actual data. And when I print it,
+
+293
+00:06:19,910 --> 00:06:24,320
+you can see that it looks exactly the same as what we got in our browser.
+
+294
+00:06:25,160 --> 00:06:28,730
+Coming back to our code where we have this JSON,
+
+295
+00:06:29,150 --> 00:06:33,440
+we can tap into it just like we would for any Python dictionary.
+
+296
+00:06:33,740 --> 00:06:38,740
+We could use some square brackets and then type in the name of a key that we're
+
+297
+00:06:39,170 --> 00:06:41,720
+interested in. For example,
+
+298
+00:06:41,720 --> 00:06:46,720
+if this was a Python dictionary and we wanted to know the iss_position,
+
+299
+00:06:47,360 --> 00:06:52,360
+then we would add the square brackets and then pass in iss_ position.
+
+300
+00:06:54,170 --> 00:06:56,450
+And now when we print data,
+
+301
+00:06:56,480 --> 00:07:01,370
+you can see it's now narrowed down and drilled into the position to give us this
+
+302
+00:07:01,370 --> 00:07:02,540
+longitude and latitude.
+
+303
+00:07:02,960 --> 00:07:07,880
+So we can go even further and tag on another set of square brackets and try to
+
+304
+00:07:07,880 --> 00:07:10,370
+get hold of, say the longitude.
+
+305
+00:07:11,390 --> 00:07:16,040
+And now we get that actual piece of data. There you have it.
+
+306
+00:07:16,070 --> 00:07:21,070
+We get access to the longitude by tapping into our data in the format of a JSON
+
+307
+00:07:22,610 --> 00:07:27,380
+and then getting the iss_position. And inside that dictionary,
+
+308
+00:07:27,560 --> 00:07:32,560
+we can get hold of the longitude. And we can do the same thing in order to get
+
+309
+00:07:33,050 --> 00:07:35,090
+hold of the latitude,
+
+310
+00:07:37,480 --> 00:07:38,170
+right?
+
+311
+00:07:38,170 --> 00:07:41,350
+But we would change the key of course, to latitude.
+
+312
+00:07:43,510 --> 00:07:48,510
+So now I'm going to create a tuple with the longitude and the latitude.
+
+313
+00:07:49,660 --> 00:07:51,850
+And now if I print it out,
+
+314
+00:07:51,880 --> 00:07:56,880
+you can see how I've managed to nicely format my code and get the pieces of
+
+315
+00:07:57,370 --> 00:08:02,320
+data that I want in order to be able to work with it in my project. Now,
+
+316
+00:08:02,350 --> 00:08:06,970
+if you wanna see where that particular latitude and longitude is on the world
+
+317
+00:08:06,970 --> 00:08:10,390
+map, then we can use a tool called latlong.net.
+
+318
+00:08:10,750 --> 00:08:15,580
+So if you go to geographic tools and go to latitude and longitude to address,
+
+319
+00:08:15,850 --> 00:08:20,850
+then you can paste in the longitude and latitude values that we got from
+
+320
+00:08:22,060 --> 00:08:26,470
+our API. And when we click convert, then you'll see on the map,
+
+321
+00:08:26,560 --> 00:08:30,340
+it shows where in the world the ISS is right now.
+
+322
+00:08:31,120 --> 00:08:35,799
+So at the moment, it's somewhere to the East of Japan over the Pacific ocean.
+
+323
+00:08:36,039 --> 00:08:40,120
+And of course, it's telling you no address found because I don't think anybody
+
+324
+00:08:40,120 --> 00:08:40,953
+lives right there.
+
+325
+00:08:41,830 --> 00:08:45,310
+So have a play around with that and make sure that you've fully understood
+
+326
+00:08:45,340 --> 00:08:50,340
+what's happening in these few lines of code and how we use the API endpoint to
+
+327
+00:08:50,710 --> 00:08:54,490
+get the data that we're showing up right here. In the next lesson
+
+328
+00:08:54,550 --> 00:08:55,720
+I've got a challenge for you.
+
+
+329
+00:00:00,270 --> 00:00:05,130
+Now that you've seen how you can make the most basic type of request to an API
+
+330
+00:00:05,130 --> 00:00:09,600
+endpoint, I want you to build a Kanye quote machine.
+
+331
+00:00:09,960 --> 00:00:14,880
+This is what it's going to look like and these are real Kanye quotes.
+
+332
+00:00:15,300 --> 00:00:17,970
+So every time you click on this button
+
+333
+00:00:18,000 --> 00:00:21,690
+which has a Kanye emoji, you can see
+
+334
+00:00:21,690 --> 00:00:23,220
+he'll say different things.
+
+335
+00:00:24,000 --> 00:00:29,000
+And some of the things he says are incredibly deep and other things are a little
+
+336
+00:00:29,730 --> 00:00:33,810
+bit weird. But we've created the starting file for this
+
+337
+00:00:34,080 --> 00:00:37,110
+so you don't have to spend a lot of time building up the UI.
+
+338
+00:00:37,470 --> 00:00:41,850
+All I want you to do is to figure out how to use the API
+
+339
+00:00:41,880 --> 00:00:43,950
+which is at kanye.rest
+
+340
+00:00:44,370 --> 00:00:49,020
+and this is the API endpoint. So you can test it out of course
+
+341
+00:00:49,020 --> 00:00:52,110
+in your browser just by putting it into the URL bar.
+
+342
+00:00:52,560 --> 00:00:57,560
+And you can see you get back a very simple JSON with just one key and one
+
+343
+00:00:58,530 --> 00:01:03,060
+value. And every time you run it, it'll give you a random quote.
+
+344
+00:01:03,900 --> 00:01:08,100
+Head over to the course resources and download the Kanye quote
+
+345
+00:01:08,130 --> 00:01:12,060
+starting file. And once you've unzipped it and opened it up,
+
+346
+00:01:12,330 --> 00:01:16,290
+you can see that there's the background.png, the kanye.png,
+
+347
+00:01:16,650 --> 00:01:21,650
+and there's all of the existing code that's required to generate this user
+
+348
+00:01:22,830 --> 00:01:26,220
+interface in tkinter. The point here is,
+
+349
+00:01:26,520 --> 00:01:28,530
+I know you can make tkinter apps,
+
+350
+00:01:28,830 --> 00:01:33,570
+but I want you to use the request module that you learned about just now in
+
+351
+00:01:33,570 --> 00:01:38,400
+order to get this function to work so that every time the Kanye button,
+
+352
+00:01:38,550 --> 00:01:43,080
+this one, is pressed, then we trigger this get_quote function.
+
+353
+00:01:43,500 --> 00:01:48,500
+And this is going to fetch the quote from the Kanye API here and fill it into
+
+354
+00:01:51,780 --> 00:01:56,490
+this quote_text on the canvas. Using what you've learned before
+
+355
+00:01:56,850 --> 00:02:00,990
+I think you can do this pretty quickly. So pause the video now and give it a go.
+
+356
+00:02:05,300 --> 00:02:05,810
+Yeah.
+
+357
+00:02:05,810 --> 00:02:07,070
+All right. So to begin,
+
+358
+00:02:07,130 --> 00:02:11,660
+we, of course, need to import our very important requests module,
+
+359
+00:02:12,290 --> 00:02:15,890
+and you need to install it if you see some red squiggly lines.
+
+360
+00:02:16,310 --> 00:02:20,210
+But if you see it grayed out like this then it means that we've already installed
+
+361
+00:02:20,210 --> 00:02:23,210
+it into the starting files. Now,
+
+362
+00:02:23,210 --> 00:02:25,580
+once we've got hold of that module,
+
+363
+00:02:25,640 --> 00:02:30,080
+then we can write some code here so that we get our function to work.
+
+364
+00:02:30,620 --> 00:02:35,540
+Now, what should happen when the user presses on the Kanye button? Well,
+
+365
+00:02:35,780 --> 00:02:38,690
+we have to fetch a new quote from the API.
+
+366
+00:02:39,290 --> 00:02:41,360
+This is the API endpoint
+
+367
+00:02:41,660 --> 00:02:46,660
+and we're going to use the requests module to make a request and get some data
+
+368
+00:02:47,930 --> 00:02:49,490
+from this API.
+
+369
+00:02:50,240 --> 00:02:54,170
+So this is the code that we used before to figure out where the ISS was.
+
+370
+00:02:54,680 --> 00:02:59,170
+And we're going to save this as the response. Now,
+
+371
+00:02:59,170 --> 00:03:01,060
+once we've got our response,
+
+372
+00:03:01,120 --> 00:03:05,260
+we're going to call response.raise_for_status.
+
+373
+00:03:05,290 --> 00:03:09,880
+So if we don't get a 200, which is everything is okay,
+
+374
+00:03:10,120 --> 00:03:13,300
+then we want to actually raise an exception. Now,
+
+375
+00:03:13,360 --> 00:03:17,830
+the next thing we're gonna do is I'm going to get my response to show me the
+
+376
+00:03:17,890 --> 00:03:21,370
+JSON data. And I'm gonna save that as the data.
+
+377
+00:03:22,030 --> 00:03:25,930
+And then if we take a look at what the response looks like,
+
+378
+00:03:26,230 --> 00:03:30,160
+then you can see it's just a single key-value pair
+
+379
+00:03:30,520 --> 00:03:35,050
+and the key is quote and the value is the random quote.
+
+380
+00:03:35,680 --> 00:03:40,680
+So we can get hold of the actual quote by simply tapping to our data and then
+
+381
+00:03:41,260 --> 00:03:45,730
+using square brackets to fetch the value under the key quote.
+
+382
+00:03:46,570 --> 00:03:48,610
+And once we've got that piece of text,
+
+383
+00:03:48,700 --> 00:03:53,080
+then we want to put it into our quote_text which is on our canvas.
+
+384
+00:03:53,560 --> 00:03:55,120
+And as you saw before,
+
+385
+00:03:55,150 --> 00:03:59,290
+the way we do this is we say canvas.itemconfig.
+
+386
+00:03:59,620 --> 00:04:03,700
+And the item we want to configure is, of course, our quote_text.
+
+387
+00:04:04,240 --> 00:04:07,810
+And the thing that we want to configure about it is its text.
+
+388
+00:04:08,170 --> 00:04:11,860
+And we're going to set it to equal this quote that we fetched just now.
+
+389
+00:04:13,060 --> 00:04:15,610
+So now if I run my code,
+
+390
+00:04:16,000 --> 00:04:19,120
+you can see my Kanye says app showing up,
+
+391
+00:04:19,540 --> 00:04:22,029
+and this is where the Kanye quote is going to go.
+
+392
+00:04:22,510 --> 00:04:27,510
+So if I click on Kanye, you can see how it shows all of his quotes.
+
+393
+00:04:29,230 --> 00:04:34,060
+So did you manage to get that? If not, be sure to head back to the last lesson and
+
+394
+00:04:34,120 --> 00:04:38,680
+take a closer look at how we formatted our request and our response.
+
+
+395
+00:00:00,120 --> 00:00:03,930
+We've seen how APIs can have endpoints and we said
+
+396
+00:00:03,930 --> 00:00:08,820
+that's equivalent to the address of the place that you want to get some data
+
+397
+00:00:08,820 --> 00:00:10,860
+from, or you want to communicate with.
+
+398
+00:00:11,430 --> 00:00:14,310
+But APIs also have something called parameters.
+
+399
+00:00:14,760 --> 00:00:19,760
+And this is a way that allows you to give an input when you are making your API
+
+400
+00:00:19,830 --> 00:00:23,310
+request so that you can get different pieces of data back,
+
+401
+00:00:23,460 --> 00:00:28,140
+depending on your input in the same way that we've given different inputs into
+
+402
+00:00:28,140 --> 00:00:31,170
+the same function in order to get a different outcome.
+
+403
+00:00:32,040 --> 00:00:36,570
+Coming back to our bank analogy, that's kinda similar to going to the bank
+
+404
+00:00:36,570 --> 00:00:40,740
+and instead of just asking them for what are your opening hours,
+
+405
+00:00:40,800 --> 00:00:45,060
+a sort of broad stroke question, you can also pass in a parameter.
+
+406
+00:00:45,480 --> 00:00:48,750
+For example, you could say, well, what time do you close on Monday?
+
+407
+00:00:49,110 --> 00:00:51,720
+Or what time do you close on Tuesday?
+
+408
+00:00:52,320 --> 00:00:56,010
+And this allows you to get these specific piece of information that you're
+
+409
+00:00:56,010 --> 00:01:00,870
+interested in depending on the input that you provided as a parameter.
+
+410
+00:01:01,980 --> 00:01:06,510
+Now, not all APIs have parameters. Some are incredibly simple,
+
+411
+00:01:06,540 --> 00:01:08,700
+like the ISS location API.
+
+412
+00:01:09,270 --> 00:01:12,240
+But other ones allow you to provide parameters.
+
+413
+00:01:12,660 --> 00:01:17,660
+And this is a sunrise and sunset API that gives you the time when the sun is
+
+414
+00:01:19,020 --> 00:01:21,630
+gonna rise and set wherever you may be.
+
+415
+00:01:22,110 --> 00:01:27,110
+So you have to obviously provide a location so that they can tell you when the
+
+416
+00:01:27,390 --> 00:01:30,480
+sun is going to rise and set at your position.
+
+417
+00:01:31,080 --> 00:01:35,490
+We can do that through two parameters, the latitude and the longitude.
+
+418
+00:01:36,030 --> 00:01:38,790
+And you'll notice that in the API documentation,
+
+419
+00:01:39,090 --> 00:01:42,810
+they will usually tell you how you should structure your parameter.
+
+420
+00:01:42,990 --> 00:01:44,160
+So for example, here
+
+421
+00:01:44,160 --> 00:01:48,210
+the latitude can be specified using a lat key,
+
+422
+00:01:48,630 --> 00:01:52,620
+and the longitude is lng as the longitude.
+
+423
+00:01:53,100 --> 00:01:57,750
+And they want those pieces of input as floating-point numbers. Now,
+
+424
+00:01:57,750 --> 00:02:02,750
+you also see that some parameters are required and others are optional. Just as
+
+425
+00:02:03,840 --> 00:02:07,680
+we can have optional and required parameters when we create functions,
+
+426
+00:02:07,950 --> 00:02:10,169
+you have the same thing in APIs.
+
+427
+00:02:11,039 --> 00:02:14,550
+The optional ones all have a default value.
+
+428
+00:02:15,180 --> 00:02:17,970
+For example, the date you could provide,
+
+429
+00:02:18,030 --> 00:02:23,030
+say you wanted to know the sunrise and sunset on a particular day in the future
+
+430
+00:02:23,130 --> 00:02:26,730
+or in the past, but you can also leave it empty
+
+431
+00:02:27,090 --> 00:02:29,370
+and it will default to the current date.
+
+432
+00:02:30,360 --> 00:02:34,680
+Now the endpoint in this case is this particular URL,
+
+433
+00:02:35,100 --> 00:02:39,990
+api.sunrise-sunset.org/json. But don't worry.
+
+434
+00:02:40,020 --> 00:02:44,580
+I'll also link to this documentation in the course resources as well.
+
+435
+00:02:45,390 --> 00:02:47,370
+Let's see how we can get this to work.
+
+436
+00:02:47,820 --> 00:02:52,820
+I'm gonna comment out all of the things that were related to our ISS location,
+
+437
+00:02:53,610 --> 00:02:58,610
+and I'm going to use this requests module in order to get the sunrise and sunset
+
+438
+00:02:59,560 --> 00:03:00,393
+times
+
+439
+00:03:00,460 --> 00:03:04,150
+because this is going to be really important when we're creating our final
+
+440
+00:03:04,150 --> 00:03:04,983
+project
+
+441
+00:03:05,290 --> 00:03:10,290
+because it's almost impossible to spot the ISS in the sky unless it's actually
+
+442
+00:03:11,260 --> 00:03:12,040
+dark.
+
+443
+00:03:12,040 --> 00:03:15,940
+So we need to know when the sun is going to go down and when the sun's going to
+
+444
+00:03:15,940 --> 00:03:18,040
+come back up in order for us to know
+
+445
+00:03:18,100 --> 00:03:22,720
+if the sky is actually dark enough for us to be able to spot the ISS
+
+446
+00:03:22,780 --> 00:03:27,040
+traveling in the sky. Let's go ahead and set up another response
+
+447
+00:03:27,100 --> 00:03:29,650
+which is going to be set up to a request.
+
+448
+00:03:30,040 --> 00:03:35,040
+And this request is going to get some information from this particular endpoint.
+
+449
+00:03:35,710 --> 00:03:40,360
+So let's copy that over and make sure that you leave out this final
+
+450
+00:03:40,600 --> 00:03:41,433
+full stop.
+
+451
+00:03:41,530 --> 00:03:45,070
+That's just a part of the sentence and not a part of the API endpoint.
+
+452
+00:03:45,970 --> 00:03:48,400
+So it should look something like this.
+
+453
+00:03:49,180 --> 00:03:53,530
+And then we're going to get our response to raise an exception if there was an
+
+454
+00:03:53,560 --> 00:03:58,300
+error status code. So anything other than 200, basically. Now, if I run this
+
+455
+00:03:58,300 --> 00:04:01,600
+as it is, you can see I already get an exception.
+
+456
+00:04:02,080 --> 00:04:04,630
+And the exception is a 400
+
+457
+00:04:05,110 --> 00:04:08,500
+which, if you remember, means bad request.
+
+458
+00:04:08,650 --> 00:04:13,650
+This server cannot or will not process the request because of something that they
+
+459
+00:04:13,750 --> 00:04:17,200
+think is your fault. In our case,
+
+460
+00:04:17,320 --> 00:04:22,320
+the thing that we've done badly is we haven't provided the required parameters.
+
+461
+00:04:23,320 --> 00:04:26,440
+So how is it supposed to tell us the sunrise and sunset times
+
+462
+00:04:26,830 --> 00:04:30,550
+if we don't tell it our location? Let's fix this.
+
+463
+00:04:31,030 --> 00:04:36,030
+Let's create a set of parameters and you can do this by simply creating a Python
+
+464
+00:04:38,170 --> 00:04:39,003
+dictionary.
+
+465
+00:04:39,400 --> 00:04:44,400
+Now the keys for the parameters must match the ones specified in the API
+
+466
+00:04:44,800 --> 00:04:45,760
+documentation.
+
+467
+00:04:46,180 --> 00:04:49,960
+So it's lat for latitude and lng for longitude.
+
+468
+00:04:50,560 --> 00:04:53,530
+So let's create those keys as strings,
+
+469
+00:04:54,100 --> 00:04:58,420
+and then we can provide our latitude and longitude.
+
+470
+00:04:59,830 --> 00:05:03,100
+So how do we know what is our latitude and longitude? Well,
+
+471
+00:05:03,100 --> 00:05:05,680
+we've got our good old friend latlong.net.
+
+472
+00:05:06,160 --> 00:05:11,110
+So here I can type a particular place name. So right now I'm in London.
+
+473
+00:05:11,470 --> 00:05:16,470
+And if I click find, it will find me on the map and it will tell me what is my
+
+474
+00:05:17,530 --> 00:05:19,720
+latitude and what is my longitude.
+
+475
+00:05:20,140 --> 00:05:24,490
+So let's copy these over and let's create them as constants.
+
+476
+00:05:24,730 --> 00:05:27,430
+So I'm going to have a MY_LAT
+
+477
+00:05:28,180 --> 00:05:31,750
+which is equal to this as a floating point number.
+
+478
+00:05:32,200 --> 00:05:34,180
+And then my longitude--
+
+479
+00:05:35,200 --> 00:05:38,710
+Remember to include any negative signs if you see it.
+
+480
+00:05:39,250 --> 00:05:42,850
+That's actually a part of the latitude longitude encoding.
+
+481
+00:05:43,480 --> 00:05:47,890
+So now I can set my lat key to the constant
+
+482
+00:05:47,920 --> 00:05:52,360
+MY_LAT and the longitude key to the constant MY_LONG.
+
+483
+00:05:52,390 --> 00:05:56,410
+So these are the values that I got from my latlong.net search and
+
+484
+00:05:57,200 --> 00:06:02,200
+then I formatted all of this into a dictionary using the keys that were
+
+485
+00:06:02,360 --> 00:06:05,780
+specified in the API documentation here.
+
+486
+00:06:06,470 --> 00:06:09,260
+Those are the only two required parameters.
+
+487
+00:06:09,710 --> 00:06:14,710
+So if we now add this in to our get requests under the argument called params,
+
+488
+00:06:17,060 --> 00:06:20,330
+then we're now able to run this request again
+
+489
+00:06:20,660 --> 00:06:23,870
+and you'll see that this time we don't get any exceptions.
+
+490
+00:06:24,200 --> 00:06:27,050
+So we can assume that everything went swimmingly.
+
+491
+00:06:28,130 --> 00:06:32,570
+The data that we get back is under the response.json.
+
+492
+00:06:32,930 --> 00:06:36,830
+So let's go ahead and print out that data and see what we managed to get.
+
+493
+00:06:37,760 --> 00:06:42,760
+We got a JSON as usual and the JSON contains the sunrise time and the sunset
+
+494
+00:06:43,700 --> 00:06:47,360
+time, in addition to other things like when is the solar noon,
+
+495
+00:06:47,510 --> 00:06:51,890
+how long is the day, what is the day length and so on and so forth.
+
+496
+00:06:52,280 --> 00:06:57,260
+So you can see this one is a lot longer than what we had before. Now,
+
+497
+00:06:57,290 --> 00:07:02,090
+the two pieces of information that we're interested in is just the sunrise and
+
+498
+00:07:02,090 --> 00:07:03,260
+sunset times.
+
+499
+00:07:03,860 --> 00:07:08,210
+If we want to view this JSON data in a nicely formatted way,
+
+500
+00:07:08,690 --> 00:07:13,690
+then we can do that by putting the full request into the browser URL bar. And the
+
+501
+00:07:15,350 --> 00:07:18,950
+way that you format parameters in a URL string
+
+502
+00:07:19,340 --> 00:07:22,640
+looks something like this. In the sample requests,
+
+503
+00:07:22,670 --> 00:07:26,660
+they've shown you that this part is the end point URL.
+
+504
+00:07:27,110 --> 00:07:31,100
+And then afterwards you can add a question mark to denote that you're going to
+
+505
+00:07:31,100 --> 00:07:32,660
+add some parameters.
+
+506
+00:07:33,200 --> 00:07:37,640
+And then you add each parameter with the key equal sign and then the value
+
+507
+00:07:38,030 --> 00:07:42,950
+and then you can tag on more parameters with the ampersand or the and symbol.
+
+508
+00:07:44,300 --> 00:07:47,570
+So let's try putting this into our browser bar.
+
+509
+00:07:48,020 --> 00:07:51,290
+So here's the latitude which we'll paste in here
+
+510
+00:07:51,620 --> 00:07:55,940
+and here's the longitude which we'll paste in here.
+
+511
+00:07:57,530 --> 00:08:01,040
+So now let's hit enter and you can see there our JSON Awesome
+
+512
+00:08:01,040 --> 00:08:05,750
+Viewer which we installed at the beginning of today's lessons is now active
+
+513
+00:08:06,020 --> 00:08:10,760
+and it's showing us all of this data in a much nicer format.
+
+514
+00:08:11,720 --> 00:08:16,720
+So we can see that this sunrise time that we're interested in is the value for the
+
+515
+00:08:16,730 --> 00:08:21,260
+key sunrise which is then inside of another key called results.
+
+516
+00:08:22,400 --> 00:08:26,900
+So we can use these two keys to pull out these specific pieces of data that
+
+517
+00:08:26,900 --> 00:08:29,960
+we're interested in. So we can get the sunrise
+
+518
+00:08:29,990 --> 00:08:34,070
+which is equal to data, and then square brackets
+
+519
+00:08:34,130 --> 00:08:35,330
+we put in the first key
+
+520
+00:08:35,440 --> 00:08:37,570
+which is results
+
+521
+00:08:37,720 --> 00:08:40,960
+with an s and then we can add the next key
+
+522
+00:08:40,990 --> 00:08:42,760
+which is sunrise.
+
+523
+00:08:43,360 --> 00:08:47,290
+And we can do the same thing for the sunset time.
+
+524
+00:08:48,910 --> 00:08:53,590
+And now if we print out our sunrise or our sunset time,
+
+525
+00:08:53,860 --> 00:08:58,110
+you can see its actually the exact piece of information that we're interested
+
+526
+00:08:58,110 --> 00:09:02,010
+in. Notice how this data is formatted
+
+527
+00:09:02,520 --> 00:09:06,480
+and it's giving us the time in a 12-hour format.
+
+528
+00:09:06,810 --> 00:09:09,960
+So it's going to have AM or PM tagged on at the end.
+
+529
+00:09:10,650 --> 00:09:15,650
+Now what we want to do is we want to be able to get the current time so we can
+
+530
+00:09:16,590 --> 00:09:21,590
+use the datetime module. From the datetime module, we'll import the date
+
+531
+00:09:23,040 --> 00:09:24,000
+time in class.
+
+532
+00:09:24,480 --> 00:09:29,480
+And then we can get the time now by tapping into that class and then calling the
+
+533
+00:09:31,290 --> 00:09:32,310
+now method.
+
+534
+00:09:33,000 --> 00:09:38,000
+But you'll notice that the format of time now is very different from our sunrise
+
+535
+00:09:38,940 --> 00:09:42,060
+and sunset time. Our sunrise and sunset time
+
+536
+00:09:42,090 --> 00:09:44,370
+are in the 12 hour format
+
+537
+00:09:44,700 --> 00:09:49,500
+whereas the time that we're getting back from datetime is in a 24-hour clock
+
+538
+00:09:49,710 --> 00:09:50,543
+format.
+
+539
+00:09:51,150 --> 00:09:55,860
+So how can we change this data that we're getting back from the sunrise and
+
+540
+00:09:55,860 --> 00:09:58,950
+sunset API? Well, back to the API
+
+541
+00:09:58,950 --> 00:10:03,360
+we go. Notice in one of the parameters, there is a parameter called
+
+542
+00:10:03,630 --> 00:10:06,810
+formatted which is an optional parameter,
+
+543
+00:10:07,260 --> 00:10:10,770
+but it can be turned off or on.
+
+544
+00:10:11,310 --> 00:10:12,540
+On is by default,
+
+545
+00:10:12,660 --> 00:10:17,660
+which means it's going to format it in a particular way with the 12-hour clock.
+
+546
+00:10:18,330 --> 00:10:20,940
+But if you switch off the formatting,
+
+547
+00:10:21,330 --> 00:10:26,330
+then it will give you the Unix time in this particular format and this will be a
+
+548
+00:10:28,470 --> 00:10:33,270
+24-hour clock. So here's your challenge.
+
+549
+00:10:33,690 --> 00:10:38,690
+Go ahead and change the parameters that you have and make sure that the data
+
+550
+00:10:39,510 --> 00:10:44,070
+that we get back is not formatted, so it's set to zero.
+
+551
+00:10:44,610 --> 00:10:49,350
+Pause the video and complete this challenge. Alright,
+
+552
+00:10:49,590 --> 00:10:54,590
+all we have to do is to add one more parameter to this dictionary and the
+
+553
+00:10:54,630 --> 00:10:59,630
+parameter must have a key that matches the one specified in the documentation,
+
+554
+00:11:00,480 --> 00:11:05,070
+so I'm just going to copy that over, and then we're going to set this to 0
+
+555
+00:11:05,100 --> 00:11:08,790
+for off. So now if we rerun our code,
+
+556
+00:11:08,970 --> 00:11:13,050
+you can see the data we're getting back is now in Unix time
+
+557
+00:11:13,260 --> 00:11:16,320
+which is a 12-hour format time.
+
+558
+00:11:16,920 --> 00:11:19,620
+So currently where I am in London
+
+559
+00:11:20,070 --> 00:11:25,050
+the sunrise time is actually quite early, it's at four o'clock in the morning.
+
+560
+00:11:25,590 --> 00:11:28,500
+So notice how the first part is the date
+
+561
+00:11:28,830 --> 00:11:32,220
+and then we have a T and then after that we've got the time.
+
+562
+00:11:33,420 --> 00:11:38,070
+What we want to be able to do is to compare this part from our sunrise
+
+563
+00:11:38,070 --> 00:11:42,750
+sunset API against this part from our datetime API.
+
+564
+00:11:43,170 --> 00:11:47,730
+So how can we just isolate the hour number from each of these?
+
+565
+00:11:48,930 --> 00:11:52,500
+Well, we can use a Python method called split,
+
+566
+00:11:53,320 --> 00:11:55,030
+and you've seen this before.
+
+567
+00:11:55,360 --> 00:12:00,360
+Basically you have to provide a separator and it will split a string by that
+
+568
+00:12:01,960 --> 00:12:06,760
+separator creating a list. So if you click on this, try this yourself,
+
+569
+00:12:07,030 --> 00:12:12,030
+you can see that this string becomes this list by splitting that string with the
+
+570
+00:12:13,630 --> 00:12:17,080
+pound sign separator. Now, in our case,
+
+571
+00:12:17,110 --> 00:12:21,550
+the separator that we want to separate by is firstly,
+
+572
+00:12:21,610 --> 00:12:23,620
+to split it by this T,
+
+573
+00:12:24,220 --> 00:12:29,220
+which is going to give us this part as the first item in the list and this part
+
+574
+00:12:29,770 --> 00:12:31,330
+as the second item in the list.
+
+575
+00:12:31,900 --> 00:12:36,900
+And then we can take the second part and then split it by the colon and then we can
+
+576
+00:12:37,150 --> 00:12:41,080
+get this first part of the list. So here's how we would do it.
+
+577
+00:12:41,590 --> 00:12:44,650
+So we can say sunrise.split
+
+578
+00:12:45,340 --> 00:12:49,270
+and then the separator we want to use was that capital T.
+
+579
+00:12:49,930 --> 00:12:51,340
+Now if I hit print,
+
+580
+00:12:51,370 --> 00:12:56,370
+you can see we've got a list that is now separated with two things on either
+
+581
+00:12:57,040 --> 00:13:01,360
+side of the T. So let me just comment out the time now
+
+582
+00:13:01,660 --> 00:13:05,320
+and we've got the sunrise and the sunrise split next to each other.
+
+583
+00:13:05,770 --> 00:13:07,300
+So that T is removed
+
+584
+00:13:07,450 --> 00:13:11,770
+and the two things on either side have become two items in our list.
+
+585
+00:13:12,460 --> 00:13:14,740
+Now we want to split this part further.
+
+586
+00:13:15,130 --> 00:13:19,330
+We can get this item by tapping into the item at index one,
+
+587
+00:13:19,360 --> 00:13:20,193
+so 0, 1,
+
+588
+00:13:20,740 --> 00:13:25,480
+and then we can split this even further by tagging on another split function.
+
+589
+00:13:26,200 --> 00:13:31,120
+Here, we can split it by the colon. So let's go ahead 
+
+590
+00:13:31,120 --> 00:13:32,980
+and provide that as the input.
+
+591
+00:13:33,610 --> 00:13:38,610
+And now you can see the result we get back is this. We've split the part that
+
+592
+00:13:40,330 --> 00:13:44,560
+comes after the T by the colon and we've got 04,
+
+593
+00:13:44,560 --> 00:13:47,860
+03, 32+00, and then 00.
+
+594
+00:13:48,310 --> 00:13:50,200
+This is clearly the item we want
+
+595
+00:13:50,230 --> 00:13:53,890
+so all we have to do is just to add a zero at the end.
+
+596
+00:13:54,490 --> 00:13:56,650
+And now we've got the actual 
+
+597
+00:13:56,740 --> 00:14:01,420
+hour in the 24-hour clock formatted from our sunrise time.
+
+598
+00:14:02,260 --> 00:14:03,700
+You could in fact,
+
+599
+00:14:03,760 --> 00:14:08,760
+just simply take all of this part after the sunrise and tag it onto the end of
+
+600
+00:14:08,950 --> 00:14:13,950
+this line and also this line so that we actually get the sunrise and sunset
+
+601
+00:14:14,350 --> 00:14:19,000
+times in terms of the 24-hour clock, like this.
+
+602
+00:14:20,380 --> 00:14:25,380
+Now we're perfectly poised to start comparing it against the time that we're
+
+603
+00:14:26,230 --> 00:14:27,310
+getting right now.
+
+604
+00:14:27,970 --> 00:14:32,740
+So we can take our time now and tap into the actual hour,
+
+605
+00:14:33,310 --> 00:14:37,300
+and you can see now that we've got our sunrise, which is this first number,
+
+606
+00:14:37,630 --> 00:14:39,730
+sunset, which is the second number,
+
+607
+00:14:40,120 --> 00:14:45,120
+and the third number is the current clock time in terms of the 24-hour clock.
+
+608
+00:14:46,540 --> 00:14:49,810
+So in order to figure out whether if it is day or night,
+
+609
+00:14:50,110 --> 00:14:54,200
+all we have to do is compare this number against these other two.
+
+610
+00:14:55,160 --> 00:14:56,360
+Now in the next lesson,
+
+611
+00:14:56,390 --> 00:15:00,920
+we're going to finish off this project and put everything together in order to
+
+612
+00:15:00,920 --> 00:15:05,870
+get an email when the ISS is passing overhead and it's currently nighttime.
+
+613
+00:15:06,320 --> 00:15:08,630
+So for all of that and more, I'll see you there.
+
+
+614
+00:00:00,180 --> 00:00:03,390
+All right. Congratulations on reaching the final project for the day.
+
+615
+00:00:03,719 --> 00:00:08,010
+Head on over to the course resources and download the starting files for the ISS
+
+616
+00:00:08,039 --> 00:00:09,900
+overhead notifier project.
+
+617
+00:00:10,650 --> 00:00:13,230
+If you followed along with all the lessons today,
+
+618
+00:00:13,290 --> 00:00:18,290
+then you've seen how we can get data from a particular API by simply just
+
+619
+00:00:19,860 --> 00:00:24,720
+providing an endpoint. So this is the simplest type of API calls.
+
+620
+00:00:25,500 --> 00:00:30,450
+And then you saw how we could pass, along with the API call, a set of parameters
+
+621
+00:00:30,720 --> 00:00:35,720
+in the form of a Python dictionary in order to get a specific piece of data that
+
+622
+00:00:35,760 --> 00:00:40,320
+we want based on the parameters that we pass over. So in this case,
+
+623
+00:00:40,320 --> 00:00:44,220
+it was the sunrise and sunset time of our local area.
+
+624
+00:00:45,150 --> 00:00:45,930
+Now later on,
+
+625
+00:00:45,930 --> 00:00:50,340
+I showed you how we can split the string that we get back from the sunrise and
+
+626
+00:00:50,340 --> 00:00:54,840
+sunset times in order to get the particular numbers that we're interested in,
+
+627
+00:00:55,140 --> 00:01:00,140
+which is the time of the sunrise and sunset in the 24-hour clock format.
+
+628
+00:01:01,290 --> 00:01:03,450
+Now it's time to put all of this together.
+
+629
+00:01:03,720 --> 00:01:08,370
+If the ISS is close to my current position and it's currently dark,
+
+630
+00:01:08,430 --> 00:01:13,140
+so basically it's nighttime, then send me an email to tell me to look up.
+
+631
+00:01:13,650 --> 00:01:17,310
+That's the objective of the challenge. However, as a bonus challenge,
+
+632
+00:01:17,460 --> 00:01:21,480
+see if you can further modify the code so that it runs every 60 seconds
+
+633
+00:01:21,600 --> 00:01:23,400
+if the ISS is overhead.
+
+634
+00:01:24,300 --> 00:01:29,130
+These are the three things that we need to achieve. And just as a quick tip
+
+635
+00:01:29,130 --> 00:01:30,240
+before you get started,
+
+636
+00:01:30,540 --> 00:01:35,540
+remember that the sunrise and sunset times are both in the format of strings.
+
+637
+00:01:36,630 --> 00:01:40,650
+So if you want to be able to work with them to compare to time
+
+638
+00:01:40,650 --> 00:01:44,760
+now, you also have to change this to an integer.
+
+639
+00:01:45,900 --> 00:01:50,520
+Now, the second tip I've got is that the ISS position,
+
+640
+00:01:50,580 --> 00:01:54,840
+the longitude and latitude that you get back, will be decimal numbers,
+
+641
+00:01:55,110 --> 00:01:57,360
+but it is currently in the format of a string.
+
+642
+00:01:57,750 --> 00:02:01,500
+So you'll need to convert that into a floating-point number
+
+643
+00:02:01,830 --> 00:02:06,660
+if you want to compare it against your current position. Now,
+
+644
+00:02:06,690 --> 00:02:09,449
+when we're checking whether if the ISS is overhead,
+
+645
+00:02:09,660 --> 00:02:14,070
+we want to have a margin of error. It doesn't have to be right above me,
+
+646
+00:02:14,460 --> 00:02:19,380
+precise to this number of decimal points. It can be plus or minus five.
+
+647
+00:02:19,380 --> 00:02:24,380
+So if the ISS's latitude with anywhere between say 56 and,
+
+648
+00:02:24,990 --> 00:02:28,890
+um, 51 minus five, which is 46,
+
+649
+00:02:29,190 --> 00:02:32,940
+then that's perfectly fine. That means I'll still be able to see it.
+
+650
+00:02:33,510 --> 00:02:37,380
+Take a look and find your own latitude and your own longitude
+
+651
+00:02:37,740 --> 00:02:42,120
+and see if you can figure out how to compare that against the ISS's a latitude
+
+652
+00:02:42,120 --> 00:02:46,980
+and longitude and adding in that degree of error. In fact,
+
+653
+00:02:47,010 --> 00:02:51,450
+consider creating a function that returns true if your position is within plus five
+
+654
+00:02:51,780 --> 00:02:56,280
+or minus five degrees of the ISS position and false otherwise.
+
+655
+00:02:57,150 --> 00:03:02,150
+So you should now have all the capabilities to complete this challenge.
+
+656
+00:03:02,740 --> 00:03:03,573
+Pause the video,
+
+657
+00:03:03,880 --> 00:03:07,570
+give that a little bit of a think and see if you can complete the challenge.
+
+658
+00:03:08,970 --> 00:03:09,803
+Thank you.
+
+659
+00:03:12,600 --> 00:03:13,140
+All right. What
+
+660
+00:03:13,140 --> 00:03:18,140
+we want to do up here is we wanna compare the ISS's position against our
+
+661
+00:03:19,140 --> 00:03:20,580
+position. Now,
+
+662
+00:03:20,580 --> 00:03:25,580
+what we want to check is to see if our position is within plus or minus five
+
+663
+00:03:27,570 --> 00:03:32,250
+degrees of the ISS position. So let's take one part of that position,
+
+664
+00:03:32,280 --> 00:03:33,810
+the ISS's latitude
+
+665
+00:03:34,350 --> 00:03:38,670
+and we want to check to see if it is close to my latitude.
+
+666
+00:03:39,300 --> 00:03:41,550
+If my latitude is currently 51,
+
+667
+00:03:41,910 --> 00:03:45,210
+then 51 minus five would be 46.
+
+668
+00:03:45,570 --> 00:03:50,570
+So we can check to see if 46 is less than or equal to the ISIS latitude.
+
+669
+00:03:51,540 --> 00:03:56,130
+And then if the ISS latitude is less than or equal to 51 plus five,
+
+670
+00:03:56,130 --> 00:03:59,520
+which is 56. Then if this is true,
+
+671
+00:03:59,760 --> 00:04:03,810
+it means that this value is in between these two values.
+
+672
+00:04:04,260 --> 00:04:07,920
+So let's replace these numbers with my actual latitude.
+
+673
+00:04:08,280 --> 00:04:10,260
+So MY_LAT - 5
+
+674
+00:04:10,560 --> 00:04:13,440
+and then MY_LAT + 5.
+
+675
+00:04:15,150 --> 00:04:19,350
+And then we have to make sure that it's also true for the longitude.
+
+676
+00:04:19,709 --> 00:04:21,720
+So we're going to do basically the same thing,
+
+677
+00:04:21,720 --> 00:04:24,120
+but this time using my longitude.
+
+678
+00:04:24,450 --> 00:04:29,100
+So in my longitude minus five is less than or equal to the ISS's longitude
+
+679
+00:04:29,580 --> 00:04:30,990
+and the ISS longitude
+
+680
+00:04:31,010 --> 00:04:35,190
+should be less than or equal to my longitude plus five.
+
+681
+00:04:35,850 --> 00:04:37,740
+If both of these things are true,
+
+682
+00:04:37,770 --> 00:04:42,660
+then my position is pretty much within plus or minus five degrees of the ISS.
+
+683
+00:04:44,550 --> 00:04:48,030
+At this point, I should probably create some sort of a function for this.
+
+684
+00:04:48,030 --> 00:04:52,380
+So I could say is_iss_overhead.
+
+685
+00:04:53,520 --> 00:04:58,260
+And I can indent all of this into that function.
+
+686
+00:04:58,620 --> 00:05:02,610
+And if this happens to be true, I'm going to return true.
+
+687
+00:05:03,660 --> 00:05:05,460
+This part deals with checking
+
+688
+00:05:05,490 --> 00:05:09,990
+whether if the ISS is at a similar position to my position,
+
+689
+00:05:10,620 --> 00:05:14,250
+the next part deals with figuring out whether if it's nighttime or not.
+
+690
+00:05:14,790 --> 00:05:15,540
+So again,
+
+691
+00:05:15,540 --> 00:05:20,190
+let's create a function and I'll call it is_night.
+
+692
+00:05:21,330 --> 00:05:26,190
+And this function is going to return true when it is actually nighttime. In
+
+693
+00:05:26,190 --> 00:05:28,290
+order to figure out whether if it is nighttime,
+
+694
+00:05:28,890 --> 00:05:33,870
+then we're going to get a response - so there's a typo there -
+
+695
+00:05:36,210 --> 00:05:40,020
+from our request to the sunrise-sunset API
+
+696
+00:05:40,290 --> 00:05:44,400
+passing in all of these parameters which contain my current location.
+
+697
+00:05:44,970 --> 00:05:46,860
+And then from the data we get back,
+
+698
+00:05:46,890 --> 00:05:51,330
+we figure out the sunrise and sunset time by formatting that string
+
+699
+00:05:51,600 --> 00:05:53,820
+and then turning it into an integer
+
+700
+00:05:54,090 --> 00:05:59,090
+which is going to represent the current hour in the 24-hour time format.
+
+701
+00:05:59,870 --> 00:06:01,670
+So then we figure out, well,
+
+702
+00:06:01,670 --> 00:06:06,200
+what is the current time using the datetime module?
+
+703
+00:06:06,680 --> 00:06:09,080
+And we can check to see, well,
+
+704
+00:06:09,350 --> 00:06:14,350
+if the time now is greater than or equal to the sunset time,
+
+705
+00:06:14,900 --> 00:06:18,470
+or if the time now is less than or equal to the sunrise time,
+
+706
+00:06:18,770 --> 00:06:20,420
+then it means it's dark.
+
+707
+00:06:22,550 --> 00:06:27,550
+So now we're getting a warning telling us that this time now is a datetime
+
+708
+00:06:28,280 --> 00:06:33,080
+object, but the sunset and sunrise are whole numbers or integers.
+
+709
+00:06:33,680 --> 00:06:37,340
+So what's happened well? Datetime now is, in fact,
+
+710
+00:06:37,370 --> 00:06:38,960
+the current date and time,
+
+711
+00:06:39,320 --> 00:06:44,320
+but what we actually want is the current hour and that converts it into an
+
+712
+00:06:44,360 --> 00:06:46,670
+integer making this comparison valid.
+
+713
+00:06:47,270 --> 00:06:50,360
+So if it is currently nighttime,
+
+714
+00:06:50,600 --> 00:06:55,370
+then we're going to return true. And if the ISS is overhead,
+
+715
+00:06:55,430 --> 00:07:00,290
+then we're also going to return true. So now we've done these two parts,
+
+716
+00:07:00,410 --> 00:07:04,070
+all that's left to do is once both of these things are true
+
+717
+00:07:04,430 --> 00:07:08,060
+we can send ourselves an email to tell us to look up.
+
+718
+00:07:08,660 --> 00:07:13,660
+So if the ISS is overhead and it is currently nighttime,
+
+719
+00:07:15,260 --> 00:07:18,020
+then we're going to initiate our email sending
+
+720
+00:07:18,110 --> 00:07:21,020
+which is going to require our smtplib.
+
+721
+00:07:21,590 --> 00:07:25,850
+And I'm also going to add my email and password as constants up here.
+
+722
+00:07:27,950 --> 00:07:30,230
+And now we can create our connection
+
+723
+00:07:33,050 --> 00:07:35,630
+and I'm using again a Gmail server.
+
+724
+00:07:35,660 --> 00:07:40,340
+So it's going to be smtp.gmail.com.
+
+725
+00:07:40,790 --> 00:07:44,450
+So we went through all of this when we talked about email in detail.
+
+726
+00:07:44,720 --> 00:07:46,850
+So I won't waste time talking about it again,
+
+727
+00:07:47,680 --> 00:07:48,513
+right?
+
+728
+00:07:50,080 --> 00:07:55,080
+I'm going to send this email from my own address and also to my own address
+
+729
+00:07:55,780 --> 00:08:00,780
+because after all I'm just making a notification for myself. And the message in this
+
+730
+00:08:02,080 --> 00:08:07,080
+case is going to have the subject line of look up and I can even add an emoji
+
+731
+00:08:09,910 --> 00:08:10,743
+here.
+
+732
+00:08:12,970 --> 00:08:16,570
+And then the content is going to say
+
+733
+00:08:16,570 --> 00:08:20,740
+The ISS is above you in the sky.
+
+734
+00:08:22,780 --> 00:08:25,690
+That's it. That's all there is to this. Now,
+
+735
+00:08:25,720 --> 00:08:30,220
+it'd be quite hard to test this code because we have to wait for the perfect
+
+736
+00:08:30,250 --> 00:08:35,250
+condition before all of these things will actually be true. While this is the end
+
+737
+00:08:36,190 --> 00:08:37,600
+of the challenge for you,
+
+738
+00:08:37,900 --> 00:08:41,380
+there's one thing I want to change with this code to make it a little bit
+
+739
+00:08:41,380 --> 00:08:42,212
+better.
+
+740
+00:08:42,429 --> 00:08:46,450
+We can actually put this if statement inside a while loop.
+
+741
+00:08:46,900 --> 00:08:50,380
+So we could say while true,
+
+742
+00:08:50,440 --> 00:08:53,860
+which means this loop is going to go again and again, and again,
+
+743
+00:08:53,890 --> 00:08:56,730
+checking if the ISS is overhead and it's at night.
+
+744
+00:08:57,090 --> 00:09:00,750
+Now this is going to happen quite frequently because its in a while loop,
+
+745
+00:09:01,050 --> 00:09:04,260
+but we can slow it down by using the time module.
+
+746
+00:09:04,590 --> 00:09:09,590
+So we could import the time module and then say time.sleep
+
+747
+00:09:11,130 --> 00:09:11,630
+and we can get
+
+748
+00:09:11,630 --> 00:09:16,630
+it to sleep for 60 seconds or however much long you want to wait between
+
+749
+00:09:17,480 --> 00:09:20,990
+running the script. So now if you hit run,
+
+750
+00:09:21,740 --> 00:09:25,850
+you won't see that final code where it tells you that your program is done
+
+751
+00:09:25,850 --> 00:09:26,683
+running.
+
+752
+00:09:26,780 --> 00:09:31,400
+It's actually continuously running in the background and it's going to execute
+
+753
+00:09:31,400 --> 00:09:33,800
+this code every 60 seconds.
+
+754
+00:09:34,160 --> 00:09:37,250
+So as long as you have your computer on and this is running,
+
+755
+00:09:37,610 --> 00:09:41,180
+then you can run this for a whole 24 hours. And I'll bet you
+
+756
+00:09:41,180 --> 00:09:42,290
+at some point in the night,
+
+757
+00:09:42,320 --> 00:09:46,070
+you'll get two or three emails telling you that the ISS is overhead.
+
+758
+00:09:46,280 --> 00:09:50,600
+So all you have to monitor is just to switch your notifications on on your phone
+
+759
+00:09:50,990 --> 00:09:54,530
+and when that email comes in to look up into the sky.
+
+760
+00:09:55,850 --> 00:09:58,760
+So I hope you enjoyed building this project with me
+
+761
+00:09:58,880 --> 00:10:02,240
+and I hope that you're going to be able to spot the ISS tonight.
+
+762
+00:10:02,900 --> 00:10:05,930
+If you do, take a video and let us know what it looks like.
+
+

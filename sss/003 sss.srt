@@ -1,0 +1,5356 @@
+1
+00:00:00,060 --> 00:00:02,520
+Hey guys, welcome to Day 3.
+
+2
+00:00:02,910 --> 00:00:05,820
+Today you can learn all about conditional statements,
+
+3
+00:00:05,910 --> 00:00:10,890
+if else, else if, logical operators, code blocks, scope,
+
+4
+00:00:11,190 --> 00:00:14,520
+global and local name spacing and a whole lot more.
+
+5
+00:00:15,180 --> 00:00:20,180
+And by the end of the day you will know enough to be able to build this awesome
+
+6
+00:00:20,250 --> 00:00:21,870
+Choose your own adventure game.
+
+7
+00:00:22,530 --> 00:00:27,530
+So this is what it looks like when it loads and our mission is to find the
+
+8
+00:00:28,200 --> 00:00:31,770
+treasure. So it tells us your at a crossroad, where do you want to go?
+
+9
+00:00:31,800 --> 00:00:35,910
+Left or right? Let's say I want to go left. You come to a Lake,
+
+10
+00:00:35,940 --> 00:00:37,920
+there's an Island in the middle of the Lake. Type
+
+11
+00:00:37,920 --> 00:00:42,870
+wait to wait for a boat, type swim to swim across. I'm going to wait for a boat.
+
+12
+00:00:43,980 --> 00:00:47,760
+You arrive at the Island unharmed, there's a house with three doors, one red,
+
+13
+00:00:47,790 --> 00:00:50,580
+one yellow and one blue. Which color do you choose?
+
+14
+00:00:50,760 --> 00:00:55,760
+Let's choose red. And unfortunately, it's a room full of fire. Game over.
+
+15
+00:00:57,090 --> 00:01:01,170
+So this game lets the user make decisions and depending on what they've chosen,
+
+16
+00:01:01,230 --> 00:01:05,489
+it continues the game storyline. If you want to have a go at this game,
+
+17
+00:01:05,730 --> 00:01:07,560
+you can head over to treasure-island
+
+18
+00:01:07,620 --> 00:01:12,620
+-end.appbrewery.repl.run and have a play around with the game.
+
+19
+00:01:13,050 --> 00:01:14,040
+And once you're ready,
+
+20
+00:01:14,070 --> 00:01:17,160
+head over to the next lesson and we're going to start picking up the skills
+
+21
+00:01:17,400 --> 00:01:19,830
+that's going to be required in order to build this game.
+
+22
+00:01:20,430 --> 00:01:22,230
+So I'll see you on the next lesson.
+
+1
+00:00:00,340 --> 00:00:04,180
+Here's a question. Have you ever sat in your bath and wondered,
+
+2
+00:00:04,540 --> 00:00:07,750
+why is it that no matter how forgetful I am,
+
+3
+00:00:08,140 --> 00:00:10,450
+my bath never overflows like this?
+
+4
+00:00:10,690 --> 00:00:14,230
+This is something I was thinking about the other day and I realized that it's
+
+5
+00:00:14,260 --> 00:00:19,180
+not because I'm particularly diligent. I forget stuff all the time. I mean,
+
+6
+00:00:19,300 --> 00:00:24,190
+pizza, anyone? This is what my pizzas usually look like. Um,
+
+7
+00:00:24,490 --> 00:00:29,490
+but the reason why a bathtub or the sink doesn't overflow is because of this
+
+8
+00:00:30,490 --> 00:00:34,270
+fantastic piece of engineering, the overflow.
+
+9
+00:00:34,810 --> 00:00:39,810
+So this means that whenever the water reaches beyond a certain level about here,
+
+10
+00:00:40,810 --> 00:00:43,240
+the water starts overflowing
+
+11
+00:00:43,270 --> 00:00:47,740
+so the bathtub doesn't overflow and annoy your neighbors downstairs.
+
+12
+00:00:48,340 --> 00:00:53,110
+In fact, we could represent this mechanism with a conditional statement.
+
+13
+00:00:53,680 --> 00:00:57,820
+When the water level is say greater than 80 centimeters,
+
+14
+00:00:58,240 --> 00:01:00,670
+then it should drain the water.
+
+15
+00:01:01,030 --> 00:01:04,420
+But if the water level is not greater than 80 centimeters,
+
+16
+00:01:04,599 --> 00:01:07,240
+it should continue filling up the tub.
+
+17
+00:01:07,660 --> 00:01:12,520
+This type of conditional statement is known as an if/else statement.
+
+18
+00:01:13,000 --> 00:01:15,340
+Depending on a particular condition,
+
+19
+00:01:15,580 --> 00:01:18,460
+we would do either A or B.
+
+20
+00:01:18,910 --> 00:01:22,420
+And when we want to write Python code to represent this,
+
+21
+00:01:22,600 --> 00:01:23,950
+it looks something like this.
+
+22
+00:01:24,280 --> 00:01:29,280
+There's the keyword if, and then the condition that we're testing for and then a
+
+23
+00:01:30,280 --> 00:01:35,280
+colon and after the colon we've got an indented block of code which should be
+
+24
+00:01:35,800 --> 00:01:39,370
+executed if this condition is met, if it's true.
+
+25
+00:01:40,120 --> 00:01:41,680
+But if it's not true,
+
+26
+00:01:42,010 --> 00:01:47,010
+then we will skip to the else block and it's just the else  keyword with a colon
+
+27
+00:01:47,800 --> 00:01:52,090
+and then this code block would execute if the condition is false.
+
+28
+00:01:52,840 --> 00:01:57,490
+So we could represent that previous bathtub situation with code that looks a bit
+
+29
+00:01:57,490 --> 00:01:58,150
+like this.
+
+30
+00:01:58,150 --> 00:02:03,150
+Let's say our water level is at 50 centimeters and then we would test if the
+
+31
+00:02:03,220 --> 00:02:07,690
+water level is greater than 80 centimeters. Well, if that is the case,
+
+32
+00:02:07,750 --> 00:02:09,910
+then we should drain the water.
+
+33
+00:02:10,360 --> 00:02:13,060
+But if it's not greater than 80 centimeters,
+
+34
+00:02:13,120 --> 00:02:15,400
+in other words else, well in this case,
+
+35
+00:02:15,430 --> 00:02:17,830
+we should just continue filling up the bathtub.
+
+36
+00:02:18,280 --> 00:02:21,370
+Let's put this into practice with a real life problem.
+
+37
+00:02:21,940 --> 00:02:26,350
+Now let's say that you've gotten a job at a theme park and your first job of the
+
+38
+00:02:26,350 --> 00:02:31,330
+day is to write some code that replaces the ticket box.
+
+39
+00:02:31,990 --> 00:02:35,800
+Now there's a couple of things that you'll need to think about. Firstly,
+
+40
+00:02:35,980 --> 00:02:40,060
+in order for somebody to actually purchase a ticket to go on the rollercoaster
+
+41
+00:02:40,060 --> 00:02:44,050
+ride, they will need to be over 120 centimeters.
+
+42
+00:02:44,650 --> 00:02:49,060
+So we have to check what their height is because if they're too short,
+
+43
+00:02:49,120 --> 00:02:53,740
+then we won't be able to sell them a ticket anyways. In the course resources,
+
+44
+00:02:53,830 --> 00:02:58,830
+I've included a link to this flow chart that I've created on draw.io.
+
+45
+00:02:59,890 --> 00:03:00,700
+This is a really,
+
+46
+00:03:00,700 --> 00:03:04,960
+really useful tool for creating any sort of flow charts or diagrams and it's
+
+47
+00:03:04,960 --> 00:03:09,550
+really easy to use. Now, if we take a look at this flow chart,
+
+48
+00:03:09,820 --> 00:03:14,260
+this is basically the logic that we have to program using our,
+
+49
+00:03:14,350 --> 00:03:15,850
+if and else statements.
+
+50
+00:03:16,360 --> 00:03:21,360
+If the person who's trying to purchase a ticket is not over 120 centimeters,
+
+51
+00:03:23,020 --> 00:03:26,020
+then they can't ride on the rollercoaster.
+
+52
+00:03:26,530 --> 00:03:30,670
+But if their height is greater than 120 centimeters, then they can ride.
+
+53
+00:03:30,850 --> 00:03:34,870
+So let's try it out. If you head over to the starting Repl.it,
+
+54
+00:03:35,560 --> 00:03:39,310
+you'll find some starting code in there and you can go ahead and fork this
+
+55
+00:03:39,310 --> 00:03:40,143
+Repl.it.
+
+56
+00:03:40,780 --> 00:03:44,470
+All that I've got here is a print statement that says "Welcome to the
+
+57
+00:03:44,470 --> 00:03:49,470
+rollercoaster" as well as an input asking the user for their height in
+
+58
+00:03:49,930 --> 00:03:54,930
+centimeters and then converting the string into a whole number, an integer, and
+
+59
+00:03:56,020 --> 00:03:58,780
+then I'm storing it inside this variable called height.
+
+60
+00:03:59,440 --> 00:04:04,330
+Now we're going to check whether if the height that the user has typed in is
+
+61
+00:04:04,330 --> 00:04:09,330
+greater than 120. So we use the keyword if and then we check if the height is
+
+62
+00:04:10,960 --> 00:04:15,960
+greater than 120 and then we add the colon and now when I hit enter,
+
+63
+00:04:17,410 --> 00:04:22,410
+you'll notice that the code editor has automatically indented me slightly over.
+
+64
+00:04:23,050 --> 00:04:28,050
+I'm not over here because in Python the spacing and indentation is really,
+
+65
+00:04:29,560 --> 00:04:30,400
+really important.
+
+66
+00:04:30,790 --> 00:04:35,080
+It tells the computer that the code that I'm about to write is what should be
+
+67
+00:04:35,080 --> 00:04:38,620
+executed when this condition is met.
+
+68
+00:04:39,340 --> 00:04:44,340
+So what should happen? If your height is over 120 then we will just print
+
+69
+00:04:44,980 --> 00:04:46,720
+You can ride the rollercoaster!.
+
+70
+00:04:47,470 --> 00:04:52,470
+But what should we print if height is not greater than 120? Well,
+
+71
+00:04:52,930 --> 00:04:57,930
+in this case, we would use the else statement to catch when that happens.
+
+72
+00:04:58,840 --> 00:05:03,840
+And it's really important that you don't write the else here because this is
+
+73
+00:05:04,120 --> 00:05:06,820
+indented over. Instead,
+
+74
+00:05:07,030 --> 00:05:11,470
+you want it to be at the same indentation level as the if statement.
+
+75
+00:05:11,950 --> 00:05:15,610
+These two are essentially a pair, if and else. Now,
+
+76
+00:05:15,700 --> 00:05:16,990
+after the else keyword,
+
+77
+00:05:16,990 --> 00:05:21,820
+we again add a colon and then we hit enter and we're now indented again.
+
+78
+00:05:22,180 --> 00:05:27,180
+And here we can write the code that should happen if this condition is false.
+
+79
+00:05:28,930 --> 00:05:30,910
+"Sorry, you have to grow taller before you can ride."
+
+80
+00:05:31,900 --> 00:05:36,900
+So the really important things here are the condition which we're testing for, is
+
+81
+00:05:38,290 --> 00:05:43,290
+the value of height greater than 120, the syntax of this code
+
+82
+00:05:44,470 --> 00:05:45,520
+so the keywords
+
+83
+00:05:45,550 --> 00:05:50,550
+if and else as well as the colons that come after each of these lines.
+
+84
+00:05:51,850 --> 00:05:54,310
+And finally also the indentation.
+
+85
+00:05:54,880 --> 00:05:57,740
+Everything that is indented after the
+
+86
+00:05:57,950 --> 00:06:00,440
+if is a block of code.
+
+87
+00:06:01,070 --> 00:06:06,070
+So this is indented and it's effectively inside this
+
+88
+00:06:07,640 --> 00:06:08,840
+if. So
+
+89
+00:06:08,840 --> 00:06:12,740
+this line of code lives inside the else statement.
+
+90
+00:06:13,160 --> 00:06:18,160
+This block of code lives inside the if statement. And if you mess up on the
+
+91
+00:06:19,340 --> 00:06:24,140
+indentation then you're probably going to get an indentation error telling you
+
+92
+00:06:24,140 --> 00:06:28,250
+that this line 5 probably should be indented.
+
+93
+00:06:28,910 --> 00:06:32,180
+But when we do actually correct it and we hit run,
+
+94
+00:06:32,780 --> 00:06:36,200
+let's say that our height is 130 centimeters,
+
+95
+00:06:36,680 --> 00:06:39,410
+then we get back, you can ride the rollercoaster.
+
+96
+00:06:40,010 --> 00:06:43,520
+But if our height was say 90 centimeters,
+
+97
+00:06:43,790 --> 00:06:47,180
+then we get a different outcome. We get, sorry,
+
+98
+00:06:47,180 --> 00:06:50,510
+you have to grow taller before you can ride. So by using,
+
+99
+00:06:50,600 --> 00:06:55,310
+if and else statements we're able to get our code to do different things,
+
+100
+00:06:55,580 --> 00:07:00,580
+either printing this line or printing this line depending on a condition that
+
+101
+00:07:01,130 --> 00:07:05,660
+we're testing for. Now, when we use this greater than sign,
+
+102
+00:07:05,960 --> 00:07:10,960
+effectively what we're saying is that is the height greater than 120 which means
+
+103
+00:07:13,160 --> 00:07:17,030
+that it does not include 120. In fact,
+
+104
+00:07:17,030 --> 00:07:22,030
+if I run this code and if I type in my height as 120 then actually goes into the
+
+105
+00:07:23,420 --> 00:07:25,760
+else block and prints this.
+
+106
+00:07:26,480 --> 00:07:31,480
+So if we wanted to include 120 centimeters so that all the people who are
+
+107
+00:07:31,730 --> 00:07:35,810
+exactly 120 centimeters can ride the rollercoaster,
+
+108
+00:07:36,230 --> 00:07:38,840
+then instead of just using a greater than symbol,
+
+109
+00:07:38,960 --> 00:07:41,330
+we have to write greater than or equals.
+
+110
+00:07:41,780 --> 00:07:44,570
+So these two symbols have to be next to each other.
+
+111
+00:07:45,470 --> 00:07:50,470
+And now when I run my code and I write 120, you'll see that it's now falling into
+
+112
+00:07:51,980 --> 00:07:56,630
+this block of code and it's telling me that I can ride the roller coaster. Now,
+
+113
+00:07:56,630 --> 00:08:01,630
+these are called comparison operators and we've already seen greater than, so
+
+114
+00:08:01,730 --> 00:08:04,160
+lesser than is pretty self explanatory.
+
+115
+00:08:04,430 --> 00:08:09,140
+But we've also seen greater than or equal to and lesser than or equal to.
+
+116
+00:08:09,470 --> 00:08:13,580
+So if you want to include a particular number, a particular value,
+
+117
+00:08:13,910 --> 00:08:17,270
+when you do these comparisons, you would be using these instead.
+
+118
+00:08:17,990 --> 00:08:22,580
+Now in this table, there's also the equal to and not equal to.
+
+119
+00:08:23,450 --> 00:08:24,050
+For example,
+
+120
+00:08:24,050 --> 00:08:29,050
+if you wanted to check if somebody's height is equal to precisely 120 then you
+
+121
+00:08:30,860 --> 00:08:35,860
+would use two equal signs. And very often it gets a little bit confusing,
+
+122
+00:08:36,350 --> 00:08:40,370
+especially if you're new to programming when you're typing equal signs,
+
+123
+00:08:40,429 --> 00:08:44,059
+because sometimes we're typing one and other times we're typing two.
+
+124
+00:08:44,630 --> 00:08:47,420
+It's important to remember that when you have one equal sign,
+
+125
+00:08:47,510 --> 00:08:52,400
+it means that you're assigning this value to this variable.
+
+126
+00:08:53,000 --> 00:08:54,950
+But when you have two equal signs,
+
+127
+00:08:55,050 --> 00:08:59,640
+you are checking to see if the value on the left is equal to the value on the
+
+128
+00:08:59,640 --> 00:09:02,790
+right and they're completely different. Now,
+
+129
+00:09:02,790 --> 00:09:04,650
+the good thing is that when you get it wrong,
+
+130
+00:09:04,680 --> 00:09:09,680
+usually you'll get enough clues in the error to actually hint to you,
+
+131
+00:09:09,750 --> 00:09:13,380
+Hey, maybe there's something that's wrong here, right?
+
+132
+00:09:13,500 --> 00:09:17,220
+Cause the syntax doesn't look right. For this to be a condition,
+
+133
+00:09:17,250 --> 00:09:20,760
+it has to be something that evaluates to true or to false.
+
+134
+00:09:21,180 --> 00:09:24,600
+And height =120 does not evaluate to either.
+
+135
+00:09:24,990 --> 00:09:26,520
+So by changing it to this,
+
+136
+00:09:26,580 --> 00:09:31,580
+we're saying if height is equal to 120 then we'll execute this line of code
+
+137
+00:09:32,250 --> 00:09:35,100
+or any other lines which are in the same block of code.
+
+138
+00:09:35,640 --> 00:09:40,640
+But if the height is not equal to 120 then we're going to execute this block of
+
+139
+00:09:41,010 --> 00:09:45,000
+code. So if I write 120 then that works.
+
+140
+00:09:45,330 --> 00:09:50,100
+But if I write 121 then it does not work.
+
+141
+00:09:51,000 --> 00:09:55,770
+Similarly, you can also check for not equals to, which just flips it around.
+
+142
+00:09:56,220 --> 00:10:01,220
+But in our case, it makes sense to say if the height is greater than or equals
+
+143
+00:10:01,350 --> 00:10:05,700
+120 then you can ride the rollercoaster.
+
+144
+00:10:06,120 --> 00:10:11,120
+But otherwise you cannot ride the rollercoaster. By using,
+
+145
+00:10:11,220 --> 00:10:12,570
+if and else statements,
+
+146
+00:10:12,780 --> 00:10:17,780
+we can get our computer to do different things and respond differently depending
+
+147
+00:10:18,060 --> 00:10:21,330
+on different conditions. So in the next lesson,
+
+148
+00:10:21,390 --> 00:10:24,420
+I've got a coding exercise for you. I'll see you there.
+
+1
+00:00:00,150 --> 00:00:02,009
+All right guys, it's time for yet
+
+2
+00:00:02,009 --> 00:00:05,730
+another code challenge to test and see if you've learned what was covered in
+
+3
+00:00:05,730 --> 00:00:08,910
+previous lessons. So head over to the assignment
+
+4
+00:00:08,910 --> 00:00:11,490
+that is a day 3.1 odd
+
+5
+00:00:11,490 --> 00:00:16,490
+or eve. Have a read of the instructions and try to see if you can create a
+
+6
+00:00:17,010 --> 00:00:22,010
+program that checks whether if a number that you input in the console is odd
+
+7
+00:00:23,070 --> 00:00:26,040
+or even. Now the thing to remember here though
+
+8
+00:00:26,100 --> 00:00:29,640
+is that we're introducing something called the modulo
+
+9
+00:00:30,330 --> 00:00:34,650
+and you can create the symbol by simply typing the percentage sign. Now,
+
+10
+00:00:34,680 --> 00:00:38,820
+what the modulo does is it will divide a number
+
+11
+00:00:39,030 --> 00:00:43,830
+say seven by another number
+
+12
+00:00:43,830 --> 00:00:47,700
+let's say two, and then it will give you the remainder of that division.
+
+13
+00:00:48,030 --> 00:00:53,030
+So seven divided by two, seven split into portions of two is two plus two plus
+
+14
+00:00:57,150 --> 00:00:59,700
+two plus one, right?
+
+15
+00:01:00,090 --> 00:01:05,090
+So seven divided by two can be divided three times with a remainder of one.
+
+16
+00:01:06,060 --> 00:01:07,830
+And that's what the modulo gives you.
+
+17
+00:01:07,950 --> 00:01:12,120
+So you can also type code straight into the console like I'm going to do now;
+
+18
+00:01:12,390 --> 00:01:14,850
+7 % 2. It gives me 1.
+
+19
+00:01:16,020 --> 00:01:20,130
+Now it's the same thing if you try to divide by other numbers,
+
+20
+00:01:20,130 --> 00:01:23,130
+let's say 7 % 3. Well,
+
+21
+00:01:23,130 --> 00:01:28,110
+that is three plus three plus one, right?
+
+22
+00:01:28,320 --> 00:01:32,790
+So seven modular three will also give me one.
+
+23
+00:01:34,170 --> 00:01:38,430
+So this is a way for us to divide a number by another number and get the
+
+24
+00:01:38,430 --> 00:01:39,270
+remainder.
+
+25
+00:01:40,620 --> 00:01:45,620
+And you're going to be using this modular to solve this code challenge.
+
+26
+00:01:46,500 --> 00:01:47,910
+Have a read of the instructions,
+
+27
+00:01:47,940 --> 00:01:52,940
+have a look at the examples and see what it is that we're expecting to be
+
+28
+00:01:53,310 --> 00:01:55,290
+printed in the console here.
+
+29
+00:01:56,070 --> 00:02:01,070
+And then go ahead and write your code and see if your output matches what it is
+
+30
+00:02:01,620 --> 00:02:05,040
+that we're expecting. So 56 should be even,
+
+31
+00:02:05,370 --> 00:02:09,660
+so you should be printing "This is an even number" based on that input.
+
+32
+00:02:10,500 --> 00:02:12,990
+Pause the video now and give this code challenge a go.
+
+33
+00:02:17,300 --> 00:02:17,660
+All right.
+
+34
+00:02:17,660 --> 00:02:22,340
+So I mentioned that the modulo gives us the remainder, right?
+
+35
+00:02:22,820 --> 00:02:27,820
+So what do we know about even numbers? Well even numbers they're always divisible by
+
+36
+00:02:29,330 --> 00:02:34,070
+two. If we pick any even number, say 54,
+
+37
+00:02:34,430 --> 00:02:38,240
+and then we do modulo two, so 54 divided by 2,
+
+38
+00:02:38,570 --> 00:02:40,670
+it should always give us zero
+
+39
+00:02:40,850 --> 00:02:45,710
+as long as that first number is even so 68 % 2
+
+40
+00:02:45,800 --> 00:02:46,880
+again it zero.
+
+41
+00:02:47,150 --> 00:02:51,590
+But then when we come across an odd number, say 53 % 2,
+
+42
+00:02:52,010 --> 00:02:53,990
+then this is now going to give us 1.
+
+43
+00:02:54,710 --> 00:02:59,710
+We can use our code to check for when the result is zero,
+
+44
+00:03:00,250 --> 00:03:04,900
+in which case it's a even number. And when the result is one,
+
+45
+00:03:04,960 --> 00:03:09,310
+in which case it's an odd number. If you have gotten stuck until this point,
+
+46
+00:03:09,580 --> 00:03:13,750
+and this is a really great time to pause the video again and go back and give it
+
+47
+00:03:13,750 --> 00:03:17,020
+another go. And then we'll go through the solution together.
+
+48
+00:03:18,910 --> 00:03:23,910
+We can simply write an if statement to check if the number that was inputted is
+
+49
+00:03:26,470 --> 00:03:31,120
+divisible by two with zero remainder.
+
+50
+00:03:31,930 --> 00:03:36,310
+Well, in this case, then we can pretty much be sure that this is an even number,
+
+51
+00:03:36,760 --> 00:03:41,200
+because as we've shown, all of the even numbers when they divide by two,
+
+52
+00:03:41,290 --> 00:03:45,820
+there's always no remainder. So in this case, let's add a colon.
+
+53
+00:03:46,360 --> 00:03:51,360
+We can print pretty confidently that this is a even number.
+
+54
+00:03:53,590 --> 00:03:53,920
+Now,
+
+55
+00:03:53,920 --> 00:03:58,920
+what about the cases where the number when divided by two is not equal to zero?
+
+56
+00:04:00,010 --> 00:04:03,610
+Well, then it's probably going to be an odd number. So in this case
+
+57
+00:04:03,610 --> 00:04:05,950
+we can use an else statement to catch that.
+
+58
+00:04:06,580 --> 00:04:10,210
+And when we have an odd number, we'll simply print
+
+59
+00:04:10,210 --> 00:04:12,730
+this is an odd number.
+
+60
+00:04:13,450 --> 00:04:18,450
+So that's it. Just four the lines of code using what we've learned about if, else,
+
+61
+00:04:19,570 --> 00:04:22,780
+and also the comparison operator. Now,
+
+62
+00:04:22,810 --> 00:04:25,750
+if you got stuck on this and you needed to watch the solution,
+
+63
+00:04:26,110 --> 00:04:30,340
+then I recommend really going back to your code and playing around with it so
+
+64
+00:04:30,340 --> 00:04:34,990
+that you can get the code to work. And then try and see if you can test if a
+
+65
+00:04:34,990 --> 00:04:39,990
+particular number is cleanly divisible by three by four by five,
+
+66
+00:04:40,630 --> 00:04:44,620
+and then see if the final program actually works in the way that you expect it
+
+67
+00:04:44,620 --> 00:04:46,690
+to. But once you're ready,
+
+68
+00:04:46,840 --> 00:04:50,620
+head over to the next lesson where we're going to talk about even more complex
+
+69
+00:04:50,620 --> 00:04:54,820
+ways of using if and else statements. So for all of that
+
+70
+00:04:55,030 --> 00:04:56,140
+and more, I'll see you there.
+
+1
+00:00:00,310 --> 00:00:01,630
+In previous lessons,
+
+2
+00:00:01,720 --> 00:00:06,720
+we learned about using the if and else statements to check whether if somebody is
+
+3
+00:00:07,990 --> 00:00:12,990
+over 120 centimeters or not and allow them to actually purchase a ticket if they
+
+4
+00:00:14,530 --> 00:00:19,390
+are over a certain height. Now in addition to the height,
+
+5
+00:00:19,870 --> 00:00:24,370
+there's another condition that we need to check for, namely their age.
+
+6
+00:00:24,850 --> 00:00:29,260
+If somebody is over 18 years old and they should be paying the adult price,
+
+7
+00:00:29,290 --> 00:00:33,940
+which is let's say $12. But if they are 18 or under,
+
+8
+00:00:34,030 --> 00:00:39,030
+then they should only be paying $7. So how can we represent this extra condition
+
+9
+00:00:40,510 --> 00:00:43,810
+that we need to check for in our code? Well,
+
+10
+00:00:43,810 --> 00:00:47,830
+we could use something called a nested if/else statement.
+
+11
+00:00:48,550 --> 00:00:49,390
+We've seen our,
+
+12
+00:00:49,420 --> 00:00:53,650
+if/else statements look like this where it's only got two choices.
+
+13
+00:00:54,040 --> 00:00:57,370
+If this condition is true, do this, otherwise do that.
+
+14
+00:00:58,060 --> 00:01:02,980
+But in a nested if statement, once the first condition has passed,
+
+15
+00:01:03,400 --> 00:01:08,400
+we can check for another condition. And then we can have another if/else statement
+
+16
+00:01:10,990 --> 00:01:15,990
+inside this if condition. In order for this thing to happen,
+
+17
+00:01:16,750 --> 00:01:21,640
+this has to be true and this also has to be true. In order for this to happen,
+
+18
+00:01:21,850 --> 00:01:25,690
+this condition has to be true but this condition has to be false.
+
+19
+00:01:26,590 --> 00:01:30,250
+So essentially the computer first looks at the larger picture,
+
+20
+00:01:30,760 --> 00:01:35,200
+which is this first condition and decides on whether if it should go into the
+
+21
+00:01:35,200 --> 00:01:40,200
+else block here or if it should go into the nested block inside the if
+
+22
+00:01:41,650 --> 00:01:42,483
+statement.
+
+23
+00:01:43,090 --> 00:01:48,090
+So now this is what our flow chart looks like. In the first if statement we check
+
+24
+00:01:48,520 --> 00:01:52,690
+whether if their height is over 120 centimeters. If no,
+
+25
+00:01:52,810 --> 00:01:56,590
+then the if statements all end. You can't ride, you can't buy a ticket.
+
+26
+00:01:57,100 --> 00:01:58,000
+But if yes,
+
+27
+00:01:58,030 --> 00:02:02,920
+we actually take them to yet another if statement where we check their age.
+
+28
+00:02:03,430 --> 00:02:08,169
+If their age is 18 or under, then we give them a $7 ticket.
+
+29
+00:02:08,770 --> 00:02:13,770
+If they're over 18 then they have to pay $12. So the place where we're going to
+
+30
+00:02:14,350 --> 00:02:19,270
+nest our if statement is inside here. Notice how it's indented.
+
+31
+00:02:19,330 --> 00:02:22,390
+So it's already inside this if block,
+
+32
+00:02:22,780 --> 00:02:24,850
+and this already has to be true.
+
+33
+00:02:25,750 --> 00:02:30,750
+Now here we're going to create another if and else statement and the condition
+
+34
+00:02:31,690 --> 00:02:35,320
+checks for their age. So we better ask them for an age.
+
+35
+00:02:35,740 --> 00:02:40,740
+Let's say age equals convert the inputs to an int and "what is your age?"
+
+36
+00:02:43,060 --> 00:02:45,400
+So now that we've gotten hold of their age,
+
+37
+00:02:45,460 --> 00:02:50,460
+we can see if their age is less than or equal to 18. Well in this case we're
+
+38
+00:02:51,760 --> 00:02:54,460
+going to give them the $7 ticket.
+
+39
+00:02:56,800 --> 00:03:00,370
+But else namely, if this is not true,
+
+40
+00:03:00,370 --> 00:03:05,370
+if their age is over 18, well, in that case, we're going to give them the $12
+
+41
+00:03:06,280 --> 00:03:07,113
+ticket.
+
+42
+00:03:08,200 --> 00:03:12,280
+So now we have a nested if statement,
+
+43
+00:03:12,400 --> 00:03:17,400
+because this if and else statement lives inside this if statement.
+
+44
+00:03:18,370 --> 00:03:23,320
+So this condition will only be checked if this is already deemed to be true.
+
+45
+00:03:23,830 --> 00:03:28,600
+Now let's say our situation got a little bit more complex. The boss comes over,
+
+46
+00:03:28,660 --> 00:03:31,210
+checks our code and says, wait a wait, wait, wait,
+
+47
+00:03:31,540 --> 00:03:35,020
+there's actually more price tiers than that. In fact,
+
+48
+00:03:35,410 --> 00:03:38,470
+if you're less than 12 years old, you pay $5.
+
+49
+00:03:39,130 --> 00:03:44,130
+If you're between 12 and 18 you pay $7 and if you're over 18 then you pay the
+
+50
+00:03:45,310 --> 00:03:46,450
+full adult price,
+
+51
+00:03:46,480 --> 00:03:51,130
+which is $12. Now there are three possibilities,
+
+52
+00:03:51,430 --> 00:03:55,570
+so how do we represent this in our if statement? Well,
+
+53
+00:03:55,600 --> 00:04:00,600
+we could use something called the elif. Instead of having a simple if/else statement
+
+54
+00:04:01,600 --> 00:04:05,380
+where there's only one condition. If it's true, do this.
+
+55
+00:04:05,650 --> 00:04:06,970
+Otherwise do that.
+
+56
+00:04:07,750 --> 00:04:12,750
+You can add as many elif conditions as you want. So we can check for condition
+
+57
+00:04:13,660 --> 00:04:18,130
+1. If that's true, then do a, but if that's not true,
+
+58
+00:04:18,459 --> 00:04:21,519
+then we can continue and check for condition 2.
+
+59
+00:04:22,180 --> 00:04:26,920
+If condition 2 is true, well then we can do B. And finally,
+
+60
+00:04:26,980 --> 00:04:30,910
+if none of those conditions were true, we can do this final thing.
+
+61
+00:04:31,570 --> 00:04:36,160
+Our flow chart now looks something like this and this is the logic that we're
+
+62
+00:04:36,160 --> 00:04:40,690
+trying to program. Once we're inside this nested if statement,
+
+63
+00:04:40,990 --> 00:04:45,990
+we're going to check if the age is under 12 in which case they should pay $5. If
+
+64
+00:04:47,350 --> 00:04:52,350
+they're between 12 and 18 then they should pay $7 and finally if they're over 18
+
+65
+00:04:53,200 --> 00:04:58,200
+then they should pay $12. Now the first thing I'm going to check is if the age is
+
+66
+00:05:00,700 --> 00:05:04,450
+less than 12. Under this condition,
+
+67
+00:05:04,720 --> 00:05:08,890
+they should pay $5. So let's change that to five.
+
+68
+00:05:10,000 --> 00:05:13,870
+Now the next condition should be created using an elif,
+
+69
+00:05:14,320 --> 00:05:17,410
+which stands for else if. So it means,
+
+70
+00:05:17,530 --> 00:05:21,880
+if this is not true else if, can you check if this is true?
+
+71
+00:05:22,090 --> 00:05:25,720
+Well in that case then we should do this. For example,
+
+72
+00:05:25,960 --> 00:05:30,960
+if the age is not less than 12, so they're over 12, then are they under 18? Well then
+
+73
+00:05:34,240 --> 00:05:39,240
+this condition basically catches everybody who's between 12 and 18. And finally,
+
+74
+00:05:41,350 --> 00:05:46,350
+if they're not less than or equal to 18 and they're not less than 12 then that's
+
+75
+00:05:47,200 --> 00:05:49,420
+everybody else who is over 18.
+
+76
+00:05:51,130 --> 00:05:56,130
+Now remember that we can use as many elif conditions between the if and else as we
+
+77
+00:05:56,140 --> 00:05:56,973
+like.
+
+78
+00:05:57,050 --> 00:06:02,050
+So I could add another elif that checks whether if the age is less than,
+
+79
+00:06:02,720 --> 00:06:06,380
+say, 22 well in this case, do something else.
+
+80
+00:06:06,650 --> 00:06:10,610
+And then I can keep going with these elifs until I'm done with all my
+
+81
+00:06:10,610 --> 00:06:14,210
+conditions. So have a play around with this code,
+
+82
+00:06:14,510 --> 00:06:17,180
+write it yourself, see if it makes sense,
+
+83
+00:06:17,570 --> 00:06:22,340
+and then mess around with the elifs so that it does what you expect it to do.
+
+84
+00:06:23,000 --> 00:06:24,080
+And then once you're ready,
+
+85
+00:06:24,290 --> 00:06:27,680
+go ahead and head over to the next lesson where I've got a coding challenge for
+
+86
+00:06:27,680 --> 00:06:27,920
+you.
+
+1
+00:00:00,240 --> 00:00:03,870
+So now that you've learned all about if, elif and else,
+
+2
+00:00:04,260 --> 00:00:06,150
+as well as nested if statements,
+
+3
+00:00:06,330 --> 00:00:11,330
+then I've got two code challenges coming up for you. In the first one, in the
+
+4
+00:00:12,000 --> 00:00:16,020
+code challenge that's called day 3.2 BMI calculator
+
+5
+00:00:16,230 --> 00:00:17,100
+2.0,
+
+6
+00:00:17,730 --> 00:00:22,730
+this is going to be an upgraded version of the BMI calculator that you created
+
+7
+00:00:23,190 --> 00:00:24,023
+yesterday.
+
+8
+00:00:24,630 --> 00:00:28,260
+Instead of just working out the BMI value of somebody,
+
+9
+00:00:28,590 --> 00:00:30,810
+we're going to give them an interpretation.
+
+10
+00:00:31,650 --> 00:00:34,680
+You might've come across a BMI chart that looks like this,
+
+11
+00:00:35,280 --> 00:00:40,280
+where it divides up people's BMI and tells them whether if the underweight,
+
+12
+00:00:41,340 --> 00:00:46,020
+normal weight, overweight, et cetera. And this depends on the value of the BMI.
+
+13
+00:00:46,230 --> 00:00:50,100
+So if the value of the BMI is less than 18.5,
+
+14
+00:00:50,490 --> 00:00:54,960
+then they are underweight. If they're over 18.5,
+
+15
+00:00:54,990 --> 00:00:58,350
+but below 25, then they have a normal weight.
+
+16
+00:00:58,920 --> 00:01:03,240
+So your job is to not only create a BMI calculator,
+
+17
+00:01:03,840 --> 00:01:08,670
+but also to give them the corresponding interpretation message.
+
+18
+00:01:09,330 --> 00:01:10,170
+Now it's really,
+
+19
+00:01:10,170 --> 00:01:14,820
+really important that you use the words here that are highlighted in bold in your
+
+20
+00:01:14,820 --> 00:01:18,480
+interpretation, that based on a particular height and weight,
+
+21
+00:01:18,540 --> 00:01:21,360
+you actually give them the correct interpretation.
+
+22
+00:01:22,500 --> 00:01:25,680
+Pause the video and try to give this challenge a go.
+
+23
+00:01:29,370 --> 00:01:31,140
+All right. So how did you get on?
+
+24
+00:01:31,380 --> 00:01:34,560
+There was a little bit of a revision from what you've done previously.
+
+25
+00:01:34,920 --> 00:01:38,970
+Hopefully you've been able to calculate the BMI without much trouble and then
+
+26
+00:01:39,000 --> 00:01:43,800
+use what you learned about if, elif and else to provide the user with the
+
+27
+00:01:43,800 --> 00:01:47,640
+corresponding interpretation for the BMI that they have.
+
+28
+00:01:48,480 --> 00:01:52,620
+Let's start out by calculating the BMI. And the BMI,
+
+29
+00:01:52,680 --> 00:01:55,860
+according to this equation is equal to the weight in kilograms
+
+30
+00:01:55,860 --> 00:01:59,580
+divided by the height squared. So we've got the weight already,
+
+31
+00:01:59,790 --> 00:02:04,050
+and then we divided by the height to the power of two.
+
+32
+00:02:04,800 --> 00:02:09,060
+Now, notice how I've already converted these inputs to floats.
+
+33
+00:02:09,090 --> 00:02:13,290
+So we don't have to do what we did previously when we were calculating the BMI.
+
+34
+00:02:14,940 --> 00:02:17,340
+Now what the exercise does mention though
+
+35
+00:02:17,370 --> 00:02:20,610
+is that we should round the result of the nearest whole number.
+
+36
+00:02:21,210 --> 00:02:25,590
+But you probably remember how to do this right? Using the round function.
+
+37
+00:02:25,830 --> 00:02:29,550
+So if we wrap the entire equation inside a round function,
+
+38
+00:02:29,880 --> 00:02:32,130
+then it's going to round it to the nearest whole number.
+
+39
+00:02:32,820 --> 00:02:36,600
+So if this is what you got stuck on, then head back to your code and just fix it.
+
+40
+00:02:37,260 --> 00:02:40,740
+Now, once we've calculated the rounded value of BMI,
+
+41
+00:02:41,100 --> 00:02:46,100
+the next step is to give the user an interpretation message based on their BMI.
+
+42
+00:02:47,070 --> 00:02:48,900
+So let's start with the first one.
+
+43
+00:02:49,140 --> 00:02:53,100
+If the BMI is less than 18.5,
+
+44
+00:02:53,520 --> 00:02:56,520
+well then in this case, they're actually underweight, right?
+
+45
+00:02:56,910 --> 00:03:00,880
+So it will print something like your BMI is,
+
+46
+00:03:01,480 --> 00:03:04,990
+and then inside here we'll insert the value of their BMI.
+
+47
+00:03:05,500 --> 00:03:09,420
+And this of course is using f-strings, so let's add an F to the beginning.
+
+48
+00:03:10,030 --> 00:03:15,030
+Your BMI is this particular value and you are underweight.
+
+49
+00:03:17,380 --> 00:03:17,860
+Now,
+
+50
+00:03:17,860 --> 00:03:22,860
+what if their BMI was between 18.5 and 25?
+
+51
+00:03:23,680 --> 00:03:28,000
+Well, because we've already checked that their BMI is less than 18.5,
+
+52
+00:03:28,420 --> 00:03:32,950
+then if this is false because it's jumped to the next level,
+
+53
+00:03:33,280 --> 00:03:34,990
+then we don't actually have to check this.
+
+54
+00:03:35,290 --> 00:03:39,940
+All we have to do is check that it's still below 25. And to do that,
+
+55
+00:03:39,940 --> 00:03:41,170
+we're going to use an Elif.
+
+56
+00:03:41,710 --> 00:03:46,710
+So elif BMI is less than 25, well then in this case,
+
+57
+00:03:47,260 --> 00:03:51,130
+we're going to print you bmi
+
+58
+00:03:51,160 --> 00:03:55,810
+is this particular value, and you have a normal
+
+59
+00:03:55,810 --> 00:04:00,580
+weight. If this is a little bit mysterious to you,
+
+60
+00:04:00,760 --> 00:04:05,200
+why it is that I'm not checking that their BMI is over 18.5,
+
+61
+00:04:05,230 --> 00:04:10,120
+but below 25 and I'm simply just checking that it's less than 25,
+
+62
+00:04:10,390 --> 00:04:13,930
+then I recommend having a play around with the code as it is right now,
+
+63
+00:04:14,350 --> 00:04:17,350
+and trying out some different values for BMI.
+
+64
+00:04:17,560 --> 00:04:21,190
+Just change this to say 18,
+
+65
+00:04:21,190 --> 00:04:26,050
+and then try maybe something like 22 so that it's caught by each of these
+
+66
+00:04:26,050 --> 00:04:29,950
+conditions. And then you'll soon realize that this
+
+67
+00:04:30,130 --> 00:04:34,930
+if, elif, else is an entire group of statements,
+
+68
+00:04:35,320 --> 00:04:39,940
+and it's going to check this one first and only if this fails,
+
+69
+00:04:39,970 --> 00:04:43,090
+when it's false, does it go and check the next one.
+
+70
+00:04:43,570 --> 00:04:48,570
+So then this is only going to be printed when their BMI is over 18.5,
+
+71
+00:04:49,450 --> 00:04:53,170
+but below 25. And once you're comfortable with this,
+
+72
+00:04:53,230 --> 00:04:55,810
+then the rest of the statements should be pretty easy.
+
+73
+00:04:58,920 --> 00:04:59,753
+All right,
+
+74
+00:05:00,030 --> 00:05:00,240
+Now,
+
+75
+00:05:00,240 --> 00:05:05,240
+once we've reached here and their BMI is not less than 35 and we want to catch the
+
+76
+00:05:07,650 --> 00:05:10,770
+remaining cases where the BMI is over 35,
+
+77
+00:05:11,220 --> 00:05:14,160
+then all we have to do is add an else statement.
+
+78
+00:05:17,520 --> 00:05:18,960
+That's all we have to do.
+
+79
+00:05:19,380 --> 00:05:23,730
+We've managed to check for those people that have BMI less than 18.5.
+
+80
+00:05:24,120 --> 00:05:28,230
+If it's not less 18.5, well, is it less than 25?
+
+81
+00:05:28,650 --> 00:05:33,450
+So this will print when the BMI is greater than 18.5,
+
+82
+00:05:33,480 --> 00:05:37,920
+but less than 25. And we've done that for all of these separate statements.
+
+83
+00:05:40,200 --> 00:05:42,150
+If you struggled with this code,
+
+84
+00:05:42,210 --> 00:05:46,590
+then I recommend having a look back at the previous lesson where we talked more
+
+85
+00:05:46,590 --> 00:05:50,760
+in detail in terms of if, elif and else.
+
+86
+00:05:51,810 --> 00:05:53,670
+If you struggled with this challenge,
+
+87
+00:05:53,730 --> 00:05:58,730
+then have a go at pasting the code that's in the solution into the Thonny code
+
+88
+00:05:58,760 --> 00:06:03,140
+editor. And instead of having the BMI being a workout value,
+
+89
+00:06:03,470 --> 00:06:07,640
+just set it to some different numbers. So for example, if we start out testing,
+
+90
+00:06:07,910 --> 00:06:10,220
+if the BMI is equal to 18,
+
+91
+00:06:10,550 --> 00:06:15,470
+which of these will it fall into, then we can click on the debug step into each
+
+92
+00:06:15,470 --> 00:06:18,980
+of these. And you can see that when it evaluates this condition,
+
+93
+00:06:19,010 --> 00:06:22,100
+is the BMI less than 18.5, well,
+
+94
+00:06:22,130 --> 00:06:26,300
+18 is less than 18.5. So this is true.
+
+95
+00:06:26,720 --> 00:06:30,260
+And in that case, it's going to execute this line of code.
+
+96
+00:06:30,680 --> 00:06:34,220
+So it is going to print out your BMI is 18, you are underweight.
+
+97
+00:06:34,760 --> 00:06:38,330
+And then it's done. That's the end of the code. Now,
+
+98
+00:06:38,360 --> 00:06:43,280
+if we change this to say 22 however, and we click on debug,
+
+99
+00:06:43,940 --> 00:06:48,830
+then it's going to evaluate the first condition, is 22 less than 18.5 and
+
+100
+00:06:49,070 --> 00:06:50,540
+that's going to be false.
+
+101
+00:06:50,780 --> 00:06:54,230
+So then it skips to the next elif that it can find
+
+102
+00:06:54,740 --> 00:06:59,300
+and it checks whether if the BMI 22 is less than 25.
+
+103
+00:06:59,660 --> 00:07:02,750
+So now it's going to execute this print statements.
+
+104
+00:07:03,710 --> 00:07:04,970
+Have a play around with that
+
+105
+00:07:05,150 --> 00:07:08,690
+if it's still a little bit mysterious to you and hopefully,
+
+106
+00:07:08,690 --> 00:07:09,680
+once you're done there,
+
+107
+00:07:09,890 --> 00:07:12,800
+then you'll be ready to move on to the next code challenge
+
+108
+00:07:12,860 --> 00:07:17,150
+which is a little bit more challenging. For all of that and more,
+
+109
+00:07:17,330 --> 00:07:17,900
+I'll see you there.
+
+1
+00:00:00,390 --> 00:00:05,340
+Hey guys. So I've got another code challenge for you. And this one,
+
+2
+00:00:05,790 --> 00:00:08,970
+as the title suggests, this is a difficult challenge,
+
+3
+00:00:09,120 --> 00:00:13,380
+and this is something that I expect some of you might need to spend 15,
+
+4
+00:00:13,380 --> 00:00:17,460
+20 minutes on. Others might need to spend 30, 40 minutes on,
+
+5
+00:00:17,820 --> 00:00:22,290
+and it might just be something that you need to have a think about, get stuck,
+
+6
+00:00:22,620 --> 00:00:25,920
+come back to it after a bit of a break or sleep on it,
+
+7
+00:00:25,980 --> 00:00:28,650
+come back to it the next day. It's not easy,
+
+8
+00:00:28,890 --> 00:00:31,530
+but what I'm trying to say is really,
+
+9
+00:00:31,530 --> 00:00:35,310
+really give it all you have before you check the solution video,
+
+10
+00:00:35,790 --> 00:00:38,940
+because it's a really, really interesting challenge.
+
+11
+00:00:40,020 --> 00:00:43,710
+So the idea is that we want you to write a program that works out
+
+12
+00:00:44,070 --> 00:00:46,980
+whether if any given year is a leap year.
+
+13
+00:00:47,670 --> 00:00:50,400
+We know that a normal year has 365 days,
+
+14
+00:00:50,490 --> 00:00:53,340
+but leap years have an extra day in February.
+
+15
+00:00:54,060 --> 00:00:57,750
+And the reason is actually really, really interesting. If you're interested,
+
+16
+00:00:58,110 --> 00:01:02,550
+there's a really good explanation of how leap years work and why we have them at
+
+17
+00:01:02,550 --> 00:01:06,780
+this YouTube link. So just go ahead and copy this URL and check it out.
+
+18
+00:01:07,530 --> 00:01:11,160
+Now, the way that you work out if a given year is a leap year,
+
+19
+00:01:11,250 --> 00:01:15,030
+so let's say we pick one out of thin air, 2020,
+
+20
+00:01:15,570 --> 00:01:19,980
+is that on every year that is evenly divisible by four,
+
+21
+00:01:20,130 --> 00:01:23,760
+so that means divisible by four with no remainder.
+
+22
+00:01:24,480 --> 00:01:28,170
+Then that is a leap year, but except the years
+
+23
+00:01:28,230 --> 00:01:31,710
+that is also evenly divisible by a hundred,
+
+24
+00:01:32,640 --> 00:01:37,560
+unless the year is also evenly divisible by 400.
+
+25
+00:01:38,100 --> 00:01:43,050
+Now 2020 divided by four is equal to 505.
+
+26
+00:01:43,380 --> 00:01:47,520
+So it's evenly divisible by four. There's no remainder.
+
+27
+00:01:48,480 --> 00:01:52,560
+But the rule says that even if it's divisible by four,
+
+28
+00:01:53,130 --> 00:01:55,920
+if it's evenly divisible by a hundred,
+
+29
+00:01:56,250 --> 00:01:59,040
+then that is still not going to be a leap year.
+
+30
+00:01:59,340 --> 00:02:04,340
+So let's try that 2020 divided by a hundred equals 20.2.
+
+31
+00:02:05,550 --> 00:02:09,539
+So this is in fact not evenly divisible by a hundred.
+
+32
+00:02:09,990 --> 00:02:14,970
+So that means it is still a leap year. But then it says
+
+33
+00:02:15,180 --> 00:02:19,560
+unless the years also evenly divisible by 400.
+
+34
+00:02:20,310 --> 00:02:21,210
+So 2020
+
+35
+00:02:21,210 --> 00:02:26,210
+divided by 400 is not evenly divisible.
+
+36
+00:02:26,790 --> 00:02:29,970
+So it is in fact, still a leap year.
+
+37
+00:02:30,870 --> 00:02:33,990
+The trickiest part of this entire challenge
+
+38
+00:02:34,020 --> 00:02:39,020
+I would say is getting your head around these three sentences: a year that is
+
+39
+00:02:41,310 --> 00:02:45,570
+divisible by four with no remainder is a leap year,
+
+40
+00:02:46,080 --> 00:02:50,160
+except if it's also divisible by a hundred. In that case,
+
+41
+00:02:50,160 --> 00:02:51,360
+it's no longer a leap year,
+
+42
+00:02:51,960 --> 00:02:56,960
+unless that year also happens to be evenly divisible by 400 then it is still a
+
+43
+00:02:59,440 --> 00:03:03,220
+leap year. What I recommend doing is a)
+
+44
+00:03:03,610 --> 00:03:05,860
+if English is not your native language
+
+45
+00:03:06,220 --> 00:03:10,060
+then have a look online for the rules for determining a leap
+
+46
+00:03:10,060 --> 00:03:13,990
+year in your own language, because these words, except
+
+47
+00:03:14,020 --> 00:03:16,660
+and unless, are so,
+
+48
+00:03:16,720 --> 00:03:20,950
+so integral to how this algorithm works. And you really,
+
+49
+00:03:20,950 --> 00:03:23,530
+really need to understand exactly what it means.
+
+50
+00:03:24,970 --> 00:03:29,970
+Then what I recommend you doing is to go ahead and create a flow chart,
+
+51
+00:03:31,150 --> 00:03:33,820
+just like what I've done in previous examples.
+
+52
+00:03:34,210 --> 00:03:36,730
+Head over to a website like draw.io,
+
+53
+00:03:37,000 --> 00:03:39,580
+or simply just write it on a piece of paper.
+
+54
+00:03:39,610 --> 00:03:44,610
+Draw it out and visualize what this actually means in terms of your code.
+
+55
+00:03:45,820 --> 00:03:48,010
+Now, if you really get stuck on that,
+
+56
+00:03:48,430 --> 00:03:51,640
+I've also created a flowchart for you.
+
+57
+00:03:52,090 --> 00:03:55,660
+So if you actually get stuck creating the flowchart,
+
+58
+00:03:55,840 --> 00:03:58,720
+there is one there that you can refer to as well.
+
+59
+00:03:59,020 --> 00:04:00,370
+But it's a really good exercise
+
+60
+00:04:00,370 --> 00:04:04,720
+creating your own flowchart based on what it is that you want your program to
+
+61
+00:04:04,720 --> 00:04:09,720
+do, and your algorithm or your code should correctly tell us whether
+
+62
+00:04:10,750 --> 00:04:15,730
+if it's a leap year or not a leap year. So it just has to print out leap year
+
+63
+00:04:15,760 --> 00:04:20,290
+if it is like 2400, and if it's not a leap year,
+
+64
+00:04:20,290 --> 00:04:23,230
+like 1989, then just print, not leap year.
+
+65
+00:04:24,580 --> 00:04:28,510
+This is the time to pause the video and really give this challenge
+
+66
+00:04:28,570 --> 00:04:32,380
+everything you've got. I'll see you back here once you're done.
+
+67
+00:04:32,910 --> 00:04:37,910
+[inaudible]
+
+68
+00:04:40,200 --> 00:04:43,290
+All right. So how did you get on? As I mentioned,
+
+69
+00:04:43,350 --> 00:04:46,950
+this is a really difficult challenge. If you haven't managed to solve it,
+
+70
+00:04:47,250 --> 00:04:51,120
+then try to come back to it a little bit later on and spend more time on it.
+
+71
+00:04:51,750 --> 00:04:56,430
+This is a decisive moment. Don't give up on yourself. Keep going.
+
+72
+00:04:56,880 --> 00:04:59,760
+I'm always going to be here for you with the solution.
+
+73
+00:05:00,180 --> 00:05:02,340
+You're not going to get stuck. It's really,
+
+74
+00:05:02,340 --> 00:05:06,510
+really important to try and solve it yourself. Now,
+
+75
+00:05:06,540 --> 00:05:11,190
+the first thing I mentioned is turning this rule for determining whether if a
+
+76
+00:05:11,190 --> 00:05:14,550
+year is a leap year or not into a flow chart.
+
+77
+00:05:15,120 --> 00:05:19,410
+So I've created one which I linked to in the challenge
+
+78
+00:05:19,950 --> 00:05:21,270
+and it's very simple.
+
+79
+00:05:21,540 --> 00:05:26,160
+We start off by asking ourself is a particular year that we have in mind,
+
+80
+00:05:26,610 --> 00:05:30,870
+um, let's say the year 2000, is it cleanly divisible by four?
+
+81
+00:05:31,080 --> 00:05:36,080
+Which means can you divide it by four with zero remainder?
+
+82
+00:05:37,410 --> 00:05:41,940
+Well, if the case is no, then it already is definitely not a leap year.
+
+83
+00:05:42,690 --> 00:05:46,650
+But if the case is yes, then we have to ask ourselves some more questions.
+
+84
+00:05:47,250 --> 00:05:51,420
+Namely, can we divide it by a hundred with no remainder?
+
+85
+00:05:52,170 --> 00:05:56,910
+Well, if we can't, then it's definitely a leap year, but if we can,
+
+86
+00:05:57,290 --> 00:06:01,730
+then we have to check yet again. Can we divide it by 400 with no remainder?
+
+87
+00:06:02,240 --> 00:06:05,750
+If the answer is yes, then it's a leap year. If the answer is no,
+
+88
+00:06:05,870 --> 00:06:10,130
+then it's not a leap year. Let's try and code that logic out,
+
+89
+00:06:10,280 --> 00:06:14,270
+keep your flow chart up somewhere so that you can write your code while
+
+90
+00:06:14,270 --> 00:06:15,560
+referring to the diagram.
+
+91
+00:06:16,430 --> 00:06:21,430
+We start off by checking whether if the year that came in through the input is
+
+92
+00:06:22,250 --> 00:06:25,280
+divisible by four with no remainder.
+
+93
+00:06:25,910 --> 00:06:28,790
+And you might remember from our previous code exercise
+
+94
+00:06:29,060 --> 00:06:33,310
+that the way we do this is using the modulo. So year
+
+95
+00:06:33,350 --> 00:06:36,500
+modulo four will give us the remainder.
+
+96
+00:06:37,760 --> 00:06:42,650
+So if the remainder is equal to zero, well in that case it's cleanly
+
+97
+00:06:42,650 --> 00:06:46,640
+divisible by four. And you can check this out yourself in the console.
+
+98
+00:06:46,700 --> 00:06:47,300
+Let's say,
+
+99
+00:06:47,300 --> 00:06:52,300
+if you have 8 % 4, 4 goes into 8 cleanly,
+
+100
+00:06:52,730 --> 00:06:56,360
+there's two four's in an eight. The remainder is zero.
+
+101
+00:06:57,050 --> 00:07:02,050
+Whereas 9 % 4, 4 + 4 is 8 remainder 1.
+
+102
+00:07:04,820 --> 00:07:09,140
+So if the remainder from the year divided by four is equal to zero,
+
+103
+00:07:09,560 --> 00:07:14,510
+then it is cleanly divisible by four. So in this case,
+
+104
+00:07:14,630 --> 00:07:17,630
+we'll have to go into yet another if statement.
+
+105
+00:07:18,230 --> 00:07:21,740
+But if it's actually false, then it's definitely not a leap year.
+
+106
+00:07:22,370 --> 00:07:25,730
+So the else statement that matches this
+
+107
+00:07:25,760 --> 00:07:30,760
+if statement is going to tell us for sure that this is not a leap year.
+
+108
+00:07:34,990 --> 00:07:39,700
+But if it is true, then we have to check the next thing. Is it cleanly
+
+109
+00:07:39,700 --> 00:07:41,350
+divisible by a hundred?
+
+110
+00:07:42,100 --> 00:07:47,100
+So we check if the year % 100 is equal to zero.
+
+111
+00:07:48,490 --> 00:07:51,130
+And if the answer is yes,
+
+112
+00:07:51,250 --> 00:07:56,230
+then we have to check that year against another question. But if it's no,
+
+113
+00:07:56,380 --> 00:08:01,380
+then it's definitely a leap year. In this case that will lead to an if statement
+
+114
+00:08:02,050 --> 00:08:04,660
+if it's true, but if it's false,
+
+115
+00:08:04,810 --> 00:08:09,810
+then we can simply print leap year because that's what it's going to be.
+
+116
+00:08:11,170 --> 00:08:16,060
+The final question that we have to ask ourselves about the year is,
+
+117
+00:08:16,320 --> 00:08:18,970
+is it cleanly divisible by 400?
+
+118
+00:08:19,690 --> 00:08:24,340
+So now if year % 400 is equal to zero,
+
+119
+00:08:24,970 --> 00:08:28,810
+well, in this case, if it is true,
+
+120
+00:08:29,050 --> 00:08:30,520
+then it's definitely a leap year.
+
+121
+00:08:30,730 --> 00:08:34,630
+If it's false, then it's definitely not a leap year. So, you can print
+
+122
+00:08:36,340 --> 00:08:40,840
+lear year if it's true, otherwise or if it's false,
+
+123
+00:08:40,870 --> 00:08:43,120
+then we can print not leap year.
+
+124
+00:08:45,880 --> 00:08:46,840
+And that's it.
+
+125
+00:08:46,900 --> 00:08:51,900
+That's all the code that you would need in order to represent this logic.
+
+126
+00:08:53,230 --> 00:08:56,610
+Now there's plenty of other ways you could have written your code,
+
+127
+00:08:57,060 --> 00:09:00,390
+but this is probably the most readable. Now,
+
+128
+00:09:00,420 --> 00:09:02,250
+if you've written some different code
+
+129
+00:09:02,730 --> 00:09:05,520
+but it still uses these rules to work out
+
+130
+00:09:05,820 --> 00:09:08,760
+whether if a given year is a leap year and it's correct,
+
+131
+00:09:09,060 --> 00:09:10,620
+then that's fine as well.
+
+132
+00:09:10,650 --> 00:09:13,620
+There's plenty of ways that you can solve this challenge.
+
+133
+00:09:15,060 --> 00:09:20,060
+The most important thing I want you to take away from this code exercise is that
+
+134
+00:09:20,700 --> 00:09:25,700
+you can turn any sort of logic into a flowchart to be able to visualize it.
+
+135
+00:09:27,480 --> 00:09:30,030
+And once you've got your logic straight,
+
+136
+00:09:30,330 --> 00:09:34,050
+then converting it into code is much, much simpler.
+
+137
+00:09:34,770 --> 00:09:39,000
+If you haven't figured out the logic and then you try to start writing code,
+
+138
+00:09:39,360 --> 00:09:40,530
+then it's going to be a mess.
+
+139
+00:09:40,860 --> 00:09:45,860
+So first, get to the stage of being able to create your own flowcharts and then
+
+140
+00:09:46,950 --> 00:09:49,260
+take those flow charts and turn them into code.
+
+141
+00:09:50,520 --> 00:09:52,170
+If you got stuck on this challenge
+
+142
+00:09:52,200 --> 00:09:54,630
+or if you didn't manage to complete it for some reason,
+
+143
+00:09:54,870 --> 00:09:59,220
+head back to it now and give it some extra attention, because this is really,
+
+144
+00:09:59,220 --> 00:10:03,270
+really important. It's in these moments, these code challenges,
+
+145
+00:10:03,330 --> 00:10:05,580
+where you are actually going to a level up as a programmer.
+
+146
+00:10:05,880 --> 00:10:07,380
+It's not during the tutorials,
+
+147
+00:10:07,410 --> 00:10:10,260
+it's not during the videos where I explain things to you.
+
+148
+00:10:10,770 --> 00:10:13,290
+It's where you actually write the code yourself.
+
+149
+00:10:13,950 --> 00:10:17,700
+I hope you had fun on this code challenge and you managed to complete it,
+
+150
+00:10:18,060 --> 00:10:22,050
+be it with hints or without hints. On the next lesson, we're going to take the
+
+151
+00:10:22,050 --> 00:10:27,050
+if statement one step further and I want to show you how you can have multiple
+
+152
+00:10:27,480 --> 00:10:30,390
+if statements and tests for multiple conditions.
+
+153
+00:10:31,110 --> 00:10:34,500
+So for all of that and more, I'll see you on the next lesson.
+
+1
+00:00:00,100 --> 00:00:01,420
+Now in the last lesson,
+
+2
+00:00:01,450 --> 00:00:06,450
+we saw how we could use if, elif, else to check for multiple conditions.
+
+3
+00:00:06,970 --> 00:00:11,970
+But in this case we're only checking one condition even though we have multiple,
+
+4
+00:00:12,460 --> 00:00:15,610
+because if this first condition is true,
+
+5
+00:00:15,910 --> 00:00:20,350
+then we would do whatever it is we need to do and then we would bypass
+
+6
+00:00:20,440 --> 00:00:21,460
+everything else.
+
+7
+00:00:22,030 --> 00:00:25,810
+Now what if you were in a situation where you need to check for multiple
+
+8
+00:00:25,810 --> 00:00:30,010
+conditions even if the previous one was already true?
+
+9
+00:00:31,180 --> 00:00:33,910
+Coming back to our rollercoaster ticketing problem,
+
+10
+00:00:34,420 --> 00:00:36,400
+if you're going on a good rollercoaster ride,
+
+11
+00:00:36,550 --> 00:00:41,020
+you'd probably want to keep a picture for the memories, right?
+
+12
+00:00:41,800 --> 00:00:44,020
+And our rollercoaster is no exception.
+
+13
+00:00:44,470 --> 00:00:49,470
+We want to be able to charge users an extra $3 if they want to purchase a ticket
+
+14
+00:00:49,690 --> 00:00:52,120
+that includes a photo. Now,
+
+15
+00:00:52,150 --> 00:00:57,150
+this is quite interesting because this is completely independent of their age or
+
+16
+00:00:57,910 --> 00:00:58,743
+their height.
+
+17
+00:00:58,960 --> 00:01:02,500
+Even if we've already gotten their age and height and determined their ticket
+
+18
+00:01:02,500 --> 00:01:07,450
+price, this is an extra question. Do you want a photo or not?
+
+19
+00:01:07,480 --> 00:01:09,670
+Yes or no. If you do,
+
+20
+00:01:09,700 --> 00:01:13,750
+then we're going to add $3 to your existing ticket price.
+
+21
+00:01:14,650 --> 00:01:18,460
+To do this, we would write multiple if conditions.
+
+22
+00:01:19,030 --> 00:01:21,940
+If condition 1 is true, then do a,
+
+23
+00:01:22,360 --> 00:01:27,070
+but then the code is going to go to the next case and check if condition 2 is
+
+24
+00:01:27,070 --> 00:01:27,903
+also true,
+
+25
+00:01:28,180 --> 00:01:32,320
+in which case it will do B and if the final condition is also true,
+
+26
+00:01:32,440 --> 00:01:35,680
+it's going to do C. Whereas on the example on the left
+
+27
+00:01:35,680 --> 00:01:40,270
+here, only one of these things, A, B, or C will be carried out.
+
+28
+00:01:40,690 --> 00:01:44,230
+Comparing the example on the left where we're using
+
+29
+00:01:44,260 --> 00:01:48,370
+if, elif, else, only one of these things A,
+
+30
+00:01:48,370 --> 00:01:52,480
+B or C will be carried out. But on the right hand side,
+
+31
+00:01:52,900 --> 00:01:57,070
+all three conditions are checked and if it's so happens that all three
+
+32
+00:01:57,070 --> 00:01:59,470
+conditions are true, then A,
+
+33
+00:01:59,590 --> 00:02:02,860
+B and C will all be executed.
+
+34
+00:02:03,520 --> 00:02:08,320
+Currently, our code operates like this. We check for their height.
+
+35
+00:02:08,949 --> 00:02:11,020
+If they're over 120 centimeters,
+
+36
+00:02:11,350 --> 00:02:13,990
+we check their age and depending on their age,
+
+37
+00:02:14,380 --> 00:02:16,990
+we give them a different price ticket.
+
+38
+00:02:18,130 --> 00:02:23,130
+What we now want is even after we've checked for their ticket price,
+
+39
+00:02:24,040 --> 00:02:28,510
+we want to ask them a question, do you want photos with your ticket?
+
+40
+00:02:29,200 --> 00:02:32,800
+And if the answer is yes, then we're going to add $3 to that bill,
+
+41
+00:02:33,340 --> 00:02:35,500
+no matter which type of ticket they've got.
+
+42
+00:02:36,220 --> 00:02:39,490
+And finally we give them the total bill. If they say no,
+
+43
+00:02:39,550 --> 00:02:43,090
+then we jump straight to the total bill and just tell them the price of their 
+
+44
+00:02:43,090 --> 00:02:47,230
+ticket. So how do we implement this in our code?
+
+45
+00:02:48,970 --> 00:02:52,240
+Well, first let's change these print statements.
+
+46
+00:02:52,270 --> 00:02:55,420
+Instead of giving them the bill at each of these steps,
+
+47
+00:02:55,750 --> 00:02:58,930
+I'm going to tell them which type of ticket they're eligible for.
+
+48
+00:03:02,560 --> 00:03:07,450
+So the next thing to do is to ask them whether if they want a photo or not.
+
+49
+00:03:07,870 --> 00:03:12,730
+So I'm going to need to use an input, but the question is where do I put that?
+
+50
+00:03:13,450 --> 00:03:18,450
+Now the correct answer is that it has to be at the same indentation level as
+
+51
+00:03:20,080 --> 00:03:23,860
+this if block. So you can imagine this whole thing with the,
+
+52
+00:03:23,860 --> 00:03:27,640
+if elif and else as sort of belonging together.
+
+53
+00:03:28,420 --> 00:03:30,400
+Because they all relate to one thing:
+
+54
+00:03:30,760 --> 00:03:35,590
+what is their age and which type of ticket are they eligible for. Now,
+
+55
+00:03:35,620 --> 00:03:37,540
+outside of that if statement,
+
+56
+00:03:37,780 --> 00:03:41,650
+I'm going to create an input and ask the user,
+
+57
+00:03:42,370 --> 00:03:46,360
+do you want a photo taken? Type Y for yes or N for no.
+
+58
+00:03:47,110 --> 00:03:52,110
+And then I'm going to save their input inside a variable called wants_photo.
+
+59
+00:03:55,120 --> 00:04:00,120
+So now I'm going to use an if statement to check what their answer was.
+
+60
+00:04:00,700 --> 00:04:04,240
+If it was true, then I'm going to add $3 and if it was false,
+
+61
+00:04:04,300 --> 00:04:07,120
+I'm just going to skip to giving them their ticket price.
+
+62
+00:04:07,840 --> 00:04:10,810
+So here is where I write my if statement.
+
+63
+00:04:11,440 --> 00:04:16,440
+Notice how it's at the same indentation level as this previous set of if
+
+64
+00:04:16,630 --> 00:04:17,463
+statements.
+
+65
+00:04:17,920 --> 00:04:22,920
+But it's not at the same indentation level as this set of if statement.
+
+66
+00:04:24,220 --> 00:04:27,760
+So essentially what's happening is once I've checked their age,
+
+67
+00:04:28,270 --> 00:04:31,720
+then I'm going to check whether if they want a photo or not.
+
+68
+00:04:32,050 --> 00:04:35,710
+And this is going to apply to everybody no matter their age.
+
+69
+00:04:36,490 --> 00:04:40,930
+So if wants_photo is equal to Y,
+
+70
+00:04:41,680 --> 00:04:46,680
+well in this case I'm going to go and add $3 to their bill.
+
+71
+00:04:48,970 --> 00:04:53,970
+But how can I add $3 the bill when I don't have a variable to vary?
+
+72
+00:04:55,480 --> 00:04:57,730
+So instead of using these print statements,
+
+73
+00:04:58,450 --> 00:05:01,120
+I'm going to create a variable up here called bill and
+
+74
+00:05:01,460 --> 00:05:03,400
+I'm going to set it to equal zero.
+
+75
+00:05:04,600 --> 00:05:09,010
+Now in addition to printing to the user how much their ticket is,
+
+76
+00:05:09,340 --> 00:05:13,450
+I'm going to set the bill to the price that they're supposed to pay.
+
+77
+00:05:13,930 --> 00:05:18,930
+So if age is less than 12 bill is equal to $5, if age is less than 18 then bill
+
+78
+00:05:19,750 --> 00:05:23,170
+is equal to $7, and finally for everybody else,
+
+79
+00:05:23,200 --> 00:05:28,200
+the bill is equal to $12. So now depending on these conditions,
+
+80
+00:05:30,460 --> 00:05:34,780
+the variable bill is going to be changed to a different number.
+
+81
+00:05:35,470 --> 00:05:38,260
+But once we land in this if statement,
+
+82
+00:05:38,560 --> 00:05:42,400
+I'm going to have to add $3 to their bill
+
+83
+00:05:42,700 --> 00:05:45,340
+no matter which value it is at the moment.
+
+84
+00:05:45,880 --> 00:05:50,880
+So effectively, what I want to do is bill equals the current value of bill plus
+
+85
+00:05:51,700 --> 00:05:54,130
+$3. So if bill was $7,
+
+86
+00:05:54,160 --> 00:05:59,160
+then this new value bill should be $10. If bill was $12 then it should now be $15.
+
+87
+00:06:00,530 --> 00:06:05,240
+Now in Python as well as many other languages, there's actually a slightly shorter way
+
+88
+00:06:05,240 --> 00:06:06,260
+of writing this.
+
+89
+00:06:06,740 --> 00:06:11,690
+When you want to increase the current value that's held in a variable and you
+
+90
+00:06:11,690 --> 00:06:13,610
+wanna save it back into the variable,
+
+91
+00:06:13,970 --> 00:06:17,240
+you can simply write plus equals.
+
+92
+00:06:17,810 --> 00:06:22,040
+So bill += 3 is the same as bill = bill + 3.
+
+93
+00:06:22,790 --> 00:06:27,680
+Now, no matter what the value of bill is before it reached this if statement,
+
+94
+00:06:28,040 --> 00:06:32,930
+I'm still going to add $3 to it. Now after this
+
+95
+00:06:32,930 --> 00:06:34,580
+if statement is completed,
+
+96
+00:06:34,880 --> 00:06:39,880
+I don't actually have to write a companion else statement because in this case,
+
+97
+00:06:40,940 --> 00:06:45,080
+if the answer is no, then we're simply going to do nothing.
+
+98
+00:06:45,080 --> 00:06:48,380
+We're not going to do anything to the bill. Instead,
+
+99
+00:06:48,410 --> 00:06:52,610
+I'm just going to skip ahead and print to the user their final bill.
+
+100
+00:06:55,370 --> 00:07:00,370
+And I'm going to use fstrings to insert the value that the bill variable has
+
+101
+00:07:02,990 --> 00:07:07,820
+into this print statement. Now for your code to work,
+
+102
+00:07:08,000 --> 00:07:13,000
+the indentation matters a huge deal because the computer will think you want
+
+103
+00:07:14,750 --> 00:07:18,320
+it to do different things depending on the indentation.
+
+104
+00:07:19,040 --> 00:07:24,040
+So notice how this indentation shows that this bill plus three is to be executed
+
+105
+00:07:26,510 --> 00:07:27,890
+when this condition is true,
+
+106
+00:07:28,580 --> 00:07:33,580
+but this print statement is not indented to the same level and effectively it's
+
+107
+00:07:34,220 --> 00:07:38,300
+going to happen after this if statement has been executed.
+
+108
+00:07:39,320 --> 00:07:44,320
+So you can play around with indenting this print statements, un-indenting it
+
+109
+00:07:45,230 --> 00:07:46,730
+and see what the difference is.
+
+110
+00:07:47,810 --> 00:07:51,770
+But now I'm going to go ahead and hit command
+
+111
+00:07:51,800 --> 00:07:56,800
++ enter or control + enter on Windows to run my code and I'm going to go ahead and
+
+112
+00:07:58,070 --> 00:07:59,330
+try and get a ticket.
+
+113
+00:08:00,050 --> 00:08:03,530
+So let's say that I am 21 years old,
+
+114
+00:08:04,730 --> 00:08:08,150
+tells me the adult tickets at $12 and then it asked me,
+
+115
+00:08:08,150 --> 00:08:11,810
+do you want a photo taken? So yeah, I would love to have a photo taken.
+
+116
+00:08:12,560 --> 00:08:15,530
+And it tells me that my final bill is 15,
+
+117
+00:08:16,010 --> 00:08:18,170
+so I forgot a dollar sign here.
+
+118
+00:08:18,710 --> 00:08:23,710
+But effectively it's now added the $3 to the $12 because of this additional if
+
+119
+00:08:26,510 --> 00:08:31,460
+statement. So if this concept is still a little bit confusing to you,
+
+120
+00:08:31,880 --> 00:08:36,880
+then I want you to really study this flow chart and just look at the difference,
+
+121
+00:08:37,460 --> 00:08:40,549
+um, and visualize it because the,
+
+122
+00:08:40,669 --> 00:08:45,670
+if elif else statement is only ever going to be true in one of these arrows,
+
+123
+00:08:47,450 --> 00:08:51,410
+right? You can't be less than 12 and 18 and over.
+
+124
+00:08:52,280 --> 00:08:53,030
+And similarly,
+
+125
+00:08:53,030 --> 00:08:56,460
+it doesn't make sense for you to have two different ticket prices.
+
+126
+00:08:57,270 --> 00:08:59,250
+But with the want photos,
+
+127
+00:08:59,550 --> 00:09:04,550
+this condition has to be asked no matter whichever branch they landed on.
+
+128
+00:09:05,160 --> 00:09:08,130
+So it's a completely separate from this if statement.
+
+129
+00:09:09,030 --> 00:09:11,910
+And once you've had a look at this flow chart,
+
+130
+00:09:12,120 --> 00:09:16,980
+then compare it against the code and the way that the code works should be a lot
+
+131
+00:09:16,980 --> 00:09:21,360
+more obvious. And once you're happy with the code and this concept,
+
+132
+00:09:21,690 --> 00:09:25,440
+then I want you to head over to the next lesson where I've got a code challenge
+
+133
+00:09:25,440 --> 00:09:29,340
+for you. So for all of that, and more, I'll see you there.
+
+1
+00:00:00,180 --> 00:00:04,740
+All right, guys, are you ready for another challenge? In this challenge,
+
+2
+00:00:04,770 --> 00:00:07,980
+you are going to be building a Pizza Order program.
+
+3
+00:00:08,430 --> 00:00:12,690
+So we're going to ask the user what size pizza they want, small, medium,
+
+4
+00:00:12,690 --> 00:00:16,770
+or large, whether if they want to add pepperoni to it and whether
+
+5
+00:00:16,770 --> 00:00:18,120
+if they want extra cheese.
+
+6
+00:00:18,660 --> 00:00:23,660
+So based on the user's input for each of these variables, and the inputs going to
+
+7
+00:00:24,990 --> 00:00:29,400
+come in the form of a single capital letter, S, M, or L, Y or N.
+
+8
+00:00:30,240 --> 00:00:31,350
+Based on their input,
+
+9
+00:00:31,380 --> 00:00:34,710
+we're going to try and figure out what the final bill is going to come to.
+
+10
+00:00:35,400 --> 00:00:37,920
+And you can take a look at the prices over here.
+
+11
+00:00:38,430 --> 00:00:42,600
+So, if you want to add pepperoni for a small pizza, it's a $2, medium,
+
+12
+00:00:42,600 --> 00:00:47,340
+or large pizza is $3, and an extra cheese is $1 for any size.
+
+13
+00:00:47,820 --> 00:00:51,690
+So you're going to use what you've learned about multiple if statements,
+
+14
+00:00:51,780 --> 00:00:56,250
+as well as everything from previously in order to be able to create this so that
+
+15
+00:00:56,280 --> 00:00:59,490
+if the user types in, for example, this input,
+
+16
+00:00:59,880 --> 00:01:04,879
+large, pepperoni with no extra cheese, then it should print out
+
+17
+00:01:05,069 --> 00:01:10,020
+Your final bill is $28. Have a look at the examples and the hints
+
+18
+00:01:10,350 --> 00:01:13,530
+and go ahead and solve this coding challenge.
+
+19
+00:01:16,650 --> 00:01:16,950
+All right,
+
+20
+00:01:16,950 --> 00:01:21,390
+so this one shouldn't be too hard and we're going to start off by creating our
+
+21
+00:01:21,390 --> 00:01:25,560
+first if statement where we're going to check out what is the size of the pizza
+
+22
+00:01:25,560 --> 00:01:29,190
+that they chose so we can assign the price to that pizza.
+
+23
+00:01:29,940 --> 00:01:34,940
+If the size is equal to S, that means they ordered a small pizza,
+
+24
+00:01:36,780 --> 00:01:41,460
+well in this case, the price should be $15, right? Now,
+
+25
+00:01:41,490 --> 00:01:45,990
+we're going to create a variable up here before the if statement so that we can
+
+26
+00:01:45,990 --> 00:01:47,580
+keep track of the bill.
+
+27
+00:01:48,150 --> 00:01:53,150
+So size S, the bill is going to be increased by $15.
+
+28
+00:01:54,450 --> 00:01:58,650
+Now you can, of course, simply just set the bill to $15 in this case,
+
+29
+00:01:59,070 --> 00:02:01,740
+but because we've got a lot of things that can change the bill,
+
+30
+00:02:02,040 --> 00:02:07,040
+it's easier to simply just add 15 to what it is currently using the plus equal
+
+31
+00:02:07,230 --> 00:02:08,310
+sign that you learned about.
+
+32
+00:02:09,150 --> 00:02:12,240
+Then we're going to check with an elif. Elif
+
+33
+00:02:12,240 --> 00:02:16,410
+the size is equal to M, so if they chose a medium pizza instead,
+
+34
+00:02:16,830 --> 00:02:20,400
+then the bill is going to increase by $20 instead.
+
+35
+00:02:20,940 --> 00:02:24,660
+And finally, for all other cases, namely,
+
+36
+00:02:24,660 --> 00:02:26,340
+if they'd got a large size pizza,
+
+37
+00:02:26,760 --> 00:02:30,810
+then we're going to increase the bill by, um,
+
+38
+00:02:30,840 --> 00:02:33,360
+$25. Now,
+
+39
+00:02:33,390 --> 00:02:38,390
+notice how here you could have also used an elif and said elif size equal
+
+40
+00:02:38,580 --> 00:02:41,220
+to L, um, well, in that case,
+
+41
+00:02:41,220 --> 00:02:46,220
+the bill increases by $25 and you don't actually need an else statement.
+
+42
+00:02:46,830 --> 00:02:48,420
+It's not required.
+
+43
+00:02:48,600 --> 00:02:53,600
+If you feel like it's easier to read like this, small,
+
+44
+00:02:53,670 --> 00:02:56,760
+medium, large, and what should happen for each case,
+
+45
+00:02:57,090 --> 00:03:00,280
+then you can just leave it like this. But of course,
+
+46
+00:03:00,280 --> 00:03:03,970
+there is an argument to be made that the user might have typed something wrong,
+
+47
+00:03:03,970 --> 00:03:06,610
+right? They might've typed a lowercase letter,
+
+48
+00:03:06,610 --> 00:03:10,540
+they might've typed a completely different letter. So in future lessons,
+
+49
+00:03:10,600 --> 00:03:14,590
+we're going to show you how you can catch these cases and how you can deal with
+
+50
+00:03:14,590 --> 00:03:18,550
+it. But for now, let's just keep our program as simple as possible.
+
+51
+00:03:19,060 --> 00:03:22,330
+If they type the wrong letter, instead of S, M, or L,
+
+52
+00:03:22,330 --> 00:03:24,040
+then we're just going to overcharge them.
+
+53
+00:03:24,490 --> 00:03:28,240
+So now that we've established what the basic price for their pizza is,
+
+54
+00:03:28,540 --> 00:03:30,640
+we're going to look through the ad-ons.
+
+55
+00:03:30,670 --> 00:03:33,490
+We're going to see if they said they wanted to add pepperoni.
+
+56
+00:03:33,520 --> 00:03:38,260
+So if add pepperoni is equal to Y, well,
+
+57
+00:03:38,260 --> 00:03:39,310
+in that case,
+
+58
+00:03:39,340 --> 00:03:43,060
+we're going to need to check if they have a small pizza or a medium,
+
+59
+00:03:43,060 --> 00:03:46,390
+or large pizza, 'cause the price is different.
+
+60
+00:03:46,660 --> 00:03:49,630
+So we're going to have a nested, if function in here.
+
+61
+00:03:50,110 --> 00:03:53,170
+We're going to say if add pepperoni is equal to Y,
+
+62
+00:03:54,910 --> 00:03:59,910
+and then if the size is equal to S, well,
+
+63
+00:04:00,250 --> 00:04:04,180
+in this case, we're only going to add, um, $2 to the bill.
+
+64
+00:04:05,050 --> 00:04:08,860
+But if the size was any other size, basically medium or large,
+
+65
+00:04:09,100 --> 00:04:11,620
+so we can catch that using just an L statement
+
+66
+00:04:11,680 --> 00:04:16,600
+instead of creating three separate, if sizes S, if sizes M, et cetera.
+
+67
+00:04:17,230 --> 00:04:20,500
+And in this case, we're going to add $3 to the bill.
+
+68
+00:04:21,790 --> 00:04:25,150
+So now we've got this case covered.
+
+69
+00:04:25,270 --> 00:04:29,350
+The final thing is whether if they said they wanted extra cheese or not.
+
+70
+00:04:29,920 --> 00:04:32,980
+So if they did, in fact, want extra cheese,
+
+71
+00:04:35,110 --> 00:04:35,380
+well,
+
+72
+00:04:35,380 --> 00:04:39,670
+in that case, all we have to do is just add $1 to the bill.
+
+73
+00:04:40,480 --> 00:04:45,100
+So these are three separate sets of if statements;
+
+74
+00:04:45,460 --> 00:04:47,530
+this one, this one, and this one.
+
+75
+00:04:47,980 --> 00:04:51,400
+And by the end of all of these if statements,
+
+76
+00:04:51,730 --> 00:04:54,160
+as long as we're at the right indentation level
+
+77
+00:04:54,190 --> 00:04:56,230
+namely right next to the gutter here,
+
+78
+00:04:56,530 --> 00:05:00,880
+then we can go ahead and calculate their bill and print it out for them.
+
+79
+00:05:01,270 --> 00:05:02,740
+So we can say print,
+
+80
+00:05:02,800 --> 00:05:06,700
+and I'm going to use an f-string to insert the bill in here, print
+
+81
+00:05:06,880 --> 00:05:09,910
+Your final bill is,
+
+82
+00:05:10,150 --> 00:05:14,350
+and then I'm going to add a dollar sign, and then inside the curly braces,
+
+83
+00:05:14,410 --> 00:05:19,060
+I'm going to put it in the current value of the bill after all of these
+
+84
+00:05:19,060 --> 00:05:22,060
+calculations. So did you manage to get it right?
+
+85
+00:05:22,210 --> 00:05:27,210
+Did you manage to use a combination of if statements and elif statements,
+
+86
+00:05:28,840 --> 00:05:32,470
+um, nested if statements, or did you do it in a different way?
+
+87
+00:05:32,500 --> 00:05:36,250
+And it's totally cool if you did. As long as it does what it's supposed to do,
+
+88
+00:05:36,640 --> 00:05:39,970
+then it doesn't really matter whichever format of your code
+
+89
+00:05:40,000 --> 00:05:42,550
+you decide to go for it. And as a matter of fact,
+
+90
+00:05:42,550 --> 00:05:46,030
+there's loads of ways that you could have written this code to get this
+
+91
+00:05:46,030 --> 00:05:49,270
+functionality. Some of them will be slightly more readable,
+
+92
+00:05:49,570 --> 00:05:51,430
+some of them will be slightly less readable.
+
+93
+00:05:51,610 --> 00:05:56,470
+So, it's a case of you making a good judgment on that and choosing the code that
+
+94
+00:05:56,470 --> 00:06:00,200
+makes the most sense to you. Now in the next lesson,
+
+95
+00:06:00,590 --> 00:06:05,590
+I want to talk a little bit about combining different conditions so that we can
+
+96
+00:06:05,960 --> 00:06:10,960
+use something called a logical operator to check for multiple conditions in the
+
+97
+00:06:11,390 --> 00:06:16,280
+same line of code. So, for all of that and more, I'll see you on the next lesson,
+
+1
+00:00:00,280 --> 00:00:04,720
+Now up to this point, you've seen us use if statements,
+
+2
+00:00:04,750 --> 00:00:06,460
+else statements, elif statements,
+
+3
+00:00:06,610 --> 00:00:10,600
+multiple if statements as well as nested if statements.
+
+4
+00:00:10,990 --> 00:00:15,990
+But the thing that we haven't been able to do thus far is to check for multiple
+
+5
+00:00:16,780 --> 00:00:20,440
+conditions in the same line of code.
+
+6
+00:00:21,250 --> 00:00:26,140
+So how would we be able to combine different conditions and say, well,
+
+7
+00:00:26,200 --> 00:00:31,200
+is the pizza large and the user wants pepperoni and extra cheese all in the
+
+8
+00:00:32,290 --> 00:00:34,510
+same line of code? Well,
+
+9
+00:00:34,570 --> 00:00:37,900
+to do this we would need to learn about the logical operators.
+
+10
+00:00:38,290 --> 00:00:42,280
+So there's three of them that are really useful: and, or and not.
+
+11
+00:00:43,180 --> 00:00:44,830
+So let's take a look at the first one.
+
+12
+00:00:45,280 --> 00:00:49,060
+When you combine two different conditions using an and operator,
+
+13
+00:00:49,390 --> 00:00:51,310
+they both have to be true,
+
+14
+00:00:51,310 --> 00:00:55,390
+both A and B for the entire line of code to be true.
+
+15
+00:00:56,320 --> 00:00:59,920
+If just one of them is true, say A is true and B is false, 
+
+16
+00:00:59,920 --> 00:01:04,780
+or A is false and B is true, then the overall thing evaluates to false.
+
+17
+00:01:06,070 --> 00:01:08,800
+So if we take a look just inside the console,
+
+18
+00:01:08,830 --> 00:01:13,450
+and in fact, I'm going to clear the console, and I write some code here.
+
+19
+00:01:13,480 --> 00:01:14,770
+Let's say that, um,
+
+20
+00:01:15,250 --> 00:01:20,250
+A = 12 right? Now let's say that I wanted to check whether if is A greater
+
+21
+00:01:23,320 --> 00:01:27,460
+than 15? Well that is going to be false.
+
+22
+00:01:28,060 --> 00:01:32,410
+Now what about is A greater than 10? Well,
+
+23
+00:01:32,410 --> 00:01:33,340
+that's going to be true.
+
+24
+00:01:33,940 --> 00:01:38,680
+Now if I combined this using an and statement, I could say,
+
+25
+00:01:38,680 --> 00:01:43,680
+well is A greater than 10 and A is less than 13 and hit enter, then I would get
+
+26
+00:01:49,450 --> 00:01:54,450
+true because both A is greater than 10 and A is less than 13 are true.
+
+27
+00:01:55,990 --> 00:01:58,660
+So in this case, when both conditions are true,
+
+28
+00:01:59,110 --> 00:02:02,320
+then this entire line gets evaluated to true.
+
+29
+00:02:02,950 --> 00:02:06,100
+But see what happens when just one of them is false.
+
+30
+00:02:06,250 --> 00:02:11,250
+So is A greater than 15 and A less than 13? A is greater than 15 is false,
+
+31
+00:02:13,960 --> 00:02:17,590
+A is less than 13 is true and now we get false.
+
+32
+00:02:18,580 --> 00:02:23,470
+So that's what happens when you combine different conditions using and. Now if
+
+33
+00:02:23,470 --> 00:02:26,650
+you only needed one of the conditions to be true,
+
+34
+00:02:27,040 --> 00:02:29,980
+then you could use the or operator instead.
+
+35
+00:02:30,160 --> 00:02:35,160
+So if a C or D were true or if they're both true,
+
+36
+00:02:35,740 --> 00:02:37,240
+then it'll evaluate to true.
+
+37
+00:02:38,110 --> 00:02:41,680
+It's only when both C and D are false
+
+38
+00:02:42,130 --> 00:02:44,530
+does this statement actually become false.
+
+39
+00:02:45,640 --> 00:02:50,640
+Now the final one is the not operator and all that this does is it basically
+
+40
+00:02:51,160 --> 00:02:55,360
+reverses a condition. So if the condition is false,
+
+41
+00:02:55,390 --> 00:02:58,900
+then it becomes true. If it's true, then it becomes false.
+
+42
+00:02:59,830 --> 00:03:01,390
+If I wrote not
+
+43
+00:03:01,570 --> 00:03:06,570
+and then I wrote the condition A is greater than 15. A greater than 15 is
+
+44
+00:03:09,550 --> 00:03:14,410
+definitely false, 12 is less than 15. But by putting the not there
+
+45
+00:03:14,410 --> 00:03:18,340
+it's going to reverse this, so going from false to true.
+
+46
+00:03:18,580 --> 00:03:21,790
+So when I hit enter, you'll see it is now true.
+
+47
+00:03:23,530 --> 00:03:25,480
+Coming back to our rollercoaster ticketing,
+
+48
+00:03:25,720 --> 00:03:30,670
+let's say that the rollercoaster company decided that for everybody who was
+
+49
+00:03:30,670 --> 00:03:34,600
+having a midlife crisis, they would give them free tickets.
+
+50
+00:03:35,020 --> 00:03:36,790
+And according to Wikipedia,
+
+51
+00:03:36,880 --> 00:03:41,880
+midlife crises typically occur when you're a 45 to 55 years old.
+
+52
+00:03:42,760 --> 00:03:46,390
+Let's see if we can incorporate this into our code.
+
+53
+00:03:46,960 --> 00:03:51,490
+So let's say that in addition to these existing price categories,
+
+54
+00:03:51,700 --> 00:03:56,700
+what if you had to add a separate price category for those people who are aged
+
+55
+00:03:57,190 --> 00:04:02,190
+between 45 and 55 and those people get to ride for free?
+
+56
+00:04:03,700 --> 00:04:06,910
+Do you think you would be able to change the code using what you've learned
+
+57
+00:04:06,940 --> 00:04:11,940
+about logical operators in order to incorporate this addition to our program?
+
+58
+00:04:12,730 --> 00:04:14,260
+Pause the video and give that a go.
+
+59
+00:04:17,970 --> 00:04:21,720
+So we've currently got three conditions: age,
+
+60
+00:04:21,750 --> 00:04:26,750
+less than 12, age between 12 and 18, and finally everybody else.
+
+61
+00:04:27,750 --> 00:04:31,770
+Now instead of just finishing up there,
+
+62
+00:04:32,580 --> 00:04:34,770
+let's go ahead and add another elif.
+
+63
+00:04:35,130 --> 00:04:37,740
+And here we're going to combine two conditions.
+
+64
+00:04:38,250 --> 00:04:43,250
+We're going to say if the age is greater than or equal to 45 and the age is less
+
+65
+00:04:47,790 --> 00:04:52,790
+than or equal to 55, then we get to catch that midlife crisis window.
+
+66
+00:04:54,840 --> 00:04:55,080
+Well,
+
+67
+00:04:55,080 --> 00:05:00,030
+in this case, we're going to print something like-- we're going to say "Everything's
+
+68
+00:05:00,030 --> 00:05:02,520
+going to be ok. Have a free ride on us!"
+
+69
+00:05:04,530 --> 00:05:05,190
+And in fact,
+
+70
+00:05:05,190 --> 00:05:10,190
+we don't need to modify the bill in any way because we know that with
+
+71
+00:05:11,820 --> 00:05:16,820
+if, elif and else statements is that once this condition matches,
+
+72
+00:05:19,260 --> 00:05:22,350
+then everything that's inside this block,
+
+73
+00:05:22,350 --> 00:05:26,850
+so everything that's indented inside this elif is going to be carried out
+
+74
+00:05:26,910 --> 00:05:28,350
+namely printing this out,
+
+75
+00:05:28,890 --> 00:05:33,890
+and then it's going to skip the rest of this if/else block and continue on.
+
+76
+00:05:36,630 --> 00:05:37,890
+Now, if they want to photo this,
+
+77
+00:05:37,890 --> 00:05:41,790
+they'll have to pay $3 but at least their ticket is free.
+
+78
+00:05:42,150 --> 00:05:47,150
+And we've been able to do this because we know about the and logical operator.
+
+79
+00:05:48,720 --> 00:05:49,920
+In the next lesson,
+
+80
+00:05:49,980 --> 00:05:54,960
+we're going to practice using logical operators and more by completing another
+
+81
+00:05:54,960 --> 00:05:58,380
+code challenge. So for all of that and more, I'll see you there.
+
+1
+00:00:00,030 --> 00:00:02,310
+All right guys, it's time to show what you're made of.
+
+2
+00:00:02,370 --> 00:00:05,700
+Here's another code challenge. And this one is again,
+
+3
+00:00:05,790 --> 00:00:10,560
+another difficult challenge and the arms really show you just how difficult it
+
+4
+00:00:10,560 --> 00:00:14,040
+is, but you're going to flex and you're going to get stronger.
+
+5
+00:00:14,580 --> 00:00:17,910
+And it's only through struggle that you're going to become a better coder.
+
+6
+00:00:18,480 --> 00:00:22,950
+So in this code exercise, we're going to build a love calculator.
+
+7
+00:00:23,640 --> 00:00:28,640
+And the way that it's going to work is the same method that I used when I was
+
+8
+00:00:29,010 --> 00:00:30,090
+10, pretty much.
+
+9
+00:00:30,690 --> 00:00:35,310
+And I really recommend reading up on this particular Buzzfeed article,
+
+10
+00:00:35,940 --> 00:00:38,730
+which is of course, very reputable
+
+11
+00:00:38,880 --> 00:00:42,450
+and it's going to tell you exactly how this program is going to work.
+
+12
+00:00:43,110 --> 00:00:47,490
+So once you've managed to scroll past all the GIFs, it will tell you, um,
+
+13
+00:00:47,580 --> 00:00:51,210
+the method. So you write your name, his or her name,
+
+14
+00:00:51,540 --> 00:00:54,480
+and then the words true and love. Now,
+
+15
+00:00:54,480 --> 00:00:59,480
+then you are going to count the number of times T-R-U-E occur in both of
+
+16
+00:00:59,520 --> 00:01:02,640
+your names. And then you're going to count the number of times,
+
+17
+00:01:02,640 --> 00:01:07,560
+L-O-V-E occur in both of your names. Once you've got those numbers,
+
+18
+00:01:07,590 --> 00:01:12,570
+so here T-R-U-E adds up to six, L-O-V-E adds up to three.
+
+19
+00:01:12,900 --> 00:01:17,550
+Then you'll get the percentage that you are compatible with this other person.
+
+20
+00:01:18,060 --> 00:01:20,550
+So not only did you get to learn Programming on this course,
+
+21
+00:01:20,550 --> 00:01:22,650
+you also get the discover your destiny.
+
+22
+00:01:23,190 --> 00:01:28,190
+The idea is that we're going to convert this very time-consuming process into a
+
+23
+00:01:28,500 --> 00:01:32,880
+computer program. So once you've understood how it works,
+
+24
+00:01:33,150 --> 00:01:35,820
+you're going to write the code for it. Now,
+
+25
+00:01:35,850 --> 00:01:37,950
+in order to be able to calculate the love score,
+
+26
+00:01:37,950 --> 00:01:41,340
+there's two important things that you should read in the hint.
+
+27
+00:01:41,940 --> 00:01:46,940
+One is you will need to use the lower function, and all that this does is it
+
+28
+00:01:48,360 --> 00:01:51,390
+takes a string, let's say we've got the string Angela.
+
+29
+00:01:51,780 --> 00:01:54,990
+And notice how that first letter is a capital A.
+
+30
+00:01:55,680 --> 00:01:58,770
+If I write .lower parentheses,
+
+31
+00:01:59,220 --> 00:02:04,020
+then it will reduce all of the capital letters to lowercase letters.
+
+32
+00:02:04,590 --> 00:02:08,220
+And if you were wondering how you would've known to use this,
+
+33
+00:02:08,580 --> 00:02:11,190
+then you can head over to the Stack of flow question
+
+34
+00:02:11,670 --> 00:02:15,960
+in which somebody asks exactly this question, how do you turn something
+
+35
+00:02:15,960 --> 00:02:19,740
+that's uppercase into a lowercase character in Python.
+
+36
+00:02:20,970 --> 00:02:23,820
+The second function you'll need is the count function.
+
+37
+00:02:24,150 --> 00:02:28,350
+And this will give you the number of times a letter occurs in a string,
+
+38
+00:02:28,380 --> 00:02:33,270
+which is super useful when it comes to this particular challenge. So again,
+
+39
+00:02:33,300 --> 00:02:37,830
+let's use our string, Angela, and then I'm going to write count.
+
+40
+00:02:38,040 --> 00:02:39,930
+And then in between the parentheses,
+
+41
+00:02:40,230 --> 00:02:43,350
+I'm going to specify what it is that I want to count.
+
+42
+00:02:43,740 --> 00:02:48,570
+So let's say I want to count the character A inside this string,
+
+43
+00:02:48,930 --> 00:02:51,270
+and I hit enter. It comes up with one,
+
+44
+00:02:51,780 --> 00:02:56,190
+even though you can see there's actually two A's in the string, in my name,
+
+45
+00:02:56,760 --> 00:03:01,760
+it only counts one lowercase a. So that's why this first step was super,
+
+46
+00:03:02,320 --> 00:03:03,370
+super useful.
+
+47
+00:03:03,610 --> 00:03:08,320
+So let's say lower_case_name equals, um,
+
+48
+00:03:09,250 --> 00:03:13,660
+Angela.lower. And then,
+
+49
+00:03:13,900 --> 00:03:14,733
+um,
+
+50
+00:03:14,890 --> 00:03:19,890
+let's go ahead and do lower_case_name.count,
+
+51
+00:03:21,730 --> 00:03:26,440
+and then we're going to count for a again. Now you'll see it gives us two,
+
+52
+00:03:26,680 --> 00:03:29,110
+because we were able to convert everything to lowercase,
+
+53
+00:03:29,260 --> 00:03:33,610
+and then use the count function to check the number of times the character a
+
+54
+00:03:33,670 --> 00:03:38,080
+occurs in this string. And again, I've linked to a Stack Overflow question
+
+55
+00:03:38,350 --> 00:03:43,350
+which is how you might've found out to use this count function and how you might
+
+56
+00:03:43,660 --> 00:03:46,900
+use it in terms of code examples. Now,
+
+57
+00:03:46,930 --> 00:03:49,120
+there's a second step to this challenge
+
+58
+00:03:49,120 --> 00:03:52,270
+because not only do we want to know the love score,
+
+59
+00:03:52,390 --> 00:03:55,450
+we also want to give the user an interpretation.
+
+60
+00:03:55,930 --> 00:04:00,930
+So the interpretation is here. For love scores that are less than 10 or greater
+
+61
+00:04:02,020 --> 00:04:06,880
+than 90, the message is going to say "Your score is X." And of course,
+
+62
+00:04:06,880 --> 00:04:11,770
+replace that X with the actual score. You go together like Coke and Mentos.
+
+63
+00:04:13,960 --> 00:04:16,959
+Now, if their love score was between 40 and 50,
+
+64
+00:04:16,990 --> 00:04:20,470
+the message is going to read your score is, whatever it may be,
+
+65
+00:04:20,950 --> 00:04:24,460
+you are all right together. And finally,
+
+66
+00:04:24,490 --> 00:04:28,600
+for all other scores, the message is just going to give them their score.
+
+67
+00:04:28,630 --> 00:04:33,340
+Your score is XYZ. In this case, there's two inputs,
+
+68
+00:04:33,370 --> 00:04:35,530
+somebody's name, and then somebody else's name.
+
+69
+00:04:35,890 --> 00:04:39,670
+And then you're going to check for the number of times T-R-U-E occurs in
+
+70
+00:04:39,670 --> 00:04:43,060
+both of those names, L-O-V-E occurs in those names,
+
+71
+00:04:43,330 --> 00:04:46,810
+then you going to combine these digits together to get a love score.
+
+72
+00:04:47,590 --> 00:04:51,670
+Pause the video now, have a look at everything that's in the instructions,
+
+73
+00:04:51,910 --> 00:04:54,340
+read it all and then go ahead and give that a go.
+
+74
+00:04:54,660 --> 00:04:59,660
+[inaudible]
+
+75
+00:05:03,210 --> 00:05:07,950
+All right. So the first step is to work out the love score, right?
+
+76
+00:05:08,160 --> 00:05:13,160
+So we need to figure out how many times each of these letters occur in these
+
+77
+00:05:14,250 --> 00:05:15,083
+names.
+
+78
+00:05:15,390 --> 00:05:20,390
+The first thing that we need to do is to combine the names,
+
+79
+00:05:21,120 --> 00:05:23,400
+because we're looking for the number of times,
+
+80
+00:05:23,400 --> 00:05:28,400
+let's say a T occurs in these names and we're treating them as one string,
+
+81
+00:05:30,030 --> 00:05:33,150
+right? So I don't wanna check it separately and then have to add it together.
+
+82
+00:05:33,600 --> 00:05:38,600
+So let's call it a combined_string and lets set that to equal name1 + name2.
+
+83
+00:05:41,080 --> 00:05:45,150
+And this is just going to concatenate those two strings together
+
+84
+00:05:45,540 --> 00:05:49,440
+so we'll be able to check them only once. It makes it more efficient,
+
+85
+00:05:49,500 --> 00:05:53,760
+right? The next step is to guard against cases
+
+86
+00:05:53,790 --> 00:05:57,830
+where the user is inputting their name like this, which many people do,
+
+87
+00:05:58,160 --> 00:06:00,530
+or they might even write it like this.
+
+88
+00:06:00,920 --> 00:06:03,980
+So we have to turn everything into lowercase.
+
+89
+00:06:04,130 --> 00:06:06,080
+So let's call it a lower_case_string
+
+90
+00:06:09,460 --> 00:06:14,460
+and that will be combined_string. lower just as I demoed previously using
+
+91
+00:06:15,820 --> 00:06:20,050
+this lower function. So now we've got everything in lower case,
+
+92
+00:06:20,080 --> 00:06:23,590
+we're going to start checking for this first word,
+
+93
+00:06:23,980 --> 00:06:27,070
+T-R-U-E. So let's first check
+
+94
+00:06:27,100 --> 00:06:32,100
+how many times the letter T occurs in this lowercase string of both people's
+
+95
+00:06:33,070 --> 00:06:33,903
+names.
+
+96
+00:06:34,030 --> 00:06:38,500
+So we can say lower_case_string.count
+
+97
+00:06:38,920 --> 00:06:42,820
+and then inside the parentheses, we specify the string we're looking for
+
+98
+00:06:42,850 --> 00:06:47,350
+which is 't' and then I'm going to save this to a variable
+
+99
+00:06:47,350 --> 00:06:52,330
+which I'll just call 't' again. And then we're going to repeat this several times,
+
+100
+00:06:52,810 --> 00:06:56,890
+hopefully for practice sake, you'll type it all out. But in my case,
+
+101
+00:06:56,950 --> 00:07:01,180
+I'm just going to copy and paste it, which is usually error-prone,
+
+102
+00:07:01,240 --> 00:07:03,010
+but we'll try to be careful.
+
+103
+00:07:05,620 --> 00:07:08,830
+So now that we've got the number of times 't' occurs, 'r' 
+
+104
+00:07:08,830 --> 00:07:12,760
+occurs, 'u' and 'e' occurs, we can now add it all up.
+
+105
+00:07:13,240 --> 00:07:18,240
+So let's say true = t + r + u + e.
+
+106
+00:07:21,160 --> 00:07:26,160
+So now we've got the first digit of our love score and we have to go ahead and
+
+107
+00:07:26,800 --> 00:07:31,690
+do the same thing for L-O-V-E. So again, for time sake,
+
+108
+00:07:31,690 --> 00:07:36,690
+I'm just going to copy that and then go ahead and change this to l,
+
+109
+00:07:39,100 --> 00:07:44,100
+o, v, e and l, o, v, e.
+
+110
+00:07:47,050 --> 00:07:51,580
+And then I'm going to go ahead and calculate the total for that
+
+111
+00:07:51,670 --> 00:07:56,670
+which is going to be l + o + v + e.
+
+112
+00:07:58,690 --> 00:08:03,690
+And now I've got both of these numbers and I'm going to try and concatenate them
+
+113
+00:08:04,960 --> 00:08:08,290
+together to achieve this two-digit number.
+
+114
+00:08:09,340 --> 00:08:12,640
+To do that, I'm going to create a love score variable
+
+115
+00:08:12,700 --> 00:08:14,170
+that's going to keep hold of this.
+
+116
+00:08:14,620 --> 00:08:18,130
+And then I'm going to say true + love.
+
+117
+00:08:18,760 --> 00:08:23,260
+And remember that at this stage, both true and love are actually integers.
+
+118
+00:08:23,290 --> 00:08:25,510
+That's how we were able to add them together.
+
+119
+00:08:26,050 --> 00:08:30,310
+So if I want to turn them into a string in order to be able to concatenate them
+
+120
+00:08:30,310 --> 00:08:33,070
+together, I have to convert them to strings.
+
+121
+00:08:35,200 --> 00:08:40,200
+The final thing we have to do is just to go ahead and print this love score.
+
+122
+00:08:40,870 --> 00:08:43,390
+So we're not going to print anything else for now.
+
+123
+00:08:43,419 --> 00:08:47,440
+Let's just go ahead and test it out. So let's run our code
+
+124
+00:08:49,630 --> 00:08:52,990
+and let's type my name and then
+
+125
+00:08:53,080 --> 00:08:57,750
+their name, Jack Bauer, of course. And then it gives us the score.
+
+126
+00:08:57,750 --> 00:08:59,730
+So five, three.
+
+127
+00:09:00,480 --> 00:09:03,780
+So that means everything so far has pretty much worked.
+
+128
+00:09:04,350 --> 00:09:09,350
+So now all we have to do is use our knowledge of if statements to give a
+
+129
+00:09:09,570 --> 00:09:13,050
+corresponding interpretation or a message.
+
+130
+00:09:13,740 --> 00:09:17,880
+If the score is less than 10 or greater than 90,
+
+131
+00:09:18,330 --> 00:09:23,330
+so if love_score is less than 10 or love_score is greater than 90,
+
+132
+00:09:28,710 --> 00:09:33,710
+so we're using that logical or operator here to check if either this condition
+
+133
+00:09:35,310 --> 00:09:39,660
+or this condition is true. And if you find it helpful,
+
+134
+00:09:39,660 --> 00:09:41,610
+which I usually do,
+
+135
+00:09:41,820 --> 00:09:46,770
+it's easy to wrap these conditions in their own set of parentheses.
+
+136
+00:09:47,220 --> 00:09:51,000
+Now, Python doesn't actually care. Either method works.
+
+137
+00:09:51,300 --> 00:09:54,660
+But for us humans, this is a little bit more readable.
+
+138
+00:09:55,470 --> 00:09:57,630
+So under this condition,
+
+139
+00:09:57,750 --> 00:10:00,510
+what we're going to print out is
+
+140
+00:10:02,370 --> 00:10:04,530
+Your love score is,
+
+141
+00:10:04,770 --> 00:10:07,980
+and then we'll insert the love_score variable here,
+
+142
+00:10:09,450 --> 00:10:12,900
+and we're going to of course be using f-strings, so let's add that.
+
+143
+00:10:13,530 --> 00:10:18,530
+And then we're going to write you go together like Coke and Mentos.
+
+144
+00:10:22,350 --> 00:10:25,530
+So that's our first condition done. Now,
+
+145
+00:10:25,560 --> 00:10:30,560
+the next condition is what if their love score is between 40 and 50.
+
+146
+00:10:32,730 --> 00:10:35,550
+So let's go ahead and add an elif here.
+
+147
+00:10:38,190 --> 00:10:38,970
+Elif
+
+148
+00:10:38,970 --> 00:10:43,970
+the love_score is greater than or equal to 40
+
+149
+00:10:47,220 --> 00:10:52,220
+and the love_score is less than or equal to 50,
+
+150
+00:10:53,130 --> 00:10:58,130
+so that catches the cases where the love score is between 40 and 50.
+
+151
+00:10:58,440 --> 00:11:03,440
+So both of these conditions must be true for this statement to fire.
+
+152
+00:11:05,100 --> 00:11:06,060
+And in this case,
+
+153
+00:11:06,090 --> 00:11:10,770
+what we want to do is we want to print out this sentence.
+
+154
+00:11:11,670 --> 00:11:13,830
+So your score is,
+
+155
+00:11:15,420 --> 00:11:18,000
+let's just insert the love_score in here.
+
+156
+00:11:18,410 --> 00:11:22,790
+[inaudible]
+
+157
+00:11:23,330 --> 00:11:27,530
+Your score is this particular love score. You are alright together.
+
+158
+00:11:28,430 --> 00:11:33,430
+Now the final thing we said is if it doesn't match any of these conditions,
+
+159
+00:11:33,860 --> 00:11:36,980
+then the message is just going to be their score.
+
+160
+00:11:37,520 --> 00:11:41,900
+So that means we can catch everything else using an else statement
+
+161
+00:11:42,260 --> 00:11:46,100
+and we can simply just print "Your score
+
+162
+00:11:46,220 --> 00:11:48,830
+is this particular number."
+
+163
+00:11:50,210 --> 00:11:54,430
+Now at this stage, you might think you're done, but if you actually run it,
+
+164
+00:11:54,460 --> 00:11:59,140
+you're going to get an error. So let's go ahead and test it with the same names
+
+165
+00:11:59,140 --> 00:11:59,973
+as before.
+
+166
+00:12:02,440 --> 00:12:05,650
+You can see that we get a type error on line 27,
+
+167
+00:12:06,040 --> 00:12:11,040
+and it says that the comparison less than is not supported between instances
+
+168
+00:12:12,400 --> 00:12:13,810
+of string and int.
+
+169
+00:12:14,320 --> 00:12:19,320
+So the problem here is that in order to concatenate these two numbers,
+
+170
+00:12:19,960 --> 00:12:22,270
+we had to turn them into strings.
+
+171
+00:12:22,750 --> 00:12:27,700
+So that let's say that this number was equal to five and this number was equal
+
+172
+00:12:27,700 --> 00:12:31,900
+to six. Then instead of getting 11, which is not what we want,
+
+173
+00:12:32,290 --> 00:12:37,290
+we actually get 56 'cause they're both strings and these strings get concatenated
+
+174
+00:12:38,650 --> 00:12:39,483
+together.
+
+175
+00:12:40,060 --> 00:12:45,060
+But the problem occurs on the next step because we wanna compare the love score
+
+176
+00:12:45,850 --> 00:12:50,380
+against an actual number, then if it's a string,
+
+177
+00:12:50,770 --> 00:12:54,670
+it's not going to work. So in order to solve this,
+
+178
+00:12:55,120 --> 00:12:59,830
+then we actually have to convert the love score into an integer.
+
+179
+00:13:00,130 --> 00:13:02,200
+So you could use a separate step.
+
+180
+00:13:02,440 --> 00:13:06,220
+So the int_score equals int
+
+181
+00:13:06,910 --> 00:13:11,830
+and then we wrap it around the love score. Alternatively, um,
+
+182
+00:13:11,920 --> 00:13:16,920
+and a lot easier is to simply just wrap that whole line inside a set of brackets
+
+183
+00:13:19,120 --> 00:13:22,660
+and convert the whole thing into an integer on the same line.
+
+184
+00:13:23,110 --> 00:13:27,220
+It depends on how comfortable you are with this code as to which option you'll
+
+185
+00:13:27,220 --> 00:13:29,830
+choose. Now that we're done here,
+
+186
+00:13:29,830 --> 00:13:33,880
+let's go ahead and run our code again and let's just check it out.
+
+187
+00:13:38,280 --> 00:13:41,130
+Your score is 42. You are all right together.
+
+188
+00:13:41,550 --> 00:13:46,550
+So now our code seems to be working and we've now completed this code challenge.
+
+189
+00:13:47,520 --> 00:13:50,310
+How did you get on with this challenge?
+
+190
+00:13:50,400 --> 00:13:53,070
+Did you manage to get everything right?
+
+191
+00:13:53,460 --> 00:13:55,950
+Did you get stuck at certain places?
+
+192
+00:13:56,850 --> 00:14:01,440
+Have a think about which parts of this challenge were the hardest and see if you
+
+193
+00:14:01,440 --> 00:14:05,280
+can review some of those concepts so that the next time you encounter them,
+
+194
+00:14:05,340 --> 00:14:07,410
+you'll be able to tackle them with confidence.
+
+1
+00:00:00,090 --> 00:00:02,910
+Hey, you've reached the final project.
+
+2
+00:00:02,910 --> 00:00:09,630
+And as you've seen at the beginning of today's lessons, I showed you what we're going to be making,
+
+3
+00:00:09,630 --> 00:00:12,670
+which is a sort of choose your own adventure game.
+
+4
+00:00:12,690 --> 00:00:14,070
+I don't know if you've ever read those.
+
+5
+00:00:14,070 --> 00:00:20,190
+Choose your own adventure books where you flip to a different page if you make a particular choice.
+
+6
+00:00:20,190 --> 00:00:24,180
+And then the story kind of evolves as you make your choices.
+
+7
+00:00:24,390 --> 00:00:30,090
+Now we're going to make a very simple version of that using what we've learned about conditionals.
+
+8
+00:00:30,090 --> 00:00:34,660
+If else, Elif statements as well as everything we've done previously.
+
+9
+00:00:34,680 --> 00:00:38,460
+So you've already seen what the final outcome should look like.
+
+10
+00:00:38,460 --> 00:00:44,760
+And if you want to review it again, just head over to Treasure Island Dash and Run.
+
+11
+00:00:44,760 --> 00:00:48,450
+And here you'll see essentially the game in action.
+
+12
+00:00:48,630 --> 00:00:52,290
+So it starts off asking you, you're at a crossroad.
+
+13
+00:00:52,290 --> 00:00:53,910
+Do you want to go left or right?
+
+14
+00:00:53,910 --> 00:00:56,490
+And then you have to type your choice.
+
+15
+00:00:57,120 --> 00:01:03,570
+If you selected left, then it's going to take you to a lake and it asks you whether if you want to
+
+16
+00:01:03,570 --> 00:01:05,680
+wait for a boat or swim across.
+
+17
+00:01:05,700 --> 00:01:08,610
+So let's go ahead and wait for a boat.
+
+18
+00:01:08,820 --> 00:01:13,530
+And then the final step is it asks you which door would you like to go through?
+
+19
+00:01:13,530 --> 00:01:15,420
+Red, yellow or blue.
+
+20
+00:01:15,540 --> 00:01:22,170
+Now, depending on your choice, you'll either end up with game over or you'll end up with winning the
+
+21
+00:01:22,170 --> 00:01:22,650
+game.
+
+22
+00:01:22,710 --> 00:01:30,870
+So the basic setup for this game looks something like this, and I've included a link to this flowchart
+
+23
+00:01:30,870 --> 00:01:33,030
+in the starting rappel.
+
+24
+00:01:33,030 --> 00:01:37,200
+So Rappler slash Abra slash Treasure Island start.
+
+25
+00:01:37,200 --> 00:01:41,460
+And of course, you'll find all the links in the course resources as always.
+
+26
+00:01:41,460 --> 00:01:45,210
+But if you scroll down, there's a link right here that takes you to this flowchart.
+
+27
+00:01:45,480 --> 00:01:51,360
+Now, the first question you're going to ask the user is to make a choice between left and right.
+
+28
+00:01:51,450 --> 00:01:54,200
+Now, you can use my wording if you want.
+
+29
+00:01:54,210 --> 00:01:55,140
+You're at a crossroad.
+
+30
+00:01:55,140 --> 00:01:55,900
+Where do you want to go?
+
+31
+00:01:55,920 --> 00:01:57,530
+Type left or type right.
+
+32
+00:01:57,540 --> 00:02:02,730
+But I think the fun part of this challenge is really creating your own story, right?
+
+33
+00:02:02,730 --> 00:02:06,060
+But somehow get them to choose between left and right.
+
+34
+00:02:06,300 --> 00:02:12,990
+If they choose right or any other condition for that matter, tell them that they've lost game over
+
+35
+00:02:12,990 --> 00:02:14,670
+for some sort of reason.
+
+36
+00:02:15,060 --> 00:02:20,260
+In my case, if they had chosen right, the reason is because they fell into a whole game over.
+
+37
+00:02:20,280 --> 00:02:26,430
+But I think you're far more imaginative than I am, so go ahead and use all of those skills and make
+
+38
+00:02:26,430 --> 00:02:27,450
+your game really fun.
+
+39
+00:02:27,570 --> 00:02:32,310
+Now, if they've chosen left, on the other hand, then we're going to take them to another question
+
+40
+00:02:32,310 --> 00:02:39,270
+that asks them whether if they want to swim or whether if they want to wait for a boat and if they swam,
+
+41
+00:02:39,270 --> 00:02:41,560
+then it's going to be some form of game over.
+
+42
+00:02:41,580 --> 00:02:46,620
+There's crocodiles, there's whatever it may be, but they can't continue.
+
+43
+00:02:46,710 --> 00:02:51,570
+But if they chose wait, then we take them to the third and final question, which asks them to choose
+
+44
+00:02:51,570 --> 00:02:57,480
+between three doors and if they choose any door other than the yellow door, then they would lose.
+
+45
+00:02:57,480 --> 00:03:00,390
+But if they chose the yellow door, then they somehow win.
+
+46
+00:03:00,570 --> 00:03:04,890
+Now notice how each of these just says game over, game over, left or right.
+
+47
+00:03:04,890 --> 00:03:10,260
+But, you know, the idea is really to use your creativity and make this game really your own.
+
+48
+00:03:10,710 --> 00:03:16,590
+Now, one thing to remember, though, is that when the user types in a answer, let's say left or right,
+
+49
+00:03:16,620 --> 00:03:23,010
+they might type it like this with an uppercase R, or they might type it like this all lowercase.
+
+50
+00:03:23,220 --> 00:03:28,230
+Have a think about how you might make sure that no matter which version they typed, you're still going
+
+51
+00:03:28,230 --> 00:03:31,950
+to be able to catch their command, essentially.
+
+52
+00:03:32,070 --> 00:03:37,840
+So have a think about what you've learned in the previous lessons and take a look at this flowchart.
+
+53
+00:03:37,860 --> 00:03:43,740
+Then head over to the starting project and you can get started writing your code.
+
+54
+00:03:43,800 --> 00:03:50,220
+Now, if you had over here and what you see is sort of like a mumbo jumbo bunch of characters, then
+
+55
+00:03:50,220 --> 00:03:57,000
+the reason is probably because there's not enough space for this ASCII art of a treasure chest to display.
+
+56
+00:03:57,000 --> 00:04:04,290
+So you can either do as I did, reduce the size of the console, or alternatively and probably easier
+
+57
+00:04:04,290 --> 00:04:07,590
+is to change the layout to stacked, make it go at the bottom.
+
+58
+00:04:07,710 --> 00:04:14,070
+Collapse this left hand pane and then you've got as much space as you have to work with.
+
+59
+00:04:15,090 --> 00:04:20,910
+Now ask zero is really cool because it basically just uses a bunch of characters that you know and love,
+
+60
+00:04:20,910 --> 00:04:27,690
+like the comma and the equal sign and all of these things that together make up a picture.
+
+61
+00:04:28,560 --> 00:04:30,600
+And you can find your own Asgard.
+
+62
+00:04:30,600 --> 00:04:37,470
+If you just go to ASCO, UK slash art and you'll see a whole bunch of different topics.
+
+63
+00:04:37,830 --> 00:04:42,240
+And they've grouped a lot of things together into individual pages.
+
+64
+00:04:42,240 --> 00:04:48,720
+So if you wanted a rhino ASCII art, then you can find a whole bunch of rhinos that people have drawn.
+
+65
+00:04:49,020 --> 00:04:54,510
+But the easiest way is of course using command F if you're on a mac or control F if you're on a Windows
+
+66
+00:04:54,540 --> 00:04:57,450
+machine, and then just search for the thing that you want.
+
+67
+00:04:57,450 --> 00:05:04,470
+So for example, I went and searched for treasure, and down here I found this brilliant treasure box
+
+68
+00:05:04,560 --> 00:05:09,930
+ASCII art, which is what I'm using to print inside this print statement.
+
+69
+00:05:10,170 --> 00:05:16,590
+Now notice how there's three single quotes that are at the start, and there's three single quotes at
+
+70
+00:05:16,590 --> 00:05:17,340
+the end.
+
+71
+00:05:17,430 --> 00:05:24,210
+Basically, what the single quotes allow you to do is to create multiple lines of a string, essentially.
+
+72
+00:05:24,390 --> 00:05:32,490
+So notice how if I go ahead and delete all of these single quotes and I only had a set of double quotes,
+
+73
+00:05:32,940 --> 00:05:36,030
+then it actually doesn't quite work.
+
+74
+00:05:37,470 --> 00:05:43,080
+It gets quite confused because it thinks that this is where the line ends.
+
+75
+00:05:43,080 --> 00:05:46,180
+But in fact, I wanted to print all of this out.
+
+76
+00:05:46,200 --> 00:05:53,160
+So to do that, instead of using a double quote, I use three single quotes and at the very bottom I
+
+77
+00:05:53,160 --> 00:05:59,010
+tell it, Well, this is the end of my multi block string by using three single quotes as well.
+
+78
+00:05:59,100 --> 00:06:03,120
+So have a go at running that and you should be able to see that in your console.
+
+79
+00:06:03,120 --> 00:06:09,120
+You get this little Treasure Island ASCII art being printed along with the two sentences that begin
+
+80
+00:06:09,120 --> 00:06:09,750
+the game.
+
+81
+00:06:10,020 --> 00:06:12,330
+So have a look at the flow chart.
+
+82
+00:06:12,660 --> 00:06:19,770
+Have a play around with the ASCII art and also have a look at the final version of the app so that you
+
+83
+00:06:19,770 --> 00:06:24,540
+can go ahead and create your own version to complete this challenge.
+
+84
+00:06:24,600 --> 00:06:26,490
+Pause the video now and give that a go.
+
+85
+00:06:30,760 --> 00:06:31,120
+All right.
+
+86
+00:06:31,120 --> 00:06:37,780
+So let's see if we can replicate the functionality or the logic that's shown in this diagram into our
+
+87
+00:06:37,780 --> 00:06:39,010
+Treasure Island game.
+
+88
+00:06:39,040 --> 00:06:44,620
+So the first thing it has to do is we have to ask the user whether if they want to turn left or right.
+
+89
+00:06:44,980 --> 00:06:51,040
+And after we ask the user this question, we're going to want to capture the input.
+
+90
+00:06:51,040 --> 00:06:51,450
+Right?
+
+91
+00:06:51,460 --> 00:06:56,830
+So let's go ahead and create an input function and ask our question.
+
+92
+00:07:00,460 --> 00:07:07,600
+Now notice how when I use my double quotes around my string, the double quotes that are inside the
+
+93
+00:07:07,600 --> 00:07:14,710
+double quotes are interpreted as code because it actually thinks that this is the end of the first string.
+
+94
+00:07:14,980 --> 00:07:18,040
+This is the second string and this is the final string.
+
+95
+00:07:18,070 --> 00:07:20,140
+This is how the computer is going to see it.
+
+96
+00:07:20,350 --> 00:07:26,470
+Now, previously you saw that we could do the trick where we change this to single quotes instead.
+
+97
+00:07:26,920 --> 00:07:35,650
+But if, like me, you have this case where you have the yaw with the apostrophe, then it's going to
+
+98
+00:07:35,650 --> 00:07:38,250
+think that this is actually the end of the first string.
+
+99
+00:07:38,260 --> 00:07:41,230
+This is the second string and this is the third string.
+
+100
+00:07:41,230 --> 00:07:43,420
+So this doesn't actually really help us.
+
+101
+00:07:43,750 --> 00:07:49,810
+Now, what we can do when we want to tell our computer that what I'm writing is actually not code,
+
+102
+00:07:49,810 --> 00:07:52,150
+just see it as text.
+
+103
+00:07:52,180 --> 00:07:57,640
+You can get it to ignore a symbol afterwards by using the backslash.
+
+104
+00:07:57,760 --> 00:08:03,940
+So this way it basically escapes the string and it will see it as text.
+
+105
+00:08:04,090 --> 00:08:08,050
+And now we have a complete string like this.
+
+106
+00:08:08,050 --> 00:08:13,330
+And this is just going to be interpreted as a text because we told it to with the backslash.
+
+107
+00:08:13,540 --> 00:08:16,290
+Now, of course, there's other ways that you could have gone around this.
+
+108
+00:08:16,300 --> 00:08:22,390
+You could have just simply said you are at at a crossroad rather than using the apostrophe.
+
+109
+00:08:22,540 --> 00:08:26,260
+But more often than not, you'll need to use a symbol that you'll need to escape.
+
+110
+00:08:26,260 --> 00:08:27,870
+And you can do that with the backslash.
+
+111
+00:08:27,880 --> 00:08:29,350
+So that's just a quick tip.
+
+112
+00:08:29,710 --> 00:08:34,419
+Now, at this point, the user is going to type a message left or right.
+
+113
+00:08:34,659 --> 00:08:37,549
+So let's go ahead and save that to a variable.
+
+114
+00:08:37,570 --> 00:08:38,500
+Let's call it choice.
+
+115
+00:08:38,500 --> 00:08:40,390
+One equals their input.
+
+116
+00:08:40,570 --> 00:08:45,600
+Now, remember how I said they could be typing the answer as right or as right?
+
+117
+00:08:45,610 --> 00:08:52,510
+So how can we make sure that when we're doing our checks using the if statement, we ignore the casing?
+
+118
+00:08:52,810 --> 00:08:59,530
+Well, one way of doing this is we can simply use the lower function to change their input no matter
+
+119
+00:08:59,530 --> 00:09:00,640
+how they wrote it.
+
+120
+00:09:00,640 --> 00:09:07,030
+Right, Right or right, it should all be converted into lowercase to this version.
+
+121
+00:09:07,180 --> 00:09:12,730
+That way we have one thing that we can consistently check for in our IF statement, which is coming
+
+122
+00:09:12,730 --> 00:09:13,330
+up next.
+
+123
+00:09:13,330 --> 00:09:15,910
+So we can say if choice one.
+
+124
+00:09:16,870 --> 00:09:17,830
+Is equal to.
+
+125
+00:09:17,860 --> 00:09:23,500
+Remember the double equals is checking whether if left hand side and right hand side is equal and the
+
+126
+00:09:23,500 --> 00:09:29,290
+single equal sign is assigning the right hand side to this particular variable name.
+
+127
+00:09:29,650 --> 00:09:36,340
+Now, if choice one equals the string, right, then it's pretty much game over for player.
+
+128
+00:09:36,370 --> 00:09:43,450
+So let's go ahead and add our colon and print something like Game Over.
+
+129
+00:09:43,840 --> 00:09:47,830
+Of course, we can elaborate this a little bit more as to why was it game over?
+
+130
+00:09:47,830 --> 00:09:51,700
+Well, because you fell into a hole.
+
+131
+00:09:52,000 --> 00:09:55,060
+This is like the game from the eighties.
+
+132
+00:09:55,760 --> 00:09:56,900
+Lots of holes.
+
+133
+00:09:57,200 --> 00:10:00,470
+Um, so you fell into a whole game over.
+
+134
+00:10:01,340 --> 00:10:05,420
+But what if they had chosen left instead?
+
+135
+00:10:05,450 --> 00:10:08,120
+Well, that takes them on to the next question.
+
+136
+00:10:08,120 --> 00:10:12,260
+So that's the option that will allow them to continue along the game.
+
+137
+00:10:13,250 --> 00:10:19,190
+Now, in this case, we could use an L statement and say, Well, if they didn't choose right, then
+
+138
+00:10:19,190 --> 00:10:20,960
+they probably chose left right.
+
+139
+00:10:21,140 --> 00:10:25,540
+But they could have also chosen like a option that was completely not listed.
+
+140
+00:10:25,550 --> 00:10:31,010
+They could have just written something like this and it would still trigger the L statement.
+
+141
+00:10:31,220 --> 00:10:35,900
+So what we should actually do is to switch it around.
+
+142
+00:10:36,050 --> 00:10:45,770
+So namely, we should say if choice one is equal to left, well, in that case, then they continue.
+
+143
+00:10:47,470 --> 00:10:55,840
+In the game, but otherwise, namely, if they chose right or anything else for that matter, then it's
+
+144
+00:10:55,840 --> 00:10:57,230
+pretty much game over.
+
+145
+00:10:57,250 --> 00:11:03,940
+So this format makes a lot more sense if you want to continue along the left side of the branch this
+
+146
+00:11:03,940 --> 00:11:04,390
+way.
+
+147
+00:11:04,690 --> 00:11:10,840
+Now, another thing that you might have realized because we learnt about combining different conditions
+
+148
+00:11:10,840 --> 00:11:18,910
+is instead of using the dot lower to change the input to lowercase, you could have also said if choice
+
+149
+00:11:18,910 --> 00:11:27,100
+is equal to left or if choice one is equal to left spelt like this, that will both work.
+
+150
+00:11:27,460 --> 00:11:34,900
+But I think in terms of synchronous and less code writing, I think this makes a lot more sense to me.
+
+151
+00:11:35,110 --> 00:11:37,390
+So I'm going to continue with this version.
+
+152
+00:11:37,390 --> 00:11:40,870
+But if you did it the other way, that's perfectly valid as well.
+
+153
+00:11:41,750 --> 00:11:46,550
+Now, if that choice one was left, then they get taken to the next question.
+
+154
+00:11:46,550 --> 00:11:48,470
+Do you want to swim or do you want to wait?
+
+155
+00:11:49,250 --> 00:11:54,620
+So let's go ahead and continue the game and create another input.
+
+156
+00:11:55,190 --> 00:12:01,550
+In this input, we're going to ask them a question and say, You've come to a lake.
+
+157
+00:12:01,820 --> 00:12:15,380
+There is an island in the middle of the lake type, wait to wait for a boat type swim to swim across.
+
+158
+00:12:15,920 --> 00:12:16,460
+Cool.
+
+159
+00:12:16,460 --> 00:12:24,500
+So we've actually got the same problem as we had before, namely that this is being interpreted as code
+
+160
+00:12:24,500 --> 00:12:27,980
+rather than as a continuous single string.
+
+161
+00:12:28,250 --> 00:12:30,890
+So do you remember how we fix this previously?
+
+162
+00:12:31,010 --> 00:12:36,530
+And if you got stuck on this, I recommend having a go at this yourself before I show you the answer.
+
+163
+00:12:37,970 --> 00:12:38,330
+All right.
+
+164
+00:12:38,330 --> 00:12:44,870
+So previously we said we were going to switch it to single quotes instead so that these double quotes
+
+165
+00:12:44,870 --> 00:12:48,020
+become interpreted as just normal strings.
+
+166
+00:12:48,230 --> 00:12:49,940
+But of course, we've got this.
+
+167
+00:12:49,940 --> 00:12:54,670
+You've we could, of course, change it to you have instead of you've.
+
+168
+00:12:54,680 --> 00:13:00,350
+But if we want to escape the string, we just add a backslash and now everything is coloured in this
+
+169
+00:13:00,350 --> 00:13:07,100
+sort of pinkish colour to indicate it's all interpreted as a string, which is exactly what we did previously.
+
+170
+00:13:07,790 --> 00:13:12,320
+Now, in terms of this input, they're going to type weight or they're going to type swim.
+
+171
+00:13:12,320 --> 00:13:15,470
+So let's go ahead and lower the casing for it as well.
+
+172
+00:13:15,620 --> 00:13:18,950
+And then we're going to save it inside a choice.
+
+173
+00:13:18,960 --> 00:13:26,300
+We're going to say choice to now be really careful and mindful of your indentation, because if you
+
+174
+00:13:26,300 --> 00:13:34,100
+wrote it like this, then it's going to be creating some errors for you because this choice two input
+
+175
+00:13:34,100 --> 00:13:38,090
+line has to run when this choice one is equal to left.
+
+176
+00:13:38,990 --> 00:13:41,660
+Otherwise we're going to get an indentation error.
+
+177
+00:13:41,990 --> 00:13:49,880
+So let's go ahead and indent it here to show that this part is inside this if statement and will only
+
+178
+00:13:49,880 --> 00:13:52,250
+be executed if this is true.
+
+179
+00:13:52,700 --> 00:13:55,690
+And then we get to check our choice two.
+
+180
+00:13:55,700 --> 00:14:04,040
+So if choice two is equal to weight, then it means that the game will continue.
+
+181
+00:14:06,080 --> 00:14:07,670
+But else.
+
+182
+00:14:07,670 --> 00:14:13,760
+So if they typed swim or anything else for that matter, then the game is going to end.
+
+183
+00:14:13,760 --> 00:14:17,390
+So we're going to print and tell them that something terrible happened.
+
+184
+00:14:17,390 --> 00:14:22,550
+You got attacked by an angry trout.
+
+185
+00:14:24,420 --> 00:14:25,350
+Game over.
+
+186
+00:14:26,130 --> 00:14:28,590
+Now we can continue along this path.
+
+187
+00:14:28,590 --> 00:14:30,570
+So we're down to here now.
+
+188
+00:14:30,570 --> 00:14:35,640
+And the final question we're going to ask the user is which door do they want to choose?
+
+189
+00:14:36,060 --> 00:14:43,260
+So here I'm going to use an input to send them the message that you arrive at the island unharmed.
+
+190
+00:14:43,260 --> 00:14:46,290
+There is a house with three doors, one red, one yellow, one blue.
+
+191
+00:14:46,320 --> 00:14:48,300
+Which color do you choose?
+
+192
+00:14:48,600 --> 00:14:57,150
+Now I'm going to save their choice inside a variable called Choice three lowercase, the answer that
+
+193
+00:14:57,150 --> 00:14:58,290
+they provided.
+
+194
+00:14:58,380 --> 00:15:03,600
+And finally, I'm going to use if elephant else to check which one they chose.
+
+195
+00:15:03,750 --> 00:15:14,910
+So if choice three is equal to red, elif, choice three is equal to yellow.
+
+196
+00:15:17,950 --> 00:15:18,670
+Life.
+
+197
+00:15:18,670 --> 00:15:22,360
+Choice three is equal to blue.
+
+198
+00:15:23,170 --> 00:15:25,270
+And then I've got ALS.
+
+199
+00:15:25,510 --> 00:15:30,280
+So here are four possible things that could happen if they chose red.
+
+200
+00:15:30,310 --> 00:15:36,670
+Then I'm going to tell them that it's game over, but it's going to be some sort of creative version
+
+201
+00:15:36,670 --> 00:15:37,550
+of game over.
+
+202
+00:15:37,570 --> 00:15:41,440
+So maybe something like it's a room full of fire.
+
+203
+00:15:41,470 --> 00:15:42,280
+Game over.
+
+204
+00:15:42,760 --> 00:15:49,180
+If they chose yellow, on the other hand, well, that's going to be the room where the treasure exists.
+
+205
+00:15:49,180 --> 00:15:50,590
+So I'm going to print.
+
+206
+00:15:50,920 --> 00:15:51,790
+You found the treasure.
+
+207
+00:15:51,790 --> 00:15:52,480
+You win.
+
+208
+00:15:52,780 --> 00:15:57,130
+If they chose blue, they also end up with game over.
+
+209
+00:15:57,190 --> 00:16:00,400
+And I have to give them a different reason.
+
+210
+00:16:00,970 --> 00:16:07,780
+Now, if you had decided that if they chose anything but yellow, the way that they're going to game
+
+211
+00:16:07,780 --> 00:16:09,400
+over is the same.
+
+212
+00:16:09,400 --> 00:16:12,860
+Say, if you if you chose red, it's a room full of fire.
+
+213
+00:16:12,880 --> 00:16:13,420
+Game over.
+
+214
+00:16:13,420 --> 00:16:15,450
+If you chose blue, it's a room full of fire.
+
+215
+00:16:15,460 --> 00:16:16,350
+Game over.
+
+216
+00:16:16,360 --> 00:16:17,380
+Anything else.
+
+217
+00:16:17,380 --> 00:16:19,920
+It's also going to be fire game over.
+
+218
+00:16:19,930 --> 00:16:22,600
+Well, then you could just use if and else.
+
+219
+00:16:22,600 --> 00:16:28,690
+But if you wanted each choice or each door to have a different outcome for the user, say the red door
+
+220
+00:16:28,690 --> 00:16:31,030
+has fire, the blue door has beasts.
+
+221
+00:16:31,030 --> 00:16:37,870
+And if they chose the wrong door, then they're going to get something like you chose a door that doesn't
+
+222
+00:16:37,870 --> 00:16:38,380
+exist.
+
+223
+00:16:38,380 --> 00:16:39,310
+Game over.
+
+224
+00:16:39,610 --> 00:16:47,650
+So can you see that depending on whether if you want to give the user a different print statement based
+
+225
+00:16:47,650 --> 00:16:51,400
+on their choice, then you would use if elif else.
+
+226
+00:16:51,400 --> 00:16:57,160
+But if you actually just wanted to give them the same feedback, which is game over, then you could
+
+227
+00:16:57,160 --> 00:16:58,900
+just use if and else.
+
+228
+00:16:59,500 --> 00:17:03,240
+Now let's run our game and just make sure that it works.
+
+229
+00:17:03,250 --> 00:17:10,869
+So I'm going to go left because I know it continues and then I'm going to wait for the boat and that
+
+230
+00:17:10,869 --> 00:17:13,180
+allows me to get to the final condition.
+
+231
+00:17:13,180 --> 00:17:15,790
+And if I choose yellow, I know that I'll win.
+
+232
+00:17:15,940 --> 00:17:21,849
+Now, if you want to change the formatting, because having the input at the end of the sentence doesn't
+
+233
+00:17:21,849 --> 00:17:27,040
+look as good as letting the user type it on a new line like what we've got here.
+
+234
+00:17:27,369 --> 00:17:34,840
+Then you can simply, if you remember, just add the new line, which is backslash n at the end of your
+
+235
+00:17:34,840 --> 00:17:35,620
+inputs.
+
+236
+00:17:36,700 --> 00:17:37,750
+Like so.
+
+237
+00:17:38,320 --> 00:17:41,290
+So how did you get on with this challenge?
+
+238
+00:17:41,290 --> 00:17:44,620
+And if you didn't manage to do it right or if you've done it right.
+
+239
+00:17:44,710 --> 00:17:47,010
+Go back and try and modify it.
+
+240
+00:17:47,020 --> 00:17:53,410
+See if you can add some more conditions or see if you can make the game over messages a little bit more
+
+241
+00:17:53,410 --> 00:17:55,030
+interesting than what I've written.
+
+242
+00:17:55,060 --> 00:17:58,300
+See if you can modify and make it really your own.
+
+243
+00:17:58,660 --> 00:17:59,830
+Have fun with that.
+
+244
+00:17:59,830 --> 00:18:05,380
+And in the next lesson, I've got more exciting things coming up for you, so hopefully you've schedule
+
+245
+00:18:05,380 --> 00:18:09,550
+some time for tomorrow to complete the next day's lessons.
+
+246
+00:18:09,550 --> 00:18:11,680
+But for now, it's Goodnight for me.
+

@@ -1,0 +1,4325 @@
+1
+00:00:00,150 --> 00:00:01,560
+Hey guys, welcome back to
+
+2
+00:00:01,560 --> 00:00:05,610
+100 Days of Code. Today is day 30
+
+3
+00:00:05,700 --> 00:00:07,590
+and to mark this milestone,
+
+4
+00:00:07,620 --> 00:00:11,430
+we're going to be learning about some more advanced Python topics,
+
+5
+00:00:11,730 --> 00:00:14,280
+such as errors, exceptions,
+
+6
+00:00:14,610 --> 00:00:18,570
+and also we're going to be learning how to save and load JSON data.
+
+7
+00:00:19,050 --> 00:00:23,400
+So that's all yet to come. First, we're going to be taking look at some of
+
+8
+00:00:23,400 --> 00:00:28,400
+the errors we've been getting and how to avoid crashing our app by handling those
+
+9
+00:00:28,950 --> 00:00:29,783
+errors.
+
+10
+00:00:30,120 --> 00:00:34,500
+Then we're going to take a look at this particular data format called
+
+11
+00:00:34,530 --> 00:00:35,363
+JSON 
+
+12
+00:00:35,640 --> 00:00:40,020
+and this is probably one of the most widely used data formats for transferring
+
+13
+00:00:40,020 --> 00:00:43,110
+data across the internet between applications.
+
+14
+00:00:43,410 --> 00:00:46,050
+And this is going to be something that's going to be helpful,
+
+15
+00:00:46,080 --> 00:00:50,550
+not just in Python, but in a lot of other programming languages as well.
+
+16
+00:00:51,120 --> 00:00:54,630
+And once we've understood all of that, then we're going to put it together,
+
+17
+00:00:54,870 --> 00:00:58,560
+we're going to use it to improve our existing password manager.
+
+18
+00:00:59,040 --> 00:01:03,630
+By the end of today, not only will we be able to save websites,
+
+19
+00:01:04,080 --> 00:01:09,080
+generate passwords and add it to our database of passwords,
+
+20
+00:01:09,690 --> 00:01:13,080
+but we're also going to be able to search through that database.
+
+21
+00:01:13,080 --> 00:01:16,170
+So we could type in the name of a website, hit search,
+
+22
+00:01:16,260 --> 00:01:20,760
+and it'll tell us what the email and password is that we need to use to log onto
+
+23
+00:01:20,760 --> 00:01:22,560
+that website. Plus,
+
+24
+00:01:22,590 --> 00:01:26,010
+we're going to make this a lot safer by handling some of the exceptions that
+
+25
+00:01:26,010 --> 00:01:30,000
+could happen and make sure that in all circumstances,
+
+26
+00:01:30,360 --> 00:01:33,390
+our app will work exactly as expected.
+
+27
+00:01:34,050 --> 00:01:36,180
+So all of that and more is coming up.
+
+28
+00:01:36,570 --> 00:01:40,500
+Head over to the next lesson and we'll get started by learning about errors and
+
+29
+00:01:40,500 --> 00:01:41,190
+exceptions.
+
+
+30
+00:00:00,390 --> 00:00:03,780
+In this lesson, we're going to talk about errors and exceptions.
+
+31
+00:00:04,170 --> 00:00:06,810
+I'll show you what happens when a program encounters
+
+32
+00:00:06,840 --> 00:00:10,980
+different types of errors and how you can write code to handle these situations.
+
+33
+00:00:12,060 --> 00:00:15,810
+To begin, I've created a brand new project called day-30
+
+34
+00:00:16,020 --> 00:00:20,760
+and I've created my main.py file. Now notice how inside my project,
+
+35
+00:00:20,790 --> 00:00:24,990
+there is only one code file at the moment. There is no data files,
+
+36
+00:00:24,990 --> 00:00:28,140
+no text files, nothing. In this situation
+
+37
+00:00:28,170 --> 00:00:33,170
+if I was to try and open up a particular file that doesn't exist and I tried to
+
+38
+00:00:33,330 --> 00:00:35,100
+read it, what do you think would happen?
+
+39
+00:00:35,670 --> 00:00:38,610
+So we're going to use our normal syntax with open,
+
+40
+00:00:38,910 --> 00:00:42,480
+and let's just make up a file name. So a_file.txt.
+
+41
+00:00:42,990 --> 00:00:45,360
+And I'm going to save that as file
+
+42
+00:00:45,630 --> 00:00:50,630
+and I'm going to take this file and try to read from it. Right now
+
+43
+00:00:51,120 --> 00:00:55,710
+if I run this code, then this is what happens.
+
+44
+00:00:56,100 --> 00:00:59,520
+I get a trace back and I get a error
+
+45
+00:00:59,550 --> 00:01:03,570
+which is the file not found error, which kind of makes sense
+
+46
+00:01:03,570 --> 00:01:08,570
+given that there really is no such file existing inside our folder where we're
+
+47
+00:01:08,820 --> 00:01:11,520
+telling it to search. That's not great.
+
+48
+00:01:11,820 --> 00:01:15,900
+And if this happens somewhere within our actual program, so here
+
+49
+00:01:15,900 --> 00:01:20,100
+I've got the password manager completed project from yesterday.
+
+50
+00:01:20,640 --> 00:01:24,840
+If in this case, I made a typo in this word
+
+51
+00:01:24,870 --> 00:01:29,190
+so instead of data.txt, I wrote daata.txt.
+
+52
+00:01:29,850 --> 00:01:34,170
+And instead of the append mode, I had the read mode. Well,
+
+53
+00:01:34,170 --> 00:01:37,500
+in this case, what would happen is exactly the same thing.
+
+54
+00:01:37,500 --> 00:01:40,530
+So I could have a website, have a password,
+
+55
+00:01:40,680 --> 00:01:44,400
+but as soon as I hit add, then we get our file
+
+56
+00:01:44,400 --> 00:01:48,510
+not found error. And notice how as soon as that error happens,
+
+57
+00:01:48,840 --> 00:01:52,620
+it actually doesn't continue because on the next few lines,
+
+58
+00:01:52,650 --> 00:01:54,480
+we've actually got these two lines of code
+
+59
+00:01:54,780 --> 00:01:59,490
+which deletes the entry inside the website entry and also the password entry.
+
+60
+00:01:59,610 --> 00:02:04,200
+But those lines of code are not being carried out because it's hit a stumbling
+
+61
+00:02:04,200 --> 00:02:04,830
+block.
+
+62
+00:02:04,830 --> 00:02:09,389
+It has not found the file that we're trying to open and we're trying to read.
+
+63
+00:02:10,080 --> 00:02:12,630
+So I'm going to restore the code to how it was previously,
+
+64
+00:02:12,990 --> 00:02:16,950
+but this is a good point to start thinking about errors because we've come
+
+65
+00:02:16,950 --> 00:02:21,450
+across a lot of errors, right? Including errors like key error.
+
+66
+00:02:22,710 --> 00:02:23,730
+So for example,
+
+67
+00:02:23,730 --> 00:02:28,730
+if we have a dictionary that has just one key-value pair and we somehow try to
+
+68
+00:02:29,280 --> 00:02:31,620
+get a value from that dictionary
+
+69
+00:02:31,860 --> 00:02:34,830
+by tapping into a key that doesn't exist,
+
+70
+00:02:36,660 --> 00:02:40,890
+then when we run this code, we will get a key error, right?
+
+71
+00:02:41,070 --> 00:02:45,600
+It can't actually pick out the value from this dictionary because this key that
+
+72
+00:02:45,600 --> 00:02:49,740
+we provided does not exist in that dictionary. Now,
+
+73
+00:02:49,770 --> 00:02:53,550
+some of the other popular ones that you've seen are the index error.
+
+74
+00:02:54,690 --> 00:02:55,620
+So in this case
+
+75
+00:02:55,620 --> 00:03:00,620
+we have a list and we basically are trying to get hold of an item from this list
+
+76
+00:03:02,230 --> 00:03:06,880
+at an index that doesn't exist. So remember the index starts at 0, 1,
+
+77
+00:03:06,880 --> 00:03:11,110
+2, and 3. There is nothing at 3. So again, when I run this,
+
+78
+00:03:11,170 --> 00:03:14,110
+we get an error and this is an index error.
+
+79
+00:03:15,700 --> 00:03:20,200
+And the final error that we've probably been used to seeing is the type error
+
+80
+00:03:20,500 --> 00:03:23,800
+where we're trying to do something with a particular piece of data,
+
+81
+00:03:24,130 --> 00:03:27,550
+but we cannot do that thing with a particular data type.
+
+82
+00:03:28,150 --> 00:03:30,580
+Let's say we have a piece of text abc
+
+83
+00:03:30,760 --> 00:03:35,550
+and we try to print it this text plus the number five,
+
+84
+00:03:35,760 --> 00:03:39,870
+so a string plus an integer. And again,
+
+85
+00:03:39,870 --> 00:03:42,300
+when I hit run it, again we get a type error.
+
+86
+00:03:43,110 --> 00:03:47,250
+All of these types of errors we've actually come across already and
+
+87
+00:03:47,310 --> 00:03:48,600
+all that we've done so far is
+
+88
+00:03:48,960 --> 00:03:53,460
+we've just used it as an indicator to tell us, wait a minute,
+
+89
+00:03:53,460 --> 00:03:56,640
+something's not quite right. We got to go and fix our code.
+
+90
+00:03:57,270 --> 00:03:59,760
+But life doesn't really work out
+
+91
+00:03:59,760 --> 00:04:04,680
+so neatly most of the time. In a lot of cases, it actually follows Morphy's law
+
+92
+00:04:04,980 --> 00:04:09,300
+which states that anything that can go wrong probably will, eventually at some
+
+93
+00:04:09,300 --> 00:04:10,410
+point, go wrong.
+
+94
+00:04:10,800 --> 00:04:15,210
+So we have to plan for these eventualities just as, you know,
+
+95
+00:04:15,210 --> 00:04:17,279
+your car is probably not going to break down,
+
+96
+00:04:17,550 --> 00:04:22,550
+but you need breakdown cover just in case that it does happen. In programming
+
+97
+00:04:23,310 --> 00:04:28,310
+what we can do is we can catch these exceptions. When something goes wrong
+
+98
+00:04:28,410 --> 00:04:31,710
+and in that moment we catch that exception,
+
+99
+00:04:31,980 --> 00:04:34,380
+then it doesn't have to fail catastrophically.
+
+100
+00:04:34,890 --> 00:04:39,690
+We can actually fail more gracefully or we can decide that something else should
+
+101
+00:04:39,690 --> 00:04:40,523
+happen.
+
+102
+00:04:40,800 --> 00:04:45,060
+Here's what the code looks like when we're dealing with these exceptions.
+
+103
+00:04:45,360 --> 00:04:48,120
+We have try, except, else and finally.
+
+104
+00:04:48,120 --> 00:04:52,680
+These are the four keywords that are really important when it comes to handling
+
+105
+00:04:52,680 --> 00:04:53,513
+exceptions.
+
+106
+00:04:54,000 --> 00:04:59,000
+Now the first keyword try comes for a block of code where you're executing
+
+107
+00:05:00,510 --> 00:05:03,210
+something that might cause an exception.
+
+108
+00:05:03,570 --> 00:05:07,590
+So basically you're trying to execute a piece of line. In most cases,
+
+109
+00:05:07,590 --> 00:05:10,980
+it probably will work, but sometimes it just might not.
+
+110
+00:05:11,760 --> 00:05:15,060
+Now the next step is to define the except block.
+
+111
+00:05:15,510 --> 00:05:19,170
+So this is the block of code that you want the computer to execute
+
+112
+00:05:19,440 --> 00:05:21,060
+if there were more was an exception.
+
+113
+00:05:21,090 --> 00:05:25,860
+If something went catastrophically wrong and it was not the way that you
+
+114
+00:05:25,860 --> 00:05:29,730
+expected it to go, then carry out this piece of code.
+
+115
+00:05:30,780 --> 00:05:35,130
+Now the else keyword allows you to find some code to execute
+
+116
+00:05:35,400 --> 00:05:39,720
+if there were no exceptions. If you tried this thing that might fail
+
+117
+00:05:39,930 --> 00:05:43,560
+but actually it didn't fail. You succeeded and there were no problems.
+
+118
+00:05:43,800 --> 00:05:47,430
+Well then, in this case, you're going to do whatever is inside the else block.
+
+119
+00:05:47,970 --> 00:05:50,520
+And then finally, we have the finally keyword
+
+120
+00:05:50,850 --> 00:05:55,020
+which basically is just the block of code to carry out
+
+121
+00:05:55,230 --> 00:05:59,870
+no matter what happens. If this thing that you tried failed
+
+122
+00:05:59,900 --> 00:06:04,880
+or if it succeeded, Honeybadger, I mean, finally doesn't actually care.
+
+123
+00:06:05,630 --> 00:06:08,870
+So no matter what happens with trying this line of code,
+
+124
+00:06:09,140 --> 00:06:12,470
+this finally block is always going to be executed
+
+125
+00:06:12,770 --> 00:06:17,750
+and it's usually used for cleaning things up or tidying things up at the end of
+
+126
+00:06:17,960 --> 00:06:22,520
+some sort of code execution. Let's take our file not found exception
+
+127
+00:06:22,610 --> 00:06:27,260
+and let's see how we can make this a lot safer by catching that exception.
+
+128
+00:06:27,710 --> 00:06:32,710
+The thing that we're going to try is to open up this file. Instead of using the
+
+129
+00:06:33,290 --> 00:06:34,370
+with format,
+
+130
+00:06:34,400 --> 00:06:39,400
+I'm actually just gonna straight up create a file and set it to open this
+
+131
+00:06:39,500 --> 00:06:42,470
+particular file path. So a_file.txt.
+
+132
+00:06:43,010 --> 00:06:48,010
+Now this is the line of code that can cause an error and it will cause an error
+
+133
+00:06:48,530 --> 00:06:52,700
+in our case because we don't have a file called a_file.txt.
+
+134
+00:06:53,270 --> 00:06:57,620
+So this line of code is going to go inside a try block.
+
+135
+00:06:58,040 --> 00:07:02,840
+So let's indent that. So this is the line of code that we're going to try. Now,
+
+136
+00:07:02,840 --> 00:07:07,340
+the next thing we'll define is the except block. Basically,
+
+137
+00:07:07,340 --> 00:07:10,220
+once we've tried running this line of code,
+
+138
+00:07:10,610 --> 00:07:15,610
+and if there was an exception that was thrown when we were running it like the
+
+139
+00:07:15,710 --> 00:07:19,340
+type error or in this case, it would be a file not found error,
+
+140
+00:07:19,580 --> 00:07:22,310
+well then, in that case, we're going to do something different.
+
+141
+00:07:22,310 --> 00:07:26,210
+We're going to let's say print, there was an error.
+
+142
+00:07:27,530 --> 00:07:31,190
+So now let's run this code and you can see straight away,
+
+143
+00:07:31,220 --> 00:07:34,430
+there was an error because this file doesn't exist.
+
+144
+00:07:34,460 --> 00:07:38,810
+So this failed and therefore this line of code was executed.
+
+145
+00:07:39,200 --> 00:07:42,680
+It's almost a little bit like we have an if statement and the
+
+146
+00:07:42,680 --> 00:07:47,030
+if statement is checking to see if something fails, well,
+
+147
+00:07:47,030 --> 00:07:50,900
+in that case, this is where it looks to see what it should do next.
+
+148
+00:07:51,500 --> 00:07:55,310
+Now just printing there was an error is kind of pointless.
+
+149
+00:07:55,520 --> 00:08:00,520
+What we actually want to do is to make sure that we don't actually fail so that
+
+150
+00:08:01,220 --> 00:08:05,690
+whatever happens, we succeed. So if there is a good alternative,
+
+151
+00:08:05,750 --> 00:08:08,930
+then that's what we're going to put inside the except block.
+
+152
+00:08:09,530 --> 00:08:11,240
+What we're going to do instead
+
+153
+00:08:11,420 --> 00:08:15,830
+if this file doesn't exist and we can't open it is we're just simply going to
+
+154
+00:08:15,830 --> 00:08:18,440
+create it. To create a new file,
+
+155
+00:08:18,650 --> 00:08:21,140
+remember that you can open up the file
+
+156
+00:08:23,810 --> 00:08:28,810
+and you can open it using the write mode because when you're inside write mode,
+
+157
+00:08:29,900 --> 00:08:33,919
+then what this open method is going to do is it's going to try and find this
+
+158
+00:08:33,919 --> 00:08:36,380
+file and open it. But if it doesn't exist,
+
+159
+00:08:36,409 --> 00:08:41,090
+it's just going to create it. Right now if I run this code again,
+
+160
+00:08:41,120 --> 00:08:46,040
+I want you to watch inside the day-30 folder because as soon as I hit run,
+
+161
+00:08:46,250 --> 00:08:51,250
+you'll notice that a_file.txt gets created because we tried opening it.
+
+162
+00:08:51,650 --> 00:08:52,670
+It didn't exist.
+
+163
+00:08:52,940 --> 00:08:57,940
+So it went into the except block and it actually just went ahead and created this
+
+164
+00:08:58,050 --> 00:08:59,490
+file from scratch.
+
+165
+00:08:59,820 --> 00:09:03,900
+Now this file is of course completely empty because we haven't told it to do
+
+166
+00:09:03,900 --> 00:09:08,520
+anything, but we could, in fact, get our file and write something to it.
+
+167
+00:09:09,600 --> 00:09:14,460
+We can put all of that inside the except block if we want to. Now,
+
+168
+00:09:14,460 --> 00:09:19,460
+one of the things that's giving us a warning here with the except keyword is if
+
+169
+00:09:19,560 --> 00:09:23,910
+you hover over it, it tells you that this is too broad an exception clause.
+
+170
+00:09:24,360 --> 00:09:27,270
+And according to the PEP 8 recommendations,
+
+171
+00:09:27,540 --> 00:09:30,510
+it tells us you should never use a bare except
+
+172
+00:09:30,960 --> 00:09:34,320
+and the reason for this is because when you have an except  clause,
+
+173
+00:09:34,680 --> 00:09:38,580
+then it's actually going to ignore all errors. For example,
+
+174
+00:09:38,670 --> 00:09:39,870
+if inside here
+
+175
+00:09:40,020 --> 00:09:43,740
+let's say I decided to do something that was also going to create an error,
+
+176
+00:09:43,770 --> 00:09:45,480
+but not the same kind of error.
+
+177
+00:09:46,110 --> 00:09:50,490
+So now I have a dictionary with a key and a value,
+
+178
+00:09:50,850 --> 00:09:55,170
+but let's say I tried to print some sort of value from that dictionary
+
+179
+00:09:55,590 --> 00:09:58,440
+and I use a non-existent key.
+
+180
+00:09:58,890 --> 00:10:03,360
+So you can see that this dictionary does not have a key that is named this
+
+181
+00:10:03,660 --> 00:10:07,410
+so this line is going to actually give us a key error.
+
+182
+00:10:07,740 --> 00:10:10,830
+But now, notice what happens when I hit run.
+
+183
+00:10:11,700 --> 00:10:14,460
+Absolutely nothing. I don't get any errors.
+
+184
+00:10:14,670 --> 00:10:17,820
+And the reason for this is because inside the try block
+
+185
+00:10:18,150 --> 00:10:23,150
+it's first trying to open up this file and indeed that file exists.
+
+186
+00:10:23,550 --> 00:10:28,020
+So it moves on to the next line. It creates a dictionary called a_dictionary
+
+187
+00:10:28,080 --> 00:10:32,430
+and that it tries to get hold of this value with this key
+
+188
+00:10:32,430 --> 00:10:33,390
+from that dictionary.
+
+189
+00:10:33,810 --> 00:10:37,500
+Now this line actually fails and creates an exception,
+
+190
+00:10:37,830 --> 00:10:40,500
+but that exception is caught right here
+
+191
+00:10:40,920 --> 00:10:45,360
+and it simply tells it to go ahead and create a file called a_file.txt
+
+192
+00:10:45,630 --> 00:10:50,130
+which it will go ahead and do. So this is not what we want at all.
+
+193
+00:10:50,910 --> 00:10:51,660
+Instead,
+
+194
+00:10:51,660 --> 00:10:56,130
+we want our exception to catch a specific situation.
+
+195
+00:10:56,460 --> 00:11:01,460
+We want to say that in the exception that we have a file not found error,
+
+196
+00:11:01,950 --> 00:11:06,300
+then this is what we want to do. And now if I run the code again,
+
+197
+00:11:06,360 --> 00:11:08,850
+you can see when now getting that key error
+
+198
+00:11:08,910 --> 00:11:13,560
+and it's telling us that this thing worked, so it didn't generate a file
+
+199
+00:11:13,560 --> 00:11:14,430
+not found error.
+
+200
+00:11:14,730 --> 00:11:18,240
+But the next thing that it tried when it tried to print this value,
+
+201
+00:11:18,390 --> 00:11:19,770
+it got a key error.
+
+202
+00:11:21,150 --> 00:11:26,150
+So we can actually have multiple exceptions. Instead of just except file
+
+203
+00:11:26,670 --> 00:11:30,960
+not found I can also say except key error and in this case,
+
+204
+00:11:30,960 --> 00:11:35,850
+I'm just going to print that key does not exist. Now, if I hit run,
+
+205
+00:11:36,150 --> 00:11:39,810
+I get no errors, but I do catch that exception
+
+206
+00:11:40,170 --> 00:11:45,170
+and I have this print statement executing. In addition to simply catching an
+
+207
+00:11:46,770 --> 00:11:48,060
+exception using
+
+208
+00:11:48,060 --> 00:11:52,860
+except, you can also get hold of the error message that would have normally
+
+209
+00:11:52,870 --> 00:11:56,290
+printed had we not had the exception called.
+
+210
+00:11:56,650 --> 00:12:00,910
+Normally, you would get key error and it would give you a message that tells you
+
+211
+00:12:00,910 --> 00:12:02,500
+which key was the problem.
+
+212
+00:12:03,130 --> 00:12:07,810
+If we catch our exception and we still want to get hold of that error message,
+
+213
+00:12:08,110 --> 00:12:08,943
+then we can say
+
+214
+00:12:08,950 --> 00:12:13,150
+except key error as error message.
+
+215
+00:12:13,660 --> 00:12:18,490
+And this means we can get hold of the error message that was generated from this
+
+216
+00:12:18,490 --> 00:12:23,050
+exception if it does occur. Instead of saying that key does not exist,
+
+217
+00:12:23,110 --> 00:12:28,110
+we can now take this as an f-string and we can say, the key, and we pass in the
+
+218
+00:12:29,590 --> 00:12:30,820
+error message right here.
+
+219
+00:12:31,270 --> 00:12:36,270
+So now I hit run again and it tells me the key 'sdfsdf' does not exist,
+
+220
+00:12:37,300 --> 00:12:41,200
+which is a lot more useful than simply saying the key does not exist.
+
+221
+00:12:41,950 --> 00:12:46,930
+So you can try, you can catch exceptions, you can catch other exceptions,
+
+222
+00:12:47,230 --> 00:12:51,370
+you can also get hold of the error message and use it when you catch the
+
+223
+00:12:51,370 --> 00:12:56,050
+exception. Now, the next keyword we mentioned was the else keyword
+
+224
+00:12:56,620 --> 00:13:01,620
+and this block of code is going to execute when the thing that you're trying all
+
+225
+00:13:01,840 --> 00:13:05,830
+succeeds. So if it managed to open up the file,
+
+226
+00:13:05,830 --> 00:13:08,710
+it managed to print this item from the dictionary
+
+227
+00:13:08,980 --> 00:13:13,150
+and there were no exceptions that were thrown from this block of code,
+
+228
+00:13:13,210 --> 00:13:17,440
+then it's going to jump to the else block. So what else do you want to do?
+
+229
+00:13:18,100 --> 00:13:21,940
+Well, maybe I actually want to read from this file,
+
+230
+00:13:22,000 --> 00:13:23,860
+so file.read,
+
+231
+00:13:24,310 --> 00:13:27,130
+and we save this as our content.
+
+232
+00:13:27,850 --> 00:13:31,930
+And then we go ahead and print our content. Now,
+
+233
+00:13:31,960 --> 00:13:34,960
+remember, if this file doesn't actually exist,
+
+234
+00:13:35,080 --> 00:13:37,630
+this else block is never going to be triggered.
+
+235
+00:13:37,990 --> 00:13:40,780
+So if I go ahead and simply delete this file
+
+236
+00:13:43,630 --> 00:13:44,830
+and I hit run,
+
+237
+00:13:45,190 --> 00:13:50,190
+you can see that this else block does not occur because it tried to do this,
+
+238
+00:13:50,980 --> 00:13:51,940
+it failed
+
+239
+00:13:52,300 --> 00:13:57,300
+and so it ended up jumping into the except block and it generated that file.
+
+240
+00:13:58,570 --> 00:14:02,530
+But now that that file has been created, the next time I hit run,
+
+241
+00:14:02,800 --> 00:14:07,800
+then this line of code is going to succeed and now it catches the next error in
+
+242
+00:14:08,560 --> 00:14:12,700
+that try block. So if I change this to a key
+
+243
+00:14:12,700 --> 00:14:17,560
+that it actually will recognize, then that next line also succeeds
+
+244
+00:14:17,920 --> 00:14:22,920
+and finally it gets to this block and it actually prints out the thing that's
+
+245
+00:14:23,500 --> 00:14:27,250
+inside a_file.txt which is just the word something.
+
+246
+00:14:28,120 --> 00:14:31,510
+So we've now got try, except, else,
+
+247
+00:14:31,870 --> 00:14:35,950
+and the last thing I want to show you is the keyword finally.
+
+248
+00:14:36,460 --> 00:14:41,460
+So this finally is basically some code that's gonna run no matter what happens.
+
+249
+00:14:41,980 --> 00:14:42,813
+And in our case,
+
+250
+00:14:42,820 --> 00:14:47,800
+the most appropriate thing to do here is actually to close down the file because
+
+251
+00:14:47,800 --> 00:14:49,450
+we're not using the with keyword
+
+252
+00:14:49,750 --> 00:14:54,750
+so our file would actually stay open if we actually had an exception. And I'm
+
+253
+00:14:56,000 --> 00:14:57,650
+going to go ahead and print
+
+254
+00:14:57,970 --> 00:14:59,890
+File was closed.
+
+255
+00:15:00,790 --> 00:15:04,780
+Now our code basically will open up this file
+
+256
+00:15:05,170 --> 00:15:08,890
+and no matter if it succeeded or if it failed,
+
+257
+00:15:09,220 --> 00:15:14,220
+it's going to close down that file so that we don't end up with an open file
+
+258
+00:15:14,530 --> 00:15:18,400
+that we're not doing anything with. So finally is not often used,
+
+259
+00:15:18,730 --> 00:15:22,750
+but sometimes it can be useful when you want some code to execute
+
+260
+00:15:22,990 --> 00:15:27,990
+no matter if the code you are trying is succeeded or failed. In the next lesson,
+
+261
+00:15:29,440 --> 00:15:32,170
+I'll show you how you can raise your own exceptions.
+
+
+262
+00:00:00,630 --> 00:00:04,580
+In this lesson, I'll show you how you can generate your own exceptions 
+
+263
+00:00:04,580 --> 00:00:07,470
+in case your code encounters unexpected situations.
+
+264
+00:00:08,250 --> 00:00:13,140
+So these are the four keywords are most important when it comes to error
+
+265
+00:00:13,140 --> 00:00:15,360
+handling and catching exceptions.
+
+266
+00:00:15,870 --> 00:00:20,790
+The final keyword that is related is one called raise.
+
+267
+00:00:21,450 --> 00:00:25,890
+And what this allows us to do is to raise our own exceptions.
+
+268
+00:00:27,090 --> 00:00:27,930
+For example,
+
+269
+00:00:27,960 --> 00:00:32,729
+let's say I decide that at the very end of all of our file,
+
+270
+00:00:32,970 --> 00:00:37,140
+no matter if this file went through or if it didn't, if there were an error
+
+271
+00:00:37,140 --> 00:00:38,160
+if there wasn't error,
+
+272
+00:00:38,520 --> 00:00:43,110
+I'm still going to raise an exception. And to raise an exception
+
+273
+00:00:43,140 --> 00:00:47,460
+all you have to do is tap into one of the known exception classes.
+
+274
+00:00:47,670 --> 00:00:52,020
+So let's say I just decided to raise a key error. Now, when I hit run
+
+275
+00:00:52,050 --> 00:00:56,250
+you can see no matter what happened, and in fact, there is no error.
+
+276
+00:00:56,490 --> 00:01:00,270
+I decided to raise this error and that's what I see right here.
+
+277
+00:01:00,570 --> 00:01:02,760
+I could change that to a type error,
+
+278
+00:01:03,150 --> 00:01:05,640
+and that is what will crash my code.
+
+279
+00:01:06,150 --> 00:01:10,230
+And I can even specify a message along with this error.
+
+280
+00:01:10,230 --> 00:01:14,670
+So I could say raise a type error and let's just say the message is,
+
+281
+00:01:17,250 --> 00:01:21,510
+and you can see now when it runs, it hits that type error. And it says,
+
+282
+00:01:21,570 --> 00:01:26,490
+this is an error that I made up. So when might you want to raise errors?
+
+283
+00:01:27,210 --> 00:01:27,630
+Well,
+
+284
+00:01:27,630 --> 00:01:31,620
+let's comment out all the code that we have because we have that type error at
+
+285
+00:01:31,620 --> 00:01:34,320
+the end so it's always going to crash the code no matter what.
+
+286
+00:01:34,590 --> 00:01:37,200
+So let's comment it out and let's start from scratch.
+
+287
+00:01:37,560 --> 00:01:41,550
+Let's say that I decided to calculate the body mass index or the BMI of
+
+288
+00:01:41,550 --> 00:01:46,080
+somebody's and I'm getting them to input their height as a float.
+
+289
+00:01:46,140 --> 00:01:50,340
+So this is going to be their height in meters and their weight as an integer.
+
+290
+00:01:50,880 --> 00:01:55,880
+Now I can calculate the BMI by taking the weight / height * height. 
+
+291
+00:02:00,360 --> 00:02:05,360
+And you can either do this and wrap it inside some parentheses,
+
+292
+00:02:05,700 --> 00:02:09,240
+or you can use the power function or even better
+
+293
+00:02:09,240 --> 00:02:13,950
+you can actually use the builtin exponent, so height to the power of 2.
+
+294
+00:02:15,270 --> 00:02:18,870
+No matter which way we use, we can print out the BMI.
+
+295
+00:02:19,140 --> 00:02:24,140
+But if I provide a height that is just an unrealistic non-human height,
+
+296
+00:02:24,270 --> 00:02:27,180
+lets say there were 45 meters tall,
+
+297
+00:02:27,270 --> 00:02:29,880
+like some sort of four storey building.
+
+298
+00:02:30,390 --> 00:02:35,070
+And then I gave them a weight, so let's say they are 67 kilos.
+
+299
+00:02:35,400 --> 00:02:39,360
+Then obviously a mistake has been made somewhere in the height, right?
+
+300
+00:02:39,360 --> 00:02:42,210
+Because this is just not within the normal human range.
+
+301
+00:02:42,210 --> 00:02:45,990
+This is like Godzilla's height. If I go ahead and hit enter,
+
+302
+00:02:46,260 --> 00:02:50,190
+you can see that we get at BMI and it is calculated correctly
+
+303
+00:02:50,520 --> 00:02:54,870
+and there are no errors because everything is perfectly valid other than the
+
+304
+00:02:54,870 --> 00:02:59,040
+fact that this height should not really ever go over 3 meters.
+
+305
+00:02:59,740 --> 00:03:03,100
+In this case, we might want to raise our own exception.
+
+306
+00:03:03,520 --> 00:03:08,520
+So we can go ahead and say that if the height is greater than 3 meters,
+
+307
+00:03:11,050 --> 00:03:13,720
+well, in that case, it's probably not a valid height.
+
+308
+00:03:14,020 --> 00:03:17,560
+So we can go ahead and raise a value error.
+
+309
+00:03:17,950 --> 00:03:22,210
+So this is an error that says that whatever value was entered
+
+310
+00:03:22,570 --> 00:03:25,210
+as the argument is probably wrong.
+
+311
+00:03:25,720 --> 00:03:28,300
+And we can accompany that with a message.
+
+312
+00:03:29,410 --> 00:03:33,310
+Human height should not be over 3 meters.
+
+313
+00:03:34,780 --> 00:03:38,920
+Now, when we run our code and the user mistakenly types
+
+314
+00:03:38,980 --> 00:03:43,540
+a wrong height, then it's going to actually give us this error
+
+315
+00:03:43,570 --> 00:03:47,290
+and it won't proceed to give them an inaccurate BMI.
+
+316
+00:03:47,980 --> 00:03:51,310
+So this is how you might raise your own exceptions
+
+317
+00:03:51,640 --> 00:03:55,360
+when there are certain things that are not caught by the code because it's
+
+318
+00:03:55,360 --> 00:04:00,340
+perfectly valid code, but it's in fact going to generate the wrong results.
+
+319
+00:04:01,960 --> 00:04:05,950
+Now that we've seen all of these aspects of exceptions,
+
+320
+00:04:06,400 --> 00:04:10,300
+I want you to have a go at catching some exceptions that can commonly occur.
+
+321
+00:04:10,810 --> 00:04:13,840
+So head over to the next lesson where I've got an exercise for you.
+
+
+322
+00:00:00,210 --> 00:00:04,770
+Now that you've learned some of the theory around error handling and catching
+
+323
+00:00:04,770 --> 00:00:06,720
+these exceptions and handling them,
+
+324
+00:00:07,170 --> 00:00:11,310
+then we're going to put all of that knowledge to practice by completing a couple
+
+325
+00:00:11,310 --> 00:00:16,260
+of code exercises. So you're going to hand over to the Repl.it coding exercises
+
+326
+00:00:16,350 --> 00:00:18,990
+which you'll find in the course resources,
+
+327
+00:00:19,320 --> 00:00:23,910
+and the one that I want you to complete is day 30.1 index error handling.
+
+328
+00:00:24,540 --> 00:00:29,220
+So this is the starting code. And if we hit run, you can see that immediately
+
+329
+00:00:29,250 --> 00:00:34,250
+we get a error, and it is the index error telling us that list index is out of
+
+330
+00:00:35,400 --> 00:00:36,233
+range.
+
+331
+00:00:36,540 --> 00:00:41,540
+Your job is to fix this code and catch the errors so that it no longer causes a
+
+332
+00:00:43,230 --> 00:00:46,800
+crash like this. Have a look through the instructions,
+
+333
+00:00:47,160 --> 00:00:49,110
+pause the video and complete the 
+
+334
+00:00:49,130 --> 00:00:49,963
+ challenge.
+
+335
+00:00:53,630 --> 00:00:56,900
+The problem here is that we're calling this function, make_pie,
+
+336
+00:00:57,380 --> 00:00:59,270
+which takes a index number
+
+337
+00:00:59,660 --> 00:01:04,340
+which is used to pick out a particular item from our list of fruits. Now,
+
+338
+00:01:04,370 --> 00:01:07,640
+if we try to get hold of the item at index four
+
+339
+00:01:07,850 --> 00:01:11,630
+which is way beyond the number of items that's in this list,
+
+340
+00:01:11,900 --> 00:01:13,910
+then we're going to get this index error.
+
+341
+00:01:14,570 --> 00:01:19,550
+What we're going to do instead is when this happens and we try to pick something
+
+342
+00:01:19,580 --> 00:01:21,230
+out of the list that doesn't exist,
+
+343
+00:01:21,680 --> 00:01:25,340
+we're just going to print out the default output, which is just
+
+344
+00:01:25,370 --> 00:01:27,470
+Fruit pie. The part of our
+
+345
+00:01:27,470 --> 00:01:30,740
+code that is prone to errors is this line right here.
+
+346
+00:01:31,220 --> 00:01:34,100
+So that is what we're going to trap inside a 
+
+347
+00:01:34,160 --> 00:01:36,590
+try block. So the idea is
+
+348
+00:01:37,130 --> 00:01:41,720
+try this, and if it fails, so in the case where there's an exception,
+
+349
+00:01:41,990 --> 00:01:44,210
+then do something else. Now,
+
+350
+00:01:44,270 --> 00:01:47,360
+except the fact that we're not just going to use a broad stroke
+
+351
+00:01:47,390 --> 00:01:51,470
+except because that means it's going to catch all errors and it's going to do
+
+352
+00:01:51,470 --> 00:01:55,850
+this no matter what type of error. Instead, we want to be more specific
+
+353
+00:01:55,880 --> 00:01:59,660
+and we want to say, except in the case of an index error,
+
+354
+00:02:00,020 --> 00:02:04,250
+same as what we see being thrown right here, well then in that case,
+
+355
+00:02:04,250 --> 00:02:05,900
+we're going to do something a little bit different.
+
+356
+00:02:06,290 --> 00:02:08,600
+We're just going to print the words fruit
+
+357
+00:02:09,139 --> 00:02:11,570
+pie. However,
+
+358
+00:02:11,810 --> 00:02:14,810
+if this thing that we tried succeeded,
+
+359
+00:02:15,200 --> 00:02:18,230
+then we go into the else block. And in that case,
+
+360
+00:02:18,260 --> 00:02:22,010
+we're going to get a hold of the fruit and we're going to add pie to the end of
+
+361
+00:02:22,010 --> 00:02:24,290
+it. So now if I hit run,
+
+362
+00:02:24,350 --> 00:02:28,790
+you can see that we get fruit pie being printed and there's no more errors.
+
+363
+00:02:29,120 --> 00:02:31,610
+And our program is no longer crashing.
+
+364
+00:02:32,600 --> 00:02:35,090
+So did you manage to complete this coding challenge?
+
+365
+00:02:35,450 --> 00:02:40,250
+If not, be sure to go back to the last lesson and review some of these key words
+
+366
+00:02:40,310 --> 00:02:44,780
+and what they're used for. Otherwise, head over to the next lesson where there's
+
+367
+00:02:44,780 --> 00:02:46,460
+another coding challenge waiting for you.
+
+
+368
+00:00:00,420 --> 00:00:02,490
+Now that you've handled index errors,
+
+369
+00:00:02,550 --> 00:00:05,850
+we're gonna handle a different type of error in this coding exercise.
+
+370
+00:00:06,390 --> 00:00:10,890
+We're going to look at key errors. So in this case, again, when I hit run,
+
+371
+00:00:10,920 --> 00:00:14,610
+my code is going to crash and I get a key error.
+
+372
+00:00:15,180 --> 00:00:20,180
+And the reason is because I am looping through this list of dictionary objects
+
+373
+00:00:21,180 --> 00:00:26,010
+and what I'm trying to do is I'm trying to get a hold of all of the likes from
+
+374
+00:00:26,040 --> 00:00:27,780
+each of these Facebook posts.
+
+375
+00:00:28,170 --> 00:00:31,530
+So imagine you have a whole bunch of Facebook posts and you want to know how
+
+376
+00:00:31,530 --> 00:00:34,170
+many likes did you get in total this month? Well,
+
+377
+00:00:34,170 --> 00:00:36,930
+you might get some piece of data that looks a bit like this,
+
+378
+00:00:37,170 --> 00:00:38,520
+a list of dictionaries.
+
+379
+00:00:39,090 --> 00:00:43,140
+And what you're essentially trying to do is you're trying to loop through every
+
+380
+00:00:43,140 --> 00:00:44,640
+post inside that list
+
+381
+00:00:45,000 --> 00:00:50,000
+and you're trying to get a hold of the total likes by adding the existing number
+
+382
+00:00:50,610 --> 00:00:53,520
+to the number of likes for each post.
+
+383
+00:00:54,300 --> 00:00:58,200
+The key error occurs because some of these posts actually have no likes.
+
+384
+00:00:58,260 --> 00:01:02,070
+So that key doesn't actually exist. And that's why we get this error.
+
+385
+00:01:02,580 --> 00:01:06,630
+So I want you to have a look through the instructions and see if you can fix
+
+386
+00:01:06,630 --> 00:01:11,340
+this code so that we no longer have these errors. Essentially, if a post
+
+387
+00:01:11,340 --> 00:01:14,550
+doesn't have many likes, you're gonna treat it as zero likes.
+
+388
+00:01:15,120 --> 00:01:17,340
+Pause the video and complete this challenge.
+
+389
+00:01:19,830 --> 00:01:24,060
+Okay, so the key part that we need to fix is inside here.
+
+390
+00:01:24,750 --> 00:01:27,630
+Now, what we're going to do is inside this for loop,
+
+391
+00:01:27,660 --> 00:01:32,660
+we're going to add a try statement so that this line of code is inside the try
+
+392
+00:01:33,690 --> 00:01:36,240
+block. This is the thing that we're going to try,
+
+393
+00:01:36,270 --> 00:01:40,710
+and this is the particular part that might fail. Now, if it does fail,
+
+394
+00:01:40,710 --> 00:01:42,960
+we can catch it using an except.
+
+395
+00:01:43,260 --> 00:01:47,340
+But we're going to be more specific than just except. We're going to say,
+
+396
+00:01:47,430 --> 00:01:50,310
+except in the case of a key error
+
+397
+00:01:50,340 --> 00:01:54,510
+which is the problem that we're coming up against right now. Basically,
+
+398
+00:01:54,660 --> 00:01:59,190
+if we try to fetch a particular value from this dictionary
+
+399
+00:01:59,400 --> 00:02:01,260
+using a key that doesn't exist,
+
+400
+00:02:01,320 --> 00:02:05,550
+then this is the block that we're going to enter. And so inside this block,
+
+401
+00:02:05,760 --> 00:02:10,759
+we're going to either add a zero to our total likes or alternatively,
+
+402
+00:02:12,450 --> 00:02:15,120
+an even easier way is we can just say pass.
+
+403
+00:02:15,600 --> 00:02:18,270
+So in the case where we generate a key error,
+
+404
+00:02:18,300 --> 00:02:22,140
+we're just going to skip and then the code is going to continue running,
+
+405
+00:02:22,440 --> 00:02:26,430
+which means it's going to get to the end and it's going to loop back to the next
+
+406
+00:02:26,430 --> 00:02:30,720
+post in our list of posts. So now if I hit run,
+
+407
+00:02:30,960 --> 00:02:35,580
+you can see that I actually get the total number of likes being printed because
+
+408
+00:02:35,580 --> 00:02:40,200
+it's looping through all the posts in our list, and for the ones which have
+
+409
+00:02:40,200 --> 00:02:40,680
+that key
+
+410
+00:02:40,680 --> 00:02:45,680
+likes, it adds the number from the value of that key to our total number of likes.
+
+411
+00:02:46,650 --> 00:02:48,180
+But if we get a key error,
+
+412
+00:02:48,210 --> 00:02:51,900
+then we simply pass and we don't add any numbers at all.
+
+413
+00:02:52,770 --> 00:02:57,770
+This is how we can solve this particular situation. In this solution
+
+414
+00:02:58,080 --> 00:03:02,710
+it doesn't matter if you pass or if you simply said total likes plus equals
+
+415
+00:03:03,040 --> 00:03:06,010
+zero. It doesn't actually matter what you do,
+
+416
+00:03:06,010 --> 00:03:09,940
+as long as you handle this particular exception
+
+417
+00:03:10,000 --> 00:03:14,770
+and you do something to address the fact that some of these posts don't have a
+
+418
+00:03:14,770 --> 00:03:15,700
+like key.
+
+419
+00:03:16,480 --> 00:03:20,680
+Have a look through the solution code if you want to on Repl.it.
+
+420
+00:03:21,010 --> 00:03:23,260
+But otherwise, head over to the next lesson
+
+421
+00:03:23,590 --> 00:03:27,910
+and we've got a final coding challenge for you to try out exception handling.
+
+422
+00:03:28,360 --> 00:03:28,840
+I'll see you there.
+
+
+423
+00:00:00,180 --> 00:00:02,340
+Now for the final coding exercise,
+
+424
+00:00:02,370 --> 00:00:06,060
+we're actually going to jump into a previous project that we created.
+
+425
+00:00:06,480 --> 00:00:10,230
+This is the NATO alphabet project that we created a few days ago.
+
+426
+00:00:10,770 --> 00:00:12,150
+And it's pretty simple.
+
+427
+00:00:12,300 --> 00:00:16,590
+All it does is it takes the data that's inside this nato_phonetic_alphabet.
+
+428
+00:00:16,590 --> 00:00:17,423
+csv,
+
+429
+00:00:17,730 --> 00:00:22,730
+and it uses that to create a dictionary so that we have each letter as the key
+
+430
+00:00:25,230 --> 00:00:30,230
+and the actual phonetic alphabet as the value for each of those keys.
+
+431
+00:00:32,189 --> 00:00:34,140
+Now, if I go ahead and hit run,
+
+432
+00:00:35,250 --> 00:00:39,240
+you can see that the entire phonetic alphabet dictionary is printed here
+
+433
+00:00:39,510 --> 00:00:42,570
+and this is the structure of that dictionary. Now,
+
+434
+00:00:42,570 --> 00:00:47,570
+the next thing it asks us is to enter a word and it takes that word and creates
+
+435
+00:00:49,140 --> 00:00:54,140
+a new list using list comprehension that matches each of the letters to the
+
+436
+00:00:55,860 --> 00:01:00,420
+correct phonetic alphabet. So Angela becomes Alpha November Golf Echo
+
+437
+00:01:00,420 --> 00:01:01,320
+Lima Alpha.
+
+438
+00:01:01,680 --> 00:01:05,970
+So you should remember all of this from creating this project a few days ago.
+
+439
+00:01:06,600 --> 00:01:06,870
+Now,
+
+440
+00:01:06,870 --> 00:01:11,870
+what we're going to do is we're going to update and refresh this project so that
+
+441
+00:01:12,780 --> 00:01:15,840
+it's even better than before. Now,
+
+442
+00:01:15,870 --> 00:01:20,870
+if you don't have access to the final project of this NATO alphabet project,
+
+443
+00:01:21,330 --> 00:01:25,110
+then don't worry. Just head over to the course resources for today's lessons
+
+444
+00:01:25,440 --> 00:01:29,880
+and you'll find a starting file that matches what you see here precisely.
+
+445
+00:01:30,990 --> 00:01:35,990
+Now your job is to address a particular situation because we're relying on the
+
+446
+00:01:37,080 --> 00:01:39,630
+user to enter a word.
+
+447
+00:01:40,260 --> 00:01:44,670
+Then if they enter something that is actually not in this dictionary,
+
+448
+00:01:44,940 --> 00:01:48,010
+let's say they entered just a number, 1234,
+
+449
+00:01:48,510 --> 00:01:52,740
+then we will get a crash and we get a key error in this case.
+
+450
+00:01:53,220 --> 00:01:58,220
+Now what we want to happen instead is for us to enter a word and we enter
+
+451
+00:01:58,440 --> 00:02:01,260
+something that's complete nonsense. We hit enter.
+
+452
+00:02:01,410 --> 00:02:05,190
+And it tells us that the sorry, only letters in the alphabet please.
+
+453
+00:02:05,520 --> 00:02:08,940
+And then it goes back to give us that same prompt again.
+
+454
+00:02:09,449 --> 00:02:12,540
+And if we keep refusing and we keep typing numbers,
+
+455
+00:02:12,840 --> 00:02:17,340
+then it's going to continuously give us this feedback until we actually end up
+
+456
+00:02:17,370 --> 00:02:20,970
+typing something that contains only letters in the alphabet
+
+457
+00:02:21,390 --> 00:02:24,660
+and it actually generates the phonetic alphabet for us.
+
+458
+00:02:25,230 --> 00:02:29,160
+This is the goal that we're trying to achieve. And in order to do this,
+
+459
+00:02:29,280 --> 00:02:32,400
+you're going to have to use your skills of exception handling.
+
+460
+00:02:33,000 --> 00:02:35,160
+Have a think about how you might achieve this,
+
+461
+00:02:35,520 --> 00:02:38,190
+pause the video and complete this challenge.
+
+462
+00:02:41,520 --> 00:02:46,350
+Now that we know what we're aiming for, the next step is to actually try to get
+
+463
+00:02:46,350 --> 00:02:50,670
+there. Now we know that the part of the code that is prone to error
+
+464
+00:02:51,030 --> 00:02:54,780
+or can occasionally be problematic is this line right here,
+
+465
+00:02:55,350 --> 00:03:00,070
+because we're going through this phonetic dictionary and we're passing it a key and
+
+466
+00:03:00,070 --> 00:03:04,480
+that key depends entirely on what the user puts into this input.
+
+467
+00:03:04,960 --> 00:03:09,760
+So that means if they put something that is a number and it doesn't exist inside
+
+468
+00:03:09,760 --> 00:03:12,700
+the phonetic dictionary, that's when we get our key error.
+
+469
+00:03:13,270 --> 00:03:17,500
+So this is the line that we want to put behind a try block.
+
+470
+00:03:19,000 --> 00:03:19,930
+Like this.
+
+471
+00:03:20,560 --> 00:03:25,560
+And when we try out this line and if it actually fails and we end up with an
+
+472
+00:03:26,050 --> 00:03:28,840
+exception, then we want to catch that exception.
+
+473
+00:03:29,140 --> 00:03:34,030
+But we want to catch the specific exception, which is the key error. Now,
+
+474
+00:03:34,030 --> 00:03:38,470
+what do we want to do when we actually have an exception when that key doesn't
+
+475
+00:03:38,470 --> 00:03:43,180
+exist? Well, it means that the user entered something into the input
+
+476
+00:03:43,270 --> 00:03:46,390
+that was not a letter from the alphabet.
+
+477
+00:03:46,930 --> 00:03:48,700
+So we're going to give them some feedback.
+
+478
+00:03:48,730 --> 00:03:53,020
+We're simply going to use a print statement to print 'Sorry,
+
+479
+00:03:53,080 --> 00:03:57,850
+only letters in the alphabet please.' Hopefully that way they will learn
+
+480
+00:03:57,970 --> 00:04:02,590
+and they will only write letters instead of trying to type other things like
+
+481
+00:04:02,590 --> 00:04:05,950
+symbols or numbers. Now,
+
+482
+00:04:05,980 --> 00:04:09,430
+if everything went well, so in the else case,
+
+483
+00:04:09,460 --> 00:04:12,430
+then we actually want to print out the output list.
+
+484
+00:04:12,700 --> 00:04:14,500
+Because if this line succeeded,
+
+485
+00:04:14,800 --> 00:04:19,750
+then we will have that to print out to the user. Now,
+
+486
+00:04:19,779 --> 00:04:23,560
+the only problem here is if we run the code as it is right now,
+
+487
+00:04:23,980 --> 00:04:27,580
+we can enter a word, so let's try something that's not a word,
+
+488
+00:04:28,150 --> 00:04:31,660
+and we get that feedback, but our code ends.
+
+489
+00:04:32,110 --> 00:04:37,110
+So if we want our code to repeat so that we ask the user for a word again,
+
+490
+00:04:37,990 --> 00:04:42,160
+then we're going to have to have some sort of mechanism like a loop or a
+
+491
+00:04:42,160 --> 00:04:44,530
+function. So I think in this case,
+
+492
+00:04:44,530 --> 00:04:49,530
+the best thing to do is actually to create a function which I'll call generate_
+
+493
+00:04:51,310 --> 00:04:52,180
+phonetic.
+
+494
+00:04:53,230 --> 00:04:57,550
+And this function is going to contain all of this code.
+
+495
+00:04:58,090 --> 00:05:00,310
+So in order to run this function,
+
+496
+00:05:00,400 --> 00:05:03,640
+we of course have to call it outside of the function.
+
+497
+00:05:03,910 --> 00:05:06,580
+So once the code runs down to here,
+
+498
+00:05:06,910 --> 00:05:11,110
+it sees this line and it will run all the code inside this function.
+
+499
+00:05:11,860 --> 00:05:16,860
+But what we also want to do is if there was the case of a key error where the user
+
+500
+00:05:18,400 --> 00:05:19,750
+typed in something wrong,
+
+501
+00:05:20,020 --> 00:05:23,440
+then we want to give them the opportunity to type in something again.
+
+502
+00:05:23,560 --> 00:05:26,950
+So we want to be able to run this line of code again.
+
+503
+00:05:27,730 --> 00:05:32,730
+The easiest way of doing that is to simply call this function right here.
+
+504
+00:05:33,550 --> 00:05:37,660
+So that way, if they typed in something wrong, we give them some feedback
+
+505
+00:05:37,930 --> 00:05:40,870
+and then we go to the very start of this function once again,
+
+506
+00:05:41,200 --> 00:05:44,980
+and we get them to type in a new word using this input.
+
+507
+00:05:45,580 --> 00:05:50,580
+And then we can see if that was valid or if it was not and deal with that
+
+508
+00:05:50,830 --> 00:05:54,220
+accordingly. So now when we run our code,
+
+509
+00:05:54,310 --> 00:05:56,290
+it won't generate any errors,
+
+510
+00:05:56,560 --> 00:06:01,220
+but instead it gives me some feedback and tells me to enter another word.
+
+511
+00:06:02,300 --> 00:06:06,290
+So this is more of a real-life implementation of error handling,
+
+512
+00:06:06,620 --> 00:06:11,620
+making sure that we are validating and checking the user's inputs and addressing
+
+513
+00:06:12,410 --> 00:06:15,980
+these situations ahead of time using exception handling.
+
+514
+00:06:17,390 --> 00:06:21,530
+Now that we've taken a good look at exception handling, in the next lesson
+
+515
+00:06:21,650 --> 00:06:25,940
+we're going to go back to our password manager project and use the skills that
+
+516
+00:06:25,940 --> 00:06:28,190
+we've learned to improve it even further.
+
+517
+00:06:28,880 --> 00:06:31,280
+So, for all of that and more, I'll see you on the next lesson.
+
+
+518
+00:00:00,180 --> 00:00:04,560
+The goal is to take our password manager to the next level.
+
+519
+00:00:04,980 --> 00:00:09,150
+And in order to do that, we need to add a search functionality.
+
+520
+00:00:09,240 --> 00:00:12,930
+It's not good enough just to look through the data file anymore.
+
+521
+00:00:13,470 --> 00:00:18,180
+What we want to be able to do is the type a website into the website entry,
+
+522
+00:00:18,420 --> 00:00:19,560
+and then hit search
+
+523
+00:00:19,590 --> 00:00:24,540
+and we get a pop up showing us our email and the password that was saved for
+
+524
+00:00:24,540 --> 00:00:27,060
+that website. So this is the goal.
+
+525
+00:00:28,050 --> 00:00:32,070
+But where we're currently at is we have a text file
+
+526
+00:00:32,520 --> 00:00:36,870
+which contains the name of the website, the email and the password.
+
+527
+00:00:37,230 --> 00:00:39,480
+This is very difficult to search
+
+528
+00:00:39,510 --> 00:00:42,840
+and this is a really terrible format to work with.
+
+529
+00:00:43,350 --> 00:00:48,090
+So we're going to be leveling up our data storage in our password manager
+
+530
+00:00:48,420 --> 00:00:53,420
+and we're going to switch from saving data straight to a text file to a fancier
+
+531
+00:00:54,090 --> 00:00:57,720
+data format, which is called JSON. Nope,
+
+532
+00:00:57,780 --> 00:01:01,770
+this is not the latest hottest DJ on the block.
+
+533
+00:01:01,800 --> 00:01:04,019
+It's actually JSON,
+
+534
+00:01:04,080 --> 00:01:06,930
+which stands for JavaScript Object Notation.
+
+535
+00:01:07,620 --> 00:01:11,370
+This was something that was designed originally for JavaScript
+
+536
+00:01:11,700 --> 00:01:16,080
+but because it has such a simple structure and it's so easy to understand and
+
+537
+00:01:16,080 --> 00:01:19,620
+work with that it's been adopted by many, many different fields,
+
+538
+00:01:19,710 --> 00:01:20,880
+including Python.
+
+539
+00:01:21,480 --> 00:01:25,290
+This is probably one of the most popular ways of transferring data,
+
+540
+00:01:25,590 --> 00:01:28,500
+especially when you're transferring data across the internet.
+
+541
+00:01:29,010 --> 00:01:30,990
+So this is what we're going to be learning about.
+
+542
+00:01:31,260 --> 00:01:33,780
+And for those of you looking at this slide,
+
+543
+00:01:34,080 --> 00:01:37,800
+you might've already realized that it's kind of similar to the dictionaries
+
+544
+00:01:37,800 --> 00:01:40,080
+that we've been working with in Python, right?
+
+545
+00:01:40,890 --> 00:01:45,890
+A JSON is essentially composed of a bunch of nested lists and dictionaries,
+
+546
+00:01:46,920 --> 00:01:50,550
+and it has that key value pair data structure.
+
+547
+00:01:51,090 --> 00:01:56,090
+This is essentially what we're aiming for so that we can store our data in this
+
+548
+00:01:56,520 --> 00:01:57,353
+format
+
+549
+00:01:57,420 --> 00:02:02,420
+and we'll be able to easily load up this data and search through it for the
+
+550
+00:02:02,730 --> 00:02:07,730
+particular website that we want the information for. To work with JSON data in
+
+551
+00:02:08,610 --> 00:02:12,090
+Python, we can use the inbuilt JSON library,
+
+552
+00:02:12,660 --> 00:02:15,690
+and we're going to use it to write, read,
+
+553
+00:02:15,900 --> 00:02:19,830
+and update data to a JSON file. To begin.
+
+554
+00:02:19,890 --> 00:02:22,170
+I'm going to simplify our code a little bit.
+
+555
+00:02:22,260 --> 00:02:26,640
+I'm going to get rid of this message box, which asked the user OK 
+
+556
+00:02:26,640 --> 00:02:30,540
+or cancel. We're just going to assume that once they click add,
+
+557
+00:02:30,840 --> 00:02:33,180
+then they're happy with email and password.
+
+558
+00:02:33,900 --> 00:02:36,450
+So now that we've cut down that little bit of code,
+
+559
+00:02:36,480 --> 00:02:38,970
+it makes this a little bit easier to understand.
+
+560
+00:02:39,540 --> 00:02:43,740
+All that we're doing here is we're checking to make sure that the length of the
+
+561
+00:02:43,740 --> 00:02:48,390
+website entry and the length of the password entry is equal to zero.
+
+562
+00:02:48,900 --> 00:02:52,620
+And you might still have the length checking for the email entry,
+
+563
+00:02:52,920 --> 00:02:55,680
+but remember that at the end of previous lessons,
+
+564
+00:02:55,980 --> 00:02:58,770
+we actually inserted a default value.
+
+565
+00:02:59,110 --> 00:03:02,560
+So we can actually skip that check as well if you wanted to.
+
+566
+00:03:03,820 --> 00:03:07,510
+The reason why we want our code as simple as possible is so that when we're
+
+567
+00:03:07,510 --> 00:03:11,260
+working with the JSON and we're learning about how to work with it,
+
+568
+00:03:11,620 --> 00:03:13,270
+as long as everything else is simple,
+
+569
+00:03:13,450 --> 00:03:17,410
+then we can focus on the new things that we're learning. In this case,
+
+570
+00:03:17,440 --> 00:03:20,590
+instead of opening a data.txt file,
+
+571
+00:03:20,950 --> 00:03:24,820
+I'm going to change the data format to a .json.
+
+572
+00:03:25,750 --> 00:03:28,450
+And instead of using the append mode,
+
+573
+00:03:28,810 --> 00:03:33,810
+I'm going to use the write mode because I'm going to be writing to this data.
+
+574
+00:03:34,990 --> 00:03:38,950
+json file. Now, in order to write to a JSON file,
+
+575
+00:03:39,010 --> 00:03:42,100
+we don't use this line of code. Instead,
+
+576
+00:03:42,340 --> 00:03:45,400
+we use a method called json.dump,
+
+577
+00:03:46,420 --> 00:03:50,860
+and that, of course, requires us to import the JSON module
+
+578
+00:03:51,400 --> 00:03:55,030
+which should be inbuilt to Python so you don't actually have to install it.
+
+579
+00:03:55,840 --> 00:03:58,840
+Now, once we've imported our JSON module,
+
+580
+00:03:58,870 --> 00:04:01,570
+we can say json.dump.
+
+581
+00:04:02,200 --> 00:04:06,310
+And this takes a number of inputs, but the most important
+
+582
+00:04:06,670 --> 00:04:10,450
+are the things you want to dump and the file that you want to dump it to.
+
+583
+00:04:10,960 --> 00:04:14,590
+The data that we want to put in here should go in as a dictionary.
+
+584
+00:04:15,220 --> 00:04:18,790
+Essentially, what we want to create is a new dictionary
+
+585
+00:04:18,820 --> 00:04:23,050
+which I'll call new_data and it's going to be a nested dictionary.
+
+586
+00:04:23,560 --> 00:04:26,530
+So the first level key is going to be the website,
+
+587
+00:04:26,740 --> 00:04:29,470
+because this is what we're going to be searching through eventually.
+
+588
+00:04:30,100 --> 00:04:33,640
+And the website is going to, itself, contain a dictionary.
+
+589
+00:04:34,360 --> 00:04:38,140
+Now this dictionary contains two keys, the email,
+
+590
+00:04:38,650 --> 00:04:41,080
+and also the password.
+
+591
+00:04:42,490 --> 00:04:45,580
+The values for each of these are pretty self-explanatory,
+
+592
+00:04:45,580 --> 00:04:50,580
+it's the email that we got from this line of code and the password is the
+
+593
+00:04:50,680 --> 00:04:53,380
+password that we got from this line of code.
+
+594
+00:04:55,720 --> 00:04:59,110
+Now that we've created this new dictionary called new_data,
+
+595
+00:04:59,530 --> 00:05:03,610
+well that is what we're going to use to dump into our JSON file.
+
+596
+00:05:04,060 --> 00:05:08,830
+Let's go ahead and dump our new data. So that's the first input. Now,
+
+597
+00:05:08,830 --> 00:05:13,390
+the next input is going to be the data file that we want to put it into.
+
+598
+00:05:13,870 --> 00:05:17,230
+So that is going to be the file that we opened up inside this line.
+
+599
+00:05:18,190 --> 00:05:21,940
+Let's provide our data file as the location to dump this data.
+
+600
+00:05:22,570 --> 00:05:25,540
+And now if I go ahead and hit run
+
+601
+00:05:27,040 --> 00:05:32,040
+and I create a new entry for my Amazon website password, generate the password,
+
+602
+00:05:32,680 --> 00:05:33,520
+hit add,
+
+603
+00:05:34,600 --> 00:05:38,770
+then you can see that we've got our brand new data.json file
+
+604
+00:05:38,800 --> 00:05:42,070
+that's just been created. So just as a quick reminder,
+
+605
+00:05:42,100 --> 00:05:45,880
+when you open a file in write mode, if that file doesn't exist,
+
+606
+00:05:45,910 --> 00:05:50,590
+it will actually create it. So we've created this new file, data.json,
+
+607
+00:05:50,770 --> 00:05:54,910
+and we've dumped the data that we entered into that file.
+
+608
+00:05:55,030 --> 00:05:56,500
+So now if I open this up,
+
+609
+00:05:56,740 --> 00:06:01,740
+you can see we've got a JSON format in here and we've got our Amazon website
+
+610
+00:06:02,390 --> 00:06:04,370
+and all of its associated data.
+
+611
+00:06:05,540 --> 00:06:09,500
+Notice how this data is not very easy to read for a human.
+
+612
+00:06:10,100 --> 00:06:14,210
+So we can actually improve that by adding one other argument.
+
+613
+00:06:14,690 --> 00:06:17,240
+And it's an argument called indent. This,
+
+614
+00:06:17,240 --> 00:06:22,240
+we can provide the number of spaces to indent all the JSON data so that it
+
+615
+00:06:22,460 --> 00:06:24,350
+becomes much easier to read.
+
+616
+00:06:24,680 --> 00:06:29,030
+So I'm going to go ahead and delete everything that's in here and I'm gonna run
+
+617
+00:06:29,060 --> 00:06:32,300
+the code again. And this time,
+
+618
+00:06:32,660 --> 00:06:36,770
+once I save this data into my data.json,
+
+619
+00:06:37,040 --> 00:06:41,510
+you can see everything is all indented and it's much easier for the human to
+
+620
+00:06:41,510 --> 00:06:42,343
+read.
+
+621
+00:06:43,070 --> 00:06:47,210
+Now that we've seen how we can write data to a JSON file,
+
+622
+00:06:47,780 --> 00:06:52,780
+the next step I want to show you is how you can load data from the JSON file or
+
+623
+00:06:53,420 --> 00:06:57,200
+how to read from it. To read JSON data
+
+624
+00:06:57,230 --> 00:07:00,440
+te use the JSON module and we call the load method.
+
+625
+00:07:01,010 --> 00:07:03,650
+So I'm going to go ahead and comment out this line of code.
+
+626
+00:07:04,160 --> 00:07:08,840
+And now that I've actually got some data in my data.json file,
+
+627
+00:07:09,080 --> 00:07:11,030
+I'm going to try and read from it.
+
+628
+00:07:11,480 --> 00:07:16,430
+We call the json.load method and we pass in the file path,
+
+629
+00:07:16,520 --> 00:07:18,380
+or you can see here the fp.
+
+630
+00:07:18,950 --> 00:07:21,590
+So that's the only required input.
+
+631
+00:07:22,040 --> 00:07:25,820
+The file that we're going to pass in is our data file
+
+632
+00:07:25,850 --> 00:07:28,040
+which we opened up over here
+
+633
+00:07:28,700 --> 00:07:33,700
+ad what we're going to do is we're going to change this from write mode to read
+
+634
+00:07:35,150 --> 00:07:39,230
+mode. Once we've loaded up the data,
+
+635
+00:07:39,230 --> 00:07:41,930
+we're gonna save it inside a variable called data
+
+636
+00:07:42,230 --> 00:07:46,400
+and then I'm just going to print it out. So when I hit run right now,
+
+637
+00:07:47,510 --> 00:07:50,120
+and I simply add any sort of gobbledy goop,
+
+638
+00:07:50,390 --> 00:07:52,730
+but as long as I can hit the add button,
+
+639
+00:07:52,970 --> 00:07:55,130
+it's going to trigger this part of the code.
+
+640
+00:07:55,700 --> 00:07:58,370
+And now if we take a look inside our console,
+
+641
+00:07:58,580 --> 00:08:02,180
+you can see that data is being printed down here,
+
+642
+00:08:02,420 --> 00:08:07,250
+but without any of these indentations or any of the formatting. Instead,
+
+643
+00:08:07,370 --> 00:08:12,370
+what that load method does is it essentially takes this JSON data and
+
+644
+00:08:13,370 --> 00:08:16,310
+converts it into a Python dictionary.
+
+645
+00:08:17,060 --> 00:08:18,530
+So this data,
+
+646
+00:08:19,760 --> 00:08:22,100
+if we actually do a type check on it,
+
+647
+00:08:22,250 --> 00:08:24,890
+you can see it has a type of dictionary.
+
+648
+00:08:24,890 --> 00:08:27,680
+This is just a normal Python dictionary.
+
+649
+00:08:28,430 --> 00:08:33,429
+So essentially we can use json.dump and json. load to serialize
+
+650
+00:08:33,710 --> 00:08:38,150
+and deserialize from JSON data to Python dictionaries.
+
+651
+00:08:38,600 --> 00:08:41,720
+And it allows us that free interchange of information.
+
+652
+00:08:42,500 --> 00:08:44,540
+We change it into a JSON to store it,
+
+653
+00:08:44,720 --> 00:08:48,530
+and then we take it out of storage and turn it into a Python dictionary to
+
+654
+00:08:48,530 --> 00:08:50,570
+easily work with it in our code.
+
+655
+00:08:51,740 --> 00:08:53,750
+Now that we've seen how to write,
+
+656
+00:08:53,870 --> 00:08:58,440
+how to read, the last thing I want to show you is how to update data.
+
+657
+00:08:58,980 --> 00:09:02,040
+Because if we have a new piece of data come in,
+
+658
+00:09:02,370 --> 00:09:06,390
+we want to add to this JSON but we don't want to overwrite it.
+
+659
+00:09:06,960 --> 00:09:09,930
+But we also don't want to just append to the end of it,
+
+660
+00:09:10,140 --> 00:09:14,070
+because as you can imagine if we had something that we just appended to the end,
+
+661
+00:09:14,400 --> 00:09:16,950
+that's not a valid data structure
+
+662
+00:09:17,040 --> 00:09:21,510
+and that's why we're getting all of these errors. Instead of doing it manually,
+
+663
+00:09:21,540 --> 00:09:24,810
+we're going to use the builtin method json.update.
+
+664
+00:09:25,350 --> 00:09:30,210
+And here's how it works. So we've already got some data inside our data.
+
+665
+00:09:30,240 --> 00:09:34,830
+json file and I'm going to change this from read again, back to write.
+
+666
+00:09:35,430 --> 00:09:40,320
+And what we want to do is we want to take that data and we want to update what's
+
+667
+00:09:40,350 --> 00:09:45,350
+existing in there with the new data that's being passed in. To do that
+
+668
+00:09:46,560 --> 00:09:51,480
+we first have to load up the data, so I'm going to uncomment this line,
+
+669
+00:09:51,930 --> 00:09:54,210
+and once we've gotten hold of the data,
+
+670
+00:09:54,480 --> 00:09:58,500
+we're going to say data.update.
+
+671
+00:10:00,570 --> 00:10:05,570
+And we update it with the new data. What's happened so far is we have our data
+
+672
+00:10:07,530 --> 00:10:10,020
+loaded up into a dictionary,
+
+673
+00:10:10,530 --> 00:10:15,530
+we use the update method to update that dictionary with some new piece of data.
+
+674
+00:10:16,980 --> 00:10:17,550
+Now,
+
+675
+00:10:17,550 --> 00:10:22,550
+the next thing we want to do is we want to actually write that data back into
+
+676
+00:10:22,650 --> 00:10:23,490
+this file.
+
+677
+00:10:23,850 --> 00:10:28,620
+So we have to use this line of code using json.dump.
+
+678
+00:10:30,960 --> 00:10:33,270
+But instead of dumping the new data,
+
+679
+00:10:33,330 --> 00:10:36,750
+we're going to dump that data that we updated right here.
+
+680
+00:10:38,370 --> 00:10:42,150
+Essentially what we're doing here is a three-step approach.
+
+681
+00:10:42,480 --> 00:10:47,480
+We're reading the old data, we're updating old data with new data,
+
+682
+00:10:50,940 --> 00:10:55,230
+and we're finally saving the updated data. Here
+
+683
+00:10:55,230 --> 00:10:59,070
+we've got two things happening. We've got reading and we've got writing.
+
+684
+00:10:59,460 --> 00:11:04,080
+So we can split this code into two sections. First,
+
+685
+00:11:04,440 --> 00:11:08,700
+we open the file in read mode, we get hold of the data,
+
+686
+00:11:08,730 --> 00:11:13,730
+we update the data and then we open up the file again.
+
+687
+00:11:14,700 --> 00:11:17,370
+But in this case, we open it in write mode.
+
+688
+00:11:18,960 --> 00:11:23,960
+This time we're going to dump the data that we've updated over here into that
+
+689
+00:11:24,780 --> 00:11:28,200
+data file using this particular indent format.
+
+690
+00:11:29,640 --> 00:11:31,260
+And once we written to file,
+
+691
+00:11:31,320 --> 00:11:36,180
+and we delete all the text from a website and password entries and these lines
+
+692
+00:11:36,180 --> 00:11:41,180
+of code now replace our previous functionality where we were saving just plain
+
+693
+00:11:41,220 --> 00:11:45,660
+text to our data.txt. Let's go ahead and run it and test it out.
+
+694
+00:11:46,170 --> 00:11:50,040
+Currently, we have a single entry inside our data.json.
+
+695
+00:11:50,520 --> 00:11:53,250
+So if we go ahead and add a new entry,
+
+696
+00:11:53,290 --> 00:11:56,830
+say for eBay, and we generate password, click add.
+
+697
+00:11:57,670 --> 00:12:02,620
+If we go back to our data.json, you can see how it's now been updated.
+
+698
+00:12:03,190 --> 00:12:08,190
+This entire JSON has now been updated to have two entries,
+
+699
+00:12:08,560 --> 00:12:12,430
+Amazon and eBay. It didn't just append it.
+
+700
+00:12:12,460 --> 00:12:15,520
+It actually added it into the dictionary
+
+701
+00:12:15,820 --> 00:12:18,340
+and that's all thanks to that update method.
+
+702
+00:12:18,820 --> 00:12:20,920
+And once it updated that data,
+
+703
+00:12:21,160 --> 00:12:26,160
+then we told it to save the updated data back into the data file and wipe all of
+
+704
+00:12:26,740 --> 00:12:31,180
+the previous data. So now that we're able to read,
+
+705
+00:12:31,210 --> 00:12:33,670
+write and update JSON data,
+
+706
+00:12:34,090 --> 00:12:39,070
+the next step is to think about what situations might this fail.
+
+707
+00:12:39,820 --> 00:12:44,820
+And one of the biggest problems we have at the moment is we're trying to open up
+
+708
+00:12:45,550 --> 00:12:49,090
+this file, load up the data and update it.
+
+709
+00:12:49,600 --> 00:12:52,420
+But if we actually had no data in here,
+
+710
+00:12:52,510 --> 00:12:55,570
+say the first time we ran our program, or indeed,
+
+711
+00:12:55,570 --> 00:12:58,870
+if we didn't actually have this data.json file,
+
+712
+00:12:59,470 --> 00:13:04,420
+then you can see that the first time I run it and I tried to save a password,
+
+713
+00:13:06,580 --> 00:13:11,110
+then it's going to crush and we get some exceptions being thrown.
+
+714
+00:13:11,620 --> 00:13:15,340
+But we know all about exceptions now. So in the next lesson,
+
+715
+00:13:15,610 --> 00:13:18,460
+that's what we're going to tackle. For all of that,
+
+716
+00:13:18,790 --> 00:13:20,650
+and more, head ever to the next lesson.
+
+
+717
+00:00:00,810 --> 00:00:02,160
+So in the last lesson,
+
+718
+00:00:02,190 --> 00:00:07,190
+we looked at how we can use this JSON format to save our data and to load
+
+719
+00:00:09,120 --> 00:00:11,070
+our data into our program.
+
+720
+00:00:11,730 --> 00:00:16,730
+But one of the problems that we have is if we run our program from scratch
+
+721
+00:00:17,280 --> 00:00:21,600
+where we don't have that data.json file created,
+
+722
+00:00:21,930 --> 00:00:26,930
+then the first thing that it's going to encounter once it lands inside here is
+
+723
+00:00:27,120 --> 00:00:30,570
+it's going to try and open a file that doesn't exist.
+
+724
+00:00:31,110 --> 00:00:34,050
+And what happens then? We get a file
+
+725
+00:00:34,050 --> 00:00:38,490
+not found error because there is no such file data.json.
+
+726
+00:00:39,030 --> 00:00:41,400
+So what can we do? Well,
+
+727
+00:00:41,640 --> 00:00:46,640
+we already learned about dealing with exceptions and handling them so that we
+
+728
+00:00:47,160 --> 00:00:49,380
+don't end up in these situations.
+
+729
+00:00:49,980 --> 00:00:54,980
+So now it's time to put your knowledge into practice inside a real project.
+
+730
+00:00:55,650 --> 00:01:00,650
+And I want you to think about how you can catch that particular exception,
+
+731
+00:01:01,380 --> 00:01:06,060
+how you can get it to work so that if this fails,
+
+732
+00:01:06,330 --> 00:01:09,780
+then we simply create a brand new data file.
+
+733
+00:01:10,200 --> 00:01:13,530
+But if it does work, then we can simply load up the data,
+
+734
+00:01:13,860 --> 00:01:16,050
+update the data and write the data.
+
+735
+00:01:16,680 --> 00:01:19,830
+So the actual implementation I'll leave up to you.
+
+736
+00:01:20,220 --> 00:01:25,220
+But what you want to be able to do is to not have a data.json file and run
+
+737
+00:01:26,190 --> 00:01:28,380
+your code, and it would not crash
+
+738
+00:01:28,500 --> 00:01:33,500
+and instead it would create a brand new data.json file with the new data.
+
+739
+00:01:35,640 --> 00:01:40,640
+But if you had already got some old data, then it should simply just update and
+
+740
+00:01:40,770 --> 00:01:45,600
+write it to file. Pause the video and see if you can complete this
+
+741
+00:01:45,720 --> 00:01:46,590
+as a challenge.
+
+742
+00:01:50,970 --> 00:01:55,200
+This always starts with analyzing which part of our code is the part that's
+
+743
+00:01:55,200 --> 00:01:59,400
+going to fail or likely to fail at some point. And in our case,
+
+744
+00:01:59,460 --> 00:02:00,960
+it's this line right here,
+
+745
+00:02:01,140 --> 00:02:06,140
+opening this line in read mode is dangerous because if this doesn't exist,
+
+746
+00:02:07,260 --> 00:02:09,720
+then we get that file not found error.
+
+747
+00:02:10,259 --> 00:02:15,090
+So what we can do is we can put this inside a try statement.
+
+748
+00:02:15,660 --> 00:02:20,010
+Try opening this file and try reading the data that's inside.
+
+749
+00:02:20,790 --> 00:02:24,630
+Now, if this fails, however, then we can catch it
+
+750
+00:02:25,110 --> 00:02:28,230
+and we're going to catch a very specific type of exception,
+
+751
+00:02:28,260 --> 00:02:32,250
+which is the file not found error exception. Now,
+
+752
+00:02:32,250 --> 00:02:34,050
+when this exception happens,
+
+753
+00:02:34,230 --> 00:02:38,490
+what we want to do is we want to create a new file
+
+754
+00:02:38,820 --> 00:02:43,740
+which is going to be our data.json. So at this point,
+
+755
+00:02:43,740 --> 00:02:48,090
+remember it doesn't yet exist. And we're going to open it in write mode.
+
+756
+00:02:48,750 --> 00:02:53,490
+And this data file is going to be used so that we can write to it
+
+757
+00:02:53,520 --> 00:02:57,810
+and we can dump our newly created data up here.
+
+758
+00:02:58,350 --> 00:03:01,480
+Remember, when the user hits the add button,
+
+759
+00:03:01,780 --> 00:03:06,190
+then everything they've typed in these entries gets aggregated into this
+
+760
+00:03:06,190 --> 00:03:07,023
+dictionary
+
+761
+00:03:07,210 --> 00:03:11,710
+and that dictionary is what we want to dump into this new data file.
+
+762
+00:03:12,340 --> 00:03:16,900
+So we'll get hold of that new data and we'll dump it into the data file.
+
+763
+00:03:17,830 --> 00:03:18,550
+And again,
+
+764
+00:03:18,550 --> 00:03:23,550
+we'll keep the indent to four spaces just so that we can read it more easily.
+
+765
+00:03:25,030 --> 00:03:28,750
+Now this is what should happen if the file's not found.
+
+766
+00:03:29,380 --> 00:03:33,250
+But if the file was found and it already exists,
+
+767
+00:03:33,340 --> 00:03:37,240
+then we're going to tap into the else statement. And in the else statement
+
+768
+00:03:37,270 --> 00:03:42,070
+what we're going to do is we're going to get hold of the data which we managed
+
+769
+00:03:42,070 --> 00:03:46,270
+to get because this block of code succeeded, and in the else block
+
+770
+00:03:46,270 --> 00:03:50,950
+what we're going to do is we're going to update the data with the new data. Now,
+
+771
+00:03:51,100 --> 00:03:53,500
+this else block is only going to be triggered
+
+772
+00:03:53,530 --> 00:03:56,650
+if everything inside the try block was successful.
+
+773
+00:03:57,070 --> 00:03:59,260
+So that means by the end of this block,
+
+774
+00:03:59,290 --> 00:04:04,290
+we have this data which holds onto all of the existing data from that data file
+
+775
+00:04:05,020 --> 00:04:09,670
+and we update that data with the new data which is this dictionary here.
+
+776
+00:04:10,360 --> 00:04:13,210
+Now, after we've updated that data,
+
+777
+00:04:13,270 --> 00:04:17,560
+we want to be able to open up data.jason in the write mode
+
+778
+00:04:17,950 --> 00:04:22,950
+and then dump this updated data from here into that data file.
+
+779
+00:04:25,480 --> 00:04:27,940
+And then once all of this is done,
+
+780
+00:04:28,570 --> 00:04:32,980
+no matter if there was an exception or if there was no issues,
+
+781
+00:04:33,280 --> 00:04:37,840
+we're going to still need to delete everything that's inside the website and
+
+782
+00:04:37,840 --> 00:04:38,800
+password entry.
+
+783
+00:04:39,220 --> 00:04:43,240
+So we can even add a finally keyword right here.
+
+784
+00:04:44,560 --> 00:04:49,360
+So this is the final code that deals with our exception.
+
+785
+00:04:49,690 --> 00:04:54,460
+We have our try block which can fail, we have our except block
+
+786
+00:04:54,490 --> 00:04:58,720
+which deals with any failures that occur, we have our else block
+
+787
+00:04:58,780 --> 00:05:03,010
+which has the code that needs to be run if there were no issues,
+
+788
+00:05:03,370 --> 00:05:07,810
+and finally, at the very end no matter if there was an issue or no issue,
+
+789
+00:05:08,140 --> 00:05:12,640
+we have a block of code which clears our website and password entries.
+
+790
+00:05:13,240 --> 00:05:16,660
+Now you might've noticed there's a little bit of repetition here with the
+
+791
+00:05:16,690 --> 00:05:19,090
+writing to file. So if you want to,
+
+792
+00:05:19,120 --> 00:05:22,660
+you could in fact create a separate method somewhere up here.
+
+793
+00:05:23,110 --> 00:05:26,980
+But I'm actually going to keep this as it is just because I think when you look
+
+794
+00:05:26,980 --> 00:05:30,550
+at this code, if you had any issues and you wanted to review it,
+
+795
+00:05:31,060 --> 00:05:35,920
+this is much easier to understand and reason about compared to a separate
+
+796
+00:05:35,920 --> 00:05:36,753
+function.
+
+797
+00:05:37,330 --> 00:05:40,930
+Feel free to refactor this code and make it as short as you want.
+
+798
+00:05:41,380 --> 00:05:43,210
+But this is the version I'm going to keep
+
+799
+00:05:43,450 --> 00:05:46,690
+just so that if you had any issues and you want to take a look at it,
+
+800
+00:05:46,960 --> 00:05:47,860
+it's there for you
+
+801
+00:05:47,950 --> 00:05:52,950
+and it's easy to see the try, except, else, and finally blocks with all of the
+
+802
+00:05:54,070 --> 00:05:55,660
+code together in one place.
+
+803
+00:05:58,130 --> 00:05:59,330
+Now in the next lesson,
+
+804
+00:05:59,390 --> 00:06:02,750
+we're going to be completing the functionality of our password manager.
+
+805
+00:06:03,110 --> 00:06:06,380
+We're gonna add that all important search functionality
+
+806
+00:06:06,740 --> 00:06:11,510
+which is going to look through our JSON, fetch the results for a particular
+
+807
+00:06:11,510 --> 00:06:14,630
+website, and then show it to us in a popup.
+
+808
+00:06:15,050 --> 00:06:18,380
+So for all of that and more, I'll see you on the next lesson.
+
+
+809
+00:00:00,360 --> 00:00:02,100
+In the previous lessons today,
+
+810
+00:00:02,250 --> 00:00:07,250
+we looked at how we can use the JSON format to store and load data into our
+
+811
+00:00:08,880 --> 00:00:09,713
+program.
+
+812
+00:00:10,050 --> 00:00:15,050
+We also looked at how we can use the try, except, else, and finally keywords to
+
+813
+00:00:15,750 --> 00:00:20,750
+handle exceptions in our program to make sure that it doesn't fail and end up
+
+814
+00:00:21,540 --> 00:00:26,010
+crashing our program so the user ends up with a bad user experience.
+
+815
+00:00:26,430 --> 00:00:30,810
+Instead, we can anticipate the things that might happen. For example,
+
+816
+00:00:30,810 --> 00:00:32,640
+the first time when we run our program,
+
+817
+00:00:32,850 --> 00:00:37,740
+we might not have a data.json file and we deal with it accordingly.
+
+818
+00:00:38,520 --> 00:00:42,720
+Now, all that's left to do is to put in the last bit of functionality,
+
+819
+00:00:42,840 --> 00:00:45,960
+which is the search functionality, because after all,
+
+820
+00:00:45,960 --> 00:00:49,680
+we don't want to be digging through a JSON file to find out all email and
+
+821
+00:00:49,680 --> 00:00:52,800
+password combinations for the websites that we've stored.
+
+822
+00:00:53,460 --> 00:00:57,300
+So what we want to be able to do is to add a search button
+
+823
+00:00:57,540 --> 00:01:02,160
+and it's going to look very similar in size to the generate password button
+
+824
+00:01:02,520 --> 00:01:06,210
+and it's going to be in the same grid column. Now,
+
+825
+00:01:06,240 --> 00:01:09,660
+when we type in a website and we hit search,
+
+826
+00:01:09,870 --> 00:01:13,110
+it's going to look through our JSON, find that data,
+
+827
+00:01:13,650 --> 00:01:18,650
+load that data up and look through it for a key that matches the one the user
+
+828
+00:01:19,680 --> 00:01:21,750
+typed in. If they find it,
+
+829
+00:01:21,900 --> 00:01:26,900
+then we get a pop up showing up and it tells us the email and the password
+
+830
+00:01:27,030 --> 00:01:29,040
+that's associated with that account.
+
+831
+00:01:30,060 --> 00:01:35,040
+So you've actually done all of this before. Creating tkinter widgets,
+
+832
+00:01:35,310 --> 00:01:37,350
+laying out tkinter widgets,
+
+833
+00:01:37,650 --> 00:01:42,650
+creating message boxes or these popups and giving it a title,
+
+834
+00:01:42,840 --> 00:01:44,160
+giving it a message.
+
+835
+00:01:44,520 --> 00:01:49,520
+You've also seen how you can load JSON data and get the data in the format of a
+
+836
+00:01:52,260 --> 00:01:55,920
+Python dictionary. Now, once you have the Python dictionary,
+
+837
+00:01:55,980 --> 00:02:00,660
+then you can use your usual dictionary methods to try and get hold of the data
+
+838
+00:02:00,660 --> 00:02:02,880
+that's inside. And finally,
+
+839
+00:02:02,910 --> 00:02:06,030
+you also know how to deal with exceptions.
+
+840
+00:02:06,330 --> 00:02:10,020
+So remember, there might also be an exception in this case,
+
+841
+00:02:10,410 --> 00:02:15,120
+because if this was the first time that we were running this password manager,
+
+842
+00:02:15,480 --> 00:02:16,110
+and in fact,
+
+843
+00:02:16,110 --> 00:02:21,110
+we hadn't stored any websites or any emails or passwords in our database,
+
+844
+00:02:21,450 --> 00:02:25,230
+then if you hit search, it might actually just give you a file
+
+845
+00:02:25,230 --> 00:02:29,820
+not found error as well. So there's quite a few components involved,
+
+846
+00:02:29,910 --> 00:02:33,060
+but I'm pretty sure that you can actually get this to work.
+
+847
+00:02:33,690 --> 00:02:38,040
+So the end outcome you're looking for looks something like this in terms of
+
+848
+00:02:38,040 --> 00:02:38,873
+layout,
+
+849
+00:02:39,120 --> 00:02:44,120
+and you should be able to test this so that when you start out without a data
+
+850
+00:02:45,150 --> 00:02:49,290
+.json file and you hit search, it should tell you error,
+
+851
+00:02:49,530 --> 00:02:50,970
+No data file found.
+
+852
+00:02:51,450 --> 00:02:56,310
+But, if you had saved a password under that name and you added it to the
+
+853
+00:02:56,310 --> 00:02:58,770
+database, then you try to find it,
+
+854
+00:02:59,080 --> 00:03:02,200
+then it should find you the email and the password that you saved.
+
+855
+00:03:02,590 --> 00:03:04,180
+So this is what you're aiming for
+
+856
+00:03:04,330 --> 00:03:07,900
+and I'm pretty sure that you can do it with just a little bit of thought and 
+
+857
+00:03:07,900 --> 00:03:11,590
+a little bit of time spent problem-solving. Once you're ready,
+
+858
+00:03:11,710 --> 00:03:15,910
+pause the video and give this final challenge a go to complete the password
+
+859
+00:03:15,910 --> 00:03:16,380
+manager
+
+860
+00:03:16,380 --> 00:03:18,030
+project. Good luck.
+
+861
+00:03:22,440 --> 00:03:23,440
+Alright, so I hope
+
+862
+00:03:23,880 --> 00:03:27,750
+you gave that a good go. And as I always say, if there's no struggle,
+
+863
+00:03:27,750 --> 00:03:28,620
+there's no learning.
+
+864
+00:03:28,920 --> 00:03:33,900
+So make sure that you've allocated at least 20 minutes to trying things out and
+
+865
+00:03:33,900 --> 00:03:38,790
+figuring things out and debugging and just messing with the code yourself before
+
+866
+00:03:38,790 --> 00:03:41,280
+you're coming to the solution. But all right,
+
+867
+00:03:41,340 --> 00:03:43,530
+I'm going to walk through the solution with you together.
+
+868
+00:03:44,130 --> 00:03:49,050
+And the first thing we're going to do is we're going to add a button next to our
+
+869
+00:03:49,050 --> 00:03:50,280
+website entry.
+
+870
+00:03:51,360 --> 00:03:56,360
+So right here. Now notice how we've got our three columns in our grid system.
+
+871
+00:03:57,450 --> 00:04:02,450
+So our search button is going to go in pretty much in the same column as our
+
+872
+00:04:02,490 --> 00:04:07,350
+generate password button. So let's go ahead and create our
+
+873
+00:04:07,530 --> 00:04:09,120
+search button.
+
+874
+00:04:10,470 --> 00:04:14,850
+This is going to be a button with the text that says
+
+875
+00:04:15,300 --> 00:04:16,132
+Search.
+
+876
+00:04:17,519 --> 00:04:21,630
+Now, once we've created that, let's go ahead and lay it out
+
+877
+00:04:21,630 --> 00:04:23,250
+uusing the grid system.
+
+878
+00:04:23,970 --> 00:04:28,970
+Now the search button is going to go onto the grid in the same row as the
+
+879
+00:04:29,550 --> 00:04:34,290
+website label and the website entry. So that is row 1.
+
+880
+00:04:34,560 --> 00:04:38,940
+So let's go ahead and add row equals 1 and column-wise,
+
+881
+00:04:38,970 --> 00:04:42,600
+it's going to go in the same column as the generate password.
+
+882
+00:04:42,990 --> 00:04:47,730
+So that is a column 2. Now, if we run our code, as it is
+
+883
+00:04:47,730 --> 00:04:48,450
+however,
+
+884
+00:04:48,450 --> 00:04:53,280
+you'll see that the search button seems to be sitting inside the entry.
+
+885
+00:04:53,790 --> 00:04:57,210
+And the reason is because initially when we created this entry,
+
+886
+00:04:57,240 --> 00:04:59,520
+we gave it a column span of 2
+
+887
+00:04:59,880 --> 00:05:03,690
+so that it spans this second and third column.
+
+888
+00:05:04,260 --> 00:05:05,670
+So we have to change that.
+
+889
+00:05:06,150 --> 00:05:11,150
+Let's go and find our website entry and delete this column span equals 2.
+
+890
+00:05:12,150 --> 00:05:16,260
+So now you can see that this has a column span of 1,
+
+891
+00:05:16,260 --> 00:05:18,300
+so it's only in this middle column,
+
+892
+00:05:18,660 --> 00:05:23,010
+but it's so large that it's pushing the rest of our layout out of the way.
+
+893
+00:05:23,580 --> 00:05:26,520
+So what we need to do is we need to make this entry
+
+894
+00:05:26,700 --> 00:05:29,220
+the same width as the password entry
+
+895
+00:05:29,490 --> 00:05:31,860
+so that it'll actually fit into our layout.
+
+896
+00:05:32,490 --> 00:05:35,550
+So our password entry has a width of 21.
+
+897
+00:05:35,850 --> 00:05:40,850
+So our website entry is also going to need to change down to a smaller size.
+
+898
+00:05:42,750 --> 00:05:47,750
+Now you can see the entry is now the same size and its looking a lot better. If
+
+899
+00:05:47,970 --> 00:05:51,540
+you want, and this is really not strictly necessary
+
+900
+00:05:51,570 --> 00:05:56,520
+but I think it's quite neat, is you can tweak and adjust the width of this search
+
+901
+00:05:56,520 --> 00:06:00,440
+button so that it's roughly the same as the generate password button.
+
+902
+00:06:01,130 --> 00:06:05,540
+Now this button is this width because it's what is needed to accommodate all of
+
+903
+00:06:05,540 --> 00:06:09,710
+the words in that button, but we can manually change the search button
+
+904
+00:06:09,950 --> 00:06:11,990
+so that it's about the same width.
+
+905
+00:06:13,790 --> 00:06:18,770
+And in this case, I'm literally just using trial and error to figure it out. Width as
+
+906
+00:06:18,770 --> 00:06:23,210
+10 looks maybe a little bit small, let's try width of 13
+
+907
+00:06:23,750 --> 00:06:28,280
+and it looks just about right. Now that I'm done with my layout,
+
+908
+00:06:28,490 --> 00:06:32,420
+it's onto the next part which is adding functionality.
+
+909
+00:06:33,110 --> 00:06:36,890
+Now the functionality is going to come when the search button is pressed.
+
+910
+00:06:37,250 --> 00:06:39,620
+So I'm going to add a command to this
+
+911
+00:06:40,280 --> 00:06:45,280
+and the command is going to call a method which I'll call find_password. We've
+
+912
+00:06:46,370 --> 00:06:49,970
+got generate_password and we'll now have find_password.
+
+913
+00:06:50,690 --> 00:06:54,680
+Now I'm going to go and create my find_password.
+
+914
+00:06:56,090 --> 00:06:59,450
+And just because we've got all these sections set up, I'm going to add 
+
+915
+00:06:59,450 --> 00:07:04,450
+another section which I'll call find_password. Inside
+
+916
+00:07:05,270 --> 00:07:08,270
+the section is where we're going to be creating our
+
+917
+00:07:08,300 --> 00:07:12,980
+find_ password function. And this find_password,
+
+918
+00:07:13,040 --> 00:07:15,380
+let's just check to make sure there were no errors here
+
+919
+00:07:15,380 --> 00:07:16,910
+and we've spelled at the same way.
+
+920
+00:07:17,720 --> 00:07:22,720
+And this find_password function is going to need to get hold of the entry
+
+921
+00:07:23,360 --> 00:07:25,550
+that's inside the website entry.
+
+922
+00:07:26,480 --> 00:07:31,480
+So the website that we're looking for comes from the website_entry.get,
+
+923
+00:07:32,000 --> 00:07:36,440
+and then we'll be able to get the value of whatever the user typed inside this
+
+924
+00:07:36,440 --> 00:07:37,273
+entry.
+
+925
+00:07:37,640 --> 00:07:42,050
+And then we're going to use that to search through our data.json.
+
+926
+00:07:42,890 --> 00:07:47,890
+Now the easiest way for this to work is actually to first add a website.
+
+927
+00:07:48,020 --> 00:07:53,020
+So I'm just going to generate a website with my email and password and add it so
+
+928
+00:07:53,660 --> 00:07:56,510
+that it gets saved inside my data.json.
+
+929
+00:07:56,960 --> 00:08:00,320
+This way I'll be able to print things and I'll be able to work with the data a
+
+930
+00:08:00,320 --> 00:08:01,160
+little bit easier.
+
+931
+00:08:01,730 --> 00:08:04,490
+And then we'll address the exception catching a little bit later on.
+
+932
+00:08:05,120 --> 00:08:07,400
+What exactly are we looking for? Well,
+
+933
+00:08:07,430 --> 00:08:11,960
+we're looking to load up the data inside this JSON file.
+
+934
+00:08:12,470 --> 00:08:14,780
+So we're going to be opening up that file.
+
+935
+00:08:14,780 --> 00:08:19,250
+So with open and then the filename is data.json,
+
+936
+00:08:19,610 --> 00:08:22,520
+and then we'll save this as the data_file.
+
+937
+00:08:24,350 --> 00:08:26,660
+Now, once we've got our data file,
+
+938
+00:08:26,660 --> 00:08:30,830
+then we can use our JSON module to load up that file
+
+939
+00:08:31,340 --> 00:08:34,970
+and we're going to be getting hold of the data that's inside.
+
+940
+00:08:35,240 --> 00:08:38,720
+So we can save this to a variable called data.
+
+941
+00:08:39,350 --> 00:08:42,559
+Now this data, if I go ahead and print it,
+
+942
+00:08:43,370 --> 00:08:47,570
+you should remember is basically just a dictionary.
+
+943
+00:08:48,020 --> 00:08:51,770
+So as soon as I hit search, that should trigger this find_password
+
+944
+00:08:52,100 --> 00:08:54,800
+and now I've got my dictionary printed in here.
+
+945
+00:08:55,500 --> 00:08:58,740
+So what do we want to do with this dictionary? Well,
+
+946
+00:08:58,740 --> 00:09:03,740
+we want to look through it and check to see if this website that we're searching
+
+947
+00:09:04,020 --> 00:09:07,320
+for actually exists inside that dictionary.
+
+948
+00:09:07,950 --> 00:09:12,950
+The way we do that is we say if website in data,
+
+949
+00:09:15,030 --> 00:09:18,300
+well, in that case, it's actually success, right?
+
+950
+00:09:18,300 --> 00:09:21,030
+We've managed to find it inside the data
+
+951
+00:09:21,300 --> 00:09:25,170
+and we now just need to get hold of the email and password values.
+
+952
+00:09:26,580 --> 00:09:31,580
+So let's create a variable called email and we want to pick out this particular
+
+953
+00:09:31,860 --> 00:09:34,050
+value from this dictionary.
+
+954
+00:09:34,740 --> 00:09:36,930
+If this is the entire dictionary,
+
+955
+00:09:37,230 --> 00:09:42,230
+then we want to get hold of the dictionary and pick out the item with the key
+
+956
+00:09:42,900 --> 00:09:47,280
+that matches the website that we're searching for, like this.
+
+957
+00:09:47,880 --> 00:09:50,490
+Now, once we've gotten hold of this,
+
+958
+00:09:50,550 --> 00:09:53,220
+this is going to be a nested dictionary.
+
+959
+00:09:53,250 --> 00:09:57,690
+So it's equivalent to basically this part of the dictionary.
+
+960
+00:09:58,290 --> 00:10:00,210
+So this in itself is the dictionary,
+
+961
+00:10:00,240 --> 00:10:02,190
+which you could save to a separate variable,
+
+962
+00:10:02,490 --> 00:10:07,380
+but I think it's actually easy enough to understand that we can tag on another
+
+963
+00:10:07,380 --> 00:10:08,213
+key here
+
+964
+00:10:08,310 --> 00:10:13,310
+which is the word email in order to get hold of the value that's associated with
+
+965
+00:10:13,830 --> 00:10:15,480
+that key. So that way,
+
+966
+00:10:15,480 --> 00:10:18,840
+this email variable now saves this value here.
+
+967
+00:10:19,590 --> 00:10:23,880
+And in the same way, we can get the password from data
+
+968
+00:10:24,060 --> 00:10:29,060
+getting hold of the data under the website key and then passing in the password
+
+969
+00:10:29,850 --> 00:10:33,780
+key. Now that we've got the email and password,
+
+970
+00:10:33,840 --> 00:10:38,840
+we can go ahead and create our message box using show info. And we'll set the
+
+971
+00:10:39,210 --> 00:10:43,020
+title to be the website that the user is searching for
+
+972
+00:10:43,470 --> 00:10:46,320
+and the message is going to be a f-string,
+
+973
+00:10:46,710 --> 00:10:49,950
+which has the email listed.
+
+974
+00:10:50,640 --> 00:10:52,710
+And then on a new line,
+
+975
+00:10:52,740 --> 00:10:57,000
+it's also got the password that's going to be listed as well.
+
+976
+00:10:58,400 --> 00:10:59,233
+Like that.
+
+977
+00:11:01,160 --> 00:11:04,460
+Let's go ahead and run this code and make sure that it works.
+
+978
+00:11:05,690 --> 00:11:10,310
+Let's say that we have a couple more passwords that we save in here.
+
+979
+00:11:11,900 --> 00:11:15,590
+Now I should have three entries, Amazon, eBay, and Twitter,
+
+980
+00:11:15,980 --> 00:11:19,460
+and I want to go and search for my password for eBay.
+
+981
+00:11:19,940 --> 00:11:24,770
+Once I hit the search button, it goes into that find_password function
+
+982
+00:11:25,130 --> 00:11:28,880
+and if it finds that one of these has the key eBay,
+
+983
+00:11:29,210 --> 00:11:34,130
+then it's going to fetch all of these relevant pieces of data that I wanted from
+
+984
+00:11:34,160 --> 00:11:35,540
+that JSON file.
+
+985
+00:11:37,010 --> 00:11:42,010
+So now what we have to do is to make sure that we catch any exceptions that
+
+986
+00:11:42,740 --> 00:11:47,740
+might occur and you might already have realized that this works really well
+
+987
+00:11:48,110 --> 00:11:50,240
+right now because we have data
+
+988
+00:11:50,630 --> 00:11:53,260
+and because we have this data.json file.
+
+989
+00:11:53,860 --> 00:11:57,250
+But the first time that I run my program,
+
+990
+00:11:57,490 --> 00:11:59,140
+this is not going to exist.
+
+991
+00:11:59,650 --> 00:12:04,600
+So this is a more realistic version of what the program will look like
+
+992
+00:12:04,660 --> 00:12:09,340
+the first time we run it. And the first time that we go ahead and run this
+
+993
+00:12:09,430 --> 00:12:13,870
+and I search for something that is going to look for a file that doesn't exist
+
+994
+00:12:14,110 --> 00:12:18,340
+immediately, our program crashes, and we get the file not found error.
+
+995
+00:12:18,970 --> 00:12:23,740
+So what we need to do is we need to be aware enough that these things like
+
+996
+00:12:23,770 --> 00:12:26,020
+opening files can fail.
+
+997
+00:12:26,440 --> 00:12:31,420
+So what we have to do is we have to catch the exceptions and handle them.
+
+998
+00:12:32,080 --> 00:12:37,000
+Let's go ahead and indent this entire block and put it inside the try.
+
+999
+00:12:37,570 --> 00:12:40,300
+Now, the part that's most likely to fail in fact,
+
+1000
+00:12:40,330 --> 00:12:44,050
+the first time the program starts, this is definitely going to fail.
+
+1001
+00:12:44,710 --> 00:12:48,640
+But what we want to do is we want to catch the exception
+
+1002
+00:12:48,670 --> 00:12:53,020
+that is file not found error. And in the situation,
+
+1003
+00:12:53,050 --> 00:12:57,820
+what we want to do is we want to create a message box that tells the user
+
+1004
+00:12:58,120 --> 00:13:00,430
+this data file doesn't exist.
+
+1005
+00:13:01,060 --> 00:13:03,340
+This is just a simple showinfo
+
+1006
+00:13:03,700 --> 00:13:08,700
+and we'll give it a title of error and we'll give it a message of no data file
+
+1007
+00:13:12,730 --> 00:13:13,563
+found,
+
+1008
+00:13:15,220 --> 00:13:19,420
+or you can put any other message you can think of. However,
+
+1009
+00:13:19,420 --> 00:13:22,060
+if we were successful in opening this file,
+
+1010
+00:13:22,420 --> 00:13:25,720
+then this is the part of the code that we want to implement.
+
+1011
+00:13:26,140 --> 00:13:29,230
+So let's go ahead and bring it up to the right indentation.
+
+1012
+00:13:29,680 --> 00:13:31,360
+And we searched through our data,
+
+1013
+00:13:31,690 --> 00:13:36,690
+look for this website and then give the user a popup if it exists.
+
+1014
+00:13:37,620 --> 00:13:41,910
+Now, if we run our code again and we search for something
+
+1015
+00:13:42,060 --> 00:13:45,720
+even though we don't have a data file, we haven't saved anything yet,
+
+1016
+00:13:46,050 --> 00:13:49,830
+then we get this error popup and it tells us no data files found.
+
+1017
+00:13:50,160 --> 00:13:51,930
+And hopefully the user would realize, well,
+
+1018
+00:13:51,930 --> 00:13:54,060
+actually I haven't actually saved any passwords.
+
+1019
+00:13:54,900 --> 00:13:58,620
+So there's one other situation that we haven't yet addressed however.
+
+1020
+00:13:59,280 --> 00:14:02,820
+If I had, um, let's say Amazon, um,
+
+1021
+00:14:02,970 --> 00:14:07,970
+eBay and Twitter saved in my JSON file,
+
+1022
+00:14:10,680 --> 00:14:13,680
+but I decided to search for something that I never saved.
+
+1023
+00:14:13,830 --> 00:14:18,780
+Let's say my details for Facebook. Well in this situation, actually
+
+1024
+00:14:18,810 --> 00:14:23,220
+nothing really happens. And it's a little bit confusing because for the user,
+
+1025
+00:14:23,220 --> 00:14:27,300
+it seems like our program just doesn't work. But in fact, we
+
+1026
+00:14:27,300 --> 00:14:31,350
+as the programmers know what the problem is. It's basically this
+
+1027
+00:14:31,560 --> 00:14:36,510
+if statement is coming out as false. The website doesn't exist in the data.
+
+1028
+00:14:36,960 --> 00:14:40,920
+So none of this gets carried out and the function ends.
+
+1029
+00:14:41,460 --> 00:14:45,030
+That's probably not the best user experience. Instead,
+
+1030
+00:14:45,060 --> 00:14:49,560
+we probably want to catch it with an else statement and we want to use a message
+
+1031
+00:14:49,560 --> 00:14:52,430
+box to tell the that again,
+
+1032
+00:14:52,670 --> 00:14:55,010
+there is a error in this situation
+
+1033
+00:14:55,850 --> 00:14:59,090
+but the reason for this error is because
+
+1034
+00:15:01,940 --> 00:15:06,380
+there are no details that currently exist for the website that they're searching
+
+1035
+00:15:06,380 --> 00:15:08,030
+for. That way
+
+1036
+00:15:08,060 --> 00:15:13,060
+they're not sitting there confused as to why searching for some sort of website
+
+1037
+00:15:13,910 --> 00:15:15,410
+doesn't actually come up with anything.
+
+1038
+00:15:15,680 --> 00:15:19,070
+It tells them that there are no details and they would have to add it
+
+1039
+00:15:19,280 --> 00:15:21,410
+if they wanna find it in the database.
+
+1040
+00:15:22,400 --> 00:15:24,770
+A lot of students might be wondering at this point, well,
+
+1041
+00:15:24,950 --> 00:15:27,680
+why don't we catch this with some sort of exception?
+
+1042
+00:15:29,240 --> 00:15:32,570
+And in fact, we could create an exception.
+
+1043
+00:15:32,570 --> 00:15:36,890
+We could raise an exception here and then we could catch it somewhere else and
+
+1044
+00:15:36,920 --> 00:15:38,390
+show this message box.
+
+1045
+00:15:38,780 --> 00:15:43,780
+But the thing you want to keep in mind is that if you can do something with if
+
+1046
+00:15:44,000 --> 00:15:47,690
+and else very easily, then you should stick to if and else.
+
+1047
+00:15:48,170 --> 00:15:52,460
+If you can't do it with if and else very easily, and it's actually an error
+
+1048
+00:15:52,460 --> 00:15:55,910
+that's going to be thrown that you don't have any other way of dealing with,
+
+1049
+00:15:56,210 --> 00:16:00,950
+then you should be using the try, except, else, finally, keywords.
+
+1050
+00:16:01,670 --> 00:16:03,500
+And in fact, if you think about this,
+
+1051
+00:16:03,920 --> 00:16:08,920
+I don't have an easy way of checking to see if this data file ends up being not
+
+1052
+00:16:10,490 --> 00:16:14,660
+found. But I do have this file not found error
+
+1053
+00:16:14,660 --> 00:16:18,230
+which is going to be thrown every time that I try to open a file and that
+
+1054
+00:16:18,230 --> 00:16:19,010
+doesn't exist.
+
+1055
+00:16:19,010 --> 00:16:24,010
+The other way to think about it is that an exception is something that is
+
+1056
+00:16:24,020 --> 00:16:27,560
+meant to be exceptional. It's something that happens very rarely.
+
+1057
+00:16:28,100 --> 00:16:32,120
+Whereas if and else catches things that happen frequently.
+
+1058
+00:16:32,420 --> 00:16:36,290
+It's pretty often that your user might search through the website
+
+1059
+00:16:36,530 --> 00:16:40,550
+thinking that they saved some sort of details for a website. But in fact,
+
+1060
+00:16:40,580 --> 00:16:43,970
+they didn't. Think about this when you're writing your code
+
+1061
+00:16:44,090 --> 00:16:49,090
+and remember that only use exception handling when you don't have an easy
+
+1062
+00:16:49,520 --> 00:16:52,100
+alternative. There you have it.
+
+1063
+00:16:52,430 --> 00:16:56,990
+That's the completed code for our upgraded password manager.
+
+1064
+00:16:57,500 --> 00:16:59,750
+If you want to take a look at any of this code,
+
+1065
+00:16:59,810 --> 00:17:02,570
+then, as always, head over to the course resources
+
+1066
+00:17:02,870 --> 00:17:06,319
+and you'll see a link to the completed code that you can review.
+
+1067
+00:17:06,859 --> 00:17:08,150
+But in today's lessons,
+
+1068
+00:17:08,390 --> 00:17:13,369
+we added a lot more knowledge regarding things like error handling and saving
+
+1069
+00:17:13,369 --> 00:17:18,369
+data in JSON formats and handling and loading and updating and dealing with
+
+1070
+00:17:18,530 --> 00:17:23,530
+all of that data in order to create this fully-fledged password manager project.
+
+1071
+00:17:24,829 --> 00:17:27,920
+Now, I'm sure there's a lot more improvements you can add to this,
+
+1072
+00:17:28,160 --> 00:17:31,880
+but it's going to go beyond the allocated time for today's lessons.
+
+1073
+00:17:32,330 --> 00:17:33,163
+So if you want,
+
+1074
+00:17:33,170 --> 00:17:37,550
+please continue messing around with the code and improving it and make your own
+
+1075
+00:17:37,550 --> 00:17:39,590
+customizations and modifications.
+
+1076
+00:17:39,920 --> 00:17:41,810
+If you create something that you thought was cool,
+
+1077
+00:17:41,840 --> 00:17:46,340
+then be sure to share it with us in the Q/A below the lesson so that we can
+
+1078
+00:17:46,340 --> 00:17:50,810
+all admire your hard work and maybe improve our own code as a result.
+
+1079
+00:17:51,380 --> 00:17:55,880
+So have fun playing around with this program and I'll see you tomorrow.
+
+

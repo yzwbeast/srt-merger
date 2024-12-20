@@ -1,0 +1,2686 @@
+1
+00:00:06,680 --> 00:00:11,630
+The first thing I want to talk about is a concept known in programming as Scope.
+
+2
+00:00:12,200 --> 00:00:16,190
+And this scope is something that we've actually come across already in our
+
+3
+00:00:16,190 --> 00:00:20,090
+programming, but I wanted to leave it until we've seen functions,
+
+4
+00:00:20,330 --> 00:00:24,230
+we've seen if and while loops, different types and blocks of code,
+
+5
+00:00:24,470 --> 00:00:29,090
+before we start talking about this really important concept. Now,
+
+6
+00:00:29,120 --> 00:00:30,950
+if you want to visualize this concept,
+
+7
+00:00:31,400 --> 00:00:36,400
+imagine you have a house with a fence around it and you plant an apple tree
+
+8
+00:00:37,100 --> 00:00:42,020
+inside your garden. Think about who can access those apples.
+
+9
+00:00:42,230 --> 00:00:45,980
+Just you and your family right? But what if instead,
+
+10
+00:00:46,100 --> 00:00:50,540
+you had an apple tree in the neighborhood by the sidewalk, for example.
+
+11
+00:00:51,020 --> 00:00:55,640
+Well, this is kind of free for all. Anybody can go and access those apples.
+
+12
+00:00:56,300 --> 00:00:59,690
+This is a starting point for how to understand scope.
+
+13
+00:01:00,500 --> 00:01:04,940
+Head over to the App Brewery Day 12 start Repl.it and go ahead and fork your own
+
+14
+00:01:04,940 --> 00:01:05,773
+copy of it.
+
+15
+00:01:06,140 --> 00:01:11,140
+Take a look at the code that's in the starting file in the main.py and try to
+
+16
+00:01:12,110 --> 00:01:14,540
+understand what it's doing. First
+
+17
+00:01:14,540 --> 00:01:17,840
+I create a variable called enemies and I set it to equal 1.
+
+18
+00:01:18,470 --> 00:01:21,500
+Then I create a function called increase_enemies,
+
+19
+00:01:21,800 --> 00:01:25,610
+and I try to set that variable to 2. Finally,
+
+20
+00:01:25,640 --> 00:01:29,630
+I call my function triggering all the lines of code inside,
+
+21
+00:01:30,200 --> 00:01:35,000
+and now I want you to predict what will this print statement print in the
+
+22
+00:01:35,000 --> 00:01:38,120
+console and what will this print statement print?
+
+23
+00:01:38,960 --> 00:01:41,630
+And it might not be what you expect it to be.
+
+24
+00:01:42,380 --> 00:01:47,270
+So I would expect that here I've got a variable which is equal to one.
+
+25
+00:01:47,750 --> 00:01:49,340
+When this function is called,
+
+26
+00:01:49,670 --> 00:01:53,090
+this variable enemies should now be equal to two.
+
+27
+00:01:53,510 --> 00:01:56,750
+So when it's printed down here from outside my function,
+
+28
+00:01:57,050 --> 00:02:01,940
+this should be equal to two, and this should also be equal to two.
+
+29
+00:02:02,540 --> 00:02:04,100
+But look at what happens instead.
+
+30
+00:02:05,540 --> 00:02:08,870
+I get enemies from inside the function equal to 2,
+
+31
+00:02:09,410 --> 00:02:12,590
+but from outside the function, it's equal to 1.
+
+32
+00:02:12,980 --> 00:02:16,460
+So what's going on here? To really understand this
+
+33
+00:02:16,490 --> 00:02:20,390
+we have to understand the concept of scope. And scope is a really,
+
+34
+00:02:20,390 --> 00:02:22,880
+really important thing in programing.
+
+35
+00:02:22,910 --> 00:02:27,080
+You see it in every programming language and although its a little bit different
+
+36
+00:02:27,080 --> 00:02:28,790
+between the programming languages,
+
+37
+00:02:29,330 --> 00:02:33,950
+it all goes back to that concept of the apple tree being within a fence or
+
+38
+00:02:33,980 --> 00:02:34,940
+outside a fence.
+
+39
+00:02:35,360 --> 00:02:39,380
+So let's take a look at some other examples before we come back to solve this
+
+40
+00:02:39,380 --> 00:02:40,213
+problem.
+
+41
+00:02:41,330 --> 00:02:45,080
+The first thing to think about is a concept called local scope.
+
+42
+00:02:45,590 --> 00:02:49,970
+Local scope exists within functions. So for example,
+
+43
+00:02:50,150 --> 00:02:54,650
+if I was creating a game and I had a function called drink_potion
+
+44
+00:02:54,680 --> 00:02:57,740
+which is somehow going to strengthen my player,
+
+45
+00:02:58,220 --> 00:03:03,220
+well, maybe it would have a variable that's created inside the function.
+
+46
+00:03:03,830 --> 00:03:06,820
+So it could be something like potion_strength
+
+47
+00:03:08,080 --> 00:03:11,380
+and I could set that to start off where the value of two.
+
+48
+00:03:12,280 --> 00:03:13,330
+Now in this case
+
+49
+00:03:13,360 --> 00:03:18,360
+if I was to go and print this variable potion strength from within the function,
+
+50
+00:03:19,060 --> 00:03:20,650
+notice I'm indented here,
+
+51
+00:03:21,190 --> 00:03:24,910
+and of course I need to call this function for that to happen.
+
+52
+00:03:26,380 --> 00:03:30,640
+Notice what happens when I run the code. It's equal to two.
+
+53
+00:03:31,150 --> 00:03:32,680
+That's what we would expect, right?
+
+54
+00:03:33,340 --> 00:03:38,340
+But notice what happens if I try to print the potion_strength from outside the
+
+55
+00:03:40,060 --> 00:03:44,740
+function here. This firstly gives me an error
+
+56
+00:03:45,010 --> 00:03:49,390
+right when I'm writing it inside the editor. And when I tried to run it,
+
+57
+00:03:49,420 --> 00:03:54,420
+it gives me an error inside the console. And the error is a name error
+
+58
+00:03:54,760 --> 00:03:59,760
+and it tells me that the name potion strength is not defined. Clearly I've
+
+59
+00:04:00,490 --> 00:04:05,020
+defined it here, but why can't I access it outside the function?
+
+60
+00:04:05,320 --> 00:04:08,320
+Well, this goes back to the concept of local scope.
+
+61
+00:04:08,830 --> 00:04:13,830
+When you create a new variable or indeed a new function inside another function,
+
+62
+00:04:16,690 --> 00:04:18,700
+it's only accessible,
+
+63
+00:04:18,700 --> 00:04:23,700
+you can only use it when you're inside that function because it has local scope.
+
+64
+00:04:25,540 --> 00:04:29,920
+It's only valid within the walls of this drink_
+
+65
+00:04:29,950 --> 00:04:30,940
+potion function.
+
+66
+00:04:33,040 --> 00:04:37,420
+What if we wanted it to be accessible outside the function? Well,
+
+67
+00:04:37,420 --> 00:04:40,810
+now we need to think about something called global scope.
+
+68
+00:04:41,440 --> 00:04:46,440
+The only difference between global scope and local scope is where you define or
+
+69
+00:04:46,750 --> 00:04:49,720
+where you create your variables or your functions.
+
+70
+00:04:50,380 --> 00:04:52,450
+So let's say we have a different variable.
+
+71
+00:04:52,450 --> 00:04:57,190
+Let's say that I created a variable called a player_health and it starts off
+
+72
+00:04:57,220 --> 00:05:02,140
+being equal to 10. Now let's say later on I have the same drink_
+
+73
+00:05:02,170 --> 00:05:07,120
+potion function, and this potion has strength of 2.
+
+74
+00:05:07,720 --> 00:05:11,560
+So now inside my function drink_potion,
+
+75
+00:05:11,980 --> 00:05:15,550
+if I wanted to print my player_health
+
+76
+00:05:15,970 --> 00:05:20,500
+even though it wasn't defined within the function, this is perfectly possible.
+
+77
+00:05:20,740 --> 00:05:22,840
+And if I call my function
+
+78
+00:05:22,870 --> 00:05:27,520
+drink_potion and then run the code as it is,
+
+79
+00:05:27,730 --> 00:05:29,590
+you will see 10 being printed.
+
+80
+00:05:30,010 --> 00:05:35,010
+So this has a global scope. It's available anywhere within our file because it
+
+81
+00:05:36,250 --> 00:05:40,720
+was defined at the top level of the file. Now, when I say top-level,
+
+82
+00:05:40,720 --> 00:05:43,660
+I don't mean physically at the very top of the file.
+
+83
+00:05:44,020 --> 00:05:49,020
+I mean that it's not within another function, like potion strength here because
+
+84
+00:05:49,930 --> 00:05:53,650
+this is defined indented inside a function.
+
+85
+00:05:53,980 --> 00:05:55,960
+So this is a local variable
+
+86
+00:05:55,990 --> 00:06:00,990
+whereas this is a global variable. And global variables are available within
+
+87
+00:06:01,880 --> 00:06:05,210
+functions, no matter how deep it gets nested
+
+88
+00:06:05,570 --> 00:06:08,120
+and it's also available outside of functions.
+
+89
+00:06:09,860 --> 00:06:14,780
+This concept of global and local scope doesn't just apply to variables.
+
+90
+00:06:15,140 --> 00:06:20,140
+As I alluded to before, it also applies to functions and basically anything else
+
+91
+00:06:20,330 --> 00:06:24,290
+you name. This is a concept called the Namespace.
+
+92
+00:06:24,890 --> 00:06:28,730
+So we defined this variable player_health, we define this function
+
+93
+00:06:28,730 --> 00:06:29,563
+drink_potion.
+
+94
+00:06:29,930 --> 00:06:34,930
+Anything that you give a name to has a namespace and that namespace is valid in
+
+95
+00:06:37,160 --> 00:06:38,120
+certain scopes.
+
+96
+00:06:39,260 --> 00:06:42,980
+This concept of scope applies to basically anything you name.
+
+97
+00:06:43,940 --> 00:06:48,530
+If I was to nest this function drink_potion inside another function,
+
+98
+00:06:48,560 --> 00:06:50,720
+let's call it game. Well,
+
+99
+00:06:50,780 --> 00:06:55,780
+this drink_potion now has local scope within the function game.
+
+100
+00:06:56,660 --> 00:07:01,660
+So this is why this line is now erroring out because it can't actually see inside
+
+101
+00:07:03,620 --> 00:07:07,700
+this function. So now in order to call this drink_potion,
+
+102
+00:07:08,030 --> 00:07:11,780
+I have to be within the four walls of the game function.
+
+103
+00:07:12,830 --> 00:07:17,000
+So whenever you give name to anything, a function or a variable,
+
+104
+00:07:17,270 --> 00:07:20,210
+you have to be aware of where you created it.
+
+105
+00:07:20,780 --> 00:07:25,280
+Now it's easy to notice where you've created functions, we have the def keyword,
+
+106
+00:07:25,310 --> 00:07:28,010
+right? But when you create a variable
+
+107
+00:07:28,040 --> 00:07:32,570
+that's the first time that you give it a name and you set it equal to something.
+
+108
+00:07:33,200 --> 00:07:37,880
+And where you write that line of code defines the scope of that particular
+
+109
+00:07:37,880 --> 00:07:42,140
+variable. Here it's outside of every other function,
+
+110
+00:07:42,470 --> 00:07:46,700
+whereas here it's inside a function actually nested two levels deep.
+
+111
+00:07:47,090 --> 00:07:50,510
+So it has a local scope to this function.
+
+
+112
+00:00:06,390 --> 00:00:09,060
+Now, unlike some other programming languages,
+
+113
+00:00:09,090 --> 00:00:13,410
+if you've come from say C++ or Java,
+
+114
+00:00:14,160 --> 00:00:17,220
+there is no such thing as block scope in Python.
+
+115
+00:00:17,670 --> 00:00:21,690
+What this means is that if you were to create an if statement,
+
+116
+00:00:22,290 --> 00:00:25,140
+say if 3 > 2,
+
+117
+00:00:25,890 --> 00:00:30,890
+and if you were to create a new variable inside an if block or a while loop or a
+
+118
+00:00:31,680 --> 00:00:35,460
+for loop, basically any sort of block of code that's indented,
+
+119
+00:00:35,880 --> 00:00:38,130
+this does not count as offence.
+
+120
+00:00:38,640 --> 00:00:43,110
+It still has the same scope as its enclosing function,
+
+121
+00:00:43,410 --> 00:00:46,560
+or if there is no enclosing function then it has global scope.
+
+122
+00:00:47,100 --> 00:00:51,120
+So let me show you a full example. Let's say we had a list of enemies,
+
+123
+00:00:51,150 --> 00:00:56,010
+so the enemies could be skeletons, zombies, or aliens. So now,
+
+124
+00:00:56,010 --> 00:00:58,980
+if I was to define a game level, right?
+
+125
+00:00:59,010 --> 00:01:01,710
+Like the level that the user is currently playing at,
+
+126
+00:01:01,740 --> 00:01:03,240
+let's say they're on level 3.
+
+127
+00:01:03,930 --> 00:01:08,930
+And I create an if statement and I check if the game_level is less than level
+
+128
+00:01:09,570 --> 00:01:12,990
+5, well, in that case, I want to create a new enemy,
+
+129
+00:01:13,470 --> 00:01:16,560
+but I don't want the enemy to be too difficult to beat.
+
+130
+00:01:17,100 --> 00:01:21,450
+So I'm going to pick from the list of enemies and I'm going to pick the first
+
+131
+00:01:21,450 --> 00:01:23,520
+one. Notice how,
+
+132
+00:01:23,550 --> 00:01:28,470
+even though this new enemy is a variable that's created within this
+
+133
+00:01:28,530 --> 00:01:31,800
+if block, if I go outside the if block
+
+134
+00:01:31,860 --> 00:01:36,840
+so I'm not indented at all anymore, and I try to print this new enemy,
+
+135
+00:01:38,010 --> 00:01:41,070
+this is perfectly valid code. And if I run the code,
+
+136
+00:01:41,130 --> 00:01:43,230
+you'll see skeleton being printed.
+
+137
+00:01:44,070 --> 00:01:49,070
+But notice how as soon as I embed this within a function,
+
+138
+00:01:50,220 --> 00:01:52,320
+so let's define a new function.
+
+139
+00:01:53,670 --> 00:01:58,670
+And now this line error is out because within the function there is local scope.
+
+140
+00:01:59,580 --> 00:02:03,840
+So now this new enemy is available anywhere within this function,
+
+141
+00:02:04,110 --> 00:02:09,110
+because blocks like if, while, for, all of these blocks of code with colons and
+
+142
+00:02:09,960 --> 00:02:13,440
+indentation, they don't count as creating a local scope.
+
+143
+00:02:13,860 --> 00:02:16,470
+So in order to print this new enemy,
+
+144
+00:02:16,830 --> 00:02:20,490
+I actually have to be within the boundary of this function,
+
+145
+00:02:20,580 --> 00:02:22,710
+which means my code has to be here.
+
+146
+00:02:24,120 --> 00:02:29,070
+The most important thing to remember from this is if you create a variable
+
+147
+00:02:29,430 --> 00:02:34,320
+within a function, then it's only available within that function.
+
+148
+00:02:35,160 --> 00:02:40,160
+But if you create a variable within an if block or a while loop or a for loop or
+
+149
+00:02:42,060 --> 00:02:44,730
+anything that has the indentation and the colon,
+
+150
+00:02:45,150 --> 00:02:49,050
+then that does not count as creating a separate local scope.
+
+
+151
+00:00:06,410 --> 00:00:09,200
+Coming back to our original example.
+
+152
+00:00:09,860 --> 00:00:14,780
+I want to talk more about the global scope and the concept of modifying
+
+153
+00:00:14,930 --> 00:00:19,610
+something within the global scope. Here we have enemies,
+
+154
+00:00:20,030 --> 00:00:22,310
+which is a variable that has global scope,
+
+155
+00:00:23,030 --> 00:00:27,620
+and here we have a function which creates a local scope.
+
+156
+00:00:28,370 --> 00:00:33,370
+Now we think that we're tapping into this variable and setting it to two.
+
+157
+00:00:34,370 --> 00:00:37,880
+But in fact, we're actually creating a completely new variable
+
+158
+00:00:37,910 --> 00:00:40,400
+that's entirely separate from this one.
+
+159
+00:00:41,420 --> 00:00:44,270
+And this is why when we printed it here,
+
+160
+00:00:44,510 --> 00:00:49,100
+it showed it was equal to 2. But when we printed it here, it showed
+
+161
+00:00:49,130 --> 00:00:53,750
+it was actually equal to 1. If you want to make this a little more obvious,
+
+162
+00:00:53,780 --> 00:00:58,780
+I can call this a skeleton and I can set this to be a zombie.
+
+163
+00:01:00,590 --> 00:01:04,879
+And when I hit run, you can see again, this prints zombie,
+
+164
+00:01:05,030 --> 00:01:06,680
+this prints skeleton,
+
+165
+00:01:06,980 --> 00:01:11,750
+because these two variables are actually entirely different things.
+
+166
+00:01:12,290 --> 00:01:15,860
+And we're not changing this right here at all,
+
+167
+00:01:16,040 --> 00:01:19,640
+we're just creating a new variable that has a local scope.
+
+168
+00:01:21,020 --> 00:01:26,020
+Now it's usually a terrible idea to call your local variables and your global
+
+169
+00:01:26,690 --> 00:01:31,040
+variables the same name. But in this case,
+
+170
+00:01:31,070 --> 00:01:36,070
+what we actually wanted to do was we wanted to modify this variable,
+
+171
+00:01:36,320 --> 00:01:40,790
+we wanted to do something like maybe += 1. And notice how
+
+172
+00:01:40,790 --> 00:01:42,860
+as soon as I write += 1,
+
+173
+00:01:43,160 --> 00:01:48,160
+that my editor starts going crazy and tells me that this local variable enemies
+
+174
+00:01:49,370 --> 00:01:53,810
+is defined in an enclosing scope is referenced before assignment.
+
+175
+00:01:53,810 --> 00:01:54,643
+What does that mean?
+
+176
+00:01:54,680 --> 00:01:59,540
+It means that the editor thinks you're trying to tap into a local variable that
+
+177
+00:01:59,540 --> 00:02:01,700
+you defined somewhere around here.
+
+178
+00:02:02,930 --> 00:02:07,400
+And then you tried to modify it by adding one to the previous value,
+
+179
+00:02:07,670 --> 00:02:11,960
+but you actually haven't defined it. What we wanted to do though,
+
+180
+00:02:11,960 --> 00:02:16,850
+is we wanted to tap into this variable and change it here.
+
+181
+00:02:18,320 --> 00:02:19,550
+In order to do this,
+
+182
+00:02:19,610 --> 00:02:24,610
+we actually have to explicitly say that we have a global variable
+
+183
+00:02:25,430 --> 00:02:30,260
+which is called enemies that's defined somewhere outside of this function.
+
+184
+00:02:30,740 --> 00:02:34,880
+And that is the enemies that we want to use inside this function.
+
+185
+00:02:35,480 --> 00:02:40,480
+So it basically takes that global enemies into the function and allows you to
+
+186
+00:02:40,700 --> 00:02:43,580
+modify it. Without this line of code
+
+187
+00:02:43,700 --> 00:02:48,700
+we cannot modify something that is global within a local scope.
+
+188
+00:02:50,930 --> 00:02:55,930
+Now there's a reason why it's so difficult to modify something that has global
+
+189
+00:02:56,180 --> 00:02:57,013
+scope.
+
+190
+00:02:57,080 --> 00:03:02,080
+You probably don't actually want to do this very often, because it's confusing and
+
+191
+00:03:03,430 --> 00:03:08,430
+it's prone to creating bugs and errors. Because this variable with global scope
+
+192
+00:03:09,220 --> 00:03:12,640
+could have been created anywhere in your code, right?
+
+193
+00:03:12,970 --> 00:03:17,970
+And you would be modifying it completely independent of when you created it.
+
+194
+00:03:18,400 --> 00:03:22,480
+So it might've been days between when you wrote this code and when you wrote
+
+195
+00:03:22,480 --> 00:03:26,560
+this code and it just makes everything more fallible,
+
+196
+00:03:26,590 --> 00:03:27,820
+more easy to fail.
+
+197
+00:03:28,270 --> 00:03:33,270
+This is why very often people will tell you when they're teaching you Python to
+
+198
+00:03:33,460 --> 00:03:37,750
+avoid modifying global scope. You can read it,
+
+199
+00:03:37,780 --> 00:03:42,160
+that's not a problem. You can use it within your code, like we are here.
+
+200
+00:03:43,540 --> 00:03:48,540
+But don't try to modify it within a function that has local scope.
+
+201
+00:03:49,360 --> 00:03:50,680
+But what can you do instead?
+
+202
+00:03:50,710 --> 00:03:55,330
+What if you wanted to have this functionality like a function that changes the
+
+203
+00:03:55,330 --> 00:03:56,350
+number of enemies?
+
+204
+00:03:56,860 --> 00:04:01,480
+How can you achieve this without modifying the global scope within the function?
+
+205
+00:04:02,260 --> 00:04:06,940
+Well, you could use what we learned about return statements instead,
+
+206
+00:04:07,060 --> 00:04:11,440
+right? What if instead of modifying the enemies,
+
+207
+00:04:12,010 --> 00:04:15,310
+you actually just simply returned it as the output.
+
+208
+00:04:15,700 --> 00:04:19,329
+So return the current value of enemies + 1.
+
+209
+00:04:20,140 --> 00:04:22,150
+Now once you call this function,
+
+210
+00:04:22,420 --> 00:04:27,280
+you'll get hold of the output and you can save it to the global variable enemies.
+
+211
+00:04:27,790 --> 00:04:32,140
+So this now means that this function can be taken away and placed anywhere in
+
+212
+00:04:32,140 --> 00:04:35,410
+your code and you don't actually need to know how it works.
+
+213
+00:04:35,830 --> 00:04:39,010
+As long as you know that this is how you increase enemies,
+
+214
+00:04:39,580 --> 00:04:42,160
+then all you have to do is just call it.
+
+
+215
+00:00:07,020 --> 00:00:11,040
+Remember, you should be careful with variables that have global scope,
+
+216
+00:00:11,550 --> 00:00:15,150
+but don't believe the people who tell you that you should never use global
+
+217
+00:00:15,150 --> 00:00:18,000
+scope. Global scope can be incredibly useful
+
+218
+00:00:18,180 --> 00:00:22,170
+especially when you're defining constants. Global constants
+
+219
+00:00:22,260 --> 00:00:24,480
+are variables which you define
+
+220
+00:00:24,870 --> 00:00:28,620
+and you're never planning on changing it ever again. It's just something like,
+
+221
+00:00:28,650 --> 00:00:30,480
+for example, the value of pi, right?
+
+222
+00:00:31,380 --> 00:00:34,950
+You want to look it up once and you want to put it into your code and you never
+
+223
+00:00:34,950 --> 00:00:36,570
+want to look it up ever again.
+
+224
+00:00:37,230 --> 00:00:41,940
+And every other time you want to use it, say inside of a function, then all you
+
+225
+00:00:41,940 --> 00:00:45,540
+want to do is just tap into that value of pi.
+
+226
+00:00:46,860 --> 00:00:50,610
+So usually, in order to differentiate these constants
+
+227
+00:00:50,640 --> 00:00:54,780
+which you're pretty much never going to change from the variables
+
+228
+00:00:54,780 --> 00:00:56,460
+which you are likely to change,
+
+229
+00:00:56,730 --> 00:01:01,170
+the naming convention in Python is to turn it into all uppercase.
+
+230
+00:01:01,740 --> 00:01:02,370
+For example,
+
+231
+00:01:02,370 --> 00:01:07,370
+if you had PI or you had a URL that you needed to use,
+
+232
+00:01:07,860 --> 00:01:10,020
+or you have some sort of Twitter handle,
+
+233
+00:01:10,800 --> 00:01:15,240
+then these are all going to be uppercased, separated with underscores.
+
+234
+00:01:15,990 --> 00:01:20,990
+What this means is that later on in your function and you want to use one of
+
+235
+00:01:21,060 --> 00:01:25,260
+these global constants, as soon as you type it,
+
+236
+00:01:25,380 --> 00:01:27,690
+you can see it's the uppercase and you know
+
+237
+00:01:27,690 --> 00:01:31,560
+to remind yourself to not modify this inside your code.
+
+238
+00:01:33,090 --> 00:01:35,340
+Now that we've talked a little bit about scope,
+
+239
+00:01:35,670 --> 00:01:40,230
+it's time to put your knowledge into action. Head over to the next lesson
+
+240
+00:01:40,590 --> 00:01:43,530
+and I've got a quiz that will test your understanding.
+
+241
+00:01:43,860 --> 00:01:46,110
+So, for all of that and more, I'll see you there.
+
+
+242
+00:00:00,840 --> 00:00:05,610
+Now that you've completed some of the scoping problems, it's time to tackle
+
+243
+00:00:05,640 --> 00:00:06,810
+the final project.
+
+244
+00:00:07,260 --> 00:00:12,260
+This final project is a little bit special because now I think you've got enough
+
+245
+00:00:12,450 --> 00:00:17,430
+experience and enough skills under your belt to actually create this project
+
+246
+00:00:17,550 --> 00:00:22,140
+entirely from scratch by yourself. So you're flying solo now.
+
+247
+00:00:22,890 --> 00:00:26,490
+Now the first thing I want you to do is head over to guess-the-number-
+
+248
+00:00:26,490 --> 00:00:29,130
+final.appbrewery.repl.run
+
+249
+00:00:29,700 --> 00:00:33,630
+and I want you to play this game quite a few times actually,
+
+250
+00:00:33,990 --> 00:00:38,040
+just so that you get a good idea of how it works. Now,
+
+251
+00:00:38,100 --> 00:00:40,500
+the first thing it tells us is Welcome.
+
+252
+00:00:41,070 --> 00:00:44,790
+And then it tells us it's thinking of a number between 1 and 100,
+
+253
+00:00:45,090 --> 00:00:48,480
+and then we get to choose a difficulty. So I'm going to choose hard.
+
+254
+00:00:49,350 --> 00:00:52,380
+Now it tells me that I have five attempts to guess the number,
+
+255
+00:00:52,950 --> 00:00:55,020
+and I'm going to make a guess.
+
+256
+00:00:55,770 --> 00:01:00,000
+Now it tells me that 50 is too high, it's not the number that it was thinking,
+
+257
+00:01:00,270 --> 00:01:04,800
+and I have to guess again. And notice how I started out with five attempts,
+
+258
+00:01:04,860 --> 00:01:08,970
+I'm now down to four attempts. So let's try 25.
+
+259
+00:01:09,420 --> 00:01:12,510
+So 25 is too low, but 50 is too high.
+
+260
+00:01:12,900 --> 00:01:15,360
+So that means the number is somewhere in between them.
+
+261
+00:01:15,660 --> 00:01:19,950
+Let's try 30. Again, too low. Let's try
+
+262
+00:01:19,950 --> 00:01:22,980
+4o. Too high. Maybe it's 45.
+
+263
+00:01:23,250 --> 00:01:25,260
+But I only have one attempt left
+
+264
+00:01:25,260 --> 00:01:28,380
+cause I went for the hard level. And as expected,
+
+265
+00:01:28,440 --> 00:01:32,340
+I didn't manage to get the right number and I've now run out of guesses.
+
+266
+00:01:32,490 --> 00:01:34,980
+So I've lost. If we run again,
+
+267
+00:01:35,010 --> 00:01:37,770
+we can try playing this on an easy level.
+
+268
+00:01:39,150 --> 00:01:43,050
+On an easy level, we get 10 attempts instead of 5.
+
+269
+00:01:43,680 --> 00:01:46,080
+That gives us a little bit of extra opportunity.
+
+270
+00:01:46,590 --> 00:01:51,540
+So let's try 50. 50 is too high. 25 is too high. 10,
+
+271
+00:01:52,050 --> 00:01:56,910
+10 is too low. So it's between 10 and 25. So let's try 15.
+
+272
+00:01:57,510 --> 00:01:59,910
+Now, if 15 is too high, but 10 is too low,
+
+273
+00:02:00,300 --> 00:02:02,670
+then we're pretty close to the answer.
+
+274
+00:02:03,330 --> 00:02:08,039
+It's now between 12 and 15, let's try 13, 14.
+
+275
+00:02:08,490 --> 00:02:12,360
+There we go. The actual answer that it had in mind was 14.
+
+276
+00:02:13,020 --> 00:02:17,820
+And I had four attempts remaining to get the final answer and I managed to get
+
+277
+00:02:17,820 --> 00:02:22,170
+it at the end. Play through this game at least three,
+
+278
+00:02:22,170 --> 00:02:24,300
+four times on the different levels
+
+279
+00:02:24,840 --> 00:02:29,490
+and remember that the easy level has 10 gos,
+
+280
+00:02:29,850 --> 00:02:32,460
+the hard level, the user gets 5 gos
+
+281
+00:02:32,610 --> 00:02:37,610
+at guessing the number. And look at how the code works and how it's functioning.
+
+282
+00:02:38,880 --> 00:02:43,380
+And then I want you to break down this problem. Write a to-do list,
+
+283
+00:02:43,410 --> 00:02:47,970
+create your own list of tasks that you need to solve and start with the simplest
+
+284
+00:02:47,970 --> 00:02:52,620
+one. And once you've tackled that, start putting in some comments into your code.
+
+285
+00:02:52,650 --> 00:02:55,380
+Write down the functionality your program needs,
+
+286
+00:02:55,890 --> 00:03:00,890
+and then write the code and then test out your code and keep going until you've
+
+287
+00:03:01,330 --> 00:03:05,470
+tested it and made sure that it works in all situations.
+
+288
+00:03:06,430 --> 00:03:09,730
+So this final project has no starting code.
+
+289
+00:03:10,270 --> 00:03:13,900
+I'm not going to give you any comments or to-dos to start off with.
+
+290
+00:03:14,560 --> 00:03:18,340
+I want you to try and tackle this entire project by yourself.
+
+291
+00:03:18,910 --> 00:03:23,710
+And the only thing I'm going to give you is this link so that you can try out the
+
+292
+00:03:23,710 --> 00:03:27,310
+final project. And I know that there's a lot of ways that you can cheat,
+
+293
+00:03:27,430 --> 00:03:31,960
+but don't do it. Have faith in yourself. If you tackle this for an hour,
+
+294
+00:03:31,990 --> 00:03:34,180
+I'm pretty sure you're going to get there in the end.
+
+295
+00:03:34,570 --> 00:03:38,350
+You have free reign on the styling or the wording,
+
+296
+00:03:38,620 --> 00:03:40,360
+whatever it is you want it to say.
+
+297
+00:03:40,450 --> 00:03:43,750
+But it has the have the same functionality. Now
+
+298
+00:03:43,750 --> 00:03:46,960
+this also means that if you want to get some ASCII art of your own,
+
+299
+00:03:47,260 --> 00:03:49,060
+then you can head over to this website
+
+300
+00:03:49,120 --> 00:03:53,830
+which I'll link to in the course resources and just type the name of your game.
+
+301
+00:03:53,830 --> 00:03:55,330
+So maybe it will be Guess
+
+302
+00:03:56,220 --> 00:03:58,410
+The Number.
+
+303
+00:04:00,720 --> 00:04:03,870
+And you can change the font that you want for it.
+
+304
+00:04:04,020 --> 00:04:07,950
+Maybe something a little bit isometric or maybe ogre,
+
+305
+00:04:08,760 --> 00:04:11,190
+or maybe train, whatever it is you want.
+
+306
+00:04:11,430 --> 00:04:13,230
+And then once you're happy with the font,
+
+307
+00:04:13,260 --> 00:04:16,440
+you can select and copy everything that's on there,
+
+308
+00:04:16,769 --> 00:04:18,060
+and then inside your project
+
+309
+00:04:18,060 --> 00:04:23,060
+you can create a new file called art.py and then create a new variable and set
+
+310
+00:04:23,670 --> 00:04:28,350
+it equal to the design that you've got in mind. Now,
+
+311
+00:04:28,380 --> 00:04:32,820
+in order for it to look right, you actually have to create this as a docstring,
+
+312
+00:04:32,850 --> 00:04:37,850
+so three quotation marks to begin with and then three quotation marks to end.
+
+313
+00:04:39,900 --> 00:04:43,680
+And then just make sure you have enough horizontal space to display the whole
+
+314
+00:04:43,680 --> 00:04:46,260
+thing in one go instead of it being truncated
+
+315
+00:04:46,260 --> 00:04:49,530
+when you have a little bit of space and you should be able to see the actual
+
+316
+00:04:49,530 --> 00:04:50,363
+design.
+
+317
+00:04:51,120 --> 00:04:56,120
+Pause the video now and create this number guessing game by yourself
+
+318
+00:04:56,670 --> 00:04:57,870
+as the final project.
+
+
+319
+00:00:00,090 --> 00:00:01,020
+How did you get on?
+
+320
+00:00:01,680 --> 00:00:05,070
+Hopefully you managed to complete the project and you're just here
+
+321
+00:00:05,070 --> 00:00:07,470
+to check through the solution. Now,
+
+322
+00:00:07,530 --> 00:00:10,110
+if you haven't given it a proper go and I mean,
+
+323
+00:00:10,110 --> 00:00:14,400
+at least an hour at tackling this, then go back, keep going.
+
+324
+00:00:14,640 --> 00:00:17,460
+It's only when you struggle that you actually get better.
+
+325
+00:00:17,790 --> 00:00:19,800
+You can watch me type code all day long,
+
+326
+00:00:19,800 --> 00:00:21,630
+and it's not going to make you a better programmer.
+
+327
+00:00:21,930 --> 00:00:25,560
+So I know you're going to try really hard and I want you to try really,
+
+328
+00:00:25,560 --> 00:00:30,150
+really extra hard and make sure that you can complete each of these projects by
+
+329
+00:00:30,150 --> 00:00:34,230
+yourself. I mentioned that this one doesn't have a starting repl,
+
+330
+00:00:34,230 --> 00:00:38,610
+so we're gonna start out with our own and you can call it anything you want,
+
+331
+00:00:38,610 --> 00:00:42,930
+but I'm going to call it guess-the-number game.
+
+332
+00:00:43,860 --> 00:00:46,290
+Now, when you're creating a new project from scratch
+
+333
+00:00:46,320 --> 00:00:47,580
+like we're doing right now,
+
+334
+00:00:48,030 --> 00:00:51,420
+it can seem a little bit intimidating staring at a blank screen.
+
+335
+00:00:51,900 --> 00:00:56,820
+The first thing to do is to just divide the project into the individual
+
+336
+00:00:56,820 --> 00:00:59,910
+components. So while you're playing this game,
+
+337
+00:01:00,030 --> 00:01:03,930
+you can see that there are different bits of it that we need to complete right?
+
+338
+00:01:04,379 --> 00:01:08,280
+The first one is printing all the starting parts of the game,
+
+339
+00:01:08,640 --> 00:01:12,390
+the next one is trying to figure out how to set this difficulty level,
+
+340
+00:01:13,140 --> 00:01:15,960
+getting the user to type in a word easy or hard,
+
+341
+00:01:16,320 --> 00:01:21,320
+and then changing the number of attempts based on that. We can already start
+
+342
+00:01:21,870 --> 00:01:26,870
+thinking about maybe we need to make a function to set difficulty,
+
+343
+00:01:28,380 --> 00:01:31,290
+and then we need to let the user make a guess, right?
+
+344
+00:01:31,320 --> 00:01:35,280
+So they're gonna guess a number. So let's say I'm going to type in 50,
+
+345
+00:01:35,820 --> 00:01:39,660
+and then we have to somehow check that guess against the number that was
+
+346
+00:01:39,660 --> 00:01:44,340
+originally selected and then check to see if it's too low or too high.
+
+347
+00:01:45,030 --> 00:01:48,390
+So now we have some additional parts of our program, right?
+
+348
+00:01:48,390 --> 00:01:53,390
+We need some sort of way of choosing a random number between 1 and 100.
+
+349
+00:01:57,120 --> 00:02:00,000
+So that's the first thing that's probably going to happen in our code.
+
+350
+00:02:00,300 --> 00:02:02,970
+We need to have a function to set difficulty,
+
+351
+00:02:03,240 --> 00:02:06,270
+we probably need some sort of functionality to, um,
+
+352
+00:02:06,300 --> 00:02:10,470
+let the user guess a number.
+
+353
+00:02:12,450 --> 00:02:17,450
+And we'll also want to check that number that they've guessed against the number
+
+354
+00:02:18,660 --> 00:02:21,750
+that we originally had to see if it's too high or too low.
+
+355
+00:02:21,900 --> 00:02:26,040
+So probably a function to check user's
+
+356
+00:02:26,100 --> 00:02:30,750
+guess against the actual answer.
+
+357
+00:02:31,560 --> 00:02:35,130
+Now notice how every single time I make a guess,
+
+358
+00:02:35,190 --> 00:02:37,050
+my number of attempts go down.
+
+359
+00:02:37,410 --> 00:02:42,410
+So we also need to track that right? Track the number of turns and reduce by one
+
+360
+00:02:45,750 --> 00:02:47,460
+if they get it wrong.
+
+361
+00:02:48,870 --> 00:02:53,760
+Now it's looping back again to this stage where we're making another guess.
+
+362
+00:02:53,790 --> 00:02:56,640
+So if 50 was too high, then maybe we'll guess 25.
+
+363
+00:02:57,240 --> 00:03:01,450
+We have to have some sort of way of repeating this part of the code, right?
+
+364
+00:03:02,920 --> 00:03:07,510
+We're going to repeat it as long as they have attempts left and they are wrong.
+
+365
+00:03:08,350 --> 00:03:10,660
+Now, if however they get it right,
+
+366
+00:03:11,020 --> 00:03:14,800
+so I think I have a good chance of getting it right. So if 25 is still too high,
+
+367
+00:03:14,800 --> 00:03:18,760
+let's try 12. And there we go. When I get the answer right,
+
+368
+00:03:18,760 --> 00:03:20,980
+it tells me, you got it. The answer was 12.
+
+369
+00:03:21,520 --> 00:03:25,840
+So now we've got some of the basic parts of our code down in comments,
+
+370
+00:03:26,230 --> 00:03:29,590
+and we can start thinking about how to write it out, right?
+
+371
+00:03:30,220 --> 00:03:32,350
+Let's start by tackling the easiest one,
+
+372
+00:03:32,350 --> 00:03:35,410
+which is choosing a random number between one and a hundred.
+
+373
+00:03:35,950 --> 00:03:40,950
+All you have to do for this one is just to import the random module, or even
+
+374
+00:03:41,290 --> 00:03:46,150
+better yet from the random module, import the randint function.
+
+375
+00:03:47,410 --> 00:03:48,910
+Now inside our code,
+
+376
+00:03:48,940 --> 00:03:53,940
+we can simply just use randint. We can say the answer is equal to a randint
+
+377
+00:03:55,780 --> 00:04:00,430
+that is between 1 and 100. And of course remember that rand
+
+378
+00:04:00,430 --> 00:04:02,890
+int includes a and b,
+
+379
+00:04:02,890 --> 00:04:05,950
+so both 1 and 100 can show up.
+
+380
+00:04:07,090 --> 00:04:10,810
+In addition to this, we probably have to give the user some of these messages.
+
+381
+00:04:10,810 --> 00:04:13,060
+So I'm just going to copy some of these messages.
+
+382
+00:04:13,540 --> 00:04:17,769
+So I'm going to print 'Welcome to the guessing game.'
+
+383
+00:04:18,339 --> 00:04:20,440
+And also I'm going to print that
+
+384
+00:04:20,440 --> 00:04:25,390
+I'm thinking of a number between 1 and 100, like that.
+
+385
+00:04:25,990 --> 00:04:29,080
+So now we've got an answer that they need to guess,
+
+386
+00:04:29,260 --> 00:04:31,810
+and we've got a little bit of starting text for them.
+
+387
+00:04:32,350 --> 00:04:36,670
+The next easiest thing in this is to figure out a way of letting the user
+
+388
+00:04:36,700 --> 00:04:40,120
+guess a number. So we know that we'll need an input to
+
+389
+00:04:40,150 --> 00:04:45,040
+ask them to make a guess, so we can copy this part.
+
+390
+00:04:45,190 --> 00:04:48,130
+And we can use that as the prompt,
+
+391
+00:04:48,670 --> 00:04:52,810
+and then we're going to have to save their guess and convert it to an integer.
+
+392
+00:04:53,470 --> 00:04:58,060
+So they're going to be typing a number here, right? And we'll call this guess.
+
+393
+00:04:58,960 --> 00:05:03,960
+Now the user is able to guess a number and we now have to figure out some sort of
+
+394
+00:05:05,020 --> 00:05:09,970
+way of checking the user's guess against the actual answer.
+
+395
+00:05:10,750 --> 00:05:13,450
+This is probably a good time to create a function.
+
+396
+00:05:13,630 --> 00:05:18,310
+So why don't we go up to the very top and create our function here.
+
+397
+00:05:18,910 --> 00:05:20,770
+We'll call this check_answer,
+
+398
+00:05:21,700 --> 00:05:26,410
+and we're gonna pass in the user's guess and the actual answer in order to
+
+399
+00:05:26,410 --> 00:05:30,340
+achieve this checking functionality. So in this case,
+
+400
+00:05:30,340 --> 00:05:35,340
+we're going to check to see if the guess is greater than the answer,
+
+401
+00:05:36,010 --> 00:05:40,300
+well, in this case, it's too high, right? So we'll just print too high.
+
+402
+00:05:41,470 --> 00:05:44,920
+Now, what if the guess was actually less than the answer,
+
+403
+00:05:45,220 --> 00:05:49,360
+still not equal to the answer, but in this case it's too low.
+
+404
+00:05:50,290 --> 00:05:53,530
+So now the final condition is they actually got it right.
+
+405
+00:05:53,530 --> 00:05:57,040
+So you could write elif guess is equal to answer,
+
+406
+00:05:57,350 --> 00:06:00,650
+but you could also just use else because there's no other possibilities.
+
+407
+00:06:01,340 --> 00:06:04,970
+This else statement catches the moment when they actually get it right.
+
+408
+00:06:05,900 --> 00:06:08,690
+So in this case, we're going to print what we have here,
+
+409
+00:06:08,930 --> 00:06:10,790
+and then we'll get to print out the answer. Of course,
+
+410
+00:06:10,790 --> 00:06:14,690
+we're going to replace that with whatever the actual answer is and turn this
+
+411
+00:06:14,690 --> 00:06:18,860
+into an fstring. So now that's that step done.
+
+412
+00:06:19,310 --> 00:06:22,610
+And let's think about what else is easy that we can knock off the list.
+
+413
+00:06:23,120 --> 00:06:27,080
+Let's think of function to set the difficulty. So up here,
+
+414
+00:06:27,110 --> 00:06:29,420
+in addition to our check_answer function,
+
+415
+00:06:29,720 --> 00:06:34,720
+I'm going to create this other function, some way of setting the difficulty.
+
+416
+00:06:35,270 --> 00:06:37,580
+So let's call this set_difficulty,
+
+417
+00:06:38,480 --> 00:06:41,000
+and it's probably not going to take any inputs.
+
+418
+00:06:41,030 --> 00:06:45,800
+It's just going to do some sort of action. So when we first start off the game,
+
+419
+00:06:45,950 --> 00:06:48,980
+it already asks us to choose a difficulty.
+
+420
+00:06:48,980 --> 00:06:53,980
+So I'm going to copy this text and I'm going to put that into an input,
+
+421
+00:06:55,310 --> 00:06:58,280
+choose a difficulty easy or hard.
+
+422
+00:06:58,970 --> 00:07:03,380
+And then we're going to save this probably into a variable,
+
+423
+00:07:03,410 --> 00:07:08,090
+which I'll call level, so the level of difficulty that they want. Now,
+
+424
+00:07:08,120 --> 00:07:13,120
+if this level that they chose was equal to easy,
+
+425
+00:07:13,820 --> 00:07:14,660
+well, in this case,
+
+426
+00:07:14,690 --> 00:07:19,690
+we want to set the number of attempts that they have to 10.
+
+427
+00:07:20,180 --> 00:07:23,210
+So they have 10 attempts. But on the other hand,
+
+428
+00:07:23,900 --> 00:07:27,800
+if they chose hard, then they only have 5 attempts.
+
+429
+00:07:28,280 --> 00:07:33,280
+So this is probably a really good time for creating a global constant.
+
+430
+00:07:34,370 --> 00:07:37,250
+So we already saw this in the previous lesson on scope,
+
+431
+00:07:37,730 --> 00:07:42,110
+but this is a really nice thing because it means if we create this global
+
+432
+00:07:42,110 --> 00:07:46,760
+constant at the very top, then if we want to switch around how our game works,
+
+433
+00:07:46,910 --> 00:07:51,860
+we can really easily access these constant by just scrolling through the top of
+
+434
+00:07:51,860 --> 00:07:54,920
+the page. Let's call the first one, um,
+
+435
+00:07:54,980 --> 00:07:59,690
+EASY_LEVEL_TURNS, so the number of terms you get on easy,
+
+436
+00:07:59,990 --> 00:08:01,130
+which is going to be 10.
+
+437
+00:08:01,580 --> 00:08:06,410
+And then we'll have HARD_LEVEL_TURNS
+
+438
+00:08:06,860 --> 00:08:08,420
+and this is going to be equal to 5.
+
+439
+00:08:09,110 --> 00:08:13,370
+Now I've got these two constants which is global
+
+440
+00:08:13,430 --> 00:08:17,330
+and I can use it inside any of my functions or basically anywhere on this
+
+441
+00:08:17,330 --> 00:08:19,910
+page. If the level is easy,
+
+442
+00:08:20,060 --> 00:08:25,060
+I'm going to set the number of turns to equal the EASY_LEVEL_TURNS.
+
+443
+00:08:26,750 --> 00:08:29,960
+So this is going to be a number right? Else,
+
+444
+00:08:29,990 --> 00:08:31,910
+so if they chose hard instead,
+
+445
+00:08:32,360 --> 00:08:36,830
+then turns should probably be the HARD_LEVEL_TURNS. Now,
+
+446
+00:08:36,860 --> 00:08:41,390
+setting it here is no use. I actually need it inside my game.
+
+447
+00:08:42,320 --> 00:08:44,300
+So now going back in my game,
+
+448
+00:08:44,330 --> 00:08:47,690
+I need to let the user know how many number of attempts,
+
+449
+00:08:47,690 --> 00:08:50,840
+how many turns they actually get. To start off
+
+450
+00:08:50,870 --> 00:08:55,710
+I'm going to use a print statement that just prints the number attempts they
+
+451
+00:08:55,710 --> 00:08:58,560
+have remaining. And it's not always going to be 5.
+
+452
+00:08:58,560 --> 00:09:01,800
+Sometimes it's going to be 5, sometimes it's going to be 10.
+
+453
+00:09:02,220 --> 00:09:07,020
+So what I'll need is some sort of way of tracking this number of turns,
+
+454
+00:09:07,020 --> 00:09:11,400
+right? But how do we know how many turns they get? Well,
+
+455
+00:09:11,400 --> 00:09:16,260
+it depends on what they chose here, right? If they had chosen hard,
+
+456
+00:09:16,320 --> 00:09:20,700
+then turns should be equal to the HARD_LEVEL_TURNS. If they chose easy,
+
+457
+00:09:20,700 --> 00:09:22,410
+it should be equal to the EASY_LEVEL_TURNS.
+
+458
+00:09:22,980 --> 00:09:25,860
+So instead of using this as some sort of global variable
+
+459
+00:09:26,130 --> 00:09:30,840
+which I have to change inside here, which would require me saying global,
+
+460
+00:09:31,050 --> 00:09:32,790
+and then turns so that
+
+461
+00:09:32,790 --> 00:09:37,080
+I can access this particular variable and change it inside
+
+462
+00:09:37,080 --> 00:09:39,120
+these steps, it'd would be much,
+
+463
+00:09:39,150 --> 00:09:44,150
+much better if I just returned these values as an output from this function.
+
+464
+00:09:45,930 --> 00:09:47,760
+If this is set as return,
+
+465
+00:09:47,850 --> 00:09:51,600
+then I can simply call this function set_difficulty,
+
+466
+00:09:52,050 --> 00:09:56,350
+which is going to trigger this input. And then once the user has set it,
+
+467
+00:09:56,520 --> 00:10:00,540
+then the output is going to be the actual number of turns they have.
+
+468
+00:10:00,900 --> 00:10:05,340
+And I can now use it inside this print statement to show them how many turns
+
+469
+00:10:05,340 --> 00:10:07,710
+they have. Now.
+
+470
+00:10:07,800 --> 00:10:10,350
+I've already written quite a bit of code actually,
+
+471
+00:10:10,410 --> 00:10:15,410
+and it's probably a good time to run the code. While I'm testing my code,
+
+472
+00:10:15,600 --> 00:10:18,960
+it's probably a good idea to actually see what the answer is.
+
+473
+00:10:19,290 --> 00:10:23,730
+So we can add a bit of testing code that just prints out what the actual answer
+
+474
+00:10:23,730 --> 00:10:26,250
+was selected as. And if we run the code
+
+475
+00:10:26,250 --> 00:10:30,120
+now you can see we've got the starting part pretty much down.
+
+476
+00:10:30,510 --> 00:10:31,920
+Welcome to the Number Guessing Game.
+
+477
+00:10:31,920 --> 00:10:33,990
+I'm thinking have a number between 1 and 100,
+
+478
+00:10:34,290 --> 00:10:37,650
+and then we've got our little hint here. The actual answer is 63.
+
+479
+00:10:38,190 --> 00:10:39,930
+So we have to make a guess.
+
+480
+00:10:40,110 --> 00:10:44,730
+And I've really noticed that that input needs a space here so that I'm not
+
+481
+00:10:44,730 --> 00:10:48,960
+writing right next to the colon. So let's say I guessed 50.
+
+482
+00:10:49,920 --> 00:10:52,620
+Now it's asking us to choose a difficulty.
+
+483
+00:10:52,950 --> 00:10:54,990
+So I've already got a little bit of a problem here.
+
+484
+00:10:55,020 --> 00:10:58,230
+I should actually have this before the other part.
+
+485
+00:10:58,770 --> 00:11:02,520
+So I should choose the difficulty and then make a guess.
+
+486
+00:11:02,880 --> 00:11:07,740
+So now let's stop and run and see if we fix that bug. And you can see
+
+487
+00:11:07,740 --> 00:11:11,070
+yep, indeed it asks us for a difficulty first.
+
+488
+00:11:11,430 --> 00:11:12,840
+So I'm going to choose easy
+
+489
+00:11:13,140 --> 00:11:17,100
+and it tells me that I've got 10 attempts remaining and then to make a guess.
+
+490
+00:11:17,580 --> 00:11:22,260
+And if I choose hard instead, then it tells me I've got 5 attempts.
+
+491
+00:11:22,680 --> 00:11:24,990
+Now, if while you are play testing this game
+
+492
+00:11:24,990 --> 00:11:28,260
+and you realize that actually 5 is not enough, then all you have to do is
+
+493
+00:11:28,260 --> 00:11:29,580
+scroll to the very top of the game,
+
+494
+00:11:29,970 --> 00:11:33,630
+change this one global variable here,
+
+495
+00:11:34,080 --> 00:11:37,800
+and all your changes, you know, will be reflected in the code below.
+
+496
+00:11:39,270 --> 00:11:43,530
+Now let's get back to our game. Let's say I make a guess and our code ends,
+
+497
+00:11:43,560 --> 00:11:46,470
+right? Even though I've got my check_answer,
+
+498
+00:11:46,620 --> 00:11:48,750
+it's not actually being called anywhere.
+
+499
+00:11:48,930 --> 00:11:52,170
+So it lets go ahead and call that function, check_answer
+
+500
+00:11:52,710 --> 00:11:56,110
+and then we can pass in the user's guess that they made at this step,
+
+501
+00:11:56,470 --> 00:12:00,370
+and we can also pass in the correct answer which comes from here.
+
+502
+00:12:01,000 --> 00:12:02,830
+So let's run our code again.
+
+503
+00:12:06,550 --> 00:12:09,940
+So I'm going to choose the easy mode and I'm going to make a guess.
+
+504
+00:12:10,570 --> 00:12:14,380
+Now 50 is too high because I can actually see the answer,
+
+505
+00:12:14,380 --> 00:12:19,030
+it's meant to be 32. So that works. But I can't guess again.
+
+506
+00:12:19,030 --> 00:12:22,690
+It's not letting me. It's actually ended the program.
+
+507
+00:12:23,290 --> 00:12:26,950
+So we probably have to tackle this particular todo
+
+508
+00:12:26,980 --> 00:12:29,320
+if we actually want to get the right functionality.
+
+509
+00:12:29,710 --> 00:12:34,710
+How do we get the guessing functionality to repeat if they get it wrong? So that
+
+510
+00:12:35,980 --> 00:12:40,980
+as you might've guessed is probably gonna require some sort of while loop. While
+
+511
+00:12:41,440 --> 00:12:45,910
+they've gotten it wrong, we probably should go and let them make a guess
+
+512
+00:12:45,940 --> 00:12:49,690
+again. These parts will definitely need to be repeated.
+
+513
+00:12:50,380 --> 00:12:52,000
+So let's create a while loop.
+
+514
+00:12:52,540 --> 00:12:56,860
+What are we going to check in our while loop to make sure that it keeps on going?
+
+515
+00:12:57,430 --> 00:12:57,970
+Well,
+
+516
+00:12:57,970 --> 00:13:02,800
+the thing that we're trying to aim for is to get the user to guess the actual
+
+517
+00:13:02,800 --> 00:13:03,633
+answer.
+
+518
+00:13:03,820 --> 00:13:08,820
+If we set the while condition as while guess is not equal to answer,
+
+519
+00:13:09,550 --> 00:13:13,990
+then that pretty much guarantees that these lines of code will keep going until
+
+520
+00:13:13,990 --> 00:13:18,310
+the user actually gets the right answer. Now however,
+
+521
+00:13:18,340 --> 00:13:21,940
+when we do this, we get an error, undefined name guess.
+
+522
+00:13:22,030 --> 00:13:24,550
+Well because guess hasn't been declared yet.
+
+523
+00:13:25,030 --> 00:13:30,030
+So why don't we declare it outside of the while loop and simply just create it as
+
+524
+00:13:31,330 --> 00:13:35,980
+a variable? So we'll set that to equal zero. Now at the moment,
+
+525
+00:13:36,040 --> 00:13:40,660
+this is a global variable. This is a global variable. This is a global variable.
+
+526
+00:13:40,900 --> 00:13:45,900
+So it's probably a good idea to put our game functionality inside its own
+
+527
+00:13:47,140 --> 00:13:51,700
+function. So we can create a new function here, which I'll call game,
+
+528
+00:13:52,360 --> 00:13:57,360
+and now we'll need to call and trigger this game inside the global scope
+
+529
+00:13:58,480 --> 00:14:00,700
+if we actually want this to be carried out.
+
+530
+00:14:02,410 --> 00:14:04,360
+Now that we've done all of this hard work,
+
+531
+00:14:04,420 --> 00:14:07,030
+let's run our code and let's try it out.
+
+532
+00:14:09,640 --> 00:14:10,960
+Lets go for easy.
+
+533
+00:14:11,590 --> 00:14:16,590
+And I'm going to start off by guessing 50 as always. 50 is too low and I can see
+
+534
+00:14:17,290 --> 00:14:20,590
+the answer is actually 90. So I'm going to go for the next number.
+
+535
+00:14:20,590 --> 00:14:23,740
+Lets try a number that is a bit too high. 95, too high.
+
+536
+00:14:24,340 --> 00:14:28,690
+Now, what if I actually get it right? What if I actually guessed 90? Well,
+
+537
+00:14:28,690 --> 00:14:31,240
+it tells me you got it. The answer was 90.
+
+538
+00:14:32,140 --> 00:14:36,910
+So the only thing that we're not really doing is tracking the number of turns so
+
+539
+00:14:36,910 --> 00:14:39,940
+that we tell them you have 10 attempts, you have 9 attempts,
+
+540
+00:14:39,940 --> 00:14:42,430
+you have zero attempts. And if they get zero,
+
+541
+00:14:42,430 --> 00:14:45,310
+then they're going to lose right? Here
+
+542
+00:14:45,340 --> 00:14:49,630
+we have this print statement that runs only once because it's not inside the
+
+543
+00:14:49,630 --> 00:14:52,640
+while loop. So let's tackle our final to-do
+
+544
+00:14:52,790 --> 00:14:56,120
+to track the number of turns and reduce it by one
+
+545
+00:14:56,180 --> 00:15:01,100
+if they get it wrong. Now, where do we know that the user got it wrong?
+
+546
+00:15:01,580 --> 00:15:06,470
+Well inside the check answer function. If it's too high or if it's too low,
+
+547
+00:15:06,560 --> 00:15:10,700
+then we have to deduct the number of turns they have. But if they got it,
+
+548
+00:15:10,790 --> 00:15:13,370
+then we don't. One way of tackling
+
+549
+00:15:13,370 --> 00:15:18,140
+this is again creating a global variable called turns,
+
+550
+00:15:18,650 --> 00:15:21,200
+set it to start off at zero,
+
+551
+00:15:22,040 --> 00:15:24,290
+and then inside this function,
+
+552
+00:15:24,500 --> 00:15:29,500
+we simply just say turns -= 1 and also turns -= 1 when
+
+553
+00:15:31,160 --> 00:15:36,160
+it's too low or too high. Now because this is a global variable
+
+554
+00:15:36,830 --> 00:15:41,830
+we again would need to say global turns in order to use it inside our function.
+
+555
+00:15:43,580 --> 00:15:44,570
+But as I mentioned,
+
+556
+00:15:44,630 --> 00:15:49,250
+this is not a good idea because it means that you're modifying the global
+
+557
+00:15:49,250 --> 00:15:51,590
+function within a local scope.
+
+558
+00:15:52,010 --> 00:15:56,960
+How can we achieve the same functionality without having to use a global
+
+559
+00:15:56,960 --> 00:15:58,820
+variable? Well,
+
+560
+00:15:58,850 --> 00:16:03,850
+we could instead just pass in the number of turns that we currently have and
+
+561
+00:16:04,820 --> 00:16:06,980
+then inside our function,
+
+562
+00:16:08,060 --> 00:16:13,060
+we can return the number of turns minus one. And we can do the same down here.
+
+563
+00:16:18,130 --> 00:16:22,120
+So now when we call this function check_answer,
+
+564
+00:16:22,450 --> 00:16:25,840
+we can pass in the current number of turns
+
+565
+00:16:26,050 --> 00:16:29,530
+which remember it got set by the set_difficulty function,
+
+566
+00:16:30,100 --> 00:16:32,650
+and we can pass that in into here.
+
+567
+00:16:34,360 --> 00:16:38,740
+Because it's not immediately obvious that this function actually has an output,
+
+568
+00:16:39,430 --> 00:16:43,270
+it's probably a good idea to add a docstring to this function.
+
+569
+00:16:44,080 --> 00:16:46,330
+Remember the three quotes,
+
+570
+00:16:46,570 --> 00:16:49,600
+and then in between we're going to say checks
+
+571
+00:16:49,660 --> 00:16:54,310
+answer against guess. Returns
+
+572
+00:16:55,930 --> 00:16:59,050
+the number of turns remaining.
+
+573
+00:17:01,060 --> 00:17:04,060
+Now when we actually call check_answer
+
+574
+00:17:04,510 --> 00:17:09,510
+you can see that this is what actually happens and that we have a return that we
+
+575
+00:17:09,910 --> 00:17:10,900
+can be aware of.
+
+576
+00:17:12,670 --> 00:17:15,250
+If this is going to be the number of turns remaining,
+
+577
+00:17:15,520 --> 00:17:20,520
+then we can save that to this variable turns so that we update this local
+
+578
+00:17:21,250 --> 00:17:23,920
+variable every time we check the answer.
+
+579
+00:17:25,540 --> 00:17:27,790
+Now this part is a little bit mind blowing,
+
+580
+00:17:27,880 --> 00:17:30,940
+so you might actually want to put this through Python
+
+581
+00:17:30,940 --> 00:17:32,560
+Tutor and step through it
+
+582
+00:17:32,560 --> 00:17:37,420
+step by step to see what's actually going on and how this turns variable is
+
+583
+00:17:37,420 --> 00:17:40,480
+being updated by the output from this function.
+
+584
+00:17:40,960 --> 00:17:44,620
+If you're totally happy with what's going on, then feel free to keep going.
+
+585
+00:17:46,390 --> 00:17:48,460
+So now let's check out our code.
+
+586
+00:17:50,040 --> 00:17:55,040
+50 is too high and 20 is too low, and 38 is just right. Now
+
+587
+00:17:56,820 --> 00:18:00,510
+what if I actually ran my number of turns down to zero?
+
+588
+00:18:00,840 --> 00:18:04,350
+So let's try hard because this is only going to give us five attempts.
+
+589
+00:18:04,830 --> 00:18:08,730
+So let's say I guess 50 and then 70,
+
+590
+00:18:09,270 --> 00:18:13,920
+and I'm just going to put in some random numbers so that I end up with no
+
+591
+00:18:13,920 --> 00:18:18,630
+remaining guesses. You can see it's actually not stopping me right?
+
+592
+00:18:19,080 --> 00:18:23,160
+And also for some reason we have a bug where the number of attempts we have
+
+593
+00:18:23,160 --> 00:18:27,630
+remaining is not actually being printed. So let's address that issue.
+
+594
+00:18:27,960 --> 00:18:31,800
+Well, if we want it to happen every time and repeat,
+
+595
+00:18:32,100 --> 00:18:36,450
+it's going to need to go into the while loop. Instead of printing our number of
+
+596
+00:18:36,450 --> 00:18:40,980
+turns here, why don't we print it here inside the while loop instead?
+
+597
+00:18:42,000 --> 00:18:46,680
+So let's make sure the indentation is correct and now let's try it again.
+
+598
+00:18:50,330 --> 00:18:53,270
+So I have 5 attempts remaining. Let's make a guess.
+
+599
+00:18:53,660 --> 00:18:58,660
+I have 4 attempts remaining. And notice how it's counting it down;
+
+600
+00:18:59,120 --> 00:19:02,900
+3, 2, 1. This should be my last guest,
+
+601
+00:19:02,960 --> 00:19:06,680
+but notice how it actually keeps on going. It doesn't stop the game.
+
+602
+00:19:07,010 --> 00:19:10,220
+I can keep going and it's going into negatives now.
+
+603
+00:19:10,880 --> 00:19:14,870
+How can we fix this? We need some sort of way of tracking
+
+604
+00:19:14,900 --> 00:19:19,640
+when this number of turns goes down to zero. When that happens,
+
+605
+00:19:19,730 --> 00:19:22,790
+we have to stop the game and tell them that they've lost.
+
+606
+00:19:23,450 --> 00:19:26,120
+Why don't we create an if statement, check
+
+607
+00:19:26,120 --> 00:19:31,120
+if the number of tons is equal to zero and print something.
+
+608
+00:19:32,450 --> 00:19:36,830
+Let's check the actual final version. Let's see what happens in this case.
+
+609
+00:19:37,250 --> 00:19:39,050
+When I run out of gos,
+
+610
+00:19:40,400 --> 00:19:44,420
+I make a guess, it's two low and it tells me you've run out of guesses.
+
+611
+00:19:44,450 --> 00:19:47,780
+You lose. We can print that here as well.
+
+612
+00:19:49,940 --> 00:19:52,310
+But notice how if we run the code as it is,
+
+613
+00:19:52,460 --> 00:19:56,990
+so let's just keep guessing the same number until I run it down to 1.
+
+614
+00:19:57,380 --> 00:20:01,640
+So now I make a guess, it tells me you run out of guesses. You lose.
+
+615
+00:20:01,910 --> 00:20:05,150
+But it's still letting me keep going even though I've lost.
+
+616
+00:20:05,810 --> 00:20:09,350
+How can we make our game end? Well,
+
+617
+00:20:09,380 --> 00:20:13,130
+luckily we've got our game inside a function
+
+618
+00:20:13,280 --> 00:20:15,470
+which is being called at the very beginning.
+
+619
+00:20:16,100 --> 00:20:20,450
+Now remember that with functions you have the return keyword.
+
+620
+00:20:20,960 --> 00:20:25,960
+You can return with an output or you can just write return for it to exit and end
+
+621
+00:20:27,440 --> 00:20:32,360
+the function. So now with that return keyword in place,
+
+622
+00:20:32,780 --> 00:20:35,600
+once I run out of turns, see what happens.
+
+623
+00:20:38,690 --> 00:20:41,960
+It stops and it doesn't let me guess any more.
+
+624
+00:20:43,820 --> 00:20:45,320
+Perfect. We've managed to get that
+
+625
+00:20:45,320 --> 00:20:50,320
+right. The thing that we're still missing is this prompt for the user to guess
+
+626
+00:20:51,340 --> 00:20:53,440
+again. Now this is kind of optional.
+
+627
+00:20:53,440 --> 00:20:56,350
+It depends on your own feel for the user experience.
+
+628
+00:20:56,770 --> 00:21:00,430
+I think it makes sense to say, 'It's too low. Guess again.' because it's kind of
+
+629
+00:21:00,430 --> 00:21:03,130
+telling them to do something. Although there's make a guess,
+
+630
+00:21:03,160 --> 00:21:07,330
+also prompts them to make a guess. So you can have, you don't have to.
+
+631
+00:21:07,570 --> 00:21:08,950
+If you wanted to have that,
+
+632
+00:21:09,370 --> 00:21:14,050
+then you probably actually have to check that they still have turns remaining.
+
+633
+00:21:14,560 --> 00:21:19,560
+And if they do, then make sure that the guess is not equal to the answer,
+
+634
+00:21:21,070 --> 00:21:26,070
+so they haven't got it right within this turn, and then to print that 'Guess
+
+635
+00:21:26,180 --> 00:21:30,520
+again'. So now every time they get it wrong,
+
+636
+00:21:30,580 --> 00:21:32,770
+but they still have remaining guesses
+
+637
+00:21:33,100 --> 00:21:37,960
+it should say 'Too low. Guess again.' or 'Too high. Guess again.'
+
+638
+00:21:38,800 --> 00:21:40,570
+But if they actually get it right,
+
+639
+00:21:40,600 --> 00:21:44,440
+so the answer should be 83, then it says 'You got it.
+
+640
+00:21:44,440 --> 00:21:47,800
+The answer was 83' without asking them to guess again.
+
+641
+00:21:48,760 --> 00:21:51,880
+Now we've pretty much completed this code.
+
+642
+00:21:52,270 --> 00:21:54,760
+Of course you could have added additional art.
+
+643
+00:21:54,760 --> 00:21:59,760
+So you could have created an art.py and then used the text to in the ASCII
+
+644
+00:21:59,950 --> 00:22:03,580
+generator to create a ASCII art.
+
+645
+00:22:03,630 --> 00:22:04,463
+Yeah.
+
+646
+00:22:06,480 --> 00:22:08,840
+And then back in here we could have imported it.
+
+647
+00:22:12,240 --> 00:22:14,790
+And we could put that at the very beginning of the game.
+
+648
+00:22:15,510 --> 00:22:19,770
+But the rest of the customization is basically your own, right?
+
+649
+00:22:19,770 --> 00:22:24,770
+You're free to do whatever it is that you want to and to change the wording, to
+
+650
+00:22:25,020 --> 00:22:26,010
+change the text.
+
+651
+00:22:26,280 --> 00:22:30,600
+The really important part was that you were able to play this game,
+
+652
+00:22:30,990 --> 00:22:35,990
+understand how it worked and then break down the problem into smaller pieces
+
+653
+00:22:36,300 --> 00:22:38,100
+that you could tackle one by one.
+
+654
+00:22:38,760 --> 00:22:43,740
+And if you had trouble actually completing this program by yourself,
+
+655
+00:22:44,220 --> 00:22:47,370
+then you should have noticed when we were walking through it
+
+656
+00:22:47,610 --> 00:22:50,820
+when I just broke down that big a problem into smaller chunks
+
+657
+00:22:51,120 --> 00:22:55,140
+how much easier it became tackling each of the smaller things, right?
+
+658
+00:22:55,440 --> 00:23:00,240
+Letting the user guess a number or choosing a random number between 1 and 100,
+
+659
+00:23:00,480 --> 00:23:02,580
+you can definitely do parts of this.
+
+660
+00:23:03,120 --> 00:23:06,450
+And as you built up the game, towards the end you realized, ah,
+
+661
+00:23:06,480 --> 00:23:08,430
+this was missing or that might be nice.
+
+662
+00:23:08,760 --> 00:23:11,490
+Then you could start adding more and more bits to it.
+
+663
+00:23:12,330 --> 00:23:15,510
+So if you wanted to review the final code that you see here,
+
+664
+00:23:15,810 --> 00:23:20,490
+you can, of course, head over to the guess-the-number-final Repl.it at this
+
+665
+00:23:20,520 --> 00:23:23,010
+particular link in the course resources.
+
+666
+00:23:23,460 --> 00:23:27,150
+But hopefully, you've actually managed to build out your own version and it's
+
+667
+00:23:27,180 --> 00:23:31,320
+even better than what I've done. And if you're particularly proud of it,
+
+668
+00:23:31,470 --> 00:23:35,340
+be sure to share it so that the rest of us can take a look and have a play with
+
+669
+00:23:35,340 --> 00:23:36,173
+it as well.
+
+670
+00:23:36,570 --> 00:23:40,350
+So I hope you enjoyed the project today and I'll see you tomorrow.
+
+

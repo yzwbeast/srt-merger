@@ -1,0 +1,1979 @@
+1
+00:00:00,330 --> 00:00:05,100
+Hey guys, welcome to Day 23 of 100 Days of Code. Now,
+
+2
+00:00:05,100 --> 00:00:09,450
+today we're going to be building towards our second capstone project,
+
+3
+00:00:10,050 --> 00:00:13,170
+and this is going to be a turtle crossing game.
+
+4
+00:00:13,680 --> 00:00:17,190
+You might've played Crossy Road. So this is a similar concept.
+
+5
+00:00:17,280 --> 00:00:22,050
+We have a whole bunch of cars going across a super busy multi-lane highway
+
+6
+00:00:22,350 --> 00:00:25,890
+and our turtle is the player who has to cross the road.
+
+7
+00:00:26,580 --> 00:00:30,990
+This is what the gameplay looks like. The player controls the turtle
+
+8
+00:00:31,290 --> 00:00:33,240
+which can only go forwards, and
+
+9
+00:00:33,900 --> 00:00:36,960
+there's a whole bunch of randomly generated cars
+
+10
+00:00:37,200 --> 00:00:41,370
+which are going horizontally across the screen. Now, once a player
+
+11
+00:00:41,370 --> 00:00:44,340
+reaches the other side of the screen, the cars speed up,
+
+12
+00:00:44,550 --> 00:00:46,920
+but the player goes back to the starting position,
+
+13
+00:00:47,190 --> 00:00:49,980
+ready to cross the screen again. Now,
+
+14
+00:00:50,040 --> 00:00:53,610
+at some point when the player turtle hits a car,
+
+15
+00:00:54,000 --> 00:00:57,720
+then that is game over. It's a pretty simple game,
+
+16
+00:00:57,870 --> 00:01:01,710
+but it's going to test you on a lot of things that you've learned so far,
+
+17
+00:01:02,040 --> 00:01:05,730
+including how to great classes, how to inherit classes,
+
+18
+00:01:06,000 --> 00:01:11,000
+how do you use the objects created from those classes and also your knowledge of
+
+19
+00:01:11,070 --> 00:01:14,430
+the turtle coordinate system and the turtle game engine.
+
+20
+00:01:15,360 --> 00:01:19,050
+Once you are ready, head over to the next lesson where you'll find the starting
+
+21
+00:01:19,050 --> 00:01:24,030
+code for this project, and also you'll be able to choose your difficulty level.
+
+22
+00:01:24,720 --> 00:01:26,670
+So head over there and get started now.
+
+
+23
+00:00:00,270 --> 00:00:03,480
+Now, hopefully you've already downloaded the starting project,
+
+24
+00:00:03,840 --> 00:00:07,020
+so you can go ahead and click open in PyCharm,
+
+25
+00:00:07,410 --> 00:00:12,410
+find the location where you've downloaded your turtle-crossing-start and make
+
+26
+00:00:12,510 --> 00:00:14,850
+sure that you've unzipped that zip file
+
+27
+00:00:15,420 --> 00:00:20,100
+and you've got the actual folder, which contains all of the starting files.
+
+28
+00:00:20,640 --> 00:00:25,640
+So select the folder and then click open and we have to configure a Python
+
+29
+00:00:26,340 --> 00:00:31,340
+interpreter and make sure that your Python interpreter is at a minimum of Python
+
+30
+00:00:31,380 --> 00:00:34,680
+3.8. So you can use 3.9 or above,
+
+31
+00:00:35,010 --> 00:00:36,930
+but if it's lower than 3.8,
+
+32
+00:00:36,930 --> 00:00:41,930
+you might get some errors and some problems. Refer back to when we first started
+
+33
+00:00:42,270 --> 00:00:46,590
+out using PyCharm and we installed Python if you get stuck on this.
+
+34
+00:00:47,370 --> 00:00:50,670
+Now, if you take a look at inside our project folder,
+
+35
+00:00:50,970 --> 00:00:54,390
+you can see I've already created four files for you.
+
+36
+00:00:54,960 --> 00:00:56,940
+These files are pretty bare bones,
+
+37
+00:00:56,970 --> 00:01:00,420
+but if you take a look at the main.py file
+
+38
+00:01:00,630 --> 00:01:03,420
+which is your starting point for your program,
+
+39
+00:01:03,720 --> 00:01:07,710
+you can see that I've written a little bit of code that we learned about in
+
+40
+00:01:07,710 --> 00:01:08,790
+previous lessons.
+
+41
+00:01:09,090 --> 00:01:14,090
+So we've created a screen object and we've set up the screen to be 600 by 600
+
+42
+00:01:15,270 --> 00:01:16,103
+pixels.
+
+43
+00:01:16,410 --> 00:01:21,030
+And then we've turned off the tracer by doing the tracer(0),
+
+44
+00:01:21,480 --> 00:01:26,400
+and instead, we're getting the screen to update every 0.1 seconds.
+
+45
+00:01:26,850 --> 00:01:31,620
+So within the while loop, the code is going to run every 0.1 seconds.
+
+46
+00:01:31,980 --> 00:01:35,100
+So whatever it is that you put inside this while loop,
+
+47
+00:01:35,460 --> 00:01:38,490
+it's going to be refreshed every 0.1 seconds.
+
+48
+00:01:39,180 --> 00:01:44,180
+Now, you'll also see that I've imported some classes from these files; player,
+
+49
+00:01:45,870 --> 00:01:49,170
+car_manager, and scoreboard. Now,
+
+50
+00:01:49,230 --> 00:01:50,970
+inside these files,
+
+51
+00:01:51,210 --> 00:01:54,360
+I've created the starting point for each of the classes.
+
+52
+00:01:54,690 --> 00:01:58,350
+The player class is going to be the turtle which we're controlling to cross
+
+53
+00:01:58,350 --> 00:01:59,160
+the road,
+
+54
+00:01:59,160 --> 00:02:04,160
+the car manager is going to generate all of the random cars and move them
+
+55
+00:02:04,200 --> 00:02:05,160
+across the screen,
+
+56
+00:02:05,580 --> 00:02:08,729
+and then the scoreboard is just going to write the level that we're currently
+
+57
+00:02:08,729 --> 00:02:11,970
+on and also the game over a sequence. Now,
+
+58
+00:02:12,000 --> 00:02:15,690
+inside each of these classes, I've got pass written here
+
+59
+00:02:15,720 --> 00:02:19,290
+just so that the linter will stop screaming at me. So,
+
+60
+00:02:19,950 --> 00:02:23,430
+as we mentioned before, Python doesn't like things are empty,
+
+61
+00:02:23,430 --> 00:02:27,630
+so empty functions, empty classes, and you'll get these errors.
+
+62
+00:02:28,410 --> 00:02:32,610
+Instead of getting these errors, all I've done is simply written pass
+
+63
+00:02:32,640 --> 00:02:35,490
+which essentially just makes this an empty class.
+
+64
+00:02:35,910 --> 00:02:37,560
+So when you're creating these classes,
+
+65
+00:02:37,620 --> 00:02:41,880
+just delete the pass and you can create it as you would normally. Now,
+
+66
+00:02:41,910 --> 00:02:45,420
+in addition, we've got all of these constants in here. For example,
+
+67
+00:02:45,420 --> 00:02:47,640
+the starting position of the player turtle,
+
+68
+00:02:47,970 --> 00:02:52,320
+how much the turtle should move each time and where the finish line
+
+69
+00:02:52,320 --> 00:02:55,380
+is on the Y-axis. In the car_manager
+
+70
+00:02:55,380 --> 00:02:57,660
+we've got the colors of the cars,
+
+71
+00:02:57,960 --> 00:03:02,820
+we've got the move distance of each of the cars on each refresh,
+
+72
+00:03:03,150 --> 00:03:08,150
+and we've also got how much the move distance should increase every time the
+
+73
+00:03:08,280 --> 00:03:11,880
+user levels up. Finally, we've got the scoreboard
+
+74
+00:03:11,910 --> 00:03:16,050
+which just contains the font that you are going to use to write out the score
+
+75
+00:03:16,050 --> 00:03:20,850
+board. That's pretty much an introduction to the starting file.
+
+76
+00:03:21,180 --> 00:03:22,350
+So once you're ready,
+
+77
+00:03:22,410 --> 00:03:27,410
+feel free to head over to the next lesson and get started with each step of the
+
+78
+00:03:28,080 --> 00:03:28,500
+game.
+
+
+79
+00:00:00,180 --> 00:00:02,160
+All right. So just as previously,
+
+80
+00:00:02,220 --> 00:00:07,220
+we've split up this large problem of building the game into five smaller
+
+81
+00:00:07,320 --> 00:00:09,090
+sub-parts. Firstly,
+
+82
+00:00:09,120 --> 00:00:13,140
+moving the turtle, controlling it with the keypress, creating and moving the
+
+83
+00:00:13,140 --> 00:00:15,540
+cars automatically across the screen,
+
+84
+00:00:15,810 --> 00:00:19,740
+detecting a collision with the car and detecting when the turtle reaches the
+
+85
+00:00:19,740 --> 00:00:21,300
+other side. Finally,
+
+86
+00:00:21,300 --> 00:00:24,510
+we create a scoreboard that keeps track of which level we're on
+
+87
+00:00:24,750 --> 00:00:27,090
+and also that shows game over at the end.
+
+88
+00:00:27,810 --> 00:00:31,710
+So the first step is to move the turtle using a keypress.
+
+89
+00:00:32,070 --> 00:00:36,480
+The turtle can only go forwards, and every time we hit the Up key
+
+90
+00:00:36,690 --> 00:00:41,580
+the turtle moves forward by a set amount until it reaches the other side of the
+
+91
+00:00:41,580 --> 00:00:45,000
+screen. This is the first thing that we're going to tackle. Now,
+
+92
+00:00:45,030 --> 00:00:48,180
+because this is related to the functionality of the player,
+
+93
+00:00:48,510 --> 00:00:51,870
+let's go ahead and create this inside the player class.
+
+94
+00:00:52,800 --> 00:00:54,420
+I'm going to delete that pass
+
+95
+00:00:54,540 --> 00:00:59,340
+and I'm also going to import the turtle class from the turtle module.
+
+96
+00:01:00,090 --> 00:01:04,170
+Now, our player is going to inherit from this turtle class.
+
+97
+00:01:04,709 --> 00:01:06,720
+So inside our init,
+
+98
+00:01:06,930 --> 00:01:10,830
+we're going to need to add the super.init 
+
+99
+00:01:10,860 --> 00:01:13,860
+or you can add it automatically using the light bulb.
+
+100
+00:01:14,460 --> 00:01:19,460
+So now this player class can do everything that a turtle class can do and we can
+
+101
+00:01:20,490 --> 00:01:21,870
+make it do even more.
+
+102
+00:01:22,830 --> 00:01:27,630
+The first thing we're going to do is we're going to set the shape of our player
+
+103
+00:01:27,960 --> 00:01:30,210
+and we're gonna set it to a turtle.
+
+104
+00:01:30,810 --> 00:01:34,770
+The next thing we're going to do is we're going to call penup so that this
+
+105
+00:01:34,770 --> 00:01:39,330
+turtle just remains a shape and it doesn't draw. Finally,
+
+106
+00:01:39,360 --> 00:01:43,470
+we need to get it to the starting position and get it to face North.
+
+107
+00:01:43,950 --> 00:01:48,950
+We can do that by setting self.goto and then we can set it to go to the
+
+108
+00:01:50,370 --> 00:01:51,660
+starting position,
+
+109
+00:01:52,350 --> 00:01:57,350
+which you can see is a tuple because it's enclosed inside parentheses and you've
+
+110
+00:01:59,040 --> 00:02:03,300
+got values separated by a comma. Finally,
+
+111
+00:02:03,330 --> 00:02:08,330
+we're going to set the heading of our turtle so that it faces North,
+
+112
+00:02:09,300 --> 00:02:11,220
+which is 90 degrees.
+
+113
+00:02:11,880 --> 00:02:16,800
+So now all we have to do is go back into our main.py,
+
+114
+00:02:17,400 --> 00:02:19,410
+after we've set up our screen,
+
+115
+00:02:19,650 --> 00:02:23,880
+let's go ahead and create a new player from the player class.
+
+116
+00:02:25,290 --> 00:02:27,360
+Let's go ahead and run this code.
+
+117
+00:02:28,160 --> 00:02:28,993
+...
+
+118
+00:02:30,650 --> 00:02:35,650
+And you can see that we've got our little turtle showing up here at the center
+
+119
+00:02:37,400 --> 00:02:40,850
+of the bottom of the screen and it's facing North.
+
+120
+00:02:42,380 --> 00:02:47,270
+So now the next thing we need to do is to get that turtle to move upwards
+
+121
+00:02:47,540 --> 00:02:49,460
+every time we hit the Up key.
+
+122
+00:02:50,060 --> 00:02:53,450
+That means we're going to need to get our screen to
+
+123
+00:02:53,480 --> 00:02:57,620
+listen for events. After calling screen.listen,
+
+124
+00:02:57,680 --> 00:03:02,680
+we're going to get the screen to listen to a keystroke. So we can use onkey to
+
+125
+00:03:04,720 --> 00:03:08,080
+set the Up key as the key to listen to.
+
+126
+00:03:08,650 --> 00:03:13,390
+And then when that happens, then we're going to call player.
+
+127
+00:03:14,110 --> 00:03:19,110
+go_up. And remember that when we're calling methods inside the listener,
+
+128
+00:03:20,320 --> 00:03:24,970
+we don't want to add the parentheses because this will trigger it at the point
+
+129
+00:03:25,030 --> 00:03:28,900
+where it evaluates this line of code. Instead,
+
+130
+00:03:28,930 --> 00:03:33,550
+we want to trigger this function only when this Up key is detected.
+
+131
+00:03:34,240 --> 00:03:39,240
+So now all that's left to do is to go into our player.py and define that
+
+132
+00:03:40,000 --> 00:03:41,680
+function go_up.
+
+133
+00:03:42,850 --> 00:03:46,630
+So how can we move our turtle up? Well,
+
+134
+00:03:46,630 --> 00:03:50,080
+we can get our turtle so self,
+
+135
+00:03:50,410 --> 00:03:53,710
+and then we can get it to move forwards by a distance.
+
+136
+00:03:54,280 --> 00:03:58,930
+And the distance is going to be the move distance that's set in this constant
+
+137
+00:03:58,930 --> 00:04:03,070
+here. This means that later on when we want to change the move distance
+
+138
+00:04:03,070 --> 00:04:06,970
+if we want it to go further each time, we can just edit it at the top of the
+
+139
+00:04:06,970 --> 00:04:09,130
+file instead of digging through the code.
+
+140
+00:04:10,540 --> 00:04:14,350
+Now let's run our code again and let's just make sure that it works.
+
+141
+00:04:14,830 --> 00:04:16,660
+So now every time I hit the Up key
+
+142
+00:04:16,690 --> 00:04:21,690
+my turtle moves up and it keeps on going until it reaches the other side of the
+
+143
+00:04:21,730 --> 00:04:26,500
+screen. So that's the first step completed. Now,
+
+144
+00:04:26,530 --> 00:04:28,990
+if you think you can complete the next step by yourself,
+
+145
+00:04:29,290 --> 00:04:34,290
+then head back to that list of problems broken down and see if you can tackle
+
+146
+00:04:34,390 --> 00:04:39,010
+the next one by yourself. If you can't or if you need some extra help,
+
+147
+00:04:39,130 --> 00:04:42,460
+then you can always come back to the videos and I'll walk you through the steps
+
+148
+00:04:42,490 --> 00:04:43,120
+one by one.
+
+
+149
+00:00:00,330 --> 00:00:03,570
+In the last lesson, we managed to figure out how to get the turtle
+
+150
+00:00:03,780 --> 00:00:08,340
+to move with a keypress and that's with every press of the Up key
+
+151
+00:00:08,610 --> 00:00:11,040
+the turtle moves further towards North.
+
+152
+00:00:11,730 --> 00:00:15,300
+Now the next task is to create and move the cars.
+
+153
+00:00:15,930 --> 00:00:20,930
+The cars need to move from right to left and they need to be randomly generated
+
+154
+00:00:21,060 --> 00:00:23,460
+along the Y-axis here.
+
+155
+00:00:23,970 --> 00:00:28,970
+So they need to be generated right to the right edge of the screen and they can
+
+156
+00:00:29,460 --> 00:00:31,920
+appear anywhere along this line,
+
+157
+00:00:32,220 --> 00:00:36,840
+and then they're going to move automatically towards the left at a fixed pace.
+
+158
+00:00:37,530 --> 00:00:38,160
+Each of these cars,
+
+159
+00:00:38,160 --> 00:00:43,160
+you can see, are going to be turtles and they're going to be 20 by 40
+
+160
+00:00:43,740 --> 00:00:46,770
+pixels. So we mentioned that by default
+
+161
+00:00:46,860 --> 00:00:50,490
+every turtle that we create is 20 by 20 pixels.
+
+162
+00:00:50,940 --> 00:00:54,480
+So we'll need to stretch the turtle to make it into this shape.
+
+163
+00:00:55,500 --> 00:01:00,150
+Now that we are concerned with the cars let's create our code inside the car
+
+164
+00:01:00,150 --> 00:01:00,983
+manager.
+
+165
+00:01:01,680 --> 00:01:06,680
+The first thing we'll need to do is to import the turtle class from the turtle
+
+166
+00:01:06,900 --> 00:01:11,900
+module and our car manager is going to have a init where we create all of our
+
+167
+00:01:14,790 --> 00:01:18,780
+cars. So I'm going to create a list called all_cars,
+
+168
+00:01:19,320 --> 00:01:23,280
+and it's going to start out being an empty list. Now,
+
+169
+00:01:23,310 --> 00:01:24,420
+at some point,
+
+170
+00:01:24,810 --> 00:01:29,810
+our main.py is going to call a function from the car_manager called create_
+
+171
+00:01:30,570 --> 00:01:31,403
+cars.
+
+172
+00:01:31,740 --> 00:01:36,740
+And this method is going to create a random car somewhere along the Y-axis with
+
+173
+00:01:38,670 --> 00:01:42,780
+a given dimension. Each of these cars,
+
+174
+00:01:42,900 --> 00:01:47,900
+so let's call it a new_car, is going to be a turtle object and it's going to be
+
+175
+00:01:48,630 --> 00:01:52,680
+created in a square shape. Now, in addition,
+
+176
+00:01:52,710 --> 00:01:56,370
+we're going to have to change the dimensions of this turtle
+
+177
+00:01:56,730 --> 00:01:59,730
+and we're going to use that method that we used before
+
+178
+00:02:00,000 --> 00:02:02,100
+which is this one, shapesize.
+
+179
+00:02:02,670 --> 00:02:05,940
+Now, what shapesize allows us to do, if you remember,
+
+180
+00:02:06,030 --> 00:02:11,030
+is it allows us to stretch our turtle along the width and along the length.
+
+181
+00:02:11,700 --> 00:02:15,150
+So we want the width to be double the original size,
+
+182
+00:02:15,180 --> 00:02:20,180
+so two times 20 pixels is 40 pixels and the length we don't want to be stretched
+
+183
+00:02:21,090 --> 00:02:21,510
+at all.
+
+184
+00:02:21,510 --> 00:02:26,510
+So we're going to say it's one times the original length. In addition our new
+
+185
+00:02:27,210 --> 00:02:31,050
+car is not going to draw, so we're going to get it to penup.
+
+186
+00:02:31,710 --> 00:02:36,710
+And also our new car is going to have a random color. So we can set the color and
+
+187
+00:02:38,400 --> 00:02:43,400
+then we can import the random module so that we can use one of these colors in
+
+188
+00:02:44,520 --> 00:02:45,353
+this list.
+
+189
+00:02:45,960 --> 00:02:50,960
+And we can say random.choice and then pass in our list of colors from this
+
+190
+00:02:52,620 --> 00:02:55,680
+COLORS constant. Finally,
+
+191
+00:02:55,710 --> 00:02:59,980
+we're going to define where it's going to go on the screen. To do that
+
+192
+00:03:00,040 --> 00:03:03,820
+we need to define a random_y position.
+
+193
+00:03:04,360 --> 00:03:08,110
+So this again is going to be created from the random module and we're going to
+
+194
+00:03:08,110 --> 00:03:13,110
+use the randint and then we're going to define somewhere along this Y-axis,
+
+195
+00:03:14,050 --> 00:03:18,220
+which is the vertical, somewhere for this call to be generated at.
+
+196
+00:03:18,880 --> 00:03:22,630
+So we know that our screen is 600 by 600, so
+
+197
+00:03:23,110 --> 00:03:27,730
+that means the Y-axis goes from +300 to -300.
+
+198
+00:03:28,090 --> 00:03:31,900
+But we don't want the car to be generated all the way to the edge because
+
+199
+00:03:31,900 --> 00:03:35,800
+remember the turtle needs a bit of starting space and also a bit of ending
+
+200
+00:03:35,800 --> 00:03:38,830
+space. So you can play around with this number,
+
+201
+00:03:38,860 --> 00:03:43,360
+but I've ended up going with -250 to +250.
+
+202
+00:03:44,140 --> 00:03:49,140
+This means that we get a good range in the middle of the screen and that the
+
+203
+00:03:49,300 --> 00:03:53,830
+turtle has a bit of empty space at the beginning and also at the end when it
+
+204
+00:03:53,830 --> 00:03:58,090
+needs to move across. So now that we've defined our random_
+
+205
+00:03:58,090 --> 00:04:03,090
+y, we can tell our new_car to go to the x position
+
+206
+00:04:03,670 --> 00:04:07,030
+which is going to be the very edge of the right screen,
+
+207
+00:04:07,300 --> 00:04:10,540
+so that's going to be +300, right to the edge.
+
+208
+00:04:10,960 --> 00:04:15,960
+And then the y position is going to be the random_y that we just created.
+
+209
+00:04:17,589 --> 00:04:20,170
+And finally, once we've created our new_car,
+
+210
+00:04:20,380 --> 00:04:25,380
+we're going to append it to our list of all_cars which of course,
+
+211
+00:04:26,650 --> 00:04:31,090
+because it's defined in a class, it has to have the self in front of it.
+
+212
+00:04:32,110 --> 00:04:35,830
+So self.all_cars.append,
+
+213
+00:04:36,160 --> 00:04:39,730
+and then we're going to append this new car that we've just created.
+
+214
+00:04:40,780 --> 00:04:43,120
+Now, coming back to our main.py,
+
+215
+00:04:43,450 --> 00:04:48,010
+let's create our car_manager from the CarManager class,
+
+216
+00:04:48,490 --> 00:04:51,910
+and then we're going to use it inside our game loop here
+
+217
+00:04:52,030 --> 00:04:55,150
+so that on every refresh of the screen,
+
+218
+00:04:55,450 --> 00:04:57,070
+every 0.1 seconds,
+
+219
+00:04:57,370 --> 00:05:01,330
+we're going to get the car_manager to create a new car.
+
+220
+00:05:03,010 --> 00:05:08,010
+And strictly this probably shouldn't be plural because each time we call this
+
+221
+00:05:08,470 --> 00:05:11,500
+method, it only creates one new car.
+
+222
+00:05:11,980 --> 00:05:15,670
+So let's change that method so that it only creates one car,
+
+223
+00:05:15,880 --> 00:05:18,910
+but it creates one car every 0.1 seconds.
+
+224
+00:05:19,930 --> 00:05:23,260
+Now at this point in time if we run our code,
+
+225
+00:05:23,560 --> 00:05:28,560
+you'll actually see nothing happen because the cars are being created at this
+
+226
+00:05:29,500 --> 00:05:30,640
+right edge here
+
+227
+00:05:30,820 --> 00:05:34,630
+and it's not yet visible on the screen. To make it visible
+
+228
+00:05:34,630 --> 00:05:37,660
+we have to move our cars across the screen.
+
+229
+00:05:38,440 --> 00:05:43,440
+Let's create another method which we'll call move_cars because this method is
+
+230
+00:05:43,960 --> 00:05:46,420
+going to go through our list of cars,
+
+231
+00:05:46,690 --> 00:05:50,230
+so for car in self.all_cars,
+
+232
+00:05:50,770 --> 00:05:55,150
+and for each of those cars, it's going to move it towards the left
+
+233
+00:05:55,330 --> 00:05:58,370
+by the move distance that we've defined up here.
+
+234
+00:05:59,270 --> 00:06:02,240
+So to do that, all we need is to get the car
+
+235
+00:06:02,480 --> 00:06:07,460
+to move backwards by the starting move distance.
+
+236
+00:06:08,210 --> 00:06:12,740
+Now it's going to loop through our list of all_cars that were created
+
+237
+00:06:13,190 --> 00:06:14,750
+and then for each of the cars,
+
+238
+00:06:14,780 --> 00:06:18,260
+it's going to move it backwards by five paces.
+
+239
+00:06:18,890 --> 00:06:23,890
+So now in addition to getting the car manager to create a new car on every
+
+240
+00:06:24,470 --> 00:06:26,030
+refresh of the game loop,
+
+241
+00:06:26,360 --> 00:06:31,160
+we're also going to get it to move all of the cars by five paces.
+
+242
+00:06:31,700 --> 00:06:32,540
+Let's hit run
+
+243
+00:06:32,540 --> 00:06:37,160
+now and you should see that we've got our cars being generated,
+
+244
+00:06:37,580 --> 00:06:42,580
+but notice how I've made a slight error in the stretch. Instead of stretching it
+
+245
+00:06:43,160 --> 00:06:46,670
+along the length, I've stretched it along the width
+
+246
+00:06:47,060 --> 00:06:50,810
+and this is why we've got this random array of shapes moving.
+
+247
+00:06:51,320 --> 00:06:56,320
+So let's go back to our car manager and change the width to stretch by one and
+
+248
+00:06:56,870 --> 00:07:01,160
+stretch to the length by two. So now if we rerun our code,
+
+249
+00:07:01,490 --> 00:07:04,070
+you can see the cars are now the right shape,
+
+250
+00:07:04,700 --> 00:07:08,600
+a rectangle that looks like it's moving to the left.
+
+251
+00:07:09,680 --> 00:07:11,690
+Now notice how, in my case,
+
+252
+00:07:11,750 --> 00:07:15,260
+the cars are being generated far too frequently.
+
+253
+00:07:15,260 --> 00:07:20,210
+We've got way too many calls and it's impossible for our turtle to cross the
+
+254
+00:07:20,210 --> 00:07:21,043
+road.
+
+255
+00:07:21,260 --> 00:07:26,260
+So we need to figure out a way of how we can reduce the number of cars that are being
+
+256
+00:07:26,720 --> 00:07:29,780
+made. Instead of creating a car
+
+257
+00:07:29,960 --> 00:07:34,700
+every 0.1 seconds at every refresh of the game,
+
+258
+00:07:35,090 --> 00:07:37,280
+we need to slow this down a little bit.
+
+259
+00:07:37,970 --> 00:07:42,650
+And one way we can do this is by using a random number.
+
+260
+00:07:43,310 --> 00:07:47,210
+Let's say that we create a random_chance
+
+261
+00:07:47,780 --> 00:07:51,080
+which is going to be a one in six chance,
+
+262
+00:07:51,110 --> 00:07:55,250
+so it's almost like throwing a dice. If you get a one on the dice,
+
+263
+00:07:55,580 --> 00:07:56,780
+then we create a car.
+
+264
+00:07:57,290 --> 00:08:00,740
+We can do this by getting hold of our random module,
+
+265
+00:08:00,950 --> 00:08:04,490
+creating a random int between one and six
+
+266
+00:08:05,120 --> 00:08:10,120
+and then we can say that if the random_chance is equal to one,
+
+267
+00:08:12,020 --> 00:08:15,920
+then, and only then do we actually create a new car.
+
+268
+00:08:16,430 --> 00:08:21,430
+So this basically ensures that every six times the while loop runs a new car will
+
+269
+00:08:23,930 --> 00:08:24,980
+be generated.
+
+270
+00:08:25,430 --> 00:08:29,900
+Now it's not going to be precisely every six times because there's some degree
+
+271
+00:08:29,900 --> 00:08:33,500
+of chance involved. But notice when we run our program
+
+272
+00:08:33,500 --> 00:08:38,500
+now, see how the cars are now being created much less frequently.
+
+273
+00:08:39,620 --> 00:08:43,130
+And we've actually got some space for our turtle to cross.
+
+274
+00:08:43,880 --> 00:08:48,880
+So that is how we create and move our cars across the screen and make sure that
+
+275
+00:08:49,580 --> 00:08:53,450
+they don't occur so frequently that our turtle has no chance of crossing the
+
+276
+00:08:53,450 --> 00:08:57,150
+road. I hope this walkthrough was helpful.
+
+277
+00:08:57,360 --> 00:09:01,320
+Don't worry if your code doesn't look the same as mine, it doesn't have to.
+
+278
+00:09:01,770 --> 00:09:06,270
+What matters is if you're able to achieve the desired functionality of the game.
+
+279
+00:09:06,660 --> 00:09:09,240
+There are a million different ways that you can solve this problem.
+
+280
+00:09:09,450 --> 00:09:13,110
+And as long as it works, whatever way you choose will be the best way.
+
+
+281
+00:00:00,330 --> 00:00:05,330
+Now in the last lesson we created these rectangular cars randomly along the Y-
+
+282
+00:00:07,350 --> 00:00:08,183
+axis.
+
+283
+00:00:08,400 --> 00:00:12,210
+And then we managed to get them to move across to the left side of the screen.
+
+284
+00:00:12,930 --> 00:00:17,930
+The next step is to detect when the turtle collides with the car.
+
+285
+00:00:18,990 --> 00:00:22,440
+So that way, when the turtle hits one of the cars,
+
+286
+00:00:22,830 --> 00:00:27,830
+we can stop the game and prevent further cars from moving. Inside our while
+
+287
+00:00:30,450 --> 00:00:33,690
+loop I'm going to detect the collision with the car here.
+
+288
+00:00:34,200 --> 00:00:39,200
+So I'm going to get hold of all the cars in the car_manager object and I'm
+
+289
+00:00:41,100 --> 00:00:46,100
+going to use a for loop to loop through each of the cars in that list of cars.
+
+290
+00:00:47,400 --> 00:00:52,400
+And then we're going to detect whether if the car has a distance to the player
+
+291
+00:00:55,620 --> 00:00:59,700
+object that is less than 20.
+
+292
+00:01:00,870 --> 00:01:05,870
+Remember that our cars are 20 pixels in height by 40 pixels in width.
+
+293
+00:01:09,030 --> 00:01:13,290
+If the player is less than 20 pixels from the center of the car,
+
+294
+00:01:13,620 --> 00:01:16,650
+then it probably means that it's collided with the car.
+
+295
+00:01:17,520 --> 00:01:21,000
+So if this distance is less than 20,
+
+296
+00:01:21,570 --> 00:01:23,250
+then we're going to stop the game.
+
+297
+00:01:23,580 --> 00:01:25,740
+And the way that we stopped the game is of course,
+
+298
+00:01:25,740 --> 00:01:30,360
+by turning this game_is_on from true to false.
+
+299
+00:01:31,320 --> 00:01:36,320
+Let's run our code again and let's see this in action. So we can move our turtle,
+
+300
+00:01:36,990 --> 00:01:41,790
+we've got randomly generated cars moving across and let's just park our turtle right
+
+301
+00:01:41,790 --> 00:01:44,850
+here. When that car hit our turtle
+
+302
+00:01:45,180 --> 00:01:48,000
+it immediately stopped the game. Now,
+
+303
+00:01:48,030 --> 00:01:50,460
+if we want to take a look at what's happening
+
+304
+00:01:50,460 --> 00:01:54,840
+so for the screen to stay open instead of closing
+
+305
+00:01:54,870 --> 00:01:59,250
+once the process is finished, we can tell it to exitonclick.
+
+306
+00:01:59,790 --> 00:02:03,000
+So now let's run our code again and notice this time
+
+307
+00:02:03,330 --> 00:02:05,460
+if we collide with one of the cars
+
+308
+00:02:07,170 --> 00:02:11,400
+you can see that it stops and it waits for further instruction,
+
+309
+00:02:11,970 --> 00:02:16,970
+which eventually is going to be just the game over text showing up on screen
+
+310
+00:02:18,720 --> 00:02:23,670
+and we also the final level showing up on screen. That's it.
+
+311
+00:02:24,240 --> 00:02:28,530
+That's how we detect collision between the car and our player.
+
+
+312
+00:00:00,150 --> 00:00:01,080
+In the last step,
+
+313
+00:00:01,110 --> 00:00:06,110
+we figured out how to detect when the player turtle hits a car and to stop the
+
+314
+00:00:06,150 --> 00:00:08,850
+while loop which stops the game at that point.
+
+315
+00:00:09,870 --> 00:00:14,220
+Now we're going to figure out how we can detect when the turtle reaches the
+
+316
+00:00:14,220 --> 00:00:19,220
+other side of the screen so that once our turtle makes a successful crossing,
+
+317
+00:00:20,790 --> 00:00:25,470
+then we can return the turtle to the starting position and speed up all the
+
+318
+00:00:25,470 --> 00:00:29,490
+cars. So I'm going to do that right here,
+
+319
+00:00:29,850 --> 00:00:34,080
+and I'm going to detect a successful crossing.
+
+320
+00:00:35,040 --> 00:00:39,630
+So what is a successful crossing? Well, the player turtle has the reach
+
+321
+00:00:39,810 --> 00:00:41,130
+the finish line, right?
+
+322
+00:00:41,430 --> 00:00:46,430
+Which we've defined the Y value for as 280 here in the constant.
+
+323
+00:00:47,850 --> 00:00:49,710
+Now you could do this in a number of ways.
+
+324
+00:00:50,100 --> 00:00:55,100
+You could define a method here or simply just get hold of the player's position
+
+325
+00:00:55,830 --> 00:01:00,480
+and then figure out if it's over 280 inside our main.py.
+
+326
+00:01:01,200 --> 00:01:03,870
+Now I'm going to create a method here instead
+
+327
+00:01:04,500 --> 00:01:09,060
+and I'm going to call the method is_at_finish_line.
+
+328
+00:01:10,680 --> 00:01:13,050
+This method is going to return true
+
+329
+00:01:13,380 --> 00:01:17,160
+if the turtle is at the finish line and false while it's not.
+
+330
+00:01:17,760 --> 00:01:19,980
+So how do we detect this? Well,
+
+331
+00:01:19,980 --> 00:01:23,400
+we can get our self.ycor
+
+332
+00:01:23,940 --> 00:01:28,650
+and we can see if that is greater than 280,
+
+333
+00:01:28,920 --> 00:01:32,010
+which is our finished line Y value.
+
+334
+00:01:32,370 --> 00:01:36,090
+What that means we've pretty much gone over the finish line, right?
+
+335
+00:01:36,510 --> 00:01:39,570
+So if this is the case, then we're going to return true.
+
+336
+00:01:39,930 --> 00:01:43,650
+But while that's not the case, any other time when we check this,
+
+337
+00:01:43,890 --> 00:01:45,540
+we're going to return false.
+
+338
+00:01:46,170 --> 00:01:49,200
+So now coming back to our main.py,
+
+339
+00:01:49,530 --> 00:01:54,240
+we can call our player.is_at_finish_line and we can say,
+
+340
+00:01:54,270 --> 00:01:57,660
+if this is true, well in that case
+
+341
+00:01:58,050 --> 00:02:01,260
+we're going to get the player to go back to the starting position.
+
+342
+00:02:01,920 --> 00:02:06,660
+So inside our player class let's create yet another method which I'm going to
+
+343
+00:02:06,660 --> 00:02:09,060
+call go_to_start.
+
+344
+00:02:09,900 --> 00:02:14,900
+And this just involves getting our player to go to the starting position
+
+345
+00:02:17,430 --> 00:02:20,190
+which we've defined here in a constant.
+
+346
+00:02:20,820 --> 00:02:23,640
+So notice how we've got a little bit of repetition here,
+
+347
+00:02:23,640 --> 00:02:28,640
+so we can actually delete this line and simply call self.
+
+348
+00:02:29,010 --> 00:02:32,460
+go_to_start. Back in our main.py
+
+349
+00:02:32,520 --> 00:02:37,230
+once the player is at the finish line, we're going to get the player to go
+
+350
+00:02:37,230 --> 00:02:41,640
+to the stat.r And if we go ahead and run our code
+
+351
+00:02:41,700 --> 00:02:42,930
+as it is right now,
+
+352
+00:02:43,200 --> 00:02:47,550
+you can see that once the turtle makes it across the road,
+
+353
+00:02:47,630 --> 00:02:52,630
+[inaudible]
+
+354
+00:02:56,930 --> 00:02:59,240
+it goes back to the starting position.
+
+355
+00:03:00,220 --> 00:03:05,220
+Now the very last thing we need to do is to increase the speed of the cars when
+
+356
+00:03:06,310 --> 00:03:08,050
+the player reaches the other side,
+
+357
+00:03:08,260 --> 00:03:11,380
+because effectively they've just gone to the next level.
+
+358
+00:03:12,130 --> 00:03:17,130
+What we can do is when the player reaches the finish line,
+
+359
+00:03:17,710 --> 00:03:21,970
+we can get the car_manager to increase the speed of the cars.
+
+360
+00:03:22,420 --> 00:03:25,660
+Let's create a method inside our CarManager class
+
+361
+00:03:25,690 --> 00:03:30,160
+which we'll call level_up. And in this method,
+
+362
+00:03:30,280 --> 00:03:35,280
+we're going to get the cars' speed to increase by 10 every time.
+
+363
+00:03:35,950 --> 00:03:40,950
+So if we have an attribute called car_speed and we initially set it as the
+
+364
+00:03:43,510 --> 00:03:45,130
+starting move distance,
+
+365
+00:03:45,730 --> 00:03:50,730
+and then we use this car_speed to determine how far it should move backward
+
+366
+00:03:51,250 --> 00:03:53,950
+each time. Well then when we level up,
+
+367
+00:03:53,980 --> 00:03:58,980
+we can say self.car_speed now increases by the increment that we've defined
+
+368
+00:03:59,890 --> 00:04:02,560
+here, which is the move increment.
+
+369
+00:04:03,760 --> 00:04:08,410
+So now when our player reaches the other side at the finish line,
+
+370
+00:04:08,680 --> 00:04:11,320
+then in addition to getting the player to go to the start,
+
+371
+00:04:11,590 --> 00:04:16,329
+we're going to get the car_manager to level up our cars as well.
+
+372
+00:04:16,959 --> 00:04:21,010
+So now when my turtle reaches the other side of the screen,
+
+373
+00:04:21,339 --> 00:04:24,550
+not only does the turtle go back to the original position,
+
+374
+00:04:24,790 --> 00:04:27,280
+but the cars also increase in speed.
+
+
+375
+00:00:00,330 --> 00:00:01,200
+In the last lesson,
+
+376
+00:00:01,260 --> 00:00:05,640
+we figured out how to detect when our turtle reaches the other side of the
+
+377
+00:00:05,640 --> 00:00:08,340
+screen. And when this happens,
+
+378
+00:00:08,370 --> 00:00:12,480
+we return the turtle player to its original position
+
+379
+00:00:12,990 --> 00:00:17,990
+and we also increase the speed of the cars by the move increment that we
+
+380
+00:00:18,690 --> 00:00:22,500
+defined as a constant. So in this lesson,
+
+381
+00:00:22,560 --> 00:00:24,720
+what we're going to do is the final step,
+
+382
+00:00:24,750 --> 00:00:29,750
+which is to create a scoreboard that keeps track of which level the turtle
+
+383
+00:00:30,690 --> 00:00:35,190
+player is on, and also when the turtle hits one of the
+
+384
+00:00:35,190 --> 00:00:36,720
+cars to display
+
+385
+00:00:36,750 --> 00:00:40,680
+the words game over in the center of the screen. To do that,
+
+386
+00:00:40,710 --> 00:00:45,210
+we're of course going to go inside our scoreboard class and again
+
+387
+00:00:45,240 --> 00:00:48,240
+we're going to need the help of the turtle class.
+
+388
+00:00:48,660 --> 00:00:53,660
+So let's import that from the turtle module and I'm going to make my scoreboard
+
+389
+00:00:54,210 --> 00:00:57,300
+a subclass of the turtle class.
+
+390
+00:00:57,600 --> 00:01:00,270
+So it's now inheriting from the turtle class.
+
+391
+00:01:00,720 --> 00:01:04,950
+And once we've defined our init and managed to get it
+
+392
+00:01:04,950 --> 00:01:07,470
+to inherit everything from the superclass,
+
+393
+00:01:07,860 --> 00:01:12,720
+then our scoreboard is now able to do everything a turtle class can do.
+
+394
+00:01:13,710 --> 00:01:15,510
+What do we want it to do? Well,
+
+395
+00:01:15,570 --> 00:01:19,950
+we have to initialize it with a couple of things first. For example,
+
+396
+00:01:19,950 --> 00:01:22,650
+we probably want to start out by hiding the turtle,
+
+397
+00:01:22,680 --> 00:01:27,000
+we just want to use it as a pen to draw. And in addition,
+
+398
+00:01:27,030 --> 00:01:31,590
+we don't want it to move and draw. So we're going to pull the pen up.
+
+399
+00:01:32,040 --> 00:01:35,250
+We're going to be using the write method instead.
+
+400
+00:01:35,880 --> 00:01:38,940
+And what we want to write is the level, right?
+
+401
+00:01:39,300 --> 00:01:43,620
+So the current level that the player is on. In order to do that,
+
+402
+00:01:43,620 --> 00:01:46,230
+we also have to keep track of the level.
+
+403
+00:01:46,650 --> 00:01:49,440
+So let's go ahead and create a new attribute
+
+404
+00:01:49,710 --> 00:01:52,980
+which I'll call level and let's start at level 1.
+
+405
+00:01:53,700 --> 00:01:58,320
+So then we can insert this right here with self.level
+
+406
+00:01:59,010 --> 00:02:01,710
+and in addition to writing this text,
+
+407
+00:02:01,950 --> 00:02:04,950
+we can define what we want the alignment to be.
+
+408
+00:02:05,370 --> 00:02:10,370
+So I want this to be on the left and also what the font to be.
+
+409
+00:02:10,919 --> 00:02:15,920
+So I'm going to use this font that was declared up here as a constant. Now,
+
+410
+00:02:17,070 --> 00:02:22,070
+inside our main.py next to where we've defined our player and our car_
+
+411
+00:02:22,070 --> 00:02:22,903
+manager
+
+412
+00:02:22,920 --> 00:02:27,920
+I'm going to create this new scoreboard object and that's going to be created
+
+413
+00:02:29,040 --> 00:02:33,870
+from the scoreboard class. Now notice when I run the code as it is,
+
+414
+00:02:34,230 --> 00:02:37,890
+you can see that our level is left-aligned,
+
+415
+00:02:38,280 --> 00:02:42,300
+it's got the font that we defined and it's writing the text that we want,
+
+416
+00:02:42,630 --> 00:02:46,800
+but it's not in the right position. To define the position
+
+417
+00:02:46,830 --> 00:02:51,750
+we have to do that right before we tell the scoreboard to write,
+
+418
+00:02:52,110 --> 00:02:55,950
+so right here, but after where we've got our penup.
+
+419
+00:02:56,580 --> 00:02:59,830
+So this way we don't draw a path to where we're going to.
+
+420
+00:03:00,400 --> 00:03:03,220
+So now we're going to define self.goto,
+
+421
+00:03:03,730 --> 00:03:07,870
+and I'm just going to get it to go to probably the top left corner.
+
+422
+00:03:08,200 --> 00:03:13,200
+So that's going to be probably -280 and then it's going to be 
+
+423
+00:03:14,560 --> 00:03:18,640
++280 on the Y. Now, if we just check the positioning,
+
+424
+00:03:18,910 --> 00:03:22,630
+you can see that it's a little bit too far up on the Y-axis.
+
+425
+00:03:22,990 --> 00:03:27,940
+So it lets move it down a little bit and you can tweak these things until you
+
+426
+00:03:27,940 --> 00:03:30,670
+get to the point where you're happy with its positioning.
+
+427
+00:03:31,300 --> 00:03:34,900
+So I think this looks pretty good. Now,
+
+428
+00:03:34,930 --> 00:03:37,540
+in addition to writing the level,
+
+429
+00:03:37,570 --> 00:03:41,710
+we actually have to update it every time the player levels up, right?
+
+430
+00:03:42,220 --> 00:03:45,340
+And they do that when there's a successful crossing.
+
+431
+00:03:45,850 --> 00:03:47,500
+So at some point here,
+
+432
+00:03:47,500 --> 00:03:51,550
+we should be able to call scoreboard and we should be able to get the scoreboard
+
+433
+00:03:51,610 --> 00:03:53,830
+to increase the level.
+
+434
+00:03:54,550 --> 00:03:59,440
+So let's go into scoreboard and let's define that function, increase_
+
+435
+00:04:01,000 --> 00:04:01,833
+level.
+
+436
+00:04:02,410 --> 00:04:07,410
+And the first thing to do when we're increasing the level is of course getting
+
+437
+00:04:07,420 --> 00:04:12,420
+hold of this self.level and then adding one to it each time.
+
+438
+00:04:13,420 --> 00:04:17,529
+In addition, we're going to need the level to be rewritten again.
+
+439
+00:04:17,980 --> 00:04:22,980
+So let's cut this out of the init and let's instead define a custom method
+
+440
+00:04:23,260 --> 00:04:25,750
+which we'll call update_scoreboard.
+
+441
+00:04:28,140 --> 00:04:28,410
+Yeah.
+
+442
+00:04:28,410 --> 00:04:33,300
+Inside this update_scoreboard, we can write the current level.
+
+443
+00:04:33,930 --> 00:04:35,460
+So now inside the init
+
+444
+00:04:35,490 --> 00:04:39,180
+we can call self.update_scoreboard
+
+445
+00:04:39,570 --> 00:04:41,820
+and also when we increase the level,
+
+446
+00:04:41,850 --> 00:04:45,030
+we can call self.update_scoreboard.
+
+447
+00:04:45,780 --> 00:04:47,790
+Now at the moment, as it is,
+
+448
+00:04:47,940 --> 00:04:52,140
+it's going to overwrite what used to be on the scoreboard.
+
+449
+00:04:52,620 --> 00:04:55,110
+So at the moment it's on level 1,
+
+450
+00:04:56,130 --> 00:04:58,800
+but once I make a successful crossing,
+
+451
+00:04:59,070 --> 00:05:03,240
+you can see that level 2 is going to be overwritten over level 1.
+
+452
+00:05:03,870 --> 00:05:06,510
+To prevent that when we update the scoreboard,
+
+453
+00:05:06,780 --> 00:05:09,600
+we have to get the scoreboard to clear itself
+
+454
+00:05:09,840 --> 00:05:13,740
+so that it deletes all the previous stuff that it wrote. This way
+
+455
+00:05:13,830 --> 00:05:15,690
+when we actually run our code
+
+456
+00:05:15,720 --> 00:05:20,720
+you can see that our scoreboard will refresh and clear the previous text and
+
+457
+00:05:22,890 --> 00:05:24,690
+write the new text each time.
+
+458
+00:05:25,500 --> 00:05:30,500
+So now the final thing to do is to write the words game over in the middle of
+
+459
+00:05:30,510 --> 00:05:35,430
+the screen when the game ends. To do that, I'm going to create 
+
+460
+00:05:35,440 --> 00:05:36,900
+another method here
+
+461
+00:05:36,930 --> 00:05:41,460
+which I'll call game_over. And inside this method,
+
+462
+00:05:41,790 --> 00:05:45,300
+we're going to get our turtle to go to the center.
+
+463
+00:05:45,360 --> 00:05:50,360
+So we're going to say self.goto and the center is, of course, at
+
+464
+00:05:51,120 --> 00:05:54,900
+(0, 0), and then we're going to get it to write,
+
+465
+00:05:55,320 --> 00:06:00,140
+but this time we're not going to write the level anymore. Instead,
+
+466
+00:06:00,170 --> 00:06:04,370
+we're going to just write the words GAME OVER in all caps.
+
+467
+00:06:04,820 --> 00:06:09,820
+And I want the alignment to be centered and I want the font to be the default
+
+468
+00:06:09,890 --> 00:06:14,690
+font. Now, when we actually detect a collision,
+
+469
+00:06:14,780 --> 00:06:17,300
+not only is game_is_on going to be false,
+
+470
+00:06:17,570 --> 00:06:21,950
+but also we're going to get the scoreboard to show the game over sequence.
+
+471
+00:06:22,670 --> 00:06:27,670
+So now we can run our code and you can see that when my turtle collides with a
+
+472
+00:06:28,730 --> 00:06:29,563
+car,
+
+473
+00:06:31,010 --> 00:06:33,740
+then it says game over in the center.
+
+474
+00:06:34,220 --> 00:06:39,050
+And because when we wrote game over, we didn't clear any of the previous texts,
+
+475
+00:06:39,350 --> 00:06:42,650
+the user can see at the highest level that they managed to reach.
+
+476
+00:06:43,730 --> 00:06:45,830
+That's it. That's the entire game.
+
+477
+00:06:46,370 --> 00:06:50,870
+Hopefully you've managed to build this entire game by yourself and you're just here
+
+478
+00:06:50,870 --> 00:06:55,610
+to check a few niggling issues. But if you struggled with this code,
+
+479
+00:06:55,850 --> 00:07:00,290
+then I really recommend to review the previous lessons where we created the
+
+480
+00:07:00,290 --> 00:07:03,110
+snake game or when we created this turtle crossing game
+
+481
+00:07:03,440 --> 00:07:07,310
+and try to see if you can create these two games from scratch by yourself
+
+482
+00:07:07,670 --> 00:07:11,870
+by looking at how the game works. Because if you continue forward,
+
+483
+00:07:11,930 --> 00:07:14,120
+things are only gonna get more complex.
+
+484
+00:07:14,420 --> 00:07:18,860
+And I'm assuming that you're going to take the time to review and revise before
+
+485
+00:07:18,860 --> 00:07:19,693
+you continue.
+
+486
+00:07:20,900 --> 00:07:24,590
+So have fun playing with the turtle crossing game and be sure to let me know in
+
+487
+00:07:24,590 --> 00:07:29,590
+the Q/A what your highest level is that you managed to reach and also
+
+488
+00:07:29,810 --> 00:07:32,780
+remember to attach a picture or it didn't happen.
+
+489
+00:07:33,740 --> 00:07:36,590
+And this is a great project for you to customize.
+
+490
+00:07:36,620 --> 00:07:39,110
+So think about what you might want to change
+
+491
+00:07:39,140 --> 00:07:44,140
+like the colors or the shapes and make the game really your own and then take a
+
+492
+00:07:44,780 --> 00:07:48,830
+screenshot of it and share it with us in the Q/A so that we can all
+
+493
+00:07:48,830 --> 00:07:51,500
+appreciate and congratulate you on your work.
+
+

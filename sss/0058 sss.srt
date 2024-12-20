@@ -1,0 +1,4940 @@
+1
+00:00:00,260 --> 00:00:00,920
+Hey, guys.
+
+2
+00:00:00,920 --> 00:00:04,780
+In this section we're going to be learning about the bootstrap framework.
+
+3
+00:00:04,790 --> 00:00:13,670
+And this is one of many external CSS layout systems, but this is probably one of the most popular and
+
+4
+00:00:13,670 --> 00:00:17,030
+the one that you'll most likely to come across out in the wild.
+
+5
+00:00:17,630 --> 00:00:26,030
+Bootstrap, as I said, is a CSS framework created in 2010 by two Twitter developers Mark Otto and Jacob
+
+6
+00:00:26,030 --> 00:00:26,780
+Thornton.
+
+7
+00:00:26,990 --> 00:00:34,100
+Now the power of Bootstrap and the reason why it became so popular is it contained pre-made CSS files,
+
+8
+00:00:34,100 --> 00:00:40,820
+which you can simply include into your project in order to use their pre-built components and styling.
+
+9
+00:00:40,820 --> 00:00:46,790
+For example, if you wanted to have some tags in your website, you could create a look like this by
+
+10
+00:00:46,790 --> 00:00:49,400
+simply adding a few classes to your HTML.
+
+11
+00:00:49,520 --> 00:00:56,150
+On top of that, one of the biggest reasons why bootstrap took off is because of their 12 column layout
+
+12
+00:00:56,150 --> 00:00:58,520
+system built on top of Flexbox.
+
+13
+00:00:58,520 --> 00:01:05,820
+That makes it really easy to create responsive websites and websites that simply just work and look
+
+14
+00:01:05,820 --> 00:01:11,130
+great on mobile as well as desktop, the so-called mobile first approach.
+
+15
+00:01:11,130 --> 00:01:13,320
+So how exactly does it work?
+
+16
+00:01:13,320 --> 00:01:18,120
+Well, let's say you had a button which just said home.
+
+17
+00:01:18,240 --> 00:01:23,580
+You can see that the standard button rendered from HTML doesn't look fantastic.
+
+18
+00:01:23,820 --> 00:01:32,040
+But if we included just five classes which come from the bootstrap CSS, so we include the pre-built
+
+19
+00:01:32,040 --> 00:01:39,570
+CSS into our project and we add the styling and the components by adding these classes to our HTML.
+
+20
+00:01:39,600 --> 00:01:47,340
+Then all of a sudden what you'll end up with is something that looks beautiful and pre styled like this.
+
+21
+00:01:47,820 --> 00:01:53,880
+And because we don't have to worry about writing all of the CSS code, all we need to know is which
+
+22
+00:01:53,880 --> 00:01:56,670
+classes we need to add to our HTML.
+
+23
+00:01:56,700 --> 00:02:02,730
+Then it makes everything so much easier and so much quicker when we want to build components into our
+
+24
+00:02:02,730 --> 00:02:03,450
+website.
+
+25
+00:02:03,600 --> 00:02:08,940
+Now, as I mentioned, bootstrap is a type of CSS framework.
+
+26
+00:02:09,030 --> 00:02:10,840
+What exactly are these?
+
+27
+00:02:10,860 --> 00:02:17,150
+Well, they're pre-made CSS files which you can include into your projects.
+
+28
+00:02:17,160 --> 00:02:23,910
+If we had a look at the bootstrap GitHub and because bootstrap is completely open source, then all
+
+29
+00:02:23,910 --> 00:02:30,750
+of the code is visible and you can see it's got styling defined for all of the different components.
+
+30
+00:02:30,750 --> 00:02:38,640
+For example, this is inside the card component and it's got classes that define what a card body should
+
+31
+00:02:38,640 --> 00:02:44,880
+look like, what kind of layout it should have, what kind of color it should have, as well as what
+
+32
+00:02:44,880 --> 00:02:48,000
+the card title should look like, subtitle.
+
+33
+00:02:48,000 --> 00:02:54,780
+And it's got all of this predefined CSS, which we can simply insert straight into our HTML.
+
+34
+00:02:55,230 --> 00:03:02,010
+Now, the two most popular external CSS frameworks are bootstrap and foundation, but there are lots
+
+35
+00:03:02,010 --> 00:03:06,210
+more like MUI and Tailwind and a whole bunch more.
+
+36
+00:03:06,210 --> 00:03:11,220
+And the reason why they're so great is because they allow us to add in pre-built components and develop
+
+37
+00:03:11,220 --> 00:03:13,950
+websites quickly and efficiently.
+
+38
+00:03:14,070 --> 00:03:21,480
+If we look at the usage percentages across the Internet, you can see that the biggest CSS external
+
+39
+00:03:21,480 --> 00:03:26,340
+framework is still bootstrap with close to 80% of the market share.
+
+40
+00:03:26,640 --> 00:03:32,850
+But just because we learn about bootstrap, it doesn't mean that everything we learned about CSS is
+
+41
+00:03:32,880 --> 00:03:33,600
+null and void.
+
+42
+00:03:33,600 --> 00:03:40,440
+In fact, if you look at the top here, when we look at the absolute usage percentages of all of the
+
+43
+00:03:40,440 --> 00:03:46,200
+different frameworks across the Internet, you can see the largest percentage are still websites that
+
+44
+00:03:46,200 --> 00:03:49,440
+don't use any external CSS frameworks.
+
+45
+00:03:49,560 --> 00:03:53,160
+What does it mean when there are no CSS frameworks being used?
+
+46
+00:03:53,160 --> 00:03:59,250
+Well, it means you're probably using native CSS like Flexbox and Grid and Float and all of the great
+
+47
+00:03:59,250 --> 00:04:00,610
+things that we learnt before.
+
+48
+00:04:00,630 --> 00:04:06,420
+So bootstrap doesn't replace any of that knowledge and in fact we should be in a situation where we
+
+49
+00:04:06,420 --> 00:04:13,290
+don't actually need to depend on any sort of external framework, but they are really useful when we
+
+50
+00:04:13,290 --> 00:04:19,890
+want to develop websites quickly and easily and we don't want to spend a ton of time designing our websites
+
+51
+00:04:19,890 --> 00:04:25,470
+because it comes with all of the pre-made styling and all of the styling rules that we can easily conform
+
+52
+00:04:25,470 --> 00:04:27,510
+to by using their components.
+
+53
+00:04:27,630 --> 00:04:31,260
+So what are the pros of external CSS frameworks?
+
+54
+00:04:31,260 --> 00:04:37,710
+Well, they're easy and they're fast to use and you get a ton of pre-built components like this pricing
+
+55
+00:04:37,710 --> 00:04:40,770
+plan, which took us ages to build ourselves.
+
+56
+00:04:40,770 --> 00:04:44,370
+And you also get really consistent styling across your website.
+
+57
+00:04:44,370 --> 00:04:51,090
+It's almost like you hired a professional developer who kept everything looking on brand and finally
+
+58
+00:04:51,090 --> 00:04:57,060
+you have really good browser compatibility because they've tested all of the different browsers Safari,
+
+59
+00:04:57,060 --> 00:04:59,370
+Chrome, Brave and whichever browsers that.
+
+60
+00:04:59,390 --> 00:05:00,770
+Your user might be using.
+
+61
+00:05:00,770 --> 00:05:04,270
+So you don't actually have to do all of this complicated testing.
+
+62
+00:05:04,280 --> 00:05:07,070
+You can just trust that it works out of the box.
+
+63
+00:05:07,310 --> 00:05:10,510
+Now, what are some of the downsides of frameworks?
+
+64
+00:05:10,520 --> 00:05:13,850
+Well, one of the biggest downsides is something called class bloat.
+
+65
+00:05:14,240 --> 00:05:20,390
+Remember previously we mentioned that it's a really good idea to separate structure from style where
+
+66
+00:05:20,390 --> 00:05:23,570
+we said that HTML is for structure.
+
+67
+00:05:23,660 --> 00:05:33,170
+So adding in elements that describe what the purpose is and CSS is for style using external CSS frameworks
+
+68
+00:05:33,170 --> 00:05:39,380
+because we're adding everything into the classes, then very quickly you end up with what's called class
+
+69
+00:05:39,380 --> 00:05:47,570
+bloat, where you have a lot of styling going into the actual HTML file and it looks a lot less clean
+
+70
+00:05:47,570 --> 00:05:53,450
+than if we had just use something like Grid or Flexbox where we have all of our predefined classes and
+
+71
+00:05:53,450 --> 00:05:58,400
+we go easy on the classes that we add in to our HTML file.
+
+72
+00:05:58,490 --> 00:06:01,910
+The other downside is customization.
+
+73
+00:06:01,920 --> 00:06:09,060
+If you want to build a website where you want to have full control over every pixel and layout and everything
+
+74
+00:06:09,060 --> 00:06:16,680
+to be exactly the way you designed it, then external CSS frameworks is probably not the way to go because
+
+75
+00:06:16,680 --> 00:06:21,630
+in order to customize each and every component, it can be really time consuming.
+
+76
+00:06:21,630 --> 00:06:26,340
+So when should you use the CSS frameworks like Bootstrap and when should you not?
+
+77
+00:06:26,370 --> 00:06:35,520
+Well, when you are building a mobile first responsive website that you want to put online very quickly
+
+78
+00:06:35,520 --> 00:06:41,730
+and access beautiful components designed by professional designers, keeping everything on your website
+
+79
+00:06:41,730 --> 00:06:47,640
+looking slick and uniform, then you probably want to consider using bootstrap.
+
+80
+00:06:47,670 --> 00:06:53,520
+But if you're building a very simple website where you just need HTML and CSS and you can quickly throw
+
+81
+00:06:53,520 --> 00:07:00,630
+it up, or if you're building a really complex custom design website and you want complete control over
+
+82
+00:07:00,630 --> 00:07:07,500
+the design, then it's probably not a good idea to use an external CSS framework like Bootstrap.
+
+83
+00:07:07,590 --> 00:07:13,290
+So we've spoken so much about the pros and cons, when to use, when not to use, but how do you actually
+
+84
+00:07:13,290 --> 00:07:13,890
+use it?
+
+85
+00:07:13,920 --> 00:07:18,460
+Well, one of the easiest ways is to include it via a link.
+
+86
+00:07:18,480 --> 00:07:23,220
+We've seen how we can use the link tag in order to add our stylesheets.
+
+87
+00:07:23,220 --> 00:07:31,560
+And in a similar way we can use these link tags that simply gets hold of the stylesheet from an external
+
+88
+00:07:31,560 --> 00:07:32,370
+resource.
+
+89
+00:07:32,370 --> 00:07:38,760
+So in this case it's through CN, which stands for Content Delivery Network.
+
+90
+00:07:39,600 --> 00:07:47,610
+And what these are is little hubs all across the entire world and it knows where your users are located.
+
+91
+00:07:47,610 --> 00:07:54,000
+So when they load up your website and try to access this particular CSS file that contains all of the
+
+92
+00:07:54,000 --> 00:08:00,690
+bootstrap code, then it can find the closest location with the shortest distance to the server that
+
+93
+00:08:00,690 --> 00:08:02,070
+has that content.
+
+94
+00:08:02,070 --> 00:08:07,320
+And that just means that even though this has to be downloaded from somewhere, it can be delivered
+
+95
+00:08:07,320 --> 00:08:10,740
+to your user and rendered very, very quickly.
+
+96
+00:08:10,740 --> 00:08:17,550
+And from our point of view as developers, all we need to do is simply include this link into the head
+
+97
+00:08:17,550 --> 00:08:19,740
+section of our HTML.
+
+98
+00:08:19,740 --> 00:08:26,520
+And if we want any of the functionality like dropdown menus or clickable buttons, then we want to include
+
+99
+00:08:26,520 --> 00:08:31,920
+the bootstrap script just before the end of the body section.
+
+100
+00:08:32,429 --> 00:08:34,740
+So somewhere right about here.
+
+101
+00:08:34,770 --> 00:08:42,900
+Now let's go ahead and try an exercise and see if we can upgrade our website quickly by using bootstrap
+
+102
+00:08:42,900 --> 00:08:51,060
+download 11.0 Bootstrap intro and if you open it inside of vs code, open the index.html, you can see
+
+103
+00:08:51,060 --> 00:08:54,090
+there are four to do's for you to complete.
+
+104
+00:08:54,210 --> 00:09:01,740
+And once you've completed all of these four steps, you should end up with a card that displays a sunflower
+
+105
+00:09:01,740 --> 00:09:02,340
+image.
+
+106
+00:09:02,340 --> 00:09:06,300
+And this is one of the pre-built bootstrap components.
+
+107
+00:09:06,750 --> 00:09:08,970
+Now how are you going to do this?
+
+108
+00:09:08,970 --> 00:09:15,390
+Well, firstly, you're going to head over to Getbootstrap.com, which is the main bootstrap website,
+
+109
+00:09:15,390 --> 00:09:21,030
+and then I want you to include the bootstrap files using CDN.
+
+110
+00:09:21,060 --> 00:09:26,010
+You only need the CSS file through this link element for now.
+
+111
+00:09:26,010 --> 00:09:32,160
+And then I want you to go into the documentation if you want to look up anything regarding the card
+
+112
+00:09:32,160 --> 00:09:38,970
+component, which is all the way down here in components under the card section.
+
+113
+00:09:39,570 --> 00:09:41,940
+Now you know what the goal should look like.
+
+114
+00:09:41,970 --> 00:09:47,250
+You've got all of the resources to get started and you should be able to work through each of the to
+
+115
+00:09:47,250 --> 00:09:48,690
+do's one by one.
+
+116
+00:09:48,990 --> 00:09:52,260
+Pause the video and see if you can complete this challenge.
+
+117
+00:09:57,790 --> 00:09:58,150
+All right.
+
+118
+00:09:58,180 --> 00:10:05,230
+Hopefully you've given that a go and you've seen that the bootstrap card has some example code, which
+
+119
+00:10:05,230 --> 00:10:08,900
+you can straight up just drop into your file.
+
+120
+00:10:08,920 --> 00:10:12,210
+If you haven't given this a go, pause the video now.
+
+121
+00:10:12,220 --> 00:10:17,050
+Don't continue because things will get harder and harder as we go on in the course.
+
+122
+00:10:17,050 --> 00:10:23,050
+And if you just watch the videos, eventually, at some point things are not going to make sense because
+
+123
+00:10:23,050 --> 00:10:24,610
+you haven't had the practice.
+
+124
+00:10:24,790 --> 00:10:30,610
+Make things easy for your future self by putting in lots of effort and practice now.
+
+125
+00:10:31,090 --> 00:10:32,500
+All right, enough said.
+
+126
+00:10:32,530 --> 00:10:37,900
+First thing, let's walk through the solution together and hopefully you can check it against your work.
+
+127
+00:10:37,990 --> 00:10:43,240
+Now the first thing we're going to do is add the bootstrap link, which comes from the homepage.
+
+128
+00:10:43,240 --> 00:10:48,970
+And we just want this first link that is going to include the stylesheet.
+
+129
+00:10:48,970 --> 00:10:53,260
+And you can see this is a link with a relationship of stylesheet.
+
+130
+00:10:53,260 --> 00:10:58,100
+So instead of using our own stylesheet, we're now using the bootstrap CSS.
+
+131
+00:10:58,400 --> 00:11:04,640
+And if you're wondering what that min stands for, it's basically a file where all of the spaces are
+
+132
+00:11:04,640 --> 00:11:08,630
+taken away so that it's as short as possible.
+
+133
+00:11:08,630 --> 00:11:14,000
+So it loads up quicker because there's no spaces and everything's all jumbled, which is impossible
+
+134
+00:11:14,000 --> 00:11:15,080
+for humans to read.
+
+135
+00:11:15,080 --> 00:11:19,020
+But it works just fine for the computer to do.
+
+136
+00:11:19,040 --> 00:11:22,670
+Number two is to add the bootstrap pre-built card.
+
+137
+00:11:22,670 --> 00:11:29,690
+So if we go into our docs and find our card component, you can see the first example is pretty much
+
+138
+00:11:29,690 --> 00:11:31,120
+the card we want to build.
+
+139
+00:11:31,130 --> 00:11:37,790
+If we look at the goal, we've got our card title, some example, text, a button and an image, and
+
+140
+00:11:37,790 --> 00:11:40,700
+this is exactly the same as this example.
+
+141
+00:11:40,700 --> 00:11:46,950
+So let's copy the HTML and paste it into here under to do number two.
+
+142
+00:11:46,970 --> 00:11:51,350
+Now let's check our work, let's show it in preview and see what it looks like.
+
+143
+00:11:51,380 --> 00:11:52,430
+It looks pretty good.
+
+144
+00:11:52,460 --> 00:11:56,570
+Other than the fact that the image is pretty much completely broken.
+
+145
+00:11:56,570 --> 00:12:02,840
+So step three is to change the image source to display the flower JPEG image.
+
+146
+00:12:02,990 --> 00:12:10,510
+The image is right here and right now the source is completely empty because it's an example.
+
+147
+00:12:10,520 --> 00:12:15,230
+Let's go ahead and change it to our image, which is flower jpeg.
+
+148
+00:12:15,260 --> 00:12:21,590
+You see it show up immediately and as always with images, let's add a alt text so that people with
+
+149
+00:12:21,590 --> 00:12:23,780
+screen readers know what it's all about.
+
+150
+00:12:24,260 --> 00:12:24,740
+All right.
+
+151
+00:12:24,770 --> 00:12:32,690
+Now the final step is a little bit of a revision step because I wanted you to use Flexbox to center
+
+152
+00:12:32,690 --> 00:12:35,870
+the card in the vertical and horizontal center.
+
+153
+00:12:35,870 --> 00:12:42,230
+If we take a look at this URL on our browser, you can see it's stuck all the way to the top left,
+
+154
+00:12:42,230 --> 00:12:44,990
+which is default layout.
+
+155
+00:12:44,990 --> 00:12:50,590
+But if we want it right here in the middle, then we're going to need to use some Flexbox magic and
+
+156
+00:12:50,600 --> 00:12:56,240
+we're going to do that inside an internal style element right here under to do number four.
+
+157
+00:12:56,450 --> 00:12:58,420
+What do we need to target?
+
+158
+00:12:58,430 --> 00:13:01,310
+Well, we need to target the entire card.
+
+159
+00:13:01,310 --> 00:13:04,790
+And the topmost level is this flex container.
+
+160
+00:13:05,000 --> 00:13:13,310
+The reason why it's of class flex container is because this comes from the bootstrap CSS and it's got
+
+161
+00:13:13,310 --> 00:13:17,270
+some styling in there that defines that container.
+
+162
+00:13:17,270 --> 00:13:19,910
+But we can always override it.
+
+163
+00:13:19,910 --> 00:13:25,580
+And this is really, really important when we want to override a particular bootstrap style, we have
+
+164
+00:13:25,580 --> 00:13:28,160
+to make sure that it's more specific.
+
+165
+00:13:28,160 --> 00:13:36,740
+So either it goes inside an internal style element or it goes inside an inline style property, or if
+
+166
+00:13:36,740 --> 00:13:44,420
+we're using our standard external CSS and we use a link linking to, I don't know, say forward slash,
+
+167
+00:13:45,050 --> 00:13:51,620
+forward slash style.css and we have a style CSS file somewhere in our project, then you've got to make
+
+168
+00:13:51,620 --> 00:13:58,130
+sure that your custom CSS file occurs below the bootstrap link.
+
+169
+00:13:58,130 --> 00:14:06,350
+That way this is first looked at and then the browser looks at your custom stylesheet and you can override
+
+170
+00:14:06,350 --> 00:14:09,410
+any of the classes that come from bootstrap.
+
+171
+00:14:10,070 --> 00:14:14,720
+So this is an important point to remember for the future when you're creating your own custom style
+
+172
+00:14:14,720 --> 00:14:15,320
+sheets.
+
+173
+00:14:15,650 --> 00:14:21,680
+All right, so now in order to override the style here, now we might be building on top of existing
+
+174
+00:14:21,680 --> 00:14:26,270
+bootstrap styles or we might be specifying something they don't even care about, and it's not defined
+
+175
+00:14:26,270 --> 00:14:28,340
+in the bootstrap CSS at all.
+
+176
+00:14:28,640 --> 00:14:35,450
+In our case, we want to change this flex container to display flex because we know that this is one
+
+177
+00:14:35,450 --> 00:14:39,980
+of the simplest ways to center anything in CSS.
+
+178
+00:14:40,340 --> 00:14:45,770
+And the first thing we need to change is the justify content set to center.
+
+179
+00:14:45,770 --> 00:14:49,790
+And the second one is align items set to center.
+
+180
+00:14:49,820 --> 00:14:56,660
+And finally, we need to make sure that the entire container takes up the full height and not just some
+
+181
+00:14:56,660 --> 00:14:56,860
+proportion.
+
+182
+00:14:57,000 --> 00:14:57,830
+Portion of the height.
+
+183
+00:14:57,840 --> 00:14:59,960
+That's enough for the content.
+
+184
+00:14:59,970 --> 00:15:04,740
+So let's set the height to 100 viewport height.
+
+185
+00:15:04,740 --> 00:15:11,460
+And now you can see our card is perfectly centered in the middle using Flexbox.
+
+186
+00:15:11,490 --> 00:15:18,330
+It's a component that we've borrowed and customized from bootstrap, and you can see how easy it was.
+
+187
+00:15:18,360 --> 00:15:23,460
+And quick to create this layout by leveraging the power of bootstrap.
+
+188
+00:15:23,640 --> 00:15:28,660
+In the next lesson, we're going to dive deeper into bootstrap and we're going to look at how the bootstrap.
+
+189
+00:15:28,680 --> 00:15:32,040
+12 column layout system actually works in practice.
+
+190
+00:15:32,040 --> 00:15:35,150
+So for all of that and more, I'll see you in the next lesson.
+
+
+191
+00:00:00,260 --> 00:00:00,620
+All right.
+
+192
+00:00:00,620 --> 00:00:07,130
+So now that we've had a little bit of a taste of what Bootstrap can do, let's dive deep into one of
+
+193
+00:00:07,130 --> 00:00:12,590
+the most powerful features of Bootstrap, which is the 12 column layout system.
+
+194
+00:00:13,070 --> 00:00:17,450
+The 12 column system is made of three components.
+
+195
+00:00:17,570 --> 00:00:26,540
+Firstly, we need a div that has a class of container and this is going to be the starting point.
+
+196
+00:00:26,630 --> 00:00:36,320
+Next inside that container we need another div which is going to be of class row and inside the row
+
+197
+00:00:36,350 --> 00:00:42,570
+is where we will have our items and they will be laid out using the column system.
+
+198
+00:00:42,590 --> 00:00:46,160
+So what does this look like in code?
+
+199
+00:00:46,190 --> 00:00:48,410
+Well, it's pretty simple.
+
+200
+00:00:48,410 --> 00:00:57,980
+We have a container that contains a single row and then within the row we can have as many items as
+
+201
+00:00:57,980 --> 00:00:58,700
+we like.
+
+202
+00:00:58,700 --> 00:01:02,250
+And they're laid out using the column class.
+
+203
+00:01:02,520 --> 00:01:04,019
+Pretty simple so far.
+
+204
+00:01:04,019 --> 00:01:08,130
+And you're probably thinking, well, there's nothing very groundbreaking here.
+
+205
+00:01:08,340 --> 00:01:15,090
+Now, the interesting thing starts happening when you have multiple columns laid out inside these rows,
+
+206
+00:01:15,240 --> 00:01:24,240
+because automatically Bootstrap will try to give every column inside the row equal spacing and space
+
+207
+00:01:24,240 --> 00:01:28,110
+them across the entire width of the container.
+
+208
+00:01:28,850 --> 00:01:38,210
+So if you had a container which included a row that had one, two, three, four, five, six divs in
+
+209
+00:01:38,240 --> 00:01:45,230
+there, each with the class set as call short for column, then it will divide up the entire width by
+
+210
+00:01:45,230 --> 00:01:45,850
+six.
+
+211
+00:01:45,860 --> 00:01:50,450
+And if you had three of them then it would give each of them a third of the space.
+
+212
+00:01:50,810 --> 00:01:54,410
+Now the bootstrap container is responsive.
+
+213
+00:01:54,410 --> 00:02:01,730
+So by defining a div with the class of container, you're actually telling it to have a different size
+
+214
+00:02:01,760 --> 00:02:04,070
+on different sized screens.
+
+215
+00:02:04,100 --> 00:02:13,010
+If we had an XL or an XL screen, so like a desktop or a TV or something, then that container is going
+
+216
+00:02:13,010 --> 00:02:20,390
+to be this size and you can see that there's several breakpoints that are responsive to the different
+
+217
+00:02:20,390 --> 00:02:22,280
+device screen sizes.
+
+218
+00:02:22,310 --> 00:02:32,160
+On mobile, maybe the container would be 540 pixels on an iPad, maybe it would be 720 or 960 pixels.
+
+219
+00:02:32,160 --> 00:02:36,300
+And on desktop, maybe it would be about 1000 pixels.
+
+220
+00:02:36,510 --> 00:02:44,370
+You can use the dash plus these different letters to specify at which point you want your container
+
+221
+00:02:44,370 --> 00:02:44,610
+to be.
+
+222
+00:02:44,610 --> 00:02:45,810
+100%.
+
+223
+00:02:45,990 --> 00:02:55,050
+Container is the same as the normal container, but container MD or medium means that on small screens
+
+224
+00:02:55,050 --> 00:02:59,190
+the container would already reach 100% of the width of the screen.
+
+225
+00:02:59,190 --> 00:03:05,010
+And again, remember, all of these sizes here are referring to the width of the viewport.
+
+226
+00:03:05,010 --> 00:03:07,650
+So only this dimension.
+
+227
+00:03:07,860 --> 00:03:15,930
+And then as we go down the line, we're starting to specify a 100% width on larger and larger screens
+
+228
+00:03:15,930 --> 00:03:23,340
+until we reach this container fluid, which basically says that on all screen sizes, we want it to
+
+229
+00:03:23,340 --> 00:03:28,320
+reach from edge to edge, which is 100% width in most cases.
+
+230
+00:03:28,320 --> 00:03:34,800
+You will see these two being used quite frequently because the container gives a nice sort of margin
+
+231
+00:03:34,800 --> 00:03:36,630
+around the left and the right.
+
+232
+00:03:36,630 --> 00:03:40,260
+And the container fluid is when you want that edge to edge behavior.
+
+233
+00:03:41,300 --> 00:03:45,920
+The layout system gets more interesting when we start using sized columns.
+
+234
+00:03:45,920 --> 00:03:52,550
+Instead of just writing Col as the class, we can actually set the class as for example, Col dash two
+
+235
+00:03:52,550 --> 00:03:54,140
+or cold dash four.
+
+236
+00:03:54,170 --> 00:04:05,000
+And what this is saying is if we think of each of our rows as having 12 columns and we split them all
+
+237
+00:04:05,000 --> 00:04:09,620
+up into the 12 equal size columns like this.
+
+238
+00:04:09,620 --> 00:04:11,960
+So if you count this is actually a total of 12.
+
+239
+00:04:11,990 --> 00:04:18,279
+Then when we create a div we can specify well how many of these columns do we want to occupy?
+
+240
+00:04:18,290 --> 00:04:26,180
+In this case this div wants two of those columns and then this one wants four of them and then the final
+
+241
+00:04:26,180 --> 00:04:27,950
+one wants six.
+
+242
+00:04:28,100 --> 00:04:35,930
+Based on the classes that you choose, Bootstrap will know how much space to allocate each div on a
+
+243
+00:04:35,930 --> 00:04:37,460
+percentage basis.
+
+244
+00:04:37,460 --> 00:04:45,810
+So you could view the COL six as a 50% and the col two as one sixth of the entire width and so on and
+
+245
+00:04:45,810 --> 00:04:46,440
+so forth.
+
+246
+00:04:46,440 --> 00:04:53,730
+So you can use all of the numbers col one all the way up to col 12 and you can split up the proportion
+
+247
+00:04:53,730 --> 00:04:56,700
+of your screen and the content inside.
+
+248
+00:04:56,700 --> 00:05:04,290
+So maybe you would have a navigation section on the left that you only want to take up two out of 12
+
+249
+00:05:04,290 --> 00:05:11,280
+width and then the main content here maybe could take up ten out of 12 of the width and so on and so
+
+250
+00:05:11,280 --> 00:05:11,520
+forth.
+
+251
+00:05:11,520 --> 00:05:18,540
+And this is a really, really easy and intuitive way of sizing your content using bootstrap, and this
+
+252
+00:05:18,540 --> 00:05:20,220
+is what the code would look like.
+
+253
+00:05:20,220 --> 00:05:25,530
+So we have three divs and we're giving this one two out of 12, four out of 12, six out of 12.
+
+254
+00:05:25,530 --> 00:05:28,590
+And this is the layout that we end up with.
+
+255
+00:05:28,590 --> 00:05:31,050
+And we didn't have to write any CSS.
+
+256
+00:05:31,080 --> 00:05:34,680
+All we had to do was add in the pre-built layout classes.
+
+257
+00:05:34,770 --> 00:05:42,090
+Again, it's really important to know that Bootstrap has predefined breakpoints and these dimensions
+
+258
+00:05:42,090 --> 00:05:45,480
+are defined based on common screen sizes.
+
+259
+00:05:45,480 --> 00:05:51,630
+And even though these numbers are constantly changing, generally I would say that small is for mobile
+
+260
+00:05:51,630 --> 00:05:56,310
+devices, medium is for tablets and iPads.
+
+261
+00:05:56,710 --> 00:06:05,880
+A large is for laptop, extra large is for desktop, and extra extra large is for anything crazy like
+
+262
+00:06:05,880 --> 00:06:07,470
+maybe a TV or something.
+
+263
+00:06:07,470 --> 00:06:11,880
+An extra small is for devices that are maybe longer than they are wide.
+
+264
+00:06:11,880 --> 00:06:16,590
+So maybe foldable phones and even really narrow phone screens.
+
+265
+00:06:16,890 --> 00:06:24,030
+Now, one thing I want to draw your attention to is the directionality of the signs here.
+
+266
+00:06:24,180 --> 00:06:31,620
+All of these breakpoints, which will often use, for example, coal dash, SM dash two.
+
+267
+00:06:31,800 --> 00:06:40,410
+This section refers to the screens which are greater than this dimension.
+
+268
+00:06:40,410 --> 00:06:51,150
+So that means the small breakpoint is between here and here and covers the range between 576 and 768,
+
+269
+00:06:51,150 --> 00:06:53,370
+and each of them always go up.
+
+270
+00:06:53,370 --> 00:06:58,260
+So this is important point to keep in mind when you're dealing with the bootstrap breakpoints.
+
+271
+00:06:58,530 --> 00:07:03,660
+Now, one of the great things about bootstrap breakpoints is we don't really need the media queries
+
+272
+00:07:03,660 --> 00:07:10,440
+as much because this covers pretty much a lot of the different device dimensions and we don't have to
+
+273
+00:07:10,440 --> 00:07:15,120
+manually write all the pixel sizes and add media queries into our CSS.
+
+274
+00:07:15,150 --> 00:07:21,840
+We can target the different sizes and make our website responsive by using the pre-built breakpoints.
+
+275
+00:07:22,410 --> 00:07:26,250
+Here's an example of the bootstrap breakpoints here.
+
+276
+00:07:26,250 --> 00:07:35,850
+We're saying that on a small screen and above we want the dimension ratio to be two, four and six.
+
+277
+00:07:35,850 --> 00:07:40,860
+So this means that on desktop, on laptop, on TV, it's all going to have this size.
+
+278
+00:07:40,860 --> 00:07:42,570
+And even on mobile as well.
+
+279
+00:07:42,600 --> 00:07:49,740
+But below the size of mobile, it is not defined as having these proportions.
+
+280
+00:07:49,740 --> 00:07:54,660
+So it will default to giving each of these divs 100%.
+
+281
+00:07:55,260 --> 00:07:58,050
+And similarly, if you don't add a number here.
+
+282
+00:07:58,050 --> 00:08:02,490
+So we could for example, here it's 12 columns, 12 divided by three.
+
+283
+00:08:02,490 --> 00:08:05,040
+So these are actually call fours.
+
+284
+00:08:05,040 --> 00:08:10,350
+But if we don't define a number, you remember that they will automatically distribute.
+
+285
+00:08:12,210 --> 00:08:17,910
+But what would it look like if we reduce the screen size to less than a mobile size?
+
+286
+00:08:17,940 --> 00:08:26,040
+Well, all of these divs will go to 100% width when the overall width is less than 576.
+
+287
+00:08:26,250 --> 00:08:32,730
+Then all of these items default to as if they just had a column defined.
+
+288
+00:08:32,730 --> 00:08:41,669
+So call as the class and the call class by default is going to take up 100% of the width in the small
+
+289
+00:08:41,669 --> 00:08:42,600
+sized screen.
+
+290
+00:08:43,150 --> 00:08:48,330
+Now in a single div, you can actually also have multiple breakpoints.
+
+291
+00:08:48,340 --> 00:08:58,750
+So in this case, what it's saying is on the large devices and above, then it should take up four out
+
+292
+00:08:58,750 --> 00:09:00,760
+of 12 of the width.
+
+293
+00:09:01,030 --> 00:09:04,600
+On medium sizes and above.
+
+294
+00:09:04,600 --> 00:09:06,550
+Well, because the above is already defined.
+
+295
+00:09:06,550 --> 00:09:13,840
+So then this case is only on medium devices, then it should take up eight out of 12 of the width and
+
+296
+00:09:13,870 --> 00:09:17,710
+on small devices it should take up 12 out of 12.
+
+297
+00:09:17,710 --> 00:09:18,940
+So full width.
+
+298
+00:09:19,450 --> 00:09:22,870
+Here we're simulating a large screen.
+
+299
+00:09:22,870 --> 00:09:28,540
+So maybe on a laptop or a desktop, then it's taking up four out of 12.
+
+300
+00:09:28,570 --> 00:09:30,790
+It's this kind of proportion.
+
+301
+00:09:30,790 --> 00:09:34,410
+And then we go over to the next size down.
+
+302
+00:09:34,420 --> 00:09:39,850
+So on an iPad, then it's going to take up eight out of 12 of the screen.
+
+303
+00:09:39,850 --> 00:09:46,400
+And just for example, sakes, let's go down even further to a mobile size where we want it to take
+
+304
+00:09:46,400 --> 00:09:49,820
+up 100% or full width of the screen.
+
+305
+00:09:49,820 --> 00:09:55,160
+Because as you imagine, when we have more screen real estate, it's easier to see things.
+
+306
+00:09:55,160 --> 00:10:00,500
+And when we're working on smaller screens, we want to make things generally a bit larger so that it's
+
+307
+00:10:00,500 --> 00:10:03,260
+easier for users to see our content.
+
+308
+00:10:03,830 --> 00:10:10,730
+In addition to having multiple breakpoints in each div, you can also mix and match the types of definitions.
+
+309
+00:10:10,730 --> 00:10:16,040
+So for example, here we've got two sized columns, call two and call four.
+
+310
+00:10:16,040 --> 00:10:21,530
+So it's always going to take up two out of 12, the Section four out of 12 here.
+
+311
+00:10:21,530 --> 00:10:25,620
+But this last one, notice how we've just left it as the column class.
+
+312
+00:10:25,640 --> 00:10:31,490
+Now this means that it's going to automatically adjust in size in order to take up whatever proportion
+
+313
+00:10:31,490 --> 00:10:32,450
+remains.
+
+314
+00:10:33,130 --> 00:10:40,270
+Bootstrap layout is a little bit complicated when you're first working with it, and it's really important
+
+315
+00:10:40,270 --> 00:10:46,780
+that you read the docs and also have plenty of practice before things start to make more sense.
+
+316
+00:10:46,780 --> 00:10:54,730
+So in order for you to practice, I've created a website at github.io forward slash bootstrap dash layout,
+
+317
+00:10:54,970 --> 00:11:00,220
+and if you go to this website you'll see that I've got three exercises in total for you.
+
+318
+00:11:00,490 --> 00:11:07,570
+The idea of the exercises is that at the top there will be a demo area, which is the effect that you're
+
+319
+00:11:07,570 --> 00:11:08,740
+trying to achieve.
+
+320
+00:11:08,770 --> 00:11:15,250
+For example, in this case we want these Divs to be 50% on desktop and 100% on mobile.
+
+321
+00:11:15,250 --> 00:11:24,310
+So as I reduce the width, you'll see that it gets to a point where we reach that breakpoint where it
+
+322
+00:11:24,310 --> 00:11:27,280
+goes into 100% width.
+
+323
+00:11:27,520 --> 00:11:33,050
+As you scroll down, each of the different exercises will have different proportions.
+
+324
+00:11:33,050 --> 00:11:41,090
+And what you want to do is to modify the HTML code inside here, which is responsible for the styling
+
+325
+00:11:41,090 --> 00:11:45,410
+of the area that you control, which are the divs underneath the examples.
+
+326
+00:11:45,410 --> 00:11:52,910
+And I want you to add the classes for using the 12 column layout system so that your area behaves exactly
+
+327
+00:11:52,910 --> 00:11:55,700
+the same as the top area.
+
+328
+00:11:55,700 --> 00:12:00,380
+When you reduce the size and hit the various different breakpoints.
+
+329
+00:12:00,860 --> 00:12:08,030
+If you get stuck, be sure to check out the layout section of the bootstrap documentation and here you'll
+
+330
+00:12:08,030 --> 00:12:10,700
+see the different bootstrap breakpoints.
+
+331
+00:12:10,700 --> 00:12:19,490
+Also, you can read up more on how the columns work, how the containers work, and how the grid system
+
+332
+00:12:19,490 --> 00:12:20,270
+works.
+
+333
+00:12:20,510 --> 00:12:23,600
+Pause the video now and give this challenge a go.
+
+334
+00:12:26,320 --> 00:12:30,910
+So hopefully you've given this a go and you've managed to get everything to work correctly.
+
+335
+00:12:30,940 --> 00:12:33,070
+Let's go through the solution together.
+
+336
+00:12:33,250 --> 00:12:38,560
+The first example says it should be 50% on desktop and 100% on mobile.
+
+337
+00:12:38,590 --> 00:12:47,860
+We know that the desktop breakpoint is the XL, so we can define column dash XL dash six and six out
+
+338
+00:12:47,860 --> 00:12:50,560
+of 12 is of course 50%.
+
+339
+00:12:50,590 --> 00:12:59,350
+Now in order to get it to be 100% on mobile, we could say column dash dash 12, which is 100% and we
+
+340
+00:12:59,350 --> 00:13:01,150
+can add that to both divs.
+
+341
+00:13:01,180 --> 00:13:07,360
+Now if I go ahead and set apply changes, you can see now when I reduce the width of the window that
+
+342
+00:13:07,360 --> 00:13:14,860
+it's going to hit that breakpoint where below which it's no longer going to be 50% and it's going to
+
+343
+00:13:14,860 --> 00:13:17,680
+start taking up the full width.
+
+344
+00:13:18,580 --> 00:13:25,420
+Now, you might remember from previously we said that the bootstrap breakpoints, target sizes, this
+
+345
+00:13:25,420 --> 00:13:27,450
+particular size and above.
+
+346
+00:13:27,470 --> 00:13:35,120
+So when we define Column XL six, we're saying anything that's above the XL breakpoint, which is greater
+
+347
+00:13:35,120 --> 00:13:39,110
+than 1200 pixels, should be 50%.
+
+348
+00:13:39,200 --> 00:13:44,270
+You might have realized that you don't actually need to define this because everything else is going
+
+349
+00:13:44,270 --> 00:13:45,860
+to default to 100%.
+
+350
+00:13:45,860 --> 00:13:51,530
+So if I apply changes again, you can see that my purple example still behaves the same as the green
+
+351
+00:13:51,530 --> 00:13:52,310
+example.
+
+352
+00:13:52,310 --> 00:13:58,220
+And I've only changed the behavior of the XL size and above and changed its layout.
+
+353
+00:13:58,820 --> 00:14:02,020
+All right, so let's go to exercise number two.
+
+354
+00:14:02,030 --> 00:14:07,310
+And in this case, I haven't given you exactly what they should do or how they should behave.
+
+355
+00:14:07,310 --> 00:14:14,240
+And instead, I wanted you to simply just reduce the width of the screen to see how it changes through
+
+356
+00:14:14,240 --> 00:14:15,710
+the different sizes.
+
+357
+00:14:15,800 --> 00:14:17,100
+The first one's easy.
+
+358
+00:14:17,120 --> 00:14:23,240
+Pretty much all of the larger sizes, all the way down to the large breakpoint takes up the full 12
+
+359
+00:14:23,240 --> 00:14:26,570
+width column and you can take out a ruler if you want to measure the screen.
+
+360
+00:14:26,570 --> 00:14:30,800
+But we can see that column one is roughly half of the width of the row.
+
+361
+00:14:30,830 --> 00:14:37,010
+Column two and three are pretty much equal size, so it's probably going to be six, three and three.
+
+362
+00:14:37,340 --> 00:14:41,960
+Let's modify this so that we target the large breakpoint first.
+
+363
+00:14:41,960 --> 00:14:47,510
+So we'll say Col Dash, LG Dash six for the first column.
+
+364
+00:14:47,540 --> 00:14:54,860
+The second column is going to be called Dash, LG Dash three and the same for the third column.
+
+365
+00:14:54,860 --> 00:15:00,350
+So now if I click apply changes, you can see it's now taking up the same proportions.
+
+366
+00:15:00,350 --> 00:15:08,360
+But when we hit this breakpoint that's below the large breakpoint, our columns by default go to 100%,
+
+367
+00:15:08,390 --> 00:15:11,390
+whereas the example actually does something different.
+
+368
+00:15:11,420 --> 00:15:16,460
+The top column takes up 100% and the other two take up half of the width.
+
+369
+00:15:16,460 --> 00:15:21,260
+And you can see that behavior continues all the way until the very small size.
+
+370
+00:15:21,260 --> 00:15:24,710
+So that means that we've got an SM breakpoint there defined.
+
+371
+00:15:24,740 --> 00:15:29,450
+Now, once you've worked with this for a long time, you can spot each of the breakpoints pretty much
+
+372
+00:15:29,450 --> 00:15:30,290
+by eye.
+
+373
+00:15:30,320 --> 00:15:36,020
+But initially you can always just switch around, try different ones, try the SM, try the XL and see
+
+374
+00:15:36,020 --> 00:15:38,880
+which ones actually behave like the example.
+
+375
+00:15:38,900 --> 00:15:44,030
+There's nothing wrong with trial and error when it hits the smaller screen size.
+
+376
+00:15:44,120 --> 00:15:51,650
+Our column one is going to take up the full width of the row and then the other two on the smaller breakpoint
+
+377
+00:15:51,650 --> 00:15:54,110
+are going to take up half of the width.
+
+378
+00:15:54,110 --> 00:15:56,000
+So call SM six.
+
+379
+00:15:56,590 --> 00:15:59,440
+And similarly, the third one does the same thing.
+
+380
+00:15:59,440 --> 00:16:00,940
+So let's apply the change.
+
+381
+00:16:00,940 --> 00:16:05,410
+And you can see now at this breakpoint, they also behave exactly the same.
+
+382
+00:16:05,410 --> 00:16:12,430
+So now all we have left is the final one, which is just the smallest breakpoint for the columns.
+
+383
+00:16:12,430 --> 00:16:19,560
+And here what's actually happening is each of these columns are taking up ten out of 12 of the columns.
+
+384
+00:16:19,570 --> 00:16:23,590
+Now, I can spot that by eye, but also I created this exercise, so I know.
+
+385
+00:16:23,590 --> 00:16:26,770
+But if you try some different numbers, you'll probably get there as well.
+
+386
+00:16:26,770 --> 00:16:35,380
+So if we define the smallest size as column, let's just try an eight to start with so I can show you
+
+387
+00:16:35,380 --> 00:16:37,210
+this trial and error process.
+
+388
+00:16:37,210 --> 00:16:40,690
+And we know that all the columns behave the same at that breakpoint.
+
+389
+00:16:40,690 --> 00:16:45,640
+If we click apply changes and we go here, we can see, well, eight is clearly too small.
+
+390
+00:16:45,640 --> 00:16:50,590
+So let's go up a size and let's change to ten out of 12.
+
+391
+00:16:50,590 --> 00:16:58,880
+And once I hit apply changes, you can see we now have both sets of columns behaving exactly the same
+
+392
+00:16:58,880 --> 00:17:00,710
+at all the different breakpoints.
+
+393
+00:17:00,710 --> 00:17:05,990
+This one was a little bit harder, admittedly, and it required a little bit more thinking and probably
+
+394
+00:17:05,990 --> 00:17:07,520
+trial and error on your part.
+
+395
+00:17:07,520 --> 00:17:12,950
+But hopefully by the end of it you will understand a bit better about how these different breakpoints
+
+396
+00:17:12,950 --> 00:17:15,260
+work and at which points they hit.
+
+397
+00:17:15,260 --> 00:17:20,180
+So now for the final exercise and this one, we've got two columns.
+
+398
+00:17:20,180 --> 00:17:29,150
+Initially they start out in one line taking up a particular proportion and then we hit a certain breakpoint
+
+399
+00:17:29,150 --> 00:17:31,820
+and it changes the proportion.
+
+400
+00:17:32,120 --> 00:17:37,700
+Column one gets a little bit wider, takes up more space compared to column two.
+
+401
+00:17:37,700 --> 00:17:44,390
+And then if we reduce a little bit more, that changes again at the next breakpoint and then again and
+
+402
+00:17:44,390 --> 00:17:46,430
+then finally taking up full width.
+
+403
+00:17:46,640 --> 00:17:52,010
+So let's start with the largest breakpoint we know, which is the XL.
+
+404
+00:17:52,340 --> 00:17:56,210
+Let's say that coal dash XL.
+
+405
+00:17:56,210 --> 00:18:02,240
+And let's define as one out of 12 and then give the other half.
+
+406
+00:18:02,360 --> 00:18:05,150
+Um, 12 minus one is 11.
+
+407
+00:18:05,150 --> 00:18:09,770
+And now let's apply the change and you can see that is the correct proportion.
+
+408
+00:18:10,040 --> 00:18:12,740
+Again, this might require trial and error on your part.
+
+409
+00:18:12,770 --> 00:18:14,090
+Don't be too hard on yourself.
+
+410
+00:18:14,090 --> 00:18:17,150
+If you didn't manage to get it first time, I wouldn't be able to either.
+
+411
+00:18:17,150 --> 00:18:19,760
+If it was somebody else's exercise like this.
+
+412
+00:18:19,850 --> 00:18:26,630
+Now let's hit the next breakpoint just about here, and this is going to be the next breakpoint down.
+
+413
+00:18:26,630 --> 00:18:28,070
+This is the XL.
+
+414
+00:18:28,100 --> 00:18:34,580
+We've just hit 1200 and a tip for working with responsiveness.
+
+415
+00:18:34,580 --> 00:18:39,580
+When you're wondering how do I know that it's the 1200 pixel breakpoint that got hit?
+
+416
+00:18:39,590 --> 00:18:46,880
+If you go into the Chrome developer tools and click on this button to toggle the device toolbar and
+
+417
+00:18:46,880 --> 00:18:54,080
+change the dimensions to responsive, then you can click this drag bar and look at the top here.
+
+418
+00:18:54,080 --> 00:19:01,850
+This is the important width that we need to look at once I expand it to 1200, you can see that jump
+
+419
+00:19:01,850 --> 00:19:04,340
+in size happen just around there.
+
+420
+00:19:04,340 --> 00:19:12,140
+So we know that the 1200 breakpoint is the XL breakpoint and you can work this out this way as well.
+
+421
+00:19:12,140 --> 00:19:16,250
+So just a tip for the future when you're working with any kind of responsiveness.
+
+422
+00:19:16,250 --> 00:19:21,650
+This is really useful to know, but most of the time I would judge responsiveness just by eye when you're
+
+423
+00:19:21,650 --> 00:19:24,350
+designing the layout to see what looks good.
+
+424
+00:19:25,010 --> 00:19:30,830
+All right, so let's hit the next breakpoint at the XL size 1200 pixels.
+
+425
+00:19:30,830 --> 00:19:36,650
+So this is called Dash XL, and I reckon this is a ratio of 2 to 10.
+
+426
+00:19:36,650 --> 00:19:44,330
+So let's do call XL to call XL ten, let's apply our changes and that's pretty good.
+
+427
+00:19:44,330 --> 00:19:52,070
+So now let's keep reducing until we hit the next breakpoint and this is going to be the next level down,
+
+428
+00:19:52,070 --> 00:19:53,690
+which is large.
+
+429
+00:19:53,720 --> 00:19:58,040
+LG And I reckon this is probably 4 to 8.
+
+430
+00:19:58,040 --> 00:20:06,620
+So call Dash, LG Dash four and the next one will be called LG Dash eight.
+
+431
+00:20:06,620 --> 00:20:11,900
+And notice that each of these always add up to 12 because you can see in the example layout, they're
+
+432
+00:20:11,900 --> 00:20:13,610
+only taking up one row.
+
+433
+00:20:13,640 --> 00:20:18,500
+If it didn't add up to 12, then it will go to the next row in order to take up the amount of space
+
+434
+00:20:18,500 --> 00:20:19,760
+that we specified.
+
+435
+00:20:20,000 --> 00:20:23,030
+Now we have the next breakpoint, which is the cold dash.
+
+436
+00:20:23,030 --> 00:20:28,550
+MD And this one's easy to spot because it's half half, so it's going to be six.
+
+437
+00:20:28,550 --> 00:20:35,150
+And finally we have the rest are by default going to take up 100%.
+
+438
+00:20:35,150 --> 00:20:38,420
+So you could define the SM, but that's also the default behavior.
+
+439
+00:20:38,420 --> 00:20:39,770
+So you could also leave it out.
+
+440
+00:20:40,130 --> 00:20:41,000
+There you have it.
+
+441
+00:20:41,000 --> 00:20:42,620
+That's the final solution.
+
+442
+00:20:42,620 --> 00:20:48,650
+Code for exercise three and exercise two and exercise one.
+
+443
+00:20:48,650 --> 00:20:52,670
+Hopefully you manage to get there in the end, even if there was a little bit of trial and error and
+
+444
+00:20:52,670 --> 00:20:53,810
+some difficulty.
+
+445
+00:20:53,810 --> 00:20:55,880
+But once you've used bootstrap layout.
+
+446
+00:20:55,890 --> 00:20:56,580
+A few times.
+
+447
+00:20:56,580 --> 00:20:58,170
+You'll get used to this idea.
+
+448
+00:20:58,170 --> 00:21:01,680
+And it's a really intuitive way to lay out our screen.
+
+449
+00:21:01,680 --> 00:21:06,270
+And it's really easy to manipulate and to create different layout designs.
+
+450
+00:21:06,660 --> 00:21:11,130
+Now, in the next lesson, we're going to be talking through the different bootstrap components.
+
+451
+00:21:11,130 --> 00:21:13,650
+So for all of that and more, I'll see you there.
+
+
+452
+00:00:00,260 --> 00:00:00,890
+Hey, guys.
+
+453
+00:00:00,890 --> 00:00:06,230
+In this lesson, we're going to be learning about one of the most powerful features of Bootstrap and
+
+454
+00:00:06,230 --> 00:00:11,090
+one of the biggest reasons why we would be using bootstrap in our project in the first place.
+
+455
+00:00:11,090 --> 00:00:19,460
+And that is the concept of the bootstrap components, the pre-built pre-styled components like buttons
+
+456
+00:00:19,460 --> 00:00:26,030
+and cards and carousels and a whole load of beautiful things that we get access to simply by adding
+
+457
+00:00:26,030 --> 00:00:29,390
+in a bootstrap class into our HTML.
+
+458
+00:00:29,510 --> 00:00:35,480
+Let's start with one of the most commonly used components, which is the bootstrap button.
+
+459
+00:00:35,480 --> 00:00:42,410
+And this is a really good place to start because you also see the default bootstrap styling and the
+
+460
+00:00:42,410 --> 00:00:47,920
+color scheme in most of the components that you'll get access to through bootstrap.
+
+461
+00:00:47,930 --> 00:00:51,440
+If you want to give it a particular color.
+
+462
+00:00:51,440 --> 00:00:59,360
+It's really easy to access all of these default colors by simply using their name in most cases in a
+
+463
+00:00:59,360 --> 00:01:06,690
+bootstrap design website, the primary button, the go to, you know, the buy or the contact us or
+
+464
+00:01:06,690 --> 00:01:13,470
+download whatever will be this blue color and you can access all of the other colors through each of
+
+465
+00:01:13,470 --> 00:01:18,930
+their bootstrap names and they give you a little bit of a hint as to what they're used for.
+
+466
+00:01:18,930 --> 00:01:22,560
+So success is usually like an okay button danger.
+
+467
+00:01:22,560 --> 00:01:29,130
+Maybe if you click this button, something really bad happens or warning, etcetera, and you get access
+
+468
+00:01:29,130 --> 00:01:37,950
+to this button and this button styling simply by creating a button HTML element, giving it the class
+
+469
+00:01:37,980 --> 00:01:45,210
+BTN for a bootstrap button, and then adding the class for the color scheme from this list that you
+
+470
+00:01:45,210 --> 00:01:46,200
+want to choose.
+
+471
+00:01:46,200 --> 00:01:47,730
+Let's try this out.
+
+472
+00:01:47,760 --> 00:01:54,990
+Go ahead and download the starting files from the 11.2 bootstrap components zip file and once you've
+
+473
+00:01:54,990 --> 00:01:57,690
+extracted it, open it inside vs code.
+
+474
+00:01:57,720 --> 00:01:59,970
+Head over to index.html.
+
+475
+00:02:00,000 --> 00:02:06,090
+Now here you'll notice that I've already added in the bootstrap link, we've got a style section which
+
+476
+00:02:06,090 --> 00:02:12,780
+we can add custom CSS to and in the body area I want you to use the bootstrap documentation.
+
+477
+00:02:12,780 --> 00:02:18,780
+So if you go to the bootstrap main website at getbootstrap.com, go to docs and then scroll down to
+
+478
+00:02:18,780 --> 00:02:26,370
+the components, find the buttons, and I want you to put in a green button that says, okay, somewhere
+
+479
+00:02:26,370 --> 00:02:27,630
+onto this website.
+
+480
+00:02:27,630 --> 00:02:34,170
+Remember, you can preview it in real time to see if it's working and pause the video now and complete
+
+481
+00:02:34,170 --> 00:02:35,100
+this challenge.
+
+482
+00:02:36,600 --> 00:02:36,930
+All right.
+
+483
+00:02:36,930 --> 00:02:38,760
+So this is pretty simple.
+
+484
+00:02:38,760 --> 00:02:42,480
+We have a button which we said is going to say, okay.
+
+485
+00:02:42,780 --> 00:02:49,500
+And in order to style it using bootstrap, the first thing we do is add the BTN class and you can see
+
+486
+00:02:49,500 --> 00:02:52,500
+automatically the font changes, the background color changes.
+
+487
+00:02:52,500 --> 00:02:55,830
+And then we said we wanted to have a green button.
+
+488
+00:02:55,830 --> 00:02:59,490
+So the green button is BTN success.
+
+489
+00:02:59,490 --> 00:03:02,820
+So let's go ahead and add BTN success.
+
+490
+00:03:02,820 --> 00:03:09,030
+And once we're done, you can see we've got a beautiful green button with a hover animation with nice
+
+491
+00:03:09,030 --> 00:03:15,330
+styling, a good size, rounded corners, all of that goodness without doing a lot of work at all.
+
+492
+00:03:15,330 --> 00:03:20,940
+It was super, super simple to create this, and this should give you a taste of what's yet to come.
+
+493
+00:03:21,240 --> 00:03:26,820
+The next component I want to talk about is a really useful one, which is the card which you already
+
+494
+00:03:26,820 --> 00:03:29,250
+saw in the previous lessons exercise.
+
+495
+00:03:29,250 --> 00:03:35,880
+And as always, all we need to do is go to that particular component's page and then we can simply copy
+
+496
+00:03:35,980 --> 00:03:42,490
+the code, paste it into our website and replace certain parts of the code, such as the image source
+
+497
+00:03:42,490 --> 00:03:43,720
+or the alt text.
+
+498
+00:03:43,840 --> 00:03:49,390
+Now, one component that you're probably going to be using whenever you're building a website is a nav
+
+499
+00:03:49,420 --> 00:03:54,940
+bar, and the bootstrap nav bars are some of the best designed nav bars I've seen.
+
+500
+00:03:54,940 --> 00:04:01,500
+And it also is super easy to include simply using their example snippet codes.
+
+501
+00:04:01,510 --> 00:04:09,610
+If you head over to the nav bar, you can read on how it works And also what's some of the examples
+
+502
+00:04:09,610 --> 00:04:17,260
+they have are for example, this one with a search bar with some dropdowns, and this one which describes
+
+503
+00:04:17,260 --> 00:04:23,200
+how you can have the brand at the top left or if you want an image, image and text brand and you can
+
+504
+00:04:23,200 --> 00:04:29,860
+scroll through this to find the kind of nav bar you want to create and to use the example code.
+
+505
+00:04:29,950 --> 00:04:36,820
+Now another area for the nav bars is if you head over to examples and you go to the header section,
+
+506
+00:04:36,820 --> 00:04:45,040
+you can see some even more Fancily laid out nav bars over here in order to show you some of the different
+
+507
+00:04:45,070 --> 00:04:49,060
+types of components and how they can be used in real life.
+
+508
+00:04:49,060 --> 00:04:53,920
+We are going to be building a moving startup's website.
+
+509
+00:04:53,950 --> 00:05:00,700
+They're called Move It, which is pretty simple and it's got a one page website with many different
+
+510
+00:05:00,700 --> 00:05:06,940
+sections and I'm going to show you just how easy it is to build this entire fully fledged website using
+
+511
+00:05:06,940 --> 00:05:08,770
+just bootstrap components.
+
+512
+00:05:08,770 --> 00:05:15,280
+So the first thing we need is that nav bar, and you'll notice that I've taken the nav bar that is pretty
+
+513
+00:05:15,280 --> 00:05:17,050
+much this standard one.
+
+514
+00:05:17,050 --> 00:05:20,710
+So it's got a field which you can search for, say the postcode.
+
+515
+00:05:20,710 --> 00:05:27,070
+If our company works in your area, it's got some dropdown menus, it's got some other little areas
+
+516
+00:05:27,070 --> 00:05:28,570
+which you can click on.
+
+517
+00:05:28,570 --> 00:05:37,540
+So let's go ahead and copy the code for the starting point of our nav bar and let's paste it into the
+
+518
+00:05:37,540 --> 00:05:39,700
+body of our code.
+
+519
+00:05:39,700 --> 00:05:43,540
+So you can see as soon as I've done that, I've got my nav bar show up.
+
+520
+00:05:43,540 --> 00:05:48,640
+But one thing you'll notice as soon as you start playing around with it is when a bootstrap nav bar
+
+521
+00:05:48,640 --> 00:05:57,370
+is in a smaller width, it will automatically show a hamburger menu and that menu should have a dropdown
+
+522
+00:05:57,370 --> 00:06:00,010
+with all of the buttons from the navigation bar.
+
+523
+00:06:00,010 --> 00:06:03,460
+Now why is our button not working?
+
+524
+00:06:03,460 --> 00:06:09,910
+Now remember previously I said when we get started with Bootstrap there's two links to include via CDN.
+
+525
+00:06:09,940 --> 00:06:14,410
+The first one is the style sheet and that gives us all of the styling.
+
+526
+00:06:14,410 --> 00:06:20,950
+But the second one is the scripting code that gives us all of the functionality because this gives us
+
+527
+00:06:20,950 --> 00:06:24,760
+access to the bootstrap JavaScript code.
+
+528
+00:06:24,760 --> 00:06:28,990
+Now we don't need to understand anything about JavaScript just yet in order to use it.
+
+529
+00:06:28,990 --> 00:06:37,030
+All we need to do is copy that link and go to right at the end just before the closing body tag and
+
+530
+00:06:37,030 --> 00:06:39,190
+paste that script link in there.
+
+531
+00:06:39,190 --> 00:06:45,160
+And you can see as soon as I've done that, my buttons now work, my dropdowns work and all of these
+
+532
+00:06:45,160 --> 00:06:52,360
+clicking functionality bits start working and this again comes straight out of the box from Bootstrap.
+
+533
+00:06:52,900 --> 00:06:56,710
+Let's take a look at this website in a larger format.
+
+534
+00:06:56,710 --> 00:07:03,370
+By opening Inside Chrome, you can see that for the most part, these two nav bars look pretty similar.
+
+535
+00:07:03,370 --> 00:07:07,630
+All I did is got rid of some of the components and changed some of the other things.
+
+536
+00:07:07,630 --> 00:07:13,000
+For example, this button is disabled so that users can't click on it.
+
+537
+00:07:13,000 --> 00:07:15,880
+And in our version we actually just got rid of it.
+
+538
+00:07:15,910 --> 00:07:18,850
+We can do that quite easily by finding that button.
+
+539
+00:07:18,850 --> 00:07:24,970
+And you can see the reason why it's not enabled is because it has this class of disabled.
+
+540
+00:07:24,970 --> 00:07:30,490
+So if we get rid of that, then you can see this button is now active once more, but we don't actually
+
+541
+00:07:30,490 --> 00:07:31,510
+want it at all.
+
+542
+00:07:31,510 --> 00:07:34,810
+So let's delete that entire list item.
+
+543
+00:07:34,810 --> 00:07:35,800
+And now.
+
+544
+00:07:35,960 --> 00:07:37,880
+We only have three links.
+
+545
+00:07:38,300 --> 00:07:40,160
+Home link and dropdown.
+
+546
+00:07:40,160 --> 00:07:43,910
+So let's rename those links to about and services.
+
+547
+00:07:43,910 --> 00:07:50,420
+And again, because this is just a simple anchor tag, you know exactly how to work with this.
+
+548
+00:07:50,420 --> 00:07:52,400
+So the first one is link.
+
+549
+00:07:52,400 --> 00:08:01,370
+So we'll change this to about and the dropdown instead of reading dropdown will say is called services.
+
+550
+00:08:01,370 --> 00:08:07,310
+And you can imagine in the future we would have our different services in the dropdown, like moving
+
+551
+00:08:07,310 --> 00:08:12,440
+with a van, moving by, hauling everything yourself or something else.
+
+552
+00:08:12,440 --> 00:08:16,130
+But this is just an example of how our nav bar could look.
+
+553
+00:08:16,370 --> 00:08:23,660
+Now the first part of the nav bar is the nav bar brand and we can see that right up here.
+
+554
+00:08:23,660 --> 00:08:27,680
+We've got an anchor tag which is called the NAV Bar brand, for example.
+
+555
+00:08:27,680 --> 00:08:32,120
+If I change it to move it, then that's going to change our brand text.
+
+556
+00:08:32,150 --> 00:08:39,059
+In addition, we can also have a image in here so you can simply just add an image, give it a source,
+
+557
+00:08:39,059 --> 00:08:42,690
+maybe let's use one of the images we already have in our folder.
+
+558
+00:08:42,690 --> 00:08:44,810
+For example, the dog dot JPEG.
+
+559
+00:08:44,820 --> 00:08:51,600
+Now, because this image is super, super large and we haven't really resized it, then it's not really
+
+560
+00:08:51,600 --> 00:08:55,230
+going to work in the nav bar, but you can always change this.
+
+561
+00:08:55,230 --> 00:08:57,630
+So let's change the height to just 20 pixels.
+
+562
+00:08:57,630 --> 00:09:01,140
+Then you can see our nav bar brand image show up right there.
+
+563
+00:09:01,170 --> 00:09:03,960
+Now in our case, we're not going to use an image.
+
+564
+00:09:03,960 --> 00:09:08,490
+Instead, I'm going to delete that tag and I'm going to use an SVG.
+
+565
+00:09:09,120 --> 00:09:14,010
+This is a good time to show you the Svgs which are available through Bootstrap.
+
+566
+00:09:14,010 --> 00:09:20,670
+So if you go back to the home page and you click on icons, you can see you got all of these free icons
+
+567
+00:09:20,670 --> 00:09:25,950
+for you to use in any of your websites, paid, monetized, whatever.
+
+568
+00:09:25,950 --> 00:09:31,830
+And it's really hard actually, sometimes finding well-designed icons that you can simply add to your
+
+569
+00:09:31,830 --> 00:09:35,430
+project without having to pay royalties and buy it from a designer.
+
+570
+00:09:35,430 --> 00:09:43,170
+So this is also really, really neat and you can search through the different icons by using the filter.
+
+571
+00:09:43,170 --> 00:09:49,650
+So the one that I found is actually this box with seams on it, which looks very much like a moving
+
+572
+00:09:49,650 --> 00:09:51,150
+company box to me.
+
+573
+00:09:51,150 --> 00:09:57,780
+And you can either simply just copy the SVG straight up into your HTML.
+
+574
+00:09:57,780 --> 00:10:00,540
+So if I paste it in here, you'll see it show up right there.
+
+575
+00:10:00,570 --> 00:10:07,890
+Alternatively, you can also include it as an image and you set the source to the SVG that you have
+
+576
+00:10:07,890 --> 00:10:10,800
+saved in your folder, which is right here.
+
+577
+00:10:11,310 --> 00:10:17,370
+I'm going to use the image in the folder by setting it as a source and I'm going to set the alt text
+
+578
+00:10:17,370 --> 00:10:25,500
+to move it brand icon, and then I'm going to change the height to, let's say 30 so that it's a little
+
+579
+00:10:25,500 --> 00:10:26,280
+bit bigger.
+
+580
+00:10:26,280 --> 00:10:30,870
+And we now have a nav bar that looks the same as the example.
+
+581
+00:10:30,990 --> 00:10:36,900
+Now on the right hand side, there is a form here and I know we haven't spoken much about forms that's
+
+582
+00:10:36,900 --> 00:10:37,620
+all yet to come.
+
+583
+00:10:37,620 --> 00:10:43,110
+When we learn more about how to have the actual form functionality later on, especially in the back
+
+584
+00:10:43,110 --> 00:10:46,170
+end section, this is all going to come in really, really handy.
+
+585
+00:10:46,170 --> 00:10:53,580
+But for now, we're just going to change this search bar from search to say, post code and check.
+
+586
+00:10:53,580 --> 00:10:55,500
+So that's pretty easy to find.
+
+587
+00:10:55,500 --> 00:11:01,350
+You can either use command F to find those words or you can scroll through your code to find it as well.
+
+588
+00:11:01,470 --> 00:11:09,540
+Let's change the button to say check and let's change the placeholder for that search bar into, say,
+
+589
+00:11:09,540 --> 00:11:10,590
+a post code.
+
+590
+00:11:12,420 --> 00:11:13,500
+There we go.
+
+591
+00:11:13,500 --> 00:11:16,320
+And now we've completed our nav bar.
+
+592
+00:11:16,320 --> 00:11:21,960
+And if you had a design, all of that from scratch and all of the CSS that's included and you can see
+
+593
+00:11:21,990 --> 00:11:27,990
+just how much CSS there is actually, if you click on one of these items, you can see the nav link
+
+594
+00:11:27,990 --> 00:11:35,220
+that I just clicked on has all the padding defined, has all of this defined, has toggle styling.
+
+595
+00:11:35,220 --> 00:11:37,980
+And that's just one part of this entire nav bar.
+
+596
+00:11:37,980 --> 00:11:44,340
+So you can see just how much time we're saving ourselves and we're able to leverage a professional design
+
+597
+00:11:44,340 --> 00:11:48,270
+and create something that looks really contemporary and beautiful.
+
+598
+00:11:48,420 --> 00:11:50,580
+Now let's move on to the next section.
+
+599
+00:11:50,580 --> 00:11:54,030
+And this entire section is made up of different components.
+
+600
+00:11:54,030 --> 00:11:59,160
+So maybe an H1 heading, a paragraph, two buttons and an image.
+
+601
+00:11:59,160 --> 00:12:04,710
+But if we want to just take this layout, I actually got it from the examples.
+
+602
+00:12:04,740 --> 00:12:11,130
+The examples area is really, really good for taking bits and bobs of the different code snippets,
+
+603
+00:12:11,130 --> 00:12:17,400
+the different components that they've already styled and created for you, and simply putting it into
+
+604
+00:12:17,430 --> 00:12:19,770
+your website where it makes sense.
+
+605
+00:12:19,770 --> 00:12:21,780
+So this is a hero.
+
+606
+00:12:21,780 --> 00:12:24,240
+And as you can see, it's this one.
+
+607
+00:12:24,240 --> 00:12:31,560
+It's pretty much exactly the same title text, two buttons and an image, and everything is styled beautifully
+
+608
+00:12:31,560 --> 00:12:33,810
+already for you in order to use it.
+
+609
+00:12:33,810 --> 00:12:35,730
+All we need to do is right click.
+
+610
+00:12:36,130 --> 00:12:37,360
+On inspect.
+
+611
+00:12:37,870 --> 00:12:41,560
+And now we want to expand our elements area.
+
+612
+00:12:41,570 --> 00:12:49,660
+And what I tend to do is just to go upwards on the hover until the highlight actually highlights the
+
+613
+00:12:49,660 --> 00:12:52,900
+area that I want, which is this div right here.
+
+614
+00:12:53,050 --> 00:13:00,010
+Let's go ahead and copy this div and put it into our code just below our nav bar.
+
+615
+00:13:00,430 --> 00:13:07,040
+Now once I've done that, you can see we've got our centered screenshot text button and image.
+
+616
+00:13:07,060 --> 00:13:11,530
+Let's first fix that image so we can see what things should look like.
+
+617
+00:13:11,530 --> 00:13:15,040
+And their source is from the bootstrap docs.
+
+618
+00:13:15,040 --> 00:13:22,900
+But instead we want to use the one of the moving van so that we can show our users what our services
+
+619
+00:13:22,900 --> 00:13:24,190
+are all about.
+
+620
+00:13:24,370 --> 00:13:28,330
+And now all we have to do is just to replace the text.
+
+621
+00:13:28,360 --> 00:13:36,260
+If you look inside the starting file folder, there is a file called Website Text, and here you can
+
+622
+00:13:36,260 --> 00:13:41,180
+simply copy all of the website text and replace the relevant parts.
+
+623
+00:13:41,720 --> 00:13:49,310
+The H1 should say move with joy and then we've got a long bit of text which we're going to replace with
+
+624
+00:13:49,310 --> 00:13:50,660
+our paragraph.
+
+625
+00:13:50,660 --> 00:13:56,060
+So let's just copy everything in that paragraph element and replace it.
+
+626
+00:13:56,060 --> 00:14:00,770
+And then our buttons should say, get a quote and contact us.
+
+627
+00:14:04,350 --> 00:14:08,940
+And now we have a hero section done in two seconds.
+
+628
+00:14:09,150 --> 00:14:13,740
+Okay, maybe it was a little bit longer, but you can probably see just how powerful this is.
+
+629
+00:14:13,890 --> 00:14:15,450
+So now let's keep going.
+
+630
+00:14:15,450 --> 00:14:20,880
+In the next section of our example website, we've got some features and this is where you would usually
+
+631
+00:14:20,880 --> 00:14:24,270
+tell people what's so special about your particular startup?
+
+632
+00:14:24,270 --> 00:14:26,580
+Well, our startup is really professional.
+
+633
+00:14:26,580 --> 00:14:30,240
+We are available countrywide and we have a personal touch.
+
+634
+00:14:30,240 --> 00:14:35,220
+And you might have guessed this comes from the Bootstrap Examples page.
+
+635
+00:14:35,220 --> 00:14:41,460
+They have a section called Features, and this first feature is perfect for our needs.
+
+636
+00:14:41,460 --> 00:14:47,070
+And I think a lot of bootstrap design kind of comes from Apple because when you look at the Apple website,
+
+637
+00:14:47,100 --> 00:14:54,450
+a lot of the buttons, the shading, the kind of fonts, they all look really, really similar to the
+
+638
+00:14:54,450 --> 00:14:55,590
+bootstrap components.
+
+639
+00:14:55,590 --> 00:15:02,940
+And I think this is probably one of their design inspirations and we can get that simply with some copy
+
+640
+00:15:02,940 --> 00:15:06,100
+and pasting and a little bit of customization.
+
+641
+00:15:06,310 --> 00:15:12,940
+Again, let's go into the section of the features that we want and then we're going to keep hovering
+
+642
+00:15:12,940 --> 00:15:20,320
+up until we find the div that contains all the things that we want, right click, copy, copy element,
+
+643
+00:15:20,320 --> 00:15:24,220
+and we're going to put it below the previous section.
+
+644
+00:15:24,430 --> 00:15:26,860
+Now let's take a look at our good work.
+
+645
+00:15:26,860 --> 00:15:30,580
+We have our columns with icons and we've got three features.
+
+646
+00:15:31,420 --> 00:15:34,420
+Let's change the text of all of this.
+
+647
+00:15:34,420 --> 00:15:39,490
+First, and I'm going to fast forward through this section so you don't have to watch me copy paste.
+
+648
+00:15:45,010 --> 00:15:46,240
+And there you have it.
+
+649
+00:15:46,270 --> 00:15:53,500
+We've now got all the text replaced and we should have all of our copy, which is the text for your
+
+650
+00:15:53,500 --> 00:15:57,190
+website inserted into the relevant parts.
+
+651
+00:15:57,310 --> 00:16:04,000
+Now, one thing that you'll notice is very obvious is that this part does not look like this part.
+
+652
+00:16:04,000 --> 00:16:07,030
+And it also doesn't look like the part that we copied the code from.
+
+653
+00:16:07,030 --> 00:16:09,120
+So what is going on here?
+
+654
+00:16:09,130 --> 00:16:15,900
+Well, as I mentioned, most of the bootstrap styling and components come from bootstrap classes.
+
+655
+00:16:15,910 --> 00:16:19,780
+For example, this one looks like this because it has a class of icon link.
+
+656
+00:16:19,780 --> 00:16:27,550
+But sometimes sometimes we might want to customize the styling that we get so that we have some of our
+
+657
+00:16:27,550 --> 00:16:31,660
+own design features on top of what Bootstrap already addresses.
+
+658
+00:16:31,660 --> 00:16:40,150
+If we right click on these styled squares from the example website, and if you scroll up to find the
+
+659
+00:16:40,150 --> 00:16:48,010
+div where it highlights the entire square, you can see that this div actually has some custom styling.
+
+660
+00:16:48,020 --> 00:16:53,570
+Now the reason why we know it's custom is because all of the default bootstrap classes come from something
+
+661
+00:16:53,570 --> 00:17:00,560
+like utilities dot CSS, for example, the background gradient, for example, the margins, the align,
+
+662
+00:17:00,560 --> 00:17:01,340
+etcetera.
+
+663
+00:17:01,340 --> 00:17:08,420
+But the parts that come from custom CSS for this page is going to have a file that looks like this.
+
+664
+00:17:08,420 --> 00:17:15,859
+So for this features page, they've created some custom CSS and in that custom CSS file they've got
+
+665
+00:17:15,869 --> 00:17:23,270
+little bits of CSS just to make things look a little bit more custom rather than coming from bootstrap.
+
+666
+00:17:23,510 --> 00:17:28,850
+So the part that we're missing, as you can see, is something called feature icon.
+
+667
+00:17:28,850 --> 00:17:37,670
+So if we copy all of this CSS and put it into our CSS here between the style tags, then we look at
+
+668
+00:17:37,670 --> 00:17:43,040
+our website, we can see those squares styled the way we want.
+
+669
+00:17:43,220 --> 00:17:51,530
+Now what we're going to have to do is to remove the SVG in the examples and replace it with our own
+
+670
+00:17:51,590 --> 00:17:53,680
+svgs that we've downloaded.
+
+671
+00:17:53,690 --> 00:17:57,560
+So let's go ahead and find the first one which is here.
+
+672
+00:17:57,830 --> 00:18:04,820
+Let's go ahead and delete this and simply add an image with the source set as the first one, which
+
+673
+00:18:04,820 --> 00:18:09,850
+is the briefcase, because we're saying how professional we are.
+
+674
+00:18:09,860 --> 00:18:20,630
+So let's change the alt text and the second SVG will replace with the image that is the bus front.
+
+675
+00:18:20,630 --> 00:18:25,340
+And this is because we're saying that our services are available countrywide.
+
+676
+00:18:25,580 --> 00:18:33,710
+And then for the final feature icon, we're going to change it to the chat square.
+
+677
+00:18:33,740 --> 00:18:41,840
+Hard to say how much of a personal touch our company has, and now we should have all of the icons set
+
+678
+00:18:41,840 --> 00:18:44,840
+up, but they're a little bit small.
+
+679
+00:18:44,990 --> 00:18:51,950
+So in order to get it to the right size, we'll do the same thing that we did with the icon up there.
+
+680
+00:18:51,950 --> 00:18:54,230
+We'll give it a different height.
+
+681
+00:18:54,350 --> 00:19:05,150
+So let's go ahead and add a height of 30 to each of these svgs and now they are all correctly sized.
+
+682
+00:19:05,150 --> 00:19:10,400
+And while you've been doing the copy and pasting, you might notice there's another SVG here, which
+
+683
+00:19:10,400 --> 00:19:11,960
+is the Chevron, right?
+
+684
+00:19:11,960 --> 00:19:15,170
+Which is this little forward button here.
+
+685
+00:19:15,170 --> 00:19:21,830
+We can also replace that with our images, which is the Chevron, right?
+
+686
+00:19:21,830 --> 00:19:29,900
+And we'll give it an alt text and copy and paste this to all three places where they exist.
+
+687
+00:19:31,760 --> 00:19:40,970
+Now, the reason why the svgs that we copied from the features section doesn't work on our website is
+
+688
+00:19:40,970 --> 00:19:44,450
+because svgs can be installed in many different ways.
+
+689
+00:19:44,450 --> 00:19:52,640
+We can download it just as I have done and put them into the project folder and you can access it through
+
+690
+00:19:52,640 --> 00:19:55,430
+the SVG element or through an image element.
+
+691
+00:19:55,760 --> 00:20:01,460
+Alternatively, you can simply copy the entire HTML code for a clean look.
+
+692
+00:20:01,460 --> 00:20:07,520
+I've simply downloaded each of the Svgs into our resources folder and added them as images.
+
+693
+00:20:07,520 --> 00:20:10,610
+It really is up to you how you want to do it.
+
+694
+00:20:10,910 --> 00:20:16,880
+Now that you've seen a little bit about how we can use the different code snippets from the bootstrap
+
+695
+00:20:16,880 --> 00:20:21,830
+components or from bootstrap examples, I've got a exercise for you.
+
+696
+00:20:21,950 --> 00:20:29,420
+We know that the next section after features is our carousel and it's simply a component that allows
+
+697
+00:20:29,420 --> 00:20:31,670
+you to scroll through different pages.
+
+698
+00:20:31,680 --> 00:20:37,980
+Now the one that I've chosen here has an indicator at the bottom, so you can easily switch to whichever
+
+699
+00:20:37,980 --> 00:20:38,850
+page you want.
+
+700
+00:20:38,880 --> 00:20:45,330
+It's got the side buttons here so you can go left and right and all it has are just three large images,
+
+701
+00:20:45,330 --> 00:20:49,440
+but be aware that the images don't go all the way to the edge.
+
+702
+00:20:49,440 --> 00:20:53,490
+Instead, they are aligned with the rest of the content.
+
+703
+00:20:53,490 --> 00:20:55,620
+So have a think about what you've learnt before.
+
+704
+00:20:55,650 --> 00:20:59,310
+Have a read of the carousel documentation.
+
+705
+00:20:59,310 --> 00:21:06,560
+Find the example that you think looks the most like the outcome and see if you can complete this challenge.
+
+706
+00:21:06,570 --> 00:21:07,740
+Pause the video now.
+
+707
+00:21:08,960 --> 00:21:09,440
+All right.
+
+708
+00:21:09,440 --> 00:21:15,440
+If you completed this challenge successfully, we've now got another section here, which is a bootstrap
+
+709
+00:21:15,440 --> 00:21:21,140
+carousel, which is really neat when you want to display some gallery images or maybe you have some
+
+710
+00:21:21,140 --> 00:21:26,060
+testimonials you want users to be able to flip through and maybe you want to show all the members of
+
+711
+00:21:26,060 --> 00:21:26,990
+your team.
+
+712
+00:21:26,990 --> 00:21:33,530
+And if you look inside the carousel example here, you can see there's an example with different text,
+
+713
+00:21:33,530 --> 00:21:37,070
+but the example that I use is actually even simpler than that.
+
+714
+00:21:37,070 --> 00:21:39,770
+It's in the docs inside the components.
+
+715
+00:21:39,770 --> 00:21:45,470
+So going back to the components now, we can take a look at how the carousel works if you want to have
+
+716
+00:21:45,470 --> 00:21:46,070
+a read.
+
+717
+00:21:46,070 --> 00:21:53,540
+But I've chosen one of the basic examples which has an indicator where you can toggle to different pages
+
+718
+00:21:53,540 --> 00:21:57,650
+and we simply have a big image covering the entire carousel.
+
+719
+00:21:57,650 --> 00:22:03,050
+Let's copy this code and paste it into our website.
+
+720
+00:22:03,410 --> 00:22:06,860
+Now when you paste it, you won't see anything happen at all.
+
+721
+00:22:06,860 --> 00:22:12,930
+And the reason is because there's no images, the images are broken and that's because the images have
+
+722
+00:22:12,930 --> 00:22:15,180
+no source set by default.
+
+723
+00:22:15,180 --> 00:22:18,420
+So let's go ahead and set our carousel image source.
+
+724
+00:22:18,420 --> 00:22:24,030
+So the first one we're going to set to the couple and.
+
+725
+00:22:25,950 --> 00:22:30,630
+The second one we're going to set as the dog.
+
+726
+00:22:32,820 --> 00:22:39,750
+This is almost like an evolution of a family going from a couple to a dog to a family.
+
+727
+00:22:39,750 --> 00:22:43,920
+And finally, we have all of our photos set up.
+
+728
+00:22:43,920 --> 00:22:50,760
+And now if we take a look, you can see our carousel is showing and it's working, but it's maybe a
+
+729
+00:22:50,760 --> 00:22:52,850
+little bit too big.
+
+730
+00:22:52,860 --> 00:22:56,670
+It's kind of taking up more than the height of the website.
+
+731
+00:22:56,670 --> 00:22:59,880
+And that's because this is set to cover the entire width.
+
+732
+00:23:00,030 --> 00:23:08,190
+If you remember from previous lessons, one of the best components to size everything evenly is from
+
+733
+00:23:08,190 --> 00:23:12,210
+the layout section, and it is our container.
+
+734
+00:23:12,210 --> 00:23:17,460
+We know that we're going to get a uniform look if we put things inside a container div.
+
+735
+00:23:17,490 --> 00:23:19,590
+So that's exactly what we're going to do.
+
+736
+00:23:19,590 --> 00:23:29,370
+I'm going to create a div and I'm going to set it to class of container and I'm going to move the final
+
+737
+00:23:29,370 --> 00:23:33,250
+closing div just below the carousel.
+
+738
+00:23:33,520 --> 00:23:41,140
+And now when we go back you can see our carousel is nicely enclosed inside the container and you can
+
+739
+00:23:41,140 --> 00:23:49,120
+see that no matter which size I change to, we've always got a consistent look with that container responsiveness.
+
+740
+00:23:49,630 --> 00:23:55,060
+We're now ready for the final section of our website, which is just the footer.
+
+741
+00:23:55,060 --> 00:23:58,930
+And I haven't done a lot of work on the footer.
+
+742
+00:23:58,930 --> 00:24:06,370
+I've simply gone into the snippets, found the footer section, picked one that I liked and then hit
+
+743
+00:24:06,370 --> 00:24:14,620
+inspect to find the starting point of the footer and pasted that code into the correct position.
+
+744
+00:24:14,890 --> 00:24:19,600
+I'm not going to modify this too much because you already know how you can do that, but just look at
+
+745
+00:24:19,600 --> 00:24:27,580
+how easy it was to create this beautiful website in a matter of minutes using bootstrap components.
+
+746
+00:24:28,000 --> 00:24:33,910
+The components are really, really handy, as are the snippets and the example code because they allow
+
+747
+00:24:33,910 --> 00:24:40,030
+you to pick a style out of their palette that you like and simply add it into your website.
+
+748
+00:24:40,030 --> 00:24:46,570
+And this makes it super easy to build well-thought out designs very, very quickly.
+
+749
+00:24:46,870 --> 00:24:53,110
+In addition to the layout classes, that Bootstrap gives you the component classes, there are also
+
+750
+00:24:53,110 --> 00:24:54,970
+utility classes and helpers.
+
+751
+00:24:54,970 --> 00:24:59,470
+And one really important aspect of this is spacing.
+
+752
+00:24:59,590 --> 00:25:04,180
+Very often when we're designing websites, we want to add margin, we want to add padding.
+
+753
+00:25:04,180 --> 00:25:06,220
+And this is all spacing, right?
+
+754
+00:25:06,370 --> 00:25:14,770
+As you might remember from previous lessons, padding sets up the part between the item and the containing
+
+755
+00:25:14,770 --> 00:25:15,160
+div.
+
+756
+00:25:15,160 --> 00:25:25,660
+So this part and the margin sets up the spacing between the outline of your item and any other components.
+
+757
+00:25:25,810 --> 00:25:30,610
+So you can set all of those values using very simple bootstrap notation.
+
+758
+00:25:30,610 --> 00:25:32,590
+So let's run through this quickly.
+
+759
+00:25:32,590 --> 00:25:40,120
+It's a format where you have the property, which sides you want, a dash and then the size.
+
+760
+00:25:40,120 --> 00:25:42,580
+And this is really easy to figure out.
+
+761
+00:25:42,580 --> 00:25:50,110
+So for example, if I wanted to set margin only to the top of my element, then I can say m T So.
+
+762
+00:25:50,140 --> 00:25:52,150
+M For classes that set margin.
+
+763
+00:25:52,180 --> 00:25:59,040
+T that sets margin top or padding top and then using a dash, I can say how much margin I want.
+
+764
+00:25:59,050 --> 00:26:05,560
+So zero is eliminating the margin and then we can add a little bit more, a little bit more, a little
+
+765
+00:26:05,560 --> 00:26:06,070
+bit more.
+
+766
+00:26:06,070 --> 00:26:11,080
+So if I had margin top five, that's usually the maximum that you'll need.
+
+767
+00:26:11,230 --> 00:26:15,580
+And then there's this concept of X and Y.
+
+768
+00:26:15,610 --> 00:26:22,540
+So if you want to set the margin for both the top and the bottom, you'll use the x axis.
+
+769
+00:26:22,540 --> 00:26:28,900
+And if you want to set the margin or padding for the left and the right, then you can use that y axis.
+
+770
+00:26:28,900 --> 00:26:32,740
+So maybe you'll have MY-3.
+
+771
+00:26:32,890 --> 00:26:40,090
+It looks like my three, but it actually says set the margin for the y axis to a size of three.
+
+772
+00:26:40,090 --> 00:26:45,940
+It's relatively easy once you understand it, but when you just see it in the code, it can be really,
+
+773
+00:26:45,940 --> 00:26:46,870
+really confusing.
+
+774
+00:26:46,870 --> 00:26:55,600
+But now you should be able to see that in our footer we've got MB-2 and that of course stands for adding
+
+775
+00:26:55,600 --> 00:26:59,620
+margin to the bottom.
+
+776
+00:27:00,670 --> 00:27:03,790
+And it's a size of two.
+
+777
+00:27:04,090 --> 00:27:06,220
+That's how we can decode all this.
+
+778
+00:27:07,210 --> 00:27:14,560
+Now, the final neat trick I want to show you in this lesson is how you can add dark mode to your website,
+
+779
+00:27:14,590 --> 00:27:21,970
+flipping the colors around by simply adding one property into your HTML tag.
+
+780
+00:27:22,120 --> 00:27:28,150
+If you go into the customize section, go into color modes, you'll see that Bootstrap now supports
+
+781
+00:27:28,150 --> 00:27:31,210
+dark mode and it can flip the entire.
+
+782
+00:27:31,230 --> 00:27:38,610
+Project's theme to the opposite color simply by setting the data bootstrap theme to dark.
+
+783
+00:27:38,910 --> 00:27:41,520
+Let's try that out on our website.
+
+784
+00:27:41,820 --> 00:27:46,440
+Let's go all the way up to our HTML after the language is set.
+
+785
+00:27:46,470 --> 00:27:53,880
+Let's change the theme to Dark and you can see our entire website has now been reformatted to a dark
+
+786
+00:27:53,880 --> 00:27:56,100
+theme, which is super neat.
+
+787
+00:27:56,100 --> 00:28:01,560
+If this is the design that you want or if later on when we learn about JavaScript and we can put in
+
+788
+00:28:01,560 --> 00:28:08,670
+buttons to change the theme of our website to whichever the user prefers so that the user can change
+
+789
+00:28:08,670 --> 00:28:11,190
+that theme to whichever they prefer.
+
+790
+00:28:11,670 --> 00:28:18,660
+So now you're starting to see how powerful bootstrap can be using these examples, using snippets,
+
+791
+00:28:18,660 --> 00:28:23,730
+using the pre-built components and styling as well as the layout system.
+
+792
+00:28:23,910 --> 00:28:29,280
+But if you've tried to build websites before, you've probably come across full page themes completely
+
+793
+00:28:29,280 --> 00:28:30,410
+built out for you.
+
+794
+00:28:30,420 --> 00:28:33,120
+For example, with Squarespace.
+
+795
+00:28:33,150 --> 00:28:39,000
+The catch, though, is you're going to have to pay something like £12 a month or $10 a month in order
+
+796
+00:28:39,000 --> 00:28:45,390
+to just be able to use these templates of theirs and to have your website on the Internet.
+
+797
+00:28:45,510 --> 00:28:51,390
+What I want to show you is that with Bootstrap there are a whole bunch of free themes and paid for themes
+
+798
+00:28:51,390 --> 00:28:57,210
+that you can use that are one off costs for you to build beautiful websites and simply customize the
+
+799
+00:28:57,210 --> 00:28:57,790
+themes.
+
+800
+00:28:57,810 --> 00:29:04,860
+Now that you know all about bootstrap, one handy template is from W3 schools and they have some of
+
+801
+00:29:04,860 --> 00:29:07,890
+the most common website layouts like a blog.
+
+802
+00:29:07,890 --> 00:29:13,620
+You might have a sidebar main, a footer or what a portfolio might look like or what a web page might
+
+803
+00:29:13,620 --> 00:29:14,160
+look like.
+
+804
+00:29:14,190 --> 00:29:15,090
+A social website.
+
+805
+00:29:15,090 --> 00:29:15,570
+ET cetera.
+
+806
+00:29:15,570 --> 00:29:16,200
+ET cetera.
+
+807
+00:29:16,200 --> 00:29:23,400
+And they've built these simple examples for you to be able to simply take the code and customize in
+
+808
+00:29:23,400 --> 00:29:25,500
+order for you to use their examples.
+
+809
+00:29:25,500 --> 00:29:31,530
+You can simply do, as we have done, find a template that you want to replicate and then customize
+
+810
+00:29:31,530 --> 00:29:36,390
+it and maybe add some more custom CSS in order to achieve the look that you want.
+
+811
+00:29:36,510 --> 00:29:43,170
+If you think that these are a little bit basic because they are, the idea is they're mostly for layout,
+
+812
+00:29:43,170 --> 00:29:47,940
+getting the big structure done using the bootstrap layout system.
+
+813
+00:29:48,090 --> 00:29:54,330
+There are a lot of other beautiful bootstrap themes that are more complete in a way, starting with
+
+814
+00:29:54,330 --> 00:29:56,590
+the official bootstrap themes itself.
+
+815
+00:29:56,610 --> 00:30:00,000
+If we head back to the main bootstrap website, click on themes.
+
+816
+00:30:00,000 --> 00:30:06,360
+You can see that they've got these professionally designed websites and many of them look absolutely
+
+817
+00:30:06,360 --> 00:30:07,500
+incredible.
+
+818
+00:30:07,500 --> 00:30:13,890
+So depending on what it is that you're trying to build, you could use one of these templates.
+
+819
+00:30:13,890 --> 00:30:20,400
+But the only downside to this is they are in fact all paid for because there's a lot of work that's
+
+820
+00:30:20,400 --> 00:30:21,600
+gone into it, right?
+
+821
+00:30:21,750 --> 00:30:23,760
+But these are mostly one off costs.
+
+822
+00:30:23,760 --> 00:30:30,450
+And if you don't want to pay to get a theme, you can always search through Google for free bootstrap
+
+823
+00:30:30,480 --> 00:30:36,540
+templates and you'll find a whole range of websites that have free and paid for bootstrap websites.
+
+824
+00:30:36,540 --> 00:30:40,590
+And again, you can do the same thing as we've been doing so far in this lesson.
+
+825
+00:30:40,590 --> 00:30:46,200
+Just getting hold of the components you want, customizing it and getting the design that you're looking
+
+826
+00:30:46,200 --> 00:30:46,710
+for.
+
+827
+00:30:47,520 --> 00:30:53,850
+So hopefully in this lesson you've seen that bootstrap can be incredibly easy to create components and
+
+828
+00:30:53,850 --> 00:31:00,210
+features in our websites very, very quickly, and it has consistent and beautiful design to boot.
+
+829
+00:31:00,850 --> 00:31:06,360
+And if you've really taken to bootstrap and web design, you can even create and sell your own themes.
+
+830
+00:31:06,370 --> 00:31:12,430
+If you really enjoy working with bootstrap and designing websites and creating websites using the bootstrap
+
+831
+00:31:12,430 --> 00:31:19,540
+components, you can create the templates yourself and put them onto marketplaces and sell them as a
+
+832
+00:31:19,540 --> 00:31:21,040
+potential source of income.
+
+833
+00:31:21,040 --> 00:31:25,600
+So have a play around with the other components, see what bootstrap themes are out there.
+
+834
+00:31:25,600 --> 00:31:31,540
+And in the next lesson, we've got the final project for this section where you're going to be building
+
+835
+00:31:31,570 --> 00:31:36,520
+a fully fledged startup website or by yourself using your knowledge of bootstrap.
+
+836
+00:31:36,520 --> 00:31:39,100
+So for all of that and more, I'll see you there.
+
+
+837
+00:00:00,230 --> 00:00:00,560
+All right.
+
+838
+00:00:00,560 --> 00:00:06,740
+So now that you've learned all about bootstrap, it's time to apply what we've learned and build a project.
+
+839
+00:00:06,770 --> 00:00:12,620
+I want you to imagine that a startup has approached you to build their landing page.
+
+840
+00:00:12,620 --> 00:00:20,480
+So the company is called Tin Dog, and they make basically tinder for dogs, helping dogs meet new and
+
+841
+00:00:20,480 --> 00:00:22,460
+interesting dogs nearby.
+
+842
+00:00:22,640 --> 00:00:26,720
+Obviously this is a fake startup that I've created.
+
+843
+00:00:26,750 --> 00:00:30,520
+Now, if you want to go ahead and steal this idea, then I fully support you.
+
+844
+00:00:30,530 --> 00:00:32,770
+But essentially the idea is very simple.
+
+845
+00:00:32,780 --> 00:00:37,100
+You have a dog, you want your dog to have friends, so let's use tin dog.
+
+846
+00:00:37,130 --> 00:00:42,770
+Now our website is pretty fully fledged and if you want to look at what the finished product looks like,
+
+847
+00:00:42,770 --> 00:00:46,700
+head over to App Github.io forward slash tin dog.
+
+848
+00:00:46,820 --> 00:00:48,480
+And this is what you'll see.
+
+849
+00:00:48,500 --> 00:00:56,600
+It's a really simple startup website with a animated gradient background with buttons to download the
+
+850
+00:00:56,600 --> 00:01:03,230
+app as well as features testimonials, pricing and a footer.
+
+851
+00:01:03,530 --> 00:01:09,710
+We're going to be creating this beautiful website, and the way we're going to do it is through the
+
+852
+00:01:09,710 --> 00:01:17,510
+use of the different snippets that are provided by bootstrap as well as the different components and
+
+853
+00:01:17,510 --> 00:01:25,160
+using bootstrap layout to get it responsive and looking beautiful on desktop and mobile straight out
+
+854
+00:01:25,160 --> 00:01:26,150
+of the box.
+
+855
+00:01:26,540 --> 00:01:34,070
+To get started first download the Tin Dog project, unzip the file and open it inside vs code.
+
+856
+00:01:34,490 --> 00:01:43,430
+Now here I want you to open up the index.html and you can see I've provided some comments and some section
+
+857
+00:01:43,700 --> 00:01:44,810
+HTML elements.
+
+858
+00:01:44,840 --> 00:01:53,300
+These section elements are mostly used to separate different sections of a website, so it's just a
+
+859
+00:01:53,300 --> 00:01:55,790
+group or area of the website.
+
+860
+00:01:55,790 --> 00:01:59,660
+And in modern websites you'll see very often these sections.
+
+861
+00:01:59,760 --> 00:02:06,750
+So this one is a section, this is a section, this is a section and it keeps the code nice and organized
+
+862
+00:02:06,750 --> 00:02:11,790
+and you're going to be writing your code in between these section elements in order to create each of
+
+863
+00:02:11,790 --> 00:02:13,000
+these areas.
+
+864
+00:02:13,020 --> 00:02:15,150
+Now, what are you aiming for?
+
+865
+00:02:15,150 --> 00:02:22,530
+Well, you can always refer to the live website at GitHub.com Forward slash Tin Dog to see what everything
+
+866
+00:02:22,530 --> 00:02:23,850
+should look like.
+
+867
+00:02:23,850 --> 00:02:31,170
+But I've also provided goal images for each individual section that's marked up to point you to certain
+
+868
+00:02:31,170 --> 00:02:33,030
+areas that need more attention.
+
+869
+00:02:33,030 --> 00:02:36,900
+For example, what's the name of the image that's going to be displayed here?
+
+870
+00:02:36,900 --> 00:02:43,200
+Well, it's iPhone dot PNG and you can find it inside the images folder, but also things like this
+
+871
+00:02:43,200 --> 00:02:48,900
+little Apple icon is actually an SVG and you can find those inside the README.
+
+872
+00:02:48,930 --> 00:02:55,890
+So I've included all the SVG code in here and I want you to be copy and pasting these svgs because some
+
+873
+00:02:55,890 --> 00:03:01,440
+of them have different heights, they have different sizes and instead of getting it from the bootstrap
+
+874
+00:03:01,440 --> 00:03:05,220
+website, which this is from, I want you to use this version.
+
+875
+00:03:05,220 --> 00:03:08,070
+So just copy and paste it into your code.
+
+876
+00:03:08,190 --> 00:03:15,840
+Also, if you scroll down, there's the text copy that you'll need on your website and so you can either
+
+877
+00:03:15,840 --> 00:03:22,680
+copy it straight from the final finished website or you can use the text from the README and just copy
+
+878
+00:03:22,710 --> 00:03:23,580
+it from here.
+
+879
+00:03:23,820 --> 00:03:27,540
+If you're working as a web developer, this is a very common workflow.
+
+880
+00:03:27,570 --> 00:03:33,120
+You'll want your client to create the text copy because they know the most about what they want on their
+
+881
+00:03:33,120 --> 00:03:38,730
+website, and all you have to do is just place it and style it in the right ways.
+
+882
+00:03:39,000 --> 00:03:45,180
+Now, the final thing I want to mention is if you look inside the style.css, this is going to be your
+
+883
+00:03:45,180 --> 00:03:47,820
+CSS style sheet for the website.
+
+884
+00:03:47,820 --> 00:03:49,770
+You can see that already in there.
+
+885
+00:03:49,770 --> 00:03:57,900
+I've got a class called Gradient Background, and this code comes from a codepen by Manuel Pinto where
+
+886
+00:03:57,900 --> 00:04:05,550
+he created a pure CSS gradient background PSD, and we're simply just using this code but defining some
+
+887
+00:04:05,550 --> 00:04:07,530
+unique colors of our own.
+
+888
+00:04:07,530 --> 00:04:14,730
+And you can see in here we are having our animated gradient hovers between these three colors, a blue,
+
+889
+00:04:14,760 --> 00:04:16,829
+a red and a sort of peachy color.
+
+890
+00:04:17,160 --> 00:04:21,570
+And that's how we're going to get this gradient background similar to other things you've been doing
+
+891
+00:04:21,570 --> 00:04:22,470
+with Bootstrap.
+
+892
+00:04:22,470 --> 00:04:28,590
+In order to get this gradient to show, all you have to do is to add this class to your HTML element
+
+893
+00:04:28,590 --> 00:04:33,300
+and then it will automatically animate with this beautiful color scheme.
+
+894
+00:04:33,600 --> 00:04:40,140
+This project is going to require a little bit of exploration, a little bit of looking around the bootstrap
+
+895
+00:04:40,140 --> 00:04:47,760
+example, seeing which ones might work and comparing them, for example, which of the heroes might
+
+896
+00:04:47,760 --> 00:04:54,840
+be the one that we could use, or which of the features might match the one that we've got here and
+
+897
+00:04:54,840 --> 00:04:59,270
+customizing it and checking its CSS and.
+
+898
+00:04:59,280 --> 00:05:03,990
+Making sure that things look pretty much the same as the final outcome.
+
+899
+00:05:04,350 --> 00:05:09,030
+Now it's time for you to pause the video and give this challenge a good go.
+
+900
+00:05:09,060 --> 00:05:12,000
+You might have to spend half an hour, an hour on it.
+
+901
+00:05:12,000 --> 00:05:14,610
+Just give yourself lots of time to make mistakes.
+
+902
+00:05:14,610 --> 00:05:15,600
+Try things out.
+
+903
+00:05:15,600 --> 00:05:17,030
+Don't be too harsh on yourself.
+
+904
+00:05:17,040 --> 00:05:19,830
+This is a big project, but I believe in you.
+
+905
+00:05:19,830 --> 00:05:21,000
+I think you can do it.
+
+906
+00:05:21,030 --> 00:05:23,280
+Pause the video now and see how you get on.
+
+907
+00:05:28,770 --> 00:05:29,130
+All right.
+
+908
+00:05:29,130 --> 00:05:34,880
+Hopefully you've completed this challenge and you're just here to see how I'm doing it.
+
+909
+00:05:34,890 --> 00:05:41,460
+If you haven't given this a go, I really recommend you to stop, pause the video and actually try it
+
+910
+00:05:41,460 --> 00:05:47,190
+first because you can listen to me all day long, but you're not going to learn until you actually take
+
+911
+00:05:47,190 --> 00:05:49,560
+the first step and write the code yourself.
+
+912
+00:05:49,560 --> 00:05:55,020
+I know it can be really, really tempting, but I promise you this is the only way you're going to be
+
+913
+00:05:55,020 --> 00:06:00,480
+able to move on to harder things in the future by struggling through each and every single step.
+
+914
+00:06:00,480 --> 00:06:06,660
+Because once we start moving on, I'm going to assume that all of these things are in your tool belt.
+
+915
+00:06:06,660 --> 00:06:09,600
+So make sure you practice, practice, practice.
+
+916
+00:06:09,600 --> 00:06:11,790
+And this is a perfect opportunity.
+
+917
+00:06:12,060 --> 00:06:12,420
+All right.
+
+918
+00:06:12,420 --> 00:06:13,230
+Pep talk over.
+
+919
+00:06:13,230 --> 00:06:16,200
+Let's go ahead and build out this website.
+
+920
+00:06:16,320 --> 00:06:19,590
+Now, the first thing I'm going to do is build out this title section.
+
+921
+00:06:19,590 --> 00:06:25,260
+So if we take a look at the title goal, we can see it's pretty much what we call a hero section.
+
+922
+00:06:25,260 --> 00:06:32,500
+If we take a look inside the the bootstrap examples and we look inside the hero's area, you can see
+
+923
+00:06:32,500 --> 00:06:35,200
+it looks incredibly similar to the layout here.
+
+924
+00:06:35,200 --> 00:06:40,780
+It's got some big text, some buttons and an image to the right, which is pretty much what we have.
+
+925
+00:06:40,780 --> 00:06:48,760
+So let's go ahead and right click, inspect and scroll up to the top level that contains everything
+
+926
+00:06:48,760 --> 00:06:53,320
+just after the divider and let's copy the entire element.
+
+927
+00:06:53,560 --> 00:07:01,720
+I'm going to paste that element into this section area and let's hit save and see what it looks like.
+
+928
+00:07:01,720 --> 00:07:08,350
+So I'm going to show preview just to get this URL and I'm going to open it inside Chrome so I can see
+
+929
+00:07:08,350 --> 00:07:09,790
+it in full screen.
+
+930
+00:07:09,790 --> 00:07:13,030
+Now you can see this doesn't look like bootstrap at all.
+
+931
+00:07:13,060 --> 00:07:15,490
+The text is not the right font.
+
+932
+00:07:15,670 --> 00:07:16,780
+The buttons are not styled.
+
+933
+00:07:16,780 --> 00:07:18,580
+This is just pure HTML.
+
+934
+00:07:18,580 --> 00:07:22,450
+This should give you a big hint as to what is wrong.
+
+935
+00:07:22,450 --> 00:07:27,670
+And that is because we have not yet added a link to the bootstrap CSS.
+
+936
+00:07:27,820 --> 00:07:29,920
+So let's go ahead and do that now.
+
+937
+00:07:29,920 --> 00:07:37,750
+So if we go back to the main bootstrap docs and go to the home page, we should be able to grab hold
+
+938
+00:07:37,750 --> 00:07:42,310
+of the link and we can paste it into our project.
+
+939
+00:07:42,310 --> 00:07:46,090
+So now let's hit, save and go back to our tin dog.
+
+940
+00:07:46,090 --> 00:07:52,630
+We should see that we have what is closer to the example that we saw right here.
+
+941
+00:07:53,200 --> 00:07:55,720
+There's a couple of things that we will need to fix.
+
+942
+00:07:55,720 --> 00:08:00,430
+First, let's go ahead and get rid of this broken image and put in the image that we want.
+
+943
+00:08:00,730 --> 00:08:02,920
+Here is the image.
+
+944
+00:08:02,920 --> 00:08:09,670
+So let's go ahead and change the source to our image, which is inside the images folder.
+
+945
+00:08:09,670 --> 00:08:11,530
+And it's called iPhone dot PNG.
+
+946
+00:08:12,040 --> 00:08:15,430
+And let's change the alt to app demo.
+
+947
+00:08:15,430 --> 00:08:20,680
+Let's hit, save and go back and we can see this is absolutely massive.
+
+948
+00:08:20,680 --> 00:08:23,470
+So now we're going to have to adjust the size.
+
+949
+00:08:23,470 --> 00:08:27,760
+So here it's set to width, 700 height, 500.
+
+950
+00:08:27,760 --> 00:08:29,620
+I'm going to keep the aspect ratio.
+
+951
+00:08:29,620 --> 00:08:35,740
+So I'm going to delete just the width and hopefully it will adjust proportionally and I'm going to change
+
+952
+00:08:35,740 --> 00:08:37,870
+the height to 200 pixels.
+
+953
+00:08:37,870 --> 00:08:40,750
+And this looks more or less the right size.
+
+954
+00:08:40,780 --> 00:08:43,480
+Now yours might be a little bit bigger, a little bit smaller.
+
+955
+00:08:43,480 --> 00:08:46,810
+It doesn't really matter as long as it looks good to your eye.
+
+956
+00:08:46,990 --> 00:08:53,080
+Now the next thing we're going to do is let's change all of this text so that it reads the same as the
+
+957
+00:08:53,080 --> 00:08:54,220
+final copy.
+
+958
+00:08:54,220 --> 00:09:01,210
+And to do that, I'm going to find the text inside my readme me, go ahead and copy and paste it into
+
+959
+00:09:01,210 --> 00:09:02,530
+the right areas.
+
+960
+00:09:02,530 --> 00:09:09,160
+So we've got an H1 and that's where we're going to replace with our big heading meet new and interesting
+
+961
+00:09:09,160 --> 00:09:10,360
+dogs nearby.
+
+962
+00:09:10,360 --> 00:09:16,510
+And then I'm going to delete this paragraph element because we don't actually have it in our final design.
+
+963
+00:09:16,510 --> 00:09:20,170
+And I'm going to change the two buttons to both say download.
+
+964
+00:09:20,470 --> 00:09:28,780
+In addition to the download, there's obviously two svgs as well, and these are the icons from Bootstrap.
+
+965
+00:09:28,780 --> 00:09:34,840
+But remember I mentioned that you can get hold of these svgs in the README file, so I'm going to wholesale
+
+966
+00:09:34,840 --> 00:09:39,880
+just copy this apple SVG and paste it into here.
+
+967
+00:09:39,880 --> 00:09:48,610
+Add a space between the SVG and download and now hopefully we have a good looking apple symbol in the
+
+968
+00:09:48,640 --> 00:09:53,650
+download button and I'm going to do the same with the Google Play logo.
+
+969
+00:09:56,050 --> 00:09:57,520
+Hit save and that's it.
+
+970
+00:09:57,520 --> 00:09:58,310
+There it is.
+
+971
+00:09:58,330 --> 00:10:00,730
+We're going to change the color scheme here a little bit.
+
+972
+00:10:00,760 --> 00:10:06,550
+We've got a button light and we've got a button outline light so that it would look the same as the
+
+973
+00:10:06,550 --> 00:10:07,760
+final design.
+
+974
+00:10:07,780 --> 00:10:16,060
+Now, right now, this button is a button primary, so we're going to have to change that to light.
+
+975
+00:10:16,060 --> 00:10:19,660
+And this one, is it a button outline secondary.
+
+976
+00:10:19,690 --> 00:10:23,110
+We're going to change that to button outline light.
+
+977
+00:10:23,290 --> 00:10:26,260
+Let's hit, save and see what we have.
+
+978
+00:10:26,290 --> 00:10:32,650
+Now you'll notice that this button is almost completely disappeared if not for this rollover effect.
+
+979
+00:10:32,650 --> 00:10:36,400
+And the reason is because it's more or less a white outline.
+
+980
+00:10:36,520 --> 00:10:39,400
+In order for this to show we need a background.
+
+981
+00:10:39,400 --> 00:10:44,380
+So let's go ahead and set it up with this gradient background.
+
+982
+00:10:44,470 --> 00:10:51,040
+Remember I mentioned that if you look inside the Style.css file, there is already a class called gradient
+
+983
+00:10:51,040 --> 00:10:56,540
+background, which we can add into our HTML for it to show up.
+
+984
+00:10:56,540 --> 00:11:00,350
+Now where do we add it before we can add it?
+
+985
+00:11:00,380 --> 00:11:07,400
+We need to import our CSS and as always, we put our custom CSS after the bootstrap.
+
+986
+00:11:07,400 --> 00:11:13,940
+So in case there are any collisions in terms of targeting the same selectors, the final one wins out,
+
+987
+00:11:13,940 --> 00:11:17,180
+which hopefully is our CSS.
+
+988
+00:11:17,420 --> 00:11:23,960
+So I'm going to link to the style CSS and then I'm going to put that class gradient background into
+
+989
+00:11:23,960 --> 00:11:25,820
+my title section.
+
+990
+00:11:25,820 --> 00:11:27,560
+So where do I put it now?
+
+991
+00:11:27,560 --> 00:11:33,350
+If I put it inside the container, you'll see that it's only inside the container and the container's
+
+992
+00:11:33,350 --> 00:11:35,270
+got these big margins on the left and right.
+
+993
+00:11:35,270 --> 00:11:37,850
+So this is not the look that we want.
+
+994
+00:11:37,880 --> 00:11:42,710
+Instead, we're going to put this inside the section.
+
+995
+00:11:42,860 --> 00:11:47,660
+We can't put it into the ID because it's not an ID, it's actually a class.
+
+996
+00:11:47,660 --> 00:11:51,980
+So make sure you've got it set inside the class property.
+
+997
+00:11:52,040 --> 00:11:53,420
+Now let's take a look.
+
+998
+00:11:53,420 --> 00:11:55,520
+And this looks pretty good.
+
+999
+00:11:55,580 --> 00:12:01,820
+Now, the only difference between what we have and what we're aiming for is a lot of padding.
+
+1000
+00:12:02,030 --> 00:12:08,600
+Now, the reason I can tell this padding and not margin is because padding extends the background.
+
+1001
+00:12:08,600 --> 00:12:12,560
+So if this was an extra margin, then this area would be white.
+
+1002
+00:12:12,560 --> 00:12:16,570
+But instead it's actually the same as the background color.
+
+1003
+00:12:16,580 --> 00:12:19,070
+So where does this margin come from?
+
+1004
+00:12:19,070 --> 00:12:26,300
+Let's go ahead and hit, inspect and make this just a little bit smaller so we can see this padding.
+
+1005
+00:12:26,300 --> 00:12:33,080
+And if we scroll up until we see the padding show up, you can see that orange down there when I hover
+
+1006
+00:12:33,080 --> 00:12:33,740
+over it.
+
+1007
+00:12:33,770 --> 00:12:36,490
+Well, that is what we need to get rid of.
+
+1008
+00:12:36,500 --> 00:12:39,800
+So you can see we've got padding top and padding bottom.
+
+1009
+00:12:39,800 --> 00:12:45,530
+And if we get rid of the top and bottom, it will look a little bit too much.
+
+1010
+00:12:45,530 --> 00:12:51,530
+So if we just target the bottom, then we've got more or less the right layout.
+
+1011
+00:12:51,620 --> 00:12:56,720
+So let's go in here and find that P five for the container which is right here.
+
+1012
+00:12:56,720 --> 00:13:01,880
+And remember, the P stands for padding, the Y stands for the Y axis.
+
+1013
+00:13:01,880 --> 00:13:05,210
+So it means it's adding padding to the top and the bottom.
+
+1014
+00:13:05,210 --> 00:13:12,770
+So if we want to change this to only have it on the top, then we change this to padding top and then
+
+1015
+00:13:12,770 --> 00:13:16,760
+we've got another div that has the padding on top and bottom as well.
+
+1016
+00:13:16,760 --> 00:13:18,200
+So let's change it there.
+
+1017
+00:13:18,200 --> 00:13:23,690
+And then when we go back we should see that we have pretty much the same layout.
+
+1018
+00:13:23,780 --> 00:13:30,140
+And now if we compare our layout to the final outcome, it looks pretty much exactly the same.
+
+1019
+00:13:30,500 --> 00:13:35,120
+So we can now move on to our next section, which is the features section.
+
+1020
+00:13:35,780 --> 00:13:43,580
+If we open up our features goal, you can see that we've got three different areas with all of the features
+
+1021
+00:13:43,580 --> 00:13:48,200
+that we want to show off, and we've got this sort of rough layout.
+
+1022
+00:13:48,500 --> 00:13:55,160
+If we go back to the bootstrap examples and if we look inside the snippets at the features, you can
+
+1023
+00:13:55,160 --> 00:13:59,090
+see this is pretty much the same layout as what we're aiming for.
+
+1024
+00:13:59,090 --> 00:14:05,710
+So let's go ahead and inspect and find that row that we need to get hold of.
+
+1025
+00:14:05,720 --> 00:14:11,330
+Let's copy the element and put it inside our index.html.
+
+1026
+00:14:12,200 --> 00:14:16,640
+Now once we paste it in, let's hit, save and see it.
+
+1027
+00:14:16,670 --> 00:14:23,090
+You can see this is occupying pretty much the entire full width, which is not quite what we want.
+
+1028
+00:14:23,120 --> 00:14:28,220
+We actually want it all to be roughly along the same vertical line.
+
+1029
+00:14:28,220 --> 00:14:29,740
+So why is this?
+
+1030
+00:14:29,750 --> 00:14:35,240
+Well, it's because the top level here is a bootstrap row.
+
+1031
+00:14:35,270 --> 00:14:40,160
+If we want it to be contained, then we need to add a container.
+
+1032
+00:14:40,160 --> 00:14:47,930
+So let's add that container class and then let's move this closing tag to wrap it around all of this
+
+1033
+00:14:47,960 --> 00:14:48,950
+hit save.
+
+1034
+00:14:48,950 --> 00:14:53,000
+And now you can see we've got that perfect alignment.
+
+1035
+00:14:53,570 --> 00:14:55,520
+The next thing we need to do is.
+
+1036
+00:14:55,540 --> 00:15:00,820
+Is that we need to get rid of all of these buttons and that is pretty easy.
+
+1037
+00:15:00,820 --> 00:15:02,730
+They're just these anchor tags.
+
+1038
+00:15:02,740 --> 00:15:07,120
+So there's one there, there's one here and there's one up here.
+
+1039
+00:15:08,170 --> 00:15:11,470
+So now we're pretty much on the design we're looking for.
+
+1040
+00:15:11,500 --> 00:15:14,080
+All we need to do is replace the text.
+
+1041
+00:15:14,170 --> 00:15:19,600
+This is probably a little bit boring, so I'm going to use video editing to speed things up a bit for
+
+1042
+00:15:19,600 --> 00:15:20,050
+you.
+
+1043
+00:15:21,560 --> 00:15:21,950
+All right.
+
+1044
+00:15:21,950 --> 00:15:28,780
+So now that we've got all of our custom copy in, the final thing we need to fix are these svgs.
+
+1045
+00:15:28,790 --> 00:15:35,350
+So let's go ahead and replace the svgs that are in the example with the ones that we want.
+
+1046
+00:15:35,360 --> 00:15:40,580
+So the first one is going to be the check mark SVG Let's copy and paste it in.
+
+1047
+00:15:40,970 --> 00:15:44,720
+The second one is the graduation hat.
+
+1048
+00:15:47,260 --> 00:15:51,490
+And the final one is the heart with an arrow through it.
+
+1049
+00:15:52,420 --> 00:16:00,370
+So now that we've replaced all of our svgs, you can see them show up, but the background doesn't look
+
+1050
+00:16:00,370 --> 00:16:01,270
+quite the same.
+
+1051
+00:16:01,270 --> 00:16:05,020
+It should have these rounded corners, it should be a little bit larger.
+
+1052
+00:16:05,020 --> 00:16:08,980
+And we will look on the bootstrap example where we copied our code from.
+
+1053
+00:16:08,980 --> 00:16:10,570
+They look perfect.
+
+1054
+00:16:10,570 --> 00:16:14,920
+But why is it that when it's in our website it doesn't quite look the same?
+
+1055
+00:16:15,040 --> 00:16:20,470
+Now this might be something that you got stuck on, but in order to figure this out, the easiest way
+
+1056
+00:16:20,470 --> 00:16:22,090
+is to inspect on it.
+
+1057
+00:16:22,090 --> 00:16:29,770
+In Chrome, you can see right now I'm highlighting the SVG, but if I go one level above and hover on
+
+1058
+00:16:29,770 --> 00:16:34,270
+that div, that is the one with all of that fancy styling.
+
+1059
+00:16:34,360 --> 00:16:41,350
+And if we look inside the styles, you can see there's actually some custom CSS in here because it's
+
+1060
+00:16:41,350 --> 00:16:45,190
+not in the utilities which comes from bootstrap.
+
+1061
+00:16:45,220 --> 00:16:49,970
+This is actually custom CSS just for this feature section.
+
+1062
+00:16:49,970 --> 00:16:57,320
+So what we need to do is we need to copy all of the CSS and put it inside our style.css.
+
+1063
+00:16:57,740 --> 00:17:05,720
+So now this icon square, which is the class for this div, can be activated.
+
+1064
+00:17:05,720 --> 00:17:12,650
+And when we look at it now, you can see that they all have the right styling that we expected.
+
+1065
+00:17:12,770 --> 00:17:19,040
+So the final thing we need to sort out is just to add a little bit more margin in this features section
+
+1066
+00:17:19,040 --> 00:17:20,710
+and then we're pretty much done.
+
+1067
+00:17:20,720 --> 00:17:28,069
+So if we look at the features goal, you can see I've given you a hint that it's actually margin top
+
+1068
+00:17:28,069 --> 00:17:29,000
+five.
+
+1069
+00:17:29,210 --> 00:17:36,200
+If we want to add some margin to this entire container, then we can go up to the div class where we
+
+1070
+00:17:36,200 --> 00:17:41,210
+have the container and then we add margin top five, empty dash five.
+
+1071
+00:17:41,210 --> 00:17:47,180
+And now we should have enough space between that top title section and our feature section.
+
+1072
+00:17:47,180 --> 00:17:51,320
+So we're now ready to move on to the testimonial section.
+
+1073
+00:17:51,770 --> 00:17:55,210
+Again, let's take a look at the goal that we're looking for.
+
+1074
+00:17:55,220 --> 00:18:00,800
+So the first section is an H2 with an image and some paragraph text.
+
+1075
+00:18:01,160 --> 00:18:09,740
+This area comes from this Jumbotron section, and if we scroll down, we can see this full width jumbotron
+
+1076
+00:18:09,740 --> 00:18:10,790
+right here.
+
+1077
+00:18:10,790 --> 00:18:18,950
+So let's go ahead and inspect on it and let's take the entire section just after the divider.
+
+1078
+00:18:18,950 --> 00:18:25,670
+So let's copy the element and paste it into our testimonial section.
+
+1079
+00:18:26,180 --> 00:18:28,430
+Let's take a look at what that looks like.
+
+1080
+00:18:28,460 --> 00:18:32,900
+It looks pretty good, but we need to modify it for our purposes.
+
+1081
+00:18:32,900 --> 00:18:35,690
+So let's change the text inside.
+
+1082
+00:18:35,690 --> 00:18:43,550
+If we go over to our README, we should see our quote here from Pebbles and we can replace the text
+
+1083
+00:18:43,550 --> 00:18:45,050
+inside the H1.
+
+1084
+00:18:45,530 --> 00:18:51,710
+Remember from our HTML classes we should only have one H1 per website.
+
+1085
+00:18:51,710 --> 00:18:56,600
+And remember at the beginning in our title section we've already got our big heading.
+
+1086
+00:18:56,600 --> 00:19:00,170
+So here it should really not be an H1.
+
+1087
+00:19:00,170 --> 00:19:05,060
+Let's turn it into a subheading by changing that to an H2.
+
+1088
+00:19:06,620 --> 00:19:14,150
+Now this paragraph element, I could delete it, but I'm actually going to keep it and use it for showing
+
+1089
+00:19:14,150 --> 00:19:19,640
+the name where the quote comes from, which is Pebbles from New York.
+
+1090
+00:19:19,670 --> 00:19:28,910
+And all I have to do now is add an image in between, and the image is going to be our dog image and
+
+1091
+00:19:28,910 --> 00:19:31,460
+I'm going to add the alt text as well.
+
+1092
+00:19:32,510 --> 00:19:34,790
+Let's take a look at what that looks like.
+
+1093
+00:19:34,820 --> 00:19:35,700
+It looks great.
+
+1094
+00:19:35,720 --> 00:19:41,960
+Other than the fact that this should be rounded and it should be a little bit smaller, if we look at
+
+1095
+00:19:41,960 --> 00:19:46,460
+the goal, we can see it should be 100 pixels high and it should be circular.
+
+1096
+00:19:46,550 --> 00:19:49,730
+So how do we make it custom?
+
+1097
+00:19:49,730 --> 00:19:52,980
+Well, we're going to need to create some styling, right?
+
+1098
+00:19:53,000 --> 00:20:03,110
+So let's create a class called profile Dash Image and let's set it to have a height of 100 pixels.
+
+1099
+00:20:03,110 --> 00:20:09,240
+And in order to make it circular, remember, we need to set the border radius to 50%.
+
+1100
+00:20:09,300 --> 00:20:19,470
+Now, if we apply that class to our image profile dash image and we look at our website and you can
+
+1101
+00:20:19,470 --> 00:20:24,570
+see that looks pretty much perfect and similar to what we've got here.
+
+1102
+00:20:24,780 --> 00:20:28,800
+Now, the only thing we need to add is just a little bit more margin.
+
+1103
+00:20:29,580 --> 00:20:36,120
+We should have a margin of five between these two sections and a margin of two between these two sections.
+
+1104
+00:20:36,120 --> 00:20:39,540
+So I'm just going to add some margin top to the image.
+
+1105
+00:20:39,540 --> 00:20:49,610
+So a size five margin to the image so I can hit space on the class and then do margin top dash five.
+
+1106
+00:20:49,620 --> 00:20:56,370
+And then for the text, I'm going to do a class of margin top dash two.
+
+1107
+00:20:56,670 --> 00:21:04,320
+And now we should have enough space in between everything and it looks pretty much the same as the example.
+
+1108
+00:21:04,710 --> 00:21:12,480
+Now we need to add in all of these outlets that have featured our startup, and you can see from the
+
+1109
+00:21:12,510 --> 00:21:21,510
+goal image here that we've got a 12 column grid here from Bootstrap and they're each occupying a fourth
+
+1110
+00:21:21,510 --> 00:21:22,710
+of the space.
+
+1111
+00:21:22,740 --> 00:21:29,790
+But notice here where I've said it should take up three columns on desktop, but a full width, 12 columns
+
+1112
+00:21:29,790 --> 00:21:30,630
+on mobile.
+
+1113
+00:21:30,630 --> 00:21:36,540
+So it should be responsive and we can find all these images in the images folder.
+
+1114
+00:21:36,660 --> 00:21:46,140
+Let's go ahead and add that below this container in order to create the bootstrap 12 column layout system,
+
+1115
+00:21:46,140 --> 00:21:49,430
+the first thing we always need is a container.
+
+1116
+00:21:49,440 --> 00:21:58,860
+So let's create a div of class container and inside here is where we need our div that has a class of
+
+1117
+00:21:58,860 --> 00:21:59,810
+row.
+
+1118
+00:21:59,820 --> 00:22:02,810
+So now we're ready to create our columns.
+
+1119
+00:22:02,820 --> 00:22:13,110
+Each of the columns are going to be three columns in the desktop format, so that's called Dash Large
+
+1120
+00:22:13,110 --> 00:22:18,360
+or LG and it's going to be dash three, but on mobile.
+
+1121
+00:22:18,360 --> 00:22:22,500
+So call Dash, SM Small is going to be full width.
+
+1122
+00:22:22,500 --> 00:22:29,730
+So 12 and inside here we can place our image which is from the images folder and we're going to start
+
+1123
+00:22:29,730 --> 00:22:34,860
+off with TechCrunch and I'm going to add the alt text as that.
+
+1124
+00:22:35,100 --> 00:22:42,750
+Now I'm going to copy this and paste it three times and now I'm just going to replace each of these
+
+1125
+00:22:42,750 --> 00:22:45,480
+images with the ones that we have here.
+
+1126
+00:22:45,480 --> 00:22:49,140
+So Mashable, Business Insider and TMW.
+
+1127
+00:22:50,100 --> 00:22:50,580
+All right.
+
+1128
+00:22:50,580 --> 00:22:56,250
+So now we should have all of our images, but they are a little bit large.
+
+1129
+00:22:57,000 --> 00:23:03,780
+One thing we can do is we can limit their height so that they are all equal in height instead of having
+
+1130
+00:23:03,780 --> 00:23:06,660
+this uneven start and end line.
+
+1131
+00:23:06,660 --> 00:23:15,780
+So I'm going to set the height to 30 and that should be enough height to be visible, but not so much
+
+1132
+00:23:15,780 --> 00:23:21,090
+height that it takes up too much space and that looks pretty good.
+
+1133
+00:23:21,210 --> 00:23:27,660
+So now we're done with our testimonial section and we are on our penultimate section, which is the
+
+1134
+00:23:27,660 --> 00:23:28,920
+pricing plan.
+
+1135
+00:23:28,920 --> 00:23:35,940
+And as you'll remember, Bootstrap has the pricing plan section right here.
+
+1136
+00:23:36,600 --> 00:23:40,560
+And these three cards are the ones that we want to get hold of.
+
+1137
+00:23:40,590 --> 00:23:46,970
+So let's inspect on that and find the area that we need, which is probably this div row.
+
+1138
+00:23:46,980 --> 00:23:50,880
+So let's copy it and put it inside the pricing section.
+
+1139
+00:23:50,880 --> 00:23:56,630
+But as you remember, a div row needs to go inside a container.
+
+1140
+00:23:56,640 --> 00:23:58,740
+So let's go ahead and do that.
+
+1141
+00:23:58,740 --> 00:24:04,050
+And if we look at our pricing table then it's already in and looks pretty good.
+
+1142
+00:24:04,260 --> 00:24:11,820
+The other section we need is a title for the pricing table, which is this area right here, and this
+
+1143
+00:24:11,820 --> 00:24:15,210
+is the div that contains all of that content.
+
+1144
+00:24:15,210 --> 00:24:21,960
+So let's just copy it and put it at the beginning of our container right here.
+
+1145
+00:24:22,290 --> 00:24:26,430
+So now we've pretty much got the pricing table down.
+
+1146
+00:24:26,430 --> 00:24:33,000
+We just need to update all of the text here to the ones that we have in our copy.
+
+1147
+00:24:33,030 --> 00:24:35,370
+So I'm going to do this again quickly.
+
+1148
+00:24:35,370 --> 00:24:38,890
+I'm going to fast forward and replace all the text.
+
+1149
+00:24:47,070 --> 00:24:53,460
+All right, so now all the text has been replaced and you should see all of that text inside the pricing
+
+1150
+00:24:53,460 --> 00:24:54,240
+section.
+
+1151
+00:24:54,240 --> 00:24:56,790
+So now we need to update the design a little bit.
+
+1152
+00:24:56,790 --> 00:25:04,620
+And the main difference is the color scheme here is all using the bootstrap primary color, which is
+
+1153
+00:25:04,620 --> 00:25:05,640
+this blue.
+
+1154
+00:25:05,640 --> 00:25:12,030
+But we need to change it all to the dark kind of color, which is this kind of black color.
+
+1155
+00:25:12,270 --> 00:25:18,300
+And if you look inside the pricing goal, you can see the parts that we need to change.
+
+1156
+00:25:18,960 --> 00:25:20,910
+This needs to become outline dark.
+
+1157
+00:25:20,940 --> 00:25:22,980
+This needs to be button, dark, button dark.
+
+1158
+00:25:22,980 --> 00:25:24,570
+And this also needs to be dark.
+
+1159
+00:25:24,810 --> 00:25:32,790
+A shortcut here is to simply use the control F on windows or command F on Mac in order to bring up our
+
+1160
+00:25:32,790 --> 00:25:33,660
+search bar.
+
+1161
+00:25:33,660 --> 00:25:41,460
+And if we search for the word primary and we replace it with dark, then we can actually go through
+
+1162
+00:25:41,460 --> 00:25:45,700
+each of these examples and see if we want to replace it.
+
+1163
+00:25:45,700 --> 00:25:50,770
+What I recommend doing is to actually do this one by one.
+
+1164
+00:25:50,770 --> 00:25:56,230
+So instead of doing replace all, because that way you can see which parts you're replacing.
+
+1165
+00:25:56,230 --> 00:26:02,200
+And many times I've done replace all only to find out that I've messed up the entire project in some
+
+1166
+00:26:02,200 --> 00:26:02,860
+big way.
+
+1167
+00:26:02,860 --> 00:26:04,840
+So just a word of advice.
+
+1168
+00:26:04,870 --> 00:26:06,340
+Go through it one by one.
+
+1169
+00:26:06,340 --> 00:26:10,150
+Make sure that it makes sense and it's the right area that you're changing.
+
+1170
+00:26:10,150 --> 00:26:15,550
+But hopefully when we go back to our website, we can see we've now updated all of the right places
+
+1171
+00:26:15,550 --> 00:26:17,650
+to this dark color scheme.
+
+1172
+00:26:18,220 --> 00:26:26,740
+Coming back to our pricing goal, we can see that this title needs to be an H2 and this subtitle needs
+
+1173
+00:26:26,740 --> 00:26:28,120
+to be a paragraph element.
+
+1174
+00:26:28,120 --> 00:26:35,470
+So let's go into our section and make sure that is the case, because when we copied it over, it actually
+
+1175
+00:26:35,470 --> 00:26:37,240
+gave us an H1.
+
+1176
+00:26:37,270 --> 00:26:42,790
+Now the styling is not going to change because it actually comes from the display for class.
+
+1177
+00:26:42,790 --> 00:26:49,660
+So you won't see the size change that much or the color scheme because it is actually not dependent
+
+1178
+00:26:49,660 --> 00:26:51,760
+on the HTML element.
+
+1179
+00:26:51,760 --> 00:26:57,400
+And this happens very frequently with bootstrap, so we're able to adjust that pretty easily.
+
+1180
+00:26:57,490 --> 00:27:01,870
+And now we're ready for our final section, which is the footer.
+
+1181
+00:27:01,870 --> 00:27:08,920
+So let's find ourselves the footer snippets and let's find the one that looks like one that we want,
+
+1182
+00:27:08,920 --> 00:27:14,260
+or one that is similar to the one in the example, which is this one right here.
+
+1183
+00:27:14,260 --> 00:27:21,220
+And let's find the container that we can copy and put into our footer section.
+
+1184
+00:27:21,940 --> 00:27:29,560
+So now straight up we can see our footer section show up and all we need to do is to adapt it to our
+
+1185
+00:27:29,560 --> 00:27:30,460
+design.
+
+1186
+00:27:30,700 --> 00:27:35,950
+Firstly, you'll notice there's this area that you can't really see, but when you hover it, it seems
+
+1187
+00:27:35,950 --> 00:27:37,120
+to be clickable.
+
+1188
+00:27:37,120 --> 00:27:44,080
+And if we refer to our code, you can see this is actually a link that links to the bootstrap logo.
+
+1189
+00:27:44,080 --> 00:27:46,810
+So let's go ahead and delete that.
+
+1190
+00:27:46,810 --> 00:27:54,880
+But let's change this paragraph class to copyright and then the name of our company, Tin Dog.
+
+1191
+00:27:55,030 --> 00:28:01,030
+And I'm going to leave these links alone because I don't know, maybe in the future you'll want to use
+
+1192
+00:28:01,030 --> 00:28:05,440
+this website and put in some different links to different sections.
+
+1193
+00:28:05,440 --> 00:28:11,230
+But for now it just kind of looks more or less the right kind of style that we would want on a startup
+
+1194
+00:28:11,230 --> 00:28:11,950
+website.
+
+1195
+00:28:11,950 --> 00:28:16,240
+So let's leave that alone, but let's get rid of this border line here.
+
+1196
+00:28:16,240 --> 00:28:18,220
+And this border came from the footer.
+
+1197
+00:28:18,220 --> 00:28:20,530
+So there should be a hint in here.
+
+1198
+00:28:20,530 --> 00:28:26,590
+If we look at the footer element, you can see there's the border top class, which again comes from
+
+1199
+00:28:26,590 --> 00:28:31,750
+bootstrap, but it's a really simple way of adding some borders to the top left or right.
+
+1200
+00:28:31,750 --> 00:28:34,630
+But once we delete it and that's completely gone.
+
+1201
+00:28:34,630 --> 00:28:40,990
+So the final thing we need to do is just to add that gradient background to the footer area and then
+
+1202
+00:28:40,990 --> 00:28:42,430
+we are pretty much done.
+
+1203
+00:28:42,430 --> 00:28:51,240
+So let's take that section footer and add the class gradient background and now hit save.
+
+1204
+00:28:51,240 --> 00:28:58,260
+And we should see that we have almost the same website as the final result.
+
+1205
+00:28:58,410 --> 00:29:03,840
+The only thing that we need to do now is to get rid of this little bit of space at the bottom.
+
+1206
+00:29:03,960 --> 00:29:07,950
+And the fact that it's white should give you a hint as to what it is.
+
+1207
+00:29:08,910 --> 00:29:17,430
+If we select our footer section and we go into the section, look inside the container, at some point
+
+1208
+00:29:17,430 --> 00:29:21,180
+our hover is going to show us where that margin comes from.
+
+1209
+00:29:21,180 --> 00:29:26,220
+And right here you can see that orange box showing that margin at the bottom.
+
+1210
+00:29:26,220 --> 00:29:30,780
+So if we select it, we should see there are some margin classes applied.
+
+1211
+00:29:30,780 --> 00:29:36,600
+So there's a margin top, which I think we should probably keep because it adds a good amount of spacing
+
+1212
+00:29:36,600 --> 00:29:38,130
+between the different sections.
+
+1213
+00:29:38,130 --> 00:29:44,100
+But the margin bottom we could probably get rid of so that we don't have that white space down there.
+
+1214
+00:29:44,100 --> 00:29:45,570
+So let's find this.
+
+1215
+00:29:45,990 --> 00:29:55,050
+Y-5 class in our footer element and it's right here and let's change it instead of y to just having
+
+1216
+00:29:55,050 --> 00:29:56,340
+it on top.
+
+1217
+00:29:56,340 --> 00:29:59,220
+And now let's hit, save and refresh.
+
+1218
+00:29:59,220 --> 00:30:04,470
+And you can see we have now completed our design for our website.
+
+1219
+00:30:04,890 --> 00:30:06,720
+In less than half an hour.
+
+1220
+00:30:06,720 --> 00:30:14,760
+We've managed to build a incredibly complex and beautiful website for our tin dog startup.
+
+1221
+00:30:14,790 --> 00:30:21,090
+I hope our clients will be pleased because we've created this amazing, incredibly modern looking website
+
+1222
+00:30:21,090 --> 00:30:28,170
+for them and we should be pleased because it only took us so little time to do by leveraging the power
+
+1223
+00:30:28,170 --> 00:30:34,980
+of the bootstrap components and using the different helper classes, utilities, as well as snippets
+
+1224
+00:30:34,980 --> 00:30:36,210
+that they provide.
+
+1225
+00:30:36,420 --> 00:30:42,720
+Hopefully this gives you an insight into how we can use bootstrap to create beautiful, complex websites
+
+1226
+00:30:42,720 --> 00:30:43,560
+quickly.
+
+1227
+00:30:43,560 --> 00:30:50,830
+And also you see the difference between what CSS grid, Flexbox and Bootstrap are all good for.
+
+1228
+00:30:50,860 --> 00:30:58,330
+They all have different strengths and weaknesses and I think bootstrap is really good for throwing some
+
+1229
+00:30:58,330 --> 00:31:03,220
+components down and creating something that looks incredibly modern very, very quickly.
+
+1230
+00:31:03,220 --> 00:31:08,980
+Whereas Flexbox and Grid are great when you want to get into the nitty gritty of creating a very, very
+
+1231
+00:31:08,980 --> 00:31:12,370
+custom layout for your website.
+
+1232
+00:31:12,670 --> 00:31:15,130
+So well done on completing this section.
+
+1233
+00:31:15,130 --> 00:31:20,110
+And in the next section we've got the Capstone project for CSS.
+
+1234
+00:31:20,110 --> 00:31:22,660
+So once you're ready, head over to the next section.
+
+

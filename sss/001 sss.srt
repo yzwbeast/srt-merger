@@ -1,0 +1,4310 @@
+1
+00:00:00,390 --> 00:00:01,150
+Hey, guys.
+
+2
+00:00:01,170 --> 00:00:05,430
+Welcome to day one of your 100 day journey.
+
+3
+00:00:05,730 --> 00:00:12,240
+And today, we're going to learn about printing, commenting, debugging, string manipulation and variables.
+
+4
+00:00:12,240 --> 00:00:15,930
+So it's chockablock full of really fun stuff.
+
+5
+00:00:15,990 --> 00:00:22,470
+And by the end of today, you will have created a band name generator program.
+
+6
+00:00:22,950 --> 00:00:26,090
+So this is the final project of today.
+
+7
+00:00:26,100 --> 00:00:31,980
+And the idea is that let's say that your friend was starting a new band, a rock band or a classical
+
+8
+00:00:31,980 --> 00:00:36,150
+band, and they're struggling to come up with a good name.
+
+9
+00:00:36,150 --> 00:00:40,770
+So you come in to the rescue and send them your band name generator program.
+
+10
+00:00:40,860 --> 00:00:43,680
+So it asks you for the name of the city that you grew up in.
+
+11
+00:00:43,680 --> 00:00:48,180
+So mine was Bristol in the southwest of the UK.
+
+12
+00:00:48,510 --> 00:00:51,660
+And then it'll ask you, what's the name of your pet?
+
+13
+00:00:52,110 --> 00:00:58,710
+I had a pet rabbit when I was younger, and I am probably the least imaginative person.
+
+14
+00:00:58,950 --> 00:01:01,230
+Classic programmer personality.
+
+15
+00:01:01,470 --> 00:01:02,490
+So I called my rabbit.
+
+16
+00:01:03,180 --> 00:01:03,930
+"Rabbit".
+
+17
+00:01:04,739 --> 00:01:08,880
+So now when I hit "Enter", it's going to give me my band name.
+
+18
+00:01:08,940 --> 00:01:12,270
+And it could be Bristol Rabbit.
+
+19
+00:01:12,900 --> 00:01:14,310
+So that sounds pretty cool.
+
+20
+00:01:14,310 --> 00:01:16,140
+That could be like a a rock band.
+
+21
+00:01:16,590 --> 00:01:17,810
+So this is what you're going to make.
+
+22
+00:01:17,820 --> 00:01:23,670
+And in the process, in order to create this, you're going to learn about printing, inputting, commenting,
+
+23
+00:01:23,670 --> 00:01:29,660
+debugging, name errors, syntax errors, string manipulation variables, and a whole lot more.
+
+24
+00:01:29,670 --> 00:01:35,730
+So if you feel like you can already achieve this and you can prove it by making this program yourself,
+
+25
+00:01:35,730 --> 00:01:39,140
+then feel free to skip to the next day's lessons.
+
+26
+00:01:39,180 --> 00:01:43,980
+But for most of you, even if you've started learning Python programming, there's probably still a
+
+27
+00:01:43,980 --> 00:01:47,040
+lot of new things that you'll find in today's lessons.
+
+28
+00:01:47,580 --> 00:01:53,400
+Now, as with all the projects that we're making in this course, you get to try it out before you make
+
+29
+00:01:53,400 --> 00:01:56,670
+it so you can either go to the URL.
+
+30
+00:01:57,210 --> 00:02:02,730
+Alternatively, if you don't want to type out the full URL, you can head over to the course content
+
+31
+00:02:02,730 --> 00:02:08,560
+here and then click on the resources and click this link to head straight over there.
+
+32
+00:02:08,580 --> 00:02:14,580
+And then once you're there, all you have to do is to click run and you'll be able to preview how the
+
+33
+00:02:14,580 --> 00:02:16,650
+final product is going to work.
+
+34
+00:02:16,650 --> 00:02:22,650
+So you can type in your own city and follow the instructions until you get to the end result.
+
+35
+00:02:22,890 --> 00:02:29,070
+So once you're ready, head over to the next lesson and let's get started and get coding straight away.
+
+1
+00:00:00,270 --> 00:00:04,200
+To begin open up your browser and head over to this URL.
+
+2
+00:00:04,230 --> 00:00:09,360
+Now, if you didn't want to type all of that out and make some typos and errors and not get to the right
+
+3
+00:00:09,360 --> 00:00:13,710
+place, then simply just head over to the course resources and click on the link there.
+
+4
+00:00:13,740 --> 00:00:15,870
+It'll take you directly to this page.
+
+5
+00:00:16,730 --> 00:00:22,370
+Now, once you've clicked on the link that takes you to the starting replit, you should see something
+
+6
+00:00:22,370 --> 00:00:23,800
+that looks like this.
+
+7
+00:00:23,810 --> 00:00:29,210
+And the first thing I want you to do is to go ahead and click on the "Fork" button.
+
+8
+00:00:29,660 --> 00:00:37,130
+What this is going to do is it's going to create a version of that same replit that you'll see me
+
+9
+00:00:37,130 --> 00:00:41,480
+working through in the videos, but in this case you'll be able to edit it.
+
+10
+00:00:41,930 --> 00:00:46,220
+So if you want to save the work that you're doing, I recommend signing up to replit.
+
+11
+00:00:46,250 --> 00:00:47,360
+It's completely free.
+
+12
+00:00:47,360 --> 00:00:49,460
+You don't need any credit cards or anything.
+
+13
+00:00:49,460 --> 00:00:55,580
+Once you've created your account on replit, it will take you to the previous page where you can now
+
+14
+00:00:55,580 --> 00:00:58,580
+actually click the fork repl button.
+
+15
+00:00:58,580 --> 00:01:06,020
+And what that will do is it will create a copy of what I've created and put it into your account, and
+
+16
+00:01:06,020 --> 00:01:11,810
+then you'll be able to see a record of all of the code that you've written throughout the course.
+
+17
+00:01:12,050 --> 00:01:16,940
+In this course you'll be coding along with me on replit and completing a whole bunch of interactive
+
+18
+00:01:16,940 --> 00:01:19,820
+coding exercises in our replit classroom.
+
+19
+00:01:20,450 --> 00:01:28,100
+So go ahead, pause the video, sign up to replit and make sure you've forked the starting copy of
+
+20
+00:01:28,100 --> 00:01:31,790
+Day one printing start and you should be on a screen that looks like this.
+
+21
+00:01:33,610 --> 00:01:39,760
+And once you're signed in, then you can actually go ahead and edit the name of the replit or add a
+
+22
+00:01:39,760 --> 00:01:45,340
+brief description and you'll be able to access it later on through the My Repls folder.
+
+23
+00:01:45,580 --> 00:01:51,040
+Now, once you've done that, then let's go ahead and walk through some of the different parts of replit
+
+24
+00:01:51,070 --> 00:01:52,270
+that you'll be using.
+
+25
+00:01:52,690 --> 00:01:58,360
+First, on the left-hand side pane here, you've got some files and you can see the current file that's
+
+26
+00:01:58,360 --> 00:02:04,930
+open is this Python file here, and you can create new files or you can create new folders and later
+
+27
+00:02:04,930 --> 00:02:08,110
+on will be using these features to organize our code.
+
+28
+00:02:08,470 --> 00:02:14,140
+Now the other part of the left hand side pane that's really useful is the Settings tab here, and I
+
+29
+00:02:14,140 --> 00:02:17,950
+recommend everybody to switch their font size up to large.
+
+30
+00:02:18,190 --> 00:02:22,780
+This just makes it so much easier to identify mistakes and any typos you make.
+
+31
+00:02:22,810 --> 00:02:28,030
+Now we're going to leave everything else as it is, and you can click on the settings button to collapse
+
+32
+00:02:28,030 --> 00:02:31,960
+that pane so that you end up with more space for writing code.
+
+33
+00:02:32,230 --> 00:02:36,040
+And this area here is where you're going to be doing that.
+
+34
+00:02:36,040 --> 00:02:38,470
+All of your code is going to go inside here.
+
+35
+00:02:38,590 --> 00:02:43,840
+And once we're done with writing our code, we'll click run and it will execute.
+
+36
+00:02:43,840 --> 00:02:48,820
+And the results of our code will come up over on the console in the right here.
+
+37
+00:02:49,510 --> 00:02:54,430
+And I generally prefer to code using a darker background.
+
+38
+00:02:54,430 --> 00:02:58,510
+It's slightly easier on my eyes, especially when you're working at night.
+
+39
+00:02:59,230 --> 00:03:05,230
+So these are some of the most important parts of replit, but the important thing is it allows us to
+
+40
+00:03:05,230 --> 00:03:06,910
+just get started.
+
+41
+00:03:07,000 --> 00:03:12,580
+Now remember that the whole reason why we're learning to program is to be able to tell the computer
+
+42
+00:03:12,580 --> 00:03:16,660
+what it needs to do and for it to follow our commands.
+
+43
+00:03:16,750 --> 00:03:22,000
+So let's go ahead and tell the computer to do something, and we're going to do that by writing our
+
+44
+00:03:22,000 --> 00:03:23,590
+first line of code.
+
+45
+00:03:23,980 --> 00:03:29,470
+So in this case, I'm creating something called a print function, which is just the word "print", all
+
+46
+00:03:29,470 --> 00:03:33,160
+in lowercase, and then followed by a set of parentheses.
+
+47
+00:03:33,280 --> 00:03:40,480
+Now inside these parentheses, I'm going to tell it what I want it to print, and hopefully it's going
+
+48
+00:03:40,480 --> 00:03:43,240
+to output that inside our console.
+
+49
+00:03:44,080 --> 00:03:49,480
+So I'm going to start off by writing the classic "Hello World" inside here.
+
+50
+00:03:49,690 --> 00:03:53,470
+And then once you're ready, then go ahead and click Run.
+
+51
+00:03:54,130 --> 00:03:59,980
+After a few seconds, you should see the computer follow your command, namely printing the words that
+
+52
+00:03:59,980 --> 00:04:04,960
+you told it to print inside the console or the output area over here.
+
+53
+00:04:05,770 --> 00:04:11,800
+And once it's done, it indicates that with the little orange arrow and the way that this command works
+
+54
+00:04:11,800 --> 00:04:13,020
+is super simple.
+
+55
+00:04:13,030 --> 00:04:19,959
+You have the keyword "print" followed by a set of parentheses, and then inside the parentheses you tell
+
+56
+00:04:19,959 --> 00:04:21,700
+it what you want it to print.
+
+57
+00:04:22,120 --> 00:04:28,390
+And once you've inserted that, then when this line of code gets executed by the computer, it'll know
+
+58
+00:04:28,390 --> 00:04:33,580
+to simply print or output the thing that you've placed in between the parentheses.
+
+59
+00:04:35,790 --> 00:04:43,470
+But notice here that it's not just the word hello world exclamation mark that I've put inside my parentheses.
+
+60
+00:04:43,800 --> 00:04:49,230
+I've also added some quotation marks or double quotes around the word.
+
+61
+00:04:49,650 --> 00:04:56,970
+And the reason why I've done this is so that I can tell the computer that this bit here in between the
+
+62
+00:04:56,970 --> 00:04:59,220
+double quotes is not code.
+
+63
+00:04:59,220 --> 00:05:02,340
+It's not like print where it's supposed to do something.
+
+64
+00:05:02,340 --> 00:05:06,510
+This is just some text that I've made up that I want it to print out.
+
+65
+00:05:07,670 --> 00:05:12,620
+And these pieces of text in programming lingo is known as strings.
+
+66
+00:05:12,770 --> 00:05:16,700
+And you can imagine it as almost like a pearl necklace, right?
+
+67
+00:05:16,700 --> 00:05:19,550
+It's a string of characters.
+
+68
+00:05:20,030 --> 00:05:29,300
+And what the double quotes do is they basically show the beginning and the end of that string of characters.
+
+69
+00:05:30,300 --> 00:05:34,090
+So that means you have to be really careful when you're typing.
+
+70
+00:05:34,110 --> 00:05:39,240
+For example, if I go ahead and I miss out the closing double quote.
+
+71
+00:05:39,390 --> 00:05:45,390
+Well, now you can see that there's some changes that have happened to our code already, namely that
+
+72
+00:05:45,390 --> 00:05:51,720
+the last parentheses, instead of being coloured in white like the opening parentheses or how it used
+
+73
+00:05:51,720 --> 00:05:54,840
+to be, it's now coloured in orange.
+
+74
+00:05:54,840 --> 00:05:57,090
+And this is a subtle hint to us.
+
+75
+00:05:57,180 --> 00:06:03,780
+You're going to get really attuned to these subtle hints because they are the clues that will tell you
+
+76
+00:06:03,780 --> 00:06:05,760
+what might have gone wrong in your code.
+
+77
+00:06:05,970 --> 00:06:09,840
+If I run this code as it is right now, it's going to break.
+
+78
+00:06:09,870 --> 00:06:17,280
+It's going to give me a syntax error and it says something that seems like it's completely non English.
+
+79
+00:06:17,340 --> 00:06:20,370
+So how can we figure out what this means?
+
+80
+00:06:21,000 --> 00:06:25,710
+Now the thing I want you to know is that all programmers make mistakes.
+
+81
+00:06:25,710 --> 00:06:33,870
+We all make lots of errors, like forgetting to add the double quotes at the end of the string or forgetting
+
+82
+00:06:33,870 --> 00:06:37,170
+to add a closing parentheses.
+
+83
+00:06:37,290 --> 00:06:40,470
+These things are just common errors because we're human.
+
+84
+00:06:40,800 --> 00:06:47,400
+But the thing that differentiates great programmers is we're really good at figuring out what the problem
+
+85
+00:06:47,400 --> 00:06:48,780
+is and how to fix it.
+
+86
+00:06:48,960 --> 00:06:53,430
+So you can imagine that coding is just a whole bunch of problems that you have to solve.
+
+87
+00:06:53,610 --> 00:07:00,540
+And in this case, when we get some sort of red text on the right and our code is not doing what we
+
+88
+00:07:00,540 --> 00:07:07,110
+expect it to do, then all we have to do is take this entire error message where it says something,
+
+89
+00:07:07,110 --> 00:07:12,420
+something error, and this is some sort of message that we're supposed to understand and we're simply
+
+90
+00:07:12,420 --> 00:07:14,280
+going to drop it into Google.
+
+91
+00:07:14,400 --> 00:07:19,740
+And usually the first link you come across will be from a website called StackOverflow.com.
+
+92
+00:07:19,860 --> 00:07:25,800
+And this is basically the Q&A website that all developers will go to whenever something is wrong with
+
+93
+00:07:25,800 --> 00:07:28,620
+their code or when they can't figure out how to do something.
+
+94
+00:07:29,910 --> 00:07:35,370
+So if we click on this link, you can see that somebody else has also had this error.
+
+95
+00:07:35,730 --> 00:07:42,510
+And some kind souls have told us that the solution might be the fact that you're missing a double quote
+
+96
+00:07:42,510 --> 00:07:44,480
+before the end of the line.
+
+97
+00:07:44,490 --> 00:07:50,610
+So if we take a look back at our code, the code that generated this error looks like this.
+
+98
+00:07:50,700 --> 00:07:55,560
+And indeed, we are missing a double quote at the end of our string.
+
+99
+00:07:57,150 --> 00:08:02,430
+As you're learning to code, as you're going through your 100 days, I want you to become more and more
+
+100
+00:08:02,430 --> 00:08:05,910
+attuned to the color of your code.
+
+101
+00:08:06,000 --> 00:08:12,240
+Because one of the most helpful things that code editors such as this do for us is something called
+
+102
+00:08:12,240 --> 00:08:13,980
+syntax highlighting.
+
+103
+00:08:14,340 --> 00:08:20,970
+For example, when I was missing that double quote, it highlighted this entire thing in this orange
+
+104
+00:08:20,970 --> 00:08:21,550
+color.
+
+105
+00:08:21,660 --> 00:08:27,430
+And that is basically it telling us it seems like this whole thing is some text.
+
+106
+00:08:27,450 --> 00:08:33,900
+It thinks that all of this is a string and that we're missing a closing parenthesis.
+
+107
+00:08:35,039 --> 00:08:39,720
+So if you notice this and you're like, Wait, actually that's not right.
+
+108
+00:08:39,720 --> 00:08:43,650
+This part should be orange because this is what I want to be printed.
+
+109
+00:08:43,650 --> 00:08:48,420
+But this part should match the color of the open brace, which is white.
+
+110
+00:08:48,420 --> 00:08:50,520
+So there must be something wrong here.
+
+111
+00:08:50,550 --> 00:08:57,450
+And indeed, if you have a look at the error message, it actually has a little carat sign right here
+
+112
+00:08:57,450 --> 00:09:04,500
+showing you that there's something that's probably not right here and it might jog your memory that,
+
+113
+00:09:04,500 --> 00:09:07,980
+oh, yeah, I've forgotten a closing double quote.
+
+114
+00:09:08,820 --> 00:09:12,420
+And now when we run our code, you'll see that it's good as new.
+
+115
+00:09:12,600 --> 00:09:18,030
+So now it's your turn to try it out in a code challenge.
+
+116
+00:09:18,150 --> 00:09:19,650
+Head over to the next lesson.
+
+117
+00:09:19,650 --> 00:09:25,410
+Sign up to our classroom and then I'll guide you through getting started on your first coding challenge.
+
+118
+00:09:25,410 --> 00:09:27,300
+So all of that and more.
+
+119
+00:09:27,300 --> 00:09:28,710
+I'll see you on the next lesson.
+
+1
+00:00:00,690 --> 00:00:06,900
+Throughout this course, we'll be getting you involved in a lot of these interactive coding exercises.
+
+2
+00:00:06,900 --> 00:00:11,820
+And the idea is that you're not just sitting here watching me talk, that you're actually putting everything
+
+3
+00:00:11,820 --> 00:00:13,490
+you're learning into practice.
+
+4
+00:00:13,500 --> 00:00:15,840
+That way it actually becomes your own.
+
+5
+00:00:15,900 --> 00:00:21,810
+It's a great because we can give you instructions and show you what should happen if you write the correct
+
+6
+00:00:21,810 --> 00:00:27,840
+code, what it needs to do, and you'll be able to write your code as well as see it run in the console.
+
+7
+00:00:28,110 --> 00:00:33,090
+Once you're done with your code, you'll be able to submit it and see the tests run.
+
+8
+00:00:33,420 --> 00:00:37,620
+And if you've written the code correctly, then all of the tests will pass.
+
+9
+00:00:38,040 --> 00:00:40,890
+If your code isn't doing what it's supposed to.
+
+10
+00:00:40,920 --> 00:00:45,600
+Then when you click submit, you'll get feedback and you'll see what it's meant to do and what your
+
+11
+00:00:45,600 --> 00:00:47,070
+code is actually doing.
+
+12
+00:00:47,070 --> 00:00:50,490
+So you'll be able to use that to figure out what's wrong and fix your code.
+
+13
+00:00:50,640 --> 00:00:55,650
+And it's through a lot of these exercises that you're going to level up and you're going to become a
+
+14
+00:00:55,650 --> 00:00:56,580
+better coder.
+
+15
+00:00:56,790 --> 00:01:02,280
+Now, in order for you to get set up on our coding rooms, we're going to have to get you signed up
+
+16
+00:01:02,280 --> 00:01:04,500
+and registered with our course.
+
+17
+00:01:04,590 --> 00:01:10,560
+So in order to do this, I want you to first head over to codingrooms.com and then sign up for
+
+18
+00:01:10,560 --> 00:01:12,180
+a student account.
+
+19
+00:01:12,540 --> 00:01:18,780
+Now this is completely free and all you have to do is just do click, sign up, putting your email and
+
+20
+00:01:18,780 --> 00:01:24,720
+password, and then you can choose student for this question Who are you?
+
+21
+00:01:24,960 --> 00:01:31,740
+And then putting your first name and last name and click "Finish". Next,
+
+22
+00:01:31,740 --> 00:01:36,540
+in order to get hold of the Joining Link, I want you to go to the course resources for the current
+
+23
+00:01:36,540 --> 00:01:37,950
+lesson on Udemy.
+
+24
+00:01:37,950 --> 00:01:43,530
+So the lesson is "[Interactive Coding Exercise] Printing", and then I want you to click on the dropdown
+
+25
+00:01:43,530 --> 00:01:48,630
+list and you should see step one sign up to coding rooms, which you should have already done.
+
+26
+00:01:48,630 --> 00:01:51,780
+And then step two is join our coding room.
+
+27
+00:01:51,780 --> 00:01:53,520
+So I want you to click on that link.
+
+28
+00:01:53,760 --> 00:01:59,640
+And once you've clicked on that link, then it should automatically enroll you into our 100 days of
+
+29
+00:01:59,640 --> 00:02:06,450
+code, the Complete Python Pro Bootcamp, and you should now be able to see every day's corresponding
+
+30
+00:02:06,450 --> 00:02:08,250
+interactive coding exercises.
+
+31
+00:02:08,250 --> 00:02:14,430
+So for example, on day one there are four exercises and they are named exactly the same as what you
+
+32
+00:02:14,430 --> 00:02:15,690
+see in Udemy.
+
+33
+00:02:15,690 --> 00:02:21,720
+So this is interactive coding exercise one which is printing, debugging, practice, input, function
+
+34
+00:02:21,720 --> 00:02:27,180
+and variables and you see all the same ones over here that you'll be able to attempt.
+
+35
+00:02:27,900 --> 00:02:33,090
+Now the next time when you log in, all you have to do is just go into your courses and you should see
+
+36
+00:02:33,090 --> 00:02:38,880
+the interactive coding exercises for the 100 days of code, and you will be able to continue where you
+
+37
+00:02:38,880 --> 00:02:39,630
+left off.
+
+38
+00:02:40,020 --> 00:02:42,960
+Now let's get started with the first exercise.
+
+39
+00:02:42,960 --> 00:02:45,270
+That's the objective of this lesson.
+
+40
+00:02:45,450 --> 00:02:48,300
+So we're going to go into day one and it might be collapsed.
+
+41
+00:02:48,300 --> 00:02:53,760
+If so, just go ahead and expand it and then click on Exercise 1 - Printing.
+
+42
+00:02:53,850 --> 00:02:59,640
+And here you see the instructions for what you need to do in order to complete this coding exercise.
+
+43
+00:02:59,910 --> 00:03:06,360
+Now, I want you to go ahead and click on Open Assignment Workspace, and here you'll be able to see
+
+44
+00:03:06,360 --> 00:03:09,600
+the instructions on one side of the pane.
+
+45
+00:03:09,600 --> 00:03:13,110
+You'll be able to have your main.py, which is where you write your code.
+
+46
+00:03:13,110 --> 00:03:16,530
+So all the lines below here, you can just type your code out.
+
+47
+00:03:16,530 --> 00:03:23,610
+And then once you're done writing your code, I want you to test it by running your code.
+
+48
+00:03:23,610 --> 00:03:30,720
+So hitting this run button and you'll see the result of your code being run in the console down here.
+
+49
+00:03:30,960 --> 00:03:36,030
+Now once you think you've completed the coding exercise according to all the instructions over here,
+
+50
+00:03:36,060 --> 00:03:41,880
+I want you to go ahead and test your code and you can test your code by simply hitting submit.
+
+51
+00:03:42,480 --> 00:03:47,250
+Now, don't worry about all of this where it says this submission will count towards your grade for
+
+52
+00:03:47,250 --> 00:03:47,880
+the assignment.
+
+53
+00:03:47,880 --> 00:03:50,400
+There are no grades, there's no time limits.
+
+54
+00:03:50,400 --> 00:03:52,920
+Nobody is going to check what you've done.
+
+55
+00:03:52,920 --> 00:03:59,010
+It's all for the benefit of your learning so you can submit your code as many times as you like.
+
+56
+00:03:59,220 --> 00:04:04,710
+So once you hit submit, it's going to run the automated test that we've set up behind the scenes,
+
+57
+00:04:04,710 --> 00:04:09,270
+and it's going to check to make sure that your code is doing what it's supposed to do.
+
+58
+00:04:09,810 --> 00:04:17,579
+So, for example, in this case, my tests have not passed because there's a cross here and note that
+
+59
+00:04:17,579 --> 00:04:21,570
+sometimes there'll be more than one test, so you can scroll down and see the other ones.
+
+60
+00:04:21,810 --> 00:04:27,690
+And the reason why I didn't pass, as they've shown here, is this is my actual output.
+
+61
+00:04:27,690 --> 00:04:32,760
+This is what my code did and this is what the expected output is supposed to be.
+
+62
+00:04:32,760 --> 00:04:34,740
+And there's a whole bunch of differences.
+
+63
+00:04:34,740 --> 00:04:39,870
+This does not look like this, so then we have to go and fix it.
+
+64
+00:04:39,870 --> 00:04:43,800
+And I've left some feedback in some of the lessons to help you in case you get stuck.
+
+65
+00:04:43,800 --> 00:04:46,440
+But also there are hints in some of the instructions.
+
+66
+00:04:46,440 --> 00:04:52,410
+So just make sure that you read everything now if you want to, or if you get really, really stuck,
+
+67
+00:04:52,410 --> 00:04:54,810
+you can take a look at the solution.
+
+68
+00:04:54,810 --> 00:04:59,670
+Now, I don't recommend looking at the solution code unless you're actually just checking to make sure
+
+69
+00:04:59,670 --> 00:04:59,940
+that.
+
+70
+00:05:00,030 --> 00:05:05,400
+Something hasn't gone majorly wrong or you're not completely stuck, or just for whatever reason, I
+
+71
+00:05:05,400 --> 00:05:11,190
+really, really want you to persevere and try your best to actually write the code yourself and to solve
+
+72
+00:05:11,190 --> 00:05:14,520
+the issues and figure out how to make all the tests pass.
+
+73
+00:05:14,760 --> 00:05:19,380
+But if you need to look at the solution, they are available on replit.
+
+74
+00:05:19,380 --> 00:05:24,900
+So just click on this link and it'll take you to the solution page in order to see the files.
+
+75
+00:05:24,900 --> 00:05:28,440
+You can either fork the repl as you have done before.
+
+76
+00:05:28,470 --> 00:05:36,210
+You'll get a copy of this solution file or what I think is much simpler is simply click on show files
+
+77
+00:05:36,210 --> 00:05:42,840
+and then click on this main.py file and then you will see the solution code on this page without
+
+78
+00:05:42,840 --> 00:05:45,990
+having to fork a copy of this repl.
+
+79
+00:05:45,990 --> 00:05:47,850
+But you can do it any number of ways.
+
+80
+00:05:47,850 --> 00:05:50,700
+Whichever way suits you best is fine.
+
+81
+00:05:50,700 --> 00:05:56,820
+Now, once you have written your code correctly, you should be able to see all the tests pass and by
+
+82
+00:05:56,820 --> 00:06:01,200
+passing it means that there's a little tick along each of these.
+
+83
+00:06:01,200 --> 00:06:04,320
+And usually in this one there's only one test and this is passed.
+
+84
+00:06:04,320 --> 00:06:06,120
+So you get a score of 100%.
+
+85
+00:06:06,300 --> 00:06:12,780
+And the actual output that your code has created in the console now looks exactly the same as expected.
+
+86
+00:06:12,780 --> 00:06:18,900
+So you are now done and you can go back to your other assignments and you can continue.
+
+87
+00:06:19,200 --> 00:06:25,650
+So this is a really simple interface and we've switched to this from replit because replit had actually
+
+88
+00:06:25,650 --> 00:06:30,540
+disabled their classroom technology, which looks basically exactly the same as this.
+
+89
+00:06:30,540 --> 00:06:35,100
+And we wanted to provide you the best learning experience possible.
+
+90
+00:06:35,100 --> 00:06:40,650
+So we've switched over to coding rooms and you should be able to sign up and get started without any
+
+91
+00:06:40,650 --> 00:06:41,220
+issue.
+
+92
+00:06:41,250 --> 00:06:47,880
+Now remember at the end of the lesson, I will go through the solution with you step by step explaining
+
+93
+00:06:47,880 --> 00:06:48,990
+the solution as well.
+
+94
+00:06:48,990 --> 00:06:53,010
+So if you get stuck, don't worry, I'm here for you every step of the way.
+
+95
+00:06:53,010 --> 00:06:58,740
+But now it's time for you to pause the video and make sure that you've signed up for coding rooms,
+
+96
+00:06:58,740 --> 00:07:04,890
+already registered for a student account, and then click on the link in step two in the course resources
+
+97
+00:07:04,890 --> 00:07:12,330
+and sign up for our course and then go over to the first exercise printing and give it a go.
+
+98
+00:07:12,360 --> 00:07:13,770
+All right, pause the video now.
+
+99
+00:07:14,040 --> 00:07:14,520
+All right.
+
+100
+00:07:14,520 --> 00:07:15,750
+How did you get on?
+
+101
+00:07:16,020 --> 00:07:20,910
+I really hope you gave this a good go because it's in these moments where you're going to be learning
+
+102
+00:07:20,910 --> 00:07:21,600
+the code.
+
+103
+00:07:21,630 --> 00:07:26,280
+Unfortunately, no amount of listening to me talk is actually going to give you these skills.
+
+104
+00:07:26,280 --> 00:07:31,740
+It's only when you actually try it out and get the computer to do the thing that you wanted to do.
+
+105
+00:07:31,740 --> 00:07:35,850
+That's when you become the master of the computer, also known as a programmer.
+
+106
+00:07:36,090 --> 00:07:38,820
+So in this case, the instructions are pretty simple.
+
+107
+00:07:38,820 --> 00:07:44,910
+We have to use what we learn about the print statement to output these three lines and notice how in
+
+108
+00:07:44,910 --> 00:07:48,570
+this gif the lines are printing out in separate lines.
+
+109
+00:07:48,750 --> 00:07:51,660
+This one gets printed, then this one, then this one.
+
+110
+00:07:51,660 --> 00:07:56,790
+But because it happens so fast, it seems like it as if they're getting printed as a single block.
+
+111
+00:07:56,940 --> 00:07:59,790
+So we're told to write our code below this line.
+
+112
+00:08:00,390 --> 00:08:06,180
+And we know that in order to print something, we use the print function with a set of parentheses,
+
+113
+00:08:06,180 --> 00:08:10,830
+and inside the parentheses is where we tell it what we want it to print.
+
+114
+00:08:10,830 --> 00:08:20,430
+So in the first instance, it's day one space, then it's now it's really easy to make spelling mistakes.
+
+115
+00:08:20,430 --> 00:08:26,970
+But I really encourage you to actually type out anything that you put into your code rather than just
+
+116
+00:08:26,970 --> 00:08:29,160
+simply copying and pasting it.
+
+117
+00:08:29,160 --> 00:08:31,680
+Now, of course, it works exactly the same way.
+
+118
+00:08:31,680 --> 00:08:39,360
+I could just copy and paste the code in here, but it's often in these cases where you make mistakes,
+
+119
+00:08:39,360 --> 00:08:45,690
+like for example, forgetting to add the double quotes around the text that you want to print, I really
+
+120
+00:08:45,690 --> 00:08:50,490
+recommend just typing out the code for practice whenever you're doing these code challenges.
+
+121
+00:08:51,480 --> 00:08:56,010
+Now, the last line that we want to print is a little bit complicated.
+
+122
+00:08:56,040 --> 00:09:02,130
+It's almost like print inception, because what we want to print is this function.
+
+123
+00:09:02,130 --> 00:09:09,210
+This is how we write our function, and that has to go inside here, inside a set of double quotes.
+
+124
+00:09:09,210 --> 00:09:13,380
+So let's open up a double quotes and then write our print statement.
+
+125
+00:09:13,530 --> 00:09:18,060
+And in this case, I'm actually using a single quote.
+
+126
+00:09:18,060 --> 00:09:21,750
+And I'll tell you just in a little moment why that is.
+
+127
+00:09:22,320 --> 00:09:24,030
+So let's add that single quote.
+
+128
+00:09:24,030 --> 00:09:26,760
+And finally, the closing parentheses.
+
+129
+00:09:26,760 --> 00:09:31,560
+This now is the entire code that you would need to be able to print something out.
+
+130
+00:09:31,740 --> 00:09:37,080
+And when I go ahead and click Run, you can see that the output looks exactly the same as what we've
+
+131
+00:09:37,080 --> 00:09:38,310
+got here in the gif.
+
+132
+00:09:38,310 --> 00:09:39,990
+This is what we want.
+
+133
+00:09:39,990 --> 00:09:46,830
+And when I click submit you'll see that my tests all pass and I can now submit my assignment and I've
+
+134
+00:09:46,830 --> 00:09:48,960
+now completed the coding challenge.
+
+135
+00:09:49,290 --> 00:09:55,770
+Now coming back to this single quote, why is it that I've got a single quote here rather than a double
+
+136
+00:09:55,770 --> 00:09:58,380
+quote, which is what we've been using all this time?
+
+137
+00:09:58,440 --> 00:09:59,340
+Well, because in.
+
+138
+00:09:59,530 --> 00:10:00,070
+Python.
+
+139
+00:10:00,070 --> 00:10:05,260
+It doesn't actually care whether if you enclose the strings.
+
+140
+00:10:05,260 --> 00:10:13,470
+So these pieces of text are not to be interpreted as code inside single quotes or inside double quotes.
+
+141
+00:10:13,480 --> 00:10:16,090
+It is identical to the computer.
+
+142
+00:10:16,120 --> 00:10:18,490
+This honey badger literally doesn't care.
+
+143
+00:10:18,820 --> 00:10:27,130
+But if you had a set of double quotes and then you wanted another set of double quotes inside the double
+
+144
+00:10:27,130 --> 00:10:27,790
+quotes.
+
+145
+00:10:27,790 --> 00:10:34,420
+So, for example, if I replace this with double quotes, you'll see that already the syntax highlighting
+
+146
+00:10:34,420 --> 00:10:36,070
+is already screaming out to us.
+
+147
+00:10:36,070 --> 00:10:44,230
+There's something that's not quite right here because the colors are not the same as here, where the
+
+148
+00:10:44,230 --> 00:10:51,160
+print function is in a particular color, the parentheses are in a particular color, and the text that
+
+149
+00:10:51,160 --> 00:10:54,820
+is to be printed in, it's in a yet another different color.
+
+150
+00:10:54,850 --> 00:10:59,410
+In this case, it looks all jumbled up and we're getting some errors here.
+
+151
+00:10:59,740 --> 00:11:03,490
+So now if I hit run, you'll get syntax errors.
+
+152
+00:11:04,180 --> 00:11:12,910
+And the problem here is, of course, this is of course, our code things at the end of this string
+
+153
+00:11:12,910 --> 00:11:13,840
+is here.
+
+154
+00:11:13,990 --> 00:11:17,680
+And so it doesn't know what on earth is going on afterwards.
+
+155
+00:11:18,220 --> 00:11:26,950
+And instead it's seeing this as a string, this as a string, and this is being interpreted as code.
+
+156
+00:11:27,670 --> 00:11:34,330
+So when we want to use some double quotes inside another set of double quotes, commonly you'll see
+
+157
+00:11:34,330 --> 00:11:38,050
+people switch to single quotes instead.
+
+158
+00:11:38,200 --> 00:11:45,610
+So you could, for example, write the print statement like so and use double quotes if you want to
+
+159
+00:11:45,610 --> 00:11:46,750
+print those out.
+
+160
+00:11:46,990 --> 00:11:52,840
+Or you can do it the other way, which is what I had before, where we use our double quotes on the
+
+161
+00:11:52,840 --> 00:11:55,150
+outside and single quotes on the inside.
+
+162
+00:11:55,270 --> 00:11:58,690
+So have a play around with that, if that's at all confusing.
+
+163
+00:11:58,690 --> 00:12:03,310
+But once you've tried it a few times and switched it around a few times, it should become clear what
+
+164
+00:12:03,310 --> 00:12:04,450
+it's actually doing.
+
+165
+00:12:04,930 --> 00:12:07,600
+How did you get on with this challenge?
+
+166
+00:12:07,660 --> 00:12:11,830
+If you ever need to see the solution, it's always down here as a link.
+
+167
+00:12:12,340 --> 00:12:14,200
+So I hope you enjoy this challenge.
+
+168
+00:12:14,200 --> 00:12:19,240
+In the next lesson, we're going to get back to learning about Python and we're going to learn about
+
+169
+00:12:19,240 --> 00:12:23,650
+strings and string manipulation for all of that and more.
+
+170
+00:12:23,680 --> 00:12:24,370
+I'll see you there.
+
+1
+00:00:00,160 --> 00:00:00,790
+All right guys.
+
+2
+00:00:00,790 --> 00:00:05,230
+Let's get back to learning about a few more things that we can do with strings.
+
+3
+00:00:05,950 --> 00:00:10,480
+You saw in the last lesson that if we wanted to print things on individual
+
+4
+00:00:10,480 --> 00:00:14,830
+lines, then we actually had to write them a few times, right?
+
+5
+00:00:14,830 --> 00:00:17,320
+We had to write print, um,
+
+6
+00:00:17,350 --> 00:00:21,970
+on three lines if we wanted it to be printed one, two, three,
+
+7
+00:00:22,060 --> 00:00:27,060
+like so. Now in this lesson I want to show you a method where we can do the same
+
+8
+00:00:27,700 --> 00:00:31,120
+thing, but by using a single print method.
+
+9
+00:00:31,270 --> 00:00:33,580
+So saving ourselves a few characters.
+
+10
+00:00:34,180 --> 00:00:39,180
+So the way that we would create a new line is by writing a backslash and the N
+
+11
+00:00:40,720 --> 00:00:41,553
+character.
+
+12
+00:00:42,160 --> 00:00:47,160
+And now if I go ahead and write hello world again afterward and I hit run,
+
+13
+00:00:49,150 --> 00:00:53,770
+or you can always use the shortcut, which is command + enter on Mac or control +
+
+14
+00:00:53,770 --> 00:00:55,540
+enter on Windows.
+
+15
+00:00:56,020 --> 00:00:59,650
+And you can see that once that line of code has been executed,
+
+16
+00:01:00,100 --> 00:01:03,760
+I've got hello world printed on two separate lines,
+
+17
+00:01:04,209 --> 00:01:08,290
+separated by this pink \n and character,
+
+18
+00:01:08,650 --> 00:01:11,770
+which gets replaced by a new line.
+
+19
+00:01:13,030 --> 00:01:16,390
+So go ahead and give that a go and see if you can create another one.
+
+20
+00:01:16,540 --> 00:01:17,290
+Remember though,
+
+21
+00:01:17,290 --> 00:01:22,290
+it's a backslash and not a forward slash but the syntax highlighting should help
+
+22
+00:01:22,300 --> 00:01:25,740
+you. All right,
+
+23
+00:01:25,800 --> 00:01:30,800
+we can simply just add another \n and remember that unless you want a
+
+24
+00:01:31,080 --> 00:01:35,940
+space to appear right before where your hello world appears,
+
+25
+00:01:36,210 --> 00:01:40,440
+you actually don't want any gaps between each of these lines.
+
+26
+00:01:43,530 --> 00:01:46,200
+There we go. We've got the same result as before,
+
+27
+00:01:46,440 --> 00:01:51,440
+but now using only a single print statement and creating some new lines with the
+
+28
+00:01:52,020 --> 00:01:53,130
+\n.
+
+29
+00:01:54,000 --> 00:01:59,000
+Now one of the other things that we can do with strings is we can concatenate
+
+30
+00:01:59,610 --> 00:02:00,443
+them.
+
+31
+00:02:00,660 --> 00:02:05,660
+What this means is we combine different strings so that they will be added to
+
+32
+00:02:06,840 --> 00:02:10,380
+the end of another string. Here's an example.
+
+33
+00:02:10,500 --> 00:02:15,500
+Let's say that we had the word hello and I wanted to add my name to the end of
+
+34
+00:02:17,010 --> 00:02:20,640
+this word to make it a single string. Well,
+
+35
+00:02:20,640 --> 00:02:25,640
+I can combine two strings by simply using a plus sign. So I can write "Hello" 
+
+36
+00:02:27,240 --> 00:02:31,800
++ "Angela". Now here's a question. When this runs,
+
+37
+00:02:31,890 --> 00:02:36,030
+what do you think it will look like? Do you think it'll write Hello 
+
+38
+00:02:36,060 --> 00:02:41,040
+Angela or hello Angela, all in one word? Let's see what happens.
+
+39
+00:02:42,000 --> 00:02:47,000
+You can see that these two strings have now been combined into one and there's
+
+40
+00:02:47,730 --> 00:02:52,730
+no space in between because we don't have a space character anywhere in here.
+
+41
+00:02:54,030 --> 00:02:59,030
+Pause the video and see if you can add a space in between.
+
+42
+00:03:00,220 --> 00:03:00,610
+Alright,
+
+43
+00:03:00,610 --> 00:03:05,020
+so there are two ways that you can do this or maybe three actually. You could add a
+
+44
+00:03:05,020 --> 00:03:08,080
+space to the end of hello, you could add a space to
+
+45
+00:03:08,140 --> 00:03:13,140
+the beginning of Angela or you can actually continue using string concatenation
+
+46
+00:03:14,110 --> 00:03:18,700
+by simply adding another string in between these two
+
+47
+00:03:19,060 --> 00:03:23,500
+and this one is just a space. So now when I run my code,
+
+48
+00:03:23,590 --> 00:03:28,590
+you can see the space gets inserted and this long thing gets combined into a
+
+49
+00:03:29,320 --> 00:03:32,890
+single string that looks like this
+
+50
+00:03:33,580 --> 00:03:37,150
+once this bit of the code gets executed.
+
+51
+00:03:38,140 --> 00:03:42,880
+If we think of strings as a string of connected characters,
+
+52
+00:03:43,540 --> 00:03:48,540
+then string concatenation is simply taking those separate strings of characters
+
+53
+00:03:49,810 --> 00:03:53,800
+and merging them into one. Now,
+
+54
+00:03:53,830 --> 00:03:58,830
+this is a good point to mention that in Python programming spaces are really,
+
+55
+00:03:59,590 --> 00:04:00,640
+really important.
+
+56
+00:04:01,510 --> 00:04:06,510
+And what I mean by this is not so much the spaces that are inside strings like
+
+57
+00:04:07,120 --> 00:04:11,470
+this one, but the spaces that you add in your code.
+
+58
+00:04:12,010 --> 00:04:15,550
+So here, my print statement, if I hit the backspace,
+
+59
+00:04:15,610 --> 00:04:19,930
+you can see that nothing happens. I can't go any further back.
+
+60
+00:04:20,560 --> 00:04:25,560
+But if I added a space or if I added a tab using the TAB key,
+
+61
+00:04:28,810 --> 00:04:33,250
+then you'll see that when I try to run my code, I actually get an error.
+
+62
+00:04:33,730 --> 00:04:37,000
+And the type of error this time is not a syntax error anymore.
+
+63
+00:04:37,390 --> 00:04:39,790
+It's now an indentation error.
+
+64
+00:04:40,540 --> 00:04:45,540
+And it says that there's an unexpected indent at this position right at the
+
+65
+00:04:45,760 --> 00:04:50,380
+beginning of the print statement. So when you're coding in Python,
+
+66
+00:04:50,470 --> 00:04:55,470
+it's really important that you start off all of your code at the beginning of
+
+67
+00:04:55,930 --> 00:05:00,910
+the line and that you don't accidentally have any spaces or any tabs that you've
+
+68
+00:05:00,910 --> 00:05:03,550
+inserted in front of the line of code.
+
+69
+00:05:04,120 --> 00:05:06,850
+And the next time you get an indentation error,
+
+70
+00:05:07,210 --> 00:05:11,620
+then you'll be able to look at where that error is and hopefully you'll be able to
+
+71
+00:05:11,620 --> 00:05:16,620
+either use Stack Overflow or just remember what this error message means and
+
+72
+00:05:16,840 --> 00:05:18,220
+you'll be able to fix your code.
+
+73
+00:05:19,300 --> 00:05:22,060
+Now this is the second error that we've come across.
+
+74
+00:05:22,150 --> 00:05:25,360
+The last error was a syntax error for example,
+
+75
+00:05:25,360 --> 00:05:28,420
+when we forgot to add the end double quotes.
+
+76
+00:05:29,050 --> 00:05:34,050
+And this one is called a syntax error and this one is called an indentation error.
+
+77
+00:05:36,010 --> 00:05:38,530
+And as I mentioned before, while you're coding,
+
+78
+00:05:38,620 --> 00:05:43,210
+you are going to make lots and lots of these errors and other ones.
+
+79
+00:05:43,210 --> 00:05:45,310
+This is the only sure thing that we know.
+
+80
+00:05:46,300 --> 00:05:51,070
+So it's great that you're already learning about them and recognizing them.
+
+81
+00:05:51,490 --> 00:05:55,270
+But how can we prevent this from happening in the first place? Well,
+
+82
+00:05:55,300 --> 00:05:59,870
+paying attention while you're typing helps, but we all get tired and sometimes,
+
+83
+00:05:59,870 --> 00:06:03,650
+especially when I'm coding at night, sometimes even when I look at my own name,
+
+84
+00:06:03,650 --> 00:06:07,070
+it looks like it's spelled wrong and I can't figure out left and right.
+
+85
+00:06:07,100 --> 00:06:11,990
+So in most cases, text editors have a lot of helpful features.
+
+86
+00:06:12,470 --> 00:06:16,340
+If you go into the settings bar here and you scroll all the way to the bottom,
+
+87
+00:06:16,700 --> 00:06:20,780
+you can see that there's something called Code Intelligence. And code
+
+88
+00:06:20,780 --> 00:06:25,310
+intelligence is something that is going to help you auto-complete some of the
+
+89
+00:06:25,310 --> 00:06:30,310
+functions like our print function here and give you some helpful information or
+
+90
+00:06:30,740 --> 00:06:32,060
+hints as you type.
+
+91
+00:06:32,450 --> 00:06:37,450
+So let's go ahead and change it to enabled and close down our settings pane.
+
+92
+00:06:38,780 --> 00:06:43,370
+And you can see now if I, for example, forget to add my double quotes,
+
+93
+00:06:43,640 --> 00:06:48,230
+then I already start to get a little red squiggly line here and a little red bit
+
+94
+00:06:48,290 --> 00:06:50,780
+in the right hand side of the scroll bar.
+
+95
+00:06:51,350 --> 00:06:53,810
+And if I hover over the red squiggly line,
+
+96
+00:06:54,140 --> 00:06:58,910
+you can see that it gives me the error that I would get if I ran my code right
+
+97
+00:06:58,910 --> 00:07:02,450
+now. And so it reminds me that, Oh yeah,
+
+98
+00:07:02,480 --> 00:07:06,500
+there's maybe something about my string that's not quite right.
+
+99
+00:07:06,800 --> 00:07:11,800
+And you can also just Google these error messages and see it in Stack Overflow
+
+100
+00:07:11,840 --> 00:07:14,840
+to remind yourself of what the error might be relating to.
+
+101
+00:07:15,530 --> 00:07:20,060
+And I can fix it without having to run my code and having it break.
+
+102
+00:07:20,480 --> 00:07:23,060
+Because remember that when you're writing large programs,
+
+103
+00:07:23,090 --> 00:07:25,550
+it's not just going to be one line of code.
+
+104
+00:07:25,670 --> 00:07:30,200
+You can have multiple lines of code each with their own errors.
+
+105
+00:07:30,200 --> 00:07:33,380
+For example, this one might be missing a double quote,
+
+106
+00:07:33,620 --> 00:07:36,260
+this one might be missing a plus sign,
+
+107
+00:07:36,710 --> 00:07:39,470
+this one might have the print function misspelled.
+
+108
+00:07:39,980 --> 00:07:44,510
+The next one might have a indentation that's not meant to be there,
+
+109
+00:07:44,930 --> 00:07:49,070
+and when you run your code like this, it'll only give you the first issue.
+
+110
+00:07:49,670 --> 00:07:51,260
+Once you fix that issue,
+
+111
+00:07:51,290 --> 00:07:55,820
+it'll continue to the next issue until you've fixed everything,
+
+112
+00:07:56,270 --> 00:08:00,920
+and this is really painful. But with code intelligence enabled,
+
+113
+00:08:01,130 --> 00:08:05,330
+every time we make an error such as an indentation error like this,
+
+114
+00:08:05,570 --> 00:08:09,260
+then we'll be able to hover over it and you'll see unexpected indent.
+
+115
+00:08:09,560 --> 00:08:13,970
+So we'll be able to fix that. If we forget to close off our print statement,
+
+116
+00:08:14,330 --> 00:08:18,020
+then we'll get a little squiggly line next to it.
+
+117
+00:08:18,380 --> 00:08:21,500
+And if we say misspelled our print statement,
+
+118
+00:08:21,890 --> 00:08:26,810
+we'll also get errors telling us that undefined name or it doesn't know what
+
+119
+00:08:26,870 --> 00:08:31,870
+this 'prnt' is and the syntax highlighting also changes and everything should
+
+120
+00:08:34,159 --> 00:08:38,990
+all help you to avoid mistakes and write good solid code.
+
+121
+00:08:40,640 --> 00:08:43,970
+So now it's time for another code challenge.
+
+122
+00:08:44,480 --> 00:08:45,830
+And in this code challenge,
+
+123
+00:08:46,040 --> 00:08:51,040
+I've got a whole bunch of broken code for you and your job is to debug or remove
+
+124
+00:08:53,060 --> 00:08:57,840
+the bugs from the code and make the code run without any errors.
+
+125
+00:08:58,740 --> 00:09:03,740
+This word debugging actually comes from a story where back in the 1980s a
+
+126
+00:09:04,530 --> 00:09:09,530
+moth actually flew into one of the early computers and it got electrocuted
+
+127
+00:09:11,130 --> 00:09:14,370
+unfortunately for the moth and for the programmer,
+
+128
+00:09:14,400 --> 00:09:18,540
+it meant that his code wasn't performing as he would expect it to.
+
+129
+00:09:18,960 --> 00:09:22,500
+So he actually had to go into the computer, pick out the moth,
+
+130
+00:09:22,950 --> 00:09:25,890
+and fix the wires so that it would work again.
+
+131
+00:09:26,670 --> 00:09:30,330
+Now we don't have any moths flying around in our code, thankfully,
+
+132
+00:09:30,750 --> 00:09:35,520
+but what we do have to do is we have to pick out the errors so that our code will
+
+133
+00:09:35,520 --> 00:09:39,630
+run in the way that we expect it to without any errors.
+
+134
+00:09:40,050 --> 00:09:45,050
+So head over to the next lesson and try out your first debugging exercise.
+
+1
+00:00:00,030 --> 00:00:00,863
+To begin,
+
+2
+00:00:00,930 --> 00:00:05,820
+I want you to locate the day 1.2 debugging exercise.
+
+3
+00:00:06,960 --> 00:00:10,380
+And now, as you did before, go ahead and read through the instructions.
+
+4
+00:00:10,740 --> 00:00:15,740
+Be mindful that the output must match the example output precisely.
+
+5
+00:00:16,410 --> 00:00:19,980
+And when you hit run, this is the outcome you're looking for.
+
+6
+00:00:20,430 --> 00:00:22,890
+So there's quite a few things broken here,
+
+7
+00:00:23,130 --> 00:00:28,130
+but I want you to have a go at fixing each line individually and pulling out the
+
+8
+00:00:28,590 --> 00:00:31,860
+bugs from the code. So pause the video now and give that a go.
+
+9
+00:00:36,710 --> 00:00:37,130
+All right.
+
+10
+00:00:37,130 --> 00:00:40,610
+So how did that go? If you haven't got your computer in front of you,
+
+11
+00:00:40,610 --> 00:00:45,350
+if you're traveling, if somehow you can't access the exercise, just pause
+
+12
+00:00:45,380 --> 00:00:46,790
+and when you've got time,
+
+13
+00:00:46,820 --> 00:00:49,430
+then complete the challenge and then come back to the course.
+
+14
+00:00:49,850 --> 00:00:53,300
+It is so important that you actually do some hands-on stuff.
+
+15
+00:00:53,540 --> 00:00:57,440
+And I stress that this is the only way that you are going to become the rock
+
+16
+00:00:57,440 --> 00:01:02,300
+star coder that I know you can be. Let's take a look at the code below.
+
+17
+00:01:02,870 --> 00:01:06,410
+You can see that when we run our code as it is right now,
+
+18
+00:01:06,590 --> 00:01:08,300
+we get a new error.
+
+19
+00:01:08,780 --> 00:01:12,650
+And this is going to point to the first of many errors in this file.
+
+20
+00:01:13,340 --> 00:01:17,930
+And in this case, it tells us that on line three,
+
+21
+00:01:18,170 --> 00:01:22,970
+so this one right here, at around this position
+
+22
+00:01:22,970 --> 00:01:27,740
+or somewhere around here, um, as denoted by the little caret sign,
+
+23
+00:01:28,130 --> 00:01:31,790
+there is a syntax error. If we study this closely,
+
+24
+00:01:31,790 --> 00:01:36,200
+you can see that the code highlighting seems to be suggesting that all of this
+
+25
+00:01:36,200 --> 00:01:41,060
+is code, but this is somehow text. So what's going on here?
+
+26
+00:01:41,510 --> 00:01:44,900
+Well, notice that we've only got one double quote.
+
+27
+00:01:45,200 --> 00:01:48,770
+So it thinks that what comes after this is the text,
+
+28
+00:01:49,190 --> 00:01:52,850
+but what comes before it, it thought it was just a continuation of code.
+
+29
+00:01:53,330 --> 00:01:54,500
+So to fix this one,
+
+30
+00:01:54,530 --> 00:01:59,530
+all we have to do is add a double quote right here. That changes the text to the
+
+31
+00:02:00,200 --> 00:02:04,010
+color that we're used to and this fixes this line.
+
+32
+00:02:04,190 --> 00:02:08,930
+So if we run our code now, we should get a different error. And indeed we do.
+
+33
+00:02:10,190 --> 00:02:13,580
+The next one tells us that on line five,
+
+34
+00:02:13,610 --> 00:02:17,720
+so this one right here, there is an indentation error.
+
+35
+00:02:17,780 --> 00:02:22,610
+There's an unexpected indent somewhere around here on line five.
+
+36
+00:02:23,120 --> 00:02:26,360
+So let's take a look at line five and there you go.
+
+37
+00:02:26,420 --> 00:02:31,280
+There's a little bit of extra space between the print and the beginning of the
+
+38
+00:02:31,280 --> 00:02:32,113
+line.
+
+39
+00:02:32,240 --> 00:02:37,240
+So now that we've fixed that one, let's click run. And it will point to
+
+40
+00:02:37,970 --> 00:02:40,910
+another line of code that's broken. And in this case,
+
+41
+00:02:40,910 --> 00:02:43,340
+it says on line seven,
+
+42
+00:02:43,400 --> 00:02:46,190
+which is here where there's actually no code,
+
+43
+00:02:46,520 --> 00:02:51,260
+there's the unexpected EOF while parsing. What does this mean?
+
+44
+00:02:51,650 --> 00:02:53,030
+Well, if you're not sure,
+
+45
+00:02:53,060 --> 00:02:58,060
+then go ahead and paste it into Google and let's take a look at what people say
+
+46
+00:03:01,240 --> 00:03:05,470
+on Stack Overflow. So as this person,
+
+47
+00:03:05,740 --> 00:03:09,970
+very kind, Felix, um, has explained, this index error
+
+48
+00:03:10,090 --> 00:03:11,110
+unexpected EOF
+
+49
+00:03:11,110 --> 00:03:16,030
+while parsing means that the end of your source code was reached before all
+
+50
+00:03:16,030 --> 00:03:20,650
+code blocks were completed. What is a code block? Well,
+
+51
+00:03:20,680 --> 00:03:23,920
+this is a code block because it's a print function,
+
+52
+00:03:24,160 --> 00:03:29,140
+it has a beginning and it has an end. But what does this line not have?
+
+53
+00:03:29,620 --> 00:03:31,690
+Well, it's got two open parentheses,
+
+54
+00:03:32,020 --> 00:03:34,630
+but only one closing parentheses.
+
+55
+00:03:34,960 --> 00:03:39,960
+So the computer thinks that you are going to continue writing something and then
+
+56
+00:03:40,150 --> 00:03:44,380
+close it off at the end, which is not the case. In fact,
+
+57
+00:03:44,410 --> 00:03:49,410
+what has happened is we simply have an extra misplaced open parenthesis.
+
+58
+00:03:51,700 --> 00:03:53,710
+And now if we delete that and hit run,
+
+59
+00:03:54,010 --> 00:03:57,520
+you'll see that we have everything printed.
+
+60
+00:03:57,940 --> 00:04:01,300
+But at this point, notice how on line four
+
+61
+00:04:01,480 --> 00:04:03,310
+which is the line that we haven't fixed yet,
+
+62
+00:04:03,820 --> 00:04:08,820
+it prints string concatenation is done with the 'blank' sign.
+
+63
+00:04:10,090 --> 00:04:12,430
+Whereas in fact, it should say plus sign.
+
+64
+00:04:13,360 --> 00:04:18,360
+And even though we don't see any errors being printed in our console,
+
+65
+00:04:19,269 --> 00:04:23,590
+you'll see that we have an output mismatch because I'm expecting to see this
+
+66
+00:04:23,590 --> 00:04:27,460
+line, the String Concatenation is done with the "+" sign,
+
+67
+00:04:27,910 --> 00:04:28,743
+but here,
+
+68
+00:04:28,990 --> 00:04:33,990
+the output doesn't have that part. It's missing this part.
+
+69
+00:04:35,140 --> 00:04:39,700
+So there's one last thing that you need to debug. And that is of course,
+
+70
+00:04:39,730 --> 00:04:40,630
+on line four.
+
+71
+00:04:41,290 --> 00:04:46,290
+And what's happening here is we have this part being interpreted as a string,
+
+72
+00:04:47,200 --> 00:04:49,540
+this part being interpreted a string,
+
+73
+00:04:49,960 --> 00:04:54,960
+and it thinks that this plus sign is just us concatenating
+
+74
+00:04:55,420 --> 00:04:57,280
+these two parts together,
+
+75
+00:04:57,760 --> 00:05:01,540
+which is why it printed out like this. But in fact,
+
+76
+00:05:01,640 --> 00:05:06,220
+we wanted to print out is this as text down here.
+
+77
+00:05:06,850 --> 00:05:11,850
+So what we have to do is to change this outer apart from double quotes
+
+78
+00:05:12,400 --> 00:05:14,320
+into single quotes.
+
+79
+00:05:14,830 --> 00:05:18,370
+And now you can see when it highlights this part,
+
+80
+00:05:18,460 --> 00:05:21,640
+it's all the same color including the plus sign.
+
+81
+00:05:22,420 --> 00:05:26,110
+Now it sees this as a complete string,
+
+82
+00:05:26,590 --> 00:05:30,850
+and it's not looking at this as if it's code. So now if we run our program,
+
+83
+00:05:30,880 --> 00:05:33,580
+you can see the entire sentence being printed out.
+
+84
+00:05:34,810 --> 00:05:38,650
+So if you've completed the challenge and you've gotten everything right,
+
+85
+00:05:38,740 --> 00:05:41,290
+then you're now done with this exercise.
+
+86
+00:05:41,950 --> 00:05:46,930
+If you got stuck and you want to have a look at the solution, as always it's down
+
+87
+00:05:46,930 --> 00:05:47,763
+here,
+
+88
+00:05:48,040 --> 00:05:53,040
+and it might be useful to have a look at this page to see where you might've
+
+89
+00:05:53,380 --> 00:05:56,620
+missed something or where you might've gotten something wrong.
+
+90
+00:05:57,730 --> 00:06:01,270
+So I hope you enjoyed this code exercise. In the next lesson,
+
+91
+00:06:01,330 --> 00:06:04,060
+we're going to learn about a new type of Python function,
+
+92
+00:06:04,150 --> 00:06:08,560
+which is the input function. So for all of that and more, I'll see you there.
+
+1
+00:00:00,270 --> 00:00:02,550
+Coming back to our Repl.it,
+
+2
+00:00:02,760 --> 00:00:07,230
+the Day 1 printing repl that you should have from previously,
+
+3
+00:00:08,039 --> 00:00:10,410
+I want to talk about a different function.
+
+4
+00:00:10,530 --> 00:00:15,530
+So we've seen the print function and all the things that we can do to strings
+
+5
+00:00:15,870 --> 00:00:19,230
+and use the print function and debug it.
+
+6
+00:00:19,710 --> 00:00:24,090
+But what if we wanted to be able to enter some data?
+
+7
+00:00:24,630 --> 00:00:26,220
+So if we wanted to say,
+
+8
+00:00:26,220 --> 00:00:31,020
+ask the user 'what is your name?' And we run this code,
+
+9
+00:00:31,410 --> 00:00:33,180
+you can see that being printed,
+
+10
+00:00:33,570 --> 00:00:38,570
+but there's no way for the user on this side to be able to give our code some
+
+11
+00:00:39,150 --> 00:00:42,270
+data to work with. In order to do that,
+
+12
+00:00:42,630 --> 00:00:44,970
+instead of using the print function,
+
+13
+00:00:45,270 --> 00:00:49,500
+we're going to use a different function and it's called the input function.
+
+14
+00:00:50,250 --> 00:00:52,470
+And notice how as I'm typing,
+
+15
+00:00:52,710 --> 00:00:57,570
+code intelligence is already giving me some suggestions because it thinks it
+
+16
+00:00:57,570 --> 00:00:59,670
+knows what I might want and it's right.
+
+17
+00:01:00,180 --> 00:01:05,069
+So this is what the input function looks like. This is the name of the function.
+
+18
+00:01:05,459 --> 00:01:09,300
+And again, it's followed by some parentheses. Inside the parentheses
+
+19
+00:01:09,300 --> 00:01:12,270
+is the prompt that I'm going to give the user.
+
+20
+00:01:12,990 --> 00:01:16,590
+So when I run this code, it will say, what is your name?
+
+21
+00:01:17,100 --> 00:01:22,100
+And then the cursor will stay at the end of this line because it's expecting
+
+22
+00:01:22,950 --> 00:01:27,300
+some sort of input. If I give it my name, Angela and I hit enter,
+
+23
+00:01:27,720 --> 00:01:32,720
+then this piece of data has now been passed back into my code and it now
+
+24
+00:01:33,600 --> 00:01:36,360
+replaces this part of the code.
+
+25
+00:01:36,780 --> 00:01:39,180
+So I'm passing data from over here,
+
+26
+00:01:39,540 --> 00:01:42,480
+back to over here where I can use it in my code.
+
+27
+00:01:43,680 --> 00:01:46,890
+Now notice the difference here. It looks quite similar.
+
+28
+00:01:47,100 --> 00:01:50,940
+When we run print, you can see it says what is your name?
+
+29
+00:01:51,390 --> 00:01:56,190
+and then the code execution ends and we know it ends because it's showing us
+
+30
+00:01:56,220 --> 00:01:57,720
+this little orange arrow.
+
+31
+00:01:58,350 --> 00:02:01,290
+But notice when I run input instead,
+
+32
+00:02:01,830 --> 00:02:03,570
+I don't see the orange arrow.
+
+33
+00:02:03,750 --> 00:02:08,750
+My program is actually paused right now in order for the user to provide an
+
+34
+00:02:09,060 --> 00:02:13,200
+input and it's only when I've given the input and hit enter
+
+35
+00:02:13,680 --> 00:02:15,090
+does the program end.
+
+36
+00:02:15,630 --> 00:02:19,890
+The input function looks pretty much identical to the print function,
+
+37
+00:02:20,280 --> 00:02:21,990
+but instead of the word print,
+
+38
+00:02:22,080 --> 00:02:26,220
+it's just got the word input. And inside the parentheses,
+
+39
+00:02:26,460 --> 00:02:29,460
+instead of adding what text will be printed,
+
+40
+00:02:29,760 --> 00:02:34,620
+we're adding the prompt for the user to give them a hint as to what kind of data
+
+41
+00:02:34,620 --> 00:02:38,970
+we want. And then when you run this code, it will print out the prompt,
+
+42
+00:02:39,240 --> 00:02:43,860
+but then there will be a cursor. In some places you'll see it like a flashing
+
+43
+00:02:43,860 --> 00:02:45,390
+cursor, other places,
+
+44
+00:02:45,420 --> 00:02:50,420
+it'll just be a solid cursor ready for the user to type in some piece of data.
+
+45
+00:02:51,630 --> 00:02:54,960
+So what can we do with this data? Well,
+
+46
+00:02:54,960 --> 00:02:57,450
+we can use it inside our code.
+
+47
+00:02:58,140 --> 00:03:03,140
+Remember how I said once this line of code executes and I've entered Angela as
+
+48
+00:03:03,700 --> 00:03:05,200
+the response to this input,
+
+49
+00:03:05,650 --> 00:03:10,420
+then this part of the code gets replaced by whatever it is that the user typed
+
+50
+00:03:10,420 --> 00:03:13,000
+in. So in this case it becomes Angela.
+
+51
+00:03:13,840 --> 00:03:18,840
+And what I can do with it is let's say I wanted to print something like,
+
+52
+00:03:19,450 --> 00:03:23,470
+hello Angela. Well,
+
+53
+00:03:23,470 --> 00:03:28,470
+then I can simply write Hello + input and then I'm going to close it off
+
+54
+00:03:32,440 --> 00:03:34,120
+with another set of brackets.
+
+55
+00:03:34,990 --> 00:03:37,990
+So I'm going to change my layout instead of side by side,
+
+56
+00:03:38,020 --> 00:03:39,880
+I'm going to change it to stacked.
+
+57
+00:03:40,360 --> 00:03:43,870
+And this means that I've got my code at the top and my console at the bottom.
+
+58
+00:03:44,230 --> 00:03:47,530
+This way my line can go a little bit longer without it rapping.
+
+59
+00:03:48,190 --> 00:03:49,750
+Notice what's happening here.
+
+60
+00:03:50,800 --> 00:03:55,800
+This is the input function that I showed you earlier on and this is a print
+
+61
+00:03:56,020 --> 00:03:56,853
+statement.
+
+62
+00:03:56,890 --> 00:04:01,890
+So we've got this nested inside the other. And now when I run my code,
+
+63
+00:04:03,940 --> 00:04:07,240
+what happens is it asked me what is your name?
+
+64
+00:04:07,420 --> 00:04:10,660
+So I'll write my name and then when I hit enter,
+
+65
+00:04:11,230 --> 00:04:16,230
+this part is replaced by Angela and it gets concatenated to the word hello and
+
+66
+00:04:18,790 --> 00:04:21,130
+the entire thing gets printed out down here.
+
+67
+00:04:21,880 --> 00:04:25,990
+If you find this line of code difficult to understand and to wrap your head
+
+68
+00:04:25,990 --> 00:04:26,823
+around,
+
+69
+00:04:26,890 --> 00:04:31,890
+then I recommend heading over to a website called thonny.org and downloading an
+
+70
+00:04:31,990 --> 00:04:35,980
+application called Thonny. It's completely free and it's available for Windows,
+
+71
+00:04:35,980 --> 00:04:40,180
+Mac, and Linux. And once you've installed this application,
+
+72
+00:04:40,540 --> 00:04:45,540
+you can go ahead and paste your line of code here and click on this little debug
+
+73
+00:04:46,570 --> 00:04:49,750
+symbol. And then we can click on this button,
+
+74
+00:04:49,840 --> 00:04:54,760
+which is called the step into button to step into the execution of this line of
+
+75
+00:04:54,760 --> 00:04:55,420
+code
+
+76
+00:04:55,420 --> 00:05:00,420
+to see how the computer is evaluating this code here step by step.
+
+77
+00:05:01,090 --> 00:05:04,870
+So you'll see the first thing it tries to do is it will try to run this print
+
+78
+00:05:04,870 --> 00:05:08,800
+statement. It looks inside, these parentheses to see what it needs to print.
+
+79
+00:05:09,370 --> 00:05:11,680
+So the first thing is this, Hello,
+
+80
+00:05:12,100 --> 00:05:17,020
+and it turns that into a string and then it looks at the next thing after the
+
+81
+00:05:17,020 --> 00:05:19,510
+plus sign to see what it should turn this into.
+
+82
+00:05:19,930 --> 00:05:24,160
+And this of course is the input function. So as I continue stepping into it,
+
+83
+00:05:24,520 --> 00:05:26,410
+it's actually going to execute it.
+
+84
+00:05:26,740 --> 00:05:31,360
+So it's going to run this input function and show the prompt, what is your name?
+
+85
+00:05:32,050 --> 00:05:33,760
+So that's what shows up down here.
+
+86
+00:05:34,300 --> 00:05:37,600
+And now if I enter a value in here and hit enter,
+
+87
+00:05:38,020 --> 00:05:43,020
+then that value that I put right there replaces that previous input function
+
+88
+00:05:44,800 --> 00:05:47,200
+and is now held inside the print statement.
+
+89
+00:05:47,740 --> 00:05:52,740
+So if I continue stepping through this code then you'll see it concatenates all of
+
+90
+00:05:53,320 --> 00:05:57,590
+the pieces together, and finally it just ends up with a simple print
+
+91
+00:05:57,680 --> 00:06:01,760
+Hello Angela! And if I continue stepping into it,
+
+92
+00:06:01,820 --> 00:06:06,620
+you'll see that line of code executed until there are no more instructions left.
+
+93
+00:06:07,160 --> 00:06:10,040
+So if you prefer seeing your code, um,
+
+94
+00:06:10,070 --> 00:06:13,490
+run like this step by step so that you can see what's going on,
+
+95
+00:06:13,760 --> 00:06:15,500
+then I recommend giving this a go.
+
+96
+00:06:16,580 --> 00:06:21,110
+But because of how easy it is to share these Repl.it code bases so that we're
+
+97
+00:06:21,110 --> 00:06:24,950
+working from the same place, I recommend to do most of your coding here
+
+98
+00:06:25,130 --> 00:06:30,130
+and only if you get stuck to take a single line of code and paste it into Thonny
+
+99
+00:06:30,740 --> 00:06:35,630
+to see how it's executed step-by-step. As you're learning to code,
+
+100
+00:06:35,690 --> 00:06:37,880
+there's going to be new concepts covered.
+
+101
+00:06:38,090 --> 00:06:41,300
+There's going to be things that take a little bit of thinking before you can
+
+102
+00:06:41,300 --> 00:06:42,230
+understand it.
+
+103
+00:06:42,740 --> 00:06:47,740
+So what a lot of programmers love to do is they like to comment in their code.
+
+104
+00:06:48,200 --> 00:06:48,410
+Now,
+
+105
+00:06:48,410 --> 00:06:52,210
+you might've seen this already throughout the coding exercises and the solutions
+
+106
+00:06:52,230 --> 00:06:54,740
+I provided. But in Python,
+
+107
+00:06:55,280 --> 00:07:00,280
+if you wanted a line of text to not be considered by the computer at all,
+
+108
+00:07:01,010 --> 00:07:06,010
+all you have to do is add the hashtag or pound sign in front of your text and
+
+109
+00:07:08,030 --> 00:07:10,370
+this turns it into a comment,
+
+110
+00:07:10,580 --> 00:07:13,730
+so something that the computer will completely ignore.
+
+111
+00:07:14,180 --> 00:07:17,840
+So in here you can write code as much as you like, um,
+
+112
+00:07:17,870 --> 00:07:20,840
+but it won't be executed and when you click run,
+
+113
+00:07:21,050 --> 00:07:23,270
+you'll see that this is completely ignored.
+
+114
+00:07:23,960 --> 00:07:28,430
+What I recommend is whenever you come across a new concept in the course to make
+
+115
+00:07:28,430 --> 00:07:33,430
+a comment above it so that you can explain to yourself what's actually going on
+
+116
+00:07:34,370 --> 00:07:37,610
+in the line of code below. This way
+
+117
+00:07:37,640 --> 00:07:41,630
+the next time you come across this line of code and you're not quite sure what's
+
+118
+00:07:41,630 --> 00:07:42,710
+actually happening here,
+
+119
+00:07:43,040 --> 00:07:46,730
+you can have a look at the notes that you've written for yourself in your own
+
+120
+00:07:46,730 --> 00:07:51,050
+words and hopefully it'll re-jog your memory and make it much easier to
+
+121
+00:07:51,050 --> 00:07:52,280
+comprehend what's going on.
+
+122
+00:07:53,720 --> 00:07:58,010
+In addition to adding a pound sign manually,
+
+123
+00:07:58,160 --> 00:08:03,080
+you can also highlight a line of code or simply have your cursor on a line of
+
+124
+00:08:03,080 --> 00:08:08,080
+code and hold down command and forward slash if you're on Mac or control and
+
+125
+00:08:09,290 --> 00:08:11,270
+forward slash if you're on Windows.
+
+126
+00:08:11,630 --> 00:08:14,240
+And if you want to go back or undo your changes,
+
+127
+00:08:14,540 --> 00:08:19,160
+it's simply command +z or control + z. All right,
+
+128
+00:08:19,310 --> 00:08:22,490
+so in this lesson we learned about input function,
+
+129
+00:08:22,760 --> 00:08:27,680
+we learned about putting functions inside other functions and being able to get
+
+130
+00:08:27,980 --> 00:08:31,790
+user input from the console by using the input function.
+
+131
+00:08:32,330 --> 00:08:36,020
+So now I've got a coding exercise for you in the next lesson,
+
+132
+00:08:36,559 --> 00:08:41,210
+and if you've commented this line of code thoroughly and you fully understood
+
+133
+00:08:41,419 --> 00:08:45,470
+how it works, then you'll be able to breeze through the next exercise.
+
+134
+00:08:46,010 --> 00:08:48,650
+So for all of that and more, I'll see you there.
+
+1
+00:00:00,120 --> 00:00:01,380
+All right. So again,
+
+2
+00:00:01,380 --> 00:00:05,400
+it's time to put theory into practice and get some hands-on action.
+
+3
+00:00:05,760 --> 00:00:10,560
+You should be able to find the day 1.3 assignment which is inputs.
+
+4
+00:00:11,070 --> 00:00:15,300
+Click on it and you will see the instructions for this particular challenge.
+
+5
+00:00:15,720 --> 00:00:18,420
+And the idea is that you're going to write a program
+
+6
+00:00:18,450 --> 00:00:22,950
+that's going to print the number of characters in a user's name. For example,
+
+7
+00:00:22,950 --> 00:00:25,980
+if I input my name, which is Angela,
+
+8
+00:00:26,370 --> 00:00:31,370
+it should output the number six because there are six characters in the word,
+
+9
+00:00:32,189 --> 00:00:36,390
+Angela. But remember you can't just print out the number six,
+
+10
+00:00:36,450 --> 00:00:38,430
+because when I'm checking for this code,
+
+11
+00:00:38,700 --> 00:00:42,720
+I'm going to try a whole bunch of different names as the input.
+
+12
+00:00:43,170 --> 00:00:46,650
+And you're going to have to use a little bit of thinking,
+
+13
+00:00:47,010 --> 00:00:51,810
+a little bit of Googling and also a little bit of messing around with the code
+
+14
+00:00:51,840 --> 00:00:54,570
+in order to get it to work. If you need any help,
+
+15
+00:00:54,600 --> 00:00:58,140
+there's a few hints down here for you. And if you really get stuck,
+
+16
+00:00:58,350 --> 00:01:00,390
+then you can take a look at the solution,
+
+17
+00:01:00,450 --> 00:01:03,510
+but not until you've really given it a go. And I really,
+
+18
+00:01:03,510 --> 00:01:05,400
+really want to know that you've tried hard.
+
+19
+00:01:06,330 --> 00:01:09,720
+And the whole point of these exercises is you sit there and scratch your head a
+
+20
+00:01:09,720 --> 00:01:12,420
+little bit and actually give it a good go.
+
+21
+00:01:13,410 --> 00:01:17,940
+So I'm going to stop talking now and I'm going to let you pause the video and
+
+22
+00:01:17,940 --> 00:01:20,160
+try to complete this challenge. All right, good luck.
+
+23
+00:01:23,610 --> 00:01:27,720
+Okay. So how did that go? If you get stuck, I want to tell you
+
+24
+00:01:27,990 --> 00:01:32,160
+the programmers secret to getting unstuck
+
+25
+00:01:32,760 --> 00:01:37,170
+which is go and grab yourself a cup of tea, have a quick break,
+
+26
+00:01:37,410 --> 00:01:39,240
+look at something else for a little moment,
+
+27
+00:01:39,480 --> 00:01:42,990
+think about something else and then come back to it. Well,
+
+28
+00:01:42,990 --> 00:01:46,140
+the tea part is optional. Well, at least if you're outside of England,
+
+29
+00:01:46,170 --> 00:01:50,640
+it's optional. So let's get started solving this challenge.
+
+30
+00:01:50,820 --> 00:01:54,810
+So the idea is that we're going to create a program that counts the number of
+
+31
+00:01:54,810 --> 00:01:57,540
+characters in any user's name.
+
+32
+00:01:58,050 --> 00:02:02,280
+And that name is obviously going to come through an input function,
+
+33
+00:02:02,730 --> 00:02:07,350
+and then we're going to use a function that calculates the length of a string
+
+34
+00:02:07,680 --> 00:02:10,770
+and we're going to send that out as the output.
+
+35
+00:02:11,850 --> 00:02:15,600
+The first thing we'll probably need is some form of input function right?
+
+36
+00:02:16,080 --> 00:02:20,460
+And the prompt that we're going to give the user is what is your name or
+
+37
+00:02:20,490 --> 00:02:23,040
+something similar that asks them for their name.
+
+38
+00:02:23,520 --> 00:02:28,050
+And I like to add a space at the end of the prompt. This way, when you run it,
+
+39
+00:02:28,230 --> 00:02:33,180
+you don't actually have that cursor straight next to the, um, the question mark
+
+40
+00:02:33,180 --> 00:02:37,980
+which looks a bit weird. But either way, once we've entered an input,
+
+41
+00:02:38,340 --> 00:02:42,390
+then this part gets replaced by that input
+
+42
+00:02:42,660 --> 00:02:43,950
+and we're going to do something with it.
+
+43
+00:02:43,980 --> 00:02:47,220
+We're going to calculate the length of that string.
+
+44
+00:02:47,700 --> 00:02:52,230
+Now using our eyes, we can obviously see that it's six characters long.
+
+45
+00:02:52,560 --> 00:02:55,770
+But what if you have a really a long name?
+
+46
+00:02:56,700 --> 00:03:00,940
+So let's go ahead and take a look at how we might figure out,
+
+47
+00:03:01,300 --> 00:03:05,590
+um, how to you get a function that calculates the length of a string.
+
+48
+00:03:06,100 --> 00:03:09,520
+I've actually included the Google search that you might need to use.
+
+49
+00:03:10,300 --> 00:03:13,090
+And so let's just paste that URL in here,
+
+50
+00:03:13,180 --> 00:03:17,740
+and you can see that we're searching for how to get the length of the string in
+
+51
+00:03:17,800 --> 00:03:21,400
+Python and we're trying to get results from Stack Overflow.
+
+52
+00:03:21,820 --> 00:03:26,820
+The first result is a question that seems to pretty match match exactly what we
+
+53
+00:03:27,040 --> 00:03:31,810
+want. And the answer from user 225312
+
+54
+00:03:31,810 --> 00:03:36,810
+tells us that you need to use the Len function. And the way that you use it
+
+55
+00:03:37,630 --> 00:03:41,170
+is by passing the string inside the parentheses.
+
+56
+00:03:41,740 --> 00:03:45,730
+Now this part might look a little bit different from what you're used to with the
+
+57
+00:03:45,730 --> 00:03:46,930
+equal sign and everything.
+
+58
+00:03:47,230 --> 00:03:50,140
+But I have confidence that if you mess around with this code,
+
+59
+00:03:50,350 --> 00:03:51,790
+you'll be able to figure it out.
+
+60
+00:03:52,840 --> 00:03:56,320
+Just like what we did with print or input,
+
+61
+00:03:56,620 --> 00:04:01,620
+the Len function also has a set of parentheses and it will work its magic on
+
+62
+00:04:03,010 --> 00:04:07,480
+whatever it is that we put inside the parentheses. If I just put my name,
+
+63
+00:04:07,540 --> 00:04:08,373
+Angela here,
+
+64
+00:04:08,440 --> 00:04:13,440
+let's just comment out the previous line, and I go ahead and print the result of
+
+65
+00:04:14,260 --> 00:04:18,700
+this and then I hit run, you can see that it prints 6. Now,
+
+66
+00:04:18,700 --> 00:04:22,330
+if I change that to Jack, then you'll see it prints 4.
+
+67
+00:04:22,480 --> 00:04:24,970
+So it will print whatever it is
+
+68
+00:04:25,000 --> 00:04:29,680
+the length of the string that I've put inside the Len function.
+
+69
+00:04:30,220 --> 00:04:31,900
+So we're getting close now, right?
+
+70
+00:04:32,110 --> 00:04:36,160
+Because instead of printing out a string that I've hard coded here,
+
+71
+00:04:36,550 --> 00:04:40,540
+what I want is to take the input that the user has given me.
+
+72
+00:04:40,960 --> 00:04:44,500
+So something like this. Now, if you want to,
+
+73
+00:04:44,500 --> 00:04:49,390
+you can actually add some spaces inside here just to make it a little bit
+
+74
+00:04:49,390 --> 00:04:54,390
+clearer to yourself as to what's actually going on because there's three
+
+75
+00:04:54,610 --> 00:04:57,490
+functions here. They are all nested inside each other.
+
+76
+00:04:57,910 --> 00:04:59,680
+So this is the first one,
+
+77
+00:04:59,680 --> 00:05:03,430
+this is the one that is going to get the input from the user and replace this
+
+78
+00:05:03,430 --> 00:05:06,250
+part with whatever it is that they type down here.
+
+79
+00:05:06,910 --> 00:05:11,910
+Then that string gets calculated using the Len function to get the length of
+
+80
+00:05:12,610 --> 00:05:16,990
+that string. And then that number will get printed by the print function.
+
+81
+00:05:18,190 --> 00:05:21,640
+Now let's go ahead and hit run and let's give it a go.
+
+82
+00:05:21,730 --> 00:05:24,550
+So let's try Jack, hit enter.
+
+83
+00:05:24,790 --> 00:05:27,130
+And it tells us that it's 4.
+
+84
+00:05:27,700 --> 00:05:29,830
+But using the same line of code,
+
+85
+00:05:29,950 --> 00:05:34,180
+if we try a different name Angela, then it prints out six.
+
+86
+00:05:34,930 --> 00:05:37,960
+How did you get on with this? If you got stuck,
+
+87
+00:05:38,110 --> 00:05:42,160
+then have a look at the solution Repl.it um,
+
+88
+00:05:42,190 --> 00:05:46,480
+where you will be able to find the code that I've written here and a little bit
+
+89
+00:05:46,480 --> 00:05:47,890
+of explanation as well.
+
+90
+00:05:48,730 --> 00:05:51,790
+The important thing is that you really play around with this code.
+
+91
+00:05:52,150 --> 00:05:57,150
+Try things and make it break and make it work and just get it to do what you
+
+92
+00:05:58,610 --> 00:05:59,443
+want it to do.
+
+93
+00:06:00,020 --> 00:06:05,020
+And remember that if you ever want to visualize these things and the order of
+
+94
+00:06:06,200 --> 00:06:10,700
+execution, then you can always use Thonny to see that.
+
+95
+00:06:10,880 --> 00:06:12,620
+So let's go ahead and step in.
+
+96
+00:06:13,010 --> 00:06:17,420
+You'll see that it goes through Len, input, and then it's going to carry out this
+
+97
+00:06:17,450 --> 00:06:21,650
+functionality input. I gave it my name, hit enter.
+
+98
+00:06:22,250 --> 00:06:25,580
+Then it puts that inside the Len function like so,
+
+99
+00:06:25,880 --> 00:06:28,040
+so now the next step is this part.
+
+100
+00:06:28,280 --> 00:06:30,590
+We're going to calculate the length of this string.
+
+101
+00:06:31,100 --> 00:06:34,490
+And as I continue stepping into it, you can see that become six.
+
+102
+00:06:34,820 --> 00:06:37,430
+And finally we're gonna carry out the final instruction,
+
+103
+00:06:37,460 --> 00:06:41,870
+which is just to print six down here. Again,
+
+104
+00:06:42,050 --> 00:06:45,890
+this can be quite useful just to visualize all the steps that are happening
+
+105
+00:06:46,460 --> 00:06:47,293
+if you want to.
+
+106
+00:06:48,260 --> 00:06:52,490
+Once you're done, head over to the next lesson and I'm going to talk to you
+
+107
+00:06:52,730 --> 00:06:57,730
+all about Python variables and how we'll be able to identify pieces of data in
+
+108
+00:06:58,070 --> 00:07:01,520
+our code. So for all of that, and more, I'll see you there.
+
+1
+00:00:00,400 --> 00:00:05,320
+Now in this lesson, I want to talk to you about Python variables and it's a
+
+2
+00:00:05,320 --> 00:00:09,220
+really, really useful concept. But before we get started,
+
+3
+00:00:09,370 --> 00:00:14,370
+first I want you to head over to the course resources and get hold of the Day
+
+4
+00:00:15,820 --> 00:00:20,820
+1 variables start Repl.it sandbox or you can simply type the URL into the
+
+5
+00:00:22,330 --> 00:00:23,163
+browser.
+
+6
+00:00:23,380 --> 00:00:28,380
+I want you to first go ahead and fork this starting code so that you can work on
+
+7
+00:00:28,750 --> 00:00:31,990
+your own version of it. Now once you've done that,
+
+8
+00:00:32,140 --> 00:00:37,140
+then the first thing I want to do is to take a look at this line of code that
+
+9
+00:00:37,930 --> 00:00:41,830
+you should have already. And when we run this,
+
+10
+00:00:41,860 --> 00:00:44,260
+we should be pretty familiar with what happens, right?
+
+11
+00:00:44,260 --> 00:00:48,700
+It will ask us for our name and when we hit enter, nothing happens.
+
+12
+00:00:49,060 --> 00:00:50,770
+But behind the scenes,
+
+13
+00:00:51,160 --> 00:00:56,160
+this name or this input has now been received by this function.
+
+14
+00:00:57,550 --> 00:01:02,020
+But once that's done, it kind of just disappears, right?
+
+15
+00:01:02,680 --> 00:01:07,680
+And there's no way for us to be able to refer to it in the future. Or is there?
+
+16
+00:01:10,980 --> 00:01:13,920
+Well, this is where variables come in really handy.
+
+17
+00:01:14,520 --> 00:01:18,150
+If I give the results of this action a name,
+
+18
+00:01:18,390 --> 00:01:20,940
+well then I'll be able to refer to it later on.
+
+19
+00:01:21,540 --> 00:01:23,850
+So at the beginning of the line,
+
+20
+00:01:23,940 --> 00:01:27,630
+I'm going to call it name and then I'm going to add an equal sign
+
+21
+00:01:28,170 --> 00:01:33,170
+and what this does is it assigns whatever it is that the user typed in as the
+
+22
+00:01:33,600 --> 00:01:38,600
+input to this prompt to a variable called name.
+
+23
+00:01:40,350 --> 00:01:45,350
+So now if I go ahead and run my code again and I enter a name,
+
+24
+00:01:47,970 --> 00:01:49,980
+now once I hit enter,
+
+25
+00:01:50,040 --> 00:01:53,910
+normally there's no way for me to get hold of this anymore, right?
+
+26
+00:01:54,480 --> 00:01:58,800
+But now I can actually go ahead and write print.
+
+27
+00:01:59,220 --> 00:02:02,580
+I'm going to print the value of this variable name.
+
+28
+00:02:03,300 --> 00:02:07,170
+So now if I run my code and I write a name,
+
+29
+00:02:07,560 --> 00:02:08,393
+hit enter,
+
+30
+00:02:08,759 --> 00:02:13,760
+you'll see that this gets printed and I can use this at any point in my code
+
+31
+00:02:14,760 --> 00:02:19,760
+just by referring to the name that's attached to this value.
+
+32
+00:02:21,510 --> 00:02:26,510
+So it's almost like we've saved the data from this action to a name.
+
+33
+00:02:29,760 --> 00:02:33,660
+And if you think about it, if you had a phone book, let's say,
+
+34
+00:02:33,660 --> 00:02:37,080
+and you just jotted down the numbers of people,
+
+35
+00:02:37,560 --> 00:02:39,120
+the next time you look at this,
+
+36
+00:02:39,150 --> 00:02:43,110
+there's no way for you to know who's number that is, right?
+
+37
+00:02:43,740 --> 00:02:46,560
+In a sense it's the same thing with the computer.
+
+38
+00:02:47,100 --> 00:02:50,160
+Even though we've inputted this piece of data,
+
+39
+00:02:50,310 --> 00:02:55,310
+there's no way for us to be able to refer to this data unless we give it a name.
+
+40
+00:02:56,760 --> 00:03:01,760
+So in our phone book, we might say that this particular number is associated with
+
+41
+00:03:02,410 --> 00:03:07,410
+the name James. And in programming we would call this name James a variable.
+
+42
+00:03:09,400 --> 00:03:14,400
+So we could write something like James equals and then his phone number.
+
+43
+00:03:15,400 --> 00:03:19,360
+And this means that in the future, if we ever need this piece of data,
+
+44
+00:03:19,570 --> 00:03:22,480
+we can just refer to it by its name,
+
+45
+00:03:23,020 --> 00:03:25,900
+the variable name of James. Now,
+
+46
+00:03:25,960 --> 00:03:28,750
+as the name variable suggests,
+
+47
+00:03:29,470 --> 00:03:33,670
+it's something that can be changed or can be varied.
+
+48
+00:03:34,270 --> 00:03:35,530
+So for example,
+
+49
+00:03:35,650 --> 00:03:40,480
+just because this name is set to something up here doesn't mean that I can't
+
+50
+00:03:40,480 --> 00:03:43,840
+change it later on. So to make things simple,
+
+51
+00:03:43,840 --> 00:03:48,610
+let's go ahead and delete the input function and let's just say name is equal to
+
+52
+00:03:48,610 --> 00:03:50,110
+Jack. Print name.
+
+53
+00:03:50,320 --> 00:03:55,320
+When I run that Jack is what gets printed inside the console because I'm now
+
+54
+00:03:55,720 --> 00:03:59,290
+referring to that piece of data by the variable name.
+
+55
+00:04:00,100 --> 00:04:05,100
+But if later on I decide to give this variable a different piece of data to hold
+
+56
+00:04:06,010 --> 00:04:06,843
+on to,
+
+57
+00:04:07,000 --> 00:04:12,000
+let's say Angela and I print name at this time point after I've changed it,
+
+58
+00:04:15,760 --> 00:04:18,850
+what do you think these two lines will print?
+
+59
+00:04:19,450 --> 00:04:21,190
+What do you think will first be printed?
+
+60
+00:04:21,250 --> 00:04:25,990
+What do you think will be printed second? Let's hit command + enter or control +
+
+61
+00:04:25,990 --> 00:04:27,790
+enter and see for ourselves.
+
+62
+00:04:28,390 --> 00:04:33,390
+So even though they're both printing the same variable, at this point when we first
+
+63
+00:04:34,810 --> 00:04:38,080
+call print, it's holding on to the value of Jack,.
+
+64
+00:04:38,500 --> 00:04:43,500
+But by line 5 I've now changed it so that it's holding onto the value of
+
+65
+00:04:43,780 --> 00:04:44,613
+Angela.
+
+66
+00:04:45,550 --> 00:04:50,550
+This makes it a lot easier when we want to write code like what we did before.
+
+67
+00:04:51,250 --> 00:04:51,880
+For example,
+
+68
+00:04:51,880 --> 00:04:55,750
+this is the line of code that we had before and we knew that we were going to
+
+69
+00:04:55,750 --> 00:05:00,750
+get a piece of data from this input function and then we would calculate a new
+
+70
+00:05:02,050 --> 00:05:04,510
+piece of data using the Len function
+
+71
+00:05:04,990 --> 00:05:07,540
+and finally we're going to print everything out.
+
+72
+00:05:08,320 --> 00:05:12,670
+Instead of having such a long line of code, which can be quite confusing,
+
+73
+00:05:13,120 --> 00:05:18,100
+we can, if we wanted to, use variables to store each of these steps.
+
+74
+00:05:18,550 --> 00:05:19,390
+So for example,
+
+75
+00:05:19,390 --> 00:05:24,390
+we could say that the name was equal to whatever the user inserted as the
+
+76
+00:05:25,120 --> 00:05:25,953
+input
+
+77
+00:05:26,530 --> 00:05:30,310
+and then when we wanted to calculate the length,
+
+78
+00:05:30,730 --> 00:05:35,680
+then we could set that variable to equal the Len function.
+
+79
+00:05:36,070 --> 00:05:41,070
+And then inside the parentheses, we'll pass in the name, the value, that's stored
+
+80
+00:05:41,800 --> 00:05:45,580
+in the name variable right here. And finally,
+
+81
+00:05:45,820 --> 00:05:50,710
+all that we need to do is to print the length,
+
+82
+00:05:53,620 --> 00:05:56,470
+like so. So in this case,
+
+83
+00:05:56,840 --> 00:06:01,840
+this data is stored under this name and then that data is what's going to be
+
+84
+00:06:02,360 --> 00:06:04,940
+used in order to carry out this function
+
+85
+00:06:05,510 --> 00:06:08,780
+and then the result will get stored in yet another variable
+
+86
+00:06:09,110 --> 00:06:11,360
+and finally that variable will be printed out.
+
+87
+00:06:11,870 --> 00:06:16,870
+So let's go ahead and run this code and type in my name.
+
+88
+00:06:17,090 --> 00:06:21,950
+So Angela and hit enter and it does exactly the same thing,
+
+89
+00:06:22,460 --> 00:06:27,460
+but now we've got all of these pieces of data all associated with a name that we
+
+90
+00:06:29,450 --> 00:06:34,160
+can refer to at any later point in our code. Now it's time,
+
+91
+00:06:34,190 --> 00:06:36,560
+you guessed it, for a code challenge.
+
+92
+00:06:36,860 --> 00:06:39,500
+And I'm going to get you to apply what you've learned.
+
+93
+00:06:39,800 --> 00:06:42,860
+So for all of that and more, I'll see you on the next lesson.
+
+1
+00:00:00,450 --> 00:00:04,500
+All right guys, it's time for your final coding exercise.
+
+2
+00:00:04,950 --> 00:00:08,010
+So click on day 1.4 variables.
+
+3
+00:00:09,690 --> 00:00:14,690
+Now the aim of the game is to switch the values of these two variables around.
+
+4
+00:00:18,630 --> 00:00:21,540
+So if we go ahead and run our code as it is,
+
+5
+00:00:21,690 --> 00:00:25,320
+it's going to ask us for a value of a. Let's call it five.
+
+6
+00:00:25,920 --> 00:00:30,330
+And then it's going to ask us a value for b. Let's call that a hundred.
+
+7
+00:00:30,870 --> 00:00:32,520
+And then when I hit enter,
+
+8
+00:00:32,670 --> 00:00:37,670
+what you want the code to do is to go ahead and print a equals 100 and b equals
+
+9
+00:00:40,680 --> 00:00:41,513
+five.
+
+10
+00:00:41,670 --> 00:00:46,620
+So, basically switch those values around. And you're going to have to write your
+
+11
+00:00:46,620 --> 00:00:49,680
+code in here. And it's really,
+
+12
+00:00:49,680 --> 00:00:54,680
+really important that you don't change any of the code here or the code here.
+
+13
+00:00:55,770 --> 00:01:00,770
+Now it's easy enough to simply just write print a equals b and b equals a.
+
+14
+00:01:04,500 --> 00:01:08,730
+But this doesn't test you on anything. This is not the solution.
+
+15
+00:01:08,730 --> 00:01:13,200
+This is wrong. Don't change the code here, don't change the code here.
+
+16
+00:01:13,230 --> 00:01:14,040
+Instead, all
+
+17
+00:01:14,040 --> 00:01:19,040
+you have are these lines where you can write as much code or as little code as
+
+18
+00:01:19,320 --> 00:01:23,340
+you need to achieve this end. And when you achieve it,
+
+19
+00:01:23,370 --> 00:01:24,990
+it should look something like this.
+
+20
+00:01:25,020 --> 00:01:29,430
+You type a value for a, you type a value for b. And when you hit enter,
+
+21
+00:01:29,670 --> 00:01:30,750
+they get printed out,
+
+22
+00:01:30,750 --> 00:01:34,950
+but switched around. Have a think about how variables work,
+
+23
+00:01:35,250 --> 00:01:39,210
+how they store data. And if you get really stuck,
+
+24
+00:01:39,240 --> 00:01:43,440
+imagine that you have two cups; one holds a cup of milk, one
+
+25
+00:01:43,440 --> 00:01:44,610
+holds a cup of coffee,
+
+26
+00:01:44,880 --> 00:01:49,290
+and you wanna switch the contents of the cup around. How would you do that in
+
+27
+00:01:49,290 --> 00:01:53,460
+real life? And then try and see if you can apply that logic to the code.
+
+28
+00:01:54,090 --> 00:01:56,130
+Pause the video now and give this a go.
+
+29
+00:02:00,930 --> 00:02:04,050
+All right. So I hope you didn't cheat
+
+30
+00:02:04,170 --> 00:02:08,340
+and instead you actually had a think about this problem. If you got stuck,
+
+31
+00:02:08,370 --> 00:02:09,330
+remember how I said
+
+32
+00:02:09,360 --> 00:02:13,170
+if you have a cup of coffee and you have a cup of milk and you wanna switch the
+
+33
+00:02:13,170 --> 00:02:18,090
+contents of the cups around, how would you do this in real life? Well,
+
+34
+00:02:18,120 --> 00:02:21,570
+you would probably get a third cup, right?
+
+35
+00:02:22,320 --> 00:02:25,410
+And then you'd be able to shift the contents around.
+
+36
+00:02:25,920 --> 00:02:28,980
+So that's exactly what we're going to do with our code as well.
+
+37
+00:02:29,880 --> 00:02:34,880
+We can create a new variable called c and we can set that to equal the value that's
+
+38
+00:02:36,510 --> 00:02:39,960
+stored inside a. And then later on,
+
+39
+00:02:40,170 --> 00:02:45,170
+we can get the variable a to store the value that's currently inside b.
+
+40
+00:02:46,590 --> 00:02:47,700
+And finally,
+
+41
+00:02:47,730 --> 00:02:52,730
+we're now ready to get b to store the value that was previously inside a,
+
+42
+00:02:53,640 --> 00:02:58,640
+which is now contained inside the variable c. These three lines achieve this
+
+43
+00:02:59,530 --> 00:03:01,360
+little switch rule that we've got here.
+
+44
+00:03:01,990 --> 00:03:06,610
+And this is one of the most common Programming interview questions that you will
+
+45
+00:03:06,610 --> 00:03:09,610
+come across. And the code is super simple,
+
+46
+00:03:10,060 --> 00:03:13,630
+but what you have to apply here is some logic.
+
+47
+00:03:13,810 --> 00:03:16,030
+And I usually think about real life examples
+
+48
+00:03:16,030 --> 00:03:18,850
+like the cups and I hope that helped you as well.
+
+49
+00:03:19,390 --> 00:03:21,790
+If this was at all confusing,
+
+50
+00:03:22,150 --> 00:03:25,240
+then have a go at trying this out in Thonny.
+
+51
+00:03:25,840 --> 00:03:28,570
+But if you got it right, then congratulations.
+
+52
+00:03:28,570 --> 00:03:30,910
+This was actually quite a hard challenge.
+
+53
+00:03:31,150 --> 00:03:35,440
+You had to think about a lot of things and think outside the box as well.
+
+54
+00:03:35,890 --> 00:03:38,050
+So give yourself a pat on the back if you've got it right.
+
+55
+00:03:38,470 --> 00:03:39,640
+If you didn't get it right,
+
+56
+00:03:39,640 --> 00:03:44,640
+then I really recommend to put this code inside Thonny and see how it's being
+
+57
+00:03:45,430 --> 00:03:47,110
+moved around so that you really,
+
+58
+00:03:47,110 --> 00:03:49,510
+really understand what's going on behind the scenes.
+
+59
+00:03:50,440 --> 00:03:55,150
+And then you can move on to the next lesson where we're going to talk about some
+
+60
+00:03:55,150 --> 00:03:59,080
+of the rules around naming variables. For all of that
+
+61
+00:03:59,230 --> 00:04:00,400
+and more, I'll see you there.
+
+1
+00:00:00,430 --> 00:00:03,310
+Now when it comes to naming your variables,
+
+2
+00:00:03,610 --> 00:00:06,580
+you can pretty much call it whatever it is you want.
+
+3
+00:00:07,270 --> 00:00:09,010
+So instead of calling this name,
+
+4
+00:00:09,370 --> 00:00:14,370
+I could have just called it n and I could have called this l and as long as I'm
+
+5
+00:00:14,920 --> 00:00:15,790
+consistent.
+
+6
+00:00:15,880 --> 00:00:20,880
+So if I wanted to get the length of N then I would have to change this as well.
+
+7
+00:00:21,940 --> 00:00:25,960
+And if I wanted to print out L then I have to change this as well.
+
+8
+00:00:26,590 --> 00:00:29,260
+But there's a couple of rules that you should probably follow.
+
+9
+00:00:29,350 --> 00:00:34,350
+And the most important one is to make your code readable. Because if you come
+
+10
+00:00:35,800 --> 00:00:38,830
+back to this in six months, 12 months,
+
+11
+00:00:39,280 --> 00:00:42,730
+N and L is not going to have a lot of meaning for you.
+
+12
+00:00:43,150 --> 00:00:46,450
+So try to make sure that it actually makes sense to you.
+
+13
+00:00:47,590 --> 00:00:48,670
+And if you want to,
+
+14
+00:00:48,670 --> 00:00:52,630
+you can actually have multiple words in the name of your variable.
+
+15
+00:00:52,960 --> 00:00:55,900
+So for example, if you wanted to call this username,
+
+16
+00:00:56,260 --> 00:01:00,610
+then you would write the word user and then you would separate each of the words
+
+17
+00:01:00,820 --> 00:01:05,680
+with an underscore. But you can't have a space in between.
+
+18
+00:01:05,710 --> 00:01:10,030
+This is not valid code and if you try to run it, you'll get a syntax error.
+
+19
+00:01:10,840 --> 00:01:15,840
+So the name of the variable has to be one single unit and in order to separate
+
+20
+00:01:16,810 --> 00:01:19,300
+words in Python, we use the underscore.
+
+21
+00:01:20,080 --> 00:01:23,500
+Now if you want to use numbers in the name of your variable,
+
+22
+00:01:23,500 --> 00:01:25,870
+you can. So for example, length1,
+
+23
+00:01:25,870 --> 00:01:30,870
+length2. But they can't be at the beginning of the name of the variables.
+
+24
+00:01:31,630 --> 00:01:35,200
+You can't say 1length or 3length.
+
+25
+00:01:35,530 --> 00:01:39,850
+That will generate a syntax error as well. Finally,
+
+26
+00:01:40,360 --> 00:01:43,720
+there's certain privileged words that we use, for example,
+
+27
+00:01:43,720 --> 00:01:47,560
+the names of our functions like print and input.
+
+28
+00:01:48,040 --> 00:01:53,040
+And it's usually good practice to not use them as the names of your variables
+
+29
+00:01:53,530 --> 00:01:57,430
+because you can see that syntax highlighting gets messed up because it thinks
+
+30
+00:01:57,670 --> 00:02:00,130
+that is actually input function you're trying to create.
+
+31
+00:02:00,460 --> 00:02:04,330
+And even though often when you run your app, it might not have any issues,
+
+32
+00:02:04,540 --> 00:02:07,600
+this is really bad practice because it's very confusing.
+
+33
+00:02:08,680 --> 00:02:12,430
+So try to make sure that all the names of your variables get highlighted,
+
+34
+00:02:12,670 --> 00:02:15,760
+like the other variables in the same color. Now,
+
+35
+00:02:15,790 --> 00:02:20,170
+the final thing to remember is that if you decide to call your variable this
+
+36
+00:02:20,170 --> 00:02:25,170
+particular name, n-a-m-e, and at a later point you make a typo and you spell it
+
+37
+00:02:26,380 --> 00:02:31,090
+wrong, so maybe instead of name you said nama,
+
+38
+00:02:31,780 --> 00:02:36,640
+this is not going to work and when you run your code you'll get what's called a
+
+39
+00:02:36,670 --> 00:02:41,670
+name error because it says this name is not defined. And the idea is that you
+
+40
+00:02:43,390 --> 00:02:48,390
+would look at where the error is, line 2, print nama and you'll see,
+
+41
+00:02:49,090 --> 00:02:51,880
+Oh that's not right. It's meant to be spelled n-a-
+
+42
+00:02:52,090 --> 00:02:57,090
+m-e. So you'll have to go and fix it in order for your code to work.
+
+43
+00:02:58,000 --> 00:03:02,800
+Now remember that this is not because Python is doing any sort of spell-checking
+
+44
+00:03:02,800 --> 00:03:06,730
+for you. It's like, Oh, that's not how you spell name. No. In fact,
+
+45
+00:03:06,850 --> 00:03:11,850
+if you decided to call this nama and you, later on, used it as name,
+
+46
+00:03:13,090 --> 00:03:16,000
+there's no problems, there's no issues, no errors,.
+
+47
+00:03:16,690 --> 00:03:18,670
+As long as it's consistent,
+
+48
+00:03:19,060 --> 00:03:23,830
+this is the name that's associated with this piece of data. Later on,
+
+49
+00:03:23,830 --> 00:03:28,780
+when you want to use this piece of data, you use this name to refer to it.
+
+50
+00:03:29,180 --> 00:03:32,290
+And as long as these two spellings are identical,
+
+51
+00:03:32,500 --> 00:03:34,660
+then the computer doesn't care at all.
+
+52
+00:03:35,230 --> 00:03:38,290
+So when you get a name error in your code,
+
+53
+00:03:38,350 --> 00:03:43,350
+you now know it's probably because you've misspelled or mistyped one of the
+
+54
+00:03:43,570 --> 00:03:47,950
+variable names somewhere in your code. Now in the next lesson,
+
+55
+00:03:48,040 --> 00:03:52,510
+I prepared a quiz for you where you'll get to select which variable names are
+
+56
+00:03:52,540 --> 00:03:55,390
+valid and which ones are not good practice.
+
+57
+00:03:55,720 --> 00:03:58,060
+Have a go at that over on the next lesson.
+
+1
+00:00:00,330 --> 00:00:06,689
+All right, guys, it's time for the final project of today. So the program that you're going to be
+
+2
+00:00:06,689 --> 00:00:12,360
+building looks a little bit like this. And you can check it out if you head over to this link, either
+
+3
+00:00:12,360 --> 00:00:18,320
+by typing it in or heading to the resources page and clicking on the corresponding link.
+
+4
+00:00:18,840 --> 00:00:27,330
+But essentially, it's a band name generator. And it asks you for a city that you grew up in and the name of your
+
+5
+00:00:27,330 --> 00:00:27,770
+pet.
+
+6
+00:00:28,080 --> 00:00:32,080
+And then it combines those together and gives you the name of your band.
+
+7
+00:00:32,700 --> 00:00:34,290
+There's a couple of things to note here.
+
+8
+00:00:34,300 --> 00:00:41,980
+Firstly is notice when this input got triggered, the cursor actually showed up on a new line.
+
+9
+00:00:42,000 --> 00:00:46,010
+So if I run this again, you can see it says "What's the name of city you grew up in?"
+
+10
+00:00:46,020 --> 00:00:48,600
+And then the cursor is on the next line.
+
+11
+00:00:49,380 --> 00:00:54,540
+And what I want you to do is to go ahead and head over to this starting project.
+
+12
+00:00:55,050 --> 00:00:56,490
+So this is the URL
+
+13
+00:00:56,490 --> 00:00:59,490
+and it's also, of course, in the course resources.
+
+14
+00:00:59,910 --> 00:01:05,080
+And once you head over here, you can fork this code and complete your own version.
+
+15
+00:01:05,430 --> 00:01:08,580
+So there's a couple of steps in here as hints.
+
+16
+00:01:09,030 --> 00:01:14,010
+If you don't want to see these and you just want to go by the end project, you can also just delete
+
+17
+00:01:14,010 --> 00:01:14,640
+all of these.
+
+18
+00:01:15,180 --> 00:01:21,270
+But the important thing is once you've completed this project, it should work exactly the same as the
+
+19
+00:01:21,270 --> 00:01:22,550
+one that you see here.
+
+20
+00:01:23,190 --> 00:01:28,230
+And in order to do this, you're going to have to apply everything that you learned today, including
+
+21
+00:01:28,230 --> 00:01:34,960
+printing inputs, variables, new lines, string manipulation, debugging and a whole lot more.
+
+22
+00:01:35,310 --> 00:01:41,790
+So this is a time to grab yourself a cup of tea 🍵 or coffee ☕️, pause the video and tackle this final project.
+
+23
+00:01:46,510 --> 00:01:52,270
+All right, guys, I hope you gave that a go and you were able to complete it. If you want to see how
+
+24
+00:01:52,270 --> 00:01:57,970
+I've implemented it or if you want to just check to see if you have any errors or if there's something
+
+25
+00:01:57,970 --> 00:02:02,520
+that you're unsure about, then continue watching and I'll go through the solution with you.
+
+26
+00:02:03,920 --> 00:02:09,800
+The first step is to create a greeting for your program, in our case, it says "Welcome to the band
+
+27
+00:02:09,800 --> 00:02:10,720
+name generator."
+
+28
+00:02:11,090 --> 00:02:13,240
+So that's exactly what I'm going to create.
+
+29
+00:02:13,490 --> 00:02:16,720
+And we print these messages using the print function.
+
+30
+00:02:17,210 --> 00:02:22,610
+So I'm going to say "Welcome to the band name generator."
+
+31
+00:02:24,110 --> 00:02:27,560
+And this when I run, it will just print that message.
+
+32
+00:02:29,690 --> 00:02:35,330
+Now, the next step is to ask the user for the city that they grew up in. So in order to get some input
+
+33
+00:02:35,330 --> 00:02:38,540
+from the user will need, of course, the input function.
+
+34
+00:02:38,870 --> 00:02:46,820
+And we're going to ask them using the prompt, which goes inside the parentheses: "Which city did you
+
+35
+00:02:46,820 --> 00:02:49,040
+grow up in?"
+
+36
+00:02:49,610 --> 00:02:56,770
+So now when I hit run, it's going to ask me for the city that I grew up in and I'm able to add a reply
+
+37
+00:02:57,020 --> 00:02:57,620
+like so.
+
+38
+00:02:58,850 --> 00:03:06,080
+Now, that data is just going to be lost to thin air unless I capture it and I give it a name, so I'm
+
+39
+00:03:06,080 --> 00:03:09,920
+going to have to create a variable to hold onto the data that the user inputted.
+
+40
+00:03:10,280 --> 00:03:16,190
+So we'll just call that "city" and then add the equal sign (=) to assign whatever it is that the user typed
+
+41
+00:03:16,190 --> 00:03:18,200
+in to this variable name.
+
+42
+00:03:19,010 --> 00:03:27,680
+And now I have access to the city variable and I can print it or use it later on if I want to, like so.
+
+43
+00:03:30,770 --> 00:03:35,260
+Now, the next step is to ask the user for the name of a pet.
+
+44
+00:03:35,390 --> 00:03:41,840
+So we'll call that variable "pet" and we'll assign it the value that the user inputs for:
+
+45
+00:03:42,170 --> 00:03:45,140
+"What is the name of a pet?"
+
+46
+00:03:46,810 --> 00:03:52,030
+Now, step 4 is to combine the name of the city and the pet and show them their band name.
+
+47
+00:03:52,060 --> 00:03:55,860
+Now, there's quite a few ways of doing this, especially if you look around on the Internet.
+
+48
+00:03:56,230 --> 00:04:00,690
+But the way that you learn in today's lessons is using string concatenation.
+
+49
+00:04:01,120 --> 00:04:02,150
+So we're going to do that.
+
+50
+00:04:02,200 --> 00:04:07,540
+So we're going to use a print statement and tell them "Your band name could be..."
+
+51
+00:04:08,500 --> 00:04:17,410
+And then we're going to add the name of the city and then add a space and then add the name of their
+
+52
+00:04:17,410 --> 00:04:17,800
+pet.
+
+53
+00:04:18,610 --> 00:04:20,769
+So now when we run our code
+
+54
+00:04:20,769 --> 00:04:29,590
+it will ask us for the name of their city and then the name of a pet, and then it should combine those
+
+55
+00:04:29,590 --> 00:04:31,960
+together and show us the name of our band.
+
+56
+00:04:32,560 --> 00:04:39,180
+Now, the final step is that the input cursor should show on a new line like this.
+
+57
+00:04:39,190 --> 00:04:40,650
+So here's the cursor.
+
+58
+00:04:40,660 --> 00:04:42,220
+But here's the input.
+
+59
+00:04:42,550 --> 00:04:48,700
+Just so that you get a bit of space and you're not typing it in directly after the prompt here like
+
+60
+00:04:48,700 --> 00:04:49,360
+what we have.
+
+61
+00:04:49,900 --> 00:04:51,160
+So how do we do that?
+
+62
+00:04:51,430 --> 00:04:57,610
+Well, you learned about modifying strings by creating a new line using the \n.
+
+63
+00:04:58,150 --> 00:05:03,220
+And we can add that both to the end of the city input and the pet input.
+
+64
+00:05:03,530 --> 00:05:10,930
+And now when we run our code, you'll see that the cursor now shows up on the next line and our program
+
+65
+00:05:10,930 --> 00:05:12,130
+looks a lot better.
+
+66
+00:05:13,780 --> 00:05:15,030
+So there you have it.
+
+67
+00:05:15,310 --> 00:05:22,030
+This is how you solve this boss challenge and this is how you create the band name generator project.
+
+68
+00:05:22,480 --> 00:05:28,480
+So I hope you had fun with me today, learning Python and a lot of the fundamentals of Python.
+
+69
+00:05:28,930 --> 00:05:36,280
+And tomorrow I've got another jam packed module of really awesome tutorials and challenges and projects
+
+70
+00:05:36,280 --> 00:05:37,570
+for you to sink your teeth into!
+
+71
+00:05:38,080 --> 00:05:42,970
+I'm looking forward to seeing you tomorrow, so I have a rest now and let your brain 🧠 work on the things
+
+72
+00:05:42,970 --> 00:05:44,200
+that you learned while you sleep.
+
+73
+00:05:44,620 --> 00:05:46,750
+And I'll see you here bright and early.
+
+74
+00:05:46,810 --> 00:05:48,150
+Good night and see you tomorrow.
+
+
+

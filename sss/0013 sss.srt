@@ -1,0 +1,2686 @@
+1
+00:00:00,030 --> 00:00:04,650
+Hey guys! Welcome back to a 100 Days of Code. Today
+
+2
+00:00:04,680 --> 00:00:06,720
+we're going to look at debugging,
+
+3
+00:00:07,020 --> 00:00:10,380
+the process of removing bugs from your code.
+
+4
+00:00:10,920 --> 00:00:12,600
+If you manage to get to this point,
+
+5
+00:00:12,690 --> 00:00:15,480
+you've probably written quite a bit of code already,
+
+6
+00:00:16,200 --> 00:00:20,280
+and I will bet that you've probably made some mistakes, some typos,
+
+7
+00:00:20,310 --> 00:00:24,060
+some errors and some bugs. So in this lesson,
+
+8
+00:00:24,090 --> 00:00:29,090
+I want to talk about some techniques and tips for how to find bugs and how to
+
+9
+00:00:30,000 --> 00:00:32,790
+get rid of them from your code. Now,
+
+10
+00:00:32,790 --> 00:00:37,710
+the first documented bug was actually found by this lady, Grace Hopper.
+
+11
+00:00:38,220 --> 00:00:43,220
+She was probably one of the first programmers and one of the pioneers of the job
+
+12
+00:00:43,380 --> 00:00:46,830
+that we're undertaking right now. Now in her notes,
+
+13
+00:00:47,250 --> 00:00:51,060
+you'll find a moth that's been taped to the notebook,
+
+14
+00:00:51,720 --> 00:00:56,370
+and this was found in a relay that was preventing her code from running
+
+15
+00:00:56,370 --> 00:00:59,400
+properly. And this was pretty much the first
+
+16
+00:00:59,400 --> 00:01:03,540
+actual case of a bug that's been found in a computer.
+
+17
+00:01:04,230 --> 00:01:07,140
+Even though we're not dealing with moths these days anymore,
+
+18
+00:01:07,530 --> 00:01:12,530
+we're still going to end up finding bits of things in our code that prevent the
+
+19
+00:01:13,110 --> 00:01:15,810
+code from doing the things that we want it to.
+
+20
+00:01:16,380 --> 00:01:20,700
+The important thing to remember is don't feel down when you've created a bug
+
+21
+00:01:21,000 --> 00:01:25,680
+because everyone gets bugs. And when I say gets bugs,
+
+22
+00:01:25,710 --> 00:01:30,630
+I mean, we create them, right? So once you've gotten over this, next,
+
+23
+00:01:30,690 --> 00:01:35,370
+I want to talk about some of the tips and techniques that you should follow on
+
+24
+00:01:35,370 --> 00:01:39,240
+how to quickly be able to identify and remove these bugs.
+
+25
+00:01:39,750 --> 00:01:42,720
+So the first step is to describe the problem.
+
+26
+00:01:43,170 --> 00:01:47,760
+If the problem is messy and it's not well understood in your head,
+
+27
+00:01:48,090 --> 00:01:50,160
+then it's almost impossible to debug it.
+
+28
+00:01:50,460 --> 00:01:55,460
+So untangled the problem and try to make sense of what's going on. To begin,
+
+29
+00:01:56,040 --> 00:02:00,360
+go ahead and fork the starting repl for today's code.
+
+30
+00:02:00,990 --> 00:02:04,860
+Now, the first thing to notice here is that I've written a bunch of code in the
+
+31
+00:02:04,860 --> 00:02:06,000
+starting repl
+
+32
+00:02:06,300 --> 00:02:10,259
+and we're going to be uncommenting these blocks one by one and eventually
+
+33
+00:02:10,259 --> 00:02:12,480
+solving all of the debugging problems.
+
+34
+00:02:13,650 --> 00:02:18,240
+So the first thing you're going to do is to uncomment the first block of code.
+
+35
+00:02:19,110 --> 00:02:20,700
+Now in this block of code,
+
+36
+00:02:20,730 --> 00:02:24,660
+we're going to practice describing the problem to help us solve this debugging
+
+37
+00:02:24,660 --> 00:02:27,480
+problem. Now if you take a look at this function
+
+38
+00:02:27,690 --> 00:02:30,510
+you can see that at some point in the function,
+
+39
+00:02:30,540 --> 00:02:33,300
+we're supposed to print this line out into the console.
+
+40
+00:02:34,050 --> 00:02:38,190
+But if we go ahead and hit run, you can see that nothing gets printed.
+
+41
+00:02:38,910 --> 00:02:40,530
+So what's going on here?
+
+42
+00:02:41,220 --> 00:02:46,220
+I want you to take a look at this function and describe the actual problem.
+
+43
+00:02:46,740 --> 00:02:51,150
+What is the for-loop doing? When is the function meant to print "You got it"?
+
+44
+00:02:51,600 --> 00:02:56,340
+What assumptions are you making about the value of i? So pause the video,
+
+45
+00:02:56,730 --> 00:02:59,830
+read the function and have a go at describing the problem.
+
+46
+00:03:02,200 --> 00:03:02,680
+All right.
+
+47
+00:03:02,680 --> 00:03:07,680
+So what we've got here is we've got a function that loops through all the
+
+48
+00:03:08,080 --> 00:03:10,240
+numbers between 1 and 20,
+
+49
+00:03:10,780 --> 00:03:15,220
+and then once that number reaches 20, it's supposed to print "You got it".
+
+50
+00:03:15,820 --> 00:03:19,660
+But the problem is that when i reaches 20,
+
+51
+00:03:19,780 --> 00:03:22,390
+it doesn't print this line into the console.
+
+52
+00:03:23,290 --> 00:03:27,610
+So now that we've described the problem and we understand what's going on,
+
+53
+00:03:28,000 --> 00:03:32,620
+let's see if we can solve it. If we think about this problem,
+
+54
+00:03:32,680 --> 00:03:35,770
+when i reaches 20, it doesn't print out this line.
+
+55
+00:03:36,130 --> 00:03:37,600
+There's an assumption in there, right?
+
+56
+00:03:37,960 --> 00:03:41,860
+The assumption is that i will definitely reach 20.
+
+57
+00:03:42,640 --> 00:03:46,240
+But if you think back to how the range function works,
+
+58
+00:03:46,840 --> 00:03:51,190
+the stop or the upper bound is actually omitted.
+
+59
+00:03:51,580 --> 00:03:53,740
+So when you write range(4),
+
+60
+00:03:54,100 --> 00:03:57,610
+it actually produces a number from 0 up to 3.
+
+61
+00:03:58,570 --> 00:04:01,690
+And in our case, when we write (1, 20),
+
+62
+00:04:02,140 --> 00:04:06,280
+it actually goes from 1 all the way up to 19
+
+63
+00:04:06,400 --> 00:04:08,410
+but not including 20.
+
+64
+00:04:09,130 --> 00:04:14,050
+The problem here is that i actually never reaches 20.
+
+65
+00:04:14,380 --> 00:04:19,089
+So this assumption is completely false. Pause the video
+
+66
+00:04:19,180 --> 00:04:23,680
+and see if you can fix the code so that this line actually gets printed.
+
+67
+00:04:25,270 --> 00:04:29,830
+All right. So all we need to do is change this to 21 instead of 20
+
+68
+00:04:30,220 --> 00:04:34,090
+and now when we hit run, you can see it actually works
+
+69
+00:04:34,120 --> 00:04:38,450
+and we managed to debug this problem. Always when you come across a problem
+
+70
+00:04:38,480 --> 00:04:39,313
+in your code,
+
+71
+00:04:39,340 --> 00:04:43,600
+try to describe it so that you really understand what the issue is,
+
+72
+00:04:44,110 --> 00:04:49,110
+and then test your assumptions and see which of those assumptions is actually
+
+73
+00:04:49,750 --> 00:04:50,290
+false.
+
+
+74
+00:00:00,750 --> 00:00:05,750
+Now the next step is to think about reproducing the bug that you've encountered,
+
+75
+00:00:06,840 --> 00:00:10,950
+because when you encounter it once but you don't encounter it the next time
+
+76
+00:00:11,310 --> 00:00:15,930
+that becomes a really difficult bug to fix. Go ahead
+
+77
+00:00:15,930 --> 00:00:18,570
+and uncomment the next block of code.
+
+78
+00:00:19,590 --> 00:00:23,130
+And we're going to comment out the previous section because we're done with it
+
+79
+00:00:23,130 --> 00:00:27,240
+now. So this is the only part that should be active in your main.py.
+
+80
+00:00:28,260 --> 00:00:31,020
+In this section, we're going to try and reproduce the bug.
+
+81
+00:00:31,170 --> 00:00:32,340
+So when we run the code,
+
+82
+00:00:32,369 --> 00:00:36,840
+sometimes it will work and it will print out one of the dice images from this
+
+83
+00:00:36,840 --> 00:00:40,260
+list, but occasionally you will get an error.
+
+84
+00:00:41,310 --> 00:00:45,840
+These types of bugs are really difficult because you might test your code only
+
+85
+00:00:45,840 --> 00:00:49,080
+once or twice, and it looks all fine. It works.
+
+86
+00:00:49,380 --> 00:00:51,750
+But then occasionally you get an error.
+
+87
+00:00:52,350 --> 00:00:55,470
+And the important thing is to reproduce that error.
+
+88
+00:00:55,500 --> 00:00:58,170
+When does that error actually happen?
+
+89
+00:00:59,040 --> 00:01:02,850
+And based on that knowledge, we can fix our code.
+
+90
+00:01:03,570 --> 00:01:08,570
+Try to reproduce the bug yourself and try to notice when it happens and see if
+
+91
+00:01:10,320 --> 00:01:14,400
+you can change the code so that it always produces this error.
+
+92
+00:01:14,690 --> 00:01:19,690
+[inaudible],
+
+93
+00:01:20,390 --> 00:01:25,160
+We've got a list of dice images, which are just emojis.
+
+94
+00:01:25,610 --> 00:01:30,610
+And we've also got this random number, dice number between 1 and 6.
+
+95
+00:01:31,730 --> 00:01:34,310
+Now, when we try to pick out of our list,
+
+96
+00:01:34,850 --> 00:01:37,400
+occasionally we get an error.
+
+97
+00:01:38,180 --> 00:01:42,530
+Now we have to notice when the error occurs, and to reproduce the bug
+
+98
+00:01:42,560 --> 00:01:46,490
+we have to figure out which of these numbers is actually causing the problem.
+
+99
+00:01:46,910 --> 00:01:51,470
+So we know that this is a random number between 1 and 6
+
+100
+00:01:51,920 --> 00:01:55,220
+and if we check the documentation, it tells us that randint
+
+101
+00:01:55,220 --> 00:01:57,680
+works a little bit differently from range.
+
+102
+00:01:58,070 --> 00:02:02,570
+It will return a random integer in the range of a and b,
+
+103
+00:02:02,930 --> 00:02:06,050
+including both end points. So in our case,
+
+104
+00:02:06,080 --> 00:02:11,080
+both 1 and 6 could be generated and it could be any number.
+
+105
+00:02:11,210 --> 00:02:15,950
+So if that was equal to 1, well, does it generate an error?
+
+106
+00:02:16,010 --> 00:02:18,890
+No, it just picks out this particular item.
+
+107
+00:02:19,370 --> 00:02:22,250
+But what if it was 2 or 3 or 4?
+
+108
+00:02:22,520 --> 00:02:25,790
+Or what if we tested 6? Well,
+
+109
+00:02:25,790 --> 00:02:30,230
+now every time we hit run, you can see we get an error.
+
+110
+00:02:30,980 --> 00:02:34,490
+And now that we've got our error to show up consistently,
+
+111
+00:02:34,610 --> 00:02:39,610
+it's a lot easier to debug because we know that the index error list index out of
+
+112
+00:02:40,160 --> 00:02:43,400
+range happens when this dice number is 6.
+
+113
+00:02:43,850 --> 00:02:48,080
+So when we go back to our previous code, well,
+
+114
+00:02:48,110 --> 00:02:53,110
+we can't use 6 in this list because lists start counting from 0.
+
+115
+00:02:54,440 --> 00:02:59,150
+So to get this dice 1, we need dice_num to be 0.
+
+116
+00:02:59,590 --> 00:03:02,410
+And then this is 1, 2, 3, 4, 5,
+
+117
+00:03:02,770 --> 00:03:07,420
+and 6 is somewhere out here and it doesn't exist. Now,
+
+118
+00:03:07,450 --> 00:03:12,190
+go ahead and fix this code so that all the dice images are represented and we
+
+119
+00:03:12,190 --> 00:03:16,240
+never see this error again. Alright.
+
+120
+00:03:16,240 --> 00:03:19,420
+So that is as simple as shifting down these numbers.
+
+121
+00:03:19,870 --> 00:03:22,870
+So instead of making a random number between 1 and 6,
+
+122
+00:03:23,110 --> 00:03:28,000
+we actually want a random number between 0 and 5. And now,
+
+123
+00:03:28,030 --> 00:03:30,190
+no matter how many times we run our code,
+
+124
+00:03:30,460 --> 00:03:32,530
+we're never going to get that error show up again.
+
+
+125
+00:00:00,870 --> 00:00:04,200
+Very often I've asked you in the quizzes
+
+126
+00:00:04,200 --> 00:00:06,090
+especially to play computer.
+
+127
+00:00:06,720 --> 00:00:11,310
+And the reason is because this skill of pretending to be a computer reading
+
+128
+00:00:11,310 --> 00:00:15,630
+through your code and imagining what you going to do each time is really,
+
+129
+00:00:15,630 --> 00:00:18,510
+really useful, especially when you're debugging.
+
+130
+00:00:19,290 --> 00:00:23,370
+So let's comment out the previous block and try the next block.
+
+131
+00:00:24,270 --> 00:00:25,620
+Take a look at this code.
+
+132
+00:00:26,180 --> 00:00:28,040
+It takes an input
+
+133
+00:00:28,250 --> 00:00:32,689
+in the form of an integer and it ask the user for their year of birth.
+
+134
+00:00:33,380 --> 00:00:38,380
+And then it uses an if statement to check if they were born between 1980 and
+
+135
+00:00:39,110 --> 00:00:43,220
+1994, in which case they're classified as a millennial.
+
+136
+00:00:44,270 --> 00:00:49,220
+But if there were born later than 1994, then they're classified as a Gen Z.
+
+137
+00:00:50,000 --> 00:00:52,130
+So depending on which country you're from,
+
+138
+00:00:52,310 --> 00:00:55,670
+there's different classifications for your particular generation.
+
+139
+00:00:56,210 --> 00:00:59,450
+This is just the typical words that you hear on the internet.
+
+140
+00:00:59,780 --> 00:01:02,540
+You're a millennial, you're a Gen Z, you're a baby boomer,
+
+141
+00:01:02,840 --> 00:01:07,100
+and this comes from a lot of the history of the US. But nonetheless,
+
+142
+00:01:07,160 --> 00:01:12,160
+I want you to run the code and I want you to see what happens when I put in
+
+143
+00:01:12,590 --> 00:01:15,950
+1994. Absolutely nothing,
+
+144
+00:01:16,220 --> 00:01:21,110
+so we have our bug right there. Run through the code line-by-line and evaluate
+
+145
+00:01:21,110 --> 00:01:25,610
+each statement. For example, if year is equal to 1990,
+
+146
+00:01:25,910 --> 00:01:29,630
+will line 77 evaluate to true or to false?
+
+147
+00:01:30,170 --> 00:01:32,630
+What if year is equal to 1994?
+
+148
+00:01:33,020 --> 00:01:38,000
+Look at each line of code and follow the logic and check what it will evaluate
+
+149
+00:01:38,000 --> 00:01:38,833
+to.
+
+150
+00:01:38,870 --> 00:01:43,100
+So I want you to play computer and figure out what is the problem,
+
+151
+00:01:43,520 --> 00:01:47,210
+and then go ahead and fix the bug. Pause the video now.
+
+152
+00:01:50,480 --> 00:01:51,313
+All right. So
+
+153
+00:01:51,410 --> 00:01:55,070
+let's pretend that we got 1994 as the input.
+
+154
+00:01:55,490 --> 00:01:57,320
+So now I'm the computer
+
+155
+00:01:57,380 --> 00:02:01,040
+and I know that this year is equal to 1994.
+
+156
+00:02:01,730 --> 00:02:04,520
+Now with this year being equal to 1994,
+
+157
+00:02:04,730 --> 00:02:09,139
+I go into this if statement so is 1994,
+
+158
+00:02:09,440 --> 00:02:13,340
+greater than 1980? Yes it is.
+
+159
+00:02:13,430 --> 00:02:15,980
+So this actually becomes true.
+
+160
+00:02:17,000 --> 00:02:22,000
+Now I have to check the second condition and it also has to be true for this if
+
+161
+00:02:22,040 --> 00:02:25,880
+block to be triggered. So is 1994,
+
+162
+00:02:26,270 --> 00:02:28,790
+less than 1994? No, it's not.
+
+163
+00:02:28,820 --> 00:02:32,210
+It's actually less than equal to 1994,
+
+164
+00:02:32,570 --> 00:02:36,620
+or it's equal to 1994. So in this case,
+
+165
+00:02:36,680 --> 00:02:39,050
+this condition becomes false.
+
+166
+00:02:39,530 --> 00:02:44,530
+And we know that if we try to combine a true and a false then it actually just
+
+167
+00:02:44,930 --> 00:02:46,070
+becomes a false.
+
+168
+00:02:46,490 --> 00:02:47,930
+So this gets skipped.
+
+169
+00:02:48,830 --> 00:02:51,980
+Now, next, we look at the next statement, right?
+
+170
+00:02:52,430 --> 00:02:56,840
+If 1994 is greater than 1994,
+
+171
+00:02:57,380 --> 00:03:00,610
+well, that's also not true. It be greater or equal to,
+
+172
+00:03:00,940 --> 00:03:02,800
+or it could just be equal to.
+
+173
+00:03:02,950 --> 00:03:06,280
+So this condition is also false.
+
+174
+00:03:06,700 --> 00:03:10,810
+So that means it's also going to skip this next line and there's no more lines
+
+175
+00:03:10,810 --> 00:03:14,680
+of code left, which is why the computer doesn't print anything.
+
+176
+00:03:15,190 --> 00:03:19,420
+So let's restore our code to before we started playing computer
+
+177
+00:03:19,960 --> 00:03:24,960
+and we can identify that this problem occurs because there is no bucket that
+
+178
+00:03:26,500 --> 00:03:29,470
+actually catches the 1994.
+
+179
+00:03:30,160 --> 00:03:35,160
+We could simply fix this code by changing one of these conditions to be greater
+
+180
+00:03:35,590 --> 00:03:38,950
+than or equal to either here or here.
+
+181
+00:03:39,640 --> 00:03:44,530
+And that means that the year 1994 is not skipped over in our conditions.
+
+182
+00:03:44,890 --> 00:03:48,880
+And when we hit run, it will actually tell us that we are in fact,
+
+183
+00:03:49,210 --> 00:03:49,900
+a Gen Z.
+
+
+184
+00:00:01,230 --> 00:00:02,820
+Now the next step
+
+185
+00:00:02,880 --> 00:00:07,230
+and the next tip is pretty obvious. When the editor's giving you an error or when
+
+186
+00:00:07,230 --> 00:00:11,670
+the console is giving you an error, fix the errors before you continue.
+
+187
+00:00:12,180 --> 00:00:16,379
+Now, this is a little bit easier when you're dealing with errors in the editor,
+
+188
+00:00:16,440 --> 00:00:19,530
+because it will actually highlight to you the line that's broken.
+
+189
+00:00:20,070 --> 00:00:23,520
+So here we've got a print statement and when we hover over it,
+
+190
+00:00:23,790 --> 00:00:28,790
+it tells us that it expected an indented block. So that should be a good enough
+
+191
+00:00:29,280 --> 00:00:32,189
+clue to tell us what's actually wrong.
+
+192
+00:00:32,610 --> 00:00:36,660
+So if we go ahead and indent this block, then that error goes away.
+
+193
+00:00:37,170 --> 00:00:40,830
+But that's not the only error, no. When you run this code,
+
+194
+00:00:40,890 --> 00:00:45,750
+you still get another error. So let's say that I am a 12-year-old girl,
+
+195
+00:00:46,980 --> 00:00:48,090
+we get another error.
+
+196
+00:00:48,570 --> 00:00:52,470
+And this error does not show up when we write the code,
+
+197
+00:00:52,770 --> 00:00:57,770
+but it only shows up depending on what input we gave to this age variable.
+
+198
+00:00:59,160 --> 00:01:03,900
+So now we have a different type of error. We have an error that's in the console.
+
+199
+00:01:04,470 --> 00:01:06,210
+How do we solve this error? Well,
+
+200
+00:01:06,210 --> 00:01:10,680
+the easiest way is just to select the parts of the error
+
+201
+00:01:10,710 --> 00:01:15,710
+that's not specific to your code like this age greater than 18 or line 84,
+
+202
+00:01:17,100 --> 00:01:21,480
+but the part that is pretty much common to whenever anybody gets this error.
+
+203
+00:01:22,200 --> 00:01:25,920
+And now if we copy it and we paste it into Google,
+
+204
+00:01:26,910 --> 00:01:30,390
+then you can see there's a lot of other people who've had this issue.
+
+205
+00:01:30,960 --> 00:01:32,850
+And if we read what the problem is,
+
+206
+00:01:32,910 --> 00:01:36,840
+it tells us that you're getting the input from the console as a string
+
+207
+00:01:37,020 --> 00:01:40,020
+and you must cast that input as an int
+
+208
+00:01:40,380 --> 00:01:45,380
+before you try to do these numerical operations like comparisons. Back over here,
+
+209
+00:01:46,380 --> 00:01:50,310
+that's exactly what we're trying to do on line 84 right here.
+
+210
+00:01:50,940 --> 00:01:55,940
+This age comes out of this input function and it returns a string.
+
+211
+00:01:58,350 --> 00:02:01,020
+And so in order to turn this into a number,
+
+212
+00:02:01,230 --> 00:02:06,230
+we of course have to cast it or type convert it into an integer.
+
+213
+00:02:07,230 --> 00:02:10,560
+And now when we run our code and we give it our age,
+
+214
+00:02:10,830 --> 00:02:12,810
+it no longer errors out.
+
+215
+00:02:13,380 --> 00:02:16,620
+And if I tell it that I am in fact 21,
+
+216
+00:02:16,860 --> 00:02:18,540
+which is still not my real age,
+
+217
+00:02:19,050 --> 00:02:21,900
+then we actually get the print statement working.
+
+218
+00:02:23,130 --> 00:02:28,130
+But remember that the errors don't always solve all of your bugs, like this.
+
+219
+00:02:31,170 --> 00:02:34,650
+In this case there are no errors with my code whatsoever,
+
+220
+00:02:34,920 --> 00:02:37,860
+it's just not doing what I want it to do.
+
+221
+00:02:38,430 --> 00:02:42,960
+And these are the most frustrating bugs to debug because nobody is helping you
+
+222
+00:02:42,960 --> 00:02:45,450
+here. There is no errors that you can Google,
+
+223
+00:02:45,660 --> 00:02:47,790
+there's no underlines that you can check.
+
+224
+00:02:48,210 --> 00:02:52,650
+You actually have to rely on your skills as a programmer to fix this.
+
+225
+00:02:53,310 --> 00:02:58,310
+Now we, of course, know that this needs to be an fstring in order to insert that
+
+226
+00:03:00,130 --> 00:03:03,430
+variable into this position in the curly braces.
+
+227
+00:03:04,120 --> 00:03:08,110
+But if you didn't, then this would be a lot harder to debug.
+
+228
+00:03:09,430 --> 00:03:13,840
+Experience comes in really handy with debugging and the more bugs that you
+
+229
+00:03:13,840 --> 00:03:18,100
+solve, the better you get at it. So go onto the internet,
+
+230
+00:03:18,130 --> 00:03:22,660
+try to help people in Stack Overflow. Go on to the discord channel for the course,
+
+231
+00:03:22,720 --> 00:03:27,220
+try to solve other people's bugs and you will find yourself getting stronger
+
+232
+00:03:27,550 --> 00:03:29,020
+and better day by day.
+
+
+233
+00:00:00,150 --> 00:00:04,320
+Now the next tip has been the thing that you've probably been screaming out for.
+
+234
+00:00:05,010 --> 00:00:10,010
+Why don't we use print? And indeed you are correct.
+
+235
+00:00:10,200 --> 00:00:14,220
+Print is basically your best friend. Now as developers
+
+236
+00:00:14,250 --> 00:00:15,870
+I know we don't have a lot of friends,
+
+237
+00:00:16,230 --> 00:00:20,220
+but at least we can rely on print to be our trusty friend.
+
+238
+00:00:21,120 --> 00:00:25,650
+Do you have heartbreak? Use print. Now print probably can't help you with your
+
+239
+00:00:25,650 --> 00:00:28,650
+relationship issues or family issues,
+
+240
+00:00:28,920 --> 00:00:32,100
+but it can help you debug your code,
+
+241
+00:00:32,430 --> 00:00:34,590
+which is a pretty decent thing for it to do.
+
+242
+00:00:35,280 --> 00:00:40,280
+So let's go ahead and comment out the previous block and let's uncomment this
+
+243
+00:00:40,920 --> 00:00:45,690
+one. And now I'm sure you're pretty much dying to use print to solve these
+
+244
+00:00:45,690 --> 00:00:49,560
+debugging issues. Why Angela? Why haven't you been using it before? Well,
+
+245
+00:00:49,560 --> 00:00:51,990
+I've been saving it for this perfect moment.
+
+246
+00:00:52,710 --> 00:00:57,710
+Take a look at the code and see if you can use print as your friend to help you
+
+247
+00:00:58,410 --> 00:01:02,070
+solve the issue. Pause the video now and give that a go.
+
+248
+00:01:04,430 --> 00:01:05,630
+So here, we've got
+
+249
+00:01:05,780 --> 00:01:10,780
+a very simple program that figures out the number of words in a book. Pages
+
+250
+00:01:11,690 --> 00:01:14,960
+starts out zero, words starts out at zero,
+
+251
+00:01:15,440 --> 00:01:20,440
+and we have to input the number of pages in our book and the number of words in
+
+252
+00:01:20,450 --> 00:01:21,260
+our book.
+
+253
+00:01:21,260 --> 00:01:26,260
+And then we multiply the pages by the words to calculate the total number of
+
+254
+00:01:26,330 --> 00:01:30,350
+words in the book and then we print it out. But if we have a go,
+
+255
+00:01:30,380 --> 00:01:32,990
+you can see that let's say we have, um,
+
+256
+00:01:33,020 --> 00:01:38,020
+45 pages making a booklet and we have 250 words per page and we get 0.
+
+257
+00:01:40,940 --> 00:01:44,900
+So the output that's supposed to tell us the total number of words in the book
+
+258
+00:01:45,320 --> 00:01:47,990
+ends up being 0. So what's going on here?
+
+259
+00:01:48,860 --> 00:01:53,330
+How can we debug this? Let's go ahead and use print.
+
+260
+00:01:53,810 --> 00:01:55,820
+What are our assumptions? Well,
+
+261
+00:01:55,880 --> 00:01:59,300
+we're actually getting the number of pages and the number of words correct
+
+262
+00:01:59,330 --> 00:02:00,890
+so that we can calculate this.
+
+263
+00:02:01,310 --> 00:02:05,720
+Why don't we add some print statements before the final one? Let's print
+
+264
+00:02:05,750 --> 00:02:10,580
+what's the actual value of some of our variables that we're getting from the
+
+265
+00:02:10,580 --> 00:02:14,030
+user. For example, I could say, um,
+
+266
+00:02:15,200 --> 00:02:20,200
+the pages equals and then insert the pages variable in here in an fstring.
+
+267
+00:02:22,730 --> 00:02:27,560
+And I can also print my other variable in an fstring,
+
+268
+00:02:27,680 --> 00:02:31,400
+which is the word per page variable.
+
+269
+00:02:31,910 --> 00:02:36,910
+And this is equal to let's insert that variable as well.
+
+270
+00:02:37,850 --> 00:02:40,190
+And now when I run my code,
+
+271
+00:02:40,220 --> 00:02:44,180
+I've got my print statements going and I can test it out.
+
+272
+00:02:44,300 --> 00:02:49,300
+So we still got 45 pages and then 250 words per page.
+
+273
+00:02:50,030 --> 00:02:54,680
+Now you can see that my variables are logged. So this one,
+
+274
+00:02:54,680 --> 00:02:59,000
+this pages variable does equal 45. So it captured my data correctly.
+
+275
+00:02:59,410 --> 00:03:02,080
+But the word per page equals 0,
+
+276
+00:03:02,320 --> 00:03:06,400
+which is not what I entered at all. I entered 250
+
+277
+00:03:06,490 --> 00:03:08,950
+so I was expecting this to be 250.
+
+278
+00:03:10,120 --> 00:03:13,030
+So now using print, my best friend,
+
+279
+00:03:13,450 --> 00:03:15,190
+I've managed to narrow down the problem.
+
+280
+00:03:15,250 --> 00:03:17,590
+It's something to do with this variable.
+
+281
+00:03:17,740 --> 00:03:21,220
+So let's take a look at what's going on here. Well,
+
+282
+00:03:21,550 --> 00:03:23,200
+I've spotted the problem,
+
+283
+00:03:23,290 --> 00:03:27,310
+have you? Pause the video and see if you can fix this code
+
+284
+00:03:27,460 --> 00:03:31,840
+so the final total number of words actually gets printed when you run the code.
+
+285
+00:03:32,440 --> 00:03:35,650
+Pause the video now. All right,
+
+286
+00:03:35,680 --> 00:03:40,000
+we've narrowed down to this one line of code that's probably broken.
+
+287
+00:03:40,900 --> 00:03:45,790
+And if you look closely, you'll see that instead of a single equal sign
+
+288
+00:03:45,820 --> 00:03:47,350
+which means assignment,
+
+289
+00:03:47,740 --> 00:03:51,160
+this variable should be equal to this value.
+
+290
+00:03:51,820 --> 00:03:53,920
+We had two equal signs.
+
+291
+00:03:54,370 --> 00:03:58,660
+This means does this variable equal this value?
+
+292
+00:03:59,230 --> 00:04:03,820
+And this actually gets evaluated and becomes either true or false.
+
+293
+00:04:04,330 --> 00:04:08,770
+Now, in this case, it's actually false. Words per page starts out being equal to
+
+294
+00:04:08,770 --> 00:04:11,710
+zero, and then it becomes equal to 250.
+
+295
+00:04:12,520 --> 00:04:17,110
+So if this line of code is false, then that's just left as it is,
+
+296
+00:04:17,140 --> 00:04:18,880
+it doesn't actually affect anything.
+
+297
+00:04:19,360 --> 00:04:24,190
+And this total word is still using zero, which is why it's printing out zero.
+
+298
+00:04:24,790 --> 00:04:29,440
+So now that we've identified the issue, all we have to do to fix it is that.
+
+299
+00:04:30,310 --> 00:04:31,870
+And if we run our code again,
+
+300
+00:04:34,860 --> 00:04:37,770
+you can see it works exactly as it should do.
+
+
+301
+00:00:00,870 --> 00:00:04,710
+Now before you start getting really committed to print and start making
+
+302
+00:00:04,710 --> 00:00:07,050
+friendship bracelets for this print statements,
+
+303
+00:00:07,410 --> 00:00:10,020
+there's another tool that I really want to talk about
+
+304
+00:00:10,230 --> 00:00:14,610
+and it's a tool that's bigger, it's fancier, it's more complex.
+
+305
+00:00:14,610 --> 00:00:15,840
+So what is it?
+
+306
+00:00:15,960 --> 00:00:19,770
+It's a debugger and we've already seen debuggers a little bit.
+
+307
+00:00:20,580 --> 00:00:23,070
+So I've already shown you pythontutor.com
+
+308
+00:00:23,430 --> 00:00:28,080
+and you've also seen us use the debugger in the Thonny editor right here.
+
+309
+00:00:28,890 --> 00:00:32,610
+Now, in this example, I'm going to stick with the web version of Python Tutor
+
+310
+00:00:32,850 --> 00:00:35,280
+just so that you don't have to install anything extra.
+
+311
+00:00:35,640 --> 00:00:39,450
+But if we go ahead and comment out the previous block and uncomment
+
+312
+00:00:39,480 --> 00:00:44,310
+the last one, you can see that we have yet another problem to solve
+
+313
+00:00:44,490 --> 00:00:48,360
+and yet another piece of code, that's not doing what it's supposed to do.
+
+314
+00:00:49,020 --> 00:00:49,830
+So in this case,
+
+315
+00:00:49,830 --> 00:00:54,830
+we've got a function that's supposed to mutate a list so that it takes a list as
+
+316
+00:00:55,320 --> 00:00:56,153
+an input
+
+317
+00:00:56,400 --> 00:01:00,600
+and then it's supposed to multiply each of the items in the list
+
+318
+00:01:00,840 --> 00:01:05,310
+so the final output should be something like 2, 4,
+
+319
+00:01:05,550 --> 00:01:08,310
+6, 10, and so on and so forth.
+
+320
+00:01:08,310 --> 00:01:12,240
+Basically taking each of these numbers and multiplying them by 2,
+
+321
+00:01:12,420 --> 00:01:16,620
+which happens on this line of code. But unfortunately when we run it,
+
+322
+00:01:16,830 --> 00:01:21,300
+we just get a list with a single value, 26. So what's going on?
+
+323
+00:01:21,750 --> 00:01:23,460
+Let's try and debug it.
+
+324
+00:01:23,550 --> 00:01:28,550
+So I want you to copy these lines of code and then paste it into Python Tutor
+
+325
+00:01:29,430 --> 00:01:32,310
+and then go ahead and click Visualize Execution.
+
+326
+00:01:32,940 --> 00:01:37,080
+Now that it's inside the debugger, we can do a lot of things with it.
+
+327
+00:01:37,230 --> 00:01:42,030
+We can step through the code to see it line by line. So for example,
+
+328
+00:01:42,030 --> 00:01:47,030
+the first thing that happens is we create a function called mutate and this
+
+329
+00:01:47,430 --> 00:01:51,150
+mutate gets past a input called a_list.
+
+330
+00:01:51,630 --> 00:01:54,630
+So now inside this function, mutate,
+
+331
+00:01:54,810 --> 00:01:59,550
+we've got a variable called a_list and it's this list with these values.
+
+332
+00:02:00,240 --> 00:02:04,740
+Now, as we keep going, we can see we create a b_list, which is an empty list
+
+333
+00:02:04,920 --> 00:02:09,690
+and then we use the for-loop to loop through each of the items in the list.
+
+334
+00:02:10,020 --> 00:02:13,980
+So the first time this item is equal to the first item in the list,
+
+335
+00:02:14,010 --> 00:02:14,843
+which is 1,
+
+336
+00:02:15,300 --> 00:02:19,470
+and then we multiply it by 2 to create this new_item variable,
+
+337
+00:02:19,620 --> 00:02:20,820
+which is now equal to 2.
+
+338
+00:02:21,510 --> 00:02:26,510
+And now the loop goes back to the beginning and we keep doing this with each of
+
+339
+00:02:27,180 --> 00:02:31,830
+the numbers in the list. We multiply 2 to each of the numbers.
+
+340
+00:02:32,520 --> 00:02:37,470
+Now, once we're done with that loop, the next line that happens is this one.
+
+341
+00:02:38,100 --> 00:02:42,870
+This b_list gets appended with the new item and finally,
+
+342
+00:02:43,140 --> 00:02:47,520
+we print out the b_list. Now this is where the problem occurs.
+
+343
+00:02:47,610 --> 00:02:52,470
+Notice how b_list is just a list with one value.
+
+344
+00:02:52,950 --> 00:02:57,300
+And that is in fact what gets printed. So with this debugger,
+
+345
+00:02:57,330 --> 00:03:01,000
+we've managed to see line line what the computer is doing,
+
+346
+00:03:01,390 --> 00:03:03,340
+which is really helpful in itself.
+
+347
+00:03:03,730 --> 00:03:07,990
+But we can actually make this process even simpler. Inside
+
+348
+00:03:07,990 --> 00:03:11,410
+most debuggers, you can put a breakpoint
+
+349
+00:03:11,470 --> 00:03:16,470
+which tells the computer to stop what you're doing at this particular line.
+
+350
+00:03:17,110 --> 00:03:19,120
+And then at that moment in time,
+
+351
+00:03:19,390 --> 00:03:24,390
+I want to examine what all the variables and all the functions are doing.
+
+352
+00:03:25,060 --> 00:03:28,920
+So in our line, the key problem happens right here.
+
+353
+00:03:29,220 --> 00:03:32,130
+If I click on this line, you can see it becomes red
+
+354
+00:03:32,580 --> 00:03:36,450
+and this is where it happens, this is the break point basically.
+
+355
+00:03:36,780 --> 00:03:41,780
+So now I can scroll over to that point in time I can examine the values of all of
+
+356
+00:03:42,720 --> 00:03:46,230
+my variables. a_list is still what I expect it to be,
+
+357
+00:03:46,350 --> 00:03:51,350
+but b_list is completely empty. And this item happens to be on the last item
+
+358
+00:03:52,830 --> 00:03:56,790
+number 13 and the new item is doing what it needs to do,
+
+359
+00:03:56,790 --> 00:03:58,350
+multiplying it by 2,
+
+360
+00:03:58,860 --> 00:04:03,570
+but none of them are being added to my list because if I click next,
+
+361
+00:04:03,840 --> 00:04:08,490
+you can see this b_list is equal to just one value.
+
+362
+00:04:08,760 --> 00:04:13,050
+And it happens to be the last value that new_item was equal to.
+
+363
+00:04:14,370 --> 00:04:16,079
+So by using this debugger,
+
+364
+00:04:16,380 --> 00:04:19,890
+you should now have a good idea of what the problem is.
+
+365
+00:04:20,160 --> 00:04:25,160
+Pause the video and try to fix this code so that the mutated list with all of
+
+366
+00:04:26,400 --> 00:04:29,790
+its six values gets printed. Pause the video now.
+
+367
+00:04:31,920 --> 00:04:32,250
+All right.
+
+368
+00:04:32,250 --> 00:04:37,250
+So the simple problem is that when we are adding the new item to this b_list,
+
+369
+00:04:38,160 --> 00:04:40,080
+we're doing it outside the loop.
+
+370
+00:04:40,890 --> 00:04:44,820
+It's when this loop has completed and at the very end
+
+371
+00:04:45,060 --> 00:04:46,500
+do we actually call this line.
+
+372
+00:04:46,950 --> 00:04:51,950
+So what we needed to do to fix this code is just to indent that line over.
+
+373
+00:04:52,290 --> 00:04:54,330
+And now when we run the code,
+
+374
+00:04:55,140 --> 00:04:58,170
+you can see that the proper output gets printed
+
+375
+00:04:58,770 --> 00:05:03,570
+and if we change this code in there, the debugger, if we edited it right here,
+
+376
+00:05:04,230 --> 00:05:08,160
+then when we visualize it, you can see if I put a breakpoint here
+
+377
+00:05:08,490 --> 00:05:12,120
+that right line of code gets executed six times
+
+378
+00:05:12,570 --> 00:05:15,300
+and if we go to that line of code and we hit next,
+
+379
+00:05:15,630 --> 00:05:20,630
+you can see that the b_list is now getting new values added each time as we
+
+380
+00:05:21,660 --> 00:05:25,530
+would expect it to. And when we examine all of our variables
+
+381
+00:05:25,620 --> 00:05:27,570
+especially this b_list variable,
+
+382
+00:05:27,900 --> 00:05:32,250
+it's exactly what we expect it to equal each step of the code.
+
+383
+00:05:33,120 --> 00:05:35,640
+So a debugger can be really useful.
+
+384
+00:05:35,880 --> 00:05:40,230
+It's almost like you've put a print statement on all the variables in your
+
+385
+00:05:40,230 --> 00:05:41,010
+code,
+
+386
+00:05:41,010 --> 00:05:46,010
+and you can isolate a particular time point to see what each of the values are.
+
+387
+00:05:46,980 --> 00:05:49,800
+And as we become even more experienced,
+
+388
+00:05:50,010 --> 00:05:52,320
+we're going to be using the debugger more and more.
+
+
+389
+00:00:00,420 --> 00:00:02,969
+Now, I've got some final tips for debugging,
+
+390
+00:00:03,150 --> 00:00:07,770
+and these are not so much techniques, but there are just really,
+
+391
+00:00:07,770 --> 00:00:11,820
+really important tips from somebody who's done quite a lot of coding and created
+
+392
+00:00:12,180 --> 00:00:14,520
+a massive amount of bugs in my lifetime.
+
+393
+00:00:15,150 --> 00:00:18,930
+So tip number 7 is take a break. It's really,
+
+394
+00:00:18,930 --> 00:00:23,930
+really important when you're just staring at the code and you keep looking at
+
+395
+00:00:24,480 --> 00:00:27,120
+it, it's not going to tell you the solution.
+
+396
+00:00:27,360 --> 00:00:30,210
+Just have a cup of tea or have a nap,
+
+397
+00:00:30,240 --> 00:00:32,850
+or just go to sleep and try to tackle it tomorrow.
+
+398
+00:00:33,240 --> 00:00:38,100
+You will be surprised just how much easier things are when your brains had some
+
+399
+00:00:38,100 --> 00:00:42,330
+downtime and then you come back to it. Everything seems so much more obvious.
+
+400
+00:00:43,110 --> 00:00:47,850
+And if you really, really get stuck and you just can't see it, ask a friend,
+
+401
+00:00:48,090 --> 00:00:51,540
+not your friend print, but your actual friend,
+
+402
+00:00:51,570 --> 00:00:56,010
+a real human. Preferably a developer, but they don't have to be.
+
+403
+00:00:56,040 --> 00:00:58,320
+It could be somebody who's taking the course with you.
+
+404
+00:00:58,560 --> 00:01:03,450
+You could go onto discord and find other students to help you because after all,
+
+405
+00:01:03,480 --> 00:01:06,150
+you're all just leveling up your own programming skills
+
+406
+00:01:06,150 --> 00:01:10,890
+right? The really good thing about asking a friend to look through your code is
+
+407
+00:01:11,100 --> 00:01:14,010
+they won't make the same assumptions that you've made.
+
+408
+00:01:14,310 --> 00:01:17,310
+So they have some fresh eyes that they can look at the code with,
+
+409
+00:01:17,550 --> 00:01:20,910
+and it might be incredibly obvious what's actually happening.
+
+410
+00:01:21,270 --> 00:01:23,010
+And it's really not embarrassing at all.
+
+411
+00:01:23,280 --> 00:01:25,320
+If somebody managed to help you with your code,
+
+412
+00:01:25,830 --> 00:01:30,780
+you can offer to help them the next time when they get stuck. And for the person
+
+413
+00:01:30,780 --> 00:01:31,650
+who's helping you,
+
+414
+00:01:31,980 --> 00:01:36,390
+they're also just working out their programming muscles, right? Now
+
+415
+00:01:36,390 --> 00:01:40,170
+the next tip is to run often. No,
+
+416
+00:01:40,200 --> 00:01:43,260
+you don't have to go exercising to be a good programmer.
+
+417
+00:01:43,860 --> 00:01:46,740
+But what I mean is run your code often.
+
+418
+00:01:47,100 --> 00:01:51,000
+Don't wait until you've written loads and loads of code to hit run
+
+419
+00:01:51,000 --> 00:01:54,090
+and then find out you've got loads of snags and loads of bugs.
+
+420
+00:01:54,420 --> 00:01:57,330
+But run it after every little execution.
+
+421
+00:01:57,750 --> 00:02:02,750
+Once you feel like you've changed the program ever so slightly, run it. Confirm
+
+422
+00:02:02,820 --> 00:02:04,770
+that it's actually doing what you want it to do,
+
+423
+00:02:05,400 --> 00:02:07,290
+because if you leave it all to the end,
+
+424
+00:02:07,380 --> 00:02:11,760
+then you end up with a pile of bugs and you don't know where to start. Now,
+
+425
+00:02:11,790 --> 00:02:16,680
+if you do end up in that situation and you can see multiple bugs at the same
+
+426
+00:02:16,680 --> 00:02:19,410
+time, try to tackle them one at a time
+
+427
+00:02:19,440 --> 00:02:23,280
+instead of trying to do bits and bobs of each. It will really, really help.
+
+428
+00:02:24,210 --> 00:02:28,710
+And the final tip is, of course, Stack Overflow. I've saved this the last
+
+429
+00:02:28,710 --> 00:02:33,030
+because you really don't want to take every single small bug of yours to Stack
+
+430
+00:02:33,030 --> 00:02:36,300
+Overflow, that's not what it's designed for. Instead,
+
+431
+00:02:36,330 --> 00:02:41,250
+it's really designed as a way of asking other developers
+
+432
+00:02:41,610 --> 00:02:46,610
+when you think that you've come across a bug or an issue that should be unique.
+
+433
+00:02:47,370 --> 00:02:51,240
+Now, if you think that you issue isn't unique and other people should have
+
+434
+00:02:51,330 --> 00:02:54,240
+encountered this, then just search Stack Overflow.
+
+435
+00:02:54,840 --> 00:02:58,410
+If you really think that nobody in the world has had this issue that you are
+
+436
+00:02:58,410 --> 00:03:02,890
+having right now, then that's the moment to ask the oracle, I mean Stack
+
+437
+00:03:02,890 --> 00:03:03,723
+Overflow.
+
+438
+00:03:04,360 --> 00:03:08,290
+I've worked in a lot of companies where everybody just goes to the part when
+
+439
+00:03:08,290 --> 00:03:11,980
+Stack Overflow is down, because there's just no point. As programmers
+
+440
+00:03:12,010 --> 00:03:17,010
+we use it and we search it so much and it's become a really vital tool in the tool
+
+441
+00:03:17,410 --> 00:03:18,243
+belt.
+
+442
+00:03:18,400 --> 00:03:23,230
+But you only wanna ask a question when you've pretty sure that you've exhausted
+
+443
+00:03:23,320 --> 00:03:28,090
+all other avenues of debugging and you've searched all of Stack Overflow and you
+
+444
+00:03:28,090 --> 00:03:32,080
+finally end up with something very strange and very weird that you want others
+
+445
+00:03:32,080 --> 00:03:35,680
+to help you figure out. So don't worry about creating bugs.
+
+446
+00:03:35,710 --> 00:03:39,190
+And hopefully at this point, you're creating friendly bugs,
+
+447
+00:03:39,190 --> 00:03:40,990
+like this little Caterpillar right now.
+
+448
+00:03:41,380 --> 00:03:44,260
+And as you scale up and become even more advanced,
+
+449
+00:03:44,530 --> 00:03:49,210
+you're going to be creating bigger and more scary bugs.
+
+450
+00:03:49,750 --> 00:03:53,110
+So at some point in the future, when you're creating bugs like these,
+
+451
+00:03:53,470 --> 00:03:56,260
+then you really know that you've become a professional.
+
+452
+00:03:56,620 --> 00:04:00,610
+You will wish to come back to today when you can tackle bugs like these 
+
+453
+00:04:00,630 --> 00:04:02,880
+instead. So don't worry about
+
+454
+00:04:02,880 --> 00:04:06,450
+about creating them. It doesn't mean that you are bad programmer. In fact,
+
+455
+00:04:06,450 --> 00:04:11,400
+it's an important part of every programmer's journey. Just as a sort of personal
+
+456
+00:04:11,400 --> 00:04:11,670
+note,
+
+457
+00:04:11,670 --> 00:04:15,570
+there was a point in time where I've really thought that I was not a programmer of
+
+458
+00:04:15,570 --> 00:04:18,899
+code, that I was just a programmer of bugs.
+
+459
+00:04:18,899 --> 00:04:21,810
+It seemed like every line of code I wrote was a bug.
+
+460
+00:04:22,530 --> 00:04:25,800
+So these are my 10 top tips for debugging.
+
+461
+00:04:26,100 --> 00:04:30,870
+And I hope that any time when your code is not doing what you expect it to do to
+
+462
+00:04:30,870 --> 00:04:35,610
+come back to this lesson, review these 10 steps, go through them one by one
+
+463
+00:04:36,060 --> 00:04:40,860
+and I bet 99% of the time, once you've gone through all of these stages,
+
+464
+00:04:41,130 --> 00:04:45,000
+you will have solved your bug and you will have made your code a lot better.
+
+465
+00:04:45,330 --> 00:04:50,330
+And remember that every bug that you catch in your code and that you fix is like
+
+466
+00:04:50,580 --> 00:04:53,190
+lifting a dumbbell in the gym. It's just one rep.
+
+467
+00:04:53,490 --> 00:04:57,930
+And the more reps you do the better you'll get at programing. In the next
+
+468
+00:04:57,930 --> 00:05:01,800
+lesson, I've got some coding challenges for you to debug.
+
+469
+00:05:02,340 --> 00:05:05,280
+Are you ready to flex your programming muscles?
+
+470
+00:05:05,640 --> 00:05:08,850
+I hope so. Head over to the next lesson and get started.
+
+
+471
+00:00:00,030 --> 00:00:04,800
+To begin, go ahead and select the Debug Odd or Even exercise.
+
+472
+00:00:05,490 --> 00:00:07,140
+All right. So now that you
+
+473
+00:00:07,140 --> 00:00:11,550
+have learned all about the tips and tricks and the steps to go through
+
+474
+00:00:11,550 --> 00:00:12,900
+to debug your code,
+
+475
+00:00:13,260 --> 00:00:18,120
+it's time to put some of that into action. In the upcoming three lessons,
+
+476
+00:00:18,270 --> 00:00:22,170
+I've got a bunch of code that you've already written before.
+
+477
+00:00:22,590 --> 00:00:24,150
+The first one, for example,
+
+478
+00:00:24,180 --> 00:00:28,470
+is the Odd or Even code challenge that you did a long time ago.
+
+479
+00:00:29,070 --> 00:00:33,690
+Now, the important thing is for you to not just go back to the old code,
+
+480
+00:00:33,690 --> 00:00:38,460
+copy it, paste it in, submit, done. That isn't going to teach you anything.
+
+481
+00:00:38,670 --> 00:00:42,600
+There's no point doing this if you're not going to learn. But instead,
+
+482
+00:00:42,630 --> 00:00:47,580
+what I want you to do is to look at the code, see what it meant to do.
+
+483
+00:00:47,610 --> 00:00:49,410
+So for example, in this case,
+
+484
+00:00:49,740 --> 00:00:54,740
+we're trying to input a number and then we're trying to get our code to check
+
+485
+00:00:54,870 --> 00:00:59,220
+to see if it's an odd number or an even number, and then print it out. Now,
+
+486
+00:00:59,250 --> 00:01:03,420
+in most of these upcoming code exercises, they're going to be broken,
+
+487
+00:01:03,570 --> 00:01:07,020
+but it's your job to try and fix it
+
+488
+00:01:07,080 --> 00:01:10,950
+to make sure that it does what it's supposed to. In this case,
+
+489
+00:01:10,980 --> 00:01:13,560
+you should be able to type in a number and it should print,
+
+490
+00:01:13,590 --> 00:01:17,820
+"This is an even number." if it's even, "This is an odd number." if it's odd.
+
+491
+00:01:18,240 --> 00:01:21,990
+Once you've spotted the problem and debugged and fixed your code,
+
+492
+00:01:22,290 --> 00:01:25,860
+then I'll go through the solution with you. So pause the video now.
+
+493
+00:01:28,520 --> 00:01:29,353
+All right. So,
+
+494
+00:01:29,630 --> 00:01:33,710
+as always, let's first hit run to see if it actually works or not.
+
+495
+00:01:34,280 --> 00:01:39,110
+And in this case, it doesn't even run. It gives us a syntax error straightaway,
+
+496
+00:01:39,500 --> 00:01:44,450
+and it tells us that on line three, we've got some invalid syntax. Now,
+
+497
+00:01:44,510 --> 00:01:47,450
+on line three, that's actually not all that specific.
+
+498
+00:01:47,840 --> 00:01:50,210
+But notice how sometimes when you get errors,
+
+499
+00:01:50,240 --> 00:01:55,240
+it's actually nice enough to have a little arrow pointing towards the bit of the
+
+500
+00:01:55,490 --> 00:01:58,520
+code in that line that it thinks is problematic.
+
+501
+00:01:59,150 --> 00:02:01,880
+So let's try and fix this error before we proceed.
+
+502
+00:02:02,510 --> 00:02:06,140
+So why does it have an issue with this equal sign? Well,
+
+503
+00:02:06,170 --> 00:02:11,170
+remember that two equal signs is checking and one equal sign is assignment.
+
+504
+00:02:13,490 --> 00:02:14,323
+So in this case,
+
+505
+00:02:14,330 --> 00:02:18,530
+we're actually saying number % 2 should be equal to zero,
+
+506
+00:02:18,560 --> 00:02:22,310
+which is nonsense. It doesn't actually make any sense. Instead,
+
+507
+00:02:22,340 --> 00:02:26,720
+what we wanted was two equal signs so that we can check that the left-hand side
+
+508
+00:02:26,960 --> 00:02:28,910
+is equal to the right-hand side.
+
+509
+00:02:29,480 --> 00:02:33,890
+And now if we hit run and we enter a number, it should now work.
+
+510
+00:02:34,010 --> 00:02:35,210
+Did you manage to get it right?
+
+511
+00:02:35,720 --> 00:02:40,580
+If not, be sure to review some of the lessons on debugging and try to apply it in
+
+512
+00:02:40,610 --> 00:02:44,810
+the next exercise. So once you're ready, head over to the next lesson.
+
+
+513
+00:00:00,090 --> 00:00:04,140
+All right. So in this lesson, we're going to be debugging our leap year
+
+514
+00:00:04,170 --> 00:00:09,060
+coding exercise. You've done this coding exercise before, you wrote this code
+
+515
+00:00:09,120 --> 00:00:12,660
+which checks to see if a year is a leap year.
+
+516
+00:00:12,990 --> 00:00:16,290
+It prints leap year if it's true, and not leap year
+
+517
+00:00:16,350 --> 00:00:18,000
+if it's not a leap year.
+
+518
+00:00:18,600 --> 00:00:21,540
+All you have to do is to fix this code.
+
+519
+00:00:22,020 --> 00:00:27,020
+So use what you learned about debugging and try to fix this coding exercise.
+
+520
+00:00:27,720 --> 00:00:28,800
+So pause the video now.
+
+521
+00:00:29,120 --> 00:00:29,953
+Okay.
+
+522
+00:00:32,630 --> 00:00:33,830
+All right. So first off,
+
+523
+00:00:33,860 --> 00:00:37,370
+let's go ahead and just run our code and see if it works.
+
+524
+00:00:37,760 --> 00:00:40,490
+And then we're going to enter a known leap year.
+
+525
+00:00:41,120 --> 00:00:45,080
+So a quick Google away lets see when is a leap year.
+
+526
+00:00:45,560 --> 00:00:49,220
+Well, 2020 seems to be a leap year. So let's try that.
+
+527
+00:00:49,250 --> 00:00:53,660
+Let's check 2020. And we get an error.
+
+528
+00:00:53,780 --> 00:00:58,160
+So errors are good. They're much easier to fix than the Programming problems
+
+529
+00:00:58,160 --> 00:00:59,210
+which have no errors.
+
+530
+00:00:59,720 --> 00:01:04,720
+And it tells us that there's a problem on line three and it's a type error,
+
+531
+00:01:05,390 --> 00:01:09,860
+not all arguments converted during string formatting.
+
+532
+00:01:10,250 --> 00:01:14,090
+What does that mean? Well, what's a type error anyways?
+
+533
+00:01:14,320 --> 00:01:19,320
+A type error is when you're trying to do something with the wrong data type. In
+
+534
+00:01:20,810 --> 00:01:25,190
+our case, it's pointing at line three. So if we take a look at line three,
+
+535
+00:01:25,190 --> 00:01:26,150
+what's happening here?
+
+536
+00:01:26,870 --> 00:01:31,870
+Well, currently we're trying to take the year that the user inputted, so 2020, and
+
+537
+00:01:33,260 --> 00:01:38,260
+divide it by four to see if the remainder is equal to zero.
+
+538
+00:01:39,080 --> 00:01:42,380
+Now, this is a little bit harder to solve than the previous one.
+
+539
+00:01:42,890 --> 00:01:47,660
+But what you should realize is that it's pointing towards a type error,
+
+540
+00:01:48,020 --> 00:01:51,170
+so what data types have we got going on? Well,
+
+541
+00:01:51,230 --> 00:01:56,000
+if we go ahead and print the type of our year,
+
+542
+00:01:56,750 --> 00:01:59,780
+then you can see that it's of class string.
+
+543
+00:02:00,410 --> 00:02:05,000
+But if we print the type of this 4 that
+
+544
+00:02:05,000 --> 00:02:08,509
+we're trying to divide it by, that is of class int.
+
+545
+00:02:08,780 --> 00:02:12,980
+So this is the problem. These two types are not matched.
+
+546
+00:02:13,280 --> 00:02:16,730
+So when you try to divide a string by an integer,
+
+547
+00:02:17,120 --> 00:02:19,760
+this is what ends up giving you this problem.
+
+548
+00:02:20,330 --> 00:02:24,140
+So why is this a string when we entered a number?
+
+549
+00:02:24,650 --> 00:02:29,650
+Well it's because the input function, remember, gives the user a prompt and then
+
+550
+00:02:30,620 --> 00:02:35,620
+takes whatever they type in the console and turns it into a string.
+
+551
+00:02:36,890 --> 00:02:40,580
+So in order to turn this into an int which is what we want,
+
+552
+00:02:41,030 --> 00:02:45,320
+we have to wrap it around a set of parentheses and then type
+
+553
+00:02:45,380 --> 00:02:49,850
+convert it into an integer. And now when we run it again,
+
+554
+00:02:50,120 --> 00:02:54,860
+we can see that it actually works. And we're happy that we fixed our code.
+
+555
+00:02:55,580 --> 00:02:57,110
+Once you're done with this challenge,
+
+556
+00:02:57,260 --> 00:03:00,860
+head over to the next one and complete the final debugging exercise.
+
+
+557
+00:00:00,060 --> 00:00:02,880
+So we're onto our final debugging exercise.
+
+558
+00:00:02,969 --> 00:00:07,530
+This is debugging Fizzbuzz. Fizzbuzz, if you remember,
+
+559
+00:00:07,530 --> 00:00:10,680
+is a program that will print Fzzbuzz
+
+560
+00:00:11,100 --> 00:00:15,690
+if a number is divisible by both three and five.
+
+561
+00:00:16,110 --> 00:00:17,370
+It will print fizz
+
+562
+00:00:17,400 --> 00:00:21,120
+if it's only divisible by three, and it will print buzz
+
+563
+00:00:21,180 --> 00:00:23,160
+if it's only divisible by five.
+
+564
+00:00:23,550 --> 00:00:26,640
+If it's not divisible by three or five,
+
+565
+00:00:26,970 --> 00:00:29,550
+then it's just going to print the number.
+
+566
+00:00:30,150 --> 00:00:34,950
+And our code is going to do this all the way from 1 to 100.
+
+567
+00:00:35,430 --> 00:00:40,230
+So what should happen by the end of this is in our console when we hit run,
+
+568
+00:00:40,590 --> 00:00:45,590
+it should start typing one and then it should type two and then three,
+
+569
+00:00:45,720 --> 00:00:49,710
+it will type fizz. And four, it will type four. Five,
+
+570
+00:00:49,710 --> 00:00:51,810
+it will type buzz and so on and so forth.
+
+571
+00:00:52,140 --> 00:00:55,590
+You should remember this from the previous exercise where you actually had to
+
+572
+00:00:55,590 --> 00:00:58,830
+write all this code. Now, as always,
+
+573
+00:00:59,040 --> 00:01:03,060
+don't just paste the solution code in. That won't do anything.
+
+574
+00:01:03,330 --> 00:01:05,550
+You need to work for it to gain knowledge.
+
+575
+00:01:06,120 --> 00:01:09,270
+So now that you know what the program is supposed to do,
+
+576
+00:01:09,930 --> 00:01:14,640
+what you are going to do is try to figure out all of the bugs in here and try to
+
+577
+00:01:14,670 --> 00:01:19,230
+fix all the bugs so that the program runs as it should do.
+
+578
+00:01:20,220 --> 00:01:24,690
+Pause the video, think about the 10 steps and try to apply it here.
+
+579
+00:01:25,140 --> 00:01:28,620
+Now, just as a quick note, unlike the previous debugging exercises,
+
+580
+00:01:28,860 --> 00:01:32,640
+there's more than one bug in this code. So, good luck
+
+581
+00:01:32,760 --> 00:01:34,020
+and I'll see you on the other side.
+
+582
+00:01:38,120 --> 00:01:38,630
+All right.
+
+583
+00:01:38,630 --> 00:01:39,800
+So, as I mentioned,
+
+584
+00:01:39,860 --> 00:01:43,490
+there's quite a few bugs in here and we're going to fix them one by one.
+
+585
+00:01:44,090 --> 00:01:44,630
+As always,
+
+586
+00:01:44,630 --> 00:01:48,410
+the first thing we're gonna do is we're just gonna run the code and see what
+
+587
+00:01:48,410 --> 00:01:49,243
+happens.
+
+588
+00:01:49,430 --> 00:01:53,810
+So the first thing you'll notice that's a little bit odd is it's printing
+
+589
+00:01:53,840 --> 00:01:56,240
+instead of just one, two, three, four,
+
+590
+00:01:56,600 --> 00:02:00,260
+it's printing it as if it's a list with the square bracket around it.
+
+591
+00:02:00,710 --> 00:02:04,730
+So let's see if we can identify why. Well in our code,
+
+592
+00:02:04,940 --> 00:02:09,320
+if none of these if statements are true, then it prints the number.
+
+593
+00:02:09,680 --> 00:02:11,690
+But in this case it's not just the number.
+
+594
+00:02:12,110 --> 00:02:14,900
+There seems to be some square brackets around the number,
+
+595
+00:02:15,230 --> 00:02:20,230
+in which case it's printing a list with that number as the single item inside.
+
+596
+00:02:21,710 --> 00:02:24,380
+So let's get rid of that and let's run our code again.
+
+597
+00:02:24,440 --> 00:02:29,330
+That looks a little bit better, a bit cleaner. Now let's take a look at the code.
+
+598
+00:02:29,780 --> 00:02:34,100
+So we know that when the number is only divisible by three then it should print
+
+599
+00:02:34,130 --> 00:02:34,963
+fizz,
+
+600
+00:02:35,240 --> 00:02:40,240
+but three, in this case, is actually printing Fizzbuzz, and five is printing Fizzbuzz
+
+601
+00:02:41,960 --> 00:02:46,580
+and then three and four, it seems a bit of a mumbo-jumbo.
+
+602
+00:02:47,300 --> 00:02:49,130
+So, what's actually happening here?
+
+603
+00:02:50,060 --> 00:02:53,210
+It seems like instead of just printing fizz,
+
+604
+00:02:53,480 --> 00:02:56,000
+it's printing Fizzbuzz and the number.
+
+605
+00:02:56,210 --> 00:02:59,180
+So there must be a problem in our checking code.
+
+606
+00:02:59,830 --> 00:03:04,780
+So let's think about what our code needs to do. When the number is divisible by
+
+607
+00:03:04,870 --> 00:03:09,400
+both three and five, then instead of the number, it should print Fizzbuzz.
+
+608
+00:03:09,760 --> 00:03:12,700
+So Fizzbuzz should only be printed
+
+609
+00:03:13,120 --> 00:03:18,120
+if the number that we're currently checking is divisible by both three and five.
+
+610
+00:03:19,630 --> 00:03:21,610
+Let's use the print statement to help us.
+
+611
+00:03:22,240 --> 00:03:27,240
+If we use an f-string and we say that we are currently on number and then we
+
+612
+00:03:30,670 --> 00:03:33,730
+put the number in here. This way
+
+613
+00:03:33,730 --> 00:03:36,820
+we'll actually print out the current number we're looping through
+
+614
+00:03:37,120 --> 00:03:40,810
+and then we can see what's being printed each time. So let's run the code.
+
+615
+00:03:41,320 --> 00:03:45,910
+And if we scroll to the top, currently on number one it prints one,
+
+616
+00:03:45,940 --> 00:03:49,270
+currently on number two it prints two, currently on number three
+
+617
+00:03:49,270 --> 00:03:53,980
+it prints Fizzbuzz, Fizz and three. So that is very,
+
+618
+00:03:53,980 --> 00:03:55,510
+very strange behavior indeed.
+
+619
+00:03:55,510 --> 00:04:00,510
+It seems like lots of things are true in our if statement. What's happening? Well,
+
+620
+00:04:03,610 --> 00:04:05,800
+if number is equal to three,
+
+621
+00:04:06,460 --> 00:04:09,220
+then it seems to be printing Fizzbuzz,
+
+622
+00:04:09,580 --> 00:04:14,410
+which means if we walk backwards, this if statement must have been true.
+
+623
+00:04:14,950 --> 00:04:18,820
+Now three divided by three should have zero as the remainder,
+
+624
+00:04:18,820 --> 00:04:22,720
+so this should be true. But this can't be true,
+
+625
+00:04:22,720 --> 00:04:27,720
+so this must be false. And it should only print Fizzbuzz if it's divisible by
+
+626
+00:04:28,990 --> 00:04:32,590
+both three and five. So instead of an or,
+
+627
+00:04:32,890 --> 00:04:34,570
+this really needs to be an 'and'.
+
+628
+00:04:34,900 --> 00:04:39,850
+So let's hit run again and see what happens this time. Currently on number three,
+
+629
+00:04:39,850 --> 00:04:44,050
+it prints Fizz and three. So that's again,
+
+630
+00:04:44,080 --> 00:04:47,920
+a bit of a problem. So we fixed the Fizzbuzz parts.
+
+631
+00:04:48,100 --> 00:04:51,430
+It is now printing Fizzbuzz correctly. Namely,
+
+632
+00:04:51,460 --> 00:04:56,290
+when it's on number 15. But why is it still printing the number?
+
+633
+00:04:57,190 --> 00:05:02,190
+The number should only be printed if none of the others are true.
+
+634
+00:05:03,970 --> 00:05:08,970
+But instead, it seems to be printing Fizz and then also printing the number.
+
+635
+00:05:10,540 --> 00:05:12,910
+What's the reason here? Well,
+
+636
+00:05:12,940 --> 00:05:17,800
+notice how we've got an else statement here that triggers the printing of the
+
+637
+00:05:17,800 --> 00:05:22,570
+number. Now, an else is paired with an if. So in this case,
+
+638
+00:05:22,570 --> 00:05:27,190
+what's happening is it's checking if the number is not divisible by five,
+
+639
+00:05:27,520 --> 00:05:31,780
+then print the number. That's not what we want. And in fact,
+
+640
+00:05:31,900 --> 00:05:33,460
+if you look at the print statements,
+
+641
+00:05:33,700 --> 00:05:37,870
+you can see that only when the number is divisible by five
+
+642
+00:05:38,140 --> 00:05:41,590
+does it not print the number. When it's divisible by three,
+
+643
+00:05:41,860 --> 00:05:45,700
+it's still printing the number. This is not what we want.
+
+644
+00:05:45,730 --> 00:05:50,650
+What we want is for this to be checked, and if that's not true,
+
+645
+00:05:50,950 --> 00:05:54,610
+then check the next thing. And if that is not true, then the next thing.
+
+646
+00:05:54,910 --> 00:05:59,300
+And finally, if all three of these are not true, then print the number.
+
+647
+00:06:00,080 --> 00:06:05,080
+So what we actually need instead of a whole bunch of ifs is actually some else
+
+648
+00:06:05,810 --> 00:06:06,560
+ifs.
+
+649
+00:06:06,560 --> 00:06:11,560
+So let's replace those two ifs with some elifs and now let's run our code.
+
+650
+00:06:13,570 --> 00:06:17,620
+So currently on number one, two, three,
+
+651
+00:06:17,680 --> 00:06:22,600
+so three now prints Fizz, five prints Buzz, nine prints
+
+652
+00:06:22,600 --> 00:06:26,770
+Fizz, 10 prints Buzz and 15 prints Fizzbuzz.
+
+653
+00:06:27,130 --> 00:06:30,550
+So I think we've actually managed to fix all of our code.
+
+654
+00:06:30,910 --> 00:06:33,880
+So I think we should be able to remove our print statement now.
+
+655
+00:06:34,300 --> 00:06:39,300
+And indeed we've managed to successfully solve all of the debugging problems
+
+656
+00:06:39,550 --> 00:06:43,090
+here. Now did you manage to get all that right? Don't worry
+
+657
+00:06:43,090 --> 00:06:45,700
+if you have to struggle a little bit. In the future,
+
+658
+00:06:45,730 --> 00:06:49,540
+you're going to be making a lot more bugs and you're going to be repeating this
+
+659
+00:06:49,540 --> 00:06:52,060
+process of using the 10 steps
+
+660
+00:06:52,270 --> 00:06:57,270
+to try and identify the problems and fix the code and make it free of bugs.
+
+661
+00:06:58,330 --> 00:07:00,970
+So hope you had a fun and jam packed day.
+
+662
+00:07:01,390 --> 00:07:05,710
+Now this might be a good time to revisit some code that you've given up on a
+
+663
+00:07:05,710 --> 00:07:08,650
+long time ago or projects that you've started
+
+664
+00:07:08,680 --> 00:07:12,700
+but you've stopped because you ran into bugs. And then review them,
+
+665
+00:07:12,760 --> 00:07:17,760
+use what you learned today and try to fix the bugs and get your code working.
+
+666
+00:07:18,790 --> 00:07:21,790
+Now tomorrow, I've got a big day for you coming up.
+
+667
+00:07:22,090 --> 00:07:26,500
+We're going to spend the whole day creating a big project and we're going to be
+
+668
+00:07:26,500 --> 00:07:29,950
+making the Higher-Lower game. So I'm looking forward to it,
+
+669
+00:07:30,220 --> 00:07:33,730
+I hope you are too. So get a good night's rest and I'll see you tomorrow.
+
+

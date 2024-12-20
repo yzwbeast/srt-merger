@@ -1,0 +1,2985 @@
+1
+00:00:00,180 --> 00:00:05,160
+Hey guys, welcome to Day 22 of 100 Days of Code. Today
+
+2
+00:00:05,160 --> 00:00:07,170
+we're going to be building the famous pong game,
+
+3
+00:00:07,770 --> 00:00:11,610
+and you're going to be doing this by using all of the skills that you've learned
+
+4
+00:00:11,700 --> 00:00:12,533
+up till now.
+
+5
+00:00:13,440 --> 00:00:16,800
+Pong is a classic arcade game,
+
+6
+00:00:17,310 --> 00:00:20,040
+probably one of the first arcade games that ever was.
+
+7
+00:00:20,670 --> 00:00:25,050
+And it has a really simple premise. It's basically just a ball
+
+8
+00:00:25,050 --> 00:00:29,760
+that's going across a table and two players each control a paddle
+
+9
+00:00:29,970 --> 00:00:33,240
+bouncing the ball back and forth. If you miss the ball,
+
+10
+00:00:33,300 --> 00:00:35,010
+then the other player scores a point.
+
+11
+00:00:36,000 --> 00:00:39,180
+Now the history of pong is itself kind of fascinating.
+
+12
+00:00:39,570 --> 00:00:43,350
+It was created and written by this guy, Allan Alcorn.
+
+13
+00:00:43,860 --> 00:00:47,760
+And he was a fresh recruit to the Atari company.
+
+14
+00:00:48,450 --> 00:00:50,520
+And in order to test his skills,
+
+15
+00:00:50,550 --> 00:00:53,580
+they decided to get him to create a game, from scratch.
+
+16
+00:00:54,180 --> 00:00:56,700
+And this game happened to be pong,
+
+17
+00:00:57,090 --> 00:01:02,090
+which became a huge success selling loads and loads of machines across bars and
+
+18
+00:01:02,160 --> 00:01:03,060
+pubs in the world.
+
+19
+00:01:03,600 --> 00:01:08,600
+It eventually became so successful that a lot of these bar owners were calling
+
+20
+00:01:08,700 --> 00:01:13,110
+up Atari saying, Hey, your machines are braking after only a few days.
+
+21
+00:01:13,560 --> 00:01:17,790
+And the reason when they investigated was because the machines were chock-a-
+
+22
+00:01:17,790 --> 00:01:19,740
+block full of money.
+
+23
+00:01:20,010 --> 00:01:24,690
+People were putting their quarters in to play pong and the machine was getting
+
+24
+00:01:24,720 --> 00:01:26,100
+full too quickly.
+
+25
+00:01:26,430 --> 00:01:30,870
+So this is the legendary game that we're going to be building today. As a ways,
+
+26
+00:01:30,930 --> 00:01:33,390
+the first step is to break down the problem.
+
+27
+00:01:33,840 --> 00:01:35,640
+And I want you to have a go at this,
+
+28
+00:01:35,670 --> 00:01:40,140
+think about how you would take this pong game that you've seen here,
+
+29
+00:01:40,590 --> 00:01:45,480
+and which components would we need to write code for, which components might fit
+
+30
+00:01:45,480 --> 00:01:47,430
+well in its own separate class,
+
+31
+00:01:47,760 --> 00:01:52,740
+and how might we break down the logic of this game so that we can solve it piece
+
+32
+00:01:52,740 --> 00:01:56,910
+by piece. Now, I want you to take a piece of paper,
+
+33
+00:01:57,000 --> 00:02:02,000
+take a look at the game screen right here and make a note of which components
+
+34
+00:02:02,310 --> 00:02:06,990
+you think could be separated into their own classes. Briefly,
+
+35
+00:02:06,990 --> 00:02:11,280
+pause the video and jot down some notes on how you might structure the code for
+
+36
+00:02:11,280 --> 00:02:12,113
+this game.
+
+37
+00:02:15,080 --> 00:02:18,860
+Now I've broken this tutorial down into eight pieces.
+
+38
+00:02:19,340 --> 00:02:22,910
+Keep a piece of paper to hand throughout today so that you can compare your
+
+39
+00:02:22,910 --> 00:02:24,770
+structure to the sample solution.
+
+40
+00:02:25,520 --> 00:02:28,430
+Pong is a much more complex game than snake.
+
+41
+00:02:28,580 --> 00:02:33,050
+So pausing to think about the structure of the code now will help you a lot more
+
+42
+00:02:33,260 --> 00:02:37,310
+in the upcoming lessons and it'll make it easier for you to see how everything
+
+43
+00:02:37,310 --> 00:02:41,900
+fits together. First, we're going to figure out how to create the screen,
+
+44
+00:02:42,230 --> 00:02:46,400
+how to create and move a puddle, and then create another puddle
+
+45
+00:02:46,400 --> 00:02:50,840
+so we can have a two-player game and then create the ball and make it move
+
+46
+00:02:50,900 --> 00:02:55,520
+constantly across the screen and figure out when it collides with a wall and
+
+47
+00:02:55,520 --> 00:03:00,160
+make it bounce back and then detect when there's a collision with the paddle to
+
+48
+00:03:00,160 --> 00:03:04,510
+know when to bounce it back. Finally, we'll figure out when a user scores,
+
+49
+00:03:04,780 --> 00:03:09,370
+when the paddle misses the ball, and we'll keep the score using a scoreboard
+
+50
+00:03:09,400 --> 00:03:13,150
+like before. Now, if you're feeling really confident,
+
+51
+00:03:13,510 --> 00:03:16,240
+you can, in fact, just create a blank project,
+
+52
+00:03:16,510 --> 00:03:21,040
+go through these steps one by one and see if you can code up this game by
+
+53
+00:03:21,040 --> 00:03:23,860
+yourself. But what I recommend though
+
+54
+00:03:23,890 --> 00:03:28,810
+is to go along with the videos and I'm going to explain each of the problems one
+
+55
+00:03:28,810 --> 00:03:32,560
+by one, and you can have a go at building it alongside with me.
+
+56
+00:03:33,070 --> 00:03:35,050
+So if you decide to follow along with me,
+
+57
+00:03:35,200 --> 00:03:37,630
+head over to the next lesson and we'll get started.
+
+58
+00:03:38,050 --> 00:03:40,120
+If you decide to create everything from scratch,
+
+59
+00:03:40,360 --> 00:03:43,510
+then pause the video and start creating the game now.
+
+
+60
+00:00:00,450 --> 00:00:02,430
+The first challenge is pretty simple.
+
+61
+00:00:02,460 --> 00:00:04,740
+We're just going to create the starting screen.
+
+62
+00:00:05,160 --> 00:00:10,160
+It's going to be a screen that has a height of 600 pixels and a width of 800
+
+63
+00:00:10,950 --> 00:00:14,880
+pixels. It should be black in terms of the background color,
+
+64
+00:00:15,300 --> 00:00:18,510
+and it should stay on the screen until we click on it.
+
+65
+00:00:18,930 --> 00:00:20,790
+So using what you've learned so far,
+
+66
+00:00:20,910 --> 00:00:24,000
+go ahead and set up the starting code for our project.
+
+67
+00:00:27,140 --> 00:00:31,520
+All right. So I've created a brand new project which I've called pong-game,
+
+68
+00:00:31,940 --> 00:00:34,580
+and I've created a main.py. Now,
+
+69
+00:00:34,610 --> 00:00:39,610
+the first thing I'm going to do is I'm going to import a screen from the turtle
+
+70
+00:00:39,830 --> 00:00:40,663
+module.
+
+71
+00:00:42,860 --> 00:00:46,790
+And then I'm going to create a screen object from the Screen class,
+
+72
+00:00:47,180 --> 00:00:50,780
+and then I'm going to set the background color to black.
+
+73
+00:00:51,560 --> 00:00:56,560
+And then, of course, we'll need to set up the screen so that it has a width of
+
+74
+00:00:57,650 --> 00:01:02,180
+800 and a height of 600.
+
+75
+00:01:04,099 --> 00:01:07,090
+So now if I run this code as it is,
+
+76
+00:01:11,270 --> 00:01:13,940
+you'll see that it flashes up and it disappears.
+
+77
+00:01:13,970 --> 00:01:17,030
+So of course we need that exitonclick method.
+
+78
+00:01:17,030 --> 00:01:21,140
+As well as a final finishing touch, this is completely optional
+
+79
+00:01:21,380 --> 00:01:23,630
+but it helps to identify the program,
+
+80
+00:01:23,750 --> 00:01:27,800
+we can change the screens title to say Pong.
+
+81
+00:01:28,730 --> 00:01:33,320
+And now when I run the code, you can see that this window now says pong.
+
+82
+00:01:34,880 --> 00:01:38,150
+So we now have our 800 by 600 screen,
+
+83
+00:01:38,510 --> 00:01:43,040
+and we're now ready to head to the next step where we create our paddles.
+
+
+84
+00:00:00,270 --> 00:00:04,830
+So now that we've created the screen we're ready to go ahead and create and move a
+
+85
+00:00:04,830 --> 00:00:06,180
+puddle. So 
+
+86
+00:00:06,180 --> 00:00:09,180
+the paddle that we're going to create is going to be on the right side.
+
+87
+00:00:09,480 --> 00:00:11,250
+It's going to have a width of 20,
+
+88
+00:00:11,310 --> 00:00:16,309
+a height of 100 and be positioned at 350 pixels on the X-axis and then 0 on
+
+89
+00:00:19,380 --> 00:00:23,280
+the Y-axis. So this is the sort of positioning we're looking for.
+
+90
+00:00:24,000 --> 00:00:25,080
+And additionally,
+
+91
+00:00:25,110 --> 00:00:29,520
+we should be able to hit the up and down keys on a keyboard to move the paddle.
+
+92
+00:00:30,030 --> 00:00:34,080
+Each key press should move the paddle up or down by 20 pixels.
+
+93
+00:00:34,740 --> 00:00:38,850
+Have a think about how you might create the code for this and pause the video
+
+94
+00:00:38,940 --> 00:00:40,290
+and complete the challenge.
+
+95
+00:00:44,190 --> 00:00:48,540
+All right. So to create this paddle, it's going to be created as a turtle.
+
+96
+00:00:48,780 --> 00:00:53,780
+So let's go ahead and create our paddle from the turtle class and I'm going to
+
+97
+00:00:54,600 --> 00:00:57,690
+set the paddles shape to a square.
+
+98
+00:00:59,580 --> 00:01:04,530
+In order to stretch it so that it's 20 by 100 pixels,
+
+99
+00:01:04,920 --> 00:01:09,920
+remember that all turtles start off as 20 by 20
+
+100
+00:01:10,320 --> 00:01:12,540
+so that means in the width
+
+101
+00:01:12,570 --> 00:01:17,570
+we have to stretch it by five, and in the length, we leave it as it is in order to
+
+102
+00:01:18,450 --> 00:01:21,120
+make it 100 by 20.
+
+103
+00:01:21,870 --> 00:01:24,840
+So let's go ahead and hid up paddle.shapesize
+
+104
+00:01:25,290 --> 00:01:30,030
+which is what we've been using so far. And then in terms of the stretch width,
+
+105
+00:01:30,090 --> 00:01:35,040
+we're going to make that five. And then the stretch length is going to be one.
+
+106
+00:01:35,730 --> 00:01:40,320
+Now we have to make sure that our paddle has a color of white
+
+107
+00:01:40,380 --> 00:01:45,380
+so that it's actually visible when we run our code. And you can see there it is,
+
+108
+00:01:46,950 --> 00:01:49,650
+there's our paddle. And as always,
+
+109
+00:01:49,740 --> 00:01:53,370
+it gets initialized in the center at the coordinate (0, 0).
+
+110
+00:01:53,910 --> 00:01:57,030
+So in order to move it to the position we want to,
+
+111
+00:01:57,300 --> 00:02:00,330
+we have to get it to go ahead and pen up,
+
+112
+00:02:00,750 --> 00:02:05,750
+and then we can tell it to go to the position that is 350 by 0,
+
+113
+00:02:07,530 --> 00:02:12,450
+so 350 on the X-axis and 0 on the Y-axis, like that.
+
+114
+00:02:13,350 --> 00:02:16,320
+Now, the next thing we need to do is figure out how to get it
+
+115
+00:02:16,320 --> 00:02:17,640
+to move up and down.
+
+116
+00:02:18,150 --> 00:02:23,150
+So, of course, we need some sort of way of getting our screen to listen for
+
+117
+00:02:23,970 --> 00:02:27,150
+keystrokes. We're gonna call screen.listen
+
+118
+00:02:27,270 --> 00:02:31,290
+and then we're going to call onkey in order to listen for the "Up" key.
+
+119
+00:02:31,830 --> 00:02:36,480
+And then when that happens, we're going to get the paddle to go up. Now,
+
+120
+00:02:36,510 --> 00:02:40,770
+remember as always, when you were using a function as a parameter,
+
+121
+00:02:41,100 --> 00:02:45,960
+you don't want to add the parentheses. If you do, it won't work.
+
+122
+00:02:46,500 --> 00:02:49,380
+Now let's create our go_up function.
+
+123
+00:02:50,010 --> 00:02:55,010
+And this function is going to take our paddle and move it so that it goes to a
+
+124
+00:02:59,470 --> 00:03:04,150
+new position. The new exposition is X not going to change.
+
+125
+00:03:04,210 --> 00:03:07,120
+The only one that's going to change is the Y position.
+
+126
+00:03:07,750 --> 00:03:11,710
+So the Y position is going to be the paddles current ycor,
+
+127
+00:03:12,280 --> 00:03:15,250
+but it's going to go up, so it's going to need to
+
+128
+00:03:15,280 --> 00:03:18,190
+plus let's say by 20.
+
+129
+00:03:18,940 --> 00:03:23,940
+Now we can tell the paddle to go to its current paddle.xcor.
+
+130
+00:03:24,970 --> 00:03:29,290
+So we're not changing that. And then to go to the new Y position.
+
+131
+00:03:29,980 --> 00:03:34,980
+Now, this go_up function is going to be called whenever the Up key is detected.
+
+132
+00:03:35,740 --> 00:03:40,450
+And if we copy this and we make a similar version of this function,
+
+133
+00:03:40,660 --> 00:03:45,550
+which is called go_down and we can subtract 20 instead.
+
+134
+00:03:46,120 --> 00:03:50,320
+So now we can copy this line and make it call
+
+135
+00:03:50,350 --> 00:03:54,160
+go_down when the down arrow key is detected.
+
+136
+00:03:54,820 --> 00:03:59,020
+So now we've created our paddle and when I hit up, it goes up, when I hit down
+
+137
+00:03:59,050 --> 00:04:03,070
+it goes down. And this completes the first part of the challenge.
+
+138
+00:04:03,430 --> 00:04:06,430
+But here's a question. When I hit run,
+
+139
+00:04:06,520 --> 00:04:09,850
+you can see that the paddle first gets created in the center,
+
+140
+00:04:10,240 --> 00:04:13,720
+and then it moves to the location where it needs to go to,
+
+141
+00:04:14,200 --> 00:04:18,399
+which is 350 on the X-axis, 0 on the Y-axis.
+
+142
+00:04:18,940 --> 00:04:22,330
+How can we get rid of this animation so that we don't have to look at the
+
+143
+00:04:22,330 --> 00:04:24,430
+paddle move to the position?
+
+144
+00:04:24,850 --> 00:04:28,510
+Have a think about what you've learned in previous lessons and see if you can
+
+145
+00:04:28,510 --> 00:04:32,950
+solve this problem. All right.
+
+146
+00:04:32,980 --> 00:04:37,980
+So you might remember from previous lessons that there is a tracer method on the
+
+147
+00:04:38,560 --> 00:04:41,380
+screen which controls the animation.
+
+148
+00:04:41,920 --> 00:04:46,540
+And in order to turn off the animation, we can put a zero in that method.
+
+149
+00:04:47,080 --> 00:04:49,450
+But when we run our code, as it is right now,
+
+150
+00:04:49,480 --> 00:04:52,060
+you'll see that there's no animation.
+
+151
+00:04:52,090 --> 00:04:54,880
+There's not even a paddle of showing up anymore.
+
+152
+00:04:55,630 --> 00:04:58,180
+Remember that when you turn off the animation,
+
+153
+00:04:58,390 --> 00:05:03,390
+you have to manually update the screen and refresh it every single time. To do
+
+154
+00:05:04,120 --> 00:05:06,490
+that, we'll need some sort of a while loop.
+
+155
+00:05:07,000 --> 00:05:10,750
+And the while loop is going to check for some sort of variable.
+
+156
+00:05:11,140 --> 00:05:15,250
+So let's create a variable called game_is_on and set it to true
+
+157
+00:05:15,820 --> 00:05:17,890
+and while the game is on,
+
+158
+00:05:18,160 --> 00:05:22,660
+then we're going to call screen.update. Now,
+
+159
+00:05:22,690 --> 00:05:25,690
+if I run the code again, you'll see that my paddle
+
+160
+00:05:25,720 --> 00:05:30,700
+now goes directly from the center to the position because the first thing
+
+161
+00:05:30,700 --> 00:05:33,100
+that happens is the animation gets turned off,
+
+162
+00:05:33,460 --> 00:05:36,130
+the paddle then gets created in the background
+
+163
+00:05:36,400 --> 00:05:41,080
+and then finally it gets to this point where we actually update the screen and
+
+164
+00:05:41,080 --> 00:05:44,200
+show everything that's happened in the background so far.
+
+165
+00:05:44,890 --> 00:05:49,120
+Did you manage to complete this challenge and create the paddle and get it to
+
+166
+00:05:49,120 --> 00:05:51,760
+move up and down using the keystrokes?
+
+167
+00:05:52,270 --> 00:05:57,070
+If not be sure to review some of these methods in the turtle documentation and
+
+168
+00:05:57,080 --> 00:06:01,160
+have a play around with the code until you're fully happy with what's going on
+
+169
+00:06:01,160 --> 00:06:03,130
+so far. Now,
+
+170
+00:06:03,160 --> 00:06:07,840
+if you had created the paddle in a separate file as a separate class,
+
+171
+00:06:08,170 --> 00:06:10,210
+don't worry. We're going to do that next.
+
+172
+00:06:10,390 --> 00:06:14,590
+We're going to refactor this code so that it's fully compliant with Object
+
+173
+00:06:14,590 --> 00:06:16,990
+Oriented Programming. But if you've already done it,
+
+174
+00:06:16,990 --> 00:06:18,340
+then you're just one step ahead.
+
+175
+00:06:18,700 --> 00:06:20,980
+And that is where we're heading to in the next lesson.
+
+
+176
+00:00:00,660 --> 00:00:05,070
+In the last lesson we created and managed to move a paddle up and down.
+
+177
+00:00:05,670 --> 00:00:08,970
+Now in this lesson, we're going to figure out how we can create
+
+178
+00:00:08,970 --> 00:00:09,930
+another paddle,
+
+179
+00:00:10,260 --> 00:00:14,100
+but we don't want to repeat all the code that we've written so far.
+
+180
+00:00:14,340 --> 00:00:18,900
+So we're probably going to need the help of a separate paddle class.
+
+181
+00:00:19,320 --> 00:00:21,270
+So if you haven't already created
+
+182
+00:00:21,270 --> 00:00:24,690
+your paddle inside a separate file and a separate class,
+
+183
+00:00:25,050 --> 00:00:29,100
+then this is the time to refactor your code so that you can create 
+
+184
+00:00:29,100 --> 00:00:34,100
+another paddle object from the puddle class easily and effortlessly.
+
+185
+00:00:34,830 --> 00:00:36,240
+Here's what we're aiming for.
+
+186
+00:00:36,390 --> 00:00:41,390
+We're aiming to get rid of all of this paddle related code and move it into a
+
+187
+00:00:41,640 --> 00:00:43,140
+separate paddle class.
+
+188
+00:00:43,650 --> 00:00:48,650
+And then subsequently we want to be able to create a right paddle simply by
+
+189
+00:00:50,250 --> 00:00:52,560
+creating it from the paddle class.
+
+190
+00:00:52,950 --> 00:00:57,360
+And then we can create a left paddle from the panel of class. Now because the
+
+191
+00:00:57,360 --> 00:01:01,380
+right paddle has a different coordinate from the left paddle,
+
+192
+00:01:01,620 --> 00:01:06,620
+we'll need to pass in the position of the right and left paddle as a tuple.
+
+193
+00:01:06,870 --> 00:01:11,870
+So we might say something like the X will be 350 and the Y will be 0.
+
+194
+00:01:12,630 --> 00:01:13,980
+And on the left paddle,
+
+195
+00:01:13,980 --> 00:01:18,980
+the X will be -350 and the Y will be 0.
+
+196
+00:01:20,160 --> 00:01:25,160
+So have a think about how you can make this code work and refactor this
+
+197
+00:01:26,250 --> 00:01:28,980
+code into a separate paddle class
+
+198
+00:01:29,370 --> 00:01:33,330
+and this paddle class should inherit from the turtle class.
+
+199
+00:01:33,780 --> 00:01:37,260
+Overall, our program should work pretty much the same as before.
+
+200
+00:01:37,680 --> 00:01:41,010
+The only difference being that we now have a left pedal
+
+201
+00:01:41,250 --> 00:01:45,510
+which can move up and down with the w and s keys on the keyboard.
+
+202
+00:01:46,290 --> 00:01:48,810
+Pause the video and try to complete this challenge.
+
+203
+00:01:51,450 --> 00:01:54,990
+All right. So the first thing we're going to need is a new file,
+
+204
+00:01:55,260 --> 00:02:00,260
+which is going to be called paddle.py and paddle.py is going to need the
+
+205
+00:02:01,410 --> 00:02:05,640
+turtle class from the turtle module. So let's go ahead and import it.
+
+206
+00:02:06,180 --> 00:02:10,770
+And then I'm going to create this Paddle class, and of course,
+
+207
+00:02:10,979 --> 00:02:13,590
+all classes start off with a capital letter.
+
+208
+00:02:14,070 --> 00:02:19,070
+Now, this class is going to take all of this paddle creation code
+
+209
+00:02:19,680 --> 00:02:23,550
+and it's going to carry it out when we initialize a new paddle
+
+210
+00:02:23,550 --> 00:02:28,290
+object. This paddle object, in order for it to be a turtle
+
+211
+00:02:28,290 --> 00:02:32,940
+object, we're going to get it to inherit from the turtle class like this.
+
+212
+00:02:33,420 --> 00:02:35,880
+And in order to get all of the abilities,
+
+213
+00:02:35,880 --> 00:02:38,610
+the methods, and the attributes of the turtle class,
+
+214
+00:02:39,000 --> 00:02:41,940
+we need to get this superclass to initialize itself.
+
+215
+00:02:42,660 --> 00:02:47,660
+The next thing we're going to do is figure out how we can get our paddle to
+
+216
+00:02:47,910 --> 00:02:52,320
+change its shape, change its color and all of these other things.
+
+217
+00:02:52,920 --> 00:02:57,920
+So we can get rid of this line entirely because our paddle class is now the same
+
+218
+00:02:58,350 --> 00:03:01,870
+as a turtle class. And then for the rest of these,
+
+219
+00:03:01,870 --> 00:03:04,960
+instead of writing paddle.shape or paddle.color,
+
+220
+00:03:05,290 --> 00:03:09,460
+we're going to hit command R or simply go to edit,
+
+221
+00:03:09,730 --> 00:03:12,280
+find, and then replace,
+
+222
+00:03:12,460 --> 00:03:16,900
+and you can take a look at the shortcut on your computer of how to get hold of
+
+223
+00:03:16,900 --> 00:03:20,380
+this replace screen. So what I want to replace is
+
+224
+00:03:20,500 --> 00:03:23,890
+everything that is paddled. here in my code,
+
+225
+00:03:24,280 --> 00:03:26,680
+and I'm going to replace it with self.,
+
+226
+00:03:27,190 --> 00:03:29,620
+because now we're inside the paddle class
+
+227
+00:03:30,010 --> 00:03:34,360
+which is effectively the same as a turtle class with some added extras.
+
+228
+00:03:34,750 --> 00:03:39,750
+We can tap into our methods and our attributes by simply using the self keyword.
+
+229
+00:03:41,950 --> 00:03:42,760
+Now,
+
+230
+00:03:42,760 --> 00:03:47,760
+the very last thing we need to do in order to make this work is to go ahead and
+
+231
+00:03:48,700 --> 00:03:51,910
+import our paddle from the paddle.py.
+
+232
+00:03:54,700 --> 00:03:58,540
+And once we've imported it, we need to address this warning.
+
+233
+00:03:58,810 --> 00:04:00,670
+Notice how it's highlighting this area
+
+234
+00:04:00,700 --> 00:04:05,700
+and it's telling us that this is an unexpected argument because the paddle
+
+235
+00:04:05,830 --> 00:04:09,700
+class doesn't actually take any inputs when it's initialized.
+
+236
+00:04:09,910 --> 00:04:12,760
+It's just got the self here. But in fact,
+
+237
+00:04:12,790 --> 00:04:16,510
+we do need a position being passed over.
+
+238
+00:04:17,019 --> 00:04:21,910
+So this position is going to determine where the paddle is going to go to,
+
+239
+00:04:22,420 --> 00:04:26,950
+because remember the left paddle is going to have a different coordinate from
+
+240
+00:04:26,950 --> 00:04:27,880
+the right paddle.
+
+241
+00:04:28,540 --> 00:04:33,190
+So now that we fixed that, this is now completely valid code.
+
+242
+00:04:35,590 --> 00:04:38,200
+And if we run our code as it is,
+
+243
+00:04:38,260 --> 00:04:43,180
+you'll see our paddles being created and looking exactly the same way as before
+
+244
+00:04:43,450 --> 00:04:48,450
+but now we've got one extra paddle. Going down here with our go up and go down
+
+245
+00:04:50,140 --> 00:04:50,973
+methods,
+
+246
+00:04:51,040 --> 00:04:55,360
+ideally, we would want them to live within our paddle class.
+
+247
+00:04:55,690 --> 00:04:58,390
+So we want them to be methods inside this class.
+
+248
+00:04:58,930 --> 00:05:03,930
+And remember that methods always have a first attribute as the self.
+
+249
+00:05:05,050 --> 00:05:07,030
+Now, in addition, we have to, again,
+
+250
+00:05:07,060 --> 00:05:12,060
+replace this paddle. with self. so that it's actually referring to the object
+
+251
+00:05:14,410 --> 00:05:19,360
+that's created from this class to get its Y coordinate or get its X coordinate.
+
+252
+00:05:20,080 --> 00:05:22,480
+Now, coming back to our main.py,
+
+253
+00:05:22,510 --> 00:05:26,800
+we'll have to modify this code a little bit because this go_up and go_down
+
+254
+00:05:26,800 --> 00:05:28,090
+function is now gone,
+
+255
+00:05:28,450 --> 00:05:33,450
+and instead, we now have the r_paddle.go_up and r_paddle.go_down.
+
+256
+00:05:36,970 --> 00:05:40,840
+So the right paddle is going to be controlled by the up and down keys,
+
+257
+00:05:41,260 --> 00:05:46,210
+but the left paddle, we can get it to be controlled by some other keys. Now,
+
+258
+00:05:46,210 --> 00:05:46,810
+in our case,
+
+259
+00:05:46,810 --> 00:05:51,810
+I'm going to choose the 'w' to go up and the 's' key to go down.
+
+260
+00:05:52,780 --> 00:05:57,780
+So we're going to need another set of these screen.onkey method calls.
+
+261
+00:05:58,340 --> 00:05:59,180
+But in this case,
+
+262
+00:05:59,180 --> 00:06:04,180
+this is going to get the left paddle to go up and the left paddle to go down. And
+
+263
+00:06:05,000 --> 00:06:07,460
+to go up is controlled by the 'w' key
+
+264
+00:06:07,730 --> 00:06:12,560
+and to go down is controlled by the 's' key. So now,
+
+265
+00:06:12,590 --> 00:06:17,210
+if we run our code, you can see that when I moved w it goes up, when I move
+
+266
+00:06:17,210 --> 00:06:21,950
+s it goes down, and up and down moves the right side of the paddle.
+
+267
+00:06:22,640 --> 00:06:23,690
+So notice how
+
+268
+00:06:23,720 --> 00:06:28,720
+now that we've refactored our paddle related code into a completely separate
+
+269
+00:06:29,090 --> 00:06:30,560
+class, firstly,
+
+270
+00:06:30,650 --> 00:06:34,160
+our main.py is now a lot simpler.
+
+271
+00:06:34,190 --> 00:06:37,730
+It's clear of all of this paddle related code.
+
+272
+00:06:38,270 --> 00:06:41,720
+And on top of that, if I wanted to create a third paddle
+
+273
+00:06:41,720 --> 00:06:45,260
+let's say I wanted you to create a top paddle for some reason,
+
+274
+00:06:45,530 --> 00:06:50,530
+then all I have to do is just call the paddle class and then pass in a tuple
+
+275
+00:06:51,200 --> 00:06:53,900
+for the location of this paddle.
+
+276
+00:06:54,950 --> 00:06:59,810
+So let's put it at, I dunno, 100 by 100.
+
+277
+00:07:00,380 --> 00:07:01,213
+If I hit run,
+
+278
+00:07:01,220 --> 00:07:05,180
+you can see there's a third random paddle and I didn't have to write
+
+279
+00:07:05,300 --> 00:07:10,300
+any of this extra code or any of the related methods. We can create as many of
+
+280
+00:07:10,790 --> 00:07:15,410
+these paddles as we want because we've now got this paddle class.
+
+281
+00:07:16,460 --> 00:07:17,960
+So with these examples,
+
+282
+00:07:18,050 --> 00:07:22,370
+I hope you're getting the sense of how important classes are and just how
+
+283
+00:07:22,370 --> 00:07:26,990
+important they are when it comes to the development of a more complex project
+
+284
+00:07:27,230 --> 00:07:30,230
+like this pong game. Now in the next lesson,
+
+285
+00:07:30,230 --> 00:07:34,190
+we're going to continue building out our program and we're going to create our
+
+286
+00:07:34,200 --> 00:07:36,770
+ball class and get the ball moving.
+
+
+287
+00:00:00,300 --> 00:00:02,250
+Now that we've created both paddles
+
+288
+00:00:02,310 --> 00:00:07,020
+the next obvious step is to create the ball and get it to move.
+
+289
+00:00:07,500 --> 00:00:12,500
+So this ball is going to be created as a separate ball class and the ball object
+
+290
+00:00:14,550 --> 00:00:19,350
+that we're going to create from it will have a width of 20, height of 20, and it's
+
+291
+00:00:19,380 --> 00:00:23,310
+X and Y position will start out at the center of the screen,
+
+292
+00:00:23,490 --> 00:00:27,300
+so (0, 0). Now when the screen refreshes,
+
+293
+00:00:27,300 --> 00:00:32,299
+the ball is automatically going to move on the screen and it's going to move up
+
+294
+00:00:33,390 --> 00:00:34,920
+and also to the right.
+
+295
+00:00:34,920 --> 00:00:39,920
+So it's X and Y positions will change on every refresh of the screen.
+
+296
+00:00:40,800 --> 00:00:45,000
+So this is going to be a little bit more challenging and will require a little
+
+297
+00:00:45,000 --> 00:00:46,320
+bit of thinking from your part.
+
+298
+00:00:46,680 --> 00:00:51,390
+But I want you to pause the video and give this problem a bit of thought and see
+
+299
+00:00:51,390 --> 00:00:55,590
+how far you can get in trying to get the ball to move to the top-
+
+300
+00:00:55,620 --> 00:00:59,580
+right edge of the screen. Pause the video and give that a go.
+
+301
+00:01:03,260 --> 00:01:05,330
+All right. So to start off, this time
+
+302
+00:01:05,330 --> 00:01:10,250
+I'm going to create a ball.py file and inside 
+
+303
+00:01:10,280 --> 00:01:14,330
+this ball.py is where we're going to create our ball object.
+
+304
+00:01:14,750 --> 00:01:15,830
+So firstly,
+
+305
+00:01:15,830 --> 00:01:20,830
+I'm going to import my turtle class and then I'm going to create my ball class
+
+306
+00:01:22,040 --> 00:01:24,320
+which is going to inherit from the turtle class.
+
+307
+00:01:24,800 --> 00:01:28,130
+And then I'm going to do all of the usual initialization.
+
+308
+00:01:30,440 --> 00:01:33,950
+And now we're ready to create our ball class.
+
+309
+00:01:34,430 --> 00:01:39,080
+This ball is going to, firstly, have a white color.
+
+310
+00:01:39,710 --> 00:01:44,300
+And in addition, it's going to have a shape that is going to be a circle.
+
+311
+00:01:44,600 --> 00:01:47,510
+Now I know that in the original pong game,
+
+312
+00:01:47,600 --> 00:01:52,250
+the table tennis ball is actually a square. So you can keep it a square
+
+313
+00:01:52,250 --> 00:01:56,300
+if you want to be historically accurate, or you can change it to
+
+314
+00:01:56,300 --> 00:02:00,650
+a circle like I have here to make it look more like a ping pong ball.
+
+315
+00:02:01,370 --> 00:02:02,360
+Now, in addition,
+
+316
+00:02:02,390 --> 00:02:06,980
+we're going to need to get it to pen up so that it doesn't end up drawing across
+
+317
+00:02:06,980 --> 00:02:07,813
+the screen.
+
+318
+00:02:08,210 --> 00:02:13,210
+And now all we need is to initialize our ball from the ball.py
+
+319
+00:02:17,870 --> 00:02:20,600
+and we're going to do that just below our paddles.
+
+320
+00:02:20,660 --> 00:02:24,500
+So I'm going to create a new ball object from the ball class.
+
+321
+00:02:25,010 --> 00:02:26,390
+And now if I hit run,
+
+322
+00:02:26,420 --> 00:02:30,380
+you'll see our circular ball show up in the center of the screen.
+
+323
+00:02:31,430 --> 00:02:36,430
+The next problem is how do we get the ball to move towards the top right corner
+
+324
+00:02:37,310 --> 00:02:38,143
+of the screen?
+
+325
+00:02:38,360 --> 00:02:42,500
+So that's going to involve a change in the X coordinate as well as the Y
+
+326
+00:02:42,500 --> 00:02:45,590
+coordinate. In our while loop here
+
+327
+00:02:45,740 --> 00:02:47,720
+where our screen is updating,
+
+328
+00:02:48,050 --> 00:02:51,410
+we're going to call a method in the ball class
+
+329
+00:02:51,710 --> 00:02:56,000
+which is going to be called move. And this move method
+
+330
+00:02:56,030 --> 00:03:01,030
+which we'll define now is going to be responsible for moving our ball.
+
+331
+00:03:02,290 --> 00:03:07,290
+And the way that it's going to move is it's going to increase on the X and also
+
+332
+00:03:08,350 --> 00:03:12,790
+increase on the Y. Let's create a new X coordinate
+
+333
+00:03:12,820 --> 00:03:17,820
+which is going to be the current self.xcor plus a arbitrary amount.
+
+334
+00:03:18,850 --> 00:03:20,770
+So let's say increase by 10.
+
+335
+00:03:21,220 --> 00:03:26,220
+And then the new Y is going to be the self.ycor increased by the same
+
+336
+00:03:27,730 --> 00:03:30,160
+arbitrary amount. And then finally,
+
+337
+00:03:30,190 --> 00:03:35,190
+we can get our ball to go to this new X and new Y.
+
+338
+00:03:37,690 --> 00:03:39,640
+So now when we run our code,
+
+339
+00:03:39,880 --> 00:03:44,500
+you can see that our ball immediately goes off the screen to the top right
+
+340
+00:03:44,500 --> 00:03:48,130
+corner. If we want the ball to slow down a little bit,
+
+341
+00:03:48,190 --> 00:03:50,950
+we can do one of two things. Either
+
+342
+00:03:50,980 --> 00:03:55,980
+we can go into the move method and change this 10 here to say a 1.
+
+343
+00:03:57,010 --> 00:04:01,360
+That way, every time our loop runs, our ball will only move one pixel.
+
+344
+00:04:02,080 --> 00:04:06,490
+Alternatively, we can pause the loop for a short time during each iteration.
+
+345
+00:04:07,480 --> 00:04:10,180
+Moving the ball at a tiny amount does work,
+
+346
+00:04:10,330 --> 00:04:14,350
+but I'm going to go with the second option and import our time module.
+
+347
+00:04:14,770 --> 00:04:18,790
+Then I'm going to get our while loop to sleep for a little bit in between each
+
+348
+00:04:18,790 --> 00:04:19,690
+of the updates.
+
+349
+00:04:20,320 --> 00:04:24,460
+So, I normally start off with just a 0.1 second sleep,
+
+350
+00:04:24,790 --> 00:04:28,450
+and you can see now a ball moves at a more reasonable pace
+
+351
+00:04:28,720 --> 00:04:31,690
+and we actually have a chance of catching it with one of the paddles.
+
+352
+00:04:32,530 --> 00:04:37,210
+That's all there is to it. We've now created on the ball class, initialized
+
+353
+00:04:37,270 --> 00:04:42,270
+a ball object and we've got the ball to move on every refresh of the screen.
+
+
+354
+00:00:00,030 --> 00:00:02,580
+Now we've done most of the easy parts,
+
+355
+00:00:02,610 --> 00:00:05,790
+getting a paddle and a ball up and running on our screen.
+
+356
+00:00:06,120 --> 00:00:08,700
+The next few parts are going to be a little bit more tricky.
+
+357
+00:00:09,270 --> 00:00:13,530
+And the first thing we're going to tackle is how to detect collision when the
+
+358
+00:00:13,530 --> 00:00:18,530
+ball hits the wall at the top and the bottom and getting the ball to bounce.
+
+359
+00:00:19,470 --> 00:00:21,210
+Now, we only need to detect
+
+360
+00:00:21,240 --> 00:00:24,660
+collision on the top and the bottom walls
+
+361
+00:00:24,930 --> 00:00:29,190
+because when the ball hits the right or of the left edges of the program,
+
+362
+00:00:29,490 --> 00:00:33,300
+it should actually be caught by one of the paddles. And if it isn't,
+
+363
+00:00:33,360 --> 00:00:35,730
+then that means that player has missed the ball
+
+364
+00:00:35,940 --> 00:00:37,440
+and it's a point to the other side.
+
+365
+00:00:37,920 --> 00:00:42,920
+So we need to focus on how can we detect when the ball has collided with the top
+
+366
+00:00:43,830 --> 00:00:45,060
+or bottom walls,
+
+367
+00:00:45,420 --> 00:00:50,420
+when has its position gone past a certain point that it probably is going to
+
+368
+00:00:51,210 --> 00:00:54,810
+collide with the wall. We've done something similar in snake, but it's again
+
+369
+00:00:54,870 --> 00:00:58,260
+time to revisit this topic. Now on top of that,
+
+370
+00:00:58,260 --> 00:01:01,650
+we have to figure out how do we get the ball to actually bounce?
+
+371
+00:01:01,980 --> 00:01:06,090
+And what does bouncing actually mean in terms of changing the position of the
+
+372
+00:01:06,090 --> 00:01:06,923
+ball?
+
+373
+00:01:06,960 --> 00:01:11,960
+When the ball is constantly going up in the Y value and going up in the X value
+
+374
+00:01:12,390 --> 00:01:14,340
+in order to travel in this direction,
+
+375
+00:01:14,670 --> 00:01:19,170
+what actually happens to the X and Y values when it bounces?
+
+376
+00:01:19,530 --> 00:01:22,440
+Which one gets reduced and which one stays constant?
+
+377
+00:01:23,430 --> 00:01:28,430
+Have a think about those questions and play around with some of those numbers
+
+378
+00:01:29,220 --> 00:01:33,630
+and see if you can complete this challenge by yourself. If you get stuck
+
+379
+00:01:33,690 --> 00:01:35,250
+or if you just want to check the answer,
+
+380
+00:01:35,490 --> 00:01:37,950
+then come back and I'll go through the solution with you.
+
+381
+00:01:40,680 --> 00:01:43,590
+All right. So it's going to be inside our while loop
+
+382
+00:01:43,800 --> 00:01:48,180
+where I'm going to be detecting the collision with the wall.
+
+383
+00:01:48,720 --> 00:01:52,440
+And in order to detect the collision with the wall, essentially,
+
+384
+00:01:52,470 --> 00:01:57,450
+what I'm going to say is that if the screen is 600 by 800,
+
+385
+00:01:57,870 --> 00:02:00,870
+when the ball is at a Y position
+
+386
+00:02:00,900 --> 00:02:03,390
+that is above 300,
+
+387
+00:02:03,420 --> 00:02:05,940
+remember 300 is half of 600,
+
+388
+00:02:06,270 --> 00:02:11,270
+and the Y-axis goes from 0 to 300 and 0 to -300.
+
+389
+00:02:12,780 --> 00:02:15,630
+So once the ball is past 300,
+
+390
+00:02:15,930 --> 00:02:19,770
+then it's going to be way past the wall, right? So at that point,
+
+391
+00:02:19,800 --> 00:02:22,230
+I can be pretty sure that it's going to hit the wall
+
+392
+00:02:22,260 --> 00:02:23,970
+or it has it already hit the wall.
+
+393
+00:02:24,540 --> 00:02:27,810
+So that will be my criteria for detecting collision.
+
+394
+00:02:28,170 --> 00:02:33,170
+So it can say if the ball.ycor is greater than 300,
+
+395
+00:02:36,960 --> 00:02:41,610
+well in that case it's basically gone too far up and it's hit the top wall. Now,
+
+396
+00:02:41,670 --> 00:02:44,820
+in addition, I can add a or statement to say
+
+397
+00:02:44,850 --> 00:02:49,620
+if the ball.ycor is less than -300,
+
+398
+00:02:49,980 --> 00:02:53,670
+then that means it's gone too far down and it's hit the bottom wall.
+
+399
+00:02:54,120 --> 00:02:57,690
+So in this case, it needs to bounce.
+
+400
+00:02:58,930 --> 00:03:02,350
+So we need to figure out how to get our ball to bounce.
+
+401
+00:03:02,770 --> 00:03:07,770
+And we're going to create a bounce method in our ball class in order to tell it
+
+402
+00:03:08,260 --> 00:03:10,270
+how to do this. Firstly,
+
+403
+00:03:10,300 --> 00:03:15,300
+we're going to need to figure out a new Y because the Y coordinate needs to
+
+404
+00:03:15,580 --> 00:03:17,530
+essentially reverse. So,
+
+405
+00:03:17,530 --> 00:03:22,510
+whereas previously our Y coordinate was going up and up and up increasing each
+
+406
+00:03:22,510 --> 00:03:26,860
+time, when it hits the wall it needs to reverse direction.
+
+407
+00:03:27,130 --> 00:03:28,750
+So if it was increasing,
+
+408
+00:03:28,810 --> 00:03:32,740
+it needs to decrease. If it was decreasing, it needs to increase.
+
+409
+00:03:33,250 --> 00:03:38,250
+So basically we need the opposite of what it currently is. To do that,
+
+410
+00:03:38,680 --> 00:03:41,770
+the easiest way is to create a attribute
+
+411
+00:03:41,800 --> 00:03:45,010
+which I'm going to call x_move and another
+
+412
+00:03:45,010 --> 00:03:47,290
+which I'm going to call y_move.
+
+413
+00:03:48,640 --> 00:03:51,160
+These are going to start out at 10,
+
+414
+00:03:51,610 --> 00:03:55,300
+and every time we move our ball we're going to say,
+
+415
+00:03:55,800 --> 00:04:00,210
+self.xcor + self.x_move,
+
+416
+00:04:00,660 --> 00:04:03,510
+and plus self.y_move.
+
+417
+00:04:03,960 --> 00:04:06,210
+This basically hasn't changed anything.
+
+418
+00:04:06,210 --> 00:04:09,390
+It's just that every single time the ball moves,
+
+419
+00:04:09,660 --> 00:04:13,950
+it's going to increase in the X coordinate by 10 pixels
+
+420
+00:04:14,370 --> 00:04:19,290
+and also increased by 10 pixels in the Y coordinate. Now,
+
+421
+00:04:19,320 --> 00:04:21,060
+when we bounce however,
+
+422
+00:04:21,510 --> 00:04:24,390
+we need to change our y_move
+
+423
+00:04:24,630 --> 00:04:29,630
+so that it's the opposite in terms of direction of what it used to be.
+
+424
+00:04:31,020 --> 00:04:35,310
+So if it used to be +10 we want it to be now -10,
+
+425
+00:04:35,790 --> 00:04:40,170
+and if it used to be -10, we want it to be now +10. To do that,
+
+426
+00:04:40,230 --> 00:04:43,110
+all we need to do is multiply it by - 1.
+
+427
+00:04:43,680 --> 00:04:48,680
+So that means if y_move is currently equal to 10 and 10 is being added to the Y
+
+428
+00:04:48,990 --> 00:04:51,750
+coordinate, then this ball is moving upwards.
+
+429
+00:04:52,170 --> 00:04:56,760
+But when we reverse the direction by multiplying it by -1,
+
+430
+00:04:57,120 --> 00:04:59,490
+now that is now -10.
+
+431
+00:04:59,940 --> 00:05:03,570
+So we're now adding -10 to the Y coordinate
+
+432
+00:05:03,600 --> 00:05:08,520
+which is the same as subtracting 10. So this is some basic high school math
+
+433
+00:05:08,550 --> 00:05:13,080
+that's going to get our pong program to start moving in the right direction.
+
+434
+00:05:14,040 --> 00:05:17,370
+Now, back in the main.py under these conditions
+
+435
+00:05:17,400 --> 00:05:19,770
+when the ball has hit the top or the bottom,
+
+436
+00:05:20,130 --> 00:05:22,650
+we're going to get the ball to bounce.
+
+437
+00:05:23,550 --> 00:05:28,380
+And now if I hit run, you should see that when the ball hits the top screen,
+
+438
+00:05:28,650 --> 00:05:32,580
+it comes right back, exactly in the way that we want it to.
+
+439
+00:05:33,120 --> 00:05:35,130
+But the only thing that we might need to tweak 
+
+440
+00:05:35,280 --> 00:05:39,450
+is look at how far it's gone before it actually bounces. It completely disappeared
+
+441
+00:05:40,140 --> 00:05:42,870
+of the screen before it actually makes a bounce.
+
+442
+00:05:43,260 --> 00:05:46,320
+So we can adjust these values accordingly.
+
+443
+00:05:46,350 --> 00:05:50,490
+So I think it works best that when we actually have it as 280.
+
+444
+00:05:51,000 --> 00:05:55,680
+So remember that the width of the ball is 20 pixels
+
+445
+00:05:55,980 --> 00:05:58,580
+so if we're 20 pixels away from the wall,
+
+446
+00:05:58,730 --> 00:06:02,240
+then that's pretty much where we need to bounce. So if I run this again,
+
+447
+00:06:02,270 --> 00:06:06,980
+you can see that the ball hits close to the wall and then it comes right back.
+
+448
+00:06:08,300 --> 00:06:12,320
+So this will take a little bit of thinking to get your head around it.
+
+449
+00:06:12,650 --> 00:06:17,650
+The best way to really understand this is to print out the values of the new_y
+
+450
+00:06:19,070 --> 00:06:20,840
+and also of the y_move
+
+451
+00:06:21,080 --> 00:06:26,060
+and also after you've modified the move in the bounce. Look at those numbers
+
+452
+00:06:26,150 --> 00:06:30,320
+and you'll eventually be able to understand what's actually happening to the
+
+453
+00:06:30,320 --> 00:06:33,140
+position of the ball. But effectively,
+
+454
+00:06:33,170 --> 00:06:38,030
+all that we're doing is we're defining an amount that the ball is going to move
+
+455
+00:06:38,090 --> 00:06:40,400
+by in the X and the Y axis.
+
+456
+00:06:40,850 --> 00:06:45,850
+We're adding that amount to the X and Y coordinates in order to move the ball.
+
+457
+00:06:47,000 --> 00:06:50,180
+And when the ball needs to bounce off the top and bottom walls,
+
+458
+00:06:50,450 --> 00:06:55,450
+we reverse the y_move number so that we get it to subtract instead of add.
+
+459
+00:06:57,890 --> 00:07:00,230
+And that moves it in the opposite direction.
+
+
+460
+00:00:00,180 --> 00:00:02,009
+So we figured out how to detect 
+
+461
+00:00:02,040 --> 00:00:07,040
+collision with the top and bottom walls and make our ball bounce off the walls.
+
+462
+00:00:07,470 --> 00:00:11,550
+The next thing we need to do is to detect when there's a collision with the
+
+463
+00:00:11,550 --> 00:00:14,970
+paddle and make the ball bounce off the paddle.
+
+464
+00:00:15,630 --> 00:00:18,840
+This is probably going to be the hardest part of this program yet
+
+465
+00:00:19,080 --> 00:00:21,600
+so I wanna talk you through the logic. Now,
+
+466
+00:00:21,630 --> 00:00:25,650
+how can we know when the ball has hit the paddle? Now,
+
+467
+00:00:25,680 --> 00:00:30,680
+normally we use the distance method to check what is the distance between the
+
+468
+00:00:30,690 --> 00:00:34,680
+ball and the paddle. And if it's less than a certain amount,
+
+469
+00:00:34,710 --> 00:00:38,670
+then we can be relatively sure that they've made contact with each other.
+
+470
+00:00:39,360 --> 00:00:42,540
+So the code that we normally use would be something like this.
+
+471
+00:00:42,960 --> 00:00:47,190
+We get our ball and we check its distance from the paddle.
+
+472
+00:00:47,820 --> 00:00:52,820
+Now remember that our ball has a width of 20 pixels and our paddle has a
+
+473
+00:00:54,150 --> 00:00:57,930
+width of 20 pixels. Normally we would say, well,
+
+474
+00:00:57,960 --> 00:01:02,430
+if that distance between the two of them is less than 20, well,
+
+475
+00:01:02,430 --> 00:01:04,500
+then they've probably made contact, right?
+
+476
+00:01:05,040 --> 00:01:09,300
+But the problem occurs when the ball hits the paddle, not right in the center,
+
+477
+00:01:09,390 --> 00:01:11,370
+but at the edge of the paddle,
+
+478
+00:01:11,760 --> 00:01:16,500
+because this distance measures the center of the ball from the centre of the
+
+479
+00:01:16,500 --> 00:01:18,570
+paddle as the distance.
+
+480
+00:01:18,600 --> 00:01:22,140
+So you can see that this distance is way bigger than 20,
+
+481
+00:01:22,410 --> 00:01:25,200
+so it's not going to register as a collision.
+
+482
+00:01:26,280 --> 00:01:28,920
+How can we solve this problem? Well,
+
+483
+00:01:28,950 --> 00:01:33,150
+we could add on an additional condition. We could check well
+
+484
+00:01:33,150 --> 00:01:38,150
+if the ball has gone past a certain point on the X-axis,
+
+485
+00:01:38,700 --> 00:01:43,700
+if it's gone far enough over to the right and it's within a 50 pixel distance of
+
+486
+00:01:44,880 --> 00:01:45,713
+the paddle,
+
+487
+00:01:45,750 --> 00:01:50,750
+then that also means it's made contact with the paddle. Inside our main.py
+
+488
+00:01:52,260 --> 00:01:57,260
+I'm going to add a comment to detect collision with right paddle.
+
+489
+00:02:00,120 --> 00:02:04,200
+So let's experiment with some numbers here and see if we can get the ball to
+
+490
+00:02:04,200 --> 00:02:06,720
+bounce off the paddle. In this case,
+
+491
+00:02:06,750 --> 00:02:11,750
+we're going to check if the ball.distance to the r_paddle is less than
+
+492
+00:02:15,570 --> 00:02:20,570
+50 and the ball.xcor is greater than 340.
+
+493
+00:02:24,060 --> 00:02:25,830
+If the ball has hit the right paddle,
+
+494
+00:02:26,040 --> 00:02:30,840
+let's print something to the console to test our code. Let's print made contact.
+
+495
+00:02:32,940 --> 00:02:37,260
+So if we run this code and I manage to make contact with the ball,
+
+496
+00:02:37,530 --> 00:02:41,910
+you can see that it says 'Made contact' in our console.
+
+497
+00:02:42,390 --> 00:02:44,850
+So instead of just printing made contact,
+
+498
+00:02:44,970 --> 00:02:49,650
+what we want the ball to do is to again, to bounce. Now,
+
+499
+00:02:49,680 --> 00:02:52,680
+this bounce is a little bit different from the last bounce,
+
+500
+00:02:53,040 --> 00:02:58,040
+because the previous one was changing its Y coordinate so that it moved in the
+
+501
+00:02:58,470 --> 00:03:02,830
+opposite along the vertical. But in this case,
+
+502
+00:03:02,860 --> 00:03:07,420
+we actually want it to move along the opposite direction in the horizontal
+
+503
+00:03:07,420 --> 00:03:09,940
+because the paddle is here and the ball is coming this way,
+
+504
+00:03:10,120 --> 00:03:14,590
+we want it to go back this way. So instead of just calling this bounce,
+
+505
+00:03:14,620 --> 00:03:19,360
+I'm going to right-click on it and then refactor and rename to bounce_
+
+506
+00:03:19,420 --> 00:03:23,860
+y because this is bouncing in the Y-axis. Now,
+
+507
+00:03:24,220 --> 00:03:28,120
+once we hit refactor, it'll change it here and it will change it here.
+
+508
+00:03:29,770 --> 00:03:33,460
+Now on top of that, I'm going to define my bounce_x,
+
+509
+00:03:33,730 --> 00:03:37,600
+so it bouncing in the X-axis, and this is very similar.
+
+510
+00:03:37,630 --> 00:03:39,910
+We're going to change the x_move,
+
+511
+00:03:39,940 --> 00:03:44,940
+so the amount that the ball moves each time when the move method is called and
+
+512
+00:03:45,340 --> 00:03:48,100
+I'm going to multiply it by -1,
+
+513
+00:03:48,430 --> 00:03:51,160
+so reversing the X direction.
+
+514
+00:03:51,850 --> 00:03:54,760
+And then when our collision is detected,
+
+515
+00:03:54,790 --> 00:03:58,660
+we're going to get the ball to bounce in the X direction.
+
+516
+00:03:59,440 --> 00:04:01,360
+So now if we run our code,
+
+517
+00:04:01,390 --> 00:04:04,930
+you can see that even though this only works on the right paddle,
+
+518
+00:04:05,200 --> 00:04:07,030
+when the ball hits the right paddle
+
+519
+00:04:07,270 --> 00:04:11,500
+it moves back and it bounces back towards the left.
+
+520
+00:04:11,860 --> 00:04:16,570
+It changes the direction that it was moving in the X-axis.
+
+521
+00:04:17,740 --> 00:04:22,740
+So now lets add the collision for both paddles because they both need to bounce
+
+522
+00:04:25,690 --> 00:04:26,920
+in the X-axis
+
+523
+00:04:27,280 --> 00:04:32,280
+and so we're going to tag onto this a 'or' statement and we're going to say
+
+524
+00:04:32,410 --> 00:04:37,410
+or if the ball.distance to the left paddle is also less than 50
+
+525
+00:04:41,860 --> 00:04:43,300
+and on top of that
+
+526
+00:04:43,450 --> 00:04:48,450
+the ball.xcor is less than -340.
+
+527
+00:04:53,080 --> 00:04:58,080
+So this basically checks to see if the ball has gone far enough to the left as
+
+528
+00:04:58,360 --> 00:05:03,360
+to be past the paddle and its within a distance of 50 pixels from the left
+
+529
+00:05:05,230 --> 00:05:08,080
+paddle. So if we run the code right now,
+
+530
+00:05:08,110 --> 00:05:12,370
+you can see that not only does our ball bounce when it hits the right.
+
+531
+00:05:14,230 --> 00:05:16,630
+So now when we run the program again,
+
+532
+00:05:16,660 --> 00:05:20,500
+you can see that not only does the ball bounce on the right paddle,
+
+533
+00:05:20,740 --> 00:05:24,940
+it also bounces when it hits the left paddle.
+
+534
+00:05:26,170 --> 00:05:30,370
+Now there's a little bit more tweaking that we can do with the coordinates because
+
+535
+00:05:30,370 --> 00:05:33,160
+you can see that when the ball hits the paddle,
+
+536
+00:05:33,220 --> 00:05:38,220
+it goes a little bit too far before it actually reverses direction.
+
+537
+00:05:39,160 --> 00:05:44,160
+So we can change this to a slightly smaller number if we want it to bounce
+
+538
+00:05:45,580 --> 00:05:48,370
+before it's within the actual paddle.
+
+539
+00:05:48,700 --> 00:05:53,700
+So we can change this to 320 and this one also to 320 and notice what
+
+540
+00:05:55,000 --> 00:05:59,000
+happens now. Before it hits the actual paddle,
+
+541
+00:05:59,180 --> 00:06:04,180
+it now actually bounces and it doesn't look like as if the ball's fallen into the
+
+542
+00:06:05,120 --> 00:06:08,960
+paddle before it turns back. And there you have it.
+
+543
+00:06:09,080 --> 00:06:12,530
+Now we just have to figure out what should happen when the paddle misses the
+
+544
+00:06:12,530 --> 00:06:16,220
+ball. For all of that and more, I'll see you in the next lesson.
+
+
+545
+00:00:00,270 --> 00:00:03,120
+Now we're pretty close to the end of the program.
+
+546
+00:00:03,240 --> 00:00:08,130
+We've managed to do pretty much everything other than detect when the paddle
+
+547
+00:00:08,130 --> 00:00:12,630
+actually misses a ball. And if the right paddle misses the ball,
+
+548
+00:00:12,780 --> 00:00:15,150
+then the left player gets a point.
+
+549
+00:00:15,930 --> 00:00:20,340
+And this should trigger a restart of the game where the ball goes back to the
+
+550
+00:00:20,340 --> 00:00:23,760
+center and starts off in the opposite direction.
+
+551
+00:00:24,600 --> 00:00:26,010
+In order to do this,
+
+552
+00:00:26,040 --> 00:00:30,240
+to detect when a paddle has actually missed the ball, effectively,
+
+553
+00:00:30,240 --> 00:00:35,130
+what we're checking is that the ball has gone past a certain point on the
+
+554
+00:00:35,130 --> 00:00:37,590
+screen. So we know that we're already
+
+555
+00:00:37,590 --> 00:00:42,240
+checking when the ball goes past this line and it's within 50 pixels of the
+
+556
+00:00:42,240 --> 00:00:42,960
+paddle,
+
+557
+00:00:42,960 --> 00:00:46,740
+then it should bounce back because that means the ball was caught by the paddle.
+
+558
+00:00:47,130 --> 00:00:51,150
+But if it goes further than that, if it goes beyond that on the screen
+
+559
+00:00:51,450 --> 00:00:53,820
+like over here or over here,
+
+560
+00:00:54,090 --> 00:00:57,450
+then that means it's a miss and we should reset the ball.
+
+561
+00:00:58,200 --> 00:01:01,140
+Have a think about how you might create this behavior,
+
+562
+00:01:01,650 --> 00:01:05,310
+and as a challenge to yourself, see if you can complete the code.
+
+563
+00:01:09,920 --> 00:01:12,200
+So I'm going to add another comment here
+
+564
+00:01:12,230 --> 00:01:17,230
+which is going to be detect when right paddle misses.
+
+565
+00:01:19,490 --> 00:01:21,920
+The right paddle has basically missed the ball
+
+566
+00:01:22,040 --> 00:01:27,040
+if the ball.xcor is beyond 380.
+
+567
+00:01:28,430 --> 00:01:31,550
+We know that the width of the screen is 800
+
+568
+00:01:31,640 --> 00:01:34,850
+and we know that the paddle is at 350.
+
+569
+00:01:35,120 --> 00:01:40,040
+So the paddle basically goes from 340 to 360,
+
+570
+00:01:40,370 --> 00:01:42,470
+and if it's already gone past 380,
+
+571
+00:01:42,470 --> 00:01:47,120
+then the paddle has definitely missed the ball. So in this situation,
+
+572
+00:01:47,150 --> 00:01:50,570
+we're going to get the ball to reset its position.
+
+573
+00:01:51,170 --> 00:01:55,160
+And this is going to be a method in the ball class.
+
+574
+00:01:55,730 --> 00:01:58,580
+So let's create it and I'm just going to paste it in
+
+575
+00:01:58,580 --> 00:02:03,580
+so I don't make any errors in terms of the naming. Resetting the position of the
+
+576
+00:02:04,640 --> 00:02:09,639
+ball is going to involve getting the ball to go to the original position.
+
+577
+00:02:10,310 --> 00:02:15,230
+So we can tell self to go to (0, 0).
+
+578
+00:02:16,010 --> 00:02:17,780
+Now, if we run our code,
+
+579
+00:02:18,020 --> 00:02:22,490
+you can see when the ball has gone past a certain point and it's not caught by
+
+580
+00:02:22,490 --> 00:02:25,490
+the paddle, it goes back into the center.
+
+581
+00:02:26,810 --> 00:02:30,380
+But we want the ball to go in the opposite direction
+
+582
+00:02:30,500 --> 00:02:35,300
+once it's been missed by the right-sided player. It's time for the left-sided
+
+583
+00:02:35,300 --> 00:02:36,650
+player to get a turn.
+
+584
+00:02:37,430 --> 00:02:41,420
+So in addition to getting the ball to reset its position,
+
+585
+00:02:41,750 --> 00:02:45,830
+we're going to get the ball to reverse its X-axis.
+
+586
+00:02:46,280 --> 00:02:49,610
+So we're going to call self.bounce_x.
+
+587
+00:02:50,480 --> 00:02:53,630
+Now notice how when the ball gets missed,
+
+588
+00:02:54,050 --> 00:02:56,420
+then its direction gets reversed,
+
+589
+00:02:56,510 --> 00:03:00,610
+it starts off in the center and it goes off in the opposite direction.
+
+590
+00:03:01,360 --> 00:03:05,100
+Let's go ahead and define the left-sided paddle miss.
+
+591
+00:03:07,530 --> 00:03:12,530
+And we can do that by simply saying ball.xcor is less than -380.
+
+592
+00:03:15,600 --> 00:03:19,920
+And in this case, we're again going to get the ball to reset the position.
+
+593
+00:03:20,490 --> 00:03:20,670
+Now,
+
+594
+00:03:20,670 --> 00:03:24,900
+the reason why I've got these in separate if statements is because later on,
+
+595
+00:03:24,930 --> 00:03:29,610
+we're going to need to detect when the right-sided player or the left-sided
+
+596
+00:03:29,610 --> 00:03:33,420
+player actually gains a point. So when the right paddle misses,
+
+597
+00:03:33,720 --> 00:03:37,650
+the left player gets a point, when the left paddle misses the right player
+
+598
+00:03:37,650 --> 00:03:38,490
+gets a point.
+
+599
+00:03:39,660 --> 00:03:44,070
+Now when the ball goes past the right edge and it's not caught by the paddle,
+
+600
+00:03:44,430 --> 00:03:47,430
+then it starts off in the center and it moves to the left.
+
+601
+00:03:47,850 --> 00:03:51,480
+When it's not caught by the left side of the paddle,
+
+602
+00:03:51,660 --> 00:03:54,210
+it starts off in the center and it goes to the right.
+
+603
+00:03:55,080 --> 00:03:59,190
+All that's left to do is to figure out how to do the scoring.
+
+604
+00:03:59,550 --> 00:04:02,130
+And that is what we're going to do on the next lesson.
+
+
+605
+00:00:00,330 --> 00:00:04,260
+To start, we're going to need to create a new scoreboard file.
+
+606
+00:00:05,640 --> 00:00:07,170
+And then inside this file
+
+607
+00:00:07,170 --> 00:00:12,170
+we're going to add our usual imports and we're going to create the scoreboard
+
+608
+00:00:12,390 --> 00:00:13,223
+class.
+
+609
+00:00:13,650 --> 00:00:17,400
+Now the scoreboard class is going to inherit from the turtle class,
+
+610
+00:00:17,670 --> 00:00:22,670
+so we can go ahead and add all of our inits and our super.init.
+
+611
+00:00:24,330 --> 00:00:26,700
+Now let's define our scoreboard.
+
+612
+00:00:27,000 --> 00:00:31,590
+It's going to have a white color so it shows up on the black background,
+
+613
+00:00:32,040 --> 00:00:35,670
+it's going to have pen up because we don't want it to draw,
+
+614
+00:00:36,180 --> 00:00:41,180
+and it's also going to have its turtle hidden because we're only interested in
+
+615
+00:00:41,310 --> 00:00:43,860
+it being able to write something.
+
+616
+00:00:44,430 --> 00:00:47,910
+And the thing that we want it to write is the current score.
+
+617
+00:00:48,270 --> 00:00:52,140
+Let's go ahead and create some attributes for the scoreboard class.
+
+618
+00:00:52,500 --> 00:00:56,850
+One is going to be the l_score which starts off at zero,
+
+619
+00:00:57,330 --> 00:01:01,200
+and the other is going to be the r_score which starts off at zero.
+
+620
+00:01:01,650 --> 00:01:06,240
+So our scoreboard is going to keep track of how the left player and the right
+
+621
+00:01:06,240 --> 00:01:07,470
+player are doing.
+
+622
+00:01:08,640 --> 00:01:12,330
+And then it's going to write this onto the screen.
+
+623
+00:01:12,810 --> 00:01:16,350
+So we're going to write the self.l_score first,
+
+624
+00:01:16,920 --> 00:01:21,920
+and we're going to change the alignment to center and also change the font to
+
+625
+00:01:23,070 --> 00:01:24,600
+something quite large,
+
+626
+00:01:24,840 --> 00:01:29,840
+like a courier font with 80 points and have a normal weight.
+
+627
+00:01:32,520 --> 00:01:35,970
+Where do we want this to be written though? Because by default,
+
+628
+00:01:35,970 --> 00:01:39,990
+this is going to be written at the center of the screen, (0, 0).
+
+629
+00:01:40,590 --> 00:01:41,430
+But instead,
+
+630
+00:01:41,490 --> 00:01:46,490
+what we want it to do is we probably want it to go to somewhere on the top-left
+
+631
+00:01:46,920 --> 00:01:49,350
+of the screen. This is the left player score.
+
+632
+00:01:49,890 --> 00:01:52,320
+So you can have a play around with the coordinates,
+
+633
+00:01:52,440 --> 00:01:56,610
+but I found that -100 in the X-axis,
+
+634
+00:01:56,640 --> 00:02:01,080
+so a little bit to the left of the center and then 200 on the Y-axis,
+
+635
+00:02:01,080 --> 00:02:06,080
+so near the top of the screen seems to do well for this left-sided score.
+
+636
+00:02:06,720 --> 00:02:11,720
+Now let's make this show up by going back to our main.py and importing our
+
+637
+00:02:12,210 --> 00:02:16,200
+scoreboard class and creating a new scoreboard object.
+
+638
+00:02:17,850 --> 00:02:21,570
+So when we hit run, you can see that big zero show up bright here.
+
+639
+00:02:22,590 --> 00:02:23,010
+Now,
+
+640
+00:02:23,010 --> 00:02:27,870
+the next thing we need to do is to show the right-sided player's score.
+
+641
+00:02:28,410 --> 00:02:33,410
+We're going to make our scoreboard go to the opposite side of the screen,
+
+642
+00:02:34,800 --> 00:02:37,980
+so that's going to be +100 and again
+
+643
+00:02:37,980 --> 00:02:40,230
+with a Y value of 200.
+
+644
+00:02:40,980 --> 00:02:45,360
+And then we're going to get it to write the right-sided score,
+
+645
+00:02:45,990 --> 00:02:50,730
+so our score, and we're going to have the same alignment and the same font.
+
+646
+00:02:51,720 --> 00:02:56,250
+Now you can see 0 0 when the game starts out. Now,
+
+647
+00:02:56,250 --> 00:03:00,100
+what we actually want our scoreboard to do is the keep track of the score.
+
+648
+00:03:00,490 --> 00:03:05,110
+So when the right paddle misses, it's a score to the left-sided player.
+
+649
+00:03:05,860 --> 00:03:08,530
+We can define that in our main.py.
+
+650
+00:03:09,070 --> 00:03:11,350
+When the right paddle misses,
+
+651
+00:03:11,530 --> 00:03:14,500
+then we're going to get these scoreboard to
+
+652
+00:03:14,530 --> 00:03:17,500
+give the left side a point.
+
+653
+00:03:17,920 --> 00:03:22,920
+So maybe we could have a method called l_point in our scoreboard that increases
+
+654
+00:03:24,820 --> 00:03:27,460
+the point in the left-sided player.
+
+655
+00:03:27,700 --> 00:03:32,530
+So we can say self.l_score +=1.
+
+656
+00:03:33,400 --> 00:03:36,490
+In addition, we're going to need to update our scoreboard,
+
+657
+00:03:36,880 --> 00:03:39,790
+but all of that code is stuck in the init.
+
+658
+00:03:40,090 --> 00:03:44,740
+So let's go ahead and move it out into a separate function
+
+659
+00:03:44,770 --> 00:03:47,110
+which we'll call update_scoreboard. 
+
+660
+00:03:49,470 --> 00:03:52,290
+And we can call self.update_scoreboard
+
+661
+00:03:52,530 --> 00:03:57,180
+when we first initialized the scoreboard but also when we score a point.
+
+662
+00:03:59,280 --> 00:04:00,960
+Now, when we run our code,
+
+663
+00:04:01,020 --> 00:04:05,400
+you can see that when the right-sided misses, our left
+
+664
+00:04:05,400 --> 00:04:10,230
+side gets a point. But at the moment, it's overwriting the previous score.
+
+665
+00:04:10,800 --> 00:04:12,030
+So to prevent that,
+
+666
+00:04:12,060 --> 00:04:16,890
+we have to add a self.clear before we update the scoreboard.
+
+667
+00:04:18,269 --> 00:04:23,010
+And you can see now it erases everything that used to be there and it updates
+
+668
+00:04:23,010 --> 00:04:27,840
+the score. So we've addressed when you are right paddle misses,
+
+669
+00:04:27,900 --> 00:04:31,290
+but what about when our left paddle misses? Well,
+
+670
+00:04:31,290 --> 00:04:34,200
+we should have a method called r_point as well
+
+671
+00:04:34,440 --> 00:04:36,720
+that gives the right side a point.
+
+672
+00:04:38,070 --> 00:04:39,780
+So let's add that over here.
+
+673
+00:04:42,690 --> 00:04:47,550
+Increase the r_score by one and we'll again call
+
+674
+00:04:47,550 --> 00:04:48,600
+update_scoreboard.
+
+675
+00:04:52,020 --> 00:04:52,380
+Right.
+
+676
+00:04:52,380 --> 00:04:57,300
+Now when our left side misses, we get a point to the left,
+
+677
+00:04:57,720 --> 00:05:00,900
+and when our left side misses, we get a point to the right.
+
+678
+00:05:01,800 --> 00:05:05,220
+That's pretty much all of pong. Now,
+
+679
+00:05:05,250 --> 00:05:08,910
+if you want an extra challenge both in terms of playing pong
+
+680
+00:05:09,300 --> 00:05:10,530
+as well as the code,
+
+681
+00:05:10,950 --> 00:05:15,950
+see if you can figure out a way of getting the ball to increase its speed
+
+682
+00:05:16,320 --> 00:05:18,330
+every time it hits a paddle,
+
+683
+00:05:18,780 --> 00:05:23,780
+because that will make the game a lot more exciting instead of having it always
+
+684
+00:05:24,150 --> 00:05:27,660
+move so slowly. If you can't figure it out,
+
+685
+00:05:27,900 --> 00:05:30,630
+then continue watching and I'll show you the solution.
+
+686
+00:05:33,990 --> 00:05:36,720
+So in order to speed up the ball,
+
+687
+00:05:37,170 --> 00:05:42,170
+the key is in how much time we make our game loop sleep.
+
+688
+00:05:43,140 --> 00:05:46,440
+Because the shorter that this sleep is,
+
+689
+00:05:46,470 --> 00:05:48,690
+let's say instead of 0.1 second
+
+690
+00:05:48,720 --> 00:05:52,050
+let's do 0.01 second.
+
+691
+00:05:53,010 --> 00:05:57,000
+And if we run now, you can see our ball moves a lot faster.
+
+692
+00:05:57,560 --> 00:06:00,590
+Let's make it even more extreme and add another zero.
+
+693
+00:06:02,750 --> 00:06:07,130
+So how can we reduce this number by a little bit each time,
+
+694
+00:06:07,400 --> 00:06:09,650
+but never make it go into the negative
+
+695
+00:06:09,710 --> 00:06:12,140
+because if this becomes a negative number,
+
+696
+00:06:12,410 --> 00:06:17,300
+then we actually get an error over here telling us that the sleep length must be
+
+697
+00:06:17,300 --> 00:06:20,240
+non-negative. In order to do this,
+
+698
+00:06:20,300 --> 00:06:24,740
+we have to figure out a way of making this number a little bit smaller each
+
+699
+00:06:24,740 --> 00:06:25,573
+time.
+
+700
+00:06:25,910 --> 00:06:30,860
+So let's make this number a attribute in our ball class.
+
+701
+00:06:31,460 --> 00:06:36,260
+Now I don't want to call it speed because that might be a bit confusing because
+
+702
+00:06:36,350 --> 00:06:40,010
+the turtle class already has a method called speed
+
+703
+00:06:40,340 --> 00:06:45,290
+as you can see here. So instead I'm going to call it move_speed,
+
+704
+00:06:45,860 --> 00:06:47,810
+and I'm going to set it to 0.1.
+
+705
+00:06:49,100 --> 00:06:53,510
+So now inside our main.py, instead of having a hard-coded
+
+706
+00:06:53,510 --> 00:06:57,470
+number I'm going to get hold of my ball.move_speed.
+
+707
+00:06:58,370 --> 00:07:03,170
+Now, every single time our ball bounces in the X-axis,
+
+708
+00:07:03,500 --> 00:07:06,350
+it means that has been touched by a paddle.
+
+709
+00:07:06,980 --> 00:07:11,690
+So inside this method, in addition to getting it to reverse its direction,
+
+710
+00:07:12,110 --> 00:07:17,110
+we can get the move_speed to reduce by multiplying it by a decimal number.
+
+711
+00:07:18,200 --> 00:07:22,940
+So I've stuck with 0.9 because that seems to work for me.
+
+712
+00:07:23,240 --> 00:07:24,320
+So for example,
+
+713
+00:07:24,350 --> 00:07:29,350
+if we start out with a value of 5 and we multiply that by 0.9,
+
+714
+00:07:29,870 --> 00:07:31,190
+it becomes 4.5.
+
+715
+00:07:31,550 --> 00:07:35,300
+And if we multiply that by 0.9 becomes 4.05.
+
+716
+00:07:35,720 --> 00:07:39,140
+So basically each time the ball bounces on a paddle,
+
+717
+00:07:39,410 --> 00:07:43,790
+it's going to increase in speed. But this can't go on indefinitely.
+
+718
+00:07:44,060 --> 00:07:47,630
+When we reset the game once one player has lost,
+
+719
+00:07:47,900 --> 00:07:52,580
+we have to set this move_speed back to the original 0.1,
+
+720
+00:07:53,030 --> 00:07:57,020
+just so that it doesn't keep on increasing in speed indefinitely.
+
+721
+00:07:57,740 --> 00:08:01,190
+So now you can see whenever the ball hits a paddle,
+
+722
+00:08:02,510 --> 00:08:07,340
+it will increase its speed ever so slightly making it just a little bit more
+
+723
+00:08:07,340 --> 00:08:09,080
+challenging for the players.
+
+724
+00:08:10,130 --> 00:08:14,120
+Now you can of course tweak around with that number so instead of 0.9,
+
+725
+00:08:14,120 --> 00:08:18,110
+you could have 0.5, which basically haves the speed each time,
+
+726
+00:08:18,560 --> 00:08:22,790
+but have a play around with that and see what you prefer. Now
+
+727
+00:08:22,790 --> 00:08:27,530
+one last thing to mention before we finish off today is that when I'm testing
+
+728
+00:08:27,530 --> 00:08:29,690
+this program on my computer,
+
+729
+00:08:30,080 --> 00:08:33,650
+it seems like when I hold down the up hey or the down key,
+
+730
+00:08:33,679 --> 00:08:36,289
+my paddle will continuously move.
+
+731
+00:08:36,740 --> 00:08:41,659
+But there seems to be a bug with turtle where if I hold down the 'w' key,
+
+732
+00:08:41,990 --> 00:08:45,230
+it can only move one bit at a time,
+
+733
+00:08:45,710 --> 00:08:48,380
+but it doesn't seem to affect the 's' key.
+
+734
+00:08:49,070 --> 00:08:51,740
+So I've been doing a bit of digging around online
+
+735
+00:08:51,800 --> 00:08:56,610
+and I can't figure out exactly why this is. If you manage to figure it out,
+
+736
+00:08:56,640 --> 00:08:58,980
+then feel free to add it to the Q/A so that
+
+737
+00:08:58,980 --> 00:09:03,870
+other students can learn from it. But so far I've been coming up empty.
+
+738
+00:09:04,320 --> 00:09:05,580
+But this is just a warning
+
+739
+00:09:05,580 --> 00:09:10,580
+in case you find this behavior as well on your computer and you get confused and
+
+740
+00:09:10,620 --> 00:09:12,990
+thinking it's something wrong with your code. It's not.
+
+741
+00:09:13,290 --> 00:09:17,520
+It's something about the turtle module that causes it to behave like this.
+
+742
+00:09:17,850 --> 00:09:19,650
+So don't worry if that's happening to you.
+
+743
+00:09:20,130 --> 00:09:22,080
+And if you're playing pong with a friend,
+
+744
+00:09:22,290 --> 00:09:24,690
+you can always trick them to use the left sided player.
+
+

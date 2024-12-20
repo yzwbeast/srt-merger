@@ -1,0 +1,4016 @@
+1
+00:00:00,220 --> 00:00:05,170
+Hey guys, welcome back to Day 2 of 100 Days of code.
+
+2
+00:00:05,830 --> 00:00:09,670
+In today's lessons, you're going to be learning about datatypes, numbers,
+
+3
+00:00:09,670 --> 00:00:13,630
+operations, type conversion, f-strings, and a whole lot more.
+
+4
+00:00:14,110 --> 00:00:16,540
+And by the end of today,
+
+5
+00:00:16,570 --> 00:00:20,650
+you will have learned enough to build a tip calculator.
+
+6
+00:00:21,100 --> 00:00:24,760
+So it looks a bit like this. It says, welcome to the tip calculator.
+
+7
+00:00:25,060 --> 00:00:27,910
+It asks you for the total bill that you need to pay.
+
+8
+00:00:28,240 --> 00:00:33,240
+So let's say it came to $124.54 we hit enter and then it asks you how many
+
+9
+00:00:37,150 --> 00:00:39,400
+people do you want to split the bill between?
+
+10
+00:00:39,760 --> 00:00:44,590
+So let's say this five of us having the meal and it asks you finally,
+
+11
+00:00:44,890 --> 00:00:47,170
+what percentage tip would you like to give?
+
+12
+00:00:47,530 --> 00:00:50,530
+So let's say we give a 12% tip.
+
+13
+00:00:51,250 --> 00:00:54,460
+Now it's going to calculate what each person should pay,
+
+14
+00:00:54,670 --> 00:00:58,270
+taking into account all of these pieces of information that you've put in.
+
+15
+00:00:58,810 --> 00:01:01,570
+So I know that I'm pretty bad at math,
+
+16
+00:01:01,630 --> 00:01:03,550
+especially when it comes to splitting bills.
+
+17
+00:01:04,060 --> 00:01:06,700
+And I'm normally the person who just says, yeah,
+
+18
+00:01:06,700 --> 00:01:09,910
+just tell me what I need to pay so I don't have to calculate it.
+
+19
+00:01:10,300 --> 00:01:13,510
+It's like the bad-at-math tax that I pay.
+
+20
+00:01:14,110 --> 00:01:17,530
+But in order to build this, you're going to need to learn some new skills,
+
+21
+00:01:17,860 --> 00:01:22,750
+including working with numbers, converting data types from one type to another,
+
+22
+00:01:23,200 --> 00:01:27,790
+and a whole lot more. So if you feel like you can tackle this, no problems.
+
+23
+00:01:28,060 --> 00:01:30,760
+Then feel free to skip today's lessons.
+
+24
+00:01:31,030 --> 00:01:35,170
+But I bet that there'll be loads of stuff that you'll come across in the
+
+25
+00:01:35,170 --> 00:01:39,670
+upcoming lessons and coding exercises that's really going to make you a better
+
+26
+00:01:39,670 --> 00:01:42,760
+developer. So once you're ready to get started,
+
+27
+00:01:42,970 --> 00:01:45,730
+head over to the next lesson and let's start coding.
+
+1
+00:00:00,070 --> 00:00:05,070
+Yesterday you saw that we could use the Len function to get the number of
+
+2
+00:00:05,410 --> 00:00:09,640
+characters in a string. So for example, when I write Len,
+
+3
+00:00:09,670 --> 00:00:12,580
+hello and I print this out,
+
+4
+00:00:13,360 --> 00:00:17,500
+we end up with 5. There's 5 characters in the string hello.
+
+5
+00:00:18,280 --> 00:00:19,570
+Now here's a question.
+
+6
+00:00:20,170 --> 00:00:25,170
+What happens if instead of counting the number of characters in a string,
+
+7
+00:00:26,200 --> 00:00:31,200
+what if I put in a number instead and I wanted to know how many digits are in
+
+8
+00:00:31,780 --> 00:00:35,800
+this number? Now if I go ahead and run this code,
+
+9
+00:00:35,980 --> 00:00:37,810
+you'll see that it actually crashes.
+
+10
+00:00:38,260 --> 00:00:43,260
+I get a whole bunch of red text and it tells me that there is a type error and
+
+11
+00:00:44,380 --> 00:00:49,150
+something about the type int. So what is all of this about?
+
+12
+00:00:49,840 --> 00:00:54,370
+Well, in order to understand it, we first have to learn about data types.
+
+13
+00:00:55,120 --> 00:00:59,680
+Now on day 1, we already explored this data type called strings.
+
+14
+00:01:00,100 --> 00:01:03,760
+Now you're probably not going to be surprised to learn that there's a whole lot
+
+15
+00:01:03,760 --> 00:01:05,770
+more other data types out there.
+
+16
+00:01:06,250 --> 00:01:11,140
+And today we're going to explore some of the most important and some of the most
+
+17
+00:01:11,140 --> 00:01:15,820
+basic data types such as strings, integers, float, and booleans.
+
+18
+00:01:16,270 --> 00:01:18,580
+And we'll explore each of these in detail.
+
+19
+00:01:19,300 --> 00:01:24,300
+So go ahead and get hold of the day 2 start coding sandbox and go ahead and
+
+20
+00:01:25,540 --> 00:01:29,050
+fork your own copy of it. Now once you've done that,
+
+21
+00:01:29,110 --> 00:01:31,360
+let's take a look at some of the data types.
+
+22
+00:01:31,480 --> 00:01:34,240
+So we already learned about strings, right?
+
+23
+00:01:34,360 --> 00:01:38,650
+And we know that this is just a string of characters.
+
+24
+00:01:38,980 --> 00:01:43,980
+So the word hello is comprised of these five characters strung together.
+
+25
+00:01:44,320 --> 00:01:47,680
+And we always know that strings, when we create them,
+
+26
+00:01:47,890 --> 00:01:49,960
+we have to create them with these double quotes around.
+
+27
+00:01:50,440 --> 00:01:53,110
+Now because this is a string of characters,
+
+28
+00:01:53,470 --> 00:01:58,390
+we can actually pull out each character individually. So we could, for example,
+
+29
+00:01:58,570 --> 00:02:02,890
+instead of just writing hello, we can add some square brackets.
+
+30
+00:02:03,280 --> 00:02:06,220
+So take a look on your keyboard and see where those are.
+
+31
+00:02:06,730 --> 00:02:11,730
+And inside the square brackets, we can put the index or the position of the
+
+32
+00:02:12,730 --> 00:02:15,010
+character that we want. So, for example,
+
+33
+00:02:15,010 --> 00:02:19,390
+if I wanted to have the first character out of this word hello,
+
+34
+00:02:19,420 --> 00:02:21,310
+I would put zero right here.
+
+35
+00:02:21,910 --> 00:02:26,350
+And if I go ahead and print what this actually will give me,
+
+36
+00:02:26,800 --> 00:02:31,800
+you'll see that you get capital H because that is the first character of this
+
+37
+00:02:32,890 --> 00:02:33,723
+string.
+
+38
+00:02:33,970 --> 00:02:38,140
+And it's really important to remember that programmers always start counting
+
+39
+00:02:38,140 --> 00:02:42,190
+from zero because we work with binary, zeros and ones.
+
+40
+00:02:42,460 --> 00:02:46,810
+So whenever you want to get hold of the first character or the first of
+
+41
+00:02:46,810 --> 00:02:49,480
+anything, it always is at zero.
+
+42
+00:02:50,080 --> 00:02:54,910
+So this method of pulling out a particular element from a string is called sub-
+
+43
+00:02:54,910 --> 00:02:58,960
+scripting. And the number in between the square brackets determines
+
+44
+00:02:59,770 --> 00:03:01,270
+which character you're going to pull out,
+
+45
+00:03:01,600 --> 00:03:06,600
+and it just goes up from zero to one to two and so on and so forth.
+
+46
+00:03:07,240 --> 00:03:10,240
+So whenever you get a result that's just off by one,
+
+47
+00:03:10,480 --> 00:03:15,480
+then remember to check whether if you've started counting from zero or if you
+
+48
+00:03:15,580 --> 00:03:17,140
+started counting from one.
+
+49
+00:03:18,040 --> 00:03:22,360
+Now you can of course extend this and get hold of the last character.
+
+50
+00:03:22,570 --> 00:03:27,100
+So pause the video and see if you can change the code so that 'o' gets printed
+
+51
+00:03:27,100 --> 00:03:29,440
+out here. All right,
+
+52
+00:03:29,440 --> 00:03:33,760
+so this is a simple as simply counting from zero, one, two, three,
+
+53
+00:03:33,940 --> 00:03:38,020
+four. So if we change this to four and we run our code,
+
+54
+00:03:38,320 --> 00:03:41,080
+then you'll see that 'o' gets printed instead of the H.
+
+55
+00:03:41,620 --> 00:03:44,980
+So by using these square brackets and putting a number inside,
+
+56
+00:03:45,280 --> 00:03:50,280
+we're able to dissect our string and pull out individual characters as and when
+
+57
+00:03:50,980 --> 00:03:51,813
+we need it.
+
+58
+00:03:52,120 --> 00:03:55,840
+And this will come in really handy in a lot of the programs that you'll write in
+
+59
+00:03:55,840 --> 00:03:56,673
+the future.
+
+60
+00:03:57,220 --> 00:04:02,140
+Now it's important to remember though that just because I can write a number
+
+61
+00:04:02,170 --> 00:04:03,520
+like "123",
+
+62
+00:04:04,180 --> 00:04:07,660
+as long as it's kept inside these double quotes,
+
+63
+00:04:07,990 --> 00:04:11,440
+then this is not treated as a number by the computer.
+
+64
+00:04:11,440 --> 00:04:16,420
+It's treated just as any other piece of text. You can't, for example, say,
+
+65
+00:04:16,480 --> 00:04:21,040
+um, what is "123" + "345".
+
+66
+00:04:21,490 --> 00:04:25,720
+If I try to print this, what do you think will happen?
+
+67
+00:04:26,260 --> 00:04:29,110
+Do you think it will give me 123 + 345
+
+68
+00:04:29,110 --> 00:04:30,820
+in the traditional sense,
+
+69
+00:04:30,820 --> 00:04:35,410
+like calculating it or do you think it'll do something else? All right,
+
+70
+00:04:35,470 --> 00:04:39,970
+let's hit run and we get 123345.
+
+71
+00:04:40,240 --> 00:04:44,140
+So it's basically just concatenated these two strings together,
+
+72
+00:04:44,380 --> 00:04:49,330
+just as we have done with other strings like hello and world, right?
+
+73
+00:04:50,170 --> 00:04:54,700
+Because it sees the datatype of these two pieces of data as strings.
+
+74
+00:04:55,060 --> 00:04:56,650
+When we use the plus sign,
+
+75
+00:04:56,830 --> 00:05:01,450
+it will actually just concatenate these two things instead of doing a
+
+76
+00:05:01,450 --> 00:05:05,140
+mathematical operation. Now if we want to do that,
+
+77
+00:05:05,200 --> 00:05:10,120
+then we actually have to declare our number as a number data type.
+
+78
+00:05:10,450 --> 00:05:13,780
+So one of the most common that you'll see is called an integer.
+
+79
+00:05:14,200 --> 00:05:18,250
+So this is programming lingo for just whole numbers, numbers
+
+80
+00:05:18,250 --> 00:05:20,290
+without any decimal places.
+
+81
+00:05:20,860 --> 00:05:25,000
+And in order to create an integer or declare an integer data type,
+
+82
+00:05:25,300 --> 00:05:29,560
+all you have to do is just write the number without anything else.
+
+83
+00:05:30,220 --> 00:05:34,300
+So now if I just write the numbers, 123 + 345
+
+84
+00:05:34,300 --> 00:05:37,150
+and then I go ahead and print this,
+
+85
+00:05:37,720 --> 00:05:40,720
+then you'll see that we actually get 468.
+
+86
+00:05:40,720 --> 00:05:45,550
+So it's actually being calculated because I've got actual numbers instead of
+
+87
+00:05:45,670 --> 00:05:46,540
+strings.
+
+88
+00:05:47,290 --> 00:05:50,800
+Just as we have some useful things that we can do with strings.
+
+89
+00:05:51,130 --> 00:05:53,650
+There's some really handy things that you can do with integers.
+
+90
+00:05:54,400 --> 00:05:57,890
+Commonly when we write large numbers,
+
+91
+00:05:58,100 --> 00:06:02,600
+at least in the UK or in the US, we'd like to put commas in between the
+
+92
+00:06:02,600 --> 00:06:03,380
+thousands.
+
+93
+00:06:03,380 --> 00:06:08,380
+So when we think of large numbers with these commas in between to split it into
+
+94
+00:06:08,390 --> 00:06:11,720
+an easier to understand number. In Python,
+
+95
+00:06:11,750 --> 00:06:16,750
+we can replace those commas simply with underscores and it will be interpreted
+
+96
+00:06:16,820 --> 00:06:20,330
+by the computer as if you had written this.
+
+97
+00:06:20,630 --> 00:06:23,960
+So the computer actually removes those underscores and ignores it.
+
+98
+00:06:24,440 --> 00:06:29,120
+The benefit is just for us humans to be able to visualize it more easily.
+
+99
+00:06:29,780 --> 00:06:32,060
+So I mentioned that all whole numbers
+
+100
+00:06:32,060 --> 00:06:36,170
+no matter if they're positive or negative, are called integers in programming.
+
+101
+00:06:36,770 --> 00:06:40,250
+So what do you call it when you actually have decimal places? Well,
+
+102
+00:06:40,280 --> 00:06:45,280
+they are called a float and this is short for a floating-point number.
+
+103
+00:06:45,680 --> 00:06:49,940
+So for example, if you had um, the numbers of PI,
+
+104
+00:06:49,970 --> 00:06:51,770
+you have 3.14159
+
+105
+00:06:51,830 --> 00:06:56,830
+and this, because it has a decimal place, is now a float data type.
+
+106
+00:06:58,580 --> 00:07:03,580
+So if you think of the decimal point as being able to float around the number
+
+107
+00:07:04,070 --> 00:07:06,020
+because it could occur at any point,
+
+108
+00:07:06,290 --> 00:07:08,900
+then you've got yourself a floating point number.
+
+109
+00:07:10,100 --> 00:07:14,090
+Now the final data type is something called a boolean.
+
+110
+00:07:14,960 --> 00:07:18,740
+And this is very simple. It only has two possible values,
+
+111
+00:07:19,100 --> 00:07:20,990
+true or false.
+
+112
+00:07:21,350 --> 00:07:26,350
+Now note how these values always begin with a capital T or capital F and they
+
+113
+00:07:27,410 --> 00:07:30,290
+don't have any quotation marks around them or anything.
+
+114
+00:07:30,560 --> 00:07:35,510
+So this is actually a data type which is going to be used a lot in your programs
+
+115
+00:07:35,780 --> 00:07:37,280
+to test if something is true,
+
+116
+00:07:37,280 --> 00:07:41,300
+if something is false and for your program to respond accordingly.
+
+117
+00:07:41,690 --> 00:07:44,390
+So we're going to be using this a lot more in the future.
+
+118
+00:07:44,870 --> 00:07:49,250
+Now that you've seen a lot of the basic data types, strings, integers, floats,
+
+119
+00:07:49,250 --> 00:07:50,083
+and boolean,
+
+120
+00:07:50,270 --> 00:07:54,620
+I want you to head over to the next lesson where I've got a quiz for you to see
+
+121
+00:07:54,620 --> 00:07:58,640
+if you've made this knowledge your own. So head over to the quiz and give it a go.
+
+1
+00:00:00,340 --> 00:00:05,080
+Previously we saw how the Len function gives us a type error when we give it a
+
+2
+00:00:05,080 --> 00:00:06,880
+number instead of a string.
+
+3
+00:00:07,570 --> 00:00:11,110
+So let's talk a little bit more about data types and functions.
+
+4
+00:00:11,740 --> 00:00:16,270
+And the way I think about functions is kind of like some sort of fancy machine
+
+5
+00:00:16,270 --> 00:00:19,690
+that you might see in a factory, right? So in this case,
+
+6
+00:00:19,960 --> 00:00:24,460
+we've got some sort of machine that's going to take potatoes into chips and we
+
+7
+00:00:24,460 --> 00:00:25,810
+don't really care how it does it,
+
+8
+00:00:26,230 --> 00:00:29,020
+but it's probably going to have to peel the potatoes, wash the potatoes,
+
+9
+00:00:29,020 --> 00:00:30,070
+cut it up, fry it,
+
+10
+00:00:30,460 --> 00:00:34,780
+and then finally return it to us as an output in the form of fries.
+
+11
+00:00:35,410 --> 00:00:39,490
+And if this is the first time that you're watching one of my tutorials, um,
+
+12
+00:00:39,580 --> 00:00:43,660
+this is probably a health warning. I talk about food a lot. Um,
+
+13
+00:00:45,070 --> 00:00:47,020
+so be prepared if you haven't eaten.
+
+14
+00:00:47,710 --> 00:00:52,710
+Now let's say that we took the same machine that normally processes potatoes and
+
+15
+00:00:52,990 --> 00:00:57,700
+we decided to get a rock and we just pass this through the function,
+
+16
+00:00:58,270 --> 00:01:02,170
+then we're getting an error, right? This is basically what happened here.
+
+17
+00:01:02,590 --> 00:01:06,610
+This length function doesn't like working with integers.
+
+18
+00:01:07,090 --> 00:01:08,800
+And by forcing this through,
+
+19
+00:01:08,800 --> 00:01:13,800
+we end up with an error and our code breaks and it gives us this thing, a type
+
+20
+00:01:13,840 --> 00:01:14,673
+error.
+
+21
+00:01:14,920 --> 00:01:19,920
+Now do you remember previously we had this challenge where we asked you to get
+
+22
+00:01:20,110 --> 00:01:24,400
+the um, get an input from the user, what is your name?
+
+23
+00:01:24,910 --> 00:01:29,650
+And then we use the length function to get the number of characters of their
+
+24
+00:01:29,650 --> 00:01:34,510
+name. And let's just save that to a variable. Let's call it, um,
+
+25
+00:01:34,900 --> 00:01:38,440
+num_char equals this.
+
+26
+00:01:39,040 --> 00:01:44,040
+And then we print your name has plus num_char, number of characters + characters.
+
+27
+00:01:49,600 --> 00:01:54,600
+So in this case you would expect it to prompt the user to enter their name.
+
+28
+00:01:54,910 --> 00:01:56,800
+Let's say I entered my name Angela,
+
+29
+00:01:57,550 --> 00:02:00,910
+and the length of that string would be 6
+
+30
+00:02:00,940 --> 00:02:05,770
+so this would be equal to six. And so this would get substituted in here.
+
+31
+00:02:05,860 --> 00:02:10,150
+And then with string concatenation, we end up printing
+
+32
+00:02:10,150 --> 00:02:14,380
+"Your name has six characters." But this is not what happens.
+
+33
+00:02:14,410 --> 00:02:19,090
+And I know that some of you might have tried this for the previous challenge and
+
+34
+00:02:19,090 --> 00:02:21,670
+you would have gotten a type error.
+
+35
+00:02:22,180 --> 00:02:26,560
+So it tells you that you can only concatenate strings,
+
+36
+00:02:26,950 --> 00:02:29,680
+not integers. So in this case,
+
+37
+00:02:29,680 --> 00:02:33,400
+we were concatenating a string to an integer.
+
+38
+00:02:33,880 --> 00:02:37,060
+This is what we get. We end up with an error.
+
+39
+00:02:37,930 --> 00:02:42,930
+So how can we prevent these type errors and how can we see the data type that
+
+40
+00:02:43,060 --> 00:02:45,010
+we're working with? Well,
+
+41
+00:02:45,010 --> 00:02:48,640
+we could use a function called type,
+
+42
+00:02:49,180 --> 00:02:53,710
+which basically will check whatever you put between the parentheses and give you
+
+43
+00:02:53,740 --> 00:02:56,620
+the type of data that it is. For example,
+
+44
+00:02:56,620 --> 00:02:59,830
+if I go ahead and just comment out this line of code
+
+45
+00:02:59,830 --> 00:03:04,660
+which breaks and go ahead and put num_char,
+
+46
+00:03:04,750 --> 00:03:09,670
+so this particular piece of data inside this type function,
+
+47
+00:03:10,090 --> 00:03:15,090
+and then I'm going to print the type of num_char.
+
+48
+00:03:16,210 --> 00:03:19,900
+And now if I hit run, let's enter my name.
+
+49
+00:03:20,530 --> 00:03:24,100
+And you can see it's telling you that this is an integer.
+
+50
+00:03:24,670 --> 00:03:29,440
+So adding a string to an integer doesn't make any sense,
+
+51
+00:03:29,620 --> 00:03:31,180
+which is why you got the type error.
+
+52
+00:03:32,110 --> 00:03:37,110
+Now every so often when you're writing code and you're not quite sure what the
+
+53
+00:03:37,720 --> 00:03:40,000
+type of data of something might be,
+
+54
+00:03:40,240 --> 00:03:45,240
+then you can simply just put it inside a type check function,
+
+55
+00:03:45,610 --> 00:03:48,940
+right? Like so. And then you'll get an answer.
+
+56
+00:03:49,360 --> 00:03:51,760
+Now in addition to type checking,
+
+57
+00:03:52,120 --> 00:03:57,120
+we can also do type conversion or you might hear it called type casting where we
+
+58
+00:03:58,600 --> 00:04:02,890
+change a piece of data from one particular data type to another.
+
+59
+00:04:03,430 --> 00:04:04,300
+So it, for example,
+
+60
+00:04:04,300 --> 00:04:09,300
+we know that this variable num_char has the data type of integer.
+
+61
+00:04:10,750 --> 00:04:15,520
+If we wanted to turn it into a string so that this line of code wouldn't break
+
+62
+00:04:15,520 --> 00:04:16,353
+anymore,
+
+63
+00:04:16,480 --> 00:04:20,680
+then we could convert it into a string by writing str
+
+64
+00:04:21,279 --> 00:04:25,960
+and then inside the parentheses, we put in the variable that we want to convert,
+
+65
+00:04:26,020 --> 00:04:30,310
+which is called num_char. And now we save this into a new variable,
+
+66
+00:04:30,340 --> 00:04:33,160
+we'll call it new_num_char.
+
+67
+00:04:33,910 --> 00:04:38,910
+And once we've converted this into a string and stored it under this name,
+
+68
+00:04:39,250 --> 00:04:43,840
+then we can use it inside our print statement, new_num_char,
+
+69
+00:04:44,320 --> 00:04:49,320
+and now it won't break anymore. And it tells us your name has six characters.
+
+70
+00:04:50,890 --> 00:04:55,210
+So in this case we've taken a integer data type,
+
+71
+00:04:55,690 --> 00:05:00,690
+put it inside the parentheses of a str function,
+
+72
+00:05:01,120 --> 00:05:05,830
+which takes a object in between the parentheses and converts it into a string,
+
+73
+00:05:06,490 --> 00:05:09,010
+which we then store inside this new_num_char
+
+74
+00:05:09,100 --> 00:05:14,100
+and we can now use it in our print statement because all the data types of all
+
+75
+00:05:14,290 --> 00:05:19,290
+the pieces of data that we're adding together have the same data type, string.
+
+76
+00:05:20,740 --> 00:05:24,610
+Now you're not limited to only converting numbers into strings.
+
+77
+00:05:24,940 --> 00:05:27,400
+You can convert a whole bunch of different data types.
+
+78
+00:05:27,760 --> 00:05:32,760
+So let me go ahead and comment out this code and I can show you that
+
+79
+00:05:33,040 --> 00:05:37,600
+let's say that we had a variable a, which we set two a number,
+
+80
+00:05:37,870 --> 00:05:39,040
+right? 123.
+
+81
+00:05:39,970 --> 00:05:44,970
+And if I do a type check on a and print this,
+
+82
+00:05:45,730 --> 00:05:50,020
+you'll see that as you would expect, it should give you integer, right?
+
+83
+00:05:50,230 --> 00:05:51,670
+A is an integer.
+
+84
+00:05:52,360 --> 00:05:57,360
+But now let's say I converted a into a string by wrapping it inside the string
+
+85
+00:05:59,300 --> 00:06:03,710
+function, then hit enter. You can see it's now of type string.
+
+86
+00:06:05,210 --> 00:06:09,410
+Now I can do this with other things as well. So for example,
+
+87
+00:06:09,710 --> 00:06:14,710
+I could turn my whole number here into a float and when I run my code,
+
+88
+00:06:16,940 --> 00:06:20,630
+now we see that the type of my variable is a float
+
+89
+00:06:21,050 --> 00:06:23,090
+and that's pretty straightforward, right?
+
+90
+00:06:23,420 --> 00:06:26,600
+But let me ask you two quick questions before we wrap up.
+
+91
+00:06:26,960 --> 00:06:31,790
+What will this line of code print? Alright, you guessed it,
+
+92
+00:06:31,850 --> 00:06:36,850
+this will print 170.5 but what's actually happening behind the scenes is we're
+
+93
+00:06:37,730 --> 00:06:42,730
+converting this string 100.5 into a floating-point number and then we're adding
+
+94
+00:06:45,980 --> 00:06:50,510
+70 to 100.5 and finally we're printing the results.
+
+95
+00:06:50,900 --> 00:06:54,950
+But what about this line? What will print here? Have a guess.
+
+96
+00:06:56,840 --> 00:07:01,840
+Well, this time we get 70100. So in summary,
+
+97
+00:07:02,120 --> 00:07:06,830
+you can use the type function to investigate the data type you're working with
+
+98
+00:07:07,220 --> 00:07:12,220
+and you can use functions like string, int, or float to convert to that data
+
+99
+00:07:12,380 --> 00:07:16,190
+type. In the next lesson, I've got a coding challenge for you.
+
+100
+00:07:16,370 --> 00:07:18,500
+So head over there and we'll get started.
+
+1
+00:00:00,180 --> 00:00:00,810
+All right, now
+
+2
+00:00:00,810 --> 00:00:05,280
+it's time to put what you've learned into practice by clicking on the data types
+
+3
+00:00:05,400 --> 00:00:08,039
+day 2.1 code challenge.
+
+4
+00:00:09,540 --> 00:00:10,470
+In this challenge,
+
+5
+00:00:10,500 --> 00:00:15,450
+the idea is that you are going to be given a random two-digit number,
+
+6
+00:00:15,480 --> 00:00:20,480
+so something like 39, and your code that you'll write
+
+7
+00:00:21,060 --> 00:00:26,060
+will be able to add the first digit to the second digit and end up with a
+
+8
+00:00:26,850 --> 00:00:31,650
+numerical result. So for example, if the input was 39,
+
+9
+00:00:31,680 --> 00:00:36,000
+then 3 + 9 would be equal to 12. So the output would be 12.
+
+10
+00:00:36,480 --> 00:00:39,060
+And if the input was 26,
+
+11
+00:00:39,180 --> 00:00:42,420
+then your code needs to print 8 to the console.
+
+12
+00:00:43,080 --> 00:00:47,100
+So you're going to need to think about type checking, type conversion,
+
+13
+00:00:47,430 --> 00:00:49,710
+as well as everything that you learned before.
+
+14
+00:00:50,550 --> 00:00:54,270
+And then you're going to write your code below this line without changing any of
+
+15
+00:00:54,270 --> 00:00:58,140
+these lines. So pause the video now and give this code challenge a go.
+
+16
+00:01:02,610 --> 00:01:07,200
+All right. So how did that go? Did you manage to do it? If not,
+
+17
+00:01:07,380 --> 00:01:09,900
+have a cup of tea or give yourself a little bit of a break,
+
+18
+00:01:09,900 --> 00:01:12,750
+think about something else and then come back to it and try it again.
+
+19
+00:01:13,530 --> 00:01:14,110
+If you've already
+
+20
+00:01:14,110 --> 00:01:17,340
+given it a good go and you want to see what the solution might be,
+
+21
+00:01:17,700 --> 00:01:18,900
+then follow along with me.
+
+22
+00:01:19,650 --> 00:01:23,250
+So the first thing we know is that we're going to have a variable
+
+23
+00:01:23,280 --> 00:01:26,970
+that's going to be equal to a two-digit number.
+
+24
+00:01:27,540 --> 00:01:30,660
+But remember that that could mean anything. That could mean an integer,
+
+25
+00:01:30,660 --> 00:01:34,590
+that could mean a floating-point number, that could even mean a number as a
+
+26
+00:01:34,590 --> 00:01:35,423
+string.
+
+27
+00:01:35,790 --> 00:01:40,790
+So it might be helpful to actually find out the data type of this two-digit
+
+28
+00:01:41,310 --> 00:01:46,200
+number that we get. And to do that, we of course use the type function, all
+
+29
+00:01:46,200 --> 00:01:48,810
+lowercase. And then in between the parentheses,
+
+30
+00:01:48,840 --> 00:01:52,470
+we add the thing that we want to check. So it's this variable.
+
+31
+00:01:53,040 --> 00:01:56,130
+And then let's go ahead and print the result into the console.
+
+32
+00:01:56,550 --> 00:02:00,390
+So now let's run our code and let's type a two-digit number,
+
+33
+00:02:00,570 --> 00:02:01,590
+say 56.
+
+34
+00:02:02,100 --> 00:02:07,100
+and we get the result that the type of this two-digit number is a string
+
+35
+00:02:08,669 --> 00:02:13,410
+because, of course, we're getting hold of this through the input function and the
+
+36
+00:02:13,410 --> 00:02:17,280
+user could be typing anything into this input, a string,
+
+37
+00:02:17,310 --> 00:02:18,840
+their name or a number.
+
+38
+00:02:19,290 --> 00:02:22,560
+So now that we know that this variable has the datatype string,
+
+39
+00:02:22,950 --> 00:02:27,090
+then you can think of a little bit about what we know we can do with strings.
+
+40
+00:02:27,330 --> 00:02:31,920
+We can subscript strings, right? So if we had a string like hello,
+
+41
+00:02:32,250 --> 00:02:36,330
+and we want it to get a hold of the first character, we could put zero there.
+
+42
+00:02:36,570 --> 00:02:37,860
+And when I print this,
+
+43
+00:02:38,160 --> 00:02:42,120
+we'll get H being selected out of this string.
+
+44
+00:02:43,050 --> 00:02:48,050
+So if we know that we can subscript strings to get a hold of a particular value
+
+45
+00:02:50,130 --> 00:02:54,690
+at a particular position just by using subscripting like this,
+
+46
+00:02:54,990 --> 00:02:58,020
+then we can do the same with our two-digit number.
+
+47
+00:02:58,230 --> 00:03:02,950
+So we could say two_digit_number, let's get hold of the first digit.
+
+48
+00:03:03,130 --> 00:03:04,030
+So let's call it
+
+49
+00:03:04,030 --> 00:03:08,830
+first_digit equals two_digit_number [
+
+50
+00:03:08,860 --> 00:03:09,693
+0],
+
+51
+00:03:10,120 --> 00:03:15,120
+and then the second_digit could be two_digit_number [1].
+
+52
+00:03:16,660 --> 00:03:17,493
+Now,
+
+53
+00:03:17,680 --> 00:03:22,180
+when I go ahead and print these two items,
+
+54
+00:03:22,210 --> 00:03:25,990
+first_digit and second_digit,
+
+55
+00:03:26,440 --> 00:03:30,280
+then you'll see that if I enter a number like 87,
+
+56
+00:03:30,760 --> 00:03:34,600
+then my first digit is 8 and my second digit is 7.
+
+57
+00:03:35,110 --> 00:03:39,820
+So now I can probably start thinking about adding those two digits together.
+
+58
+00:03:40,420 --> 00:03:40,990
+For example,
+
+59
+00:03:40,990 --> 00:03:45,990
+we can say that result equals first_digit plus second_digit.
+
+60
+00:03:47,200 --> 00:03:51,790
+But of course, when I run this right now and I print the value of result,
+
+61
+00:03:52,270 --> 00:03:54,910
+you'll see that for a number like 87
+
+62
+00:03:55,390 --> 00:04:00,340
+what I will get is just a eight concatenated to seven,
+
+63
+00:04:00,520 --> 00:04:04,030
+which turns it back into 87, which is not what I want at all.
+
+64
+00:04:04,390 --> 00:04:07,840
+Especially after all of my hard work separating out the digits.
+
+65
+00:04:08,470 --> 00:04:11,770
+What I want to do instead is to turn each of these,
+
+66
+00:04:12,070 --> 00:04:15,010
+which currently has the data type of string,
+
+67
+00:04:15,190 --> 00:04:20,190
+so I can demonstrate that to you by saying type of first_digit,
+
+68
+00:04:20,950 --> 00:04:24,460
+you can see it is a string.
+
+69
+00:04:25,000 --> 00:04:30,000
+So if I could only change first_digit and second_digit from string data types
+
+70
+00:04:31,000 --> 00:04:36,000
+into an integer data type by using the type conversion that we learned about
+
+71
+00:04:37,240 --> 00:04:41,320
+in the last lesson, well then once I do that,
+
+72
+00:04:41,350 --> 00:04:46,120
+then this plus sign has a whole different meaning because now it's going to add
+
+73
+00:04:46,150 --> 00:04:50,260
+this first_digit to the second_digit instead of concatenating it.
+
+74
+00:04:50,620 --> 00:04:53,350
+So now if I go ahead and print the results,
+
+75
+00:04:55,420 --> 00:04:58,270
+then you'll see that for the same number
+
+76
+00:04:59,770 --> 00:05:02,500
+87, my result is now 15.
+
+77
+00:05:03,310 --> 00:05:08,140
+I've now managed to achieve what the code exercise wants me to do.
+
+78
+00:05:09,560 --> 00:05:12,190
+So did you manage to get it right? If not,
+
+79
+00:05:12,220 --> 00:05:15,340
+go ahead and have a look at the model solution
+
+80
+00:05:15,610 --> 00:05:19,990
+and I've written some comments for each line of code that walks you through each
+
+81
+00:05:19,990 --> 00:05:20,823
+of the steps.
+
+82
+00:05:21,070 --> 00:05:25,930
+Now notice that instead of converting the second_digit here,
+
+83
+00:05:26,380 --> 00:05:30,250
+you can also do it up here, like what you see right here.
+
+84
+00:05:31,270 --> 00:05:32,950
+So I have a play around with the code,
+
+85
+00:05:33,010 --> 00:05:36,520
+especially if you struggled with this and didn't manage to get it right.
+
+86
+00:05:37,060 --> 00:05:40,660
+And then once you've understood what's going on here line by line,
+
+87
+00:05:41,080 --> 00:05:43,300
+if you need, have a look at the previous videos,
+
+88
+00:05:43,600 --> 00:05:46,390
+then go back to the code challenge and attempt it again.
+
+89
+00:05:46,960 --> 00:05:50,260
+And only once you're happy that you really understand everything that was
+
+90
+00:05:50,260 --> 00:05:51,610
+covered in this challenge,
+
+91
+00:05:51,880 --> 00:05:54,910
+then head over to the next lesson where we're going to talk more about
+
+92
+00:05:54,940 --> 00:05:56,290
+mathematical operators
+
+93
+00:05:56,560 --> 00:06:01,540
+like the plus sign and others that you can use in your code. So for all of that
+
+94
+00:06:01,660 --> 00:06:03,490
+and more, I'll see you on the next lesson.
+
+1
+00:00:00,670 --> 00:00:05,670
+In the previous lesson we saw how we could use the plus sign either to
+
+2
+00:00:05,770 --> 00:00:10,770
+concatenate strings together or as a mathematical operation where we add two
+
+3
+00:00:11,710 --> 00:00:15,370
+integers or two floats, basically two numbers together.
+
+4
+00:00:16,390 --> 00:00:20,230
+In this lesson I want to show you some of the other mathematical operators that
+
+5
+00:00:20,230 --> 00:00:21,220
+you have access to
+
+6
+00:00:21,670 --> 00:00:25,810
+in addition to adding. The next obvious one is subtraction.
+
+7
+00:00:25,840 --> 00:00:29,080
+So 7 - 3 , you would just use the minus sign,
+
+8
+00:00:29,590 --> 00:00:33,130
+but then when you get to multiplication it's a little bit weird. Um,
+
+9
+00:00:33,160 --> 00:00:37,060
+instead of using the x or some sort of time symbol,
+
+10
+00:00:37,390 --> 00:00:38,950
+you actually use the asterix.
+
+11
+00:00:39,070 --> 00:00:43,630
+So you would say something like 3 * 2 and that would be 3
+
+12
+00:00:43,630 --> 00:00:44,470
+times 2.
+
+13
+00:00:45,160 --> 00:00:50,160
+Now the final one is division and that's done using the forward-slash, so 6
+
+14
+00:00:50,800 --> 00:00:54,820
+/ 3 and when that prints out,
+
+15
+00:00:54,850 --> 00:00:56,020
+it'll give you 2.
+
+16
+00:00:56,830 --> 00:01:00,550
+Now one thing to notice here is that whenever you're dividing things,
+
+17
+00:01:01,030 --> 00:01:04,360
+you actually always end up with a floating point number.
+
+18
+00:01:04,450 --> 00:01:07,420
+So you can see even though six divides into three cleanly,
+
+19
+00:01:07,630 --> 00:01:12,630
+we're still getting 2.0. And in fact if I put a type check around this division,
+
+20
+00:01:14,890 --> 00:01:18,520
+you'll see that it will print float instead of integer.
+
+21
+00:01:19,210 --> 00:01:21,880
+And this is just something that happens with division in Python.
+
+22
+00:01:22,420 --> 00:01:26,200
+But at the end of the day, you get the result that you need and it doesn't really
+
+23
+00:01:26,200 --> 00:01:29,350
+matter whether if it's a float or if it's a integer.
+
+24
+00:01:30,220 --> 00:01:35,220
+Now the last one that's really useful is two asterisk signs and this gives you
+
+25
+00:01:35,500 --> 00:01:39,760
+access to the exponents or when you want to raise the number to a power.
+
+26
+00:01:40,210 --> 00:01:40,930
+So for example,
+
+27
+00:01:40,930 --> 00:01:45,930
+if you wanted to get a hold of 2 to the power of 2, then you would write it
+
+28
+00:01:46,270 --> 00:01:51,270
+like this and 2 to the power of 2 is of course basically just 2 times 2 
+
+29
+00:01:52,210 --> 00:01:54,040
+which is going to be equal to 4.
+
+30
+00:01:55,600 --> 00:01:58,660
+Now if I change this to 2 to the power of 3,
+
+31
+00:01:58,660 --> 00:02:03,660
+then that's going to be 2 times 2 times 2. So that should be 8 and so
+
+32
+00:02:04,360 --> 00:02:05,260
+on and so forth.
+
+33
+00:02:05,890 --> 00:02:09,610
+Having the exponent being built into the language is one of the reasons why
+
+34
+00:02:09,610 --> 00:02:14,610
+Python is really loved by a lot of data scientists and mathematicians because
+
+35
+00:02:14,800 --> 00:02:19,300
+it's really optimized towards manipulating and handling numbers. Now,
+
+36
+00:02:19,300 --> 00:02:22,510
+one of the things that you have to be careful about when you are doing these
+
+37
+00:02:22,510 --> 00:02:27,280
+mathematical operations is when you have more than one operation on the same
+
+38
+00:02:27,280 --> 00:02:32,020
+line of code, then there's a certain level of priority.
+
+39
+00:02:32,710 --> 00:02:37,710
+So some of these operations like division or multiplication are going to be
+
+40
+00:02:37,900 --> 00:02:38,740
+first class,
+
+41
+00:02:38,770 --> 00:02:42,460
+whereas other ones are going to be more economy like the plus and minus.
+
+42
+00:02:42,940 --> 00:02:47,140
+And the rule that you might've remember from high school is something called 
+
+43
+00:02:47,170 --> 00:02:48,003
+PEMDAS.
+
+44
+00:02:48,250 --> 00:02:52,750
+It basically states the order of priority is parentheses,
+
+45
+00:02:52,780 --> 00:02:56,290
+exponents, multiplication, division, addition and subtraction.
+
+46
+00:02:56,800 --> 00:03:01,180
+So the things that happen first are the things inside brackets, then it's our exponents,
+
+47
+00:03:01,630 --> 00:03:05,320
+then it's our multiplication and division.
+
+48
+00:03:05,680 --> 00:03:10,680
+And finally, the lowest priority is our addition and subtraction.
+
+49
+00:03:11,530 --> 00:03:14,740
+Now it's a little bit deceiving because of this order.
+
+50
+00:03:14,830 --> 00:03:18,400
+It makes it seem like as if multiplication happens before division,
+
+51
+00:03:18,850 --> 00:03:21,580
+but actually they are equally important.
+
+52
+00:03:22,150 --> 00:03:24,640
+And when it actually comes to your calculations,
+
+53
+00:03:24,850 --> 00:03:28,360
+the calculation that's most to the left is the one that will be prioritized
+
+54
+00:03:28,390 --> 00:03:30,280
+between multiplication and division.
+
+55
+00:03:30,850 --> 00:03:34,120
+So let me give you a real-life example to make this more clear.
+
+56
+00:03:34,540 --> 00:03:39,540
+Let's say we had a line of code where we wanted to multiply 3 * 3 +
+
+57
+00:03:39,940 --> 00:03:43,150
+3 / 3 - 3.
+
+58
+00:03:44,500 --> 00:03:49,500
+If I was to execute this entire line of code and print it out into the console,
+
+59
+00:03:50,170 --> 00:03:54,670
+here's the time where you play computer again and guess using what you've
+
+60
+00:03:54,670 --> 00:03:56,350
+learned here, um,
+
+61
+00:03:56,470 --> 00:04:00,190
+what exactly will be printed because you will get a number printed,
+
+62
+00:04:00,190 --> 00:04:04,990
+it will calculate this entire line of code for you. But the order matters.
+
+63
+00:04:05,260 --> 00:04:10,260
+Is it going to first add 3 to 3 then multiply the result by 3 or is
+
+64
+00:04:11,710 --> 00:04:15,610
+it first going to divide through by 3 and then add 3 to it?
+
+65
+00:04:15,910 --> 00:04:17,050
+What is the order?
+
+66
+00:04:17,260 --> 00:04:21,760
+And I want you to really pause the video and have a little play with it on pen
+
+67
+00:04:21,760 --> 00:04:25,450
+and paper before you come back and we'll show you the result.
+
+68
+00:04:28,660 --> 00:04:30,400
+Using our rule, PEMDAS,
+
+69
+00:04:30,430 --> 00:04:34,210
+we can see the first thing that happens is what's in the parentheses,
+
+70
+00:04:34,270 --> 00:04:37,480
+so that doesn't matter. The next thing, our exponents,
+
+71
+00:04:37,510 --> 00:04:39,040
+we don't actually have an exponent here.
+
+72
+00:04:39,040 --> 00:04:42,790
+We don't have 2 to the power of 3 or something to the power of anything.
+
+73
+00:04:42,880 --> 00:04:44,140
+So we can ignore that as well.
+
+74
+00:04:44,740 --> 00:04:48,700
+So the next level is the multiplication and division.
+
+75
+00:04:48,940 --> 00:04:52,120
+And as I mentioned, they are all equal importance.
+
+76
+00:04:52,450 --> 00:04:57,450
+So this 3 * 3 and 3 / 3 are both equally important,
+
+77
+00:04:58,120 --> 00:05:01,540
+but the calculation goes from left to right.
+
+78
+00:05:01,720 --> 00:05:06,220
+So the first thing we see is actually the multiplication. So if it helps you,
+
+79
+00:05:06,310 --> 00:05:10,690
+you might want to add LR to the end of this mnemonic.
+
+80
+00:05:10,780 --> 00:05:15,130
+So it becomes PEMDASLR, or at least that's the way I would think about it.
+
+81
+00:05:15,730 --> 00:05:20,080
+So even if this was division and this was multiplication,
+
+82
+00:05:20,500 --> 00:05:23,320
+this calculation will always get executed first.
+
+83
+00:05:24,190 --> 00:05:28,420
+Coming back to the question I asked you, what do you think this number would be?
+
+84
+00:05:28,900 --> 00:05:33,900
+Let's go ahead and comment out all the other code and run this line of code and
+
+85
+00:05:34,840 --> 00:05:38,890
+it will give us 7.0. Now if math is not your strong point, don't worry,
+
+86
+00:05:38,890 --> 00:05:42,130
+it's not mine either and you're the sort of person who would prefer to see it
+
+87
+00:05:42,130 --> 00:05:46,180
+visualize. Then I recommend again putting this line of code in Thonny,
+
+88
+00:05:46,660 --> 00:05:51,220
+and then go ahead and clicking on the debugging symbol and then just step into,
+
+89
+00:05:51,220 --> 00:05:56,220
+so press F7 or this button multiple times and you'll see it evaluate
+
+90
+00:05:56,290 --> 00:05:57,680
+this line of code step-by-step.
+
+91
+00:05:57,830 --> 00:06:01,520
+So first it looks at the entire thing and then it goes from left to right.
+
+92
+00:06:02,120 --> 00:06:07,120
+And the first calculation is 3 * 3 and that is the one that's going
+
+93
+00:06:07,130 --> 00:06:09,260
+to execute first and it becomes 9.
+
+94
+00:06:09,950 --> 00:06:13,670
+Next it's going to look along this line of code and see that the next most
+
+95
+00:06:13,670 --> 00:06:17,120
+important thing is this division here, 3 divided by 3.
+
+96
+00:06:17,660 --> 00:06:20,690
+So it's going to carry out that next and that becomes 1.
+
+97
+00:06:21,200 --> 00:06:26,200
+So now 9 + 1 is going to be the next thing because it's the most to the
+
+98
+00:06:26,330 --> 00:06:31,330
+left and then it becomes 10 - 3 and we finally get the result of 7.
+
+99
+00:06:32,630 --> 00:06:34,700
+So now here's another challenge for you.
+
+100
+00:06:35,240 --> 00:06:39,980
+How can you change this code so that instead of getting 7,
+
+101
+00:06:40,340 --> 00:06:41,570
+we get 3?
+
+102
+00:06:41,990 --> 00:06:46,170
+How can you change this line of code given what you know about PEMDASLR?
+
+103
+00:06:46,170 --> 00:06:49,520
+See if you can figure it out. Pause the video now.
+
+104
+00:06:54,110 --> 00:06:57,290
+Alright, so this will involve a little bit of trial and error.
+
+105
+00:06:57,890 --> 00:07:02,890
+And the most important tool we have access to is the parentheses or the
+
+106
+00:07:04,400 --> 00:07:08,600
+brackets. This means that we can actually isolate bits of our code,
+
+107
+00:07:08,630 --> 00:07:12,800
+which normally have very low priority and turn them into higher priority
+
+108
+00:07:12,800 --> 00:07:15,020
+operations. So in this case,
+
+109
+00:07:15,050 --> 00:07:17,810
+we know that 3 * 3 is going to happen first,
+
+110
+00:07:18,170 --> 00:07:20,930
+and then the multiplication, and then the addition on the left,
+
+111
+00:07:20,990 --> 00:07:22,310
+and then the subtraction.
+
+112
+00:07:22,940 --> 00:07:27,940
+But if we added a set of parentheses around our 3 + 3,
+
+113
+00:07:29,450 --> 00:07:31,760
+then out of all of these calculations,
+
+114
+00:07:32,180 --> 00:07:36,440
+this particular one suddenly becomes the highest priority and it will happen
+
+115
+00:07:36,440 --> 00:07:37,273
+first.
+
+116
+00:07:37,640 --> 00:07:42,640
+So if I change what I've got in Thonny to our new version and go ahead and debug
+
+117
+00:07:43,100 --> 00:07:43,820
+through it,
+
+118
+00:07:43,820 --> 00:07:48,020
+the very first calculation it's going to perform is this 3 + 3  inside
+
+119
+00:07:48,020 --> 00:07:50,720
+the brackets and we end up with 6.
+
+120
+00:07:51,170 --> 00:07:53,690
+So then it's going to go again from left to right,
+
+121
+00:07:53,690 --> 00:07:55,910
+prioritizing multiplication and division.
+
+122
+00:07:56,240 --> 00:08:01,240
+So then it's 3 * 6  is 18. 18 / 3 is 6. 6 - 3 is
+
+123
+00:08:02,630 --> 00:08:06,500
+3. Just by isolating certain calculations,
+
+124
+00:08:06,890 --> 00:08:11,890
+you can elevate it to right at the top of the priority list and you will be able
+
+125
+00:08:11,900 --> 00:08:14,300
+to perform the calculation that you need.
+
+126
+00:08:15,530 --> 00:08:19,250
+Now that you've learned a lot about calculations and performing mathematical
+
+127
+00:08:19,250 --> 00:08:23,060
+operations using Python, I've got another code challenge for you.
+
+128
+00:08:23,180 --> 00:08:26,060
+So head up to the next lesson and you'll be able to discover it there.
+
+1
+00:00:00,330 --> 00:00:02,100
+All right. So in this code challenge,
+
+2
+00:00:02,160 --> 00:00:06,660
+click on the date 2.2 BMI calculator code exercise.
+
+3
+00:00:07,320 --> 00:00:11,850
+So the goal of the challenge is to be able to work out somebody's body mass
+
+4
+00:00:11,850 --> 00:00:15,630
+index based on their weight and height that they input.
+
+5
+00:00:16,140 --> 00:00:20,790
+So the body mass index is basically a way of measuring somebody's body
+
+6
+00:00:20,790 --> 00:00:24,420
+composition that's kind of independent of their height, right?
+
+7
+00:00:24,600 --> 00:00:26,370
+If two people are both 60 kilos
+
+8
+00:00:26,370 --> 00:00:28,380
+but one of them is tall and the other person's short,
+
+9
+00:00:28,740 --> 00:00:32,159
+then the shorter guy is probably a little bit more overweight, right?
+
+10
+00:00:32,610 --> 00:00:36,720
+So if you take a look at this chart here, let's say, um, for me,
+
+11
+00:00:36,720 --> 00:00:40,620
+my height is around 1.8 meters and about 60 something kilos.
+
+12
+00:00:40,710 --> 00:00:45,570
+So I'm in this normal weight bracket of BMI 18.5 to 25.
+
+13
+00:00:46,140 --> 00:00:49,050
+So this is a really helpful tool for, um,
+
+14
+00:00:49,080 --> 00:00:52,920
+healthcare professionals to figure out whether if somebody is underweight,
+
+15
+00:00:52,950 --> 00:00:54,180
+normal weight or overweight,
+
+16
+00:00:54,510 --> 00:00:59,400
+that is based on their height and weight. In our program,
+
+17
+00:00:59,400 --> 00:01:03,360
+we're going to calculate this. So when we run our code,
+
+18
+00:01:03,360 --> 00:01:06,390
+you can see it's asking us for an input, height in meters.
+
+19
+00:01:06,390 --> 00:01:10,950
+So mine is 1.8 and my weight is say 63 kilos.
+
+20
+00:01:11,430 --> 00:01:12,960
+And when I hit enter,
+
+21
+00:01:13,050 --> 00:01:18,050
+ideally, I would like to get my BMI printed out as a whole number like this.
+
+22
+00:01:20,280 --> 00:01:22,650
+So how can we achieve this? Well, firstly,
+
+23
+00:01:22,650 --> 00:01:25,890
+you have to take a look at the equation that's used to calculate the BMI.
+
+24
+00:01:26,370 --> 00:01:28,620
+It's somebody's weight in kilograms
+
+25
+00:01:28,860 --> 00:01:31,380
+divided by their height squared.
+
+26
+00:01:32,190 --> 00:01:33,960
+Then once you've got the result,
+
+27
+00:01:33,990 --> 00:01:37,650
+we want it to be printed as a whole number or as an integer.
+
+28
+00:01:38,130 --> 00:01:41,700
+So you'll have to think a little bit about type conversion,
+
+29
+00:01:41,730 --> 00:01:45,660
+you'll have to think about the mathematical operations that we learned about in
+
+30
+00:01:45,660 --> 00:01:49,680
+the last lesson and combine everything you've learned so far in order to solve
+
+31
+00:01:49,680 --> 00:01:52,860
+this code challenge. So pause the video now and give that a go.
+
+32
+00:01:52,880 --> 00:01:57,880
+[inaudible]
+
+33
+00:02:01,280 --> 00:02:02,990
+All right. So now that you've had a go at it,
+
+34
+00:02:03,050 --> 00:02:06,380
+I'm going to reveal of solution. In our code
+
+35
+00:02:06,380 --> 00:02:10,759
+we've already got access to the height and the weight as variables,
+
+36
+00:02:11,180 --> 00:02:14,210
+so we can simply use them straight away. So for example,
+
+37
+00:02:14,210 --> 00:02:18,710
+I could just print the height and it would be equal to whatever the user typed
+
+38
+00:02:18,710 --> 00:02:23,660
+in when they were asked for it by the input. So in this case,
+
+39
+00:02:23,690 --> 00:02:26,060
+my height would get printed out as 1.8.
+
+40
+00:02:26,780 --> 00:02:28,910
+If we can access the height and weight,
+
+41
+00:02:29,120 --> 00:02:34,120
+then we can calculate the BMI by simply replicating the mathematical equation
+
+42
+00:02:34,940 --> 00:02:35,690
+here.
+
+43
+00:02:35,690 --> 00:02:39,860
+So we know that the BMI is equal to the weight divided by the height squared,
+
+44
+00:02:40,370 --> 00:02:44,930
+so we can take the weight and then we can use the forward-slash for divide.
+
+45
+00:02:45,530 --> 00:02:49,700
+And then we can divide it by the height squared.
+
+46
+00:02:49,790 --> 00:02:53,120
+So we're going to use the exponent operator to the power of two.
+
+47
+00:02:53,720 --> 00:02:56,090
+So this is how we could work out the BMI,
+
+48
+00:02:56,690 --> 00:02:59,120
+but you'll see that if we actually run this code right now
+
+49
+00:02:59,710 --> 00:03:01,090
+we'll actually get an error.
+
+50
+00:03:01,870 --> 00:03:05,710
+And what it's going to tell us is that on line 8,
+
+51
+00:03:05,950 --> 00:03:10,480
+so right here where our equation is, there's a type error.
+
+52
+00:03:11,050 --> 00:03:16,050
+And it saying that you're trying to use the exponent or the power function for a
+
+53
+00:03:17,080 --> 00:03:19,480
+string and an integer.
+
+54
+00:03:19,720 --> 00:03:22,150
+So the 2 is the integer,
+
+55
+00:03:22,750 --> 00:03:27,190
+but this is still a string. And we can confirm this
+
+56
+00:03:27,190 --> 00:03:30,010
+if we check the type. So type of height,
+
+57
+00:03:31,100 --> 00:03:35,200
+let's comment that out, and let's print this.
+
+58
+00:03:35,920 --> 00:03:38,500
+Then you'll see that when we enter some numbers here,
+
+59
+00:03:38,560 --> 00:03:43,560
+the type of height and weight in fact is string because they came from the input
+
+60
+00:03:44,110 --> 00:03:44,943
+function,
+
+61
+00:03:44,980 --> 00:03:49,980
+which we saw in previous lessons. Before we can actually just simply run this
+
+62
+00:03:50,140 --> 00:03:53,530
+equation and get the values we want,
+
+63
+00:03:53,590 --> 00:03:57,760
+we have to convert all the strings into other data types,
+
+64
+00:03:57,850 --> 00:04:02,850
+right? Now the weight is probably okay as an integer or a whole number because
+
+65
+00:04:04,240 --> 00:04:07,840
+it's already pretty accurate, 80 kilos or 85 kilos.
+
+66
+00:04:07,960 --> 00:04:10,690
+We don't necessarily need any decimal places.
+
+67
+00:04:11,170 --> 00:04:16,170
+But the height on the other hand definitely needs to be a floating-point number
+
+68
+00:04:16,839 --> 00:04:21,279
+because if it was an integer, then there would only be height of one meter,
+
+69
+00:04:21,339 --> 00:04:23,110
+two meter, three meter, four meter.
+
+70
+00:04:23,710 --> 00:04:28,450
+And because most people lie between one meter and two meter, then we really,
+
+71
+00:04:28,450 --> 00:04:31,390
+really need those numbers after the decimal place
+
+72
+00:04:31,480 --> 00:04:34,300
+in order to get an accurate calculation. So the height
+
+73
+00:04:34,540 --> 00:04:39,540
+definitely needs to be a float and we can convert it into a float using this
+
+74
+00:04:39,970 --> 00:04:41,020
+line of code here,
+
+75
+00:04:41,620 --> 00:04:45,850
+where we're converting the string into a float. And the weight
+
+76
+00:04:45,880 --> 00:04:50,200
+you can either convert it into an integer or a float. It doesn't really matter.
+
+77
+00:04:51,070 --> 00:04:55,600
+So now if we run our code again, you'll see we no longer have any errors
+
+78
+00:04:56,260 --> 00:04:59,740
+and we're now able to print our BMI.
+
+79
+00:05:00,430 --> 00:05:02,920
+Let me enter my height and weight again.
+
+80
+00:05:03,250 --> 00:05:07,180
+And you can see I'm getting this BMI with a massive list of numbers afterwards.
+
+81
+00:05:07,690 --> 00:05:12,160
+So in our result, we said it should be a whole number.
+
+82
+00:05:12,760 --> 00:05:16,810
+How can we convert this BMI into a whole number? Well,
+
+83
+00:05:16,840 --> 00:05:21,840
+we can turn it into bmi_as_int and convert this floating-point
+
+84
+00:05:25,630 --> 00:05:30,630
+number, the BMI with all of its numbers after the decimal place, into an integer
+
+85
+00:05:31,570 --> 00:05:32,403
+a whole number,
+
+86
+00:05:32,710 --> 00:05:37,090
+which will just simply cut off everything that's after the decimal place.
+
+87
+00:05:37,630 --> 00:05:41,290
+And now if we print this bmi_as_int,
+
+88
+00:05:41,710 --> 00:05:42,700
+run our code,
+
+89
+00:05:44,860 --> 00:05:48,040
+then you'll see that we get a whole number being printed out,
+
+90
+00:05:48,520 --> 00:05:52,060
+which is now our BMI. In the next lesson
+
+91
+00:05:52,060 --> 00:05:56,800
+I'm actually going to show you how we can round these floating point numbers so
+
+92
+00:05:56,800 --> 00:05:59,750
+that when it's 19.5 or above,
+
+93
+00:05:59,840 --> 00:06:04,640
+it becomes 20 when it's 19.4, 19.3, and then it gets rounded down.
+
+94
+00:06:05,150 --> 00:06:07,700
+But for now, this is all that we want.
+
+95
+00:06:07,730 --> 00:06:12,730
+We wanted you to be able to cut off the end and turn it into a whole number.
+
+96
+00:06:14,030 --> 00:06:16,550
+If you want to have a play around with the solution code,
+
+97
+00:06:16,610 --> 00:06:21,610
+then head over to this Repl.it over here and you'll be able to see the solution
+
+98
+00:06:21,920 --> 00:06:23,600
+code with a lot of comments
+
+99
+00:06:23,630 --> 00:06:27,710
+explaining the code line by line and showing you some different ways of doing
+
+100
+00:06:27,710 --> 00:06:29,060
+things. For example,
+
+101
+00:06:29,300 --> 00:06:34,300
+instead of converting the weight and height in line on the line where we're
+
+102
+00:06:35,120 --> 00:06:39,350
+actually doing the calculation, you could do it beforehand. Alternatively,
+
+103
+00:06:39,380 --> 00:06:41,660
+instead of using the exponent operator
+
+104
+00:06:41,810 --> 00:06:46,010
+because something to the power of two is simply just something multiplied by
+
+105
+00:06:46,010 --> 00:06:48,200
+itself, right? Then in this case,
+
+106
+00:06:48,230 --> 00:06:51,080
+you could also just do height_as_float times height_as_float.
+
+107
+00:06:51,800 --> 00:06:54,680
+Have a play around with this code and make sure that you're comfortable with
+
+108
+00:06:54,680 --> 00:06:55,580
+everything that's here.
+
+109
+00:06:55,700 --> 00:06:58,010
+And if you got anything wrong at all in the code challenge,
+
+110
+00:06:58,130 --> 00:07:00,620
+then go back and fix it. Now in the next lesson,
+
+111
+00:07:00,680 --> 00:07:03,380
+we're going to be talking about more mathematical operators
+
+112
+00:07:03,650 --> 00:07:07,250
+such as rounding numbers instead of just cutting off the end.
+
+113
+00:07:07,700 --> 00:07:10,670
+So for all of that and more, I'll see you on the next lesson.
+
+1
+00:00:00,310 --> 00:00:03,670
+In the last challenge where we calculated the BMI,
+
+2
+00:00:04,090 --> 00:00:09,090
+you saw how when we had a number that had a long list of numbers after the
+
+3
+00:00:09,970 --> 00:00:11,440
+decimal point. For example,
+
+4
+00:00:11,440 --> 00:00:16,440
+if I had divided 8 by 3 and I print this out,
+
+5
+00:00:17,650 --> 00:00:22,650
+you'll see that the value is 2.666666 and if we had just turned this 8
+
+6
+00:00:25,180 --> 00:00:30,070
+divided by 3 into an integer, right now it's a floating point number,
+
+7
+00:00:30,400 --> 00:00:33,190
+but if I convert it into an integer,
+
+8
+00:00:33,580 --> 00:00:37,690
+you'll see that all it does is it just chops off everything after the decimal
+
+9
+00:00:37,690 --> 00:00:40,450
+point. Instead of what we would traditionally do,
+
+10
+00:00:40,510 --> 00:00:43,060
+which is to round the number.
+
+11
+00:00:43,510 --> 00:00:48,510
+So if it's 2.5 it would go to 3, if it's 2.4 it would go down to 2.
+
+12
+00:00:49,630 --> 00:00:53,410
+Now in Python it's super easy to round numbers.
+
+13
+00:00:53,800 --> 00:00:58,180
+All you have to do is to use the round function like this.
+
+14
+00:00:58,870 --> 00:01:03,010
+If we write round(8 / 3) then it's going to round it into a
+
+15
+00:01:03,010 --> 00:01:07,330
+whole number and you'll see that instead of 2 we actually get 3 now
+
+16
+00:01:07,360 --> 00:01:10,240
+because 2.6 recurring becomes 3.
+
+17
+00:01:11,170 --> 00:01:14,440
+Now if you wanted to, you can actually go a step further.
+
+18
+00:01:14,470 --> 00:01:19,330
+You can specify the number of digits of precision you want to round it to.
+
+19
+00:01:19,720 --> 00:01:22,990
+So if I said I want to round it to two decimal places,
+
+20
+00:01:23,440 --> 00:01:28,440
+then I could write (8 / 3, 2) and then the number of places
+
+21
+00:01:28,570 --> 00:01:29,680
+that I want around it to.
+
+22
+00:01:30,280 --> 00:01:35,280
+So now our 2.666 recurring becomes 2.67 because I said we should round it to 2
+
+23
+00:01:37,570 --> 00:01:40,510
+decimal places. So if it makes it easier,
+
+24
+00:01:40,540 --> 00:01:42,400
+it might be easier if I write it like this.
+
+25
+00:01:42,790 --> 00:01:47,560
+So 2.666666666 and I'm going to round it to two decimal places
+
+26
+00:01:47,890 --> 00:01:49,510
+and again, I get the same result,
+
+27
+00:01:49,600 --> 00:01:54,600
+2.67. Now another way of modifying numbers is instead of dividing,
+
+28
+00:01:55,990 --> 00:01:59,470
+say 8 / 3,
+
+29
+00:01:59,980 --> 00:02:02,830
+we can also use the floor division,
+
+30
+00:02:02,860 --> 00:02:05,980
+so where you have two forward lashes instead of just one.
+
+31
+00:02:06,550 --> 00:02:10,210
+Now we know that whenever we divide any number by any other number,
+
+32
+00:02:10,240 --> 00:02:13,780
+the result always gets turned into a floating point number.
+
+33
+00:02:14,380 --> 00:02:17,230
+Now if you didn't want that and you just wanted an integer,
+
+34
+00:02:17,380 --> 00:02:20,770
+so a whole number chopping off all the numbers after the decimal in place,
+
+35
+00:02:21,130 --> 00:02:23,860
+you can just use the floor division like this.
+
+36
+00:02:24,430 --> 00:02:28,930
+And in this case, you would get 2 straight away without having to convert it
+
+37
+00:02:28,930 --> 00:02:31,420
+into an integer. And in fact,
+
+38
+00:02:31,750 --> 00:02:36,750
+if I go ahead and check the data type of the result of this calculation,
+
+39
+00:02:37,450 --> 00:02:39,940
+you'll see that it's actually an integer
+
+40
+00:02:40,420 --> 00:02:45,340
+whereas if I had just used the single, um, forward slash division,
+
+41
+00:02:45,760 --> 00:02:49,570
+then I get a floating point number with decimal places.
+
+42
+00:02:50,230 --> 00:02:53,860
+Even if this is a clean division, say 4 / 2,
+
+43
+00:02:54,580 --> 00:02:59,580
+this is still going to become a floating point number and the number is going to
+
+44
+00:03:01,000 --> 00:03:04,630
+be represented like this, 2.0, like so.
+
+45
+00:03:05,890 --> 00:03:10,890
+Now if we had saved the results of this calculation into a variable instead,
+
+46
+00:03:12,370 --> 00:03:17,370
+then one of the things that you can actually do is to continue performing
+
+47
+00:03:17,950 --> 00:03:21,040
+calculations on this variable. So for example,
+
+48
+00:03:21,220 --> 00:03:23,110
+I could do 4 / 2,
+
+49
+00:03:23,440 --> 00:03:28,120
+which is going to be equal to 2. But then if I want to divide it by the 2
+
+50
+00:03:28,120 --> 00:03:28,953
+again,
+
+51
+00:03:29,020 --> 00:03:34,020
+I could actually say result /= 2. And when I now print results,
+
+52
+00:03:38,380 --> 00:03:43,380
+I'll actually get 1 because it's 4 / 2 then divided by 2
+
+53
+00:03:44,440 --> 00:03:48,490
+again. Now very often when you're writing code,
+
+54
+00:03:48,730 --> 00:03:52,780
+say for example if you're keeping track of the user's score,
+
+55
+00:03:53,170 --> 00:03:57,370
+so you could have score = 0 to begin with and every single time in
+
+56
+00:03:57,370 --> 00:04:00,700
+your code say a user scores a point,
+
+57
+00:04:01,090 --> 00:04:04,480
+then you can get hold of this score variable again
+
+58
+00:04:04,750 --> 00:04:09,430
+and instead of saying score now equals the previous value of score plus one,
+
+59
+00:04:09,790 --> 00:04:12,820
+you can simply use this shorthand, +=,
+
+60
+00:04:13,240 --> 00:04:17,260
+so +=1. And now when we print score,
+
+61
+00:04:17,560 --> 00:04:20,140
+you'll see that it's actually equal to 1.
+
+62
+00:04:21,370 --> 00:04:25,120
+So instead of using +=, you can use -=,
+
+63
+00:04:25,180 --> 00:04:29,920
+which just takes the previous version of score and removes 1 from it.
+
+64
+00:04:30,460 --> 00:04:32,980
+*=  and /=.
+
+65
+00:04:33,190 --> 00:04:37,600
+So this is really handy when you have to manipulate a value based on its
+
+66
+00:04:37,600 --> 00:04:40,360
+previous value, which you'll have to do a lot in programming.
+
+67
+00:04:41,440 --> 00:04:46,300
+Now the final thing I want to show you is something called F strings and this
+
+68
+00:04:46,300 --> 00:04:51,300
+makes it really easy to mix strings and different data types.
+
+69
+00:04:51,910 --> 00:04:53,710
+So far, up to this point,
+
+70
+00:04:54,190 --> 00:04:59,190
+if we wanted to print, uhm, something like your score is,
+
+71
+00:05:00,670 --> 00:05:03,760
+and then we wanted to print the score we have to write plus,
+
+72
+00:05:04,030 --> 00:05:06,310
+but of course because these are different data types,
+
+73
+00:05:06,310 --> 00:05:09,940
+this is a string and this is an integer, we got a type error.
+
+74
+00:05:10,510 --> 00:05:15,510
+So we've had to convert this into a string before it will actually successfully
+
+75
+00:05:16,480 --> 00:05:18,880
+print when both the datatypes match.
+
+76
+00:05:19,600 --> 00:05:24,600
+Now this is quite painful and understandably a lot of programmers will need some
+
+77
+00:05:25,270 --> 00:05:29,830
+slightly more convenient way of incorporating things that have different data
+
+78
+00:05:29,830 --> 00:05:33,880
+types. Let's say um, the score is equal to zero. Um,
+
+79
+00:05:33,910 --> 00:05:38,910
+let's say the height is equal to 1.8 and isWinning is equal to true.
+
+80
+00:05:41,200 --> 00:05:44,800
+So here we've got a integer, a float, and a boolean,
+
+81
+00:05:44,860 --> 00:05:49,450
+and we want to mix it all into a sentence that is a string and get it printed
+
+82
+00:05:49,450 --> 00:05:50,140
+out.
+
+83
+00:05:50,140 --> 00:05:55,140
+So instead of having to convert all of these and use a whole bunch of plus
+
+84
+00:05:55,390 --> 00:05:59,600
+signs and then you have to convert everything into a string,
+
+85
+00:06:00,110 --> 00:06:02,120
+it's really, really painful, right?
+
+86
+00:06:02,420 --> 00:06:07,420
+So what we can do instead is use something in Python known as an F string.
+
+87
+00:06:10,850 --> 00:06:15,850
+And when an F string allows us to do is in front of a string like this one,
+
+88
+00:06:17,120 --> 00:06:20,930
+we type the character 'f' and it's really important that it goes in front of the
+
+89
+00:06:20,930 --> 00:06:24,740
+double quotes or a single quotes if you want to write your strings like this.
+
+90
+00:06:25,220 --> 00:06:29,240
+But I like to use double quotes and a lot of other Python programmers do too.
+
+91
+00:06:29,600 --> 00:06:34,600
+So essentially you're adding just the character f in front of the string,
+
+92
+00:06:35,420 --> 00:06:40,420
+and now this is an F string and you can start adding various values into this
+
+93
+00:06:40,970 --> 00:06:43,040
+string. So for example, if I wanted to write,
+
+94
+00:06:43,340 --> 00:06:47,210
+your score is equal to this variable score,
+
+95
+00:06:47,630 --> 00:06:52,520
+then I can put that variable inside a set of curly braces like this.
+
+96
+00:06:53,270 --> 00:06:58,010
+And now when I print my string, this one right here,
+
+97
+00:06:58,400 --> 00:07:03,400
+you'll see that it says your score is zero and it does all of the converting and
+
+98
+00:07:03,980 --> 00:07:07,430
+all of the stuff behind the scenes and you don't have to worry about any of
+
+99
+00:07:07,430 --> 00:07:11,450
+this. So if I want to continue along,
+
+100
+00:07:11,480 --> 00:07:13,250
+I could say your score is this,
+
+101
+00:07:13,790 --> 00:07:18,790
+your height is adding the height and then you are winning is then let's add
+
+102
+00:07:24,830 --> 00:07:26,750
+that final boolean value
+
+103
+00:07:28,850 --> 00:07:30,770
+and get it to run.
+
+104
+00:07:31,130 --> 00:07:34,310
+You can see that our entire string now prints out your score is 0,
+
+105
+00:07:34,550 --> 00:07:37,460
+your height is 1.8 you are winning is True.
+
+106
+00:07:37,910 --> 00:07:42,910
+So all of these different data types got combined into a string by using an F in
+
+107
+00:07:43,580 --> 00:07:48,580
+front of the string and then using these curly braces to place our variables
+
+108
+00:07:49,640 --> 00:07:52,940
+into this string. By using f strings,
+
+109
+00:07:52,940 --> 00:07:57,940
+you cut down on a lot of the manual labor of inserting different data types into
+
+110
+00:07:59,030 --> 00:07:59,863
+a string.
+
+111
+00:07:59,930 --> 00:08:04,880
+And this is going to come in really handy just about on the next lesson where
+
+112
+00:08:04,880 --> 00:08:06,950
+I've got a coding challenge for you.
+
+113
+00:08:07,670 --> 00:08:10,100
+Head over there and complete the challenge.
+
+1
+00:00:00,360 --> 00:00:07,230
+So you should see day 2.3 Your Life in Weeks, and this is the challenge that we're going to complete
+
+2
+00:00:07,230 --> 00:00:08,189
+in this lesson.
+
+3
+00:00:09,450 --> 00:00:16,770
+The idea is that there's a really great article by Tim Urban of Wait but Why on visualizing your
+
+4
+00:00:16,770 --> 00:00:17,850
+life in weeks.
+
+5
+00:00:18,060 --> 00:00:23,730
+And I was reading this recently, and it really made an impact on me, especially when you see that
+
+6
+00:00:24,060 --> 00:00:34,500
+a whole life from age 0 to 90 can be mapped out like this in weeks where every week is represented
+
+7
+00:00:34,500 --> 00:00:38,910
+by a little checkbox and you can see each of these boxes right?
+
+8
+00:00:38,920 --> 00:00:44,250
+This is like how many weeks you have in your whole life, and it's not as small as I thought it would
+
+9
+00:00:44,250 --> 00:00:44,370
+be.
+
+10
+00:00:44,370 --> 00:00:48,050
+I thought each of these boxes would be like invisible because they're so tiny because
+
+11
+00:00:48,090 --> 00:00:50,760
+I have so many weeks in my life, but it's actually not true.
+
+12
+00:00:50,910 --> 00:00:51,990
+There's actually not that many.
+
+13
+00:00:52,530 --> 00:00:59,340
+So in today's coding challenge, what I want you to do is to create a program using the mathematical
+
+14
+00:00:59,340 --> 00:01:04,620
+operations that you learned about, as well as the fstrings that you learned about in the last lesson
+
+15
+00:01:05,010 --> 00:01:08,580
+to tell us how many days, weeks and months we actually have left
+
+16
+00:01:08,940 --> 00:01:16,230
+if we were lucky enough to live until 90 years old. The code is going to ask you for your current age,
+
+17
+00:01:17,280 --> 00:01:26,100
+let's say that I'm 12, and then it's going to calculate the number of days, weeks and months you have
+
+18
+00:01:26,100 --> 00:01:31,950
+left in your life if you lived until 90. And then it's going to print it out to you
+
+19
+00:01:32,220 --> 00:01:32,940
+like so.
+
+20
+00:01:34,370 --> 00:01:40,550
+And the important premise of this code challenge for all of the test to pass is that there are 365 days
+
+21
+00:01:40,550 --> 00:01:44,150
+in the year, 52 weeks in a year and 12 months in a year.
+
+22
+00:01:44,690 --> 00:01:47,900
+I know that because of leap year, it's actually a little bit more than that,
+
+23
+00:01:47,900 --> 00:01:53,030
+but for this exercise sake, let's just call it 365, 52 and 12.
+
+24
+00:01:54,140 --> 00:01:59,600
+Pause the video and see if you can complete this challenge and then head back over here and we'll walk through
+
+25
+00:01:59,600 --> 00:02:00,500
+the solution together.
+
+26
+00:02:05,020 --> 00:02:05,410
+All right.
+
+27
+00:02:05,440 --> 00:02:06,820
+How did that exercise go?
+
+28
+00:02:06,940 --> 00:02:11,590
+I'm sorry, it's a little bit dark making you think about how many days, weeks and months you have left
+
+29
+00:02:11,920 --> 00:02:14,560
+in life, but you can think about it as a motivation, right?
+
+30
+00:02:15,070 --> 00:02:19,780
+If I only have 400 months left, I don't know if I want to spend one of those months just watching Game
+
+31
+00:02:19,780 --> 00:02:20,200
+of Thrones.
+
+32
+00:02:20,650 --> 00:02:22,450
+Maybe I want to do something for other people.
+
+33
+00:02:22,460 --> 00:02:23,710
+Maybe I want to create something.
+
+34
+00:02:25,030 --> 00:02:26,920
+So how are we going to calculate this?
+
+35
+00:02:27,130 --> 00:02:33,970
+Well, we've got hold of the age from the input, but you might remember from previous lessons that
+
+36
+00:02:33,970 --> 00:02:37,210
+the input always creates a string data type.
+
+37
+00:02:37,780 --> 00:02:43,450
+In order to do your maths, we do still have to do a type conversion, so we have to change our age
+
+38
+00:02:43,450 --> 00:02:44,590
+into a number.
+
+39
+00:02:44,590 --> 00:02:49,480
+So let's call it age_as_int, age is never going to be a float, right?
+
+40
+00:02:50,230 --> 00:02:55,180
+Because not many people are going to tell you that they are 56.4 years old, so we're
+
+41
+00:02:55,180 --> 00:03:00,730
+going to accept this as a whole number. So we'll convert our age into an int.
+
+42
+00:03:01,750 --> 00:03:04,900
+Now the next stage is we have to do some calculations.
+
+43
+00:03:05,380 --> 00:03:09,340
+We have to calculate the number of years left, right?
+
+44
+00:03:09,340 --> 00:03:15,480
+So let's call it years_remaining and that's going to be equal to 90,
+
+45
+00:03:15,490 --> 00:03:20,920
+so we're presuming we're going to live to 90, minus age_as_int.
+
+46
+00:03:21,670 --> 00:03:26,680
+So now that we've got the number of years remaining, we can calculate the number of days, weeks and
+
+47
+00:03:26,680 --> 00:03:27,520
+months left.
+
+48
+00:03:27,520 --> 00:03:37,720
+So days remaining is going to be equal to years remaining multiplied by 365 because there
+
+49
+00:03:37,720 --> 00:03:44,170
+are 365 days in a year, and then we can do the same for weeks.
+
+50
+00:03:47,780 --> 00:03:49,100
+And months.
+
+51
+00:03:52,190 --> 00:03:59,150
+So now that I've got hold of the number of days remaining, weeks remaining and months remaining, then
+
+52
+00:03:59,150 --> 00:04:01,550
+I'm ready to actually use it inside my string.
+
+53
+00:04:01,790 --> 00:04:07,790
+But before we do that, it's always helpful to check your code as you go along to make sure that it
+
+54
+00:04:07,790 --> 00:04:09,680
+works exactly as you expect it to.
+
+55
+00:04:10,130 --> 00:04:16,640
+So let's go ahead and try to print what is the number of months remaining.
+
+56
+00:04:17,149 --> 00:04:22,490
+So if we go ahead and run our code and let's say that we're 80 years old, right?
+
+57
+00:04:22,820 --> 00:04:27,910
+Which means that we'll have 10 years remaining and we'll have 120 months remaining.
+
+58
+00:04:27,920 --> 00:04:30,260
+So all of that looks pretty good to me.
+
+59
+00:04:30,830 --> 00:04:37,490
+So the next thing we have to do is to somehow output this sentence where it says you have x days, y weeks
+
+60
+00:04:37,490 --> 00:04:39,020
+and z months left.
+
+61
+00:04:39,200 --> 00:04:41,990
+So let's copy that and paste that sentence in here.
+
+62
+00:04:42,500 --> 00:04:47,900
+And then I'm going to turn it into a string by wrapping it inside a set of double-quotes.
+
+63
+00:04:48,620 --> 00:04:54,770
+Now that I've got a string, I can turn it into an fstring by putting the card to 'f' before the string.
+
+64
+00:04:55,310 --> 00:05:02,270
+And instead of having x, y and z, I can replace them with some curly braces inside of which I can
+
+65
+00:05:02,270 --> 00:05:04,100
+put my variable names.
+
+66
+00:05:04,550 --> 00:05:13,610
+So I'll change this to days_remaining, this to weeks_remaining and this to months_remaining.
+
+67
+00:05:17,680 --> 00:05:23,350
+So now that I've got my string, I have two options: I can either just wrap this inside a print statement
+
+68
+00:05:23,350 --> 00:05:24,520
+and print it as it is.
+
+69
+00:05:24,850 --> 00:05:30,730
+But what I think might actually make it easier to read is to save it inside a separate variable called
+
+70
+00:05:30,730 --> 00:05:31,270
+message.
+
+71
+00:05:31,720 --> 00:05:35,110
+And then in the next line, I can simply print my message.
+
+72
+00:05:35,260 --> 00:05:39,040
+It does exactly the same thing, but I think this is a little bit easier to read.
+
+73
+00:05:39,730 --> 00:05:43,330
+So now let's go ahead and run our code and see if we get any errors.
+
+74
+00:05:44,950 --> 00:05:48,640
+It's asking us for our current age, let's say, was 67 years old.
+
+75
+00:05:49,270 --> 00:05:57,070
+Well, then we only have 8,395 days and 1,196 weeks and 276 months.
+
+76
+00:05:58,240 --> 00:06:00,790
+So I hope you managed to get this code challenge right
+
+77
+00:06:01,120 --> 00:06:03,910
+and even though the challenge is a little bit dark,
+
+78
+00:06:04,300 --> 00:06:08,650
+well, at least remember that when you become a really good programmer, you'll be able to cut down
+
+79
+00:06:08,980 --> 00:06:12,160
+on a lot of the boring things and repetitive tasks in life.
+
+80
+00:06:12,490 --> 00:06:16,240
+So at least you'll be claiming back some of those days, weeks and months.
+
+81
+00:06:16,900 --> 00:06:21,130
+So I hope you had fun with me on this code challenge. In the next lesson,
+
+82
+00:06:21,160 --> 00:06:24,580
+I've got a quiz for you. So head over there and give it a go.
+
+1
+00:00:00,150 --> 00:00:07,110
+Hey, guys, welcome to the final project of today, and in this final project, we're going to be building
+
+2
+00:00:07,140 --> 00:00:08,730
+a tip calculator.
+
+3
+00:00:09,390 --> 00:00:11,870
+So the final output is going to look like this.
+
+4
+00:00:11,880 --> 00:00:12,760
+It's going to print
+
+5
+00:00:12,810 --> 00:00:14,430
+Welcome to the tip calculator.
+
+6
+00:00:14,700 --> 00:00:19,290
+And it's going to ask you for an input for how much the total bill came to.
+
+7
+00:00:19,890 --> 00:00:27,360
+Let's say that we and a couple of friends went out for lunch and it came to 124.
+
+8
+00:00:27,360 --> 00:00:28,920
+56 dollars.
+
+9
+00:00:29,430 --> 00:00:33,580
+And then it'll ask you, what percentage tip would you like to give?
+
+10
+00:00:33,600 --> 00:00:36,570
+So let's say we want to give a 12 percent tip.
+
+11
+00:00:36,570 --> 00:00:38,570
+So we enter 12 and hit enter.
+
+12
+00:00:39,210 --> 00:00:42,590
+And then finally it asks how many people are splitting this bill?
+
+13
+00:00:42,600 --> 00:00:45,740
+Let's say there's seven of us and then hit enter.
+
+14
+00:00:46,140 --> 00:00:51,270
+Finally, it's going to tell us that each person should pay about $19.93.
+
+15
+00:00:52,230 --> 00:00:58,200
+Notice how the final bill, even though after all of these calculations, it's probably got more numbers
+
+16
+00:00:58,200 --> 00:01:05,790
+after the decimal point, we only want two decimal places of accuracy, so it should be rounded to two 
+
+17
+00:01:05,790 --> 00:01:06,730
+decimal places.
+
+18
+00:01:07,350 --> 00:01:14,430
+The second thing to remember is that these are percentages, and in order to calculate a percentage of
+
+19
+00:01:14,430 --> 00:01:20,790
+something, you can multiply a number by the percentage number divided by 100.
+
+20
+00:01:21,300 --> 00:01:24,020
+Let me show you this in a little bit more detail.
+
+21
+00:01:24,480 --> 00:01:30,540
+If you head over to replit/appbrewery/tip-calculator-start, then you've got
+
+22
+00:01:30,540 --> 00:01:33,420
+these starting file for this project.
+
+23
+00:01:33,990 --> 00:01:39,720
+And here I just want to quickly show you how the math works, because this project is not about testing
+
+24
+00:01:39,720 --> 00:01:40,230
+your math.
+
+25
+00:01:40,230 --> 00:01:43,740
+It's about seeing how well you've understood the programming concepts.
+
+26
+00:01:44,280 --> 00:01:48,810
+Let's say that we had a bill of $150.
+
+27
+00:01:49,200 --> 00:01:57,690
+If we were to apply a 12% tip on top of that, then 12% is going to be equal to twelve
+
+28
+00:01:57,690 --> 00:02:01,830
+divided by a hundred, which is equal to 0.12.
+
+29
+00:02:02,670 --> 00:02:09,000
+Now the next step is we can multiply 150, the total bill, by 0.12.
+
+30
+00:02:09,419 --> 00:02:14,470
+And this will give us what 12 percent of 150 is, which is 18.
+
+31
+00:02:15,150 --> 00:02:21,390
+Now we of course, have to add the tip onto the final bill so it becomes 150 plus 18.
+
+32
+00:02:21,930 --> 00:02:27,040
+So $150 with a 12 percent tip is equal to $168.
+
+33
+00:02:27,540 --> 00:02:35,710
+Now, a shorthand way of doing all of this is simply multiplying 150 by 1.12.
+
+34
+00:02:36,180 --> 00:02:42,580
+So the 1 is 150, and then it's 0.12 on top of that.
+
+35
+00:02:43,110 --> 00:02:46,680
+So when we do this, it gives us pretty much the same number.
+
+36
+00:02:47,490 --> 00:02:52,560
+Now, if during your testing and your coding you come across some sort of number that looks a little
+
+37
+00:02:52,560 --> 00:02:58,860
+bit strange because you think 150 multiplied by 1.12 should actually equal 168
+
+38
+00:02:58,860 --> 00:02:59,810
+precisely.
+
+39
+00:03:00,210 --> 00:03:02,980
+So what are all of these extra numbers at the end?
+
+40
+00:03:03,510 --> 00:03:06,540
+Now, the short answer is you don't have to worry about it.
+
+41
+00:03:06,540 --> 00:03:11,940
+It's simply related to how Python processes these floating-point numbers.
+
+42
+00:03:12,360 --> 00:03:18,420
+If you're really interested and you want to read about this, then I'll link to this page in the Python
+
+43
+00:03:18,420 --> 00:03:21,660
+documentation where they tell you why this is happening.
+
+44
+00:03:22,020 --> 00:03:24,750
+But be warned, it's pretty dense and it's pretty heavy.
+
+45
+00:03:25,080 --> 00:03:30,170
+But the final conclusion is it's just the way that Python is approximating this number.
+
+46
+00:03:30,480 --> 00:03:32,630
+So you don't actually have to worry about this.
+
+47
+00:03:33,180 --> 00:03:38,610
+Now, once we've gotten to 168, the next step is to split it between five people.
+
+48
+00:03:38,610 --> 00:03:44,970
+So 168 divided by 5 is equal to 33.6.
+
+49
+00:03:45,570 --> 00:03:51,540
+Now, what we want to show the user is we want to show them the amount that they have to pay with two
+
+50
+00:03:51,540 --> 00:03:52,950
+decimal places of accuracy.
+
+51
+00:03:52,990 --> 00:03:57,630
+We want to say something like 33.60 if this is the case, because that's normally
+
+52
+00:03:57,630 --> 00:04:00,880
+how we represent numbers when it comes to money.
+
+53
+00:04:01,410 --> 00:04:07,740
+So what I want you to do is to also be able to round any of these numbers to two decimal places.
+
+54
+00:04:08,610 --> 00:04:15,330
+If you have successfully created this program, then it should work exactly as this example version
+
+55
+00:04:15,330 --> 00:04:22,290
+would, which you can find if you go to tip-calculator-end.appbrewery.repl.run, and
+
+56
+00:04:22,290 --> 00:04:27,990
+you'll be to see the formatting where it actually tells you each person should pay this particular dollar
+
+57
+00:04:27,990 --> 00:04:31,530
+amount and it's rounded to two decimal places.
+
+58
+00:04:31,890 --> 00:04:38,520
+And this is the amount after taking into consideration these three different inputs from the user.
+
+59
+00:04:39,090 --> 00:04:44,220
+Have a play around with the final product and then have a think about how you would create this program
+
+60
+00:04:44,220 --> 00:04:50,610
+step by step and then give it a go by forking this starting repository to your own account and then
+
+61
+00:04:50,610 --> 00:04:52,150
+try to achieve this result.
+
+62
+00:04:53,040 --> 00:04:58,530
+This is going to test everything that you've done so far including fstrings, including complex
+
+63
+00:04:58,530 --> 00:04:59,820
+mathematical operations,
+
+64
+00:05:00,030 --> 00:05:07,320
+including PEMDAS and calculating numbers and the order in which mathematical operations are run by
+
+65
+00:05:07,320 --> 00:05:13,440
+a computer, as well as everything you learn in the previous lesson and the previous days as well. I think
+
+66
+00:05:13,440 --> 00:05:17,850
+this is going to be a lot of fun and the end result is going to be kind of useful the next time that
+
+67
+00:05:17,850 --> 00:05:19,730
+you need to split the bill between friends.
+
+68
+00:05:20,130 --> 00:05:22,320
+So I'm going to let you pause the video and get on with it.
+
+69
+00:05:22,650 --> 00:05:27,330
+And then once you're done, if you want to, head back over here and I'll walk through the solution with
+
+70
+00:05:27,330 --> 00:05:31,860
+you. But I really recommend you giving it a good go before you come back.
+
+71
+00:05:32,100 --> 00:05:34,340
+So pause the video now and I'll see you later.
+
+72
+00:05:40,000 --> 00:05:45,340
+OK, so we've seen how the program is supposed to work and we're trying to create it from scratch by
+
+73
+00:05:45,340 --> 00:05:51,970
+reverse-engineering it essentially. The first thing I'm going to do is I'm going to fork the starting
+
+74
+00:05:51,970 --> 00:05:55,510
+project and create my own version of it which I can edit.
+
+75
+00:05:56,200 --> 00:05:59,960
+Now, the first thing our program should say is welcome to the tip calculator.
+
+76
+00:06:00,250 --> 00:06:01,860
+So that's easy enough.
+
+77
+00:06:01,870 --> 00:06:03,780
+We just have to create a print statement.
+
+78
+00:06:04,330 --> 00:06:04,910
+Perfect.
+
+79
+00:06:05,110 --> 00:06:10,360
+And if you're creating a really enthusiastic tip calculator, you can replace the full stop with an
+
+80
+00:06:10,360 --> 00:06:11,290
+exclamation mark.
+
+81
+00:06:12,100 --> 00:06:16,760
+OK, so let's run it step by step to make sure that we don't have any errors along the way.
+
+82
+00:06:17,200 --> 00:06:20,170
+So the first step seems to be working. Now 
+
+83
+00:06:20,170 --> 00:06:23,170
+the next step is to ask the user for some input.
+
+84
+00:06:23,470 --> 00:06:26,690
+And we want to know what was their total bill, what did it come to?
+
+85
+00:06:27,280 --> 00:06:32,350
+So let's go ahead and create an input and ask them what was the total bill?
+
+86
+00:06:32,980 --> 00:06:38,160
+And then we'll add a dollar sign or whatever currency it is that you prefer to work with.
+
+87
+00:06:38,560 --> 00:06:45,040
+Because when we actually run this, you'll see that the input will go straight after the end of that
+
+88
+00:06:45,040 --> 00:06:45,450
+string,
+
+89
+00:06:45,460 --> 00:06:47,020
+so at the dollar sign.
+
+90
+00:06:47,440 --> 00:06:52,250
+So now we can enter a dollar amount like this, but it's not really saved anywhere.
+
+91
+00:06:52,270 --> 00:06:56,950
+This data just disappears because we haven't stored it inside a variable.
+
+92
+00:06:57,400 --> 00:06:58,810
+So let's go ahead and do that.
+
+93
+00:06:58,810 --> 00:07:05,650
+Let's call this variable bill and we'll set it to equal whatever the user typed in to this input.
+
+94
+00:07:06,310 --> 00:07:14,320
+Now, remember that this bill is going to have a data type of a string, right?
+
+95
+00:07:14,350 --> 00:07:21,010
+So if I go ahead and hit run and let's just type some numbers in here, you'll see that the data type
+
+96
+00:07:21,010 --> 00:07:25,530
+of the bill is, as we said, a string. In order to be able to do math,
+
+97
+00:07:25,930 --> 00:07:30,730
+you might remember, we have to change this into a number format,
+
+98
+00:07:30,730 --> 00:07:32,420
+so a float or an int.
+
+99
+00:07:32,860 --> 00:07:38,170
+Now, in this case, because the bill is likely to have numbers after the decimal place, it's probably
+
+100
+00:07:38,170 --> 00:07:45,610
+better that we turn it into a float so that we get the most accurate result possible. Now that we're
+
+101
+00:07:45,610 --> 00:07:46,980
+done with the bill,
+
+102
+00:07:47,050 --> 00:07:53,980
+the next question the tip calculator should ask is what percentage tip would you like to give? 10, 12
+
+103
+00:07:53,980 --> 00:07:54,730
+or 15?
+
+104
+00:07:55,030 --> 00:07:59,050
+Or you can, of course, switch this up depending on how much tip you normally give.
+
+105
+00:07:59,680 --> 00:08:02,800
+So the next line is going to be another input.
+
+106
+00:08:04,910 --> 00:08:09,640
+Here, I'm asking the user, how much tip would you like to give and giving them some examples. And
+
+107
+00:08:09,650 --> 00:08:16,040
+notice how in my examples, I don't actually have the percentage sign here because I don't really
+
+108
+00:08:16,040 --> 00:08:24,770
+want them to type the percent sign into this input because if they do when they say 12%,
+
+109
+00:08:25,250 --> 00:08:31,960
+this is going to be really hard for me to turn the 12% into an actual number.
+
+110
+00:08:32,539 --> 00:08:38,929
+So you could, in your input message, say something like how much tip would you like to give 10,
+
+111
+00:08:38,929 --> 00:08:39,770
+12, 15?
+
+112
+00:08:40,070 --> 00:08:42,200
+Please don't add any percentage signs.
+
+113
+00:08:42,380 --> 00:08:44,200
+Just add the number or something like that.
+
+114
+00:08:44,810 --> 00:08:51,590
+But again, once we've done this, it's not stored anywhere unless we add it into a variable.
+
+115
+00:08:52,100 --> 00:08:59,660
+Now we've got a bill that stores the total bill as a float and we've got a tip which is going to be
+
+116
+00:08:59,660 --> 00:09:02,150
+a whole number, 10, 12 or 15,
+
+117
+00:09:02,150 --> 00:09:02,470
+right?
+
+118
+00:09:02,870 --> 00:09:08,960
+So depending on what you think is best, you can either turn this into a float or in my case, I'm probably
+
+119
+00:09:08,960 --> 00:09:11,790
+going to convert it into an integer.
+
+120
+00:09:12,560 --> 00:09:17,290
+So now we're onto the final step, which is how many people to split the bill between.
+
+121
+00:09:17,750 --> 00:09:21,050
+So let's go ahead and create a variable called people.
+
+122
+00:09:21,560 --> 00:09:29,690
+And I'm going to add an int wrapper around this input so that even in the very beginning, we know that
+
+123
+00:09:29,690 --> 00:09:35,600
+we have to convert the number of people into a whole number because I've never had a meal with 
+
+124
+00:09:35,600 --> 00:09:36,930
+3.5 before.
+
+125
+00:09:37,850 --> 00:09:41,870
+So the input is going to be how many people to split the bill.
+
+126
+00:09:43,400 --> 00:09:49,850
+And at this point, they should enter the number of people which will turn into an integer stored inside
+
+127
+00:09:49,880 --> 00:09:56,180
+this variable called people. So now that we've got all the data collected from the user, we're finally
+
+128
+00:09:56,180 --> 00:09:57,500
+ready to do some math.
+
+129
+00:09:58,040 --> 00:10:08,210
+And we said that the way to work out the tip is by multiplying it by 1. and then the number after
+
+130
+00:10:08,210 --> 00:10:12,180
+the decimal point is whatever percentage they decided to give.
+
+131
+00:10:12,560 --> 00:10:18,510
+So it would be 1.1 if it was 10 percent and 1.15 if it was 15 percent.
+
+132
+00:10:19,130 --> 00:10:23,630
+Let's go ahead and calculate the bill_with_tip.
+
+133
+00:10:24,990 --> 00:10:32,370
+So remember how we said that before the tip percentage is equal to the whole number, 10, 12 or 15,
+
+134
+00:10:32,760 --> 00:10:38,190
+divided by 100, which turns it into 0.1, 0.12 or 0.15,
+
+135
+00:10:38,730 --> 00:10:46,290
+and then once this calculation is done, we can multiply it by the bill. And then finally we add that
+
+136
+00:10:46,290 --> 00:10:47,880
+to the original bill.
+
+137
+00:10:49,050 --> 00:10:54,510
+So let's go ahead and print this and just check to see that it looks sensible.
+
+138
+00:10:55,080 --> 00:10:58,080
+So bill_with_tip is what we're going to print.
+
+139
+00:10:58,570 --> 00:11:01,160
+And let's put some easy numbers in there.
+
+140
+00:11:01,680 --> 00:11:06,820
+And let's say that the bill was a hundred dollars and the tip was 10 percent.
+
+141
+00:11:07,350 --> 00:11:10,830
+So then the 10% of hundred dollars is ten dollars.
+
+142
+00:11:11,070 --> 00:11:12,540
+So the bill_with_tip,
+
+143
+00:11:12,810 --> 00:11:18,540
+that's what's going to be printed next, should be 110. So we can type anything in here because
+
+144
+00:11:18,540 --> 00:11:19,380
+we're not using it.
+
+145
+00:11:19,680 --> 00:11:24,550
+And you can see that this calculation, bill_with_tip, is 110, which is what we want.
+
+146
+00:11:25,170 --> 00:11:28,350
+Now, there's a lot of other ways that you can express this.
+
+147
+00:11:28,850 --> 00:11:36,690
+For example, you could say, bill * (1 + tip/100).
+
+148
+00:11:37,320 --> 00:11:40,630
+So this would actually give you the same result as well.
+
+149
+00:11:41,250 --> 00:11:47,010
+But remember what we said previously about how Python is a little bit weird with floating-point numbers.
+
+150
+00:11:47,550 --> 00:11:51,570
+But essentially this is still giving us the same result, which is 110.
+
+151
+00:11:52,500 --> 00:11:55,940
+So you can choose whichever way you find most intuitive.
+
+152
+00:11:55,950 --> 00:12:00,340
+And if you want, you can even split this up into several steps, right?
+
+153
+00:12:00,360 --> 00:12:05,580
+We could say that tip_as_percent is equal to tip/100.
+
+154
+00:12:07,080 --> 00:12:16,530
+And then we can multiply the bill by the tip_as_percent to get the total tip amount.
+
+155
+00:12:18,990 --> 00:12:26,290
+And then finally, we can get the total bill by adding the bill to the total_tip_amount.
+
+156
+00:12:27,270 --> 00:12:32,430
+Feel free to do this whichever way makes sense to you, but I'm going to leave it with as many steps
+
+157
+00:12:32,430 --> 00:12:37,320
+as possible so that you can actually work through the logic if you got stuck on this math.
+
+158
+00:12:38,760 --> 00:12:44,070
+Now, the next thing we need to do is to divide the total bill by the number of people.
+
+159
+00:12:44,370 --> 00:12:47,430
+So if we had five people, then we would divide it five ways,
+
+160
+00:12:47,430 --> 00:12:47,710
+right?
+
+161
+00:12:48,210 --> 00:12:51,750
+So let's call this bill_per_
+
+162
+00:12:53,050 --> 00:12:59,560
+person, which is going to be equal to the total bill divided by the number of people.
+
+163
+00:13:01,280 --> 00:13:08,000
+Now, at this stage, this bill_per_person is a floating-point number, so it could have many, many
+
+164
+00:13:08,000 --> 00:13:10,000
+digits after the decimal point.
+
+165
+00:13:10,490 --> 00:13:16,910
+If we want to round this to two decimal places, then you might remember from some of the lessons today,
+
+166
+00:13:17,240 --> 00:13:19,790
+we have access to a function called round.
+
+167
+00:13:20,300 --> 00:13:26,090
+And here we can add the number that we want around, which is the bill_per_person,
+
+168
+00:13:26,570 --> 00:13:33,530
+and then after a comma, we can specify how precise, how many numbers or how many decimal places do
+
+169
+00:13:33,530 --> 00:13:35,030
+we want to round this bill to.
+
+170
+00:13:35,510 --> 00:13:38,120
+And in our case, it's two decimal places.
+
+171
+00:13:38,780 --> 00:13:47,570
+So now this is the final amounts, which I'll call final_amount which is the bill_per_person rounded
+
+172
+00:13:47,570 --> 00:13:49,190
+to two decimal places.
+
+173
+00:13:49,790 --> 00:13:57,190
+And we can now finally print this to the user and say each person should pay...
+
+174
+00:13:57,830 --> 00:14:03,740
+And remember, you can either use string concatenation which will require you to convert this number
+
+175
+00:14:03,740 --> 00:14:09,380
+into a string again, or use the trick that we learned in the previous lessons where we can create an
+
+176
+00:14:09,380 --> 00:14:17,300
+fstring by adding F in front of the string and then using some curly braces to insert the final amount
+
+177
+00:14:17,300 --> 00:14:17,930
+right here.
+
+178
+00:14:18,620 --> 00:14:27,820
+And we can write the final_amount dollars or we can put a dollar sign in front and maybe a colon here.
+
+179
+00:14:28,460 --> 00:14:34,160
+And now if we clear our console and run our code, then you'll see it work.
+
+180
+00:14:34,190 --> 00:14:35,770
+So welcome to the tip calculator.
+
+181
+00:14:35,780 --> 00:14:36,910
+What was the total bill?
+
+182
+00:14:37,220 --> 00:14:38,990
+Let's make up some random number.
+
+183
+00:14:39,560 --> 00:14:40,910
+What percentage tip?
+
+184
+00:14:40,910 --> 00:14:47,780
+Let's say we're going to get 15 and then we're splitting it between five people. And it calculates everything,
+
+185
+00:14:47,780 --> 00:14:49,370
+doing all of that maths.
+
+186
+00:14:49,730 --> 00:14:55,940
+And finally, it rounds it to two decimal places, giving us the final amount each person should pay.
+
+187
+00:14:56,780 --> 00:14:59,440
+But what if we test it out with the initial numbers?
+
+188
+00:15:00,200 --> 00:15:07,700
+Let's hit, run and let's try to put in 150 dollars as the total bill, and then we're going to give
+
+189
+00:15:07,700 --> 00:15:11,180
+a 12 percent tip and we're going to split it between five people.
+
+190
+00:15:11,750 --> 00:15:16,520
+Notice that is telling us that each person should pay $33.6.
+
+191
+00:15:16,880 --> 00:15:20,960
+But normally, we're used to seeing that rounded to two decimal places.
+
+192
+00:15:21,440 --> 00:15:23,960
+But we have that round function here already.
+
+193
+00:15:24,230 --> 00:15:26,060
+So why is it not doing its job?
+
+194
+00:15:27,160 --> 00:15:32,830
+Well, if you think about it, the result of this calculation is just 33.6. There's
+
+195
+00:15:32,830 --> 00:15:40,390
+nothing after the six, but we want it to display a zero. And this is a formating problem rather than
+
+196
+00:15:40,390 --> 00:15:42,200
+a mathematical rounding problem.
+
+197
+00:15:42,670 --> 00:15:43,810
+So what do we do?
+
+198
+00:15:43,840 --> 00:15:50,410
+Well, we go to our good friend Google whenever we're stuck and we're going to search for how to round
+
+199
+00:15:50,410 --> 00:15:55,890
+number to two decimal places in Python.
+
+200
+00:15:56,620 --> 00:16:02,260
+And if we take a look at the first Stack Overflow question, you can see that this person had pretty much
+
+201
+00:16:02,260 --> 00:16:04,240
+the same problem that we had.
+
+202
+00:16:04,630 --> 00:16:11,980
+And if we're scrolling down, you can see that the solution is to use some sort of formatting. And we
+
+203
+00:16:11,980 --> 00:16:17,260
+can try out each of these examples one by one in code to see how they work,
+
+204
+00:16:17,500 --> 00:16:21,490
+and we can also take a look at the documentation that they link to.
+
+205
+00:16:22,360 --> 00:16:29,890
+So the actual way that we do this is by using a colon and then dot and then we specify that after the
+
+206
+00:16:29,950 --> 00:16:36,120
+dot, we want two decimal points in our float. And we use the format function to do this.
+
+207
+00:16:36,460 --> 00:16:43,360
+So instead of using round, we can create this final amount variable by creating a string using that
+
+208
+00:16:43,360 --> 00:16:52,630
+format, :.2f, and then we can use the format function to pass in that bill_per_person.
+
+209
+00:16:54,230 --> 00:17:03,740
+And now when we run this again, using the same inputs, we now get a .60 at the very end
+
+210
+00:17:04,220 --> 00:17:10,190
+and this is basically turned this bill_per_person, which is a float into a string.
+
+211
+00:17:10,400 --> 00:17:16,680
+And that string is abiding by this particular format, which is the two decimal places.
+
+212
+00:17:17,329 --> 00:17:19,369
+How did you get on with this project?
+
+213
+00:17:19,609 --> 00:17:25,550
+Did you manage to get it in one go without having to look at the solution? If you got stuck at any point
+
+214
+00:17:25,550 --> 00:17:27,950
+or if your code didn't work as you expect it to,
+
+215
+00:17:28,280 --> 00:17:33,110
+this is a time to go back to it, fix it, and make sure that you've understood everything that's been
+
+216
+00:17:33,110 --> 00:17:35,150
+covered through this exercise.
+
+217
+00:17:35,480 --> 00:17:40,310
+But if you already created it and it's working perfectly, then you're ready to go out there with your
+
+218
+00:17:40,310 --> 00:17:41,600
+tip calculator in hand.
+
+219
+00:17:41,960 --> 00:17:47,430
+Remember that you can save the URL of your tip calculator in your phone as a bookmark.
+
+220
+00:17:47,450 --> 00:17:52,040
+So the next time you go out and have dinner or lunch with friends, then you can crack open your own
+
+221
+00:17:52,040 --> 00:17:54,800
+tip calculator and figure out the final bill.
+
+222
+00:17:55,670 --> 00:18:01,130
+So I hope you had fun building this project and doing all of the coding exercises and learning about mathematical
+
+223
+00:18:01,130 --> 00:18:09,350
+operations, fstrings, data types, type conversion, and all of the things that we did today. Have a rest
+
+224
+00:18:09,350 --> 00:18:15,500
+and I'll be back tomorrow teaching you about conditional statements and how we can get the program to
+
+225
+00:18:15,500 --> 00:18:21,500
+do different things depending on certain conditions or certain parts of our code.
+
+226
+00:18:22,100 --> 00:18:25,360
+So I bid you good night and I'll see you tomorrow.
+

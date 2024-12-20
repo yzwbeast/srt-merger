@@ -1,0 +1,276 @@
+1
+00:00:00,150 --> 00:00:04,500
+Hey there. Welcome to day 39 of 100 Days of Code.
+
+2
+00:00:04,980 --> 00:00:05,400
+Now,
+
+3
+00:00:05,400 --> 00:00:10,260
+today we've got a two part series and this is the part
+
+4
+00:00:10,260 --> 00:00:12,360
+one of your capstone project.
+
+5
+00:00:12,840 --> 00:00:15,450
+So we've been learning about APIs for quite a while now,
+
+6
+00:00:15,660 --> 00:00:20,660
+and we're going to be using a combination of different APIs to create a cheap
+
+7
+00:00:21,780 --> 00:00:24,720
+flight finder. Part one,
+
+8
+00:00:25,020 --> 00:00:29,610
+our program is going to find amazing flight deals just for ourselves.
+
+9
+00:00:29,910 --> 00:00:30,930
+And in part two,
+
+10
+00:00:31,200 --> 00:00:36,200
+we turn this project into a fully-fledged product where we can start signing up
+
+11
+00:00:36,780 --> 00:00:41,190
+users to use our service. So I don't know about you,
+
+12
+00:00:41,220 --> 00:00:44,400
+but I am a travel aficionado.
+
+13
+00:00:44,430 --> 00:00:46,890
+I absolutely love to travel.
+
+14
+00:00:47,400 --> 00:00:51,030
+I'm the sort of person who can't stay stationary in one location.
+
+15
+00:00:51,510 --> 00:00:56,190
+And one of the reasons why I teach Programming online is to be able to travel
+
+16
+00:00:56,250 --> 00:00:58,020
+and work from different places.
+
+17
+00:00:58,500 --> 00:01:02,910
+Now I'm not that picky about where I go. I think everywhere I go,
+
+18
+00:01:02,910 --> 00:01:06,690
+there's beautiful people who can teach me a lot of things.
+
+19
+00:01:07,290 --> 00:01:12,290
+So instead of planning a trip where I have one destination and I plan out the
+
+20
+00:01:12,570 --> 00:01:16,350
+time and date, I actually just look for a good deal.
+
+21
+00:01:16,710 --> 00:01:18,660
+So when I can get a flight
+
+22
+00:01:18,660 --> 00:01:22,830
+that's really cheap and it's to a location that I want to visit,
+
+23
+00:01:23,190 --> 00:01:27,930
+then I pretty much just go for it. So for example,
+
+24
+00:01:28,440 --> 00:01:32,820
+whereas a flight to New Zealand normally costs something like 800 pounds,
+
+25
+00:01:33,240 --> 00:01:36,900
+I managed to get a flight for just a 350 pounds,
+
+26
+00:01:37,170 --> 00:01:39,030
+and it was such a good deal.
+
+27
+00:01:39,060 --> 00:01:43,170
+It even included a stopover in Beijing where I was able to get some tasty duck
+
+28
+00:01:43,710 --> 00:01:48,210
+before I went onto the next 12-hour flight. Another case, um,
+
+29
+00:01:48,240 --> 00:01:52,950
+was Japan where the flight normally costs around 500,
+
+30
+00:01:53,160 --> 00:01:58,140
+550. And I managed to find a flight that was just a 250 pounds return.
+
+31
+00:01:58,680 --> 00:02:02,880
+And the savings on the flight meant that I got to eat some extra tasty sushi.
+
+32
+00:02:03,420 --> 00:02:07,860
+The way that these deals come about is imagine if you go onto a flight search
+
+33
+00:02:07,860 --> 00:02:11,100
+website and you look for flights,
+
+34
+00:02:11,160 --> 00:02:12,990
+anytime in the next six months,
+
+35
+00:02:13,290 --> 00:02:16,590
+every day for lots of different locations.
+
+36
+00:02:16,980 --> 00:02:19,230
+Then you will see that at some point,
+
+37
+00:02:19,230 --> 00:02:23,490
+one of the flight prices will come up and it's much lower than what you expect
+
+38
+00:02:23,490 --> 00:02:27,600
+it to be. And that's how you get a good deal. But of course,
+
+39
+00:02:27,750 --> 00:02:30,420
+we're too busy to do that every single day manually.
+
+40
+00:02:30,810 --> 00:02:34,320
+So here's how my program works. First,
+
+41
+00:02:34,350 --> 00:02:39,350
+we have a Google sheet which keeps track of the locations that we want to visit
+
+42
+00:02:39,750 --> 00:02:44,520
+and a price cutoff. So a historical low price.
+
+43
+00:02:44,850 --> 00:02:45,683
+For example,
+
+44
+00:02:45,690 --> 00:02:50,690
+maybe I want to go to Carola and visit kitchen and eat some tasty South Indian
+
+45
+00:02:51,390 --> 00:02:52,470
+food. Well,
+
+46
+00:02:52,500 --> 00:02:57,060
+maybe I would set the price at 350 pounds return from London.
+
+47
+00:02:57,750 --> 00:03:02,560
+So we take this data from our Google sheet with lots of different locations
+
+48
+00:03:02,620 --> 00:03:07,180
+and their lowest prices and we feed that into a flight search API,
+
+49
+00:03:07,570 --> 00:03:11,260
+which is going to run every day, searching through all of the locations
+
+50
+00:03:11,530 --> 00:03:14,080
+looking for the cheapest flight in the next six months.
+
+51
+00:03:14,650 --> 00:03:19,420
+When it comes up with a hit and it finds a flight that's actually cheaper than
+
+52
+00:03:19,420 --> 00:03:20,800
+our predefined price,
+
+53
+00:03:21,100 --> 00:03:26,100
+then it's going to send that date and price via our Twilio SMS module to our
+
+54
+00:03:26,320 --> 00:03:29,110
+mobile phone so that we can book it right there
+
+55
+00:03:29,110 --> 00:03:33,160
+and then. That's the theory of it, but let's see it in action.
+
+56
+00:03:33,700 --> 00:03:38,700
+So here I've got the code for my personal flight club and I'm going to run it
+
+57
+00:03:39,490 --> 00:03:44,490
+and we're going to watch my phone and wait to see if there were any good deals
+
+58
+00:03:45,730 --> 00:03:46,900
+that they found today.
+
+59
+00:03:47,800 --> 00:03:52,800
+And we get a text message from our Twilio account and there we have it. Today's
+
+60
+00:03:54,580 --> 00:03:56,800
+message says low price alert,
+
+61
+00:03:57,010 --> 00:04:02,010
+only 41 pounds to fly from London Stansted to Berlin from the 25th of August to
+
+62
+00:04:03,970 --> 00:04:06,040
+the 10th of September.
+
+63
+00:04:06,670 --> 00:04:11,670
+That was triggered because it looked at my spreadsheet of flight prices and it
+
+64
+00:04:11,860 --> 00:04:14,770
+found that out of all of these locations,
+
+65
+00:04:15,220 --> 00:04:20,140
+the only flight that it found which was cheaper than my lowest price was
+
+66
+00:04:20,170 --> 00:04:22,600
+for Berlin. It was actually only one pound cheaper.
+
+67
+00:04:23,440 --> 00:04:27,190
+So now that I've got my message, I can go ahead and book my trip to Berlin.
+
+68
+00:04:28,720 --> 00:04:31,990
+But before I do that, we're going to complete this capstone project.
+
+69
+00:04:32,410 --> 00:04:36,670
+So head over to the next lesson and let's get started building this project.
+

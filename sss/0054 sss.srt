@@ -1,0 +1,3358 @@
+1
+00:00:00,510 --> 00:00:04,590
+Hey guys, welcome to day 54 of 100 days of Code.
+
+2
+00:00:05,010 --> 00:00:10,010
+And today we're going to be moving on to a new topic and that is going to be web
+
+3
+00:00:10,200 --> 00:00:11,033
+development.
+
+4
+00:00:11,220 --> 00:00:13,920
+And we're going to be working on this for the next few days as well.
+
+5
+00:00:14,520 --> 00:00:16,320
+Now there's quite a lot to cover today.
+
+6
+00:00:16,350 --> 00:00:20,670
+We're going to be talking about the command line, Python decorators,
+
+7
+00:00:20,970 --> 00:00:23,730
+as well as web development using Flask,
+
+8
+00:00:23,850 --> 00:00:28,170
+one of the most popular frameworks for creating websites using Python.
+
+9
+00:00:29,460 --> 00:00:32,490
+Now, before we get started though, you might be thinking, well,
+
+10
+00:00:32,549 --> 00:00:34,020
+I already know how to make websites.
+
+11
+00:00:34,110 --> 00:00:38,250
+I learned about HTML and CSS on days 41 through to 44.
+
+12
+00:00:38,250 --> 00:00:40,590
+So I really know how to make websites.
+
+13
+00:00:40,860 --> 00:00:44,520
+So what exactly is it that you're teaching me now? Well,
+
+14
+00:00:44,550 --> 00:00:45,720
+if you think of a website,
+
+15
+00:00:45,930 --> 00:00:49,950
+a simple website just contains HTML and CSS.
+
+16
+00:00:50,310 --> 00:00:53,310
+Now that is also what we call the front-end.
+
+17
+00:00:53,610 --> 00:00:58,380
+This is the beautiful mermaid that the user gets to see. Now for the website to
+
+18
+00:00:58,380 --> 00:01:02,760
+actually have some functionality, for example, if you're building a web app
+
+19
+00:01:02,790 --> 00:01:05,489
+instead of just a simple display website,
+
+20
+00:01:05,910 --> 00:01:08,070
+then it's also got to have a backend.
+
+21
+00:01:08,550 --> 00:01:12,300
+And the backend is the part that we're going to be learning how to build right
+
+22
+00:01:12,300 --> 00:01:13,133
+now.
+
+23
+00:01:13,620 --> 00:01:17,760
+So if the front end is just the part that displays information to the user,
+
+24
+00:01:18,060 --> 00:01:21,210
+the backend is the part that does a lot of the business logic,
+
+25
+00:01:21,240 --> 00:01:22,560
+a lot of the calculations,
+
+26
+00:01:22,890 --> 00:01:26,670
+and a lot of the things that we've been doing with Python. Now,
+
+27
+00:01:26,670 --> 00:01:29,370
+when people talk about full stack web development
+
+28
+00:01:29,430 --> 00:01:31,230
+which is a term that you would've heard of
+
+29
+00:01:31,260 --> 00:01:35,700
+if you were searching for web development jobs. Now full stack basically just
+
+30
+00:01:35,700 --> 00:01:37,830
+means frontend and backend.
+
+31
+00:01:37,890 --> 00:01:42,540
+So somebody who can deal with both frontend and backend technologies. Now,
+
+32
+00:01:42,540 --> 00:01:46,890
+usually there's quite a few languages that are used for the front and the back
+
+33
+00:01:46,890 --> 00:01:49,620
+end. So the front it's usually HTML,
+
+34
+00:01:49,620 --> 00:01:53,460
+CSS and JavaScript. HTML gives the website structure,
+
+35
+00:01:53,490 --> 00:01:58,410
+CSS gives it style and JavaScript allows it to have some sort of interactivity.
+
+36
+00:01:59,070 --> 00:02:02,880
+Now the backend can also be created by a bunch of different languages,
+
+37
+00:02:03,240 --> 00:02:08,190
+and here is more of a choice. Um, you could choose between JavaScript, Java,
+
+38
+00:02:08,220 --> 00:02:09,479
+Python, Ruby,
+
+39
+00:02:09,660 --> 00:02:13,110
+there's whole bunch of different languages. To make it even more
+
+40
+00:02:13,110 --> 00:02:15,930
+complicated, in addition to languages,
+
+41
+00:02:16,140 --> 00:02:19,560
+there's also different frameworks that you could use for the front and back end.
+
+42
+00:02:19,980 --> 00:02:21,930
+So some popular frameworks you might have heard of
+
+43
+00:02:21,930 --> 00:02:26,930
+are things like Angular and Rreact from the front end and Node and Flask or Django
+
+44
+00:02:27,240 --> 00:02:28,073
+for the backend.
+
+45
+00:02:29,430 --> 00:02:34,290
+So these frameworks are basically tools that really come with a lot of code
+
+46
+00:02:34,350 --> 00:02:38,700
+prebuilt for a lot of the common functionalities that you find when building
+
+47
+00:02:38,700 --> 00:02:39,900
+the front and back end.
+
+48
+00:02:40,290 --> 00:02:44,610
+So that way, we don't always have to reinvent the wheel and we can simply just
+
+49
+00:02:44,700 --> 00:02:49,200
+use the wheel and build a bicycle or build a car or built a scooter and whatever
+
+50
+00:02:49,200 --> 00:02:52,170
+it is that we want. Now,
+
+51
+00:02:52,170 --> 00:02:54,270
+when we're considering Python backend,
+
+52
+00:02:54,330 --> 00:02:58,350
+there's a whole myriad of different frameworks that you could choose from.
+
+53
+00:02:58,650 --> 00:03:02,410
+For example, Flask, Django, Bottle, Cherry pie, pyramid,
+
+54
+00:03:02,770 --> 00:03:07,120
+and a whole bunch more. But the most popular ones, if you look at job search
+
+55
+00:03:07,150 --> 00:03:07,720
+anyways,
+
+56
+00:03:07,720 --> 00:03:12,720
+is Flask and Django where Flask is better suited to beginners and also small
+
+57
+00:03:14,800 --> 00:03:19,800
+projects and Django suited much more to larger commercial projects. In order to
+
+58
+00:03:20,830 --> 00:03:25,030
+build out a website which has a front end and a backend,
+
+59
+00:03:25,330 --> 00:03:28,330
+we have to kind of understand what exactly is the backend.
+
+60
+00:03:29,380 --> 00:03:32,800
+There's three components that you really need to understand when it comes to the
+
+61
+00:03:32,800 --> 00:03:35,770
+backend. And that is the client,
+
+62
+00:03:36,220 --> 00:03:38,440
+the server and the database.
+
+63
+00:03:39,100 --> 00:03:43,390
+These three components together will determine how your backend will work.
+
+64
+00:03:44,020 --> 00:03:45,280
+Now, firstly, the client,
+
+65
+00:03:45,280 --> 00:03:49,630
+you can sort of imagine just as a user going onto a browser,
+
+66
+00:03:49,930 --> 00:03:53,110
+this is the client's side. This is the part that faces the user.
+
+67
+00:03:53,890 --> 00:03:55,570
+And then there's the server.
+
+68
+00:03:55,930 --> 00:04:00,040
+So you can think of the server as basically just a powerful computer
+
+69
+00:04:00,310 --> 00:04:03,430
+that's hooked up to the internet and it's on 24/7
+
+70
+00:04:03,790 --> 00:04:07,780
+always ready to receive requests over the internet. Finally,
+
+71
+00:04:07,780 --> 00:04:08,950
+you've got the database
+
+72
+00:04:09,100 --> 00:04:12,670
+which is kind of like a souped up spreadsheet where you are storing all the
+
+73
+00:04:12,670 --> 00:04:15,130
+information related to your website.
+
+74
+00:04:15,730 --> 00:04:19,300
+So let's say the client wanted to go to google.com. Well,
+
+75
+00:04:19,300 --> 00:04:22,480
+when they type that into the URL bar and they hit enter,
+
+76
+00:04:22,750 --> 00:04:26,080
+that gets sent to the server as a request,
+
+77
+00:04:26,620 --> 00:04:30,490
+and this goes across the internet to this other computer.
+
+78
+00:04:30,940 --> 00:04:35,940
+And this server has to respond. And it responds by sending over the HTML, CSS and
+
+79
+00:04:38,410 --> 00:04:42,220
+JavaScript files that it has for that particular website.
+
+80
+00:04:42,640 --> 00:04:45,340
+And once that gets sent back to the browser,
+
+81
+00:04:45,430 --> 00:04:50,380
+then that can be rendered by the browser as the actual webpage. Now,
+
+82
+00:04:50,410 --> 00:04:54,430
+if you're a website that has a lot of use of data or different types of data
+
+83
+00:04:54,430 --> 00:04:59,140
+that could be requested by a user, then usually you'll have a database.
+
+84
+00:04:59,470 --> 00:05:02,020
+So when the client requests, for example,
+
+85
+00:05:02,020 --> 00:05:05,320
+to see all the tickets they have on Eventbrite, well,
+
+86
+00:05:05,320 --> 00:05:09,100
+the page that they're viewing, that is the front end. That is the client side.
+
+87
+00:05:09,550 --> 00:05:12,610
+But in order to render all the tickets they have,
+
+88
+00:05:12,910 --> 00:05:17,890
+the client makes the request to the server and the server fetches the data from
+
+89
+00:05:17,890 --> 00:05:21,310
+the database. Once it gets the data back from the database,
+
+90
+00:05:21,550 --> 00:05:25,450
+it puts the data into the HTML, CSS and JavaScript files,
+
+91
+00:05:25,780 --> 00:05:30,780
+and it sends the whole bundle back to the browser to be viewed by the user.
+
+92
+00:05:31,930 --> 00:05:36,160
+If this whole process seems a little bit convoluted and complex, don't worry.
+
+93
+00:05:36,400 --> 00:05:40,270
+We're going to be diving deep into creating our server, creating our database,
+
+94
+00:05:40,570 --> 00:05:44,170
+and we're going to be creating all of these parts from scratch step-by-step
+
+95
+00:05:44,200 --> 00:05:47,620
+ourselves. So at the end of the web-dev section,
+
+96
+00:05:47,860 --> 00:05:50,080
+you'll find that if you come back to this video,
+
+97
+00:05:50,170 --> 00:05:52,120
+everything's going to make a lot more sense.
+
+98
+00:05:53,140 --> 00:05:57,100
+Now in order for you to have a good overview of what the whole system looks
+
+99
+00:05:57,110 --> 00:06:00,530
+like, I'd like to use the analogy of a restaurant.
+
+100
+00:06:01,250 --> 00:06:05,480
+So imagine if you have a restaurant and you've got the front of house
+
+101
+00:06:05,480 --> 00:06:06,830
+which is where the tables are,
+
+102
+00:06:06,880 --> 00:06:09,100
+when the customer sit. And then
+
+103
+00:06:09,130 --> 00:06:10,240
+you've got the kitchen
+
+104
+00:06:10,270 --> 00:06:13,690
+which is where the chefs work and where you're creating all the dishes.
+
+105
+00:06:14,050 --> 00:06:15,790
+And finally, you've also got the larder
+
+106
+00:06:15,790 --> 00:06:20,080
+which is where you store all the ingredients in the fridge or on the shelves.
+
+107
+00:06:20,770 --> 00:06:23,590
+Now this front of house part
+
+108
+00:06:23,710 --> 00:06:28,300
+which is where the user seats in is the client site. Now in the middle,
+
+109
+00:06:28,300 --> 00:06:32,770
+we've got the kitchen, which is the server. And finally we've got the larder
+
+110
+00:06:32,800 --> 00:06:35,590
+which is basically the database of ingredients.
+
+111
+00:06:36,130 --> 00:06:41,050
+Now the client side is completely separate from the rest. So as a user,
+
+112
+00:06:41,050 --> 00:06:42,310
+when I go onto a website,
+
+113
+00:06:42,580 --> 00:06:46,900
+I'm not interacting with the server or the database directly. Instead,
+
+114
+00:06:46,900 --> 00:06:50,740
+I'm interacting with my browser, which is on the client side. Now,
+
+115
+00:06:50,770 --> 00:06:55,270
+when you go to a website and you request to see some piece of information,
+
+116
+00:06:55,300 --> 00:06:58,600
+for example, you log in to Spotify and you want to view your playlists,
+
+117
+00:06:58,990 --> 00:07:01,020
+what actually happens is, you know,
+
+118
+00:07:01,020 --> 00:07:04,420
+you don't have the chef sort of cooking up the dish in front of you on the
+
+119
+00:07:04,420 --> 00:07:05,860
+client side. No,
+
+120
+00:07:05,920 --> 00:07:10,920
+instead what happens is that the server fetches the relevant ingredients from
+
+121
+00:07:12,160 --> 00:07:16,330
+the database, so the data that's related to your Spotify playlist,
+
+122
+00:07:16,720 --> 00:07:21,100
+and then it takes that data and it renders it into a HTML,
+
+123
+00:07:21,130 --> 00:07:23,020
+CSS and JavaScript files.
+
+124
+00:07:23,440 --> 00:07:26,410
+And then once that endproduct is created,
+
+125
+00:07:26,680 --> 00:07:30,910
+it ships it out to the browser on the client side, which you
+
+126
+00:07:30,940 --> 00:07:33,040
+as the user, can now view.
+
+127
+00:07:33,700 --> 00:07:38,700
+So this is basically an overview of how our frontend and our backend interact in
+
+128
+00:07:39,790 --> 00:07:43,810
+order to create a website experience for people. And in the coming lessons,
+
+129
+00:07:43,810 --> 00:07:47,710
+we're going to be building out each of these parts and you gonna see in greater
+
+130
+00:07:47,710 --> 00:07:51,850
+detail how they work together. So head over to the next lesson
+
+131
+00:07:52,000 --> 00:07:54,940
+and we'll get started building our very first website.
+
+
+132
+00:00:00,600 --> 00:00:04,670
+All right. Let's get started developing websites using Flask.
+
+133
+00:00:05,330 --> 00:00:09,350
+Now Flask is one of the most popular web development frameworks,
+
+134
+00:00:09,860 --> 00:00:13,490
+but what does it mean to be a framework? Well,
+
+135
+00:00:13,880 --> 00:00:18,710
+we've seen libraries before like Beautiful Soup. Tools that we can use and tap
+
+136
+00:00:18,710 --> 00:00:22,760
+into whenever we need a particular piece of functionality. Now,
+
+137
+00:00:22,820 --> 00:00:26,990
+a framework is a little bit like a library in the sense that it's a package of
+
+138
+00:00:26,990 --> 00:00:30,770
+code that you didn't write, but it also got some differences.
+
+139
+00:00:31,100 --> 00:00:35,960
+So here I've got a graphic from the differencebetween.net and one of the
+
+140
+00:00:35,960 --> 00:00:40,960
+biggest differences is the fact that a library is something which you call upon
+
+141
+00:00:43,580 --> 00:00:45,140
+to do something specific.
+
+142
+00:00:45,620 --> 00:00:50,120
+Whereas a framework is something which you have to abide by their rules,
+
+143
+00:00:50,390 --> 00:00:52,610
+you have to use their architecture.
+
+144
+00:00:53,000 --> 00:00:56,990
+And when it comes to triggering some sort of functionality,
+
+145
+00:00:57,260 --> 00:01:00,530
+it's the framework that calls upon your code.
+
+146
+00:01:01,190 --> 00:01:02,960
+So what does that mean? Well,
+
+147
+00:01:02,990 --> 00:01:07,990
+remember when we used the requests library and we would say something like requests
+
+148
+00:01:08,210 --> 00:01:12,980
+.get and then we would tell it which webpage to go and fetch.
+
+149
+00:01:13,400 --> 00:01:13,820
+Well,
+
+150
+00:01:13,820 --> 00:01:18,650
+this is us tapping into that library and then giving it a command to do
+
+151
+00:01:18,650 --> 00:01:22,100
+something. Now, when we're working with a framework,
+
+152
+00:01:22,130 --> 00:01:25,400
+it doesn't really work like that. We don't really say, hey framework,
+
+153
+00:01:25,430 --> 00:01:27,530
+do this thing for us. Instead,
+
+154
+00:01:27,560 --> 00:01:32,560
+we make sure that our code is defined in a way that the framework wants it to
+
+155
+00:01:32,690 --> 00:01:34,910
+be. And then when the time is right,
+
+156
+00:01:35,090 --> 00:01:38,390
+the framework is actually going to call our methods
+
+157
+00:01:38,780 --> 00:01:41,090
+instead of us calling the framework.
+
+158
+00:01:41,600 --> 00:01:45,950
+All we have to do is to plan ahead for certain situations.
+
+159
+00:01:46,280 --> 00:01:51,020
+If it was this situation, what do we want to happen? If it was that situation,
+
+160
+00:01:51,200 --> 00:01:52,640
+what code it should be run?
+
+161
+00:01:53,060 --> 00:01:57,530
+So it might be that all you have to do is just write some functions like hello
+
+162
+00:01:57,530 --> 00:02:00,110
+world and when the user goes to the website,
+
+163
+00:02:00,440 --> 00:02:03,440
+then it's going to display this text Hello world.
+
+164
+00:02:04,700 --> 00:02:07,700
+Let's try this in practice. Now by
+
+165
+00:02:07,700 --> 00:02:10,070
+now you would of known that as developers,
+
+166
+00:02:10,400 --> 00:02:14,420
+especially now that we're in the advanced stages of becoming a Python developer,
+
+167
+00:02:14,790 --> 00:02:19,790
+the most important thing when we approach a new tool or a new technology is to
+
+168
+00:02:19,790 --> 00:02:21,140
+read the documentation.
+
+169
+00:02:21,770 --> 00:02:26,770
+So Flask actually has a really good piece of documentation in order to tell us
+
+170
+00:02:27,110 --> 00:02:32,090
+how to get started quickly using Flask. As you can see,
+
+171
+00:02:32,090 --> 00:02:36,200
+they've described what a minimal Flask application looks like.
+
+172
+00:02:36,530 --> 00:02:40,730
+And this is a very simple server set up with flask.
+
+173
+00:02:41,300 --> 00:02:46,040
+So let's go ahead and copy this code. And I'm going to create a new project
+
+174
+00:02:46,100 --> 00:02:50,360
+which I've decided to call hello_flask. And then in this project folder,
+
+175
+00:02:50,420 --> 00:02:54,710
+I'm going to create a new file which I'll call hello.py.
+
+176
+00:02:55,640 --> 00:03:00,640
+Now it's important that the name of your file does not conflict with the name of
+
+177
+00:03:01,180 --> 00:03:04,720
+the framework or library in fact. So for example,
+
+178
+00:03:04,720 --> 00:03:08,170
+if I was to create a file called requests.py
+
+179
+00:03:08,620 --> 00:03:10,540
+and I had, um,
+
+180
+00:03:10,750 --> 00:03:13,750
+imported the requests library.
+
+181
+00:03:14,350 --> 00:03:17,650
+And then I tried to do something like requests.get.
+
+182
+00:03:19,210 --> 00:03:20,650
+Now when I run this,
+
+183
+00:03:20,680 --> 00:03:25,680
+because the name of my file conflicts with the name of the module, what will happen is
+
+184
+00:03:26,530 --> 00:03:30,610
+I will get this error. And it might be a little bit confusing
+
+185
+00:03:30,610 --> 00:03:34,660
+cause it says, well, request has no attribute get. Well
+
+186
+00:03:34,660 --> 00:03:37,330
+we know it does because it's in the documentation.
+
+187
+00:03:37,750 --> 00:03:42,750
+And the reason why we're getting this error is because we've named this file
+
+188
+00:03:43,690 --> 00:03:45,730
+the same name as the module.
+
+189
+00:03:46,120 --> 00:03:48,850
+So this is something that happens to a lot of people
+
+190
+00:03:49,120 --> 00:03:54,120
+so make sure that you don't commit this mistake and you could name it anything
+
+191
+00:03:54,460 --> 00:03:59,350
+like main or server or hello in our case. Notice that now
+
+192
+00:03:59,350 --> 00:04:03,730
+if I change the name, it actually automatically changed the import
+
+193
+00:04:04,000 --> 00:04:08,380
+which is not what we want. We want the import to be requests
+
+194
+00:04:08,620 --> 00:04:12,760
+and we want to make sure that we install our package  requests.
+
+195
+00:04:14,140 --> 00:04:15,640
+And once that's done,
+
+196
+00:04:15,700 --> 00:04:19,720
+you can see our module and our file have completely different names.
+
+197
+00:04:20,110 --> 00:04:22,060
+So now, if I run this file,
+
+198
+00:04:22,120 --> 00:04:25,450
+it works perfectly and it ends with exit code zero,
+
+199
+00:04:25,510 --> 00:04:27,490
+which means everything was successful.
+
+200
+00:04:28,240 --> 00:04:31,510
+So now I'm going to go ahead and delete this file
+
+201
+00:04:33,670 --> 00:04:38,410
+and go back to our hello.py. Now inside our hello.py
+
+202
+00:04:38,470 --> 00:04:43,470
+I'm going to paste in the minimal Flask application from the Flask 
+
+203
+00:04:44,020 --> 00:04:47,080
+documentation. So paste that right here.
+
+204
+00:04:47,740 --> 00:04:49,510
+And as you might remember,
+
+205
+00:04:49,570 --> 00:04:54,310
+there's several ways that we can install new modules. So in this case,
+
+206
+00:04:54,310 --> 00:04:59,310
+the module is Flask and we can either click on the red light bulb to install
+
+207
+00:05:00,160 --> 00:05:05,050
+this package. Alternatively, we can go to PyCharm, preferences,
+
+208
+00:05:05,380 --> 00:05:10,380
+and then go to our project and into the interpreter to add the Flask package like
+
+209
+00:05:12,790 --> 00:05:13,380
+this.
+
+210
+00:05:13,380 --> 00:05:14,213
+Right.
+
+211
+00:05:16,470 --> 00:05:19,260
+Now, if you have the PyCharm professional edition,
+
+212
+00:05:19,770 --> 00:05:24,360
+there's additional tools to make it easier to install Flask into a project and
+
+213
+00:05:24,360 --> 00:05:28,620
+to work with Flask projects. But because we're using the free community edition,
+
+214
+00:05:28,680 --> 00:05:30,960
+I'm just going to go ahead and dismiss that popup.
+
+215
+00:05:31,620 --> 00:05:34,290
+So I've shown you two ways of installing a package.
+
+216
+00:05:34,440 --> 00:05:36,090
+Now I want to show you the third way,
+
+217
+00:05:36,660 --> 00:05:40,650
+which you might come across if you're looking at the installation.
+
+218
+00:05:41,850 --> 00:05:44,730
+So notice here, in order to install Flask,
+
+219
+00:05:44,760 --> 00:05:47,550
+they're using pip install Flask.
+
+220
+00:05:48,930 --> 00:05:53,930
+So pip is something that allows us to install Python packages from pypi.
+
+221
+00:05:55,620 --> 00:06:00,590
+So any package that you on pypi.org, you can install using pip.
+
+222
+00:06:01,280 --> 00:06:05,930
+And what we have to do is to type in the name that you see right here.
+
+223
+00:06:07,010 --> 00:06:08,930
+For example, if we want to install Flask,
+
+224
+00:06:08,990 --> 00:06:13,400
+then it's pip install and it's the capital F for Flask.
+
+225
+00:06:13,790 --> 00:06:15,980
+So we can copy that into our clipboard.
+
+226
+00:06:16,460 --> 00:06:18,680
+And if we go to the terminal tab at the bottom,
+
+227
+00:06:18,950 --> 00:06:22,700
+we can paste that instruction in here and hit enter.
+
+228
+00:06:23,630 --> 00:06:28,520
+Now it should have successfully installed Flask . And once I dismiss that,
+
+229
+00:06:28,520 --> 00:06:32,660
+you can see my errors go away. So all three methods work.
+
+230
+00:06:32,720 --> 00:06:36,140
+I personally prefer the red light bulb, just because it's much quicker.
+
+231
+00:06:36,410 --> 00:06:41,360
+It's just two clicks rather than typing a lot of code. Now,
+
+232
+00:06:41,360 --> 00:06:42,860
+once we've installed Flask,
+
+233
+00:06:43,160 --> 00:06:47,870
+we can go ahead and add some space to get rid of all the warnings from Py
+
+234
+00:06:47,870 --> 00:06:52,460
+Charm. Um, we can go ahead and run our project.
+
+235
+00:06:54,020 --> 00:06:57,050
+Now, as soon as I run the project, you can see
+
+236
+00:06:57,050 --> 00:07:00,080
+it tells me the process was finished with exit code zero,
+
+237
+00:07:00,110 --> 00:07:02,240
+which means everything was successful,
+
+238
+00:07:02,630 --> 00:07:05,540
+but where's my server and where's my website.
+
+239
+00:07:06,770 --> 00:07:11,180
+So let's go back to the Quickstart to see what we actually have to do in order
+
+240
+00:07:11,180 --> 00:07:15,350
+to set up our server. So to run our Flask application,
+
+241
+00:07:15,380 --> 00:07:20,090
+we're going to firstly, need to export a environment variable.
+
+242
+00:07:20,450 --> 00:07:23,420
+So in previous lessons, we've talked about environment variables,
+
+243
+00:07:23,720 --> 00:07:26,810
+but basically this is going to tell the Flask framework
+
+244
+00:07:27,050 --> 00:07:30,710
+what is the name of the file that contains our server.
+
+245
+00:07:31,010 --> 00:07:33,830
+So in our case, as well as in the Quickstart,
+
+246
+00:07:34,010 --> 00:07:36,710
+the name of that file is hello.py.
+
+247
+00:07:37,220 --> 00:07:41,810
+So we basically have to point to that file to get Flask 
+
+248
+00:07:41,840 --> 00:07:46,700
+to be able to recognize it and to use it as the server. So on Mac
+
+249
+00:07:46,760 --> 00:07:50,030
+we're going to type export space
+
+250
+00:07:50,270 --> 00:07:53,540
+and then we're going to put in the name of the environment variable
+
+251
+00:07:53,810 --> 00:07:58,670
+which is FLASK_APP and its all caps.
+
+252
+00:07:58,850 --> 00:08:02,000
+And then with no spaces, we've got a equal sign
+
+253
+00:08:02,420 --> 00:08:05,990
+and then the name of our file, which is hello.py.
+
+254
+00:08:06,650 --> 00:08:08,420
+So now when I hit enter,
+
+255
+00:08:08,540 --> 00:08:12,980
+that's going to add that environment variable under the name that Flask is
+
+256
+00:08:12,980 --> 00:08:16,730
+expecting, which is flask.app. Now,
+
+257
+00:08:16,790 --> 00:08:19,640
+as it mentions in the Quickstart, if you're on Windows
+
+258
+00:08:19,670 --> 00:08:23,480
+the keyword is not export, but instead it's set.
+
+259
+00:08:24,710 --> 00:08:28,730
+So again, inside your terminal down here, you're going to type set.
+
+260
+00:08:29,090 --> 00:08:32,510
+And then you're going to put in the name of that environment variable
+
+261
+00:08:32,720 --> 00:08:37,720
+which was FLASK_APP and then with no space equals and it's our hello
+
+262
+00:08:39,590 --> 00:08:44,059
+.py. And once you hit enter,
+
+263
+00:08:44,420 --> 00:08:48,320
+it should give you the prompt again indicating that everything went smoothly.
+
+264
+00:08:49,130 --> 00:08:50,990
+Now, once we've done that,
+
+265
+00:08:51,290 --> 00:08:55,380
+the next step is to simply use the Flask command called run.
+
+266
+00:08:59,180 --> 00:09:03,590
+And when I hit enter, you'll see that it's created my server.
+
+267
+00:09:03,620 --> 00:09:08,620
+So it's serving up the Flask app that I've created in hello.py
+
+268
+00:09:09,830 --> 00:09:14,810
+and we're get a warning telling us that this is a development server and telling
+
+269
+00:09:14,810 --> 00:09:18,110
+us that if you want to actually launch it as a product,
+
+270
+00:09:18,470 --> 00:09:22,430
+don't use this development server. There's a few steps 
+
+271
+00:09:22,430 --> 00:09:26,780
+you have to carry out if you actually wanted to make this production ready and
+
+272
+00:09:26,780 --> 00:09:30,350
+ready for the internet and customers. But in our case,
+
+273
+00:09:30,500 --> 00:09:33,500
+we are developing. So this is perfect.
+
+274
+00:09:33,950 --> 00:09:38,950
+And it tells us where to go and find our website.
+
+275
+00:09:39,650 --> 00:09:42,740
+So if you imagine that Google is at https://
+
+276
+00:09:42,770 --> 00:09:45,200
+www.google.com. Well,
+
+277
+00:09:45,200 --> 00:09:50,200
+this is the address of our website and it's being served by our computer.
+
+278
+00:09:53,000 --> 00:09:56,150
+So when you're trying to get hold of a website on the internet,
+
+279
+00:09:56,540 --> 00:10:00,320
+then you have to point towards the IP address
+
+280
+00:10:00,470 --> 00:10:02,150
+of that particular webpage.
+
+281
+00:10:02,630 --> 00:10:07,490
+But because we've created our server locally and it's being served on our own
+
+282
+00:10:07,490 --> 00:10:12,050
+computer, then this is basically the local address
+
+283
+00:10:12,230 --> 00:10:13,063
+of that website.
+
+284
+00:10:13,820 --> 00:10:18,230
+Now a neat thing about PyCharm is if I simply just click on this link,
+
+285
+00:10:18,440 --> 00:10:23,440
+then it's going to launch my website in my browser and you can see right up
+
+286
+00:10:24,350 --> 00:10:27,320
+here, we've got hello world showing up
+
+287
+00:10:27,680 --> 00:10:32,060
+which is the same as what we've got here in this method.
+
+288
+00:10:33,410 --> 00:10:38,410
+So that proves that we've successfully managed to create our very first web
+
+289
+00:10:39,140 --> 00:10:40,970
+server using Flask.
+
+290
+00:10:41,210 --> 00:10:45,680
+And it's able to serve up our very first Flask website. Now,
+
+291
+00:10:45,710 --> 00:10:50,120
+if you go ahead and open up the Chrome developer tools and you go to elements,
+
+292
+00:10:50,540 --> 00:10:54,920
+you can see that what we wrote here which is just a string
+
+293
+00:10:55,190 --> 00:10:59,330
+was actually converted by Flask into full HTML.
+
+294
+00:10:59,360 --> 00:11:01,790
+It's got the HTML tag, it's got the head tag,
+
+295
+00:11:01,790 --> 00:11:04,820
+it's got the body tag and we didn't have to do any of this.
+
+296
+00:11:04,850 --> 00:11:09,560
+We just told Flask what we wanted to be returned onto the page
+
+297
+00:11:09,860 --> 00:11:12,650
+when the user goes to the homepage,
+
+298
+00:11:12,860 --> 00:11:16,190
+which has just the web address plus a forward slash.
+
+299
+00:11:16,700 --> 00:11:20,570
+Now the very last thing to remember is once we're done with our server,
+
+300
+00:11:20,600 --> 00:11:22,760
+because it's still ongoing
+
+301
+00:11:22,760 --> 00:11:27,350
+it's still waiting for a client to hit up this website,
+
+302
+00:11:27,800 --> 00:11:32,800
+we have to get it to stop waiting. So we can quit by holding down control and
+
+303
+00:11:33,470 --> 00:11:38,390
+then pressing C. And you can see this takes us back to our prompt
+
+304
+00:11:38,450 --> 00:11:42,620
+where we've got our name and our project. Now,
+
+305
+00:11:42,650 --> 00:11:47,650
+if you don't stop it and you try to run two Flask applications to the same
+
+306
+00:11:47,780 --> 00:11:50,630
+address then the second one is simply not going to run.
+
+307
+00:11:51,320 --> 00:11:55,960
+So just be aware that once you're done with your server, hit control+c to quit.
+
+308
+00:11:57,130 --> 00:11:58,570
+Now in the next lesson,
+
+309
+00:11:58,630 --> 00:12:02,620
+I want to talk a little bit more about the commands that you can use in the
+
+310
+00:12:02,620 --> 00:12:06,580
+terminal because this is called the command line.
+
+311
+00:12:06,880 --> 00:12:11,880
+And just as here we use the command line to run our Flask application, to export
+
+312
+00:12:13,510 --> 00:12:18,340
+our environment variables, we can also do other things like create folders,
+
+313
+00:12:18,340 --> 00:12:22,060
+create files, move files around. It's actually a very,
+
+314
+00:12:22,090 --> 00:12:25,330
+very powerful way of interacting with our computer.
+
+315
+00:12:26,080 --> 00:12:30,370
+That's what we're going to do in the next lesson. So for all of that and more,
+
+316
+00:12:30,640 --> 00:12:31,120
+I'll see you there.
+
+
+317
+00:00:00,120 --> 00:00:00,450
+Now,
+
+318
+00:00:00,450 --> 00:00:05,370
+in the last lesson, we saw how to get up and running with our brand new Flask
+
+319
+00:00:05,400 --> 00:00:07,590
+server. In this lesson
+
+320
+00:00:07,650 --> 00:00:11,700
+I want to take it back a little bit and talk briefly about some of these
+
+321
+00:00:11,700 --> 00:00:14,070
+commands that we put into the terminal here,
+
+322
+00:00:14,970 --> 00:00:18,650
+because the terminal is actually a really powerful tool.
+
+323
+00:00:19,490 --> 00:00:24,490
+And it's something that's also referred to as the command line and its a way of
+
+324
+00:00:24,710 --> 00:00:29,660
+typing in commands one line at a time in order to control our computer.
+
+325
+00:00:30,740 --> 00:00:33,350
+The command line is also known as the shell.
+
+326
+00:00:34,040 --> 00:00:36,560
+So what exactly is a shell?
+
+327
+00:00:37,310 --> 00:00:40,910
+If you think about your operating system as a pistachio nut,
+
+328
+00:00:41,210 --> 00:00:45,080
+then the kernels of the actual pistachio, the thing that you're going to eat,
+
+329
+00:00:45,290 --> 00:00:47,270
+I'm really sorry about all the food analogies.
+
+330
+00:00:47,390 --> 00:00:50,840
+You can clearly tell I'm pretty much hungry most of the time when I'm recording
+
+331
+00:00:50,870 --> 00:00:53,510
+these videos, but let's get back to the topic.
+
+332
+00:00:53,570 --> 00:00:57,320
+So if your operating system is a pistachio,
+
+333
+00:00:57,680 --> 00:01:01,190
+then the actual nut is the kernel. And in computing
+
+334
+00:01:01,190 --> 00:01:06,190
+the kernel refers to the actual program that interfaces with the hardware.
+
+335
+00:01:06,740 --> 00:01:10,490
+So it's the core of your operating system. Now,
+
+336
+00:01:10,490 --> 00:01:15,350
+the shell of your pistachio or the shell  in computing refers to
+
+337
+00:01:15,500 --> 00:01:18,650
+the user interface for you as a human
+
+338
+00:01:18,680 --> 00:01:23,680
+to be able to interact with the kernel and in turn with the hardware of your
+
+339
+00:01:24,200 --> 00:01:27,710
+computer. And there's two variants to the shell.
+
+340
+00:01:28,010 --> 00:01:32,000
+There are graphical user interface shells, so for example,
+
+341
+00:01:32,000 --> 00:01:33,380
+when you open up finder
+
+342
+00:01:33,410 --> 00:01:38,410
+you're using a graphical user interface to access and find your files.
+
+343
+00:01:38,870 --> 00:01:41,750
+But there's also a command line interface
+
+344
+00:01:41,810 --> 00:01:44,540
+which is what we're going to be talking about and what we're going to be
+
+345
+00:01:44,540 --> 00:01:46,130
+learning about in this module.
+
+346
+00:01:46,430 --> 00:01:50,390
+So this is an alternative way of interfacing with the kernel.
+
+347
+00:01:50,810 --> 00:01:53,210
+Now it can seem intimidating at first,
+
+348
+00:01:53,360 --> 00:01:56,270
+but I want to show you that it's actually super simple.
+
+349
+00:01:56,510 --> 00:01:59,480
+And once you understand it, you're going to see that it's actually really,
+
+350
+00:01:59,480 --> 00:02:01,880
+really useful tool at your disposal.
+
+351
+00:02:02,660 --> 00:02:06,020
+A lot of the things that you can do with command line can be done using the
+
+352
+00:02:06,020 --> 00:02:08,620
+graphical user interface. So why use
+
+353
+00:02:08,870 --> 00:02:11,540
+the command line at all? At the end of the day,
+
+354
+00:02:11,540 --> 00:02:15,350
+what it all boils down to is about greater control.
+
+355
+00:02:15,830 --> 00:02:19,280
+And in your journey of becoming a better developer,
+
+356
+00:02:19,430 --> 00:02:24,430
+you will need to understand and exert more power over your tools,
+
+357
+00:02:25,250 --> 00:02:29,120
+that is the computer hardware. But on a more day to day basis,
+
+358
+00:02:29,150 --> 00:02:31,970
+you will find that if you're a regular command-line user
+
+359
+00:02:32,240 --> 00:02:37,240
+that it's actually easier and faster to do a lot of really common things.
+
+360
+00:02:38,480 --> 00:02:42,920
+If you're a Mac user, you've actually got a dedicated terminal application.
+
+361
+00:02:43,220 --> 00:02:47,510
+So if you go to spotlight and hit the search button and look for the terminal
+
+362
+00:02:47,810 --> 00:02:52,580
+and hit enter, you can see that this is the actual terminal application.
+
+363
+00:02:52,910 --> 00:02:56,390
+Now I've styled it up to look a bit more like a hacker because I like scaring
+
+364
+00:02:56,390 --> 00:02:59,920
+people in Starbucks, but that's not the only you can change.
+
+365
+00:02:59,950 --> 00:03:01,930
+You can change the color of your terminal,
+
+366
+00:03:02,410 --> 00:03:06,850
+you can also change the type of shell you're using. Currently,
+
+367
+00:03:06,850 --> 00:03:11,020
+if you are running macOS Catalina or above, so Big Sur
+
+368
+00:03:11,050 --> 00:03:15,250
+or any of the future operating systems, you're going to be using zsh
+
+369
+00:03:15,550 --> 00:03:17,830
+which has now the default Mac shell.
+
+370
+00:03:18,960 --> 00:03:19,793
+All right,
+
+371
+00:03:21,480 --> 00:03:25,770
+Now, if you're on Windows however, the default shell is the command prompt.
+
+372
+00:03:25,920 --> 00:03:30,450
+So if you type in to search for the command prompt, you can see
+
+373
+00:03:30,450 --> 00:03:34,440
+this is the app you need to launch and this is your command prompt.
+
+374
+00:03:35,490 --> 00:03:39,180
+For the most part, you can type in the same commands on Windows and on Mac
+
+375
+00:03:39,540 --> 00:03:41,040
+and it will work on both.
+
+376
+00:03:41,700 --> 00:03:46,140
+I want to show you some common things we can do in the terminal. Here
+
+377
+00:03:46,170 --> 00:03:51,170
+I've got my terminal and the address of the terminal is determined by the part
+
+378
+00:03:52,290 --> 00:03:57,180
+that's just before the prompt. So at the moment, it's a ~ on my Mac.
+
+379
+00:03:57,900 --> 00:04:01,380
+There's a couple of things I want to show you that you can do with the terminal.
+
+380
+00:04:01,920 --> 00:04:06,920
+The first thing that's really useful to know is where am I in my file path?
+
+381
+00:04:07,710 --> 00:04:12,450
+And to do this, we have to write pwd, print working directory.
+
+382
+00:04:12,930 --> 00:04:17,100
+And this tells me where I am. Once you open up your finder
+
+383
+00:04:17,160 --> 00:04:21,660
+as you can see up here, go to view and then go to show path bar.
+
+384
+00:04:22,170 --> 00:04:27,170
+And this is showing us the path from our hard drive/ users/angela,
+
+385
+00:04:28,470 --> 00:04:33,470
+which is exactly the same location as what I've got now in my terminal.
+
+386
+00:04:34,260 --> 00:04:38,970
+So the print working directory is really useful for you to locate where you are.
+
+387
+00:04:40,140 --> 00:04:43,920
+Similarly, on Windows, you can see when I do print working directory,
+
+388
+00:04:44,220 --> 00:04:48,570
+it tells me that I'm in the C:\users\username.
+
+389
+00:04:48,900 --> 00:04:53,700
+So C drive, users, username... right here.
+
+390
+00:04:56,670 --> 00:05:00,150
+The next command that is really useful is ls,
+
+391
+00:05:00,210 --> 00:05:02,340
+which stands for list.
+
+392
+00:05:03,210 --> 00:05:08,210
+And what this does is it will list all of the files and folders at your current
+
+393
+00:05:08,940 --> 00:05:10,020
+working directory.
+
+394
+00:05:10,290 --> 00:05:14,430
+So it's going to list everything that's in this current location where I am at
+
+395
+00:05:14,700 --> 00:05:17,550
+basically this. So if I go ahead and hit enter,
+
+396
+00:05:17,610 --> 00:05:21,450
+you can see all of the same folders showing up as it does
+
+397
+00:05:21,450 --> 00:05:26,450
+in finder. Pwd and ls are really useful for finding things out, for displaying
+
+398
+00:05:28,080 --> 00:05:28,860
+things.
+
+399
+00:05:28,860 --> 00:05:33,510
+But we can also use the terminal to move around in our computer.
+
+400
+00:05:34,080 --> 00:05:37,950
+And we do that using the CD command, which is changed directory.
+
+401
+00:05:38,520 --> 00:05:43,170
+So if at the moment, my working directory is users/Angela
+
+402
+00:05:43,530 --> 00:05:45,900
+and I want to get into my desktop folder
+
+403
+00:05:46,290 --> 00:05:50,670
+which is clearly one of the folders that I can access, then I can simply say
+
+404
+00:05:50,700 --> 00:05:55,050
+change directory to desktop. Now,
+
+405
+00:05:55,080 --> 00:05:59,150
+one of the things you can do to prevent yourself from getting repetitive strain injury and
+
+406
+00:05:59,150 --> 00:06:04,070
+typing a lot is you can type the start of the folder, so for example desktop-
+
+407
+00:06:04,100 --> 00:06:06,200
+De and then hit tab,
+
+408
+00:06:06,590 --> 00:06:11,090
+and it will narrow down on the possibility that you can go to so there's
+
+409
+00:06:11,090 --> 00:06:12,830
+development or there's desktop.
+
+410
+00:06:13,250 --> 00:06:16,400
+So if I add one extra S and I hit tab,
+
+411
+00:06:16,610 --> 00:06:20,720
+it's now going to automatically insert the folder that I'm looking for,
+
+412
+00:06:20,780 --> 00:06:23,570
+which is desktop. So now if I hit enter,
+
+413
+00:06:23,720 --> 00:06:28,550
+you can see that this part before my flashing prompt has changed and it's
+
+414
+00:06:28,550 --> 00:06:32,990
+changed to the desktop. So now, if I do pwd,
+
+415
+00:06:32,990 --> 00:06:36,410
+you can see I'm now in users/angela/Desktop,
+
+416
+00:06:36,740 --> 00:06:39,740
+which is the equivalent of double-clicking on this basically.
+
+417
+00:06:39,880 --> 00:06:40,713
+Okay.
+
+418
+00:06:46,870 --> 00:06:51,610
+On my desktop what if I wanted to create a new folder? Well,
+
+419
+00:06:51,610 --> 00:06:56,610
+we can do that using the make dir or make directory command.
+
+420
+00:06:57,250 --> 00:07:01,630
+So we're saying make directory and then we give it a name. So let's say
+
+421
+00:07:01,630 --> 00:07:04,510
+I want to call this Test then I'll just say mk
+
+422
+00:07:04,510 --> 00:07:07,780
+dir Test. And notice the location while you are at.
+
+423
+00:07:07,780 --> 00:07:11,770
+So I'm going to be making this test directory on my desktop.
+
+424
+00:07:12,250 --> 00:07:14,890
+And as soon as they hit enter, there you see it.
+
+425
+00:07:15,040 --> 00:07:17,740
+It's created that folder from scratch.
+
+426
+00:07:19,420 --> 00:07:24,420
+So now here's a question. If you wanted to navigate into Test so that when you
+
+427
+00:07:24,490 --> 00:07:25,900
+print the working directory,
+
+428
+00:07:25,930 --> 00:07:30,930
+it's going to output users/yourusername/desktop/test.
+
+429
+00:07:31,600 --> 00:07:34,570
+What would you do? What would be your command? Pause the video and
+
+430
+00:07:34,570 --> 00:07:38,800
+have a think about that. Alright,
+
+431
+00:07:39,070 --> 00:07:42,970
+of course, we have to change directory coz at the moment we're in the desktop
+
+432
+00:07:43,270 --> 00:07:46,510
+which is this, and if we want to go inside this test folder,
+
+433
+00:07:46,780 --> 00:07:49,960
+then we have to cd into it. So cd into test,
+
+434
+00:07:50,380 --> 00:07:54,700
+and now we're inside the test folder. And if I hit pwed, you can see
+
+435
+00:07:54,760 --> 00:07:57,070
+this is where I'm at. Now,
+
+436
+00:07:57,100 --> 00:08:00,190
+once I've cded into this new directory,
+
+437
+00:08:00,460 --> 00:08:05,320
+I'm going to create a new file in this directory. To create a new file
+
+438
+00:08:05,350 --> 00:08:08,410
+the command is a little bit different from creating a new directory.
+
+439
+00:08:08,800 --> 00:08:13,480
+The key word is touch. And after the key word, there's a space
+
+440
+00:08:13,960 --> 00:08:16,390
+and then we can provide the name of our file.
+
+441
+00:08:16,840 --> 00:08:19,840
+So let's say that we want to create a new Python file
+
+442
+00:08:19,870 --> 00:08:22,960
+which we'll call main.py. Now,
+
+443
+00:08:22,960 --> 00:08:26,350
+what it's going to do is create this file code in main
+
+444
+00:08:26,740 --> 00:08:31,060
+which is a Python file and it's going to do that inside the Test folder.
+
+445
+00:08:31,330 --> 00:08:34,150
+So let's hit enter and there you see it.
+
+446
+00:08:34,210 --> 00:08:39,210
+There's our Python file created without any clicking or dragging completely done
+
+447
+00:08:39,490 --> 00:08:44,440
+with our command line. So we've seen how we can create folders,
+
+448
+00:08:44,470 --> 00:08:47,200
+how we can create files. And by the way,
+
+449
+00:08:47,200 --> 00:08:49,780
+if you want to create a different type of file that you just change the
+
+450
+00:08:49,780 --> 00:08:51,760
+extension. So it could be .text,
+
+451
+00:08:51,760 --> 00:08:56,760
+or it could be .docx or whatever file format you want to create. Now,
+
+452
+00:08:56,910 --> 00:08:59,970
+what if we wanted delete our file? Well,
+
+453
+00:09:00,060 --> 00:09:04,470
+all we have to do is make sure we're in the correct directory to be able to
+
+454
+00:09:04,470 --> 00:09:06,570
+access that file. So when we hit ls,
+
+455
+00:09:06,600 --> 00:09:08,760
+we should be able to see the file we want to delete.
+
+456
+00:09:09,150 --> 00:09:12,960
+And then all we have to do is type rm which stands for remove
+
+457
+00:09:13,410 --> 00:09:17,100
+and then we could put our main.py. So there it is, it's gone.
+
+458
+00:09:17,630 --> 00:09:18,463
+Okay.
+
+459
+00:09:22,190 --> 00:09:26,780
+Now, what if I want to delete the Test folder? Firstly,
+
+460
+00:09:26,840 --> 00:09:31,580
+I have to navigate one step up. Instead of being inside the Test folder,
+
+461
+00:09:31,880 --> 00:09:35,330
+I can't delete the Test folder while I'm inside the Test folder.
+
+462
+00:09:35,690 --> 00:09:38,840
+I have to go one step up, which is the desktop folder.
+
+463
+00:09:39,740 --> 00:09:42,920
+Now of course I could say cd into the full path
+
+464
+00:09:42,920 --> 00:09:47,840
+which is /Users/angela/Desktop.
+
+465
+00:09:48,140 --> 00:09:51,620
+Now this would work, but this is really wordy.
+
+466
+00:09:52,130 --> 00:09:54,470
+A really simple shortcut for navigating
+
+467
+00:09:54,470 --> 00:09:59,330
+just one step up is writing cd and then two dots.
+
+468
+00:09:59,540 --> 00:10:04,100
+This is going to take us to the parent folder, which is now Desktop.
+
+469
+00:10:06,740 --> 00:10:07,573
+Right.
+
+470
+00:10:11,330 --> 00:10:15,800
+From here I'm going to delete this folder. Now to delete a folder
+
+471
+00:10:15,800 --> 00:10:19,070
+we can't just put rm. We also have to put a flag.
+
+472
+00:10:19,190 --> 00:10:24,190
+So a - and then rf. So this is going to recursively, forcibly, remove this
+
+473
+00:10:27,710 --> 00:10:31,550
+folder that we're going to add here, which is the Test folder.
+
+474
+00:10:32,060 --> 00:10:37,060
+Now the thing you have to be really careful about rm -rf is it does things
+
+475
+00:10:37,880 --> 00:10:41,660
+recursively. So if there were lots of folders inside this Test folder,
+
+476
+00:10:41,990 --> 00:10:44,180
+then it's going to delete everything in there.
+
+477
+00:10:44,750 --> 00:10:49,750
+And if, God forbid, you actually have this and you put it onto your whole computer,
+
+478
+00:10:50,840 --> 00:10:53,210
+well then that's going to be a real disaster.
+
+479
+00:10:53,690 --> 00:10:57,890
+Because the thing you have to know about the terminal is that it's a very
+
+480
+00:10:57,890 --> 00:11:02,890
+powerful. And what did Spider-Man's uncle say? With great power comes great
+
+481
+00:11:02,990 --> 00:11:03,980
+responsibility.
+
+482
+00:11:05,390 --> 00:11:09,080
+There's some pretty funny stories about people who accidentally deleted
+
+483
+00:11:09,110 --> 00:11:12,890
+everything on their computer just by messing with rm -rf.
+
+484
+00:11:13,340 --> 00:11:18,340
+So be really careful that you are in the correct location to delete the folder
+
+485
+00:11:19,520 --> 00:11:22,190
+and to double check that it's the right folder.
+
+486
+00:11:23,060 --> 00:11:24,980
+Because when I hit enter,
+
+487
+00:11:25,040 --> 00:11:28,430
+you can see it's not going to ask me for a confirmation
+
+488
+00:11:29,030 --> 00:11:34,030
+and it's also not going to put that folder or the containing files into the bin.
+
+489
+00:11:34,940 --> 00:11:38,120
+So be really careful when you're using the terminal.
+
+490
+00:11:40,790 --> 00:11:41,623
+There you have it.
+
+491
+00:11:41,930 --> 00:11:46,930
+There's an introduction to the command line using zsh on a Mac and using the
+
+492
+00:11:49,970 --> 00:11:53,380
+command prompt on Windows. Now,
+
+493
+00:11:53,410 --> 00:11:57,460
+when you open up PyCharm and you go to this emulator terminal,
+
+494
+00:11:57,460 --> 00:12:01,330
+so it's a sort of application within an application,
+
+495
+00:12:01,630 --> 00:12:04,540
+you can see that it looks pretty much the same.
+
+496
+00:12:04,870 --> 00:12:09,370
+Basically, all that PyCharm's done is just bundled the command
+
+497
+00:12:09,370 --> 00:12:14,370
+prompt into the PyCharm on windows and the zsh terminal into the PyCharm 
+
+498
+00:12:16,150 --> 00:12:20,710
+on Mac. So you can do everything that you can do in the terminal
+
+499
+00:12:21,310 --> 00:12:22,870
+inside PyCharm as well
+
+500
+00:12:23,260 --> 00:12:28,260
+which makes it really easy to pip install modules or to run our Flask server.
+
+501
+00:12:30,040 --> 00:12:30,430
+Now,
+
+502
+00:12:30,430 --> 00:12:34,630
+if you want to know about other things that you could do in the Windows command
+
+503
+00:12:34,630 --> 00:12:38,710
+prompt or the Mac terminal, you can simply just search for command prompt
+
+504
+00:12:38,710 --> 00:12:41,200
+cheatsheet or terminal cheatsheet.
+
+505
+00:12:42,700 --> 00:12:46,000
+And what it will take you to are lots of addresses
+
+506
+00:12:46,000 --> 00:12:50,980
+which contain basically a lot more things that you could do with your command
+
+507
+00:12:50,980 --> 00:12:53,470
+line. But the ones that we've talked about today
+
+508
+00:12:53,500 --> 00:12:57,430
+are some of the most common ones and 99% of the time,
+
+509
+00:12:57,460 --> 00:13:00,100
+those are going to be the commands that you're going to be sticking to.
+
+510
+00:13:00,610 --> 00:13:04,120
+So write them down if you need to review them regularly.
+
+511
+00:13:04,390 --> 00:13:07,150
+And if you just use them on a regular basis,
+
+512
+00:13:07,450 --> 00:13:09,280
+you won't have any trouble remembering them.
+
+
+513
+00:00:00,330 --> 00:00:03,630
+Now that we've understood a little bit more about the terminal commands,
+
+514
+00:00:03,960 --> 00:00:08,960
+let's come back to our Flask code and understand what the code is doing in a
+
+515
+00:00:09,300 --> 00:00:14,220
+little bit more detail. For example, what is this name?
+
+516
+00:00:14,460 --> 00:00:18,870
+Because we're creating this app from this Flask class
+
+517
+00:00:19,230 --> 00:00:23,310
+and in order to initialize a new Flask application,
+
+518
+00:00:23,700 --> 00:00:27,600
+there is only one required input,
+
+519
+00:00:28,020 --> 00:00:30,210
+and that is the import_name.
+
+520
+00:00:31,380 --> 00:00:33,390
+Let's go ahead and print it out.
+
+521
+00:00:33,720 --> 00:00:38,720
+So if we print this __name__ and comment out the rest of our
+
+522
+00:00:39,600 --> 00:00:42,480
+code and hit run,
+
+523
+00:00:43,800 --> 00:00:48,000
+then you can see that it prints out __main_
+
+524
+00:00:48,030 --> 00:00:48,863
+_.
+
+525
+00:00:49,320 --> 00:00:54,320
+This name is one of the special attributes that's built into Python.
+
+526
+00:00:56,550 --> 00:00:57,990
+At any given point,
+
+527
+00:00:58,170 --> 00:01:03,170
+you could tap into the name to find out what is the current class, function,
+
+528
+00:01:06,030 --> 00:01:08,460
+method, or descriptor's name.
+
+529
+00:01:09,210 --> 00:01:12,360
+And when we get main, what it's telling us is
+
+530
+00:01:12,500 --> 00:01:17,000
+basically we're executing the code in a particular module.
+
+531
+00:01:17,510 --> 00:01:22,510
+So that means it's run as a script or from an interactive prompt,
+
+532
+00:01:23,930 --> 00:01:27,330
+but it's not run from an imported module.
+
+533
+00:01:28,190 --> 00:01:31,790
+It gives us this code here, if the name is equal to main,
+
+534
+00:01:32,090 --> 00:01:37,090
+then execute something only if it's run as a script.
+
+535
+00:01:38,240 --> 00:01:40,730
+This also takes us to
+
+536
+00:01:40,730 --> 00:01:45,440
+one of the common ways that you'll see people run Flask apps.
+
+537
+00:01:45,830 --> 00:01:50,830
+You'll see if __name__ is double equal to _
+
+538
+00:01:52,460 --> 00:01:55,250
+_main__ as a string,
+
+539
+00:01:55,250 --> 00:01:59,570
+so exactly what was printed just now when we printed out this name,
+
+540
+00:02:00,050 --> 00:02:01,400
+well, if this is the case,
+
+541
+00:02:01,400 --> 00:02:05,810
+then that means we're running the code from within this current file.
+
+542
+00:02:05,990 --> 00:02:09,199
+We're running hello.py. So in that case,
+
+543
+00:02:09,229 --> 00:02:13,100
+we're going to tap into our app and we're going to call the run method.
+
+544
+00:02:13,700 --> 00:02:15,260
+Now this app.run
+
+545
+00:02:15,260 --> 00:02:20,060
+basically does exactly the same thing as when we went into the terminal and
+
+546
+00:02:20,060 --> 00:02:25,040
+we said flask run. But notice when we say flask run,
+
+547
+00:02:25,100 --> 00:02:28,580
+firstly, we have to provide the FLASK_APP environment variable
+
+548
+00:02:29,060 --> 00:02:33,260
+and secondly, we have to stop the code using control + c
+
+549
+00:02:33,680 --> 00:02:36,680
+instead of using our normal run and stop.
+
+550
+00:02:37,010 --> 00:02:41,480
+But if we use app.run, we can now use our standard controls.
+
+551
+00:02:41,540 --> 00:02:45,050
+So I can simply hit run to run this hello.py,
+
+552
+00:02:46,070 --> 00:02:51,070
+and it will start serving up our Flask app at this address just as it did
+
+553
+00:02:51,980 --> 00:02:56,750
+before, when we did flask run. And instead of using control + c to quit,
+
+554
+00:02:56,870 --> 00:03:01,870
+we can simply use the stop to stop our Flask application,
+
+555
+00:03:02,500 --> 00:03:04,240
+making it a lot easier.
+
+556
+00:03:05,230 --> 00:03:10,180
+Basically by providing the name to Flask, Flask 
+
+557
+00:03:10,180 --> 00:03:15,180
+will check that this is the current file where the app code is located.
+
+558
+00:03:16,870 --> 00:03:21,760
+And we're not in fact using an imported module. For example,
+
+559
+00:03:21,760 --> 00:03:26,760
+if I was to import the random module and I was to print the random.name,
+
+560
+00:03:32,080 --> 00:03:36,880
+then you can see the first thing that gets printed is the name of that module.
+
+561
+00:03:37,240 --> 00:03:39,880
+But the name that's printed from hello.py
+
+562
+00:03:39,900 --> 00:03:44,470
+which is the file that's being run is simply __main__.
+
+563
+00:03:44,740 --> 00:03:49,030
+So this basically denotes the file that is currently being run
+
+564
+00:03:49,480 --> 00:03:52,600
+and you say, Run 'hello' Well then inside hello
+
+565
+00:03:52,660 --> 00:03:54,760
+name is going to be equal to main.
+
+566
+00:03:58,170 --> 00:03:58,260
+Right.
+
+
+567
+00:00:00,510 --> 00:00:05,510
+The next part of the syntax that might be unfamiliar is this @ sign and
+
+568
+00:00:07,050 --> 00:00:11,460
+something that comes after the @ sign. Now we sort of know what it does.
+
+569
+00:00:11,460 --> 00:00:14,790
+It's basically saying when the user hits up this path
+
+570
+00:00:14,820 --> 00:00:19,170
+which is what's called the home route, basically when you go to a website,
+
+571
+00:00:19,200 --> 00:00:21,540
+for example, www.google.com
+
+572
+00:00:21,870 --> 00:00:26,610
+and you go to the first forward slash well, that is going to be the home.
+
+573
+00:00:27,180 --> 00:00:31,080
+And it knows that when you go there you want to see the home page.
+
+574
+00:00:31,530 --> 00:00:33,480
+So that's effectively what we're saying here.
+
+575
+00:00:33,690 --> 00:00:38,670
+When the user navigates to our URL with just a forward slash they want to see
+
+576
+00:00:38,670 --> 00:00:41,580
+the homepage and so we're going to show them hello world.
+
+577
+00:00:42,210 --> 00:00:46,320
+But what is this syntax exactly? Well,
+
+578
+00:00:46,320 --> 00:00:49,230
+this is code a Python decorator
+
+579
+00:00:49,800 --> 00:00:54,210
+and this is something that you'll see in more advanced Python projects.
+
+580
+00:00:54,540 --> 00:00:57,420
+So what exactly is a decorator? Well,
+
+581
+00:00:57,450 --> 00:01:01,320
+let's imagine that you have a bunch of functions in your class or in your
+
+582
+00:01:01,320 --> 00:01:02,153
+module
+
+583
+00:01:02,460 --> 00:01:07,460
+and you want to add some functionality to each of these functions. Well then you
+
+584
+00:01:09,780 --> 00:01:12,990
+might use a decorator function to do that.
+
+585
+00:01:14,070 --> 00:01:18,570
+Essentially you can think of a decorator function as a function
+
+586
+00:01:18,570 --> 00:01:23,570
+that's going to give additional functionality to an existing function. In order
+
+587
+00:01:24,360 --> 00:01:25,920
+to really understand this,
+
+588
+00:01:25,980 --> 00:01:29,100
+we have to understand a couple of other concepts as well.
+
+589
+00:01:29,820 --> 00:01:32,430
+So I'm going to do a couple of demos in this Repl.it
+
+590
+00:01:32,850 --> 00:01:36,810
+and if you head to this URL or find it in the course resources,
+
+591
+00:01:37,050 --> 00:01:40,140
+you'll be able to see all the code that I've written in this file.
+
+592
+00:01:41,160 --> 00:01:42,600
+So a long time ago,
+
+593
+00:01:42,630 --> 00:01:47,630
+we learned about Python functions and we know that a function allows us to
+
+594
+00:01:47,820 --> 00:01:50,910
+have specific packages of functionality,
+
+595
+00:01:51,420 --> 00:01:56,250
+allows us to add inputs, to increase the reusability of the function,
+
+596
+00:01:56,700 --> 00:02:01,380
+and also allows us to get outputs from the function which we can pass into
+
+597
+00:02:01,380 --> 00:02:05,610
+another function or do something with it. As an example,
+
+598
+00:02:05,610 --> 00:02:09,570
+we've got four very simple functions, add, subtract, multiply,
+
+599
+00:02:09,600 --> 00:02:13,890
+and divide that uses all three components of a function.
+
+600
+00:02:15,270 --> 00:02:19,350
+Now, what if we wanted to get a little bit fancier? Well,
+
+601
+00:02:19,650 --> 00:02:24,650
+one of the things about Python functions is that they are known as first-class
+
+602
+00:02:25,680 --> 00:02:26,513
+objects,
+
+603
+00:02:26,550 --> 00:02:31,550
+which basically means that you can pass a function around as an argument,
+
+604
+00:02:32,640 --> 00:02:37,440
+just like what you could do with an integer, a string or a float, it's treated
+
+605
+00:02:37,710 --> 00:02:38,670
+identically.
+
+606
+00:02:39,240 --> 00:02:44,240
+That means we can take these functions and we can build another function that
+
+607
+00:02:44,910 --> 00:02:49,290
+uses these functions. Let's say I create a calculate function
+
+608
+00:02:49,410 --> 00:02:51,870
+which takes a calc_function
+
+609
+00:02:52,320 --> 00:02:54,900
+and then the n1 and n2.
+
+610
+00:02:55,590 --> 00:02:57,630
+Inside this calculate function,
+
+611
+00:02:57,960 --> 00:03:02,860
+I'm going to call the function that was passed in and give it the values
+
+612
+00:03:02,950 --> 00:03:06,670
+n1 and n2 that was also passed in.
+
+613
+00:03:07,330 --> 00:03:10,120
+So now when I call the calculate function,
+
+614
+00:03:10,150 --> 00:03:15,010
+I'm going to pass in the name of one of these functions and then some numbers.
+
+615
+00:03:15,370 --> 00:03:20,140
+Those numbers are gonna become the input for this specified function
+
+616
+00:03:20,500 --> 00:03:24,760
+and then we're going to return the result of that calculation.
+
+617
+00:03:25,420 --> 00:03:26,980
+So now lower down,
+
+618
+00:03:27,010 --> 00:03:32,010
+I can call my calculate function, pass in the name of a function
+
+619
+00:03:32,620 --> 00:03:37,300
+so for example our multiply function, and then pass in some numbers,
+
+620
+00:03:37,360 --> 00:03:42,220
+for example, two and three. Now let the output that's returned
+
+621
+00:03:42,490 --> 00:03:43,690
+be our results
+
+622
+00:03:43,840 --> 00:03:48,840
+and let's go ahead and print this result. And you can see we get six.
+
+623
+00:03:50,260 --> 00:03:54,670
+So basically it has now multiplied two by three. Now,
+
+624
+00:03:54,700 --> 00:03:58,210
+if I change this to one of the other functions, add,
+
+625
+00:03:58,750 --> 00:04:03,520
+and I run this again, you can see instead of six, I'm now getting five.
+
+626
+00:04:04,240 --> 00:04:09,240
+The ability for us to treat functions as first-class objects basically means
+
+627
+00:04:10,120 --> 00:04:14,080
+that we can pass them around as if they were just any other argument
+
+628
+00:04:14,380 --> 00:04:17,769
+like a number or a string or a floating point number.
+
+629
+00:04:18,160 --> 00:04:23,160
+And then later we can activate them by adding the brackets around them and then
+
+630
+00:04:23,470 --> 00:04:27,790
+any necessary inputs. Now, the next concept
+
+631
+00:04:27,820 --> 00:04:29,890
+which you might've come across
+
+632
+00:04:29,980 --> 00:04:34,930
+but we haven't really used it a lot is the concept of nested functions.
+
+633
+00:04:35,740 --> 00:04:39,520
+Functions can also be nested inside other functions.
+
+634
+00:04:40,030 --> 00:04:43,750
+For example, if I create a function called outer_function
+
+635
+00:04:45,190 --> 00:04:49,570
+and this function is just going to print and say,
+
+636
+00:04:49,600 --> 00:04:54,130
+I'm outer. Now inside this outer_function,
+
+637
+00:04:54,460 --> 00:04:57,970
+I could create another function. So notice the indentation here
+
+638
+00:04:58,270 --> 00:05:03,270
+means that this function is now created inside this function and I'll call it
+
+639
+00:05:03,430 --> 00:05:06,400
+the nested_function.
+
+640
+00:05:08,020 --> 00:05:13,020
+So this function is simply going to print I'm
+
+641
+00:05:15,250 --> 00:05:16,083
+inner.
+
+642
+00:05:16,780 --> 00:05:21,070
+And now we have the problem of trying to call this function. Now,
+
+643
+00:05:21,100 --> 00:05:24,850
+because this function was declared inside this function,
+
+644
+00:05:25,240 --> 00:05:30,240
+its scope means that it's only accessible inside the confines of this function.
+
+645
+00:05:31,630 --> 00:05:34,750
+So if we were to go outside of the function, so by
+
+646
+00:05:34,750 --> 00:05:39,400
+indenting back to the beginning and we try to call this nested function,
+
+647
+00:05:39,730 --> 00:05:42,490
+then it's actually not going to work.
+
+648
+00:05:42,910 --> 00:05:47,410
+We're going to get a name error. It's not defined. However,
+
+649
+00:05:47,410 --> 00:05:52,410
+if we call this function inside this outer_function,
+
+650
+00:05:53,680 --> 00:05:57,070
+then it will now no longer generate an error.
+
+651
+00:05:57,920 --> 00:06:02,920
+So let's go ahead and trigger the outer_function by calling it in our main.
+
+652
+00:06:04,670 --> 00:06:09,320
+py. And when I run this, you can see it says I'm outer
+
+653
+00:06:09,770 --> 00:06:11,270
+and then it says I'm inner.
+
+654
+00:06:12,170 --> 00:06:17,170
+So this first gets executed and then this. And this I'm inner is being
+
+655
+00:06:17,300 --> 00:06:21,650
+printed when this line is being evaluated. Now,
+
+656
+00:06:22,250 --> 00:06:27,250
+one of the other things you could do is you can actually return a function from
+
+657
+00:06:28,280 --> 00:06:29,150
+another function.
+
+658
+00:06:29,380 --> 00:06:30,213
+Right.
+
+659
+00:06:32,050 --> 00:06:35,920
+Functions can actually be returned from other functions.
+
+660
+00:06:36,370 --> 00:06:41,370
+So if I make a copy of this previous function right here and comment out this
+
+661
+00:06:42,430 --> 00:06:45,850
+other function and all the steps before,
+
+662
+00:06:46,330 --> 00:06:47,163
+...
+
+663
+00:06:54,850 --> 00:06:57,430
+and we only have this bit of active code,
+
+664
+00:06:57,850 --> 00:07:01,720
+then you can see that instead of calling this nested_function here,
+
+665
+00:07:02,170 --> 00:07:04,540
+I could also return it as the output.
+
+666
+00:07:05,050 --> 00:07:09,490
+But the important part here is I'm going to get rid of the parentheses
+
+667
+00:07:09,610 --> 00:07:13,720
+which means I'm no longer activating that function right here.
+
+668
+00:07:14,560 --> 00:07:17,440
+So now when I call this outer_function,
+
+669
+00:07:17,830 --> 00:07:22,830
+the output that this line is going to evaluate to is going to become the nested_
+
+670
+00:07:23,770 --> 00:07:28,390
+function. So you could almost store it inside a variable.
+
+671
+00:07:28,480 --> 00:07:31,570
+So let's say I create a variable called inner_function
+
+672
+00:07:31,900 --> 00:07:34,840
+which is equal to the output of the outer_function
+
+673
+00:07:34,870 --> 00:07:39,100
+which is basically this nested_function that's being returned. Well
+
+674
+00:07:39,100 --> 00:07:41,890
+then, not only can I trigger the outer_function
+
+675
+00:07:42,100 --> 00:07:44,950
+which is just going to give me I'm outer,
+
+676
+00:07:45,490 --> 00:07:50,490
+now I can also trigger the inner_function separately by calling it
+
+677
+00:07:51,100 --> 00:07:54,610
+and then adding the activator which is the parentheses.
+
+678
+00:07:55,900 --> 00:07:59,470
+So now it says I'm outer after it evaluates this line,
+
+679
+00:07:59,830 --> 00:08:03,070
+I'm inner after it evaluates this line. Now,
+
+680
+00:08:03,100 --> 00:08:04,900
+if this is confusing to you,
+
+681
+00:08:04,960 --> 00:08:09,400
+I recommend heading over to the course resources where I've got a link to this
+
+682
+00:08:09,490 --> 00:08:14,350
+Python Tutor where I've entered all the code that we've seen just now
+
+683
+00:08:14,830 --> 00:08:17,800
+and we can execute this code line by line.
+
+684
+00:08:18,340 --> 00:08:22,390
+So you can see that the first thing that happens is it looks at this outer_
+
+685
+00:08:22,390 --> 00:08:26,740
+function and it creates a reference to that function. Now
+
+686
+00:08:26,740 --> 00:08:31,740
+next, it's on this line where our outer_function is actually being executed
+
+687
+00:08:32,650 --> 00:08:34,780
+because it has the parentheses at the end.
+
+688
+00:08:35,169 --> 00:08:39,370
+So now it's actually going to go inside this outer function and go through it
+
+689
+00:08:39,370 --> 00:08:44,370
+line by line where it prints I'm outer and then sets up a reference to this second
+
+690
+00:08:45,610 --> 00:08:48,400
+function, which is the nested_function.
+
+691
+00:08:49,270 --> 00:08:52,840
+The nested_function can now be called by its name
+
+692
+00:08:52,840 --> 00:08:57,180
+which is nested_function. But the very end of the outer_function,
+
+693
+00:08:57,300 --> 00:09:01,830
+that function is going to be the return value. So it's going to be outputted.
+
+694
+00:09:02,640 --> 00:09:03,390
+Finally,
+
+695
+00:09:03,390 --> 00:09:08,390
+we get to the end of this line nine and we set up a reference from this variable
+
+696
+00:09:09,570 --> 00:09:14,400
+called inner_function to this nested_function. And finally,
+
+697
+00:09:14,400 --> 00:09:18,120
+when we get to the line 10 we trigger that function.
+
+698
+00:09:18,210 --> 00:09:22,560
+So here is our inner_function which points to this nested function
+
+699
+00:09:22,860 --> 00:09:24,930
+and so when we trigger this inner_function,
+
+700
+00:09:25,230 --> 00:09:28,440
+it's the same as triggering the nested_function.
+
+701
+00:09:28,800 --> 00:09:32,520
+And that is when we end up going into this function
+
+702
+00:09:32,820 --> 00:09:35,190
+and printing out what it says inside.
+
+703
+00:09:35,820 --> 00:09:40,320
+Have a play around with that to fully get to grips with all the things that you
+
+704
+00:09:40,320 --> 00:09:41,760
+can do with a function.
+
+705
+00:09:42,930 --> 00:09:47,490
+And once you're happy with all of this and you've reviewed it and you understand
+
+706
+00:09:47,490 --> 00:09:48,630
+everything that's going on,
+
+707
+00:09:48,960 --> 00:09:52,800
+then you've got the foundations to head over to the next lesson where we're
+
+708
+00:09:52,800 --> 00:09:55,620
+going to talk about Python decorators.
+
+
+709
+00:00:00,180 --> 00:00:01,410
+In the last lesson,
+
+710
+00:00:01,470 --> 00:00:06,120
+we had a primer on functions so that we can understand the next step
+
+711
+00:00:06,150 --> 00:00:07,920
+which is the Python decorator.
+
+712
+00:00:08,430 --> 00:00:11,700
+So we've seen that functions can have functionality, inputs,
+
+713
+00:00:11,700 --> 00:00:16,700
+and outputs, functions are first-class objects and can be passed around as arguments,
+
+714
+00:00:17,280 --> 00:00:19,650
+functions can be nested in other functions,
+
+715
+00:00:19,920 --> 00:00:24,900
+and finally, functions can be returned as the output from another function
+
+716
+00:00:25,200 --> 00:00:29,700
+without needing to trigger it. With these four things in mind,
+
+717
+00:00:29,790 --> 00:00:33,180
+we're finally ready to tackle the Python decorator.
+
+718
+00:00:34,200 --> 00:00:34,950
+First of all,
+
+719
+00:00:34,950 --> 00:00:39,950
+I'm actually going to create a Python decorator for you so that we can talk
+
+720
+00:00:40,140 --> 00:00:41,460
+about how it works.
+
+721
+00:00:42,060 --> 00:00:45,300
+Here's what a Python decorator function looks like.
+
+722
+00:00:45,780 --> 00:00:49,590
+We started off by creating just a normal function.
+
+723
+00:00:50,910 --> 00:00:53,580
+Let's say I call it my decorator_function.
+
+724
+00:00:56,190 --> 00:01:00,000
+This function is going to take another function as an input.
+
+725
+00:01:00,960 --> 00:01:05,760
+Now, inside the decorator_functionn, I'm going to nest a wrapper_function.
+
+726
+00:01:07,530 --> 00:01:12,530
+And this wrapper_function is then going to trigger the actual function that was
+
+727
+00:01:13,770 --> 00:01:16,440
+passed in to the decorator function.
+
+728
+00:01:17,760 --> 00:01:22,020
+And at the end of calling all the lines in my decorator_function,
+
+729
+00:01:22,290 --> 00:01:26,490
+I'm going to return my wrapper_function. But remember
+
+730
+00:01:26,520 --> 00:01:30,090
+without the parentheses. Now,
+
+731
+00:01:30,120 --> 00:01:33,750
+basically what we've done is we've created a decorator_function
+
+732
+00:01:33,840 --> 00:01:38,840
+which can do some stuff and it could control the calling
+
+733
+00:01:39,270 --> 00:01:40,860
+of the function that was passed in.
+
+734
+00:01:41,550 --> 00:01:46,550
+Remember that a decorator_function is just a function that wraps another
+
+735
+00:01:46,890 --> 00:01:51,390
+function and gives that function some additional functionality.
+
+736
+00:01:51,810 --> 00:01:56,550
+That's quite a mouthful, but let's take a look at an example.
+
+737
+00:01:57,390 --> 00:02:00,630
+Let's say that I wanted to create a simple function
+
+738
+00:02:00,720 --> 00:02:02,880
+which I'll call say_hello.
+
+739
+00:02:03,510 --> 00:02:06,360
+Now this function is going to be the simplest form of function.
+
+740
+00:02:06,390 --> 00:02:09,000
+It has no inputs and it has no outputs
+
+741
+00:02:09,270 --> 00:02:13,620
+and all it does is just going to print hello. Now,
+
+742
+00:02:13,620 --> 00:02:17,280
+what if I don't want to run this immediately
+
+743
+00:02:17,310 --> 00:02:21,630
+the moment when I hit run, what if I wanted to add a delay to this function?
+
+744
+00:02:22,170 --> 00:02:25,980
+Well, one way of doing that would be importing the time module
+
+745
+00:02:26,460 --> 00:02:28,680
+and then before we print hello,
+
+746
+00:02:29,010 --> 00:02:32,520
+we can go ahead and run time.sleep
+
+747
+00:02:32,850 --> 00:02:36,660
+and we can sleep for a prespecified number of seconds.
+
+748
+00:02:37,290 --> 00:02:40,950
+So now when I call this method, say_hello,
+
+749
+00:02:41,370 --> 00:02:45,420
+and when I run it, you'll see that immediately nothing happens.
+
+750
+00:02:45,720 --> 00:02:49,440
+And then after a two second delay, you can see the print
+
+751
+00:02:49,470 --> 00:02:52,290
+hello actually gets triggered. Now,
+
+752
+00:02:52,290 --> 00:02:55,320
+what if I wanted to create a whole bunch of functions
+
+753
+00:02:55,380 --> 00:02:58,080
+like say_bye and say_greeting.
+
+754
+00:02:59,830 --> 00:03:04,510
+And I wanted to add a delay onto each of these. Well,
+
+755
+00:03:04,510 --> 00:03:09,130
+then I would have to copy and paste this code into all three places.
+
+756
+00:03:09,790 --> 00:03:12,010
+Now, this is a very simple example,
+
+757
+00:03:12,280 --> 00:03:17,280
+but frequently we'll want to add some additional piece of functionality to a
+
+758
+00:03:17,380 --> 00:03:22,270
+number of our functions. So this is where the decorator comes in handy.
+
+759
+00:03:23,140 --> 00:03:27,850
+What we could do is before we trigger the function that's passed in to
+
+760
+00:03:27,850 --> 00:03:31,420
+the decorator_function, we can add the delay.
+
+761
+00:03:31,960 --> 00:03:36,960
+So now whenever we decorate a function with this particular decorator_function,
+
+762
+00:03:38,590 --> 00:03:43,030
+then it's going to delay for two seconds before it runs the function.
+
+763
+00:03:43,600 --> 00:03:48,010
+So let's give this decorator function a little bit more of a descriptive name.
+
+764
+00:03:48,220 --> 00:03:51,940
+Let's call it a delay_decorator. Well,
+
+765
+00:03:51,970 --> 00:03:56,970
+now what we can do is we can simply use an @ sign
+
+766
+00:03:58,660 --> 00:04:03,660
+and we can call the delay_decorator in front of the methods
+
+767
+00:04:05,320 --> 00:04:09,730
+which we want to delay. So we can add it to all three of them,
+
+768
+00:04:09,760 --> 00:04:12,040
+or we can only add it to some of them.
+
+769
+00:04:12,400 --> 00:04:17,050
+But now when I actually run my function, say_hello
+
+770
+00:04:17,050 --> 00:04:20,649
+for example, you can see that this one
+
+771
+00:04:20,649 --> 00:04:22,630
+because it's got the delay decorator
+
+772
+00:04:22,900 --> 00:04:26,260
+it's going to wait for two seconds before it prints hello.
+
+773
+00:04:26,650 --> 00:04:28,930
+But if I call say_greeting
+
+774
+00:04:29,050 --> 00:04:31,900
+which is the one that doesn't have the decorator above it,
+
+775
+00:04:32,260 --> 00:04:34,660
+then you can see it gets triggered immediately.
+
+776
+00:04:35,350 --> 00:04:40,350
+So this is a really nice way of adding something that you could do before you
+
+777
+00:04:40,600 --> 00:04:41,560
+run the function,
+
+778
+00:04:42,360 --> 00:04:43,193
+Right?
+
+779
+00:04:45,630 --> 00:04:50,630
+or adding some functionality which you can do after the function. Or
+
+780
+00:04:51,510 --> 00:04:56,340
+alternatively, you can modify the function so maybe you wanna run it twice.
+
+781
+00:04:56,910 --> 00:04:59,070
+So now when I say hello,
+
+782
+00:05:01,950 --> 00:05:04,530
+it's going to not only delay by two seconds,
+
+783
+00:05:04,800 --> 00:05:06,750
+but it's also going to run it twice.
+
+784
+00:05:09,270 --> 00:05:14,220
+This syntax is what we saw when we were creating our Flask
+
+785
+00:05:14,250 --> 00:05:19,250
+app. It's got the @ sign and it basically decorates the function below with a
+
+786
+00:05:20,850 --> 00:05:22,050
+decorator function.
+
+787
+00:05:22,080 --> 00:05:27,080
+So putting this function through a machine that could modify the function or add
+
+788
+00:05:28,200 --> 00:05:32,400
+some functionality before or after. Coming back to our definition,
+
+789
+00:05:32,820 --> 00:05:37,820
+a decorator function is simply a function which wraps another function and gives
+
+790
+00:05:40,500 --> 00:05:44,640
+it some additional functionality or modifies the functionality.
+
+791
+00:05:46,500 --> 00:05:51,390
+Now, coming back to this syntax, this @ sign, it's
+
+792
+00:05:51,390 --> 00:05:54,150
+what's known as syntactic sugar.
+
+793
+00:05:54,930 --> 00:05:59,930
+It's some syntax that you can write to make it easier to write an alternative
+
+794
+00:06:01,430 --> 00:06:02,263
+line of code.
+
+795
+00:06:02,810 --> 00:06:07,760
+So let's say we wanted to add the decorator to this say_greeting. Well,
+
+796
+00:06:07,910 --> 00:06:11,450
+if instead of using this syntactic sugar with the @ sign
+
+797
+00:06:11,450 --> 00:06:12,920
+and then the name of the function,
+
+798
+00:06:13,280 --> 00:06:18,280
+we could also just call the name of the decorator and then we could pass in the
+
+799
+00:06:20,570 --> 00:06:23,510
+name of our function, say_greeting,
+
+800
+00:06:24,620 --> 00:06:29,620
+and then we would end up with the decorated function as the output from this
+
+801
+00:06:31,310 --> 00:06:32,143
+method.
+
+802
+00:06:32,660 --> 00:06:37,660
+And we can now call the decorated function with the parentheses.
+
+803
+00:06:38,570 --> 00:06:43,310
+So now we've triggered this say_greeting function
+
+804
+00:06:43,400 --> 00:06:45,860
+and we've passed it through the delay decorator.
+
+805
+00:06:46,520 --> 00:06:51,520
+But it's much easier to see at a glance what's going on by using this @ sign
+
+806
+00:06:51,980 --> 00:06:56,270
+because you can see now you can just trigger this method by its own name
+
+807
+00:06:56,630 --> 00:07:00,020
+and because the @delay_decorator is on top of it,
+
+808
+00:07:00,260 --> 00:07:02,540
+then it's going to go through that filter.
+
+809
+00:07:03,950 --> 00:07:07,250
+I recommend spending a few minutes looking at this code
+
+810
+00:07:07,520 --> 00:07:11,180
+which you can access at this URL which is in the course resources,
+
+811
+00:07:11,660 --> 00:07:16,370
+and then trying to recreate this functionality from scratch based on your
+
+812
+00:07:16,370 --> 00:07:20,360
+understanding of what we just talked about. And then once you're done,
+
+813
+00:07:20,420 --> 00:07:23,510
+when we head back to our Flask application
+
+814
+00:07:23,870 --> 00:07:27,890
+you can now see that pretty much all of the code is easily understood.
+
+815
+00:07:28,340 --> 00:07:31,580
+We know what this __name__ refers to,,
+
+816
+00:07:31,910 --> 00:07:34,160
+we know that this is a decorator
+
+817
+00:07:34,400 --> 00:07:38,270
+which is going to make sure that we only trigger this function
+
+818
+00:07:38,570 --> 00:07:41,840
+if the user's trying to access the URL
+
+819
+00:07:42,020 --> 00:07:45,010
+that is the homepage/.
+
+820
+00:07:46,160 --> 00:07:50,540
+If we wanted to create another function, let's call it say_bye.
+
+821
+00:07:53,480 --> 00:07:56,840
+This function could also get a decorator
+
+822
+00:07:57,350 --> 00:08:01,970
+and this decorator will check to see well, if somebody goes to the URL 
+
+823
+00:08:01,970 --> 00:08:03,260
+/bye, well
+
+824
+00:08:03,260 --> 00:08:07,160
+then we're going to be triggering this method. Effectively
+
+825
+00:08:07,610 --> 00:08:12,610
+the Flask framework is the one that determines which of these methods to call
+
+826
+00:08:14,180 --> 00:08:19,180
+and these methods are only called when the decorator says that it's appropriate to do
+
+827
+00:08:19,820 --> 00:08:24,080
+so. Now, if I go ahead and run this code once more,
+
+828
+00:08:26,390 --> 00:08:29,390
+and we go to the URL that is our server,
+
+829
+00:08:29,720 --> 00:08:33,650
+so this we know is the home route or the homepage,
+
+830
+00:08:33,980 --> 00:08:36,559
+but if we go to /bye
+
+831
+00:08:36,919 --> 00:08:41,919
+then we go to the bye route and this method gets rendered.
+
+832
+00:08:43,730 --> 00:08:47,330
+Now in order to make sure that you get a chance writing decorator functions
+
+833
+00:08:47,330 --> 00:08:50,090
+yourself, if you head over to the next lesson,
+
+834
+00:08:50,120 --> 00:08:53,720
+I've got a coding exercise for you to challenge you
+
+835
+00:08:53,750 --> 00:08:55,760
+to create your own decorator functions.
+
+836
+00:08:56,270 --> 00:08:59,540
+And it's going to be a really useful decorator function because it's going to
+
+837
+00:08:59,540 --> 00:09:03,290
+measure the amount of time that it takes a particular function to run.
+
+838
+00:09:03,920 --> 00:09:06,830
+So for all of that and more, I'll see you on the next lesson.
+
+

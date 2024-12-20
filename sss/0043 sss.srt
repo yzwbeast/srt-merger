@@ -1,0 +1,2588 @@
+1
+00:00:00,380 --> 00:00:05,689
+Hey guys, welcome to the introduction to CSS section.
+
+2
+00:00:05,689 --> 00:00:10,430
+And in this very first lesson, we're going to be introducing you to CSS.
+
+3
+00:00:10,460 --> 00:00:16,760
+You'll be learning what it is, how it works and why we need it to be able to style our websites and
+
+4
+00:00:16,760 --> 00:00:18,740
+make them look beautiful.
+
+5
+00:00:19,400 --> 00:00:21,470
+What exactly is CSS?
+
+6
+00:00:21,500 --> 00:00:25,610
+Well, it stands for cascading style sheets.
+
+7
+00:00:25,640 --> 00:00:29,270
+It kind of conjures up the image of a cascade.
+
+8
+00:00:29,270 --> 00:00:29,570
+Right.
+
+9
+00:00:29,600 --> 00:00:33,540
+And a cascade is simply like a waterfall.
+
+10
+00:00:33,560 --> 00:00:39,880
+You have water at one level that then drops down through a waterfall into another level.
+
+11
+00:00:39,890 --> 00:00:46,940
+And we're going to see as we start to use these cascading style sheets, why that analogy is so apt.
+
+12
+00:00:46,940 --> 00:00:51,960
+Because the way that the style is applied cascades like a waterfall.
+
+13
+00:00:51,980 --> 00:00:59,000
+We start from the most general all the way down to the most specific styling requirements, and we're
+
+14
+00:00:59,000 --> 00:01:03,560
+going to see that in use as we use these cascading style sheets.
+
+15
+00:01:03,800 --> 00:01:07,550
+The other part of this name is the style sheet.
+
+16
+00:01:07,820 --> 00:01:17,150
+A style sheet is a type of language similar to how we had the HTML, which is a markup language.
+
+17
+00:01:17,150 --> 00:01:20,810
+That's what the part of stands for.
+
+18
+00:01:21,200 --> 00:01:29,150
+We have the style sheet, which is what the SS part stands for, and this is a language that allows
+
+19
+00:01:29,150 --> 00:01:33,200
+us to specify how things should look in our website.
+
+20
+00:01:33,200 --> 00:01:36,770
+And there are many different types of stylesheet languages.
+
+21
+00:01:36,800 --> 00:01:42,710
+The one that's most important and what we're going to be learning all about in this section is the cascading
+
+22
+00:01:42,710 --> 00:01:43,340
+style sheet.
+
+23
+00:01:43,550 --> 00:01:52,520
+But there's also others like Sass, which stands for syntactically awesome style sheet and Less, which
+
+24
+00:01:52,520 --> 00:01:57,110
+stands for Leaner CSS and many, many others.
+
+25
+00:01:57,110 --> 00:02:03,530
+But the most important one that every web developer needs to know is CSS.
+
+26
+00:02:03,530 --> 00:02:05,990
+And that's what we're going to be focusing on today.
+
+27
+00:02:06,290 --> 00:02:09,770
+So why did we need CSS?
+
+28
+00:02:09,800 --> 00:02:14,030
+Where did it come from and what exactly is the history of this whole thing?
+
+29
+00:02:14,060 --> 00:02:20,820
+Well, in the very beginning when the Internet was very, very new, there was no CSS, there was only
+
+30
+00:02:21,090 --> 00:02:21,800
+HTML.
+
+31
+00:02:21,810 --> 00:02:28,350
+And one of the things that developers started wanting to do is they wanted to style their website and
+
+32
+00:02:28,350 --> 00:02:33,830
+make it look the way they want it to, but they were really, really limited by HTML.
+
+33
+00:02:33,840 --> 00:02:42,780
+And this is a now famous email sent by Marc Andreessen, who is the founder of Mosaic, which is one
+
+34
+00:02:42,780 --> 00:02:49,320
+of the earliest Internet browsers who later founded Netscape and now the very famous Andreessen Horowitz
+
+35
+00:02:49,350 --> 00:02:50,550
+VC Fund.
+
+36
+00:02:50,550 --> 00:02:57,270
+And in this email he famously said that the answer he has for so many developers who want to simply
+
+37
+00:02:57,270 --> 00:03:03,810
+control what their documents look like, meaning what their websites look like in a way that would be
+
+38
+00:03:03,810 --> 00:03:05,880
+trivial, say in Microsoft Word.
+
+39
+00:03:05,910 --> 00:03:09,330
+His answer to these developers is just sorry, you're screwed.
+
+40
+00:03:09,480 --> 00:03:14,430
+There is no way to do it very easily at that point in HTML.
+
+41
+00:03:14,590 --> 00:03:17,490
+That's why all the website looks pretty much the same.
+
+42
+00:03:17,490 --> 00:03:18,390
+Pretty boring.
+
+43
+00:03:18,390 --> 00:03:20,460
+And there was no variation.
+
+44
+00:03:20,460 --> 00:03:21,930
+So what happened next?
+
+45
+00:03:21,930 --> 00:03:31,140
+Well, the W3C consortium responded by releasing a new version of HTML, HTML 3.2, and this came out
+
+46
+00:03:31,140 --> 00:03:35,040
+in 1997, so it was still in the very early days of the Internet.
+
+47
+00:03:35,160 --> 00:03:44,700
+And what this 3.2 HTML allowed was it introduced new HTML tags such as the font tag, which allows you
+
+48
+00:03:44,700 --> 00:03:48,870
+to define the font size, the color and the font face.
+
+49
+00:03:48,870 --> 00:03:52,950
+So the type of font you would want to use for your document.
+
+50
+00:03:53,160 --> 00:03:57,630
+Similarly, there was also the color attribute for font.
+
+51
+00:03:57,660 --> 00:04:02,670
+There was the face attribute, the size attribute, and these attributes allow you to change all sorts
+
+52
+00:04:02,670 --> 00:04:06,360
+of things about the way the text looks on your website.
+
+53
+00:04:06,660 --> 00:04:14,340
+And then there was also the center element which allows you to format your document and define how it
+
+54
+00:04:14,340 --> 00:04:16,380
+would be laid out on the screen.
+
+55
+00:04:16,470 --> 00:04:23,680
+Now, what you'll notice in all three of these Web pages is the deprecated symbol next to it.
+
+56
+00:04:23,700 --> 00:04:31,380
+All of these are deprecated, which in programming lingo, simply means you should no longer be using
+
+57
+00:04:31,380 --> 00:04:34,140
+these attributes and elements.
+
+58
+00:04:34,140 --> 00:04:41,730
+And the reason for this is because, as you can imagine, our HTML is supposed to be for content.
+
+59
+00:04:41,760 --> 00:04:49,710
+Now, if you add in a ton of styling into all of that content, you tell the website how it should be
+
+60
+00:04:49,710 --> 00:04:56,400
+centered, how it should be laid out, how the font should look, what color it should be, what kind
+
+61
+00:04:56,400 --> 00:05:01,680
+of border your tables should have, and a whole bunch of other styling effectively.
+
+62
+00:05:01,710 --> 00:05:06,990
+Then this is going to massively clutter up all of your HTML.
+
+63
+00:05:06,990 --> 00:05:12,600
+And you can imagine this is a really, really short website and it's already got so much junk in it
+
+64
+00:05:12,600 --> 00:05:18,510
+that we can't really tell what exactly is the structure and the content of the website and.
+
+65
+00:05:18,530 --> 00:05:24,560
+If you extend this to a larger website and you just want to do some simple things like give it some
+
+66
+00:05:24,560 --> 00:05:32,270
+colors or put things into the center, then your whole HTML file is going to be many, many, many thousands
+
+67
+00:05:32,270 --> 00:05:37,790
+of lines long and it's impossible to differentiate the content from the styling.
+
+68
+00:05:38,060 --> 00:05:40,340
+So what happened next?
+
+69
+00:05:40,880 --> 00:05:52,250
+Well, in 1996, a new recommendation was proposed by the W3 consortium, and this was led by Hakon
+
+70
+00:05:52,250 --> 00:05:52,940
+Wium.
+
+71
+00:05:53,930 --> 00:05:56,180
+How come?
+
+72
+00:05:56,420 --> 00:05:59,980
+How come by how come?
+
+73
+00:05:59,990 --> 00:06:04,250
+And he's basically the father of the cascading style sheet.
+
+74
+00:06:04,250 --> 00:06:11,540
+And what this recommendation allows us to do is to allow us to attach styles such as font colors and
+
+75
+00:06:11,540 --> 00:06:15,380
+spacing to our HTML documents.
+
+76
+00:06:15,500 --> 00:06:22,890
+And this is the breakthrough that allowed us to separate our styling from our content.
+
+77
+00:06:23,010 --> 00:06:31,110
+And as in many different situations, a separation of concerns so that somebody is responsible for putting
+
+78
+00:06:31,140 --> 00:06:36,750
+together the car headlights and somebody else is responsible for dealing with the wheels rather than
+
+79
+00:06:36,750 --> 00:06:39,590
+one person making an entire car.
+
+80
+00:06:39,600 --> 00:06:46,710
+This kind of modularity, as you'll see in coming lessons, is super important, not just in manufacturing
+
+81
+00:06:46,710 --> 00:06:49,830
+and in real life, but also in programming.
+
+82
+00:06:50,100 --> 00:06:54,450
+If you want to see what CSS is able to achieve.
+
+83
+00:06:54,540 --> 00:06:57,490
+I've built this website for you to be able to do that.
+
+84
+00:06:57,510 --> 00:07:05,010
+If you go over to App Brewery, Github.io and then forward Slash, just add CSS, you should be able
+
+85
+00:07:05,010 --> 00:07:06,540
+to see this website.
+
+86
+00:07:06,540 --> 00:07:13,020
+And when you first go over there, you'll see that it's just a very, very simple website, pretty bland.
+
+87
+00:07:13,050 --> 00:07:15,210
+All it's got is HTML.
+
+88
+00:07:15,210 --> 00:07:22,710
+And now if we go ahead and press this button to toggle and turn on CSS, then you'll see the entire
+
+89
+00:07:22,710 --> 00:07:26,300
+website transform and look way more beautiful.
+
+90
+00:07:26,340 --> 00:07:30,840
+It's now got different fonts, different colors and different layouts.
+
+91
+00:07:30,840 --> 00:07:39,270
+But you'll notice that if you go ahead and right click and view the page source in these two versions,
+
+92
+00:07:39,270 --> 00:07:41,580
+the HTML does not change at all.
+
+93
+00:07:41,580 --> 00:07:47,320
+So let's toggle our back and then let's go ahead and view page source again.
+
+94
+00:07:47,340 --> 00:07:49,710
+You'll see that in these two versions.
+
+95
+00:07:49,710 --> 00:07:56,730
+As you see me switch it on screen, nothing changes in our index.html.
+
+96
+00:07:56,820 --> 00:08:02,220
+The only thing that is different is the CSS that gets added.
+
+97
+00:08:02,250 --> 00:08:08,910
+Now don't worry too much about the script tags down here or how we've created our buttons.
+
+98
+00:08:08,910 --> 00:08:12,870
+We're going to learn all of that later on when we learn JavaScript.
+
+99
+00:08:13,050 --> 00:08:19,890
+But I created this website so that you can play around with toggling the CSS on and off to see how it
+
+100
+00:08:19,890 --> 00:08:27,000
+can transform a simple HTML website without touching any of the code inside the HTML.
+
+101
+00:08:27,000 --> 00:08:34,260
+And all that we're doing is adding style to our website in a completely separate language.
+
+102
+00:08:34,289 --> 00:08:36,059
+The cascading style sheet.
+
+103
+00:08:36,270 --> 00:08:42,570
+To learn more about how CSS works, head over to the next lesson where we're going to get started styling
+
+104
+00:08:42,570 --> 00:08:43,740
+up a website.
+
+
+105
+00:00:00,320 --> 00:00:07,310
+Now, I hope you had to play around with this example website where you could toggle the CSS on and
+
+106
+00:00:07,340 --> 00:00:08,029
+off.
+
+107
+00:00:08,300 --> 00:00:13,880
+How exactly did I add CSS to this plain HTML website?
+
+108
+00:00:14,270 --> 00:00:17,840
+Well, that is what we're going to be learning about in this lesson.
+
+109
+00:00:18,200 --> 00:00:23,420
+There's three ways of adding CSS into an HTML website.
+
+110
+00:00:23,720 --> 00:00:28,670
+Inline, internal and external.
+
+111
+00:00:28,940 --> 00:00:34,580
+We're going to be exploring all three of these different styles of adding CSS, and I'm going to show
+
+112
+00:00:34,580 --> 00:00:39,380
+you why they're important and in which situations you would use which one.
+
+113
+00:00:39,800 --> 00:00:44,840
+Now, the first one is the inline style of adding CSS.
+
+114
+00:00:44,870 --> 00:00:51,170
+As the name suggests, it goes into the same line as a particular HTML element.
+
+115
+00:00:51,260 --> 00:00:58,130
+So in this case, you can see we've got an HTML open tag and an HTML closing tag.
+
+116
+00:00:58,280 --> 00:01:04,640
+Now, we know from learning about HTML boilerplate, this is an element that goes into all of our HTML
+
+117
+00:01:04,640 --> 00:01:05,570
+documents.
+
+118
+00:01:05,690 --> 00:01:08,240
+There's nothing special about this particular element.
+
+119
+00:01:08,270 --> 00:01:12,830
+It just tells the browser that this file is made up of HTML.
+
+120
+00:01:13,220 --> 00:01:21,020
+Now, in this case, the inline CSS goes into the opening tag of the HTML.
+
+121
+00:01:21,050 --> 00:01:24,110
+This is where the CSS exists.
+
+122
+00:01:24,140 --> 00:01:27,830
+It's in the same line as the HTML tag.
+
+123
+00:01:28,640 --> 00:01:34,520
+What the inline CSS looks like is something like this.
+
+124
+00:01:34,940 --> 00:01:44,990
+You've got a style attribute, which is an attribute that is globally available to all tags, not just
+
+125
+00:01:45,290 --> 00:01:47,390
+HTML, but anything else.
+
+126
+00:01:47,420 --> 00:01:51,440
+Image or break or anything you can think of.
+
+127
+00:01:51,470 --> 00:01:54,200
+You can add the style attribute to it.
+
+128
+00:01:54,470 --> 00:01:57,340
+As we know, normally attributes look like this.
+
+129
+00:01:57,350 --> 00:02:01,530
+They have a name of the attribute.
+
+130
+00:02:01,560 --> 00:02:04,440
+Then we add the equal sign.
+
+131
+00:02:04,440 --> 00:02:09,180
+And then finally we add a value for the attribute.
+
+132
+00:02:09,930 --> 00:02:14,400
+In this value section is where we add our CSS code.
+
+133
+00:02:14,700 --> 00:02:18,210
+Our CSS code is broken down like this.
+
+134
+00:02:18,240 --> 00:02:23,610
+The first part of it is the property that you want to change.
+
+135
+00:02:24,810 --> 00:02:31,650
+And the second part is the value of that property that you want to set it to.
+
+136
+00:02:32,400 --> 00:02:38,130
+So in this case, what we're trying to do is to set our website's background to blue.
+
+137
+00:02:38,250 --> 00:02:46,230
+And if I go ahead and run this code and load it up in a browser, you would simply see a website that
+
+138
+00:02:46,230 --> 00:02:47,700
+has a blue background.
+
+139
+00:02:47,880 --> 00:02:51,600
+And this is achieved using our inline CSS.
+
+140
+00:02:52,300 --> 00:03:01,320
+Inline elements are really useful for adding CSS style to just a single element on your HTML page.
+
+141
+00:03:01,330 --> 00:03:07,720
+But normally that's quite cumbersome because as you can imagine, there's tons of different HTML elements.
+
+142
+00:03:07,750 --> 00:03:13,120
+If you have more and more of them and you wanted them to share similar styles, then you would have
+
+143
+00:03:13,120 --> 00:03:19,720
+to add these inline styles to each and every single one of them, which is pretty tedious.
+
+144
+00:03:19,750 --> 00:03:25,720
+It's not normally recommended to use inline styles in your entire document.
+
+145
+00:03:25,720 --> 00:03:33,100
+It's only for specific sections or when you're testing or when you only want it in one single element
+
+146
+00:03:33,100 --> 00:03:35,860
+or one line in your HTML document.
+
+147
+00:03:36,190 --> 00:03:42,100
+Now, the second way you can add CSS is through what's called internal CSS.
+
+148
+00:03:42,250 --> 00:03:48,400
+Now this is done through a special HTML tag called the Style Element.
+
+149
+00:03:48,430 --> 00:03:52,550
+We've got an open style tag and a closing style tag.
+
+150
+00:03:52,550 --> 00:03:58,610
+And in between those two lines is where we add all of our CSS.
+
+151
+00:03:58,760 --> 00:04:02,060
+All of this is our CSS.
+
+152
+00:04:02,540 --> 00:04:08,140
+The CSS looks a little bit different from what you saw previously, right?
+
+153
+00:04:08,150 --> 00:04:11,480
+Because previously all we had was this line.
+
+154
+00:04:11,510 --> 00:04:14,750
+Now, in this case, we've got something a little bit extra here.
+
+155
+00:04:14,780 --> 00:04:16,100
+Why is that?
+
+156
+00:04:16,130 --> 00:04:26,060
+Well, this is because last time when we had the CSS rule, we had it inline inside a particular element.
+
+157
+00:04:26,060 --> 00:04:32,420
+So we said for this HTML element, we want to apply a background color.
+
+158
+00:04:33,020 --> 00:04:40,790
+Now, in this case, it's a little bit different because our internal style can apply to anywhere within
+
+159
+00:04:40,790 --> 00:04:43,010
+the same HTML document.
+
+160
+00:04:43,010 --> 00:04:49,400
+So it could go into any of these elements, the HTML or the head or anything that you've got coming
+
+161
+00:04:49,400 --> 00:04:50,930
+up later on as well.
+
+162
+00:04:51,110 --> 00:05:00,040
+What we have to add in addition often is what we call a selector, and this selector comes before a
+
+163
+00:05:00,040 --> 00:05:07,300
+set of curly braces and then the CSS goes in between these two sets of curly braces.
+
+164
+00:05:07,510 --> 00:05:15,310
+Now, when I say in between a set of curly braces, you have to imagine it a little bit like this.
+
+165
+00:05:15,310 --> 00:05:19,450
+This is the opening curly brace and this is the closing curly brace.
+
+166
+00:05:19,450 --> 00:05:28,090
+And if you had it all on one line, then it would look something like this with your CSS going in between
+
+167
+00:05:28,090 --> 00:05:29,780
+on multiple lines.
+
+168
+00:05:29,800 --> 00:05:34,030
+That's why we open and close them on separate lines.
+
+169
+00:05:34,030 --> 00:05:38,620
+But if you imagine it as one line, then it would look something like this.
+
+170
+00:05:39,550 --> 00:05:49,660
+Our internal styling can apply to anywhere in our HTML document, and inside we can target or select
+
+171
+00:05:49,660 --> 00:05:51,730
+as many elements as we want.
+
+172
+00:05:51,760 --> 00:05:59,450
+We could say let's apply the background red to the HTML, and when this code is rendered in the browser,
+
+173
+00:05:59,450 --> 00:06:03,500
+you will see the background of the entire HTML turn red.
+
+174
+00:06:03,950 --> 00:06:10,700
+Internal styles are really useful for applying it only to one HTML document.
+
+175
+00:06:10,700 --> 00:06:18,200
+As you can see, this style and any code that goes in there is limited to the HTML that it sits in.
+
+176
+00:06:18,200 --> 00:06:25,690
+So it means if you have a multi-page website, then you probably shouldn't be using the internal style.
+
+177
+00:06:25,700 --> 00:06:31,610
+Instead you should be using something called an external CSS styling.
+
+178
+00:06:31,700 --> 00:06:39,290
+Now the biggest difference between the external and the internal and inline styles is that this actually
+
+179
+00:06:39,290 --> 00:06:47,900
+lives in a completely separate file, which you'll normally see as Styles.css or Main.css or anything
+
+180
+00:06:47,900 --> 00:06:57,290
+that has a dot CSS extension inside this CSS file is where we write our CSS rules.
+
+181
+00:06:57,290 --> 00:07:04,430
+So we've got our selector, we've got our property and we've got values and we can make many, many
+
+182
+00:07:04,430 --> 00:07:06,350
+of these inside this file.
+
+183
+00:07:06,500 --> 00:07:12,950
+Now how do we link up the style sheet file with our index.html?
+
+184
+00:07:13,130 --> 00:07:22,970
+Well, inside the head section of our HTML, we would add a link element which you'll notice is a self-closing
+
+185
+00:07:23,000 --> 00:07:23,390
+tag.
+
+186
+00:07:23,390 --> 00:07:25,850
+So it doesn't need a closing tag.
+
+187
+00:07:25,940 --> 00:07:29,000
+And we have two things that we normally write.
+
+188
+00:07:29,030 --> 00:07:38,510
+One which is a relationship which refers to what is the role of this thing that we're linking to?
+
+189
+00:07:38,840 --> 00:07:45,320
+And the second thing is the href, which is where is it located?
+
+190
+00:07:45,890 --> 00:07:51,500
+In this case, we're saying it's in the same directory and it's inside a file called Styles.
+
+191
+00:07:52,170 --> 00:07:56,430
+CSS, which points to this file right here.
+
+192
+00:07:56,430 --> 00:08:04,590
+And when we go ahead and run this and show it in the browser, you'll see it turns our HTML background
+
+193
+00:08:04,590 --> 00:08:06,810
+to a green color.
+
+194
+00:08:06,930 --> 00:08:13,320
+And this style of external CSS is what's used most commonly in web development.
+
+195
+00:08:13,320 --> 00:08:16,710
+And this is what we're going to be focusing on most of the time.
+
+196
+00:08:16,710 --> 00:08:24,540
+But it's important to be aware of the other two styles the inline, the internal, because you'll see
+
+197
+00:08:24,540 --> 00:08:27,980
+it out there in the wild in other people's CSS code.
+
+198
+00:08:27,990 --> 00:08:34,169
+So remember, inline is really useful when you only want to target a single element.
+
+199
+00:08:34,860 --> 00:08:40,590
+And internal is really useful when you only want to target a single web page.
+
+200
+00:08:41,730 --> 00:08:49,290
+But for most cases and when you have a multi-page website, then what you're going to need is the external
+
+201
+00:08:49,290 --> 00:08:56,950
+way of adding CSS through the use of a separate file, which will be called something, something dot
+
+202
+00:08:56,980 --> 00:09:05,170
+CSS, and it's inside this file where you're going to be writing the CSS code that can target an entire
+
+203
+00:09:05,170 --> 00:09:09,070
+website with all of its multiple web pages.
+
+204
+00:09:09,640 --> 00:09:14,950
+So these are the three ways that you can add CSS to your HTML documents.
+
+205
+00:09:14,950 --> 00:09:20,500
+And don't worry, we're going to be practicing this and all of its forms many, many times so that you
+
+206
+00:09:20,500 --> 00:09:22,660
+understand how it works.
+
+207
+00:09:23,290 --> 00:09:30,340
+Let's try an exercise and see how to add CSS in various different ways to our HTML file.
+
+208
+00:09:31,430 --> 00:09:31,790
+All right.
+
+209
+00:09:31,790 --> 00:09:38,930
+So once you've downloaded and extracted the project file and open it inside vs code, you should see
+
+210
+00:09:38,930 --> 00:09:40,250
+this folder.
+
+211
+00:09:40,250 --> 00:09:45,880
+And here notice that our five files that have already been created for you.
+
+212
+00:09:45,890 --> 00:09:52,190
+And in this exercise there is a little bit of revision about creating multiple web pages about file
+
+213
+00:09:52,190 --> 00:09:52,820
+paths.
+
+214
+00:09:52,820 --> 00:10:00,800
+But more importantly, we want you to practice using the three different ways of adding CSS inline,
+
+215
+00:10:01,100 --> 00:10:03,800
+internal and external.
+
+216
+00:10:03,800 --> 00:10:10,700
+So starting inside index.html, the first thing I want you to do is to create three links to the three
+
+217
+00:10:10,700 --> 00:10:12,260
+different web pages.
+
+218
+00:10:12,650 --> 00:10:16,040
+This one, this one and this one.
+
+219
+00:10:16,040 --> 00:10:21,140
+And once you've done that, then you can go inside each of those web pages.
+
+220
+00:10:21,140 --> 00:10:27,380
+So starting with the inline and then internal external, and you're going to follow the instruction
+
+221
+00:10:27,380 --> 00:10:29,040
+that the H one tells you to.
+
+222
+00:10:29,060 --> 00:10:38,010
+So in this case, we want to use inline styling in order to style this h one in blue and then you get
+
+223
+00:10:38,010 --> 00:10:44,130
+to go to the internal and do the same thing, but this time using internal styling and styling the H
+
+224
+00:10:44,130 --> 00:10:52,800
+one in red and then finally using external styling using this style.css file and styling the h one in
+
+225
+00:10:52,800 --> 00:10:53,610
+green.
+
+226
+00:10:53,700 --> 00:10:59,430
+If you want to take a look at what the final outcome will look like, you can go into the solution folder,
+
+227
+00:10:59,430 --> 00:11:05,670
+right click on the solution, dot HTML and show preview and then make sure that you collapse this solution
+
+228
+00:11:05,670 --> 00:11:06,030
+folder.
+
+229
+00:11:06,030 --> 00:11:10,920
+Because having all of it out, two versions of each file is very confusing.
+
+230
+00:11:10,920 --> 00:11:16,290
+So I recommend just collapsing that folder so you don't get confused and this is what you're aiming
+
+231
+00:11:16,290 --> 00:11:19,380
+for on the index.html, which is the home page.
+
+232
+00:11:19,380 --> 00:11:22,320
+We've got an H one and then we've got three links.
+
+233
+00:11:22,320 --> 00:11:28,260
+And if we click on each of these, you can see they've got an H1 that says style me in blue style,
+
+234
+00:11:28,260 --> 00:11:34,740
+me in red and green and we're going to achieve that using the three different ways of adding CSS.
+
+235
+00:11:34,920 --> 00:11:41,190
+Once you're ready, go ahead and download the starting files and give this challenge a go.
+
+236
+00:11:41,550 --> 00:11:42,750
+Pause the video now.
+
+237
+00:11:45,230 --> 00:11:45,560
+All right.
+
+238
+00:11:45,560 --> 00:11:46,760
+So how did that go?
+
+239
+00:11:46,790 --> 00:11:51,620
+I'm going to run through the solution code with you to explain some of the things that you would need
+
+240
+00:11:51,620 --> 00:11:53,420
+to do to complete this challenge.
+
+241
+00:11:53,450 --> 00:11:57,770
+The first thing we said was to style the home page.
+
+242
+00:11:57,770 --> 00:12:02,650
+So we added in three anchor tags, which is how we create links.
+
+243
+00:12:02,660 --> 00:12:11,300
+And once we did that, we were able to use the href of each of the anchor tags in order to link to the
+
+244
+00:12:11,300 --> 00:12:13,550
+relevant web page.
+
+245
+00:12:13,580 --> 00:12:22,130
+The first one links to the inline web page, inline HTML, internal external, and we use the dot slash
+
+246
+00:12:22,130 --> 00:12:26,600
+notation in order to reach within the current folder.
+
+247
+00:12:26,600 --> 00:12:29,630
+So solution dot html lives inside solution.
+
+248
+00:12:29,630 --> 00:12:34,910
+And in this case, in order to get to inline dot html, we use the dot slash to get to this folder and
+
+249
+00:12:34,910 --> 00:12:39,800
+then we forward slash to go to inline dot html right here.
+
+250
+00:12:41,120 --> 00:12:48,720
+Now once you've created your three links, the next stage is to go into the first web page inline and
+
+251
+00:12:48,720 --> 00:12:54,390
+here we want to style the H1 using CSS, but adding it inline.
+
+252
+00:12:54,510 --> 00:13:03,840
+As I said, it's in the literal line of the H1 element, so it only applies to this H1 element and we've
+
+253
+00:13:03,840 --> 00:13:12,900
+added it in right here saying that the style should be set so that the color of this text is blue.
+
+254
+00:13:13,530 --> 00:13:23,190
+And remember that the inline style goes in the opening tag of the element that you want to target.
+
+255
+00:13:24,630 --> 00:13:34,470
+The next one is internal, so we add internal styling, usually by putting it inside the head section.
+
+256
+00:13:34,470 --> 00:13:41,790
+So between the open and closing tags of the head element, and this is a convention that most developers
+
+257
+00:13:41,790 --> 00:13:46,770
+will stick to, although this will work no matter where you put the style element.
+
+258
+00:13:46,920 --> 00:13:54,240
+So here we've got an open and closing style tag and in between we've added in our CSS.
+
+259
+00:13:54,240 --> 00:14:01,590
+So we're saying that our selector is going to select all the H1 on this page, of which there is only
+
+260
+00:14:01,590 --> 00:14:05,550
+one, and we're going to change its text color to red.
+
+261
+00:14:05,880 --> 00:14:11,400
+And finally we've got the final version, which is the external HTML.
+
+262
+00:14:11,400 --> 00:14:19,410
+And we do this by creating a link element right again, inside the head section of your website.
+
+263
+00:14:19,440 --> 00:14:27,450
+We establish the relationship is we're setting up a style sheet and then we provide a href to the location
+
+264
+00:14:27,450 --> 00:14:33,840
+where our stylesheet is located, which is in the current directory, and then it's in a file called
+
+265
+00:14:33,840 --> 00:14:35,310
+Style.css.
+
+266
+00:14:35,310 --> 00:14:38,310
+So we can see that right here.
+
+267
+00:14:39,030 --> 00:14:46,950
+And inside here we've again targeted the H1 and we've set the color to green and all of that together
+
+268
+00:14:46,950 --> 00:14:55,470
+creates these different web pages in our multi-page website with the code that sets the style in three
+
+269
+00:14:55,470 --> 00:14:56,670
+different ways.
+
+270
+00:14:56,670 --> 00:14:58,270
+So did you get that right?
+
+271
+00:14:58,290 --> 00:15:04,710
+If you had any issues at all, be sure to go back into your code and fix anything that was wrong and
+
+272
+00:15:04,710 --> 00:15:09,030
+make sure that you've understood the three different ways of adding CSS.
+
+273
+00:15:09,510 --> 00:15:14,910
+In the next lesson, we're going to learn more about the different selectors that we can use to select
+
+274
+00:15:14,910 --> 00:15:17,220
+different parts of our HTML file.
+
+275
+00:15:17,220 --> 00:15:19,920
+So for all of that and more, I'll see you there.
+
+
+276
+00:00:00,470 --> 00:00:01,070
+Hi guys.
+
+277
+00:00:01,070 --> 00:00:04,280
+Welcome to another lesson on CSS.
+
+278
+00:00:04,310 --> 00:00:11,570
+In this lesson, we're going to be talking about CSS selectors, and this is going to help us choose
+
+279
+00:00:11,570 --> 00:00:14,150
+where to apply our CSS.
+
+280
+00:00:14,480 --> 00:00:21,220
+We've seen previously that we can create CSS rules by simply specifying two things.
+
+281
+00:00:21,230 --> 00:00:31,400
+One is the property we want to change and after a colon we get to specify the value to change that property
+
+282
+00:00:31,400 --> 00:00:31,990
+to.
+
+283
+00:00:32,210 --> 00:00:38,900
+In this case, what we're saying is we want to change the text color into a blue color.
+
+284
+00:00:39,320 --> 00:00:45,110
+Now we've come across some of these rules already and I'll be showing you in a later lesson in the next
+
+285
+00:00:45,110 --> 00:00:48,230
+section how to find out more about these rules.
+
+286
+00:00:48,230 --> 00:00:54,680
+But more importantly, in this lesson, what I want to talk about is the part outside of these rules.
+
+287
+00:00:54,680 --> 00:00:57,860
+It's the part that comes right here.
+
+288
+00:00:57,860 --> 00:01:02,280
+And this is known as a CSS selector.
+
+289
+00:01:02,550 --> 00:01:04,769
+What is a CSS selector?
+
+290
+00:01:04,769 --> 00:01:14,190
+Well, it's the part that selects the HTML in order to apply whichever rules go in between these curly
+
+291
+00:01:14,190 --> 00:01:15,120
+braces.
+
+292
+00:01:15,330 --> 00:01:20,910
+How do we know which part of our HTML file to make the text color blue?
+
+293
+00:01:20,940 --> 00:01:25,650
+Well, we look at this part and we can see we're targeting the H1.
+
+294
+00:01:25,740 --> 00:01:30,750
+Now, this style of selector is one of the simplest CSS selectors.
+
+295
+00:01:30,780 --> 00:01:32,640
+It's called an element selector.
+
+296
+00:01:32,640 --> 00:01:38,070
+And all it does is it selects a particular HTML tag.
+
+297
+00:01:38,070 --> 00:01:42,000
+So in this case it's targeting all h ones.
+
+298
+00:01:42,000 --> 00:01:49,710
+If your HTML is any good, you should only have a single H1, but it will be different for other tags.
+
+299
+00:01:49,710 --> 00:01:57,150
+If you had anchor tags or if you had paragraph tags or h twos or any of the other HTML tags.
+
+300
+00:01:57,150 --> 00:02:07,430
+Then when you select each of these in your CSS, it means apply to all elements that have that particular
+
+301
+00:02:07,430 --> 00:02:08,240
+tag.
+
+302
+00:02:08,360 --> 00:02:12,260
+Let's see this in action here.
+
+303
+00:02:12,260 --> 00:02:13,910
+I've got two files.
+
+304
+00:02:13,910 --> 00:02:18,890
+One is the index.html and another is our stylesheet.
+
+305
+00:02:18,980 --> 00:02:26,450
+And inside our index.html we've just got three H twos, red, green and blue.
+
+306
+00:02:26,450 --> 00:02:30,140
+And when displayed or run they will look like this.
+
+307
+00:02:30,140 --> 00:02:31,520
+Three headings.
+
+308
+00:02:31,520 --> 00:02:40,640
+Now if we go ahead and add a little bit of CSS and target our H two element, in this case we're using
+
+309
+00:02:40,640 --> 00:02:45,260
+an element selector which is simply the name of the tag.
+
+310
+00:02:45,260 --> 00:02:50,870
+And then after the curly braces, we can define whichever CSS rules we want.
+
+311
+00:02:50,900 --> 00:02:54,590
+In this case, turning the color of the text red.
+
+312
+00:02:54,680 --> 00:03:00,230
+If we go ahead and run this code, I want you to imagine what you expect to happen.
+
+313
+00:03:00,230 --> 00:03:03,010
+Which of these texts will turn red?
+
+314
+00:03:03,030 --> 00:03:04,950
+So let's go and run the code.
+
+315
+00:03:04,950 --> 00:03:10,920
+And once this change is incorporated, this is what we see Red, green and blue all turn red because
+
+316
+00:03:10,920 --> 00:03:13,020
+they are all h twos.
+
+317
+00:03:13,020 --> 00:03:18,750
+And this element selector here selects all of the h twos turning them red.
+
+318
+00:03:18,750 --> 00:03:20,670
+So pretty simple so far.
+
+319
+00:03:20,790 --> 00:03:25,710
+Now let's look at another type of selector, a class selector.
+
+320
+00:03:25,770 --> 00:03:30,540
+This requires a special symbol, which is the dot.
+
+321
+00:03:30,570 --> 00:03:39,750
+And then after that dot immediately with no spaces right here, then you have the name of the class.
+
+322
+00:03:39,750 --> 00:03:45,150
+So this is the actual name of the class that we're selecting.
+
+323
+00:03:45,150 --> 00:03:47,670
+In this case, I've called it Red dash heading.
+
+324
+00:03:47,790 --> 00:03:52,890
+And then after the curly braces again, we have the same CSS rule to apply.
+
+325
+00:03:52,920 --> 00:03:55,050
+Change the text color to red.
+
+326
+00:03:55,830 --> 00:03:58,230
+Now, what is a class?
+
+327
+00:03:58,230 --> 00:04:05,490
+Well, a class is something that we can add as an attribute to any HTML element.
+
+328
+00:04:05,880 --> 00:04:14,130
+And this attribute is kind of like saying, well, let's group these particular elements into a class.
+
+329
+00:04:14,130 --> 00:04:21,779
+So it's used for grouping elements in your HTML file to apply the same CSS rule to all of them.
+
+330
+00:04:21,779 --> 00:04:29,910
+So in this case, we've only got one H2 that has a class and the class is set to red text.
+
+331
+00:04:30,090 --> 00:04:39,390
+Now when I go ahead and write some CSS and I target the class, which remember requires the DOT and
+
+332
+00:04:39,390 --> 00:04:45,420
+then the name of the class, which is this, and it has to be spelled exactly the same.
+
+333
+00:04:45,420 --> 00:04:47,760
+These two cannot have any differences.
+
+334
+00:04:47,760 --> 00:04:53,970
+So you can't have, for example, a capital R or a capital T, This will not work.
+
+335
+00:04:54,510 --> 00:04:59,820
+Instead, what we have is our class selector and our CSS rule.
+
+336
+00:05:00,460 --> 00:05:07,900
+What do you expect will happen when the code is run in the browser when this CSS gets applied?
+
+337
+00:05:07,930 --> 00:05:10,360
+Well, it'll look like this.
+
+338
+00:05:10,390 --> 00:05:16,990
+It selects the only element that has that class and turns the text color red.
+
+339
+00:05:17,470 --> 00:05:22,330
+Now what if we had multiple elements with the same class?
+
+340
+00:05:22,330 --> 00:05:27,640
+So here you can see we've actually got two different types of HTML elements.
+
+341
+00:05:27,670 --> 00:05:32,800
+One is an H2 and another is a paragraph element.
+
+342
+00:05:32,920 --> 00:05:38,470
+Even though these two are completely different elements, we can tag them using the same class.
+
+343
+00:05:38,470 --> 00:05:43,900
+We're saying the H2 should have the class of red text, as should the paragraph.
+
+344
+00:05:44,020 --> 00:05:54,070
+Now if we write our CSS and we select again all the classes that have red text, then what do you think
+
+345
+00:05:54,070 --> 00:05:55,110
+will happen?
+
+346
+00:05:55,120 --> 00:06:01,850
+Well, in this case it doesn't matter if it's an H2 or if it's a paragraph.
+
+347
+00:06:01,850 --> 00:06:08,870
+As long as they've got that class, they've been converted into red text and the style has been applied
+
+348
+00:06:08,870 --> 00:06:11,900
+to these two HTML elements.
+
+349
+00:06:12,380 --> 00:06:16,520
+As you can see, the class selector is really versatile.
+
+350
+00:06:16,520 --> 00:06:22,430
+It allows you to group different parts of your HTML file into having the same styling.
+
+351
+00:06:22,430 --> 00:06:28,010
+And this can be really, really useful on multi-page websites with lots of different elements.
+
+352
+00:06:28,010 --> 00:06:32,840
+And you don't just want to select a particular type of HTML element.
+
+353
+00:06:33,650 --> 00:06:39,800
+The next one I want to show you is called the ID Selector and the ID Selector.
+
+354
+00:06:39,800 --> 00:06:47,300
+It has its own special symbol, which is a pound sign or a hash tag, and you put that pound sign and
+
+355
+00:06:47,300 --> 00:06:57,320
+again, no spaces in between the pound sign and the actual name of the ID, and this selects all elements
+
+356
+00:06:57,320 --> 00:07:00,590
+with a particular ID attribute.
+
+357
+00:07:00,590 --> 00:07:07,190
+This is what an ID attribute looks like, it's simply the words ID, and then after the equal sign,
+
+358
+00:07:07,190 --> 00:07:14,870
+we can give it a particular ID and it works similarly to the class selector, because if I go ahead
+
+359
+00:07:14,870 --> 00:07:24,770
+and select this ID of Main and I apply these changes, then you can see it will add the styling and
+
+360
+00:07:24,770 --> 00:07:28,520
+apply it to the only element that has that ID.
+
+361
+00:07:29,120 --> 00:07:35,160
+So then what is the difference between the ID and the class selector?
+
+362
+00:07:35,180 --> 00:07:44,390
+Well, the class selector can be applied to many elements, whereas the ID should be only applied to
+
+363
+00:07:44,390 --> 00:07:52,220
+one element in a single HTML file in a single HTML file like our index.html.
+
+364
+00:07:52,250 --> 00:07:58,490
+There should only be one ID of this particular name main.
+
+365
+00:07:58,490 --> 00:08:04,090
+It should be completely unique and this is the difference.
+
+366
+00:08:04,090 --> 00:08:13,840
+If you had say three h2's you can't select all of them using the element selector like this because
+
+367
+00:08:13,840 --> 00:08:17,530
+that would select all of the h2's.
+
+368
+00:08:17,560 --> 00:08:27,610
+Instead you apply the ID to the unique element that you want to apply your style to and it selects it
+
+369
+00:08:27,610 --> 00:08:29,590
+in the HTML file.
+
+370
+00:08:30,310 --> 00:08:38,530
+Again, remember, IDs are unique only one element per file and classes you can put on as many elements
+
+371
+00:08:38,530 --> 00:08:40,690
+as you like to group them together.
+
+372
+00:08:41,440 --> 00:08:49,060
+Another way that you can select parts of your HTML is using the attribute selector so we know that we
+
+373
+00:08:49,060 --> 00:08:54,850
+can create a HTML tag and add as many attributes as we like.
+
+374
+00:08:54,850 --> 00:09:09,670
+So we had attributes such as ID or class or draggable or source for the images or RF for the anchor
+
+375
+00:09:09,670 --> 00:09:17,110
+tags or alt for the images and a whole bunch more that will get to see in the future as well.
+
+376
+00:09:17,380 --> 00:09:26,020
+Now we can select these elements that have particular attributes or particular attributes values by
+
+377
+00:09:26,020 --> 00:09:27,910
+using this notation.
+
+378
+00:09:27,940 --> 00:09:39,010
+Notice the first part here is the HTML element that you want to select, and then using a set of square
+
+379
+00:09:39,010 --> 00:09:41,380
+brackets, these ones right here.
+
+380
+00:09:41,410 --> 00:09:46,390
+Then inside we can include the attribute that you want to select.
+
+381
+00:09:46,630 --> 00:09:57,640
+What this entire selector says is select all paragraph elements with the attribute draggable and then
+
+382
+00:09:57,640 --> 00:09:59,680
+apply this CSS style.
+
+383
+00:09:59,820 --> 00:10:00,270
+To it.
+
+384
+00:10:00,750 --> 00:10:03,860
+What does this look like in HTML code?
+
+385
+00:10:03,870 --> 00:10:10,680
+Well, here we've got three paragraph tags, but only one of them has the attribute draggable set to
+
+386
+00:10:10,710 --> 00:10:11,370
+true.
+
+387
+00:10:11,490 --> 00:10:21,780
+If we go ahead and apply the CSS style where we select the paragraph element with the draggable attribute
+
+388
+00:10:21,780 --> 00:10:31,020
+and give it this CSS style, then when this CSS is applied to our HTML, this is what will happen.
+
+389
+00:10:31,020 --> 00:10:37,260
+It will find the unique paragraph tag with that particular attribute.
+
+390
+00:10:37,290 --> 00:10:41,130
+Now you can go one step further with attribute selectors.
+
+391
+00:10:41,310 --> 00:10:47,980
+You can actually select the value of the attribute that you want to apply your CSS to.
+
+392
+00:10:48,000 --> 00:10:54,840
+So in this case, you can see we've got all three paragraphs with the same attribute.
+
+393
+00:10:54,870 --> 00:10:59,070
+All the draggable attributes are set, but the set to different values.
+
+394
+00:10:59,170 --> 00:11:03,320
+So the first one is set to true and the other two are set to false.
+
+395
+00:11:03,340 --> 00:11:07,670
+So now we can actually write our CSS like this.
+
+396
+00:11:07,690 --> 00:11:16,470
+We can select all the paragraph elements which has an attribute of draggable set an equal to false.
+
+397
+00:11:16,480 --> 00:11:25,330
+And what this selector is going to do all of this is it's going to look inside our file and it's going
+
+398
+00:11:25,330 --> 00:11:35,590
+to find these two paragraph elements in order to select and apply the CSS when this CSS is applied instead
+
+399
+00:11:35,590 --> 00:11:43,540
+of the first one, which previously was selected, we actually have the other two selected and turned
+
+400
+00:11:43,540 --> 00:11:44,290
+red.
+
+401
+00:11:44,620 --> 00:11:51,250
+This is again a really versatile way of applying CSS, but as you can see, it selects on different
+
+402
+00:11:51,250 --> 00:11:53,460
+things than what we've seen before.
+
+403
+00:11:53,470 --> 00:11:58,990
+The element, the ID or the class selectors, the final selector.
+
+404
+00:11:58,990 --> 00:12:01,960
+I want to talk about is the universal selector.
+
+405
+00:12:01,960 --> 00:12:03,580
+And it's really simple.
+
+406
+00:12:03,580 --> 00:12:05,470
+It's just an asterix.
+
+407
+00:12:05,470 --> 00:12:08,740
+And after the Asterix you have your CSS rules.
+
+408
+00:12:08,740 --> 00:12:12,460
+But what this means is it means select all.
+
+409
+00:12:12,910 --> 00:12:19,240
+And when you apply this, it doesn't matter what class you've got, what ID, what attribute set, which
+
+410
+00:12:19,240 --> 00:12:20,320
+different elements.
+
+411
+00:12:20,350 --> 00:12:27,610
+If you select all, it's going to apply the style to everything where the stylesheet is active.
+
+412
+00:12:27,610 --> 00:12:31,540
+And this is probably one of the simplest selectors to understand.
+
+413
+00:12:31,900 --> 00:12:38,530
+So now that we've seen all the different ways that we can apply our CSS to different parts of the HTML
+
+414
+00:12:38,560 --> 00:12:46,000
+using selectors, let's try an exercise where we experiment hands on and see if you've understood all
+
+415
+00:12:46,000 --> 00:12:47,830
+the concepts in this lesson.
+
+416
+00:12:48,130 --> 00:12:55,600
+Now, once you've downloaded and extracted the starting files and have it open in vs code, then I want
+
+417
+00:12:55,600 --> 00:13:02,350
+you to go into the index.html file and here you'll notice a couple of things.
+
+418
+00:13:02,350 --> 00:13:09,400
+Firstly, we've already set up the stylesheet for you, so we've got an external stylesheet set up using
+
+419
+00:13:09,400 --> 00:13:14,590
+a link and it's pointing to this file right here, the Style.css.
+
+420
+00:13:15,100 --> 00:13:22,240
+The part that we want you to do is to revise what you've learned about CSS selectors.
+
+421
+00:13:22,240 --> 00:13:26,830
+And I've set up five to do's for you and I want you to do them in order.
+
+422
+00:13:26,830 --> 00:13:31,120
+So start from one and then go to two and continue downwards.
+
+423
+00:13:31,390 --> 00:13:37,000
+What this is going to involve is for you to write actual CSS code.
+
+424
+00:13:37,030 --> 00:13:44,650
+I don't want you to actually touch anything inside the index.html because I don't want you to change
+
+425
+00:13:44,650 --> 00:13:48,970
+any of the HTML with the classes or values or IDs.
+
+426
+00:13:48,970 --> 00:13:51,340
+I want you to leave it exactly as it is.
+
+427
+00:13:51,370 --> 00:13:57,280
+And instead your job is to write the selectors in the style dot CSS.
+
+428
+00:13:57,430 --> 00:14:04,660
+Notice when you open up the style.css there's a little bit of CSS already here for you and I want you
+
+429
+00:14:04,660 --> 00:14:05,770
+to leave this alone.
+
+430
+00:14:05,800 --> 00:14:07,540
+Don't touch it, don't change it.
+
+431
+00:14:07,540 --> 00:14:13,780
+It's important so that the final styling looks right when we haven't covered all of the different CSS
+
+432
+00:14:13,780 --> 00:14:15,160
+styling rules.
+
+433
+00:14:15,160 --> 00:14:19,180
+In the next section, we're going to be talking about all of this in a lot more detail.
+
+434
+00:14:19,180 --> 00:14:22,480
+Where to find out about different rules and how to use them.
+
+435
+00:14:22,480 --> 00:14:27,640
+But for now, I want you to ignore this part and write your CSS below.
+
+436
+00:14:28,240 --> 00:14:34,780
+Similarly, I'm not expecting you to know which CSS rules to use because I'll provide all the rules
+
+437
+00:14:34,780 --> 00:14:36,730
+for you in to do one.
+
+438
+00:14:36,730 --> 00:14:42,640
+I want you to change the text color to red and to do two, I want you to change the font size or change
+
+439
+00:14:42,640 --> 00:14:48,220
+the text align and this is all going to be provided for you completely formatted.
+
+440
+00:14:48,220 --> 00:14:53,590
+So it's got the property, the colon and the value I want you to set it to.
+
+441
+00:14:53,620 --> 00:14:59,710
+Now, the part that you need to think about and where your challenge comes in is how to select.
+
+442
+00:14:59,940 --> 00:15:01,080
+The correct paths.
+
+443
+00:15:01,080 --> 00:15:07,860
+So how to select all the paragraphs, for example, or how to select parts with a class of this or an
+
+444
+00:15:07,860 --> 00:15:09,240
+ID of this?
+
+445
+00:15:09,240 --> 00:15:10,620
+So that is the challenge.
+
+446
+00:15:10,620 --> 00:15:14,040
+And this is what you need to do in this exercise.
+
+447
+00:15:14,490 --> 00:15:21,540
+And if you take a look at the preview right now, it's very plain, all black, no styling at all.
+
+448
+00:15:21,570 --> 00:15:27,630
+But if you take a look at the goal PNG, you'll see this is what the final outcome will look like.
+
+449
+00:15:27,630 --> 00:15:33,330
+It's going to be centered, it's going to have different colors and you can almost even use this website
+
+450
+00:15:33,330 --> 00:15:42,720
+as a revision tool because each of the bullet points are linked to a particular style of CSS selection.
+
+451
+00:15:43,020 --> 00:15:50,820
+This hopefully will be quite a fun challenge for you and if you get stuck, be sure to rewind a little
+
+452
+00:15:50,850 --> 00:15:56,280
+bit in the video to see how to do the different things as seen in the previous examples.
+
+453
+00:15:56,280 --> 00:16:01,750
+And I want you to really give it a good go before you continue and watch the solution.
+
+454
+00:16:02,410 --> 00:16:03,460
+Pause the video now.
+
+455
+00:16:03,460 --> 00:16:04,450
+Give this a go.
+
+456
+00:16:09,440 --> 00:16:09,860
+All right.
+
+457
+00:16:09,860 --> 00:16:14,210
+So the first thing we're going to do is we're going to pull up our preview to make sure we are doing
+
+458
+00:16:14,210 --> 00:16:15,470
+the right things.
+
+459
+00:16:15,470 --> 00:16:23,660
+And to begin the first to do is to set the CSS for all paragraph tags to this color.
+
+460
+00:16:23,660 --> 00:16:29,750
+Now, remember, I said we're not writing any code or changing anything in the HTML side.
+
+461
+00:16:29,750 --> 00:16:37,730
+We're doing it all in our CSS, but it's still really important that we look at what's in our HTML code
+
+462
+00:16:37,730 --> 00:16:41,030
+in order to complete each of the steps of the challenge.
+
+463
+00:16:41,180 --> 00:16:42,350
+The first one's easy.
+
+464
+00:16:42,350 --> 00:16:47,180
+We're going to target all paragraph tags and we're going to apply this CSS style.
+
+465
+00:16:47,180 --> 00:16:54,140
+So let me copy the CSS style, paste it in, and now I've got an error because I haven't selected what
+
+466
+00:16:54,140 --> 00:16:56,030
+this style should be applied to.
+
+467
+00:16:56,240 --> 00:17:01,790
+In this case, we're applying it to all the paragraph elements, so we're using the element selector
+
+468
+00:17:01,790 --> 00:17:09,150
+and all we have to do there is simply add the name of the tag and then apply it and you can see the
+
+469
+00:17:09,150 --> 00:17:12,750
+first line of our bullet is now read.
+
+470
+00:17:13,170 --> 00:17:15,030
+That's to do number one.
+
+471
+00:17:15,030 --> 00:17:15,569
+Done.
+
+472
+00:17:15,569 --> 00:17:17,910
+Let's move on to the next to do so.
+
+473
+00:17:17,910 --> 00:17:26,430
+In this one, we want to set the CSS for all the elements with a class of this to this CSS rule.
+
+474
+00:17:26,430 --> 00:17:30,960
+So let me again copy the CSS rule and then paste it below.
+
+475
+00:17:31,140 --> 00:17:37,020
+And now we're going to use a class selector and select all the elements.
+
+476
+00:17:37,020 --> 00:17:42,270
+So notice how we've got many elements with the same class, even though they're applied to different
+
+477
+00:17:42,270 --> 00:17:46,680
+elements, but we can select across them using the class selector.
+
+478
+00:17:46,950 --> 00:17:52,530
+The class selector, if you remember, requires the dot, and then immediately afterwards we add in
+
+479
+00:17:52,530 --> 00:17:58,350
+the name of the class, and then we enclose our CSS rule in between the curly braces again.
+
+480
+00:17:58,350 --> 00:18:06,570
+And what this has done is it's applied a larger font size to all of the HTML elements that have that
+
+481
+00:18:06,570 --> 00:18:11,970
+class applied to them, which is all the bullets here, but not the H one or H twos.
+
+482
+00:18:12,390 --> 00:18:14,610
+So that's to do number two done.
+
+483
+00:18:14,640 --> 00:18:22,890
+Next one is to set the CSS for the element with a particular unique ID and the ID is this one.
+
+484
+00:18:22,890 --> 00:18:24,450
+So which one has that ID?
+
+485
+00:18:24,690 --> 00:18:31,710
+It's this particular list element and we're going to set it to have access rule to turn the color green
+
+486
+00:18:33,660 --> 00:18:37,530
+with ID names or class names or attribute names, any of that.
+
+487
+00:18:37,530 --> 00:18:41,340
+It's very important that you don't make any spelling errors.
+
+488
+00:18:41,340 --> 00:18:48,090
+What I normally do is I normally just copy it and then paste it in so that I don't actually mistakenly
+
+489
+00:18:48,090 --> 00:18:52,470
+add a capitalized s or something else that I could write incorrectly.
+
+490
+00:18:52,470 --> 00:18:57,270
+So remember, the ID selector is a pound sign or a hashtag.
+
+491
+00:18:57,270 --> 00:19:05,490
+And once we enclose our rule inside that selector, you'll see bullet number three turn green, because
+
+492
+00:19:05,490 --> 00:19:11,610
+that is the only item and it should be only one item that has the same ID.
+
+493
+00:19:12,690 --> 00:19:21,480
+Now let's move on to To-Do number four, which is to set the CSS for the elements that have the value
+
+494
+00:19:21,480 --> 00:19:23,520
+attribute set to four.
+
+495
+00:19:23,760 --> 00:19:32,610
+And notice now that all of the items in the ordered list, I've set a value attribute.
+
+496
+00:19:32,610 --> 00:19:42,210
+And what this does, if you take a look at the web docs for the list item element is this attribute
+
+497
+00:19:42,210 --> 00:19:46,290
+can indicate the current ordinal value of the list item.
+
+498
+00:19:46,290 --> 00:19:56,640
+When you have a list item inside a ordered list by default, it starts numbering from one like so this
+
+499
+00:19:56,640 --> 00:19:58,410
+is this list item.
+
+500
+00:19:58,410 --> 00:20:04,560
+But because I've got that paragraph tag above and I want to format this so that we have an interesting
+
+501
+00:20:04,560 --> 00:20:14,700
+CSS exercise, I've set the value attribute so that the list starts from two, which is totally valid
+
+502
+00:20:14,700 --> 00:20:20,100
+and I've set it for all of the other items as well so that we continue the list.
+
+503
+00:20:21,420 --> 00:20:28,260
+In this case, we're going to use the attribute selector to select this value attribute and turn the
+
+504
+00:20:28,260 --> 00:20:29,520
+text blue.
+
+505
+00:20:29,610 --> 00:20:36,120
+Let's paste in the CSS rule and then remember, the way that we use the attribute inspector is we first
+
+506
+00:20:36,120 --> 00:20:42,420
+select the element in this case list item, and then we add some square brackets.
+
+507
+00:20:42,420 --> 00:20:48,540
+And inside the square brackets we add the attribute that we want to select, which in this case is called
+
+508
+00:20:48,540 --> 00:20:49,410
+value.
+
+509
+00:20:49,410 --> 00:20:57,150
+And if right now I already close these curly braces, so we select on that attribute is going to turn
+
+510
+00:20:57,150 --> 00:21:05,160
+all the list items that have a attribute of value set, which is basically all four of these.
+
+511
+00:21:05,190 --> 00:21:08,550
+Now, some of you might have noticed that bullet number three, which.
+
+512
+00:21:08,610 --> 00:21:13,470
+Remain green instead of turning blue like the rest of the list elements.
+
+513
+00:21:13,500 --> 00:21:19,650
+Now, if you're curious about why this is, this is to do with something called CSS specificity relating
+
+514
+00:21:19,680 --> 00:21:22,380
+to how specific the rule is.
+
+515
+00:21:22,410 --> 00:21:28,560
+Now, we're going to be covering this in Section seven for our advanced CSS module.
+
+516
+00:21:28,560 --> 00:21:32,070
+So that's something you get to look forward to in the future.
+
+517
+00:21:32,700 --> 00:21:39,930
+Now, if we want to set the attribute that we want to select to a particular value, which in this case
+
+518
+00:21:39,930 --> 00:21:47,100
+is the one that's four, then I have to go a little bit further and set this equal to four.
+
+519
+00:21:47,280 --> 00:21:52,830
+And now you can see it's only selecting this fourth bullet and turning it blue.
+
+520
+00:21:54,380 --> 00:21:56,780
+Now attribute selectors can be a little bit tricky.
+
+521
+00:21:56,780 --> 00:22:02,450
+So if you didn't understand this at all, be sure to rewind in the video and watch that section of the
+
+522
+00:22:02,450 --> 00:22:08,000
+video again, just to make sure that you fully understand what's going on before you move on.
+
+523
+00:22:08,540 --> 00:22:11,510
+The final to do is the easiest.
+
+524
+00:22:11,540 --> 00:22:17,480
+All we have to do is set all the elements to text, align to center.
+
+525
+00:22:17,810 --> 00:22:23,570
+When we want to select all the elements, we use our universal selector, which is the asterisks.
+
+526
+00:22:23,570 --> 00:22:31,490
+And then once we paste in this rule, you'll see now our preview looks exactly the same as what we wanted
+
+527
+00:22:31,490 --> 00:22:34,370
+for our goal Everything center aligned.
+
+528
+00:22:34,400 --> 00:22:41,690
+There's lots of different styling being applied and we've now managed to achieve all of the to do's
+
+529
+00:22:41,690 --> 00:22:44,030
+in our exercise.
+
+530
+00:22:44,450 --> 00:22:45,830
+So hope that made sense.
+
+531
+00:22:45,830 --> 00:22:49,680
+And it helped you review all the things we learned in this lesson.
+
+532
+00:22:49,700 --> 00:22:55,590
+Once you're ready, head over to the next lesson where we've got our final project for the section.
+
+
+533
+00:00:00,290 --> 00:00:00,680
+All right.
+
+534
+00:00:00,680 --> 00:00:04,220
+So now it's time for our final project of the section.
+
+535
+00:00:04,220 --> 00:00:09,320
+And in this project, we're going to be building a website to help you learn Spanish.
+
+536
+00:00:09,440 --> 00:00:14,900
+Now, you might already know Spanish, but I'm currently learning Spanish, and there's so much vocab
+
+537
+00:00:14,900 --> 00:00:15,760
+to get through.
+
+538
+00:00:15,770 --> 00:00:21,050
+I thought, Why don't we build a vocabulary flashcard website?
+
+539
+00:00:21,050 --> 00:00:22,820
+But a really, really simple one.
+
+540
+00:00:22,820 --> 00:00:30,650
+Using everything we know so far in this project, we're going to be creating a website where we list
+
+541
+00:00:30,680 --> 00:00:34,400
+the words in, well, in this case in Spanish.
+
+542
+00:00:34,400 --> 00:00:40,370
+It could be any other language you choose, and we're going to match it with an image of a particular
+
+543
+00:00:40,370 --> 00:00:44,300
+color so that we learn all the colors in our foreign language.
+
+544
+00:00:44,480 --> 00:00:47,450
+This is what the final website should look like.
+
+545
+00:00:47,450 --> 00:00:55,370
+We've got our word which is foreign in the color that matches the image.
+
+546
+00:00:55,370 --> 00:01:02,640
+And we've got our images all lined up as nice little squares so that we can scroll through this website
+
+547
+00:01:02,640 --> 00:01:05,160
+and learn the words for the colors in Spanish.
+
+548
+00:01:05,340 --> 00:01:11,700
+Once you're ready, go ahead and download the color vocab project starting files, extract it and open
+
+549
+00:01:11,700 --> 00:01:16,800
+it up inside vs code in the index.html.
+
+550
+00:01:16,830 --> 00:01:20,330
+You'll see that I've already set you up with some starting code.
+
+551
+00:01:20,340 --> 00:01:29,460
+If you go ahead and show it as a preview, you'll see some words for the colors in Spanish and the different
+
+552
+00:01:29,460 --> 00:01:31,500
+images for the different colors.
+
+553
+00:01:31,530 --> 00:01:34,650
+Now don't worry about the fact the images are all different sizes.
+
+554
+00:01:34,650 --> 00:01:38,490
+We're going to fix that with CSS very soon in the project.
+
+555
+00:01:38,700 --> 00:01:46,320
+First thing to note is we've already set you up with a link to an external stylesheet which is inside
+
+556
+00:01:46,320 --> 00:01:48,210
+Style.css.
+
+557
+00:01:48,210 --> 00:01:55,680
+But notice that we haven't created that file for you, so I want you to create a new file inside the
+
+558
+00:01:55,680 --> 00:02:03,450
+correct location by using this button in VS code and then name it once you've created it so that it
+
+559
+00:02:03,450 --> 00:02:04,560
+actually works.
+
+560
+00:02:04,560 --> 00:02:11,670
+And one of the things that I often check to make sure that my external CSS is linked up is to target
+
+561
+00:02:11,670 --> 00:02:17,790
+everything on the page and to set the background color to red.
+
+562
+00:02:17,820 --> 00:02:24,330
+That way you know that if actually does work, then it's linked up correctly and it's really obvious
+
+563
+00:02:24,330 --> 00:02:26,460
+when it doesn't like right now.
+
+564
+00:02:26,460 --> 00:02:32,070
+And the reason here is because my style.css is actually outside this folder.
+
+565
+00:02:32,070 --> 00:02:39,000
+It's just floating about somewhere and I have to get it so that it's at the location that I specified
+
+566
+00:02:39,000 --> 00:02:41,580
+in the external stylesheet link.
+
+567
+00:02:41,580 --> 00:02:47,250
+So I don't want you to change anything inside the index.html.
+
+568
+00:02:47,250 --> 00:02:55,080
+Instead, all of your work is going to happen inside the CSS file, which you will create and you will
+
+569
+00:02:55,080 --> 00:03:03,270
+incorporate into your project using this file path to make sure that you understand how file paths work
+
+570
+00:03:03,270 --> 00:03:06,330
+and how you can create this for yourself in the future.
+
+571
+00:03:07,500 --> 00:03:14,280
+Now, if we scroll down, you can see there's five different colors, five different images, and there
+
+572
+00:03:14,280 --> 00:03:16,950
+are some h2's and H ones.
+
+573
+00:03:17,460 --> 00:03:24,540
+In order to complete this project, I've created some steps for you in the to dos which you can follow.
+
+574
+00:03:24,540 --> 00:03:29,610
+Alternatively, you can simply look at the goal image and try to figure out yourself.
+
+575
+00:03:29,640 --> 00:03:36,000
+You can either use a stepwise approach in the to dos or you can use the goal and do everything yourself.
+
+576
+00:03:36,000 --> 00:03:37,890
+It totally is up to you.
+
+577
+00:03:38,640 --> 00:03:45,870
+But what you're aiming for in the final version of the website, which you can view by right clicking
+
+578
+00:03:45,870 --> 00:03:49,290
+on solution dot HTML, opening it up in the preview.
+
+579
+00:03:49,290 --> 00:03:55,590
+And the most important things I want to point out is that the images are squares.
+
+580
+00:03:55,620 --> 00:04:02,120
+They are 200 pixels by 200 pixels, so 200 pixels high, 200 pixels wide.
+
+581
+00:04:02,120 --> 00:04:09,590
+Secondly, the font weight of these h twos are different from normal h twos.
+
+582
+00:04:09,620 --> 00:04:11,510
+They're actually a lot lighter.
+
+583
+00:04:11,510 --> 00:04:18,140
+So we've set the font weight to be normal rather than the default, which is h to get bolded.
+
+584
+00:04:18,320 --> 00:04:23,450
+The next thing is that the color of the text should match the meaning.
+
+585
+00:04:23,450 --> 00:04:27,320
+So rojo means red azul means blue.
+
+586
+00:04:27,320 --> 00:04:32,300
+And because in our index.html I've matched each of them up together.
+
+587
+00:04:32,300 --> 00:04:39,020
+But also you can look at the IDs if you don't know Spanish words because we're learning them after all
+
+588
+00:04:39,020 --> 00:04:45,040
+right, so yellow is Amarillo, green is Verde and so on and so forth.
+
+589
+00:04:45,050 --> 00:04:53,510
+So I want you to make sure that these h twos have a text color that matches whatever it is supposed
+
+590
+00:04:53,510 --> 00:04:53,900
+to be.
+
+591
+00:04:53,900 --> 00:04:56,780
+So blue or orange or green or whichever.
+
+592
+00:04:56,780 --> 00:04:59,420
+So if you get confused, look at the goal dot PNG.
+
+593
+00:04:59,960 --> 00:05:03,380
+If you want to go step by step, then look at the to dos at the bottom.
+
+594
+00:05:03,380 --> 00:05:09,050
+But importantly, don't write anything or change anything in the index.html.
+
+595
+00:05:09,080 --> 00:05:11,600
+All your work goes into the CSS file.
+
+596
+00:05:11,900 --> 00:05:14,600
+Pause the video and give this a go now.
+
+597
+00:05:19,890 --> 00:05:20,250
+All right.
+
+598
+00:05:20,250 --> 00:05:22,230
+So let's run through the solution together.
+
+599
+00:05:22,230 --> 00:05:27,450
+So the first thing we're going to do is we're going to make sure that the solution folder is collapsed.
+
+600
+00:05:27,450 --> 00:05:29,160
+So it's not confusing.
+
+601
+00:05:29,160 --> 00:05:37,200
+And then we're going to select this folder and then add a new file, which I'll call style dot CSS.
+
+602
+00:05:37,230 --> 00:05:41,310
+Remember, the file name has to match what it's referred to here.
+
+603
+00:05:41,310 --> 00:05:42,330
+Exactly.
+
+604
+00:05:42,330 --> 00:05:48,630
+Sometimes you'll see people have styles.css, sometimes you'll see main dot CSS, but as long as the
+
+605
+00:05:48,630 --> 00:05:50,520
+file name matches, it doesn't really matter.
+
+606
+00:05:50,520 --> 00:05:52,770
+It's up to you how you want to name it.
+
+607
+00:05:53,130 --> 00:06:00,360
+Once I've created that, let's just make sure that my CSS file is properly linked up by doing that background
+
+608
+00:06:00,360 --> 00:06:01,950
+color change.
+
+609
+00:06:01,950 --> 00:06:06,090
+So let's change it to Red and then let's go ahead and preview this.
+
+610
+00:06:06,090 --> 00:06:10,290
+And if the background is red, then it means that it works.
+
+611
+00:06:10,290 --> 00:06:14,550
+So I can now delete this and get rid of that horrible background.
+
+612
+00:06:15,120 --> 00:06:23,230
+The next step is to go ahead and use CSS to style each of the color titles so that the color matches
+
+613
+00:06:23,230 --> 00:06:24,070
+the meaning.
+
+614
+00:06:24,460 --> 00:06:34,360
+The first one that we want to select is this H2, which displays Rojo and it has the ID of red.
+
+615
+00:06:34,360 --> 00:06:37,930
+So remember, IDs are unique, so we can simply select that.
+
+616
+00:06:37,930 --> 00:06:45,190
+So let's select the element with an ID of red and set its color to red.
+
+617
+00:06:45,580 --> 00:06:49,390
+And so we can do the same thing for the rest of the colors.
+
+618
+00:06:49,390 --> 00:06:52,390
+So now they're all matching with their meaning.
+
+619
+00:06:52,660 --> 00:06:59,620
+The next step is to use CSS to change all the color titles, to have a different font weight.
+
+620
+00:06:59,620 --> 00:07:02,710
+And this is what we want the font weight of normal.
+
+621
+00:07:02,710 --> 00:07:10,180
+If we want to select all the h2's, then we're going to have a problem because this one is also an H2
+
+622
+00:07:10,180 --> 00:07:13,690
+and we don't want that one to have a normal font weight.
+
+623
+00:07:13,690 --> 00:07:15,640
+We still want that to be bold.
+
+624
+00:07:15,640 --> 00:07:18,970
+We want these to have the lower font weight.
+
+625
+00:07:19,000 --> 00:07:22,060
+So what is unique to all of these?
+
+626
+00:07:22,060 --> 00:07:29,200
+Well, we've applied a class of color title to each of them, which this H2 does not have.
+
+627
+00:07:29,230 --> 00:07:36,880
+Then that means that we can simply select color dash title and then apply the font weight to all of
+
+628
+00:07:36,880 --> 00:07:38,680
+those with that same class.
+
+629
+00:07:38,680 --> 00:07:43,540
+And you can see that differentiates between this H2 and this H2.
+
+630
+00:07:43,540 --> 00:07:49,780
+And instead all of these which are grouped together have that style applied.
+
+631
+00:07:50,020 --> 00:07:53,410
+Now the final thing we need to do is to use CSS.
+
+632
+00:07:53,440 --> 00:08:00,070
+No, not HTML to make all the images 200 pixels high and 200 pixels wide.
+
+633
+00:08:00,790 --> 00:08:02,200
+How can we do that?
+
+634
+00:08:02,200 --> 00:08:06,670
+Well, we can simply select the image element.
+
+635
+00:08:06,670 --> 00:08:17,230
+So this is using an element selector and we can set the height to 200 pixels and the width to 200 pixels.
+
+636
+00:08:17,410 --> 00:08:19,180
+And there you have it.
+
+637
+00:08:19,180 --> 00:08:26,140
+All of our images are now squares matching the height and width that we've specified.
+
+638
+00:08:26,380 --> 00:08:30,820
+You can of course change this and personalize it as much as you like.
+
+639
+00:08:30,820 --> 00:08:36,820
+Change up the colors or change up the words, learn the colors in a different language, make things
+
+640
+00:08:36,820 --> 00:08:39,789
+even more beautiful using the styling that you've learned.
+
+641
+00:08:39,820 --> 00:08:46,180
+But in the next section, we're going to be covering more about different CSS rules and you'll have
+
+642
+00:08:46,180 --> 00:08:50,320
+more tools at your disposal in order to style your websites.
+
+643
+00:08:50,470 --> 00:08:56,680
+So I hope you have fun in this section where we introduce you to CSS once you're ready.
+
+644
+00:08:56,710 --> 00:09:03,760
+Maybe tomorrow, maybe the next day, head over to the next section and continue learning about intermediate
+
+645
+00:09:03,760 --> 00:09:05,740
+aspects of CSS.
+
+646
+00:09:05,770 --> 00:09:08,440
+For all of that and more, I'll see you there.
+
+

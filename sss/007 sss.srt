@@ -1,0 +1,3392 @@
+1
+00:00:00,310 --> 00:00:01,030
+Hey guys,
+
+2
+00:00:01,030 --> 00:00:05,320
+welcome to Day 7 of 100 Days of code.
+
+3
+00:00:06,010 --> 00:00:06,430
+Now,
+
+4
+00:00:06,430 --> 00:00:11,430
+today we have a whole day dedicated to a really cool project.
+
+5
+00:00:11,920 --> 00:00:16,810
+And what we're going to be building throughout this day is basically Hangman or
+
+6
+00:00:16,810 --> 00:00:18,700
+the code equivalent of this game.
+
+7
+00:00:19,180 --> 00:00:24,180
+So the way the game works is you have to guess a word and for every wrong
+
+8
+00:00:24,250 --> 00:00:25,840
+letter you submit,
+
+9
+00:00:26,200 --> 00:00:30,670
+you end up taking a life away from this little man. And of course,
+
+10
+00:00:30,910 --> 00:00:32,680
+the longer it takes you to get to the word,
+
+11
+00:00:32,920 --> 00:00:34,930
+the more you put your little man in danger.
+
+12
+00:00:35,770 --> 00:00:39,250
+This is what the final completed project is going to look like.
+
+13
+00:00:39,550 --> 00:00:43,420
+We're going to have some really cool ASCII art like this hangman logo up here
+
+14
+00:00:43,840 --> 00:00:47,920
+and it's going to ask us to guess or a letter. So let's try A,
+
+15
+00:00:48,700 --> 00:00:50,830
+and you can see that's not in the word.
+
+16
+00:00:50,860 --> 00:00:55,180
+So we lose a life and it starts drawing our little hangman.
+
+17
+00:00:55,240 --> 00:00:58,750
+So let's try another letter, E. There's a lot of Es in there.
+
+18
+00:00:58,810 --> 00:01:01,870
+So we managed to get that. Let's try a T,
+
+19
+00:01:03,460 --> 00:01:04,293
+Right?
+
+20
+00:01:09,680 --> 00:01:14,270
+And I think I know what the word is now just before my little man is going to
+
+21
+00:01:14,270 --> 00:01:18,200
+die. I think it's beekeeper. There we go. We got it.
+
+22
+00:01:18,290 --> 00:01:20,840
+So if we had lost just one more life,
+
+23
+00:01:21,140 --> 00:01:23,750
+the leg would have been added and we would have lost,
+
+24
+00:01:23,780 --> 00:01:25,340
+but we managed to get there in the end.
+
+25
+00:01:25,790 --> 00:01:29,270
+So this is what the completed game looks like and how it plays out.
+
+26
+00:01:29,450 --> 00:01:34,450
+And you can go over to the final URL and run the code and see it in action if
+
+27
+00:01:34,610 --> 00:01:37,280
+you want to. But just by building this game,
+
+28
+00:01:37,280 --> 00:01:41,600
+we're going to be able to review and test ourselves on a bunch of concepts that
+
+29
+00:01:41,600 --> 00:01:42,500
+we've already covered,
+
+30
+00:01:42,740 --> 00:01:46,730
+like for and while loops or if and else statements, lists,
+
+31
+00:01:46,760 --> 00:01:51,050
+strings, the range, function, modules, and much, much more.
+
+32
+00:01:51,410 --> 00:01:54,710
+So I hope you're as excited as I am to get started on this project,
+
+33
+00:01:55,010 --> 00:01:59,170
+and once you already head over to the next lesson and let's begin.
+
+1
+00:00:00,610 --> 00:00:04,150
+All right guys. So before we get started with our project,
+
+2
+00:00:04,420 --> 00:00:09,420
+it's really important that we're all on the same page and we understand how the
+
+3
+00:00:09,550 --> 00:00:13,660
+code is going to work because we know how the game works.
+
+4
+00:00:14,290 --> 00:00:17,440
+So I recommend that if you've never heard of this game hangman,
+
+5
+00:00:17,740 --> 00:00:22,600
+then before you continue to just head over to the Wikipedia article on hangman,
+
+6
+00:00:22,960 --> 00:00:26,290
+and it might be even easier if you select your own language
+
+7
+00:00:26,560 --> 00:00:30,340
+because I know that it has a different name in different languages. Now,
+
+8
+00:00:30,340 --> 00:00:31,840
+if you've never played this game,
+
+9
+00:00:31,840 --> 00:00:35,350
+I always recommend just go and give it a go online.
+
+10
+00:00:35,590 --> 00:00:39,910
+So a link to this address, and if you click on single player untimed,
+
+11
+00:00:40,390 --> 00:00:43,480
+you can see that you have a word that you have to guess,
+
+12
+00:00:43,810 --> 00:00:47,410
+and then you start picking some letters. And if it's right,
+
+13
+00:00:47,410 --> 00:00:49,930
+then it goes in and if it's wrong,
+
+14
+00:00:49,960 --> 00:00:54,960
+then the hangman gallows start being drawn and our little man is at risk of
+
+15
+00:00:56,380 --> 00:00:59,740
+being hung. Once you understand how the game works,
+
+16
+00:00:59,770 --> 00:01:03,610
+it's time for us to examine what the logic for our program is going to look
+
+17
+00:01:03,610 --> 00:01:07,540
+like. And to do that, we're going to use flow chart programming.
+
+18
+00:01:07,570 --> 00:01:08,980
+So it's very simple.
+
+19
+00:01:09,280 --> 00:01:14,280
+It just means that we can draw out a flow chart to represent the logic of our
+
+20
+00:01:14,500 --> 00:01:16,690
+game. At this point,
+
+21
+00:01:16,750 --> 00:01:21,190
+I want you to pause the video and have a quick think about how you would program
+
+22
+00:01:21,190 --> 00:01:22,023
+hangman.
+
+23
+00:01:22,210 --> 00:01:25,690
+Try and come up with a flow chart that represents the logic of this game.
+
+24
+00:01:26,230 --> 00:01:29,470
+Break it down into little steps. What needs to happen first,
+
+25
+00:01:29,710 --> 00:01:33,250
+what needs to happen when the user makes a guess, and what should happen when the
+
+26
+00:01:33,250 --> 00:01:37,240
+guest is incorrect, when should the game end? Pause the video
+
+27
+00:01:37,240 --> 00:01:42,130
+now, take a pencil and a piece of paper, or use draw.io to create your flowchart.
+
+28
+00:01:42,480 --> 00:01:43,313
+Right?
+
+29
+00:01:46,010 --> 00:01:48,860
+So how did that go? Did you break down the problem?
+
+30
+00:01:49,400 --> 00:01:52,640
+It's really important to say that there's no single right answer here.
+
+31
+00:01:53,030 --> 00:01:55,820
+And there's loads of ways that you could have done this,
+
+32
+00:01:56,180 --> 00:01:57,800
+but let me show you my approach,
+
+33
+00:01:57,920 --> 00:02:01,070
+which is how we'll write our program over the next couple of lessons.
+
+34
+00:02:02,570 --> 00:02:05,570
+So this is what it looks like from start to end.
+
+35
+00:02:05,990 --> 00:02:09,530
+And if we zoom in a bit, let's go through this flow chart
+
+36
+00:02:09,530 --> 00:02:13,580
+step-by-step so we're all on the same page. At the start of the game
+
+37
+00:02:13,580 --> 00:02:18,410
+the first thing we do is to generate a random word. Let's say, in this case
+
+38
+00:02:18,410 --> 00:02:19,760
+it was the word mouse.
+
+39
+00:02:20,270 --> 00:02:25,270
+Now the next step is to generate as many blanks as the letters in the word.
+
+40
+00:02:25,910 --> 00:02:28,610
+So we have these blanks to show the user
+
+41
+00:02:28,790 --> 00:02:33,140
+how many letters are in this word that they need to guess. They don't get to see
+
+42
+00:02:33,140 --> 00:02:37,100
+this, but they get to see this. And the next step they get to 
+
+43
+00:02:37,130 --> 00:02:38,360
+guess a letter.
+
+44
+00:02:38,900 --> 00:02:43,130
+So let's say the user in this case guessed the letter O. Well,
+
+45
+00:02:43,130 --> 00:02:47,960
+the next thing we have to check is, is the guessed letter actually in the word?
+
+46
+00:02:48,440 --> 00:02:51,050
+Well, in this case, o it is indeed in mouse.
+
+47
+00:02:51,050 --> 00:02:52,790
+It's the one at the second position.
+
+48
+00:02:53,330 --> 00:02:58,070
+And so we go down this path and we answer yes to that question.
+
+49
+00:02:58,430 --> 00:03:02,350
+So now we to replace that blank with the letter O.
+
+50
+00:03:03,940 --> 00:03:08,940
+Now the next stage is we have to check are the blanks filled, are all of these
+
+51
+00:03:09,160 --> 00:03:11,260
+blanks removed because in that case,
+
+52
+00:03:11,260 --> 00:03:15,820
+it means the user is guessed all of the letters correctly? Well at the moment,
+
+53
+00:03:16,060 --> 00:03:19,300
+it's definitely a no, cause we've only guessed one letter.
+
+54
+00:03:19,690 --> 00:03:23,800
+So then we go all the way back to the beginning and we ask the user to guess
+
+55
+00:03:23,860 --> 00:03:27,040
+another letter. Now at some stage of the game,
+
+56
+00:03:27,070 --> 00:03:31,840
+all the letters will be guessed. And then we can answer yes to this question,
+
+57
+00:03:32,320 --> 00:03:36,940
+which means it's game over. The user has won because they've guessed all the
+
+58
+00:03:36,940 --> 00:03:39,100
+letters correctly. Now,
+
+59
+00:03:39,250 --> 00:03:43,180
+if we go back to the part where we ask the user to guess a letter,
+
+60
+00:03:43,570 --> 00:03:46,510
+and they guessed a letter, say the letter z
+
+61
+00:03:46,630 --> 00:03:51,250
+which doesn't actually exist in this word mouse, while then in this case,
+
+62
+00:03:51,280 --> 00:03:54,160
+we go down this right path to answer no
+
+63
+00:03:54,730 --> 00:03:56,650
+and the user loses a life,
+
+64
+00:03:56,800 --> 00:04:01,630
+which means we start drawing out a hangman figure. Now,
+
+65
+00:04:01,870 --> 00:04:04,690
+depending on whether if they have run out of lives,
+
+66
+00:04:04,750 --> 00:04:08,620
+if the hangman man has been drawn completely, then they would go down this path.
+
+67
+00:04:08,650 --> 00:04:13,180
+But at the moment they've only lost one life and this figure is not complete
+
+68
+00:04:13,210 --> 00:04:14,710
+so the answer is no.
+
+69
+00:04:15,250 --> 00:04:18,430
+And that means we go back to the beginning and we get them to guess the next
+
+70
+00:04:18,430 --> 00:04:19,779
+letter. Now,
+
+71
+00:04:19,839 --> 00:04:24,400
+if at the stage where they've exhausted all of their lives and the hangman
+
+72
+00:04:24,400 --> 00:04:28,120
+figure is complete, well, then it's the end of the game
+
+73
+00:04:28,330 --> 00:04:32,140
+and they've basically just lost without having guessed
+
+74
+00:04:32,230 --> 00:04:35,950
+all of the letters in the word. So this is the logic,
+
+75
+00:04:35,980 --> 00:04:38,500
+and you might need to come back to this video a few times
+
+76
+00:04:38,830 --> 00:04:43,270
+if you get stuck along the way just to review how the program flows.
+
+77
+00:04:43,690 --> 00:04:48,690
+But it might also be worth creating your own flow chart or simply downloading
+
+78
+00:04:48,820 --> 00:04:52,270
+this completed flowchart I have here in the course resources.
+
+79
+00:04:52,810 --> 00:04:57,640
+It's a really useful tool to come back to and refer to as you're writing the
+
+80
+00:04:57,640 --> 00:04:58,390
+code,
+
+81
+00:04:58,390 --> 00:05:02,170
+because this will give you an overview of what you're trying to get your code to
+
+82
+00:05:02,170 --> 00:05:03,003
+do.
+
+83
+00:05:03,010 --> 00:05:06,700
+And hopefully this is going to make it easier for you to complete the upcoming
+
+84
+00:05:06,700 --> 00:05:11,350
+challenges in this project. Once you are ready, head over to the next lesson,
+
+85
+00:05:11,500 --> 00:05:12,520
+and let's get started.
+
+1
+00:00:00,070 --> 00:00:04,750
+All right guys. So to get started head over to the starting Repl.it file
+
+2
+00:00:04,960 --> 00:00:07,660
+which you'll be able to find in the course resources,
+
+3
+00:00:08,080 --> 00:00:13,080
+and you should see a pretty much empty file as well as three to-dos for you to
+
+4
+00:00:13,930 --> 00:00:18,790
+complete. All I've got here is a list of three words,
+
+5
+00:00:18,850 --> 00:00:20,890
+ardvark, baboon, and camel.
+
+6
+00:00:21,340 --> 00:00:25,660
+And we're going to be choosing a random word from that list
+
+7
+00:00:26,110 --> 00:00:28,930
+and then we're going to ask the user to guess a letter,
+
+8
+00:00:29,440 --> 00:00:34,440
+and then we're going to check if that letter matches one of the letters in the
+
+9
+00:00:35,140 --> 00:00:35,980
+chosen word.
+
+10
+00:00:36,310 --> 00:00:40,930
+So we're basically just tackling the first part of this flowchart up to about
+
+11
+00:00:40,930 --> 00:00:44,680
+here. Once you've completed all three to-dos here,
+
+12
+00:00:45,010 --> 00:00:48,610
+you should have something that will function more or less like this.
+
+13
+00:00:48,790 --> 00:00:51,430
+So this is the end result of step 1
+
+14
+00:00:51,880 --> 00:00:56,320
+and it should ask us to guess a letter. So let me try a.
+
+15
+00:00:57,010 --> 00:01:02,010
+And it shows me that this a matches with the first letter in the word,
+
+16
+00:01:04,120 --> 00:01:06,310
+as well as the fourth letter in the word.
+
+17
+00:01:06,640 --> 00:01:11,640
+So I'm pretty sure that the word that it picks randomly was actually ardvark.
+
+18
+00:01:12,340 --> 00:01:17,340
+Essentially, your code is gonna loop through each of the letters in the chosen
+
+19
+00:01:17,590 --> 00:01:18,310
+word,
+
+20
+00:01:18,310 --> 00:01:23,110
+and then check it against the word that the user entered and report back
+
+21
+00:01:23,200 --> 00:01:27,910
+whether if it matched any of the letters in the word. Now,
+
+22
+00:01:27,910 --> 00:01:29,110
+if you need a hint,
+
+23
+00:01:29,170 --> 00:01:34,170
+then head over to the course resources and you'll see a link that's marked as a
+
+24
+00:01:34,810 --> 00:01:37,270
+hint. And once you click on it,
+
+25
+00:01:37,390 --> 00:01:42,100
+it'll take you to this page where it talks about how to use the for loop
+
+26
+00:01:42,160 --> 00:01:47,110
+with a list in Python. Have a read through the section and then go back,
+
+27
+00:01:47,210 --> 00:01:51,520
+try to tackle the to-dos and see if that helps you. All right.
+
+28
+00:01:51,520 --> 00:01:55,390
+So have a play around with the final version and once you're ready,
+
+29
+00:01:55,510 --> 00:02:00,510
+go-ahead fork a copy of the starting file for day 7 step one,
+
+30
+00:02:01,570 --> 00:02:04,720
+and tackle the to-dos one by one. Good luck.
+
+1
+00:00:00,070 --> 00:00:00,400
+All right.
+
+2
+00:00:00,400 --> 00:00:05,400
+So how did you get on? Now if you got stuck or you want to see maybe how I did
+
+3
+00:00:05,530 --> 00:00:09,160
+it, then continue watching and I'll go through the solution with you.
+
+4
+00:00:09,820 --> 00:00:13,870
+So first things first, head over to the link and fork your own copy.
+
+5
+00:00:15,640 --> 00:00:18,730
+Once you've done that, we're going to tackle the to-dos one by one
+
+6
+00:00:18,730 --> 00:00:20,560
+in order. The first one
+
+7
+00:00:20,560 --> 00:00:25,560
+asks us to randomly choose a word from the word_list and assign it to a variable
+
+8
+00:00:27,820 --> 00:00:28,870
+called chosen_word.
+
+9
+00:00:29,500 --> 00:00:32,890
+So in order to randomly get an item out of the list,
+
+10
+00:00:33,190 --> 00:00:36,580
+we're going to need to import the random module.
+
+11
+00:00:37,900 --> 00:00:42,760
+And once we've got hold of that, then we can say random.choice
+
+12
+00:00:43,030 --> 00:00:45,490
+and if we put inside the parentheses
+
+13
+00:00:45,790 --> 00:00:48,610
+the list that we want to randomly choose from,
+
+14
+00:00:48,970 --> 00:00:53,830
+then we should be able to get hold of a single item from this list randomly.
+
+15
+00:00:54,370 --> 00:00:58,090
+And then finally, we're going to assign it to a variable called chosen_word.
+
+16
+00:00:58,510 --> 00:01:03,490
+So let's call that chosen_word and then set it to equal this result.
+
+17
+00:01:04,900 --> 00:01:09,900
+So that's to-do 1 completed. The next todo we have to ask the user to guess a
+
+18
+00:01:10,060 --> 00:01:15,060
+letter and assign their answer to a variable called guess. And finally make that
+
+19
+00:01:16,030 --> 00:01:20,650
+guess lowercase. In order to ask the user for anything,
+
+20
+00:01:20,680 --> 00:01:24,490
+we're going to have to create an input. And let's say,
+
+21
+00:01:24,550 --> 00:01:26,650
+"Guess a letter:"
+
+22
+00:01:29,470 --> 00:01:31,690
+And then we can assign their answer
+
+23
+00:01:31,720 --> 00:01:36,190
+which will replace this line of code with a variable called guess.
+
+24
+00:01:36,430 --> 00:01:40,210
+So we'll just set that equal to guess. And finally,
+
+25
+00:01:40,240 --> 00:01:45,240
+we're going to make this guess lower case and we do that by writing .lower.
+
+26
+00:01:46,840 --> 00:01:51,790
+Now step 3 ask us to check if the letter the user guessed,
+
+27
+00:01:51,970 --> 00:01:56,970
+which is this guess variable, is one of the letters in the chosen_word.
+
+28
+00:01:57,550 --> 00:02:02,550
+So this randomly chosen word could be any one of these: ardvack, baboon, or camel.
+
+29
+00:02:04,210 --> 00:02:08,080
+And we have to somehow check if this letter
+
+30
+00:02:08,410 --> 00:02:13,410
+which is stored inside this variable guess matches any of the letters inside
+
+31
+00:02:13,780 --> 00:02:17,890
+this list of words. So, as I mentioned as a hint,
+
+32
+00:02:18,100 --> 00:02:22,120
+you can have a look at this document from Google for education,
+
+33
+00:02:22,420 --> 00:02:24,550
+which talks about various things in Python.
+
+34
+00:02:25,000 --> 00:02:28,690
+And the part I wanted to draw your attention to is the for loop
+
+35
+00:02:28,720 --> 00:02:33,400
+which we covered previously. So we know that we can use the for loop like this
+
+36
+00:02:33,700 --> 00:02:38,700
+to loop through a particular list and get hold of each of the items in the list,
+
+37
+00:02:40,060 --> 00:02:43,150
+like this. So in our case,
+
+38
+00:02:43,180 --> 00:02:48,180
+all we have to do is say for letter in chosen word,
+
+39
+00:02:49,000 --> 00:02:54,000
+so this is going to go through this chosen word letter by letter
+
+40
+00:02:55,390 --> 00:02:57,130
+and each time the loop runs,
+
+41
+00:02:57,400 --> 00:03:00,460
+we'll get hold of one of letters inside the word.
+
+42
+00:03:00,850 --> 00:03:05,290
+So the first time that letter variable will equal a, the next time
+
+43
+00:03:05,320 --> 00:03:08,140
+it will be equal to r and so on and so forth.
+
+44
+00:03:08,680 --> 00:03:10,900
+So now inside our for loop
+
+45
+00:03:10,990 --> 00:03:15,990
+we can check to see if the letter that we're currently looking at is double
+
+46
+00:03:18,370 --> 00:03:23,370
+equals to the letter that the user guessed and in this case,
+
+47
+00:03:23,530 --> 00:03:25,480
+well then that means its a match, right?
+
+48
+00:03:25,510 --> 00:03:29,470
+So we're going to print either a match or in my case, I'm just going to write,
+
+49
+00:03:29,800 --> 00:03:33,850
+uh, Right. And else, namely if it doesn't match,
+
+50
+00:03:33,910 --> 00:03:37,510
+then we're going to print wrong. That's it.
+
+51
+00:03:37,570 --> 00:03:40,870
+That's all we have to do to complete all three to-dos.
+
+52
+00:03:41,380 --> 00:03:43,210
+And now if I run this code,
+
+53
+00:03:43,330 --> 00:03:47,980
+you can see it's going to ask me to guess a letter. So let's put a,
+
+54
+00:03:48,640 --> 00:03:51,850
+and then it goes through this loop line by line
+
+55
+00:03:51,880 --> 00:03:56,740
+to check against this letter that I've guessed. So I'm guessing in this case
+
+56
+00:03:56,740 --> 00:03:59,230
+the chosen word is aardvark.
+
+57
+00:03:59,590 --> 00:04:04,420
+So when the loop is running through the first letter a and a match,
+
+58
+00:04:04,480 --> 00:04:08,740
+so it says right. Then the next time it's looking at the letter
+
+59
+00:04:08,800 --> 00:04:11,080
+r, a and r does not match
+
+60
+00:04:11,080 --> 00:04:16,079
+so we get wrong and it continues until it finds all the matches and all the ones
+
+61
+00:04:16,930 --> 00:04:21,700
+that don't match. Now, if you want to check your code against mine,
+
+62
+00:04:22,089 --> 00:04:26,890
+simply head over to the URL that's listed in the course resources under app
+
+63
+00:04:26,890 --> 00:04:29,560
+brewery/day-7-Hangman-1-End
+
+64
+00:04:30,010 --> 00:04:33,070
+and here you'll be able to see all the code that I went through with you just
+
+65
+00:04:33,070 --> 00:04:36,430
+now. Now, if you had any issues
+
+66
+00:04:36,460 --> 00:04:41,260
+understanding how the code worked or how to get to the final solution,
+
+67
+00:04:41,680 --> 00:04:43,300
+and if you're at all confused,
+
+68
+00:04:43,390 --> 00:04:48,390
+I recommend putting the code through Thonny and just clicking on the debug to go
+
+69
+00:04:48,880 --> 00:04:53,290
+through each of the steps one by one. So in this line,
+
+70
+00:04:53,320 --> 00:04:58,320
+we're going to use the random module and get hold of a random item from this
+
+71
+00:05:01,360 --> 00:05:02,193
+list.
+
+72
+00:05:02,260 --> 00:05:07,260
+So, in this case, it's picked camel. And now that camel is going to be equal to
+
+73
+00:05:08,380 --> 00:05:10,600
+the variable chosen_word.
+
+74
+00:05:11,260 --> 00:05:15,010
+So on the next step we ask the user to guess a letter.
+
+75
+00:05:15,640 --> 00:05:17,290
+And once we step into that,
+
+76
+00:05:17,530 --> 00:05:21,610
+it's going to print that out into the debug console.
+
+77
+00:05:21,910 --> 00:05:26,910
+And if I put a and hit enter, then guess is now equal to a,
+
+78
+00:05:30,280 --> 00:05:33,610
+and there's our second variable guess, which is equal to a.
+
+79
+00:05:34,270 --> 00:05:38,800
+Now we fall into our for loop. And if we step into the loop,
+
+80
+00:05:39,100 --> 00:05:43,900
+then you can see that the chosen_word is going to be replaced with camel and
+
+81
+00:05:43,930 --> 00:05:48,930
+letter is going to be replaced with each of the letters in the chosen word one
+
+82
+00:05:49,060 --> 00:05:52,030
+by one. So the first time loop runs, it's going to be c,
+
+83
+00:05:52,630 --> 00:05:57,590
+and then it checks to see, well, if c is equal to guess,
+
+84
+00:05:57,620 --> 00:06:00,890
+which is a, does that match? No, it doesn't.
+
+85
+00:06:00,890 --> 00:06:05,060
+So it jumps to the else part and it prints out wrong.
+
+86
+00:06:07,460 --> 00:06:10,340
+And then the loop is going to restart from the top
+
+87
+00:06:10,400 --> 00:06:13,130
+and we're going to go to the next letter in the chosen word,
+
+88
+00:06:13,460 --> 00:06:17,480
+which is a. Now in this case, the letter is a
+
+89
+00:06:17,900 --> 00:06:22,820
+and the guest is a and so that should match. And so it should print,
+
+90
+00:06:22,940 --> 00:06:23,773
+right.
+
+91
+00:06:25,160 --> 00:06:29,030
+And then it basically steps through all of these again and again
+
+92
+00:06:29,090 --> 00:06:33,230
+until we get to the end of the word and we get this printed out.
+
+93
+00:06:33,800 --> 00:06:38,090
+So have a play around with that and the debug console to wrap your head around
+
+94
+00:06:38,090 --> 00:06:40,940
+it. And once you're confident, you know, what's going on,
+
+95
+00:06:41,210 --> 00:06:44,240
+then head over to the next lesson and let's complete step 2.
+
+1
+00:00:00,180 --> 00:00:02,440
+All right. So now that you've tackled step one,
+
+2
+00:00:02,440 --> 00:00:07,180
+let's continue building out our project by doing step two. Again,
+
+3
+00:00:07,180 --> 00:00:09,850
+we have three to-dos in the starting file.
+
+4
+00:00:10,330 --> 00:00:15,330
+And what we're going to try and do here is we're going to generate a list with
+
+5
+00:00:15,850 --> 00:00:17,710
+as many of these blanks
+
+6
+00:00:17,740 --> 00:00:22,740
+which is represented by an underscore string as there are letters in the chosen
+
+7
+00:00:23,110 --> 00:00:28,090
+word. So for example, if the chosen word was apple with five letters,
+
+8
+00:00:28,450 --> 00:00:33,450
+then we should be able to create a list with five items and each of them being
+
+9
+00:00:34,210 --> 00:00:37,810
+an underscore. So then in the next stage,
+
+10
+00:00:38,140 --> 00:00:43,140
+we can replace some of the items inside that list with the correct letter
+
+11
+00:00:45,100 --> 00:00:48,280
+if the user guesses it right. So for example,
+
+12
+00:00:48,490 --> 00:00:52,090
+if the word was apple and the user guessed the letter p,
+
+13
+00:00:52,540 --> 00:00:56,200
+then we should be able to loop through each of the letters in the word.
+
+14
+00:00:56,740 --> 00:01:00,070
+And for every letter that it matches,
+
+15
+00:01:00,340 --> 00:01:03,190
+we replace the underscore with the actual letter.
+
+16
+00:01:03,550 --> 00:01:08,050
+So then we end up with a list that looks like this. Finally,
+
+17
+00:01:08,080 --> 00:01:13,000
+you're going to print that out and we should be able to see it in the console.
+
+18
+00:01:13,480 --> 00:01:17,230
+In the starting file, you'll notice I've added a little bit of testing code
+
+19
+00:01:17,530 --> 00:01:21,970
+which is just a print statement telling us what the chosen wood is,
+
+20
+00:01:22,240 --> 00:01:26,290
+and this will make it easier for us to debug and figure out if our code is not
+
+21
+00:01:26,290 --> 00:01:30,430
+doing what we want it to do. So once you've completed all of the
+
+22
+00:01:30,430 --> 00:01:35,410
+to-dos in step two, then this is what you should get. In this case,
+
+23
+00:01:35,470 --> 00:01:38,410
+the chosen word is baboon. So if,
+
+24
+00:01:38,410 --> 00:01:42,520
+I guess the letter b, because I'm cheating
+
+25
+00:01:42,670 --> 00:01:46,060
+and also because I'm trying to test the code, and I hit enter,
+
+26
+00:01:46,300 --> 00:01:51,160
+then you can see that it should print out a list with one,
+
+27
+00:01:51,160 --> 00:01:53,140
+two, three, four, five, six,
+
+28
+00:01:53,410 --> 00:01:56,290
+six items in it because there's six letters in baboon,
+
+29
+00:01:56,860 --> 00:02:00,550
+and each of the letters which I've guessed correctly in the right
+
+30
+00:02:00,890 --> 00:02:05,890
+are replaced in the list in the correct position. B occurs in the first and the
+
+31
+00:02:06,670 --> 00:02:07,503
+third letter,
+
+32
+00:02:07,750 --> 00:02:12,490
+so that is what's showing up in this list and everything else is still the
+
+33
+00:02:12,520 --> 00:02:16,030
+underscore because they're blanks and still need to be guessed.
+
+34
+00:02:17,530 --> 00:02:20,770
+Have a play around with the final version of the code
+
+35
+00:02:21,220 --> 00:02:24,490
+and once you're ready, head back, fork
+
+36
+00:02:24,500 --> 00:02:28,630
+the starting project and complete the to-dos in order. Now,
+
+37
+00:02:28,630 --> 00:02:30,940
+if you need a hint and you get stuck,
+
+38
+00:02:31,270 --> 00:02:35,800
+be sure to check the course resources for a link that links to again,
+
+39
+00:02:35,890 --> 00:02:37,630
+a Google for Education page
+
+40
+00:02:37,690 --> 00:02:42,690
+and have a read through the section on the range function that we learned about
+
+41
+00:02:43,390 --> 00:02:44,530
+in previous lessons.
+
+42
+00:02:44,800 --> 00:02:49,330
+Remind yourself of how it works and then go back to your code and try to tackle
+
+43
+00:02:49,330 --> 00:02:53,320
+it and see if you can get it to do what it needs to. Good luck
+
+44
+00:02:53,560 --> 00:02:54,940
+and I'll see you on the other side,
+
+1
+00:00:00,430 --> 00:00:03,969
+All right, let's go ahead and run through the solution together. Firstly,
+
+2
+00:00:03,969 --> 00:00:07,870
+I'm going to fork my own copy of the starting file for step two
+
+3
+00:00:08,530 --> 00:00:11,890
+and then I'm going to take a look at to-do number one.
+
+4
+00:00:12,400 --> 00:00:15,880
+So the goal is to create an empty list called display,
+
+5
+00:00:16,480 --> 00:00:19,810
+and for each letter in the chosen word,
+
+6
+00:00:20,050 --> 00:00:22,600
+remember that a random word from this list,
+
+7
+00:00:23,050 --> 00:00:27,580
+we're going to add an underscore to this list called display.
+
+8
+00:00:28,270 --> 00:00:30,850
+So it tells us that if the word was apple,
+
+9
+00:00:30,850 --> 00:00:35,650
+then display should contain five underscores representing each letter the
+
+10
+00:00:35,650 --> 00:00:36,640
+user needs to guess.
+
+11
+00:00:37,570 --> 00:00:41,260
+Let's go ahead and just click run before doing anything first.
+
+12
+00:00:41,770 --> 00:00:46,210
+And this print statement will execute and it'll tell us that the solution is
+
+13
+00:00:46,240 --> 00:00:49,870
+ardvark. This is a seven letter word. So in this case,
+
+14
+00:00:49,900 --> 00:00:54,900
+we would need to create a list with seven underscores and seven items.
+
+15
+00:00:55,630 --> 00:00:58,630
+Let's go ahead and create an empty list called display.
+
+16
+00:00:59,230 --> 00:01:03,640
+An empty list is just a set of square brackets with nothing inside.
+
+17
+00:01:04,300 --> 00:01:07,090
+Now, for each letter in the chosen word,
+
+18
+00:01:07,150 --> 00:01:10,690
+we're going to add a underscore to this list.
+
+19
+00:01:11,320 --> 00:01:14,230
+How can we add something for each letter?
+
+20
+00:01:14,770 --> 00:01:19,420
+The simplest way is to simply use a for-loop. Now, in this case,
+
+21
+00:01:19,450 --> 00:01:20,283
+we have a choice.
+
+22
+00:01:20,590 --> 00:01:24,850
+We can either use the style of for-loop that we used previously down here,
+
+23
+00:01:25,270 --> 00:01:28,060
+which is a way of looping through a list.
+
+24
+00:01:28,390 --> 00:01:31,240
+So we could say for letter in chosen_word,
+
+25
+00:01:31,600 --> 00:01:35,620
+so it's going to run this for as many letters as there are in this word.
+
+26
+00:01:36,250 --> 00:01:38,260
+And for every single letter,
+
+27
+00:01:38,590 --> 00:01:43,590
+we're just simply going to take our list, display, and add a item to it.
+
+28
+00:01:44,230 --> 00:01:47,230
+And that item is going to be the string, underscore.
+
+29
+00:01:48,190 --> 00:01:53,190
+So now if we go ahead and print out our display and see what we get.
+
+30
+00:01:56,080 --> 00:01:57,580
+The solution is baboon
+
+31
+00:01:57,610 --> 00:02:02,440
+which has six letters and display gets printed with one, two, three, four,
+
+32
+00:02:02,440 --> 00:02:05,050
+five, six underscores inside.
+
+33
+00:02:05,680 --> 00:02:10,680
+Now notice how here we're not actually using this variable letter that gets
+
+34
+00:02:10,750 --> 00:02:13,990
+created. We're looping through every letter in the chosen word,
+
+35
+00:02:14,020 --> 00:02:17,920
+but we're not doing anything with each of the letters. So we can in fact
+
+36
+00:02:17,920 --> 00:02:21,610
+just replace it with an underscore. Now, alternatively,
+
+37
+00:02:21,640 --> 00:02:25,720
+we could have created this for loop with a range function as well.
+
+38
+00:02:26,230 --> 00:02:31,230
+And remember that the range function creates a range of numbers from zero up to
+
+39
+00:02:32,290 --> 00:02:36,760
+a particular number that you specify. So we could have also,
+
+40
+00:02:37,060 --> 00:02:41,680
+instead of looping through the chosen word, use range and inside here,
+
+41
+00:02:41,680 --> 00:02:45,250
+we could have put the length of the chosen word.
+
+42
+00:02:46,210 --> 00:02:51,040
+So then our range would be between zero and the length of the chosen word.
+
+43
+00:02:51,310 --> 00:02:56,080
+So it was a baboon then it would be from zero to six, but not including six.
+
+44
+00:02:56,080 --> 00:02:58,600
+Remember that's how the range operator works.
+
+45
+00:02:59,050 --> 00:03:04,050
+So it would be zero and then it would be one and so on and so forth until it
+
+46
+00:03:04,210 --> 00:03:05,560
+gets to five.
+
+47
+00:03:06,280 --> 00:03:11,280
+And so that would be a total of six loops adding six of these underscores.
+
+48
+00:03:11,710 --> 00:03:15,220
+So given that I've updated this for loop, if we run it again,
+
+49
+00:03:15,430 --> 00:03:17,140
+you can see its exactly the same,
+
+50
+00:03:17,380 --> 00:03:21,430
+it will create as many underscores in the list as there are letters in the
+
+51
+00:03:21,430 --> 00:03:25,150
+chosen word. So it doesn't actually matter in this case
+
+52
+00:03:25,240 --> 00:03:28,780
+which version you went for, either this version of the
+
+53
+00:03:28,780 --> 00:03:32,200
+for loop using the range function or the previous one
+
+54
+00:03:32,410 --> 00:03:37,210
+which just looped through the list. It's your choice. They both worked the same.
+
+55
+00:03:38,050 --> 00:03:41,380
+So now let's move on to to-do number two.
+
+56
+00:03:41,950 --> 00:03:45,550
+Now we have to loop through each position in the chosen word
+
+57
+00:03:46,060 --> 00:03:50,350
+and if the letter at that position matches the letter the user guessed,
+
+58
+00:03:50,650 --> 00:03:55,090
+then we're going to reveal that letter in the display at that position.
+
+59
+00:03:55,120 --> 00:04:00,120
+So basically we're going to replace the underscore with the letter that the user
+
+60
+00:04:00,220 --> 00:04:02,500
+guessed if they guessed it right.
+
+61
+00:04:03,850 --> 00:04:08,850
+So now this is probably the hardest part of this whole step because in order to
+
+62
+00:04:09,700 --> 00:04:10,420
+do this,
+
+63
+00:04:10,420 --> 00:04:14,800
+we actually have to change this for loop to
+
+64
+00:04:14,800 --> 00:04:19,800
+one that uses the range function because we need to get hold of the position
+
+65
+00:04:20,800 --> 00:04:25,000
+when the letter and the guess actually matched. That way
+
+66
+00:04:25,030 --> 00:04:30,030
+we can tap into the list and change only the item at that particular position.
+
+67
+00:04:31,810 --> 00:04:33,970
+So let me show you how the code would look.
+
+68
+00:04:34,450 --> 00:04:36,790
+Instead of saying for letter in chosen_word,
+
+69
+00:04:36,820 --> 00:04:41,020
+we would say for position in range
+
+70
+00:04:42,850 --> 00:04:47,290
+and the range is going to be between zero and the length of the chosen_word.
+
+71
+00:04:47,740 --> 00:04:50,080
+And once we've got that, then the
+
+72
+00:04:50,080 --> 00:04:55,080
+for-loop is going to run for as many times as there are letters in the word and
+
+73
+00:04:55,120 --> 00:04:56,500
+for each of those letters
+
+74
+00:04:56,530 --> 00:05:00,250
+it's going to give us a number, a position to work with.
+
+75
+00:05:00,670 --> 00:05:05,530
+So the first time it runs it position is going to be equal to zero because we'll
+
+76
+00:05:05,530 --> 00:05:09,490
+be looking at the first item in the chosen_word,
+
+77
+00:05:09,610 --> 00:05:11,170
+which in this case would be a.
+
+78
+00:05:11,620 --> 00:05:14,620
+And then the next time the loop runs position becomes one
+
+79
+00:05:14,920 --> 00:05:17,440
+and we'll be looking at the second item in the list.
+
+80
+00:05:18,610 --> 00:05:21,850
+Now we no longer have that letter to work with,
+
+81
+00:05:22,030 --> 00:05:24,130
+which is why we get an error here.
+
+82
+00:05:25,000 --> 00:05:29,440
+So how can we get hold of the current letter in the chosen word
+
+83
+00:05:29,470 --> 00:05:33,640
+given that we know the position? Well,
+
+84
+00:05:33,640 --> 00:05:38,640
+it would be as simple as saying letter = chosen_word 
+
+85
+00:05:40,420 --> 00:05:41,320
+[position].
+
+86
+00:05:42,250 --> 00:05:47,170
+Now we can check to see if the letter is equal to the letter
+
+87
+00:05:47,170 --> 00:05:48,130
+the user guessed.
+
+88
+00:05:48,670 --> 00:05:53,670
+Then we can get hold of our display and get the item at the current position and
+
+89
+00:05:57,380 --> 00:05:59,900
+then set that to equal the letter.
+
+90
+00:06:01,700 --> 00:06:04,160
+And we can get rid of the else statement entirely.
+
+91
+00:06:07,990 --> 00:06:12,460
+So now notice that we're using the length of the chosen word in quite a few
+
+92
+00:06:12,460 --> 00:06:14,830
+places. So if you want to,
+
+93
+00:06:14,830 --> 00:06:19,830
+you can actually simplify the code by simply creating a new variable called word
+
+94
+00:06:19,990 --> 00:06:20,823
+length.
+
+95
+00:06:23,410 --> 00:06:26,380
+And now every time we need to use the word_length,
+
+96
+00:06:26,410 --> 00:06:28,990
+we can just refer to that variable
+
+97
+00:06:31,240 --> 00:06:31,560
+Right?
+
+98
+00:06:31,560 --> 00:06:34,140
+which should make our code a little bit easier to read.
+
+99
+00:06:35,480 --> 00:06:36,310
+Right?
+
+100
+00:06:36,310 --> 00:06:41,020
+Finally, all we have to do for step three is just to print our list
+
+101
+00:06:41,080 --> 00:06:44,740
+which is called display. And then when we run our code,
+
+102
+00:06:45,190 --> 00:06:48,730
+you should be able to see that if the solution was camel,
+
+103
+00:06:49,180 --> 00:06:54,180
+initially, our display starts out with five blanks because there's five letters.
+
+104
+00:06:55,120 --> 00:06:57,130
+And then once we've guessed a letter,
+
+105
+00:06:57,550 --> 00:07:02,550
+then it will replace that letter at the correct position in that display list.
+
+106
+00:07:04,420 --> 00:07:07,720
+So a only matches the second letter,
+
+107
+00:07:08,050 --> 00:07:11,650
+so that second blank gets replaced by this letter.
+
+108
+00:07:12,610 --> 00:07:13,210
+And again,
+
+109
+00:07:13,210 --> 00:07:18,070
+I recommend to review the code if it's at all confusing or if you didn't manage
+
+110
+00:07:18,070 --> 00:07:23,070
+to get it first time through the Thonny IDE just to see it step by step and see
+
+111
+00:07:23,410 --> 00:07:27,100
+what's actually happening. We've chosen our random word,
+
+112
+00:07:27,700 --> 00:07:30,070
+which in this case turns out to be camel.
+
+113
+00:07:30,610 --> 00:07:34,210
+And once we get into our display,
+
+114
+00:07:34,240 --> 00:07:36,190
+it starts out as an empty list.
+
+115
+00:07:36,670 --> 00:07:39,610
+But as soon as we calculate the word length,
+
+116
+00:07:40,060 --> 00:07:44,380
+then we can go ahead and loop through the range of numbers from zero to the
+
+117
+00:07:44,380 --> 00:07:49,120
+length of the word, which is five. And it will run the code in the
+
+118
+00:07:49,120 --> 00:07:49,900
+for loop
+
+119
+00:07:49,900 --> 00:07:54,640
+which is just to add the underscore to this list five times.
+
+120
+00:07:54,970 --> 00:07:58,660
+And finally, once it's done, it's going to print it out.
+
+121
+00:07:59,620 --> 00:08:03,640
+So this is what we get, five blanks for the word camel.
+
+122
+00:08:04,480 --> 00:08:07,270
+Now it asked the user for a guess.
+
+123
+00:08:07,390 --> 00:08:12,390
+So I'm going to guess that letter a and enters this final for loop.
+
+124
+00:08:13,480 --> 00:08:14,950
+This is where it's really interesting.
+
+125
+00:08:14,950 --> 00:08:17,590
+So we're going to step into it to see it in more detail.
+
+126
+00:08:18,370 --> 00:08:23,370
+So now the range is a range between zero and the word length.
+
+127
+00:08:24,070 --> 00:08:25,690
+So the word length is five
+
+128
+00:08:25,840 --> 00:08:30,010
+so that range becomes from zero to five not
+
+129
+00:08:30,010 --> 00:08:34,120
+including five. So zero, one, two, three, four.
+
+130
+00:08:34,539 --> 00:08:37,720
+And that is going to make the for loop run five times.
+
+131
+00:08:38,470 --> 00:08:43,470
+The position starts out with zero. And when position is zero
+
+132
+00:08:44,860 --> 00:08:49,860
+then it's going to go into this next line, line 18, and put zero here as the
+
+133
+00:08:50,860 --> 00:08:54,400
+position. And then we go into the chosen word,
+
+134
+00:08:54,430 --> 00:08:58,260
+which is camel and pick out the item at position zero.
+
+135
+00:08:58,980 --> 00:09:03,980
+And so this letter becomes equal to the letter c because that's the letter at
+
+136
+00:09:04,950 --> 00:09:09,180
+position zero of the word. So now in our if statement,
+
+137
+00:09:09,300 --> 00:09:13,560
+we check to see if the letter, which is c, is equal to the guess,
+
+138
+00:09:13,590 --> 00:09:17,280
+which is a. Well in this case, c does not equal a
+
+139
+00:09:17,790 --> 00:09:22,020
+so we go back to the beginning of the for loop and we go to the next number in
+
+140
+00:09:22,020 --> 00:09:23,970
+the range, which is now one.
+
+141
+00:09:24,480 --> 00:09:28,410
+And we're going to repeat this again and again. But in this case,
+
+142
+00:09:28,470 --> 00:09:33,470
+notice that the letter at position one of camel is equal to a.
+
+143
+00:09:37,110 --> 00:09:41,670
+So now letter is equal to a and guess is equal to a.
+
+144
+00:09:41,910 --> 00:09:44,880
+So if those two are equal, then this
+
+145
+00:09:44,910 --> 00:09:49,910
+if statement is true and we end up going inside it to carry out this
+
+146
+00:09:50,520 --> 00:09:53,790
+functionality. Our letter is equal to a,
+
+147
+00:09:54,540 --> 00:09:58,800
+and we're going to look at our list, which is called display, this one,
+
+148
+00:09:59,430 --> 00:10:03,990
+and we're going to replace that second character with the letter that was
+
+149
+00:10:03,990 --> 00:10:07,200
+matching. And it's going to do this again and again
+
+150
+00:10:07,290 --> 00:10:11,970
+until we've looped through five times through all of the letters in the chosen
+
+151
+00:10:11,970 --> 00:10:12,720
+word
+
+152
+00:10:12,720 --> 00:10:17,720
+and finally we print the final version of display with the correct letters
+
+153
+00:10:18,900 --> 00:10:22,500
+replaced. Have a play around with this
+
+154
+00:10:22,530 --> 00:10:27,420
+if you're at all confused and it might be that you need to look up some stuff on
+
+155
+00:10:27,450 --> 00:10:28,470
+Stack Overflow,
+
+156
+00:10:28,710 --> 00:10:33,300
+or you might need to review some of the lessons that we've done before on things
+
+157
+00:10:33,300 --> 00:10:37,170
+like range functions and for loops, just so that you're really,
+
+158
+00:10:37,170 --> 00:10:38,370
+really certain that you know
+
+159
+00:10:38,370 --> 00:10:42,570
+what's going on and only then should you continue to the next step.
+
+160
+00:10:43,230 --> 00:10:46,560
+Take a moment with this and I'll see you on the next lesson.
+
+1
+00:00:00,220 --> 00:00:01,960
+All right. So up till now,
+
+2
+00:00:02,050 --> 00:00:07,050
+our game is not actually particularly fun and it's because we haven't enabled the
+
+3
+00:00:09,220 --> 00:00:10,330
+repeatability.
+
+4
+00:00:10,810 --> 00:00:15,810
+So we need our game to allow the user to guess the next letter and the next
+
+5
+00:00:17,170 --> 00:00:17,650
+letter
+
+6
+00:00:17,650 --> 00:00:22,270
+and keep going until they either die or they get to the solution.
+
+7
+00:00:23,430 --> 00:00:26,130
+So in this case, the solution is ardvark.
+
+8
+00:00:26,460 --> 00:00:29,040
+So I'm gonna guess a letter, a,
+
+9
+00:00:29,520 --> 00:00:32,490
+and that gets replaced in the correct positions.
+
+10
+00:00:33,180 --> 00:00:35,820
+And now I'm allowed to guess again.
+
+11
+00:00:36,510 --> 00:00:41,400
+And I'm going to keep going until I've filled out all of the characters.
+
+12
+00:00:41,640 --> 00:00:45,000
+So I'm almost there just need a 'k' now
+
+13
+00:00:45,120 --> 00:00:47,970
+and we should complete the entire game.
+
+14
+00:00:48,480 --> 00:00:51,510
+And it tells me that it's complete and that I've won
+
+15
+00:00:51,870 --> 00:00:56,870
+and the game finally ends and exits out of the loop. In order to achieve this and
+
+16
+00:00:58,830 --> 00:01:03,420
+make our game more like a game, we have just one to-do.
+
+17
+00:01:04,590 --> 00:01:05,040
+Now,
+
+18
+00:01:05,040 --> 00:01:10,040
+the idea here is you're going to use a while loop to let the user guests again
+
+19
+00:01:11,010 --> 00:01:15,450
+after they've guessed before. Now the loop should only stop
+
+20
+00:01:15,480 --> 00:01:19,770
+once the user has guessed all of the letters in the chosen word,
+
+21
+00:01:20,220 --> 00:01:25,220
+and this means that the display list should have no more blanks in it.
+
+22
+00:01:26,400 --> 00:01:27,420
+And then at that point,
+
+23
+00:01:27,450 --> 00:01:30,930
+you can tell them that they've won. Now in order to do this,
+
+24
+00:01:31,020 --> 00:01:35,640
+and as a quick hint, you might need to have a read of, again,
+
+25
+00:01:35,670 --> 00:01:39,870
+the section which I'll link to in the course resources. And specifically,
+
+26
+00:01:39,930 --> 00:01:42,630
+I want you to focus on this 'in' key word,
+
+27
+00:01:42,870 --> 00:01:46,110
+because we mentioned it previously in the course only briefly.
+
+28
+00:01:46,410 --> 00:01:50,130
+So I want you to read through this part and see how that works,
+
+29
+00:01:50,370 --> 00:01:53,760
+because you'll need it in order to get this to work. Now,
+
+30
+00:01:53,760 --> 00:01:58,230
+the other thing to remember is that you have the negation in Python.
+
+31
+00:01:59,040 --> 00:01:59,910
+So you can say,
+
+32
+00:01:59,910 --> 00:02:04,910
+if something is not true and then to do something or other.
+
+33
+00:02:05,700 --> 00:02:10,699
+So the not is the negation and this basically flips whatever is here.
+
+34
+00:02:10,830 --> 00:02:14,310
+So it could be, um, a = 3.
+
+35
+00:02:14,940 --> 00:02:19,940
+If not a > 1.
+
+36
+00:02:21,330 --> 00:02:26,310
+So in this case, a is three, three is greater than one. So this becomes true.
+
+37
+00:02:26,760 --> 00:02:31,560
+But because there's a not in front of it, then this entire thing becomes false
+
+38
+00:02:31,860 --> 00:02:35,070
+and so this if statement won't be carried out in this case.
+
+39
+00:02:35,520 --> 00:02:39,540
+But if this was zero and zero is not greater than one,
+
+40
+00:02:39,540 --> 00:02:43,470
+so this is now false and not false becomes true
+
+41
+00:02:43,830 --> 00:02:46,110
+and now this if statement will be carried ouit.
+
+42
+00:02:46,530 --> 00:02:50,670
+So that's how you use the negation. And finally,
+
+43
+00:02:50,910 --> 00:02:55,500
+you might need to remind yourself of what we learned in yesterday's lessons and
+
+44
+00:02:55,500 --> 00:02:58,140
+how the while loop works. Essentially,
+
+45
+00:02:58,140 --> 00:03:03,140
+you want to be able to get this part to repeat itself again and again and again,
+
+46
+00:03:03,820 --> 00:03:05,080
+until 
+
+47
+00:03:05,080 --> 00:03:09,880
+all the blanks in the display is gone and they're filled.
+
+48
+00:03:10,060 --> 00:03:12,790
+And at that point, the user has won. And remember,
+
+49
+00:03:12,790 --> 00:03:16,750
+you don't have to worry about punishing the user for wrong answers just yet,
+
+50
+00:03:16,840 --> 00:03:18,610
+we're going to do that in the next step.
+
+51
+00:03:18,970 --> 00:03:23,380
+But for now, focus on this one to-do and see if you can solve this challenge.
+
+1
+00:00:00,070 --> 00:00:02,170
+All right, so let's go through the solution together.
+
+2
+00:00:02,680 --> 00:00:07,680
+Now we know that the part that we need repeating is this part where we ask the
+
+3
+00:00:08,530 --> 00:00:11,890
+user to guess a letter again and again
+
+4
+00:00:12,220 --> 00:00:16,090
+until they filled out all the blanks in this display.
+
+5
+00:00:16,720 --> 00:00:21,720
+The first step is to wrap a while loop around this block of code so we can
+
+6
+00:00:23,200 --> 00:00:28,200
+select the entire block of code and you can either indent it individually or
+
+7
+00:00:28,510 --> 00:00:33,510
+just select all of it and hit command and the right square bracket.
+
+8
+00:00:34,360 --> 00:00:37,600
+And that will shift everything by one indentation level
+
+9
+00:00:37,870 --> 00:00:41,140
+and that effectively puts it inside our while loop.
+
+10
+00:00:41,650 --> 00:00:43,960
+So now we have to define our while loop.
+
+11
+00:00:44,290 --> 00:00:48,100
+So while something is true or while something is false,
+
+12
+00:00:48,340 --> 00:00:53,170
+repeat this code again and again. So what exactly is our condition?
+
+13
+00:00:54,130 --> 00:00:59,130
+We know that we only want our loop to end once there are no more blanks
+
+14
+00:00:59,710 --> 00:01:02,830
+contained inside the list called display.
+
+15
+00:01:03,550 --> 00:01:08,550
+Why don't we create a variable which we'll call end_of_game and set that to
+
+16
+00:01:10,750 --> 00:01:11,320
+false
+
+17
+00:01:11,320 --> 00:01:16,320
+to begin with because it's not yet the end of game. And while it's not yet at the
+
+18
+00:01:17,290 --> 00:01:22,240
+end of game, so while this is false. So you can either say while
+
+19
+00:01:22,240 --> 00:01:26,710
+end of game is equal to false or alternatively
+
+20
+00:01:26,800 --> 00:01:31,800
+and I think slightly easier to read is you could say while it's not at the end
+
+21
+00:01:32,440 --> 00:01:36,250
+of the game, then repeat this continuously. Now,
+
+22
+00:01:36,280 --> 00:01:38,290
+if we were to run our code right now
+
+23
+00:01:38,320 --> 00:01:41,530
+it would actually loop on until forever.
+
+24
+00:01:41,620 --> 00:01:44,380
+It would not stop because nowhere in our code,
+
+25
+00:01:44,590 --> 00:01:47,410
+do we actually flip the switch and change this true.
+
+26
+00:01:48,100 --> 00:01:50,770
+So when is it actually the end of the game? Well,
+
+27
+00:01:50,770 --> 00:01:53,650
+it's when display has no more blanks.
+
+28
+00:01:54,640 --> 00:01:59,640
+So why don't we check at the very end after we've printed the display to see if
+
+29
+00:02:01,630 --> 00:02:06,040
+blanks are not in display.
+
+30
+00:02:07,180 --> 00:02:12,180
+So remember this in key word comes from Python and it basically allows us to
+
+31
+00:02:12,760 --> 00:02:17,760
+check to see if a particular element exists inside a particular list. So in this
+
+32
+00:02:18,730 --> 00:02:23,260
+case, we're checking if curly exists in list and there it is.
+
+33
+00:02:23,260 --> 00:02:26,980
+I can see it as one of the elements. So this is going to be true.
+
+34
+00:02:28,270 --> 00:02:30,220
+Now, if blank
+
+35
+00:02:30,310 --> 00:02:34,150
+in list is no longer true, well,
+
+36
+00:02:34,150 --> 00:02:38,110
+that means that we've gotten rid of all the blanks and we replaced them with
+
+37
+00:02:38,110 --> 00:02:39,700
+letters that the user has guessed.
+
+38
+00:02:40,090 --> 00:02:44,140
+So now this is the condition for the user having won.
+
+39
+00:02:44,530 --> 00:02:47,710
+So we can flip the end of game to true
+
+40
+00:02:48,340 --> 00:02:50,380
+and this will mean that this is last time
+
+41
+00:02:50,500 --> 00:02:55,500
+our while loop is going to run and we're going to print "You win."
+
+42
+00:02:57,580 --> 00:03:01,870
+That's it, that's all we needed do. And if it's helpful,
+
+43
+00:03:01,930 --> 00:03:06,130
+you can again, take this code, put it into Thonny and run through it
+
+44
+00:03:06,220 --> 00:03:10,060
+using the debug step-by-step to see what it's doing. Now
+
+45
+00:03:10,120 --> 00:03:15,120
+the important thing here is to realize that while statements require some sort
+
+46
+00:03:15,820 --> 00:03:19,090
+of change to happen inside the while loop
+
+47
+00:03:19,390 --> 00:03:23,320
+that changes the condition that the while loop is dependent upon
+
+48
+00:03:23,680 --> 00:03:28,240
+and it means the code exits the while loop. So in this case,
+
+49
+00:03:28,270 --> 00:03:32,380
+it's when there are no longer any more blanks inside the display list.
+
+50
+00:03:32,920 --> 00:03:34,330
+But in later steps,
+
+51
+00:03:34,390 --> 00:03:37,600
+we're going to change that so that when the users has run out of lives,
+
+52
+00:03:37,870 --> 00:03:41,620
+then it's also going to be the end of the game and they will have lost.
+
+53
+00:03:42,880 --> 00:03:45,220
+So take a moment, review this lesson,
+
+54
+00:03:45,370 --> 00:03:47,500
+make sure you understand everything that's going on.
+
+55
+00:03:47,890 --> 00:03:51,520
+Then head over to the next lesson and we'll tackle the next step.
+
+1
+00:00:00,230 --> 00:00:04,640
+Well done for getting to step 4. Now in this step
+
+2
+00:00:04,700 --> 00:00:07,310
+when you take a look at the starting file,
+
+3
+00:00:07,340 --> 00:00:11,390
+you'll see that I've incorporated a bunch of ASCII art,
+
+4
+00:00:11,420 --> 00:00:15,050
+so art that's created using strokes of the keyboard.
+
+5
+00:00:15,560 --> 00:00:20,560
+And you can see that this represents the stages of our hangman game starting from
+
+6
+00:00:20,930 --> 00:00:25,790
+where they have all six lives and then going down in lives until they have
+
+7
+00:00:25,850 --> 00:00:28,970
+no more lives, where the hangman character is complete.
+
+8
+00:00:29,630 --> 00:00:33,710
+This has been included as a list and inside the list
+
+9
+00:00:33,860 --> 00:00:36,980
+each of these pieces of art is a single string.
+
+10
+00:00:37,040 --> 00:00:40,610
+So we're going to be printing it out in this step,
+
+11
+00:00:40,730 --> 00:00:44,000
+and we're going to be using it to give the user feedback.
+
+12
+00:00:45,080 --> 00:00:49,670
+So the to-dos for step four include creating a variable called lives to keep
+
+13
+00:00:49,670 --> 00:00:54,670
+track of the number of lives and lives should be equal to six.
+
+14
+00:00:55,760 --> 00:00:57,080
+Now in the next to-do,
+
+15
+00:00:57,380 --> 00:01:02,120
+we're checking to see if the guess is actually not a letter in the chosen word,
+
+16
+00:01:02,420 --> 00:01:05,480
+then we're going to reduce that variable lives by one.
+
+17
+00:01:05,840 --> 00:01:09,020
+So eventually it's going to step down all the way to zero.
+
+18
+00:01:09,230 --> 00:01:13,940
+And when that happens, the game should stop and it should print "You lose."
+
+19
+00:01:14,420 --> 00:01:18,950
+Now, this part is really important because we want the game to stop
+
+20
+00:01:18,980 --> 00:01:21,620
+when the lives has gone down to zero.
+
+21
+00:01:22,040 --> 00:01:26,120
+So the code should exit the while loop and print "You lose."
+
+22
+00:01:26,330 --> 00:01:29,780
+So in addition to winning as a condition to ending the game,
+
+23
+00:01:30,050 --> 00:01:34,070
+losing is also a condition for ending the game. Now,
+
+24
+00:01:34,070 --> 00:01:38,360
+the final to do is just to print the ASCII art from stages
+
+25
+00:01:38,360 --> 00:01:40,160
+which is this list up here,
+
+26
+00:01:40,610 --> 00:01:44,360
+and the stage should represent the current number of lives
+
+27
+00:01:44,360 --> 00:01:46,790
+the user has remaining. So this way,
+
+28
+00:01:46,790 --> 00:01:50,300
+when we actually play the game and we get all the letters wrong,
+
+29
+00:01:50,810 --> 00:01:55,810
+each time a new piece of the hang man is going to be drawn until eventually we
+
+30
+00:01:56,060 --> 00:02:01,060
+end up with the entire drawing complete and the game ends,
+
+31
+00:02:01,400 --> 00:02:05,450
+and it tells us that we lost. If it's helpful,
+
+32
+00:02:05,480 --> 00:02:08,389
+refer to the flow chart. And once you're ready,
+
+33
+00:02:08,419 --> 00:02:12,110
+go ahead and fork the starting code and tackle the
+
+34
+00:02:12,110 --> 00:02:15,950
+to-dos one by one. Good luck and I'll see you on the other side.
+
+1
+00:00:00,070 --> 00:00:04,120
+All right. So make sure you've given it a good go before you come over here,
+
+2
+00:00:04,330 --> 00:00:09,160
+because I'm about to reveal the solution. In terms of step 4, here
+
+3
+00:00:09,160 --> 00:00:13,660
+I've got a forked copy of the code. And if I scroll down to
+
+4
+00:00:13,660 --> 00:00:16,180
+to-do number one, this is pretty simple.
+
+5
+00:00:16,360 --> 00:00:19,300
+It just tells us to create a new variable called lives
+
+6
+00:00:19,660 --> 00:00:23,350
+and this variable is going to be the one that's going to keep track of the
+
+7
+00:00:23,350 --> 00:00:27,040
+number of lives the user has left. And to start off,
+
+8
+00:00:27,070 --> 00:00:32,049
+it's going to be equal to six. Now we move on to to-do number two.
+
+9
+00:00:32,380 --> 00:00:36,910
+And it tells us that if the guess is not a letter in the chosen word,
+
+10
+00:00:37,150 --> 00:00:40,210
+then we have to reduce the number of lives by one.
+
+11
+00:00:40,690 --> 00:00:45,340
+Now it might be really tempting to put this as an else statement here,
+
+12
+00:00:45,820 --> 00:00:48,250
+because if the letter is equal to guess,
+
+13
+00:00:48,260 --> 00:00:52,600
+then well obviously it matches. Well then else, that means it doesn't match.
+
+14
+00:00:53,020 --> 00:00:56,500
+But check out what happens here if I just print a simple statement.
+
+15
+00:00:58,090 --> 00:01:01,870
+So now if I hit run and we take a look on the right side,
+
+16
+00:01:02,140 --> 00:01:04,209
+you can see that if I guess a,
+
+17
+00:01:04,569 --> 00:01:09,190
+then you can see that we get 'no match' printed five times,
+
+18
+00:01:09,640 --> 00:01:14,640
+and that should show you that this is actually not where we want to write the
+
+19
+00:01:14,650 --> 00:01:16,300
+code for to-do number two,
+
+20
+00:01:16,330 --> 00:01:21,330
+because remember to-do number two says if the guessed letter is not a letter in
+
+21
+00:01:21,520 --> 00:01:26,260
+the chosen word, then we should reduce the lives by one. But actually in fact,
+
+22
+00:01:26,260 --> 00:01:31,260
+what's happening here is it's looping through the entire word length,
+
+23
+00:01:31,930 --> 00:01:35,260
+and for each of the letters in that chosen word,
+
+24
+00:01:35,680 --> 00:01:37,750
+if the letter doesn't match the guess,
+
+25
+00:01:37,810 --> 00:01:39,580
+then it's going to trigger this else statement.
+
+26
+00:01:40,780 --> 00:01:43,930
+This is not what we want because in this case
+
+27
+00:01:43,990 --> 00:01:46,900
+a does in fact match a letter in the word baboon,
+
+28
+00:01:47,140 --> 00:01:49,690
+but we're getting no match being called five times.
+
+29
+00:01:50,260 --> 00:01:53,680
+So instead, we wanna write it outside of the for loop,
+
+30
+00:01:53,710 --> 00:01:55,990
+so at the same indentation level,
+
+31
+00:01:56,380 --> 00:02:01,380
+and the hint is that the to-do is actually at the same level as where your
+
+32
+00:02:01,480 --> 00:02:04,150
+answer code needs to go. So here,
+
+33
+00:02:04,150 --> 00:02:09,150
+we're going to write an if statement and we're going to check if the guess is
+
+34
+00:02:09,160 --> 00:02:11,560
+not in the chosen word.
+
+35
+00:02:12,220 --> 00:02:14,560
+And basically this does a separate check.
+
+36
+00:02:14,590 --> 00:02:17,320
+It goes through this entire word and checks
+
+37
+00:02:17,350 --> 00:02:20,710
+if the guessed letter exists in there at all.
+
+38
+00:02:20,950 --> 00:02:22,690
+And if this is true,
+
+39
+00:02:22,990 --> 00:02:27,850
+then we're going to reduce the number of lives by one, so -= 1.
+
+40
+00:02:29,110 --> 00:02:30,430
+Now, if at this stage
+
+41
+00:02:30,460 --> 00:02:35,460
+after we've taken a life away and the number of lives goes down to zero, well
+
+42
+00:02:36,280 --> 00:02:39,760
+then the game should stop and it should print "You lose."
+
+43
+00:02:40,210 --> 00:02:44,470
+So let's add another if statement in here that checks whether if the number of
+
+44
+00:02:44,470 --> 00:02:48,160
+lives is equals to, double equal to, zero.
+
+45
+00:02:48,340 --> 00:02:53,140
+And if this is the case, then we should exit the game. And remember to do that
+
+46
+00:02:53,140 --> 00:02:54,730
+we need to exit the while loop.
+
+47
+00:02:55,180 --> 00:02:58,540
+And the while loop is dependent on this variable end_of_game
+
+48
+00:02:58,900 --> 00:03:03,430
+which starts out being false. And when we want to exit the game,
+
+49
+00:03:03,430 --> 00:03:06,850
+when it is in fact the end of the game, we switch it to true. Like,
+
+50
+00:03:06,850 --> 00:03:10,660
+for example, in this case, when the user has won. So here,
+
+51
+00:03:10,720 --> 00:03:15,280
+when the lives is equal to zero, we can say, end_of_game = True,
+
+52
+00:03:16,270 --> 00:03:19,090
+and we're going to print "You lose."
+
+53
+00:03:19,990 --> 00:03:23,530
+So that's all that's needed to tackle to-do number two.
+
+54
+00:03:24,490 --> 00:03:26,260
+So now let's run our code again.
+
+55
+00:03:27,910 --> 00:03:32,500
+And you can see that if I keep guessing the wrong letter six times,
+
+56
+00:03:34,750 --> 00:03:37,990
+then eventually I exit out of my while loop.
+
+57
+00:03:38,020 --> 00:03:40,030
+You can see my prompt showing up again.
+
+58
+00:03:40,420 --> 00:03:44,830
+And this means that we've now come out of the game and it's told us that we've
+
+59
+00:03:44,830 --> 00:03:45,663
+lost.
+
+60
+00:03:46,150 --> 00:03:50,020
+So now all we have to do is tackle to-do number three.
+
+61
+00:03:50,470 --> 00:03:54,940
+We have to print the ASCII art from the list called stages
+
+62
+00:03:55,270 --> 00:03:59,590
+that corresponds to the current number of lives the user has remaining. Now,
+
+63
+00:03:59,620 --> 00:04:00,700
+luckily for you,
+
+64
+00:04:00,730 --> 00:04:05,730
+I've arranged each of these pictures in descending order of lives.
+
+65
+00:04:06,190 --> 00:04:08,830
+So when you have a full six lives,
+
+66
+00:04:09,250 --> 00:04:12,700
+the image at index six is the starting image.
+
+67
+00:04:13,090 --> 00:04:14,770
+And when you have no lives,
+
+68
+00:04:14,800 --> 00:04:19,800
+so the image at index zero is the one where the hangman is fully drawn.
+
+69
+00:04:22,120 --> 00:04:26,710
+So all we have to do down here is to simply just the print
+
+70
+00:04:26,980 --> 00:04:28,300
+the stages,
+
+71
+00:04:28,900 --> 00:04:33,580
+and corresponding to the current number of lives.
+
+72
+00:04:33,610 --> 00:04:35,830
+So we put lives inside the square brackets.
+
+73
+00:04:36,340 --> 00:04:40,180
+And now if we run the code again and we keep guessing,
+
+74
+00:04:41,920 --> 00:04:46,920
+you can see that we're going through our hangman picture until we are fully
+
+75
+00:04:47,110 --> 00:04:49,840
+drawn and we lose and it's the end of the game.
+
+76
+00:04:50,770 --> 00:04:53,170
+Have a quick review of the solution
+
+77
+00:04:53,620 --> 00:04:55,930
+and if you want to see this code that I've written,
+
+78
+00:04:55,990 --> 00:04:58,960
+then as always, head over to the course resources,
+
+79
+00:04:59,200 --> 00:05:02,950
+and you'll find a link to Day-7-Hangman-4-End
+
+80
+00:05:03,280 --> 00:05:07,510
+and you'll be able to see all the code that I've written in there, including,
+
+81
+00:05:07,570 --> 00:05:11,500
+um, helpful things like a print statement that you can activate,
+
+82
+00:05:11,920 --> 00:05:13,840
+which just shows you the current position,
+
+83
+00:05:13,840 --> 00:05:16,450
+the current letter and the letter that's being guessed.
+
+84
+00:05:16,480 --> 00:05:18,940
+So you can see as the loop is going on
+
+85
+00:05:19,210 --> 00:05:24,190
+what's actually happening and it'll make it easier for you to debug any problems
+
+86
+00:05:24,190 --> 00:05:27,760
+in your code. So if you had any problems in the code that you wrote,
+
+87
+00:05:28,060 --> 00:05:32,140
+this is a really useful line to be able to help you debug what's gone wrong.
+
+88
+00:05:32,890 --> 00:05:35,050
+Hopefully you manage to do thi okay,
+
+89
+00:05:35,200 --> 00:05:39,100
+and once you've had a quick review and you're happy with everything that's been
+
+90
+00:05:39,100 --> 00:05:40,570
+covered in this lesson,
+
+91
+00:05:40,840 --> 00:05:44,650
+then head over to the next lesson and we're going to complete the final step,
+
+92
+00:05:44,650 --> 00:05:47,020
+step five of our hangman project.
+
+1
+00:00:00,070 --> 00:00:03,969
+Hey! Well done for getting to the final step of the hangman project.
+
+2
+00:00:04,450 --> 00:00:05,860
+Now in step five,
+
+3
+00:00:05,890 --> 00:00:10,210
+we're going to complete the project by improving the user experience of our
+
+4
+00:00:10,210 --> 00:00:14,440
+game. Pretty much up until now, we've already got the game functioning,
+
+5
+00:00:14,770 --> 00:00:19,180
+but we were working with just three words, right? Ardvark, baboon,
+
+6
+00:00:19,420 --> 00:00:21,610
+and camel. And at some point,
+
+7
+00:00:21,610 --> 00:00:24,970
+the game gets pretty tiring when you're only guessing these three words.
+
+8
+00:00:25,480 --> 00:00:25,990
+And in fact,
+
+9
+00:00:25,990 --> 00:00:29,590
+the words were chosen so that if you see seven characters and you know
+
+10
+00:00:29,590 --> 00:00:30,423
+it's ardvark,
+
+11
+00:00:30,520 --> 00:00:35,520
+six is baboon, five is camel to make it easier for you to debug the code as
+
+12
+00:00:36,040 --> 00:00:39,820
+you're creating it. And very often when we're writing code, it really,
+
+13
+00:00:39,820 --> 00:00:43,060
+really important to help yourself when you're creating the code.
+
+14
+00:00:43,330 --> 00:00:47,440
+And only once you've got all the logic down and everything's working as expected
+
+15
+00:00:47,710 --> 00:00:50,560
+then to actually add the full functionality.
+
+16
+00:00:51,370 --> 00:00:54,040
+So inside this step five starting code,
+
+17
+00:00:54,310 --> 00:00:58,480
+if you take a look at the files over here, you'll notice two extra files.
+
+18
+00:00:58,960 --> 00:01:02,050
+One is hangman_art.py,
+
+19
+00:01:02,440 --> 00:01:07,440
+and here I've moved the hangman stages and all the drawings as well as a logo in
+
+20
+00:01:09,190 --> 00:01:12,760
+ASCII art. So when we actually launch our game this time,
+
+21
+00:01:13,180 --> 00:01:17,770
+then we're going to get the high man logo printed out like this at the beginning
+
+22
+00:01:17,770 --> 00:01:18,603
+of the game.
+
+23
+00:01:19,240 --> 00:01:22,870
+Now the second file here it is hangman_words.py.
+
+24
+00:01:23,320 --> 00:01:26,710
+And this word list now expands on what we had before.
+
+25
+00:01:27,070 --> 00:01:31,690
+And it's now a huge list of words, sorted alphabetically
+
+26
+00:01:32,080 --> 00:01:37,080
+which we're going to draw upon and replace this previous very simple word list.
+
+27
+00:01:39,520 --> 00:01:42,310
+The first to-do is to update the word list
+
+28
+00:01:42,310 --> 00:01:46,540
+to use the one from here instead of this one.
+
+29
+00:01:46,540 --> 00:01:51,100
+So deleting this line and replacing it with that. And to do this,
+
+30
+00:01:51,100 --> 00:01:53,530
+you might have to look up on previous lessons where
+
+31
+00:01:53,530 --> 00:01:58,530
+we talked about how to use modules in Python and how to import different files.
+
+32
+00:01:59,590 --> 00:02:01,390
+Now, if you get stuck on how to do that,
+
+33
+00:02:01,630 --> 00:02:03,640
+take a look inside the course resources
+
+34
+00:02:03,760 --> 00:02:08,259
+and there's hints that take you towards documentation on how to do this.
+
+35
+00:02:09,370 --> 00:02:13,090
+Now, once you've tackled to-do number one, scroll all the way down to find
+
+36
+00:02:13,090 --> 00:02:17,470
+to-do number two, where we're going to import the stages from hangman_art.py
+
+37
+00:02:17,560 --> 00:02:21,160
+and this is the same thing using modules and import. To-do
+
+38
+00:02:21,160 --> 00:02:23,530
+number three is to import the logo.
+
+39
+00:02:23,560 --> 00:02:26,440
+So one, two, three are all to do with modules and import.
+
+40
+00:02:27,040 --> 00:02:29,050
+And then once you get to to-do number four,
+
+41
+00:02:29,080 --> 00:02:33,310
+we're basically going to improve the user experience to let the user know that
+
+42
+00:02:33,310 --> 00:02:36,400
+they've entered a letter that they've already guessed before.
+
+43
+00:02:36,910 --> 00:02:40,480
+And when that happens, we're going to print the letter and just let them know.
+
+44
+00:02:40,900 --> 00:02:42,100
+You don't have to punish them and
+
+45
+00:02:42,320 --> 00:02:45,640
+you don't have to take away a life and you don't have to restart the game.
+
+46
+00:02:45,730 --> 00:02:48,520
+It's just the gentle nudge and let them know that they've really guessed that
+
+47
+00:02:48,520 --> 00:02:53,520
+letter. Now on to-do number five and the final to-do, we're going to let the user
+
+48
+00:02:53,800 --> 00:02:57,610
+know if the letter that they guessed is not in the chosen word.
+
+49
+00:02:58,030 --> 00:02:58,810
+So in this case,
+
+50
+00:02:58,810 --> 00:03:02,560
+we're going print out the letter that they guessed and let them know that it's
+
+51
+00:03:02,560 --> 00:03:03,130
+not in the word,
+
+52
+00:03:03,130 --> 00:03:07,240
+just a little bit of feedback to make the game a little bit easier on the user.
+
+53
+00:03:07,900 --> 00:03:09,790
+So once you've done all of that,
+
+54
+00:03:10,090 --> 00:03:13,930
+then you should end up with a game that's like this. So,
+
+55
+00:03:13,930 --> 00:03:16,690
+because there's so many words, I think it's really,
+
+56
+00:03:16,690 --> 00:03:20,230
+really important that you actually have this line of testing code to tell you
+
+57
+00:03:20,230 --> 00:03:21,580
+what the solution actually is
+
+58
+00:03:21,880 --> 00:03:25,990
+so you can test all parts of your game because you know what the word actually
+
+59
+00:03:25,990 --> 00:03:30,130
+should be. So let's guess a letter that's not in that word.
+
+60
+00:03:30,220 --> 00:03:34,630
+Let's try a, and you can see the game tells us "You guessed the letter a,
+
+61
+00:03:34,990 --> 00:03:37,150
+that's not in the word. You lose a life."
+
+62
+00:03:37,570 --> 00:03:41,890
+And we end up with the head already drawn in the hangman.
+
+63
+00:03:42,250 --> 00:03:46,360
+So now let's guess a different letter. Let's guess a t.
+
+64
+00:03:46,990 --> 00:03:51,430
+Then you can see that works as expected. But what if we try guessing T again?
+
+65
+00:03:51,760 --> 00:03:55,690
+Well, then it tells us you've already guessed t and it shows us the blanks
+
+66
+00:03:55,720 --> 00:03:59,530
+including the t. Now if they guess a letter
+
+67
+00:03:59,560 --> 00:04:04,240
+that's actually not in the word, so say a, well, in this case,
+
+68
+00:04:04,240 --> 00:04:08,020
+they're gonna lose a life because it's actually not in the word and we're going
+
+69
+00:04:08,020 --> 00:04:09,370
+to take away a life.
+
+70
+00:04:10,600 --> 00:04:15,250
+So have a play around with the end version of the game. And as always,
+
+71
+00:04:15,310 --> 00:04:19,120
+all the links are in the course resources. And once you're ready,
+
+72
+00:04:19,209 --> 00:04:22,480
+then go ahead and fork the starting file and give this a go.
+
+1
+00:00:00,130 --> 00:00:03,730
+Alright. So let's go through the solution together for this final step.
+
+2
+00:00:04,300 --> 00:00:06,970
+The first step tells us to update the word list
+
+3
+00:00:07,060 --> 00:00:10,900
+to use the word list from hangman_words.
+
+4
+00:00:11,470 --> 00:00:13,870
+And it's actually got exactly the same name.
+
+5
+00:00:13,870 --> 00:00:16,540
+So we don't even have to change it all that much.
+
+6
+00:00:17,110 --> 00:00:20,920
+But what we do have to do is to make this error go away.
+
+7
+00:00:21,700 --> 00:00:24,790
+If you haven't already, go ahead and delete this line in your code
+
+8
+00:00:25,180 --> 00:00:28,300
+where you've got the word list using the previous three words.
+
+9
+00:00:28,870 --> 00:00:33,870
+And instead, we're going to import the hangman_words.
+
+10
+00:00:35,860 --> 00:00:40,860
+And now we should be able to tap into this word list by writing hangman_
+
+11
+00:00:41,470 --> 00:00:44,470
+words.word_list.
+
+12
+00:00:44,980 --> 00:00:48,130
+And this is the same way that we use the random module.
+
+13
+00:00:48,140 --> 00:00:52,750
+So we imported the random module and then when we needed it, we simply said
+
+14
+00:00:52,810 --> 00:00:57,730
+random.choice. So choice is a function inside the random module,
+
+15
+00:00:58,000 --> 00:00:59,800
+and we can access it like
+
+16
+00:00:59,800 --> 00:01:04,800
+so. Now if you want it to be a little bit simpler in terms of the code that you
+
+17
+00:01:05,050 --> 00:01:08,560
+write and you don't want to rewrite hangman_words
+
+18
+00:01:08,560 --> 00:01:13,330
+dot such and such, then instead of just importing hangman words,
+
+19
+00:01:13,360 --> 00:01:16,690
+you can actually instead write from hangman
+
+20
+00:01:16,690 --> 00:01:20,200
+words import the word_list.
+
+21
+00:01:20,680 --> 00:01:25,680
+So now we can get rid of this part and we can just use the previous code that we
+
+22
+00:01:27,130 --> 00:01:28,300
+had on line 7.
+
+23
+00:01:30,430 --> 00:01:33,460
+Using that you can do the same thing for
+
+24
+00:01:33,460 --> 00:01:37,540
+to-do number two. From the hangman_art
+
+25
+00:01:37,570 --> 00:01:42,570
+you can import the stages and that will make this error go away. And for
+
+26
+00:01:43,810 --> 00:01:45,820
+to-do number three,
+
+27
+00:01:45,880 --> 00:01:49,300
+you can again say from hangman_art
+
+28
+00:01:49,330 --> 00:01:52,300
+import the logo.
+
+29
+00:01:53,080 --> 00:01:56,080
+And then we can just print the logo.
+
+30
+00:01:56,770 --> 00:01:58,990
+Now notice how we're importing, um,
+
+31
+00:01:59,080 --> 00:02:03,460
+two different things from the same file, hangman art.
+
+32
+00:02:03,640 --> 00:02:05,830
+So if you didn't want to write it twice,
+
+33
+00:02:05,860 --> 00:02:10,600
+you can in fact also just say from hangman_art import logo,
+
+34
+00:02:10,870 --> 00:02:15,640
+stages, and this will import both the logo and the stages
+
+35
+00:02:15,730 --> 00:02:18,070
+and you'll see that there's no errors down here.
+
+36
+00:02:19,810 --> 00:02:21,550
+If that's at all confusing,
+
+37
+00:02:21,670 --> 00:02:25,810
+be sure to read through the documentation that I've linked to in the course
+
+38
+00:02:25,810 --> 00:02:29,890
+resources that talks all about Python modules and importing
+
+39
+00:02:30,220 --> 00:02:35,220
+so you can familiarize yourself with this once more. Now on to-do four,
+
+40
+00:02:35,710 --> 00:02:39,400
+we're going to check to see if the user has entered a letter that they've
+
+41
+00:02:39,400 --> 00:02:43,390
+already guessed. And if it's a letter that they got right,
+
+42
+00:02:43,720 --> 00:02:47,650
+then we're going to print the letter and let them know. To do this,
+
+43
+00:02:47,710 --> 00:02:49,930
+we're going to check through the display,
+
+44
+00:02:50,140 --> 00:02:52,660
+which is a list of letters that they've already guessed.
+
+45
+00:02:53,260 --> 00:02:58,260
+And we're going to check to see if the guess is in the display list,
+
+46
+00:03:02,020 --> 00:03:05,260
+well, in this case, they've already guessed that letter and it's a correct one.
+
+47
+00:03:05,590 --> 00:03:10,030
+So we're just going to print out the feedback that, um,
+
+48
+00:03:10,060 --> 00:03:12,460
+"You've already guessed
+
+49
+00:03:12,640 --> 00:03:15,220
+and then we'll put in their guessed letter."
+
+50
+00:03:17,830 --> 00:03:21,070
+Now, however, if the letter is not in the chosen word,
+
+51
+00:03:21,130 --> 00:03:24,670
+then we're going to print out the letter and let them know that
+
+52
+00:03:26,770 --> 00:03:30,250
+"You guessed this particular letter,
+
+53
+00:03:31,870 --> 00:03:34,120
+that's not in the word.
+
+54
+00:03:36,340 --> 00:03:40,630
+You lose a life." That's it.
+
+55
+00:03:40,720 --> 00:03:45,580
+That's all we have to do and if we run our app as it is now,
+
+56
+00:03:45,910 --> 00:03:48,730
+then you can see that the solution is stymied.
+
+57
+00:03:48,760 --> 00:03:51,700
+So if we just check, um,
+
+58
+00:03:51,760 --> 00:03:55,090
+against s then that's being added,
+
+59
+00:03:55,600 --> 00:03:57,700
+and if we get a letter wrong,
+
+60
+00:03:58,510 --> 00:04:01,780
+then we get told that's not in the word. You lose a life.
+
+61
+00:04:01,960 --> 00:04:04,030
+And our hangman is being drawn out.
+
+62
+00:04:04,630 --> 00:04:08,830
+And if we guess a correct letter that we've already guessed like s again,
+
+63
+00:04:09,250 --> 00:04:12,790
+then it tells us that you've already guessed that letter.
+
+64
+00:04:13,510 --> 00:04:17,170
+Now you can either choose to keep all of these print statements
+
+65
+00:04:17,200 --> 00:04:21,459
+if it helps you understand what's going on, or alternatively at this stage,
+
+66
+00:04:21,620 --> 00:04:25,210
+it might make things a little bit confusing and you can just comment it out.
+
+67
+00:04:26,050 --> 00:04:28,570
+Have a look at the final version
+
+68
+00:04:28,600 --> 00:04:33,160
+by going to the course resources where I'll link to the completed code that I've
+
+69
+00:04:33,160 --> 00:04:37,720
+written here. And you can have a read through it and compare against yours.
+
+70
+00:04:38,200 --> 00:04:42,040
+But essentially this is all there is to this project
+
+71
+00:04:42,130 --> 00:04:46,750
+and you've now completed it in its entirety. Once you're happy with your code,
+
+72
+00:04:46,780 --> 00:04:50,680
+go ahead and remove all the comments that are no longer useful like all the
+
+73
+00:04:50,680 --> 00:04:54,190
+to-dos and the testing code
+
+74
+00:04:54,220 --> 00:04:57,760
+because if you wanna play the game for real, then that's just cheating.
+
+75
+00:04:58,240 --> 00:05:00,790
+If you want to leave in some of the comments that lets you know
+
+76
+00:05:00,790 --> 00:05:04,030
+what each part of code does so that when you come back to it,
+
+77
+00:05:04,330 --> 00:05:07,360
+it's easier to understand, then feel free to do that.
+
+78
+00:05:07,930 --> 00:05:12,700
+But the final thing that I wanted to show you is what if you wanted it to be
+
+79
+00:05:12,700 --> 00:05:16,450
+able to clear the screen after every answer,
+
+80
+00:05:16,870 --> 00:05:20,650
+because you can see that some point you have to keep scrolling and it gets a
+
+81
+00:05:20,650 --> 00:05:23,770
+little bit confusing as to which stage you're in.
+
+82
+00:05:24,250 --> 00:05:29,250
+So one of the things that you can do is you can tap into the replit module
+
+83
+00:05:30,940 --> 00:05:33,490
+and you can import a function called clear.
+
+84
+00:05:34,090 --> 00:05:36,730
+Once you've imported this clear function,
+
+85
+00:05:37,570 --> 00:05:42,570
+then you can go ahead and add it just after the user has made their guess.
+
+86
+00:05:43,120 --> 00:05:46,030
+So you can call it just as you would any other function
+
+87
+00:05:46,060 --> 00:05:50,710
+now that you've imported it into this file. And when you run the code now,
+
+88
+00:05:52,660 --> 00:05:56,890
+you can see that after every guess, it's going to clear the screen.
+
+89
+00:05:57,290 --> 00:06:00,140
+So guess a letter, let's guess a different letter.
+
+90
+00:06:01,140 --> 00:06:05,510
+Now that means we don't have this backlog of previous guesses and we can
+
+91
+00:06:05,510 --> 00:06:09,920
+actually see what's going on at each stage. In the course resources,
+
+92
+00:06:09,920 --> 00:06:14,920
+you'll also find a link to the final completed code on the day seven hangman final,
+
+93
+00:06:15,890 --> 00:06:20,270
+and feel free to modify this code to, your heart's content, make it
+
+94
+00:06:20,270 --> 00:06:24,020
+do whatever it is that you want to do and push the boundaries of your
+
+95
+00:06:24,020 --> 00:06:24,920
+programming skills
+
+96
+00:06:25,340 --> 00:06:29,660
+if you want to. Well done for getting this far and well done for tackling this
+
+97
+00:06:29,660 --> 00:06:32,720
+challenge. Rest easy, and I'll see you tomorrow.
+

@@ -1,0 +1,4380 @@
+1
+00:00:00,520 --> 00:00:03,610
+Hey guys, welcome back to 100 Days of Code.
+
+2
+00:00:03,910 --> 00:00:05,650
+Today is day 4,
+
+3
+00:00:05,860 --> 00:00:10,060
+and we're going to be focusing on randomization in Python,
+
+4
+00:00:10,420 --> 00:00:12,850
+and we're going to be learning about Python lists.
+
+5
+00:00:13,270 --> 00:00:17,590
+Now randomization in any sort of programming language is really,
+
+6
+00:00:17,590 --> 00:00:20,770
+really useful because if we want to create a game,
+
+7
+00:00:20,770 --> 00:00:24,040
+if we want a program to do something different each time,
+
+8
+00:00:24,400 --> 00:00:27,730
+then we need to introduce a little bit of randomness, right?
+
+9
+00:00:28,120 --> 00:00:32,380
+So we're going to be looking at using the random module in order to achieve
+
+10
+00:00:32,380 --> 00:00:35,050
+this. And by the end of today,
+
+11
+00:00:35,080 --> 00:00:39,640
+you will have learned enough to be able to build this Rock-paper-scissors game.
+
+12
+00:00:40,150 --> 00:00:45,150
+So it starts out asking you, the user, type 0 for rock, 1 for paper or 2
+
+13
+00:00:45,970 --> 00:00:49,450
+for scissors. So I'm going to go forward with 0 for rock.
+
+14
+00:00:50,080 --> 00:00:54,160
+And it shows me using ASCII art that this is what I chose, rock.
+
+15
+00:00:54,610 --> 00:00:59,500
+And then the computer chose scissors and rock beats scissors. So I win.
+
+16
+00:01:00,010 --> 00:01:02,230
+Now you can run this as many times as you want.
+
+17
+00:01:02,620 --> 00:01:06,460
+If I choose paper and the computer chooses rocks, then I win.
+
+18
+00:01:06,760 --> 00:01:10,390
+If I choose paper and the computer chooses paper than it is a draw.
+
+19
+00:01:10,960 --> 00:01:15,160
+But if I choose paper and the computer chooses scissors, then I lose.
+
+20
+00:01:15,610 --> 00:01:17,140
+So this is a pretty simple game,
+
+21
+00:01:17,590 --> 00:01:20,710
+but we're going to get the computer to play this game with us.
+
+22
+00:01:20,890 --> 00:01:25,840
+And we're going to do that by learning about randomization, lists and a whole lot
+
+23
+00:01:25,840 --> 00:01:27,190
+more. I hope you're ready.
+
+24
+00:01:27,520 --> 00:01:31,600
+And once you are, then head over to the next lesson, and let's get started.
+
+1
+00:00:00,250 --> 00:00:03,910
+One of the first things I want to talk about is randomisation.
+
+2
+00:00:04,390 --> 00:00:07,930
+And this is a concept that we're super familiar with.
+
+3
+00:00:08,530 --> 00:00:10,690
+Randomization is really,
+
+4
+00:00:10,690 --> 00:00:14,890
+really important when we want to create computer programs that have a degree of
+
+5
+00:00:14,950 --> 00:00:19,540
+unpredictability. Now, the biggest category of that is, of course, games right?
+
+6
+00:00:19,840 --> 00:00:23,440
+Can you imagine if you had to play Tetris and every single time,
+
+7
+00:00:23,440 --> 00:00:25,780
+the block that fell down was like predictable.
+
+8
+00:00:26,020 --> 00:00:30,430
+You always knew that it was going to be a T and then it was going to be an L
+
+9
+00:00:30,460 --> 00:00:32,439
+like, there would be no fun in that right?
+
+10
+00:00:32,770 --> 00:00:37,770
+So how do we create this randomness for our programs? Now in nature and in our
+
+11
+00:00:38,950 --> 00:00:42,460
+everyday lives, it's really easy to create randomness.
+
+12
+00:00:42,760 --> 00:00:46,480
+If you splash some paint on a canvas, that's going to be pretty random.
+
+13
+00:00:46,600 --> 00:00:51,340
+If you take a look at the TV static from the analog TVs,
+
+14
+00:00:51,610 --> 00:00:53,890
+that's also a whole bunch of randomness there.
+
+15
+00:00:54,370 --> 00:00:56,440
+But when we're talking about computers,
+
+16
+00:00:56,740 --> 00:01:00,670
+then these machines are what we would call deterministic.
+
+17
+00:01:00,910 --> 00:01:05,910
+They will perform repeatable actions in a fully predictable way.
+
+18
+00:01:06,400 --> 00:01:11,400
+So how do we wrangle these machines that operate basically on ones and zeros to
+
+19
+00:01:11,920 --> 00:01:15,280
+get them to create some random numbers? Well,
+
+20
+00:01:15,280 --> 00:01:19,150
+there's a whole bunch of maths that can be applied to create what are called a
+
+21
+00:01:19,180 --> 00:01:21,490
+pseudo-random number generators.
+
+22
+00:01:21,910 --> 00:01:25,420
+And the one that Python uses is something called the Mersenne Twister.
+
+23
+00:01:25,900 --> 00:01:28,180
+And if you really want to read about it,
+
+24
+00:01:28,210 --> 00:01:32,020
+then you can have a look on Wikipedia and take a look under the algorithmic
+
+25
+00:01:32,020 --> 00:01:36,310
+detail. But to be honest, it's a little bit too much information for anybody,
+
+26
+00:01:36,670 --> 00:01:41,050
+unless you're really interested in these types of number generators.
+
+27
+00:01:41,560 --> 00:01:43,000
+But what I recommend though,
+
+28
+00:01:43,000 --> 00:01:47,980
+is a free video from the Khan Academy where they explain pseudorandom number
+
+29
+00:01:47,980 --> 00:01:50,950
+generators, and it's really well produced.
+
+30
+00:01:50,980 --> 00:01:55,980
+And it tells you a lot of different aspects of pseudorandom number generation.
+
+31
+00:01:57,010 --> 00:01:57,790
+Have a look at that
+
+32
+00:01:57,790 --> 00:02:02,020
+if you're interested to learn a little bit more about pseudorandom number
+
+33
+00:02:02,020 --> 00:02:05,650
+generators. We've talked a lot about randomness,
+
+34
+00:02:05,710 --> 00:02:07,180
+but lets see it in action.
+
+35
+00:02:07,210 --> 00:02:11,980
+Let's write some code and produce some random numbers. Head over to the Day 4
+
+36
+00:02:11,980 --> 00:02:15,340
+starting Repl and then go ahead and fork your own copy.
+
+37
+00:02:15,760 --> 00:02:18,970
+We know that we want to get hold of some random numbers,
+
+38
+00:02:19,300 --> 00:02:23,950
+but we don't really want to implement the Mersenne Twister ourselves because
+
+39
+00:02:24,220 --> 00:02:28,480
+it's horrendously complicated using lots and lots of math and probably it'll
+
+40
+00:02:28,480 --> 00:02:33,250
+take us months to write the code for. So how can we get random numbers?
+
+41
+00:02:33,880 --> 00:02:37,870
+If you think about it, it's a little bit like searching for something in Google.
+
+42
+00:02:38,530 --> 00:02:43,530
+The Google algorithm is horrendously complicated and it's taken them years and
+
+43
+00:02:43,660 --> 00:02:48,370
+years to refine and perfect to such an extent where I think Google knows me
+
+44
+00:02:48,370 --> 00:02:50,980
+better than myself because when I search for something,
+
+45
+00:02:50,980 --> 00:02:53,410
+it always gives me the most relevant results.
+
+46
+00:02:53,920 --> 00:02:57,760
+And if you're questioning the complexity of the Google algorithm,
+
+47
+00:02:58,090 --> 00:03:02,980
+just go to Bing and try searching for something and see how relevant the results
+
+48
+00:03:02,980 --> 00:03:06,100
+are. So they have the super complex algorithm,
+
+49
+00:03:06,130 --> 00:03:09,340
+which we're never going to get a chance to see, let alone understand.
+
+50
+00:03:09,850 --> 00:03:14,850
+And yet every day we're able to search things on Google and use this Google
+
+51
+00:03:15,100 --> 00:03:17,680
+algorithm to get the things that we want,
+
+52
+00:03:18,010 --> 00:03:21,640
+like the air speed velocity of a laden swallow.
+
+53
+00:03:22,240 --> 00:03:26,920
+Now we can do the same thing when we want to generate random numbers. Because
+
+54
+00:03:26,920 --> 00:03:29,410
+this is such frequently needed functionality,
+
+55
+00:03:29,710 --> 00:03:33,190
+the Python team have already created a random module.
+
+56
+00:03:33,700 --> 00:03:38,700
+So if you head over to askpython.com and search for the Python random module,
+
+57
+00:03:39,100 --> 00:03:42,700
+then you'll be able to see the documentation for this random module.
+
+58
+00:03:43,180 --> 00:03:46,750
+And you can see that it contains a whole bunch of functions that you can use
+
+59
+00:03:47,170 --> 00:03:50,110
+that allows you to generate random integers,
+
+60
+00:03:50,110 --> 00:03:53,650
+so random whole numbers or random floating point numbers.
+
+61
+00:03:54,040 --> 00:03:59,040
+So let's see how we can tap into this random module. In order to tap into the
+
+62
+00:03:59,260 --> 00:04:02,410
+random module, we first have to import it.
+
+63
+00:04:02,440 --> 00:04:07,440
+So we write import random. And now we're able to use this random module in our
+
+64
+00:04:10,000 --> 00:04:11,800
+main.py code.
+
+65
+00:04:12,580 --> 00:04:17,470
+We can start using the documentation to generate a random integer. For example,
+
+66
+00:04:17,709 --> 00:04:22,710
+they show us in the code snippet here that we could generate a random integer by
+
+67
+00:04:23,320 --> 00:04:27,430
+using the randint function, providing an a and B.
+
+68
+00:04:27,850 --> 00:04:31,480
+And it will return a random integer between a and b,
+
+69
+00:04:31,630 --> 00:04:33,700
+including both of those numbers.
+
+70
+00:04:34,150 --> 00:04:37,390
+And there's even a little bit of code snippet to show us how it's done.
+
+71
+00:04:37,720 --> 00:04:42,720
+So this line of code generates a random whole number between 100 and 200 and
+
+72
+00:04:44,110 --> 00:04:48,310
+including those two numbers. So it could be anything between those two numbers.
+
+73
+00:04:49,060 --> 00:04:51,340
+So let's see if we can implement this in our code.
+
+74
+00:04:51,820 --> 00:04:56,820
+Let's say that we want to create a random integer and we use the same code that
+
+75
+00:04:56,950 --> 00:04:59,650
+we saw in the code snippet where we say random,
+
+76
+00:04:59,890 --> 00:05:04,600
+that's tapping into this module here, .randint.
+
+77
+00:05:04,960 --> 00:05:09,960
+And then we at a set of parentheses and then we specify the start, and
+
+78
+00:05:10,360 --> 00:05:11,350
+then the end.
+
+79
+00:05:11,830 --> 00:05:16,830
+So this is basically a range of numbers that we're specifying, any integer
+
+80
+00:05:16,960 --> 00:05:18,670
+between 1 and 10.
+
+81
+00:05:19,480 --> 00:05:24,480
+And now we can go ahead and print our random integer, just like that.
+
+82
+00:05:26,050 --> 00:05:28,060
+And every single time I run it,
+
+83
+00:05:28,330 --> 00:05:32,050
+you'll notice that I'll get a different number or maybe sometimes the same,
+
+84
+00:05:32,140 --> 00:05:35,650
+but it's a random number between the range that I've specified.
+
+85
+00:05:37,000 --> 00:05:41,890
+Now I've mentioned that the random module is a Python module.
+
+86
+00:05:41,980 --> 00:05:44,860
+So what exactly is a module? Well,
+
+87
+00:05:44,890 --> 00:05:49,480
+you've seen that we've mostly been writing our code all on the same page in a
+
+88
+00:05:49,480 --> 00:05:50,920
+sort of script style, right?
+
+89
+00:05:50,920 --> 00:05:53,980
+And everything just kind of gets executed from top to bottom.
+
+90
+00:05:54,460 --> 00:05:58,490
+But sometimes your code will get so long because you're trying to create
+
+91
+00:05:58,490 --> 00:06:03,490
+something complicated and it's no longer possible to understand what's going on
+
+92
+00:06:03,620 --> 00:06:06,140
+in such a large piece of code.
+
+93
+00:06:06,650 --> 00:06:11,650
+What people will do in that case is to split the code up into individual modules
+
+94
+00:06:13,190 --> 00:06:18,190
+where each module is responsible for a different bit of functionality of your
+
+95
+00:06:18,380 --> 00:06:22,430
+program. And if you have a complex project with many, many modules,
+
+96
+00:06:22,700 --> 00:06:25,520
+then you could have collaboration on your project, right?
+
+97
+00:06:25,550 --> 00:06:29,630
+Lots of people could be working on it, each person working on a different thing.
+
+98
+00:06:29,990 --> 00:06:31,820
+Say if a factory was building a car,
+
+99
+00:06:32,150 --> 00:06:36,260
+it wouldn't make sense for one person to build the entire car from wheels,
+
+100
+00:06:36,260 --> 00:06:38,810
+axles to chassis, that's crazy.
+
+101
+00:06:38,960 --> 00:06:43,220
+Instead you have different people working on different modules like the tire
+
+102
+00:06:43,220 --> 00:06:47,000
+module or the chassis module or the engine module.
+
+103
+00:06:47,420 --> 00:06:49,220
+And then once they put everything together,
+
+104
+00:06:49,490 --> 00:06:53,990
+you end up with the final car or in our case, the final program.
+
+105
+00:06:54,740 --> 00:06:59,570
+So we know that the random module is a module that the Python team created to
+
+106
+00:06:59,570 --> 00:07:04,570
+make it easier for us to generate our random numbers without needing to get into
+
+107
+00:07:04,850 --> 00:07:09,850
+the complexities of all of the math that's required to generate pseudorandom
+
+108
+00:07:09,920 --> 00:07:10,753
+numbers.
+
+109
+00:07:10,970 --> 00:07:15,080
+But how can we create our own modules and how do modules work anyways?
+
+110
+00:07:15,260 --> 00:07:19,430
+Well, it's actually very simple. If you go ahead and click on the files icon,
+
+111
+00:07:19,490 --> 00:07:23,120
+you can see, we currently only have one file that we're writing in,
+
+112
+00:07:23,420 --> 00:07:25,100
+which is main.py,
+
+113
+00:07:25,130 --> 00:07:29,150
+the Python file. And the main.py is the entry point to our program.
+
+114
+00:07:29,300 --> 00:07:33,590
+This is the file that will be executed when we run our code. Now,
+
+115
+00:07:33,590 --> 00:07:37,100
+if I go ahead and click on this icon to add a new file,
+
+116
+00:07:37,490 --> 00:07:42,490
+let's say I call it my_module.py and I create a new Python file.
+
+117
+00:07:45,650 --> 00:07:50,270
+And inside my module, I'm going to maybe work on something else.
+
+118
+00:07:50,300 --> 00:07:53,270
+Let's say I want into the store, the value of PI.
+
+119
+00:07:55,850 --> 00:07:57,260
+Okay. I think that's all I remember.
+
+120
+00:07:57,680 --> 00:08:02,360
+So I know the value of PI and I want to be able to use it in my different
+
+121
+00:08:02,360 --> 00:08:06,080
+programs. Now that I've created my_module.py, well,
+
+122
+00:08:06,080 --> 00:08:11,080
+now I can use my module wherever I want just by importing it. So I could import
+
+123
+00:08:13,250 --> 00:08:17,480
+my_module. And now down here, I can say,
+
+124
+00:08:17,900 --> 00:08:22,900
+let's go ahead and print my_module.pi.
+
+125
+00:08:24,440 --> 00:08:28,610
+And now if I go ahead and comment out of this code and hit run,
+
+126
+00:08:29,060 --> 00:08:29,810
+then you'll see,
+
+127
+00:08:29,810 --> 00:08:34,809
+we get that value of PI that got dragged in because I imported my module,
+
+128
+00:08:35,780 --> 00:08:40,370
+but now we've got our code separated out into separate modules that are
+
+129
+00:08:40,370 --> 00:08:42,110
+responsible for different things.
+
+130
+00:08:42,650 --> 00:08:46,460
+And that is how the random module works as well.
+
+131
+00:08:46,880 --> 00:08:51,590
+So I'm going to go ahead and delete all of this stuff relating to PI,
+
+132
+00:08:51,890 --> 00:08:55,500
+but you can keep yours if you want, if you wanna keep it for reference.
+
+133
+00:08:57,390 --> 00:08:59,910
+Coming back to creating random numbers.
+
+134
+00:09:00,300 --> 00:09:03,840
+We've seen how we can create random whole numbers,
+
+135
+00:09:04,080 --> 00:09:08,730
+but what if I wanted to create a random floating point number? Well,
+
+136
+00:09:08,730 --> 00:09:12,390
+it tells me how to do it in the AskPython documentation.
+
+137
+00:09:12,780 --> 00:09:17,780
+And all I have to do is use the random module that contains the random function
+
+138
+00:09:18,180 --> 00:09:23,180
+and it will return a random floating-point number between 0 and 1.
+
+139
+00:09:24,480 --> 00:09:29,130
+But it's really important to note that in this case it doesn't actually include
+
+140
+00:09:29,130 --> 00:09:34,050
+1. So it goes up to like 0.9999999, but not including 1.
+
+141
+00:09:34,590 --> 00:09:36,150
+Let's go ahead and try that out.
+
+142
+00:09:36,510 --> 00:09:41,190
+So we'll say random_float = random.random
+
+143
+00:09:41,250 --> 00:09:45,990
+and then I set of parentheses. And this will give me output some sort of number
+
+144
+00:09:46,320 --> 00:09:50,040
+in the interval between 0 and 1, but not including 1.
+
+145
+00:09:50,910 --> 00:09:53,430
+So let's go ahead and see if it works.
+
+146
+00:09:56,820 --> 00:09:57,210
+First,
+
+147
+00:09:57,210 --> 00:10:01,650
+we print a random integer between 1 and 10 and then we print our random float
+
+148
+00:10:01,710 --> 00:10:06,210
+between 0 and 1. And every time we run the code,
+
+149
+00:10:06,240 --> 00:10:09,210
+you'll notice that we get different random numbers.
+
+150
+00:10:10,290 --> 00:10:11,610
+Now here's a question.
+
+151
+00:10:12,420 --> 00:10:17,420
+This random function always generates a number between 0 and 1 and it has
+
+152
+00:10:18,210 --> 00:10:19,560
+many decimal places.
+
+153
+00:10:20,160 --> 00:10:25,050
+But what if I wanted a random floating-point number between 0 and 5?
+
+154
+00:10:25,980 --> 00:10:28,620
+How might we do that? Now
+
+155
+00:10:28,680 --> 00:10:33,510
+it's not as complicated as you think it is and you'll be able to do it just by
+
+156
+00:10:33,510 --> 00:10:35,190
+looking at the code you've got here.
+
+157
+00:10:35,880 --> 00:10:39,210
+Have a think about it and see if you can come up with the answer.
+
+158
+00:10:39,330 --> 00:10:42,420
+I'll go through it with you afterwards. Pause the video now and give that a go.
+
+159
+00:10:44,430 --> 00:10:44,850
+All right.
+
+160
+00:10:44,850 --> 00:10:49,850
+So we know that this random float can be anything between 
+
+161
+00:10:50,230 --> 00:10:51,300
+0.000000
+
+162
+00:10:51,370 --> 00:10:56,370
+to 0.999999..., effectively repeating right? Now
+
+163
+00:10:58,050 --> 00:11:03,050
+what if we were able to multiply this random number by a number?
+
+164
+00:11:05,970 --> 00:11:10,620
+Let's say that I multiply the random_float by 5.
+
+165
+00:11:11,310 --> 00:11:15,150
+Well, what if this random_float was no 0.1? Well,
+
+166
+00:11:15,180 --> 00:11:19,050
+0.1 times 5 would be 0.5.
+
+167
+00:11:20,070 --> 00:11:25,070
+But what if the random_float was 0.4? 0.4 times 5 would be 2.
+
+168
+00:11:28,290 --> 00:11:30,090
+Or what if it was 0.9?
+
+169
+00:11:30,120 --> 00:11:33,330
+0.9 times five is 4.5.
+
+170
+00:11:33,840 --> 00:11:38,840
+So effectively by multiplying this random_float by 5,
+
+171
+00:11:39,840 --> 00:11:42,540
+I will end up with random numbers,
+
+172
+00:11:42,810 --> 00:11:46,920
+but of course they're now floats, right? So it could be 0.000
+
+173
+00:11:46,920 --> 00:11:50,940
+... all the way to 4.999999
+
+174
+00:11:51,360 --> 00:11:53,010
+and et cetera, et cetera.
+
+175
+00:11:53,410 --> 00:11:58,410
+So this is how we can expand that range from 0 to 1 all the way to 0 to
+
+176
+00:11:59,650 --> 00:12:02,050
+5, but not including 5.
+
+177
+00:12:03,130 --> 00:12:05,950
+So what can you do with random numbers? Well,
+
+178
+00:12:06,010 --> 00:12:10,870
+if we think back to our love calculator that we made in the last lesson,
+
+179
+00:12:11,380 --> 00:12:15,070
+um, I mean, its kind of based on pseudo-science right?
+
+180
+00:12:15,070 --> 00:12:20,050
+Like just because you have a certain number of letters that exist in the word
+
+181
+00:12:20,050 --> 00:12:20,890
+true and love,
+
+182
+00:12:20,890 --> 00:12:24,160
+it doesn't mean that you're actually going to be more compatible.
+
+183
+00:12:24,950 --> 00:12:29,590
+I'm sorry to break anyone's heart out there. But if it's random anyways,
+
+184
+00:12:29,620 --> 00:12:34,270
+then why don't we just use a random number generator saving ourselves all of
+
+185
+00:12:34,270 --> 00:12:37,510
+that trouble from counting Ts and counting Us.
+
+186
+00:12:37,900 --> 00:12:42,900
+We can instead just simply say love_score =  random.randint between
+
+187
+00:12:47,830 --> 00:12:52,830
+1 and 100. And then go ahead and just print "Your love score is",
+
+188
+00:12:56,620 --> 00:13:01,420
+and then let's insert our love score and turn this into an Fstring.
+
+189
+00:13:02,230 --> 00:13:06,310
+Let's print that. And you can see that we're getting a different love score
+
+190
+00:13:06,340 --> 00:13:10,540
+every single time I run this code. It's between 1 and a hundred
+
+191
+00:13:10,660 --> 00:13:12,400
+and you know,
+
+192
+00:13:12,520 --> 00:13:16,300
+who can tell that this is any different from the previous method, right?
+
+193
+00:13:16,660 --> 00:13:21,490
+So we can use our random number generator for this. We can use it for,
+
+194
+00:13:21,520 --> 00:13:22,180
+um,
+
+195
+00:13:22,180 --> 00:13:27,180
+creating a dice or flipping a coin or we can use it in games that we create.
+
+196
+00:13:28,540 --> 00:13:33,010
+If you head over to the next lesson, I've got a code challenge for you
+
+197
+00:13:33,310 --> 00:13:37,990
+where you are going to be building a program in order to pick from heads or
+
+198
+00:13:37,990 --> 00:13:42,990
+tails and help the user out when they don't have access to a coin. For all of
+
+199
+00:13:43,030 --> 00:13:45,280
+that and more, I'll see you on the next lesson.
+
+1
+00:00:01,240 --> 00:00:07,990
+Now, if you head over to the course resources, you'll be able to find a link to this first code exercise.
+
+2
+00:00:08,560 --> 00:00:15,010
+And the idea is that you're going to create basically a virtual coin-toss program so that when you run
+
+3
+00:00:15,010 --> 00:00:21,360
+the code, it should give you tails or heads depending on which random number was generated.
+
+4
+00:00:22,310 --> 00:00:26,280
+Try to use what you've learned in the previous lesson to complete this challenge.
+
+5
+00:00:26,680 --> 00:00:28,810
+So pause the video now and give that a go.
+
+6
+00:00:30,050 --> 00:00:32,270
+All right, let's go through the solution together.
+
+7
+00:00:32,870 --> 00:00:39,110
+So first, make sure you've forked your copy of the exercise so that it's under your own username, and
+
+8
+00:00:39,110 --> 00:00:42,490
+then we're going to go to main.py where we always write our code.
+
+9
+00:00:43,160 --> 00:00:46,850
+Now, in order to use the random module, we first have to import it.
+
+10
+00:00:47,780 --> 00:00:49,370
+So the module is called random.
+
+11
+00:00:49,370 --> 00:00:57,710
+So we write import random. And now using the random module, we can now tap into randint, which will
+
+12
+00:00:57,710 --> 00:01:03,580
+generate a random integer between a starting number and a ending number
+
+13
+00:01:03,830 --> 00:01:06,290
+and it's inclusive of both numbers.
+
+14
+00:01:06,860 --> 00:01:10,250
+So let's call this the random_side.
+
+15
+00:01:12,030 --> 00:01:18,150
+And using this random_side, we can use an if statement to check well if the random side that was
+
+16
+00:01:18,150 --> 00:01:26,490
+generated is equal to one, well, in that case, that means we should print that we generated heads.
+
+17
+00:01:26,760 --> 00:01:29,880
+So that's the part of the coin which normally shows a person's face.
+
+18
+00:01:30,600 --> 00:01:38,440
+Now we can use else to catch the situation where we get a zero, and in this case, we'll print tails instead.
+
+19
+00:01:39,180 --> 00:01:41,040
+So that's all there is to it.
+
+20
+00:01:41,220 --> 00:01:45,710
+And of course, as always, there are many, many ways that you could solve this challenge.
+
+21
+00:01:45,960 --> 00:01:50,430
+And if you're creative or if you looked around and you found a different way, then that's great.
+
+22
+00:01:50,610 --> 00:01:54,510
+But this is how we would do it using what we learned in the previous lesson.
+
+23
+00:01:55,410 --> 00:02:00,570
+So how did you get on with it? If you got stuck or if you forgot how to do certain things or if some
+
+24
+00:02:00,570 --> 00:02:06,720
+parts of your code didn't work or if you had errors, then this is the time to go back and fix it so
+
+25
+00:02:06,720 --> 00:02:09,690
+that you actually understand what's going on and we can proceed.
+
+26
+00:02:09,990 --> 00:02:12,420
+So once you're done, head over to the next lesson
+
+27
+00:02:12,420 --> 00:02:15,300
+and we're going to learn about Python lists.
+
+1
+00:00:00,160 --> 00:00:04,480
+Hey guys. Today I want to talk about something that is really, really important
+
+2
+00:00:04,510 --> 00:00:07,150
+and you're going to use many, many times in the future,
+
+3
+00:00:07,570 --> 00:00:10,570
+and this is the concept of the Python list.
+
+4
+00:00:11,140 --> 00:00:15,520
+And the list is what you would call a data structure.
+
+5
+00:00:15,880 --> 00:00:17,170
+What does that mean? Well,
+
+6
+00:00:17,200 --> 00:00:21,910
+it's just a way of organizing and storing data in Python.
+
+7
+00:00:22,540 --> 00:00:27,370
+Now we've already seen ways of storing single pieces of data,
+
+8
+00:00:27,760 --> 00:00:32,759
+and that was done through the simple variable where we just said a =
+
+9
+00:00:33,250 --> 00:00:35,680
+3 or b = hello.
+
+10
+00:00:35,920 --> 00:00:40,900
+But that's just storing one piece of data, right? Be it a number or a string.
+
+11
+00:00:41,650 --> 00:00:45,370
+But sometimes you might want to store grouped pieces of data,
+
+12
+00:00:45,460 --> 00:00:49,690
+data that has some sort of connection with each other. For example,
+
+13
+00:00:49,750 --> 00:00:54,750
+if you wanted to store all of the names of the States in the US then it doesn't
+
+14
+00:00:55,240 --> 00:00:59,710
+really make sense to store them all individually because they kind of belong
+
+15
+00:00:59,710 --> 00:01:02,140
+together, right? They have a relationship to each other.
+
+16
+00:01:02,470 --> 00:01:06,970
+So it would be nice if you had a variable that was called States_in_the_US and
+
+17
+00:01:06,970 --> 00:01:10,990
+then you would be able to store all of the names of the States together in one
+
+18
+00:01:10,990 --> 00:01:13,900
+variable. Now, in other cases,
+
+19
+00:01:13,960 --> 00:01:18,790
+you might also want to have order in your data. So for example,
+
+20
+00:01:19,000 --> 00:01:22,930
+if you were storing all of the people in a virtual queue,
+
+21
+00:01:23,230 --> 00:01:27,370
+then you want to be able to keep hold of the order in which they join the queue.
+
+22
+00:01:27,760 --> 00:01:31,330
+You don't wanna let the last person somehow skip the queue because you don't
+
+23
+00:01:31,330 --> 00:01:33,100
+have a good data structure, right?
+
+24
+00:01:33,760 --> 00:01:38,760
+This is why we need to learn about lists. And lists look pretty simple.
+
+25
+00:01:38,950 --> 00:01:43,480
+It's just a set of square brackets with many items stored inside.
+
+26
+00:01:43,570 --> 00:01:47,820
+And those items can be any data type. They can even have mixed data types like
+
+27
+00:01:47,820 --> 00:01:52,000
+you could store strings together with numbers or a set of booleans.
+
+28
+00:01:52,330 --> 00:01:53,500
+It doesn't really matter.
+
+29
+00:01:53,620 --> 00:01:58,620
+But what does matter is the syntax. In Python lists always start with a open
+
+30
+00:01:59,980 --> 00:02:04,900
+square bracket like this and a closing square bracket like this.
+
+31
+00:02:05,410 --> 00:02:09,009
+And then in between you have your items separated by a comma.
+
+32
+00:02:09,280 --> 00:02:13,570
+So pretty simple. In order to store it inside the variable,
+
+33
+00:02:13,750 --> 00:02:15,730
+then its the same way as we've done before.
+
+34
+00:02:16,150 --> 00:02:19,360
+The only difference is the right hand side of the equal sign.
+
+35
+00:02:19,780 --> 00:02:22,300
+This is the list data structure.
+
+36
+00:02:23,170 --> 00:02:25,690
+If we stored a bunch of fruits, for example,
+
+37
+00:02:25,750 --> 00:02:28,240
+than it might look something like this: Cherry,
+
+38
+00:02:28,240 --> 00:02:32,410
+Apple, Pear, separated by a comma inside a set of square brackets.
+
+39
+00:02:32,920 --> 00:02:35,170
+Let's take a look at this using real code.
+
+40
+00:02:35,590 --> 00:02:40,300
+Now I'm going to go ahead and comment out the code from our previous lesson on
+
+41
+00:02:40,330 --> 00:02:41,163
+randomness
+
+42
+00:02:41,500 --> 00:02:45,790
+and you can do the same if you wanna keep a note of the previous code and use it
+
+43
+00:02:45,790 --> 00:02:49,870
+as sort of a live textbook where you can comment out of the code or comment it
+
+44
+00:02:49,870 --> 00:02:52,990
+back in in order to see how it works or you can delete it.
+
+45
+00:02:53,140 --> 00:02:54,280
+It's totally up to you.
+
+46
+00:02:55,030 --> 00:02:59,710
+Now let's say that I wanted to store all of the names of the States of US.
+
+47
+00:03:00,160 --> 00:03:03,520
+Previously, without knowing about this list data structure,
+
+48
+00:03:03,820 --> 00:03:07,450
+we might've written state1 = Delaware,
+
+49
+00:03:08,530 --> 00:03:13,530
+state2 = Pennsylvania and so on and so forth.
+
+50
+00:03:13,720 --> 00:03:16,840
+And we would create as many variables as we have States.
+
+51
+00:03:17,470 --> 00:03:19,720
+But now that we know about lists,
+
+52
+00:03:20,080 --> 00:03:25,080
+then we can just create a single variable and we call it states_of_america.
+
+53
+00:03:26,680 --> 00:03:31,680
+And now we can create a list by creating a set of square brackets and inside
+
+54
+00:03:32,230 --> 00:03:35,560
+those square brackets, we add our items. So again,
+
+55
+00:03:35,620 --> 00:03:38,710
+the first item is the state of Delaware,
+
+56
+00:03:38,740 --> 00:03:42,880
+which is going to be a string and then we've got Pennsylvania,
+
+57
+00:03:43,570 --> 00:03:47,710
+et cetera, et cetera. And we can continue this list just by adding commas,
+
+58
+00:03:48,160 --> 00:03:52,450
+adding a piece of data, adding another comma, adding piece of data.
+
+59
+00:03:52,900 --> 00:03:57,430
+And this way we end up with a list data structure.
+
+60
+00:03:58,390 --> 00:03:58,630
+Now,
+
+61
+00:03:58,630 --> 00:04:03,630
+one of the interesting things about the United States is that the different
+
+62
+00:04:03,820 --> 00:04:08,530
+States in the US actually joined the union at different times.
+
+63
+00:04:08,890 --> 00:04:13,630
+You can actually head over to Wikipedia and watch this little animation and see
+
+64
+00:04:13,780 --> 00:04:18,490
+each state join the union and at which time point they did
+
+65
+00:04:18,490 --> 00:04:23,490
+so. The order of this data is now kind of pretty important because if we wanted
+
+66
+00:04:25,960 --> 00:04:30,960
+a list of US States that are in the order that they joined the union,
+
+67
+00:04:31,930 --> 00:04:36,930
+then the order in which they're stored in our data structure is now also
+
+68
+00:04:37,660 --> 00:04:39,010
+immensely important.
+
+69
+00:04:39,520 --> 00:04:42,700
+And this is another thing that you get with lists.
+
+70
+00:04:43,120 --> 00:04:47,590
+You can use a list to store many pieces of related data,
+
+71
+00:04:48,010 --> 00:04:50,770
+but they also have an order.
+
+72
+00:04:50,950 --> 00:04:54,760
+And the order is determined by the order in the list.
+
+73
+00:04:55,120 --> 00:04:59,050
+So this is the first piece of data, this is the second piece of data.
+
+74
+00:04:59,380 --> 00:05:01,270
+And when you store it inside the variable,
+
+75
+00:05:01,480 --> 00:05:06,340
+that order is not lost and you'll be able to use it later on when you need the
+
+76
+00:05:06,340 --> 00:05:07,173
+list.
+
+77
+00:05:07,510 --> 00:05:12,510
+Here's a list of States of America ordered by the date that they joined the
+
+78
+00:05:14,110 --> 00:05:17,680
+union. And you can see that if later on,
+
+79
+00:05:17,680 --> 00:05:22,420
+I decided that I wanted to know which was the state that joined first,
+
+80
+00:05:22,480 --> 00:05:25,420
+then I can print this variable states_of_america.
+
+81
+00:05:25,810 --> 00:05:28,270
+I can add a set of square brackets,
+
+82
+00:05:28,660 --> 00:05:32,590
+and then I type zero as the index of the piece of data
+
+83
+00:05:32,620 --> 00:05:35,860
+I want to pull out from my states_of_america list.
+
+84
+00:05:36,250 --> 00:05:40,660
+So now if I go ahead and run this code, you can see it prints out Delaware.
+
+85
+00:05:40,930 --> 00:05:43,090
+And if I keep increasing this number,
+
+86
+00:05:43,390 --> 00:05:48,190
+you can see that it's going through my list in the order that it was saved.
+
+87
+00:05:48,880 --> 00:05:50,770
+So you might be wondering,
+
+88
+00:05:51,010 --> 00:05:55,930
+that's kind of weird that you typed zero and you got Delaware,
+
+89
+00:05:55,930 --> 00:06:00,200
+right? Surely, Delaware should be the first item in the list.
+
+90
+00:06:00,830 --> 00:06:05,720
+Well, this is a kind of peculiarity with computers and programming languages.
+
+91
+00:06:06,080 --> 00:06:10,520
+You'll tend to find that programmers start counting from zero.
+
+92
+00:06:10,700 --> 00:06:14,240
+So Delaware is at zero, Pennsylvania is at one and New Jersey is at two.
+
+93
+00:06:14,870 --> 00:06:17,570
+And this idea, it might seem a little bit weird at first,
+
+94
+00:06:17,600 --> 00:06:21,170
+why is the first item at position 0?
+
+95
+00:06:21,860 --> 00:06:26,030
+But if you think about that index number, that 0, 1 or 2,
+
+96
+00:06:26,720 --> 00:06:28,910
+instead of being the position,
+
+97
+00:06:29,330 --> 00:06:34,330
+actually being an offset or a shift from the start of the list.
+
+98
+00:06:35,810 --> 00:06:40,520
+Well then in this case, Cherry is right at the beginning of the list,
+
+99
+00:06:40,520 --> 00:06:44,030
+so it has a offset or a shift of 0.
+
+100
+00:06:44,540 --> 00:06:49,540
+But Apple is shifted from the beginning by 1, Pear shifted from the beginning
+
+101
+00:06:49,790 --> 00:06:52,100
+by 2 and so on and so forth.
+
+102
+00:06:52,400 --> 00:06:56,240
+Then it kind of makes more sense that the first item in the list is at the
+
+103
+00:06:56,240 --> 00:06:59,480
+beginning of the list. So it has no offset. So it's 0.
+
+104
+00:07:00,770 --> 00:07:03,410
+And you'll find that in many, many programming languages,
+
+105
+00:07:03,680 --> 00:07:05,960
+there are similar data structures to lists
+
+106
+00:07:06,230 --> 00:07:10,760
+and this is how they're usually ordered starting from 0 and then adding by
+
+107
+00:07:10,760 --> 00:07:11,593
+1.
+
+108
+00:07:11,900 --> 00:07:16,400
+Now you can see that when you want to get hold of a particular piece of data
+
+109
+00:07:16,670 --> 00:07:18,830
+stored inside a list,
+
+110
+00:07:19,190 --> 00:07:24,190
+what you do is you get the name of the list and then you add another set of
+
+111
+00:07:25,340 --> 00:07:28,250
+square brackets. So whenever you see square brackets,
+
+112
+00:07:28,520 --> 00:07:30,200
+you should be thinking to yourself, oh,
+
+113
+00:07:30,230 --> 00:07:34,850
+this might be related to a list because when you create the list,
+
+114
+00:07:34,880 --> 00:07:39,260
+you use square brackets. And when you try to get items out of the list,
+
+115
+00:07:39,320 --> 00:07:40,820
+you also use square brackets.
+
+116
+00:07:41,420 --> 00:07:45,860
+And then inside of the square brackets is where you put the index or the offset
+
+117
+00:07:45,950 --> 00:07:49,490
+of the item that you want. So if we wanted New Jersey,
+
+118
+00:07:49,490 --> 00:07:52,340
+it's offset from the beginning by one two.
+
+119
+00:07:52,790 --> 00:07:56,990
+So now this part of the code is equal to New Jersey.
+
+120
+00:07:57,530 --> 00:07:58,280
+And we could,
+
+121
+00:07:58,280 --> 00:08:03,280
+if we wanted to save it into another variable or we could simply print it as we
+
+122
+00:08:04,400 --> 00:08:06,320
+did before. Now,
+
+123
+00:08:06,350 --> 00:08:09,560
+in addition to using the positive index,
+
+124
+00:08:09,770 --> 00:08:12,350
+so say 0, 1, 2, 3,
+
+125
+00:08:12,620 --> 00:08:14,960
+you can also use a negative index.
+
+126
+00:08:15,320 --> 00:08:20,320
+So if I wrote -1 or -2, then it actually starts counting from the
+
+127
+00:08:22,460 --> 00:08:26,330
+end of the list. So if I wrote states_of_america
+
+128
+00:08:26,540 --> 00:08:31,010
+[-1] as the index, then I get Hawaii.
+
+129
+00:08:31,430 --> 00:08:36,429
+-1 is the last item in the list because you can't really have minus zero.
+
+130
+00:08:36,679 --> 00:08:40,400
+That's not actually a real thing in math. Now,
+
+131
+00:08:40,460 --> 00:08:42,799
+as I continue and I go to -2,
+
+132
+00:08:42,799 --> 00:08:47,780
+then that's Alaska, -3 will be Arizona and so on and so forth.
+
+133
+00:08:47,840 --> 00:08:50,870
+So you can have positive indices and negative indices.
+
+134
+00:08:51,440 --> 00:08:56,370
+But so far we've only been pulling things out of our list by using our square
+
+135
+00:08:56,370 --> 00:08:57,840
+brackets and the index.
+
+136
+00:08:58,260 --> 00:09:03,090
+But you can also change the items in the list using very similar code.
+
+137
+00:09:03,480 --> 00:09:03,990
+For example,
+
+138
+00:09:03,990 --> 00:09:08,990
+if I decided that Pennsylvania is actually not spelled Pennsylvania and I wanted
+
+139
+00:09:10,020 --> 00:09:13,440
+to change it to Pencilvania,
+
+140
+00:09:14,280 --> 00:09:18,270
+then I can simply write my code like this.
+
+141
+00:09:18,810 --> 00:09:22,530
+I get hold of my list. And then using the square brackets,
+
+142
+00:09:22,590 --> 00:09:25,890
+I get hold of the item at index 1, which is this one.
+
+143
+00:09:26,790 --> 00:09:30,570
+And then I set it equal to a new piece of data.
+
+144
+00:09:31,140 --> 00:09:36,140
+So now if I go ahead and print my states_of_america list,
+
+145
+00:09:37,440 --> 00:09:40,050
+you'll see that the list looks a little bit different now.
+
+146
+00:09:40,200 --> 00:09:44,250
+Instead of Pennsylvania, it's now Pencilvania.
+
+147
+00:09:45,150 --> 00:09:48,090
+So you can alter any item inside the list
+
+148
+00:09:48,120 --> 00:09:51,150
+pretty easily using this kind of syntax.
+
+149
+00:09:51,540 --> 00:09:55,650
+You could also add to the list if you wanted too. So for example,
+
+150
+00:09:55,650 --> 00:09:58,620
+if you wanted to add an item at the end of the list,
+
+151
+00:09:58,650 --> 00:10:01,170
+which is what happens most commonly, right?
+
+152
+00:10:01,170 --> 00:10:05,340
+If you had a list of people who are cuing in your shop,
+
+153
+00:10:05,550 --> 00:10:08,790
+then every subsequent person usually gets added to the end.
+
+154
+00:10:09,090 --> 00:10:12,210
+If you have a new state that joined America,
+
+155
+00:10:12,480 --> 00:10:17,040
+then it's probably going to be added after Hawaii. How do we do that?
+
+156
+00:10:17,370 --> 00:10:19,830
+Well, we can write the name of the list
+
+157
+00:10:20,340 --> 00:10:25,340
+and then we use a function called append and append
+
+158
+00:10:25,410 --> 00:10:29,130
+will add a single item to the end of the list.
+
+159
+00:10:29,580 --> 00:10:34,580
+So let's say that Angelaland is joining the United States of America.
+
+160
+00:10:36,600 --> 00:10:41,600
+So now once I've appended Angelaland to the end of my states_of_america list,
+
+161
+00:10:42,870 --> 00:10:47,730
+and I print the states_of_america, you can see, there it is added at the end.
+
+162
+00:10:48,870 --> 00:10:52,080
+Now there's actually a whole load of other functions that you can use in
+
+163
+00:10:52,080 --> 00:10:56,610
+addition to append. And you'll find this on the documentation for Python.
+
+164
+00:10:57,300 --> 00:11:02,250
+In addition to the append function that we saw just now where we add an item at
+
+165
+00:11:02,250 --> 00:11:03,083
+the end of the list,
+
+166
+00:11:03,390 --> 00:11:07,110
+there's a whole load of all the functions that you can use with lists.
+
+167
+00:11:07,470 --> 00:11:09,750
+For example, you can use the extend,
+
+168
+00:11:09,990 --> 00:11:14,880
+which adds a whole bunch of items at the end of the list. And in this case,
+
+169
+00:11:14,910 --> 00:11:18,540
+what you're actually adding is going to be a list.
+
+170
+00:11:18,900 --> 00:11:23,850
+So I would be creating the list using square brackets and then adding my items
+
+171
+00:11:23,880 --> 00:11:24,713
+in here.
+
+172
+00:11:25,620 --> 00:11:30,620
+And now what's happening is I'm extending this states_of_america list with this
+
+173
+00:11:31,500 --> 00:11:35,640
+additional list. So now if we print the states_of_america,
+
+174
+00:11:35,910 --> 00:11:40,910
+you can see that these two items that used to be inside of the list have now
+
+175
+00:11:41,370 --> 00:11:44,580
+been added to the previous list
+
+176
+00:11:44,910 --> 00:11:47,640
+and it's now extended it by two more items.
+
+177
+00:11:48,630 --> 00:11:52,890
+But the important thing is you don't have to memorize these functions.
+
+178
+00:11:52,930 --> 00:11:57,790
+That's the whole point of documentation and why we have Google because there's
+
+179
+00:11:57,790 --> 00:12:00,820
+too much information in the world for you to memorize.
+
+180
+00:12:01,240 --> 00:12:04,330
+And it's a very inefficient way of learning.
+
+181
+00:12:04,900 --> 00:12:09,220
+And if you tried to memorize every single method, it's not impossible,
+
+182
+00:12:09,220 --> 00:12:12,850
+but it means that you don't have space in your brain for the important stuff,
+
+183
+00:12:12,850 --> 00:12:14,350
+which is how things work.
+
+184
+00:12:14,380 --> 00:12:17,650
+How do you actually use it to do what you want it to do?
+
+185
+00:12:18,070 --> 00:12:22,300
+So what I recommend when you come across a new thing, such as,
+
+186
+00:12:22,600 --> 00:12:27,370
+um, the list data structure is to just have a look through the documentation,
+
+187
+00:12:27,790 --> 00:12:31,690
+read through it and see what are the possible things you can do.
+
+188
+00:12:32,140 --> 00:12:34,870
+And once you've got the idea of this is possible,
+
+189
+00:12:35,020 --> 00:12:39,040
+then the next time when you need to use it inside your code, you'll know, ah,
+
+190
+00:12:39,070 --> 00:12:41,050
+I remember this is possible.
+
+191
+00:12:41,290 --> 00:12:44,290
+And all you have to do is just be able to use Google,
+
+192
+00:12:44,530 --> 00:12:47,500
+to find the exact bit of the documentation
+
+193
+00:12:47,770 --> 00:12:52,770
+and then implement it. Programming is kind of like an open book exam.
+
+194
+00:12:53,140 --> 00:12:55,660
+You shouldn't need to memorize anything.
+
+195
+00:12:55,870 --> 00:12:59,440
+You should spend your time trying things out and try to get things to work
+
+196
+00:12:59,440 --> 00:13:04,330
+instead. Now that I've introduced you to this new data structure,
+
+197
+00:13:04,420 --> 00:13:05,410
+the mighty list,
+
+198
+00:13:05,740 --> 00:13:09,880
+it's time for a code exercise to see if you can use it in practice.
+
+199
+00:13:10,210 --> 00:13:13,600
+So head over to the next lesson and give the challenge that go.
+
+1
+00:00:00,450 --> 00:00:07,110
+So the code challenge that you're about to do comes from a really interesting phenomenon that you might find
+
+2
+00:00:07,110 --> 00:00:07,980
+in London.
+
+3
+00:00:08,430 --> 00:00:13,700
+I live in London and it's well known as a big financial district.
+
+4
+00:00:14,220 --> 00:00:21,150
+So when you head over to the city or the financial area in London and you go into a restaurant, you
+
+5
+00:00:21,150 --> 00:00:23,460
+might see a strange thing happen.
+
+6
+00:00:23,820 --> 00:00:31,290
+You might see a whole bunch of people in suits who look very much like the financial banker types. At
+
+7
+00:00:31,290 --> 00:00:33,480
+the time when they actually need to pay the bill
+
+8
+00:00:33,660 --> 00:00:37,590
+you see everybody pull out their business cards and put them into a bowl.
+
+9
+00:00:38,310 --> 00:00:39,940
+So what's actually going on here?
+
+10
+00:00:40,290 --> 00:00:47,550
+A friend of mine told me apparently there's this game that the rich banker types play where it's kind
+
+11
+00:00:47,550 --> 00:00:50,060
+of like Russian roulette with the bill.
+
+12
+00:00:50,490 --> 00:00:57,060
+So everybody puts their business card in and the person's card who gets picked out has to pay for everybody's
+
+13
+00:00:57,060 --> 00:00:59,550
+bill, which is kind of crazy.
+
+14
+00:00:59,550 --> 00:01:01,240
+But then again, it's finance.
+
+15
+00:01:01,920 --> 00:01:07,740
+So in today's challenge, this is what we're going to replicate with code. Head over to the course
+
+16
+00:01:07,740 --> 00:01:11,820
+resources and click on the coding exercise to bring it up.
+
+17
+00:01:12,540 --> 00:01:17,850
+Now, go ahead and fork your own copy of it so that you can make amendments.
+
+18
+00:01:18,540 --> 00:01:24,660
+Now, the idea is that once you've completed the challenge, you should be able to type in a whole bunch
+
+19
+00:01:24,660 --> 00:01:29,910
+of names as an input with a comma and a space separating each name.
+
+20
+00:01:30,390 --> 00:01:37,350
+And then the code will pick a random name from the one that you've given it and tell you who is going
+
+21
+00:01:37,350 --> 00:01:38,070
+to buy the meal.
+
+22
+00:01:40,310 --> 00:01:43,880
+Now, there's two lines of code here that you might not have seen before.
+
+23
+00:01:45,320 --> 00:01:54,410
+Now this is something called split, and this allows you to split a string into separate components
+
+24
+00:01:54,710 --> 00:01:56,950
+based on some sort of divider.
+
+25
+00:01:57,440 --> 00:02:03,360
+So in this case, notice how it says hello, from, AskPython.
+
+26
+00:02:03,840 --> 00:02:11,900
+Now, if we use the split on this string, then it will divide it up into a list and separate out all
+
+27
+00:02:11,900 --> 00:02:17,660
+the words that are divided by this split character, which is the comma.
+
+28
+00:02:18,470 --> 00:02:25,790
+Now, similarly, over here, when we give the input, it's going to be in the format like this; everybody's
+
+29
+00:02:25,790 --> 00:02:28,190
+names separated by a comma and a space.
+
+30
+00:02:28,760 --> 00:02:37,970
+So now if we use the split on a comma and a space, then it will take out the comma and the space and
+
+31
+00:02:37,970 --> 00:02:43,160
+it will put everything else as separate items inside a list.
+
+32
+00:02:44,390 --> 00:02:50,840
+So what I recommend doing before you get started writing the actual code is to test it out.
+
+33
+00:02:50,840 --> 00:02:53,960
+So printout what names actually looks like.
+
+34
+00:02:54,380 --> 00:03:01,390
+So if we go ahead and run this code and then we type a bunch of names separated by a comma.
+
+35
+00:03:01,400 --> 00:03:09,140
+so Angela, Ben, Jenny and then hit enter,
+
+36
+00:03:09,650 --> 00:03:12,110
+then we hit the line where it prints names.
+
+37
+00:03:12,530 --> 00:03:18,350
+Now names, as you'll see, is now a list with all the names I typed in.
+
+38
+00:03:19,010 --> 00:03:25,430
+And while previously they were separated by a comma and a space, they are now all individual items
+
+39
+00:03:25,430 --> 00:03:26,090
+in a list.
+
+40
+00:03:26,600 --> 00:03:30,110
+The idea is that you've got all of these items inside a list,
+
+41
+00:03:30,420 --> 00:03:38,450
+how can I pick a random one out of it using a random index based on the number of items in the list
+
+42
+00:03:38,480 --> 00:03:39,770
+which of course can change?
+
+43
+00:03:40,250 --> 00:03:47,300
+And then how can I get a random name as the output and then print so-and-so is going to buy the meal
+
+44
+00:03:47,300 --> 00:03:47,630
+today?
+
+45
+00:03:48,080 --> 00:03:49,440
+So have a think about it,
+
+46
+00:03:49,820 --> 00:03:52,790
+have a pause and then see if you can complete the challenge.
+
+47
+00:03:58,680 --> 00:04:05,910
+So now that we've got the list as a starting point stored inside names, how can we go about generating
+
+48
+00:04:05,940 --> 00:04:08,820
+a random name and picking it out of the list?
+
+49
+00:04:09,480 --> 00:04:18,209
+Well, we know that we can pick a item from the list by adding a set of square brackets and then a index
+
+50
+00:04:18,209 --> 00:04:18,630
+number.
+
+51
+00:04:18,930 --> 00:04:25,080
+So in this case, it should print the first item out of the list which is going to be just the word
+
+52
+00:04:25,080 --> 00:04:28,420
+Angela. And I can run this to prove this to you.
+
+53
+00:04:28,800 --> 00:04:35,970
+You can see that names is a list of all the names, Angela, James, Ben. Names at position zero
+
+54
+00:04:36,120 --> 00:04:38,340
+is Angela, the first item.
+
+55
+00:04:39,270 --> 00:04:43,830
+Now, how can we get a random number to replace that number zero?
+
+56
+00:04:44,430 --> 00:04:47,080
+Well, we could use our random generator.
+
+57
+00:04:47,100 --> 00:04:54,420
+Let's go ahead and import the random module and we can say random.randint and then we can specify
+
+58
+00:04:54,420 --> 00:04:55,610
+the start and end.
+
+59
+00:04:56,100 --> 00:05:01,490
+So the start is probably going to be zero because that's where we start counting with our lists.
+
+60
+00:05:01,890 --> 00:05:03,490
+But what is the end?
+
+61
+00:05:03,510 --> 00:05:06,450
+Well, the end should be the position of the last item.
+
+62
+00:05:06,810 --> 00:05:09,180
+But how can we know that position?
+
+63
+00:05:09,190 --> 00:05:11,250
+What is that X going to be?
+
+64
+00:05:12,510 --> 00:05:17,600
+Well, what if we got hold of the number of items in the list?
+
+65
+00:05:18,090 --> 00:05:22,410
+So do remember how previously we learned about the len function?
+
+66
+00:05:23,070 --> 00:05:30,360
+Well, the len function can be used to get the number of elements in a list or the number of characters
+
+67
+00:05:30,360 --> 00:05:31,170
+in a string.
+
+68
+00:05:31,620 --> 00:05:35,970
+And if you take a look at this Stack Overflow question, then you'll see it in action.
+
+69
+00:05:36,690 --> 00:05:45,060
+All that we have to do to get hold of the number of items inside this names list is to write len
+
+70
+00:05:46,330 --> 00:05:49,270
+(), and then inside it we put names.
+
+71
+00:05:49,610 --> 00:05:55,630
+Now we can either store this or print this. Llet's go ahead and first print with the value of this is
+
+72
+00:05:55,630 --> 00:06:02,760
+going to be. Let's go ahead and comment out this line of code and then run our code, and then give everybody's
+
+73
+00:06:02,770 --> 00:06:06,450
+names separated by a comma, hit enter.
+
+74
+00:06:06,760 --> 00:06:10,710
+And you can see that this line of code has printed three.
+
+75
+00:06:11,110 --> 00:06:14,380
+So the length of my names list is three.
+
+76
+00:06:14,950 --> 00:06:22,030
+So now that we've gotten hold of that, then we can probably use that number that comes from this len
+
+77
+00:06:22,030 --> 00:06:31,840
+function inside our random generator, because we know that we can use this to get the total number
+
+78
+00:06:31,840 --> 00:06:33,800
+of items in list.
+
+79
+00:06:34,690 --> 00:06:38,370
+So in this case, that would be one, two, three, four, five.
+
+80
+00:06:38,860 --> 00:06:42,550
+This last item is not at position five, though, right?
+
+81
+00:06:42,670 --> 00:06:44,200
+It's at position zero,
+
+82
+00:06:44,200 --> 00:06:46,520
+one, two, three, four.
+
+83
+00:06:46,870 --> 00:06:51,040
+So we always need one less than the total number of items.
+
+84
+00:06:51,550 --> 00:06:56,800
+And the range of random numbers we would want is num_items -1.
+
+85
+00:06:58,230 --> 00:07:11,340
+Now, this line of code will allow us to generate random numbers between zero and the last index, and
+
+86
+00:07:11,340 --> 00:07:19,500
+I can store that inside a random choice variable and print my random choice.
+
+87
+00:07:20,990 --> 00:07:22,520
+So if I run the code again
+
+88
+00:07:23,850 --> 00:07:26,970
+and it prints one this time,
+
+89
+00:07:28,380 --> 00:07:36,990
+but the next time, it might be zero or two, because those are all the possible choices for a three
+
+90
+00:07:36,990 --> 00:07:45,930
+item list. Now we can use that number to actually get hold of a particular item in our list of names.
+
+91
+00:07:46,380 --> 00:07:52,500
+So we can say names[], and then we're going to use the random choice to get hold of
+
+92
+00:07:52,500 --> 00:08:01,290
+the random item. And then we can go ahead and save this as the person_who_will_pay.
+
+93
+00:08:02,220 --> 00:08:03,840
+And we can print
+
+94
+00:08:04,930 --> 00:08:11,890
+person_who_will_pay + "is going to buy the meal today."
+
+95
+00:08:13,160 --> 00:08:19,610
+So now let's go ahead and run our code again and then give everybody's names separated by a comma, and
+
+96
+00:08:19,610 --> 00:08:21,890
+then it says James is going to buy the meal today.
+
+97
+00:08:22,520 --> 00:08:25,430
+And now we know that we've completed the challenge.
+
+98
+00:08:26,340 --> 00:08:31,490
+Now, you'll notice that in the instructions, I told you that you're not allowed to use the choice
+
+99
+00:08:31,490 --> 00:08:32,030
+function.
+
+100
+00:08:32,510 --> 00:08:39,440
+And the reason for this is because if you search AskPython and you search for the random module
+
+101
+00:08:41,440 --> 00:08:50,530
+and you scroll down, you'll find that you can actually generate random items from a sequence such as
+
+102
+00:08:50,530 --> 00:08:58,360
+a list by writing random.choice, and it will actually pick an item from that list.
+
+103
+00:08:59,370 --> 00:09:05,460
+So let me demo what our code would look like instead. Instead of needing all of these lines of code,
+
+104
+00:09:05,940 --> 00:09:12,420
+all we have to write is random.choice()
+
+105
+00:09:12,630 --> 00:09:18,450
+and then we put our names list inside. And now it will do exactly the same as before
+
+106
+00:09:20,110 --> 00:09:27,340
+but with far less code. But this, of course, doesn't test whether if you've understood how indices
+
+107
+00:09:27,340 --> 00:09:34,270
+work with lists and whether if you're comfortable with the idea that the last index is actually one
+
+108
+00:09:34,270 --> 00:09:40,960
+less than the total number of items because we start counting from zero. I've made it a little bit
+
+109
+00:09:40,960 --> 00:09:46,420
+harder than it needed to be just to see how good a grasp you have on lists.
+
+110
+00:09:47,230 --> 00:09:49,960
+Now, I hope that you managed to complete this challenge.
+
+111
+00:09:50,320 --> 00:09:51,490
+If not, don't worry.
+
+112
+00:09:51,490 --> 00:09:55,920
+Go back to it and see if you can replicate the logic that we talked about just now.
+
+113
+00:09:56,950 --> 00:10:03,190
+And if you really struggle visualizing what these lines of code are doing, then you can always pass it
+
+114
+00:10:03,190 --> 00:10:08,710
+through Thonny and use the debugger to step through it one step at a time and see what's happening at
+
+115
+00:10:08,710 --> 00:10:09,350
+each stage.
+
+116
+00:10:10,000 --> 00:10:16,270
+Now on the next lesson, we're going to see some more advanced parts of lists in action, namely how
+
+117
+00:10:16,270 --> 00:10:18,560
+to nest lists inside other lists.
+
+118
+00:10:19,000 --> 00:10:21,970
+So for all of that and more, I'll see you on the next lesson.
+
+1
+00:00:00,250 --> 00:00:02,380
+Now, when you're working with lists,
+
+2
+00:00:02,740 --> 00:00:06,760
+one of the most common errors you'll come across is something called the index
+
+3
+00:00:06,790 --> 00:00:09,880
+out of range error. In fact, by this point,
+
+4
+00:00:09,940 --> 00:00:14,560
+you might have already seen it. Now, what does it mean though? Well,
+
+5
+00:00:14,560 --> 00:00:19,090
+let's take all the states_of_america and let's delete the line where we added
+
+6
+00:00:19,300 --> 00:00:21,250
+Angelaland and Jack Bauer land.
+
+7
+00:00:21,580 --> 00:00:26,580
+So we go back to the original. And you might remember that there are 50 States in
+
+8
+00:00:26,950 --> 00:00:30,490
+America. But if you don't because you are a programmer,
+
+9
+00:00:30,640 --> 00:00:35,640
+it's as easy as writing len and then passing over the states_of_america
+
+10
+00:00:36,880 --> 00:00:38,140
+which will print 50.
+
+11
+00:00:38,710 --> 00:00:43,710
+So now that we know that there are a total of 50 items in this list,
+
+12
+00:00:44,560 --> 00:00:47,320
+and remember, because we start counting from 0,
+
+13
+00:00:47,890 --> 00:00:51,190
+Hawaii is actually at index 49.
+
+14
+00:00:51,580 --> 00:00:56,580
+So if we print states_of_america and then we try to get the item at the 49,
+
+15
+00:00:57,070 --> 00:01:00,340
+we hit print, you'll see that we get Hawaii printed.
+
+16
+00:01:01,660 --> 00:01:05,260
+Now what if we went one beyond that?
+
+17
+00:01:05,319 --> 00:01:09,280
+What if we tried to get the one at index 50,
+
+18
+00:01:09,460 --> 00:01:14,350
+somewhere out here, what do we get instead? Well, we get an error.
+
+19
+00:01:14,860 --> 00:01:19,860
+It's called an index error. And this is because it's beyond Hawaii and there's
+
+20
+00:01:20,650 --> 00:01:23,350
+nothing there as we can see with our own eyes.
+
+21
+00:01:23,950 --> 00:01:27,790
+But when you're working with large lists and you're not always looking at the
+
+22
+00:01:27,790 --> 00:01:28,623
+data,
+
+23
+00:01:28,720 --> 00:01:33,720
+then these errors can be a little bit more confusing. Very frequently when you're
+
+24
+00:01:33,880 --> 00:01:37,690
+working with lists, you'll end up with an off by one error.
+
+25
+00:01:37,690 --> 00:01:42,690
+So it's unusual that you'll try to get something at index number 90 because
+
+26
+00:01:43,120 --> 00:01:46,300
+that's just way beyond your list size.
+
+27
+00:01:46,690 --> 00:01:51,640
+But very frequently you might end up in a situation where you have some sort of
+
+28
+00:01:51,640 --> 00:01:55,330
+value saying num_of_states = len
+
+29
+00:01:55,380 --> 00:01:59,500
+and then we pass over the states_of_america.
+
+30
+00:01:59,740 --> 00:02:01,870
+So this is going to be equal to 50.
+
+31
+00:02:02,290 --> 00:02:07,290
+And then we pass that inside here as the index num of states.
+
+32
+00:02:08,620 --> 00:02:13,360
+And then we hit run and we get the same error, right? On line 16
+
+33
+00:02:13,930 --> 00:02:18,190
+where we try to get hold of this index in this list. It's again,
+
+34
+00:02:18,220 --> 00:02:19,540
+list index out of range.
+
+35
+00:02:20,020 --> 00:02:25,020
+And this is an off by one error because all we need to do is just simply minus
+
+36
+00:02:26,380 --> 00:02:27,213
+1
+
+37
+00:02:27,400 --> 00:02:32,050
+so that 1 becomes 0 and 50 becomes 49.
+
+38
+00:02:32,560 --> 00:02:34,180
+And then we get rid of that error.
+
+39
+00:02:36,010 --> 00:02:39,730
+Now it might be easier if we work with something a little bit simpler.
+
+40
+00:02:40,300 --> 00:02:45,300
+Recently I was reading online and I came across the so-called Dirty Dozen where
+
+41
+00:02:47,320 --> 00:02:48,730
+the environmental working group,
+
+42
+00:02:48,760 --> 00:02:53,050
+a bunch of people, crunch through a whole lot of data, probably using Python.
+
+43
+00:02:53,530 --> 00:02:58,530
+And they released their Dirty Dozen, a list of the fruits and vegetables that have
+
+44
+00:02:59,170 --> 00:03:04,170
+most pesticides. And its kind of crazy that they actually washed and peeled all
+
+45
+00:03:05,650 --> 00:03:08,740
+of these foods and then tested them for pesticides.
+
+46
+00:03:09,280 --> 00:03:14,280
+And the list looks something like this where strawberries are apparently one of
+
+47
+00:03:14,650 --> 00:03:16,510
+the worst offenders for pesticides.
+
+48
+00:03:17,080 --> 00:03:20,110
+So let's create a list of the dirty dozen,
+
+49
+00:03:20,530 --> 00:03:24,640
+but you'll notice that some of these are fruits like strawberries,
+
+50
+00:03:24,670 --> 00:03:27,460
+apples, and the other ones are vegetables.
+
+51
+00:03:27,700 --> 00:03:32,700
+So how can we use our lists to still keep them inside the same sort of
+
+52
+00:03:33,580 --> 00:03:35,650
+container, the dirty dozen,
+
+53
+00:03:36,040 --> 00:03:39,460
+but somehow separate them out into fruits and vegetables?
+
+54
+00:03:40,900 --> 00:03:44,500
+Well, we could just simply create two lists,
+
+55
+00:03:44,530 --> 00:03:49,390
+fruits and vegetables. But these two lists kind of have a relationship,
+
+56
+00:03:49,390 --> 00:03:49,780
+right?
+
+57
+00:03:49,780 --> 00:03:54,780
+That kind of related because they're all on the list of high-pesticide foods.
+
+58
+00:03:55,450 --> 00:04:00,160
+So how can we have lists within a list? Well, that's,
+
+59
+00:04:00,190 --> 00:04:04,300
+what's called a nested list. Instead of our original dirty dozen,
+
+60
+00:04:04,690 --> 00:04:08,500
+we could create a new list called dirty_dozen,
+
+61
+00:04:08,950 --> 00:04:13,750
+and we set it equal to a list that contains two lists.
+
+62
+00:04:13,930 --> 00:04:17,560
+It contains fruits and it contains vegetables.
+
+63
+00:04:18,370 --> 00:04:23,370
+So now what effectively has happened is we've inserted this list inside here and
+
+64
+00:04:25,480 --> 00:04:28,810
+then we've inserted this list inside here.
+
+65
+00:04:29,290 --> 00:04:33,460
+So we now have a list that contains two lists.
+
+66
+00:04:34,270 --> 00:04:38,980
+And if I go ahead and print out this list, you'll be able to see its structure.
+
+67
+00:04:40,990 --> 00:04:42,160
+And it looks like this.
+
+68
+00:04:42,760 --> 00:04:47,440
+You'll notice that there's two brackets at the beginning and at the end
+
+69
+00:04:47,800 --> 00:04:51,340
+and the reason is because this is one list,
+
+70
+00:04:52,210 --> 00:04:57,210
+this is another list and this is also a list.
+
+71
+00:04:58,180 --> 00:05:03,180
+So this is yet another way of using lists and showing you the flexibility of
+
+72
+00:05:04,420 --> 00:05:06,280
+this particular data structure.
+
+73
+00:05:06,910 --> 00:05:11,380
+It's something that you're going to use a lot when you're writing Python code.
+
+74
+00:05:12,520 --> 00:05:15,130
+Now that we've talked more about index errors,
+
+75
+00:05:15,130 --> 00:05:18,040
+how to fix them and also nested lists,
+
+76
+00:05:18,340 --> 00:05:21,070
+you're ready to go to the next coding challenge.
+
+77
+00:05:21,460 --> 00:05:23,980
+So head over there and give that a go.
+
+1
+00:00:00,060 --> 00:00:03,150
+All right guys, it's time for another code challenge.
+
+2
+00:00:03,180 --> 00:00:07,260
+So head over to day 4.3 treasure map
+
+3
+00:00:07,740 --> 00:00:11,190
+and take a look at what is happening here
+
+4
+00:00:11,190 --> 00:00:16,190
+first. Notice how we've created three lists here for you; row1,
+
+5
+00:00:16,590 --> 00:00:20,970
+row2, row3, and they've got some blank tiles in here,
+
+6
+00:00:21,090 --> 00:00:23,400
+and these were just created with emojis.
+
+7
+00:00:23,490 --> 00:00:26,910
+So if you just search for emoji, um,
+
+8
+00:00:27,000 --> 00:00:29,370
+and you come across the list of emojis,
+
+9
+00:00:29,400 --> 00:00:33,120
+then you can simply just copy and paste them right into your code like that.
+
+10
+00:00:33,660 --> 00:00:36,090
+So depending on whether if you own a Windows or Mac,
+
+11
+00:00:36,120 --> 00:00:38,700
+you will see the emojis display a little bit differently,
+
+12
+00:00:38,910 --> 00:00:41,310
+but it doesn't really matter what it looks like.
+
+13
+00:00:41,820 --> 00:00:44,940
+All that we want to do is to create almost kind of like a,
+
+14
+00:00:45,000 --> 00:00:47,670
+a chess board or a map like this.
+
+15
+00:00:48,450 --> 00:00:51,830
+So we have three rows and then we create
+
+16
+00:00:51,840 --> 00:00:54,780
+another list that includes all three rows.
+
+17
+00:00:55,050 --> 00:00:59,460
+So this map is actually a nested list because row1 is a list, row2 is a 
+
+18
+00:00:59,460 --> 00:01:02,610
+list, et cetera. And it's all put inside a list.
+
+19
+00:01:03,150 --> 00:01:08,150
+Then we go ahead and print it so that we add a new line in between each row.
+
+20
+00:01:09,720 --> 00:01:13,020
+And the final outcome looks something like this.
+
+21
+00:01:13,320 --> 00:01:17,610
+So if we go ahead and just run the code, you'll see that we have almost like a,
+
+22
+00:01:17,610 --> 00:01:22,590
+a chess board or essentially a three by three square, right?
+
+23
+00:01:23,280 --> 00:01:28,280
+And the sort of way that we're going to navigate this map is by using some
+
+24
+00:01:29,430 --> 00:01:33,540
+indices. So we're going to say that this is column one,
+
+25
+00:01:33,570 --> 00:01:37,380
+two and three, and this is row one, two and three.
+
+26
+00:01:38,430 --> 00:01:42,120
+Now, if you've ever played chess, or if you played chess with a computer,
+
+27
+00:01:42,540 --> 00:01:47,490
+you will know that the different moves or the different positions are often mapped
+
+28
+00:01:47,490 --> 00:01:51,630
+out using letters and numbers. So for example,
+
+29
+00:01:51,720 --> 00:01:56,340
+if you want it to move to this square then it would be b4, right?
+
+30
+00:01:57,180 --> 00:02:02,180
+Or if you want it to move to this square then it would be h3. In our  sort
+
+31
+00:02:02,550 --> 00:02:03,870
+of 3x3 map
+
+32
+00:02:04,230 --> 00:02:08,729
+the way that we navigate is first by specifying the column,
+
+33
+00:02:08,759 --> 00:02:12,810
+the horizontal column, and then we specify a number for the row.
+
+34
+00:02:13,230 --> 00:02:14,460
+So for example,
+
+35
+00:02:14,580 --> 00:02:18,480
+if I wanted to place my X,
+
+36
+00:02:18,540 --> 00:02:23,540
+X marks the spot of my treasure at this particular position, then it is one, two,
+
+37
+00:02:25,320 --> 00:02:29,550
+2 on the horizontal, so column number two, and then one, two,
+
+38
+00:02:29,550 --> 00:02:33,870
+three, row number three. So I would write that as 23.
+
+39
+00:02:34,710 --> 00:02:35,970
+And if I wrote 31
+
+40
+00:02:35,970 --> 00:02:39,720
+then it means I want column three and row one.
+
+41
+00:02:39,750 --> 00:02:43,860
+So I want you to mark this spot here. So when you run the code,
+
+42
+00:02:43,890 --> 00:02:48,270
+the idea is that you should be able to specify a location using that two-digit
+
+43
+00:02:48,270 --> 00:02:53,250
+system, and you should be able to place an X at that location. Now,
+
+44
+00:02:53,310 --> 00:02:57,690
+in order to do this, it will need you to review what you know about lists,
+
+45
+00:02:57,900 --> 00:03:02,900
+what you know about using the index to change a particular item in a list
+
+46
+00:03:04,480 --> 00:03:06,430
+which you saw in previous lessons,
+
+47
+00:03:07,090 --> 00:03:09,880
+and the added complexity is here
+
+48
+00:03:09,880 --> 00:03:14,650
+we actually have a nested list. So lists inside lists.
+
+49
+00:03:15,100 --> 00:03:20,100
+So have a play around with this code and that's the really important word. It's
+
+50
+00:03:20,140 --> 00:03:23,950
+play, right? There is nothing that could possibly go wrong.
+
+51
+00:03:24,370 --> 00:03:26,200
+Just try some different lines of code,
+
+52
+00:03:26,500 --> 00:03:31,120
+try doing some different things and see if it actually prints out the outcome
+
+53
+00:03:31,120 --> 00:03:34,810
+that you want, where, you know, when you specify a location,
+
+54
+00:03:34,870 --> 00:03:37,210
+that's the place that gets marked with the capital X.
+
+55
+00:03:37,900 --> 00:03:40,540
+Pause the video and try to give this challenge a go.
+
+56
+00:03:45,570 --> 00:03:47,700
+All right. So let's try and solve this.
+
+57
+00:03:47,850 --> 00:03:52,170
+So notice how at the very bottom of the code, I've got another print statement
+
+58
+00:03:52,200 --> 00:03:56,940
+which is going to show us the outcome of whatever code it is we write here.
+
+59
+00:03:57,480 --> 00:04:02,480
+The first thing we probably want to do is get hold of the input position,
+
+60
+00:04:02,970 --> 00:04:07,320
+right? We know that input always takes in a string.
+
+61
+00:04:07,680 --> 00:04:12,090
+So even if we typed 23 that's not going to be the number 23,
+
+62
+00:04:12,090 --> 00:04:16,290
+it's going to be the string with two and three inside the string.
+
+63
+00:04:16,680 --> 00:04:18,089
+Something that looks like this.
+
+64
+00:04:18,779 --> 00:04:23,780
+Now we can use what we've learned in previous days and previous lessons to split
+
+65
+00:04:24,030 --> 00:04:29,030
+that string so that we end up with a horizontal position and a vertical
+
+66
+00:04:29,820 --> 00:04:34,200
+position. That way we know, well, which column are they interested in
+
+67
+00:04:34,260 --> 00:04:38,010
+and which row are they interested in. In order to do that,
+
+68
+00:04:38,040 --> 00:04:42,990
+we tap into this position. And in order to get the horizontal
+
+69
+00:04:43,230 --> 00:04:45,540
+which we mentioned is the first digit,
+
+70
+00:04:45,810 --> 00:04:50,640
+then we go ahead and get the zeroth item out of that string.
+
+71
+00:04:50,850 --> 00:04:52,710
+Remember the string looks like this.
+
+72
+00:04:53,010 --> 00:04:55,260
+So the zeroth item out of the string is this one.
+
+73
+00:04:55,890 --> 00:05:00,540
+And then the vertical is going to be the one at position one. Now, of course,
+
+74
+00:05:00,600 --> 00:05:03,480
+these are still strings as they stand right now.
+
+75
+00:05:03,480 --> 00:05:08,480
+We've just split up this two-digit string into horizontal and vertical.
+
+76
+00:05:09,030 --> 00:05:13,140
+So this one, if 23 was the input would be equal to 2,
+
+77
+00:05:13,530 --> 00:05:16,920
+and this one would be equal to 3.
+
+78
+00:05:18,270 --> 00:05:18,570
+Now,
+
+79
+00:05:18,570 --> 00:05:23,570
+once we've gotten hold of the horizontal position and the vertical position,
+
+80
+00:05:23,820 --> 00:05:28,380
+then we can go ahead and start specifying positions in our list.
+
+81
+00:05:28,950 --> 00:05:31,800
+So we know that we've got our map, right?
+
+82
+00:05:31,830 --> 00:05:34,110
+Which is here, this nested list.
+
+83
+00:05:34,920 --> 00:05:38,730
+And remember that it contains three rows. Now,
+
+84
+00:05:38,790 --> 00:05:41,940
+if we wanted to get hold of the first row,
+
+85
+00:05:42,480 --> 00:05:44,970
+then we would write map[0].
+
+86
+00:05:45,750 --> 00:05:47,640
+If we want to get hold of row2,
+
+87
+00:05:47,640 --> 00:05:51,900
+then we would write map[1] and map[2] to get row 3.
+
+88
+00:05:52,680 --> 00:05:55,740
+Now remember that this is the vertical position.
+
+89
+00:05:55,740 --> 00:06:00,350
+So this is the that we're going to be getting hold of. Or in this example,
+
+90
+00:06:00,350 --> 00:06:02,780
+it would be the number three, right?
+
+91
+00:06:02,780 --> 00:06:06,920
+So we could say map passing in the vertical position,
+
+92
+00:06:07,670 --> 00:06:09,200
+but there's just one problem
+
+93
+00:06:09,230 --> 00:06:14,230
+and I'll show you if I go ahead and print this map at the position vertical.
+
+94
+00:06:16,130 --> 00:06:19,520
+Let's put in the example number, which is 23.
+
+95
+00:06:19,850 --> 00:06:24,850
+And you'll see that the problem is that list indices must be integers,
+
+96
+00:06:25,100 --> 00:06:28,250
+whole numbers, not a string. Remember that
+
+97
+00:06:28,250 --> 00:06:32,690
+we said these are still strings. So to convert them into integers,
+
+98
+00:06:33,020 --> 00:06:36,170
+we use that integer conversion that we've seen before.
+
+99
+00:06:36,920 --> 00:06:40,310
+So now both the horizontal and vertical are integers,
+
+100
+00:06:40,670 --> 00:06:44,830
+and we can run this code again and see how it performs.
+
+101
+00:06:47,800 --> 00:06:51,100
+Let's put 23 in there, and
+
+102
+00:06:51,160 --> 00:06:53,950
+we ended up with the error that we learned about in the last lesson
+
+103
+00:06:54,310 --> 00:06:59,200
+which is an index error. So it's out of range. So what's going on here?
+
+104
+00:06:59,770 --> 00:07:04,750
+Remember that in our example where the number is 23, well
+
+105
+00:07:04,750 --> 00:07:08,440
+then the horizontal is the first number. So it's going to be 2.
+
+106
+00:07:09,070 --> 00:07:11,740
+And then the vertical is going to be the second number,
+
+107
+00:07:11,740 --> 00:07:13,240
+so it's going to be 3.
+
+108
+00:07:13,810 --> 00:07:18,040
+And then we try to get a hold of that particular row from our map.
+
+109
+00:07:18,700 --> 00:07:21,850
+Now, if we pass 3 into our map,
+
+110
+00:07:22,090 --> 00:07:26,710
+then you can clearly see what's going to happen. There's 0, 1, 2,
+
+111
+00:07:26,770 --> 00:07:28,810
+there is nothing at position three.
+
+112
+00:07:29,230 --> 00:07:33,250
+There is nothing that has been offset from the beginning by three, right?
+
+113
+00:07:34,060 --> 00:07:35,500
+So that doesn't exist.
+
+114
+00:07:35,890 --> 00:07:39,340
+And this is why we get our index out of range error.
+
+115
+00:07:39,880 --> 00:07:41,770
+So what do we have to do instead? Well,
+
+116
+00:07:41,770 --> 00:07:46,480
+we have to remove one from it to shift it to row three,
+
+117
+00:07:46,510 --> 00:07:51,040
+because that's really what we're interested in when we're writing this here, right?
+
+118
+00:07:51,700 --> 00:07:55,480
+We can do the same by substituting the three with vertical
+
+119
+00:07:55,750 --> 00:08:00,280
+so it'll work with any number. And now if I run my code again, type 
+
+120
+00:08:00,280 --> 00:08:01,113
+23,
+
+121
+00:08:01,150 --> 00:08:06,150
+then you can see that I get no more errors and it actually prints out a row that
+
+122
+00:08:06,430 --> 00:08:09,040
+I've selected, which is row three.
+
+123
+00:08:09,250 --> 00:08:14,050
+Now you can of course change these just to make it a little bit more clear to
+
+124
+00:08:14,050 --> 00:08:18,550
+yourself what's actually going on here. Let's type 23 again,
+
+125
+00:08:18,850 --> 00:08:20,980
+and you can see that this is what's being printed.
+
+126
+00:08:22,390 --> 00:08:26,770
+Now the next step is once I've gotten hold of row 3,
+
+127
+00:08:27,250 --> 00:08:30,940
+how can I get the horizontal tile?
+
+128
+00:08:31,420 --> 00:08:34,780
+So the horizontal tile we're interested in is the second one.
+
+129
+00:08:34,809 --> 00:08:39,250
+So it's actually this one. So when we write 
+
+130
+00:08:39,250 --> 00:08:42,940
+23, then it's this tile that we're interested in.
+
+131
+00:08:43,960 --> 00:08:47,080
+So instead of printing out this row 3
+
+132
+00:08:47,110 --> 00:08:50,380
+which we selected by writing this code,
+
+133
+00:08:51,010 --> 00:08:56,010
+we can save this as the selected_row. And then inside the selected_row,
+
+134
+00:08:58,080 --> 00:09:01,890
+we can get to the tile at the horizontal position that was specified.
+
+135
+00:09:02,400 --> 00:09:07,400
+So we could say selected row at the position of the horizontal - 1.
+
+136
+00:09:09,960 --> 00:09:14,910
+This works the same way because our numbers that we're entering here,
+
+137
+00:09:14,910 --> 00:09:19,470
+row one, two, three, or column one, two, three, they don't start from zero.
+
+138
+00:09:19,620 --> 00:09:23,730
+So we have to shift it down by one in order for it to work.
+
+139
+00:09:24,300 --> 00:09:28,770
+So, now once we've gotten hold of the selected row using the vertical,
+
+140
+00:09:29,280 --> 00:09:32,820
+and then the selected tile using the horizontal, well,
+
+141
+00:09:32,820 --> 00:09:34,320
+now we can actually change it.
+
+142
+00:09:34,710 --> 00:09:38,520
+And the thing we want to change it to is a capital X.
+
+143
+00:09:39,210 --> 00:09:42,540
+So now if I go ahead and run my code,
+
+144
+00:09:42,870 --> 00:09:47,370
+then you can see it works just as the instructions want it to work.
+
+145
+00:09:47,760 --> 00:09:51,570
+So here's our map. Where do you wanna put the treasure? If I write 
+
+146
+00:09:51,570 --> 00:09:55,830
+23, then it will put the treasure on column number two, row
+
+147
+00:09:55,860 --> 00:09:59,880
+number three. Now, if I run this code again and I say, well,
+
+148
+00:09:59,880 --> 00:10:03,810
+now I want to put it in column number one, row number three,
+
+149
+00:10:04,140 --> 00:10:05,190
+then there it is.
+
+150
+00:10:05,520 --> 00:10:10,170
+So this is now working for any possible combination that we come up with
+
+151
+00:10:10,380 --> 00:10:13,380
+as long as we're using the coordinates of our map.
+
+152
+00:10:14,400 --> 00:10:18,630
+Did you manage to get it right? And did you write the code in a different way,
+
+153
+00:10:18,630 --> 00:10:23,190
+perhaps? Because there's many, many ways of doing the same thing.
+
+154
+00:10:23,760 --> 00:10:28,290
+And the easiest thing that I can spot right now is what if we didn't need to
+
+155
+00:10:28,290 --> 00:10:33,290
+separate this into two lines? Instead of creating a selected row,
+
+156
+00:10:33,960 --> 00:10:37,350
+we could simply just tag on this at the end,
+
+157
+00:10:38,310 --> 00:10:41,400
+get a hold of this particular row from the map,
+
+158
+00:10:41,700 --> 00:10:44,970
+and because this is going to turn into a list,
+
+159
+00:10:46,020 --> 00:10:48,660
+namely one of these, well,
+
+160
+00:10:48,660 --> 00:10:53,660
+then we can simply just use another square bracket to specify the column.
+
+161
+00:10:55,200 --> 00:10:59,190
+And then we set that tile to a capital X.
+
+162
+00:10:59,580 --> 00:11:03,450
+So depending on which format you find it easier to understand,
+
+163
+00:11:03,730 --> 00:11:06,960
+you can keep your code either like this or like this.
+
+164
+00:11:07,260 --> 00:11:09,060
+This is obviously a lot more succinct,
+
+165
+00:11:09,120 --> 00:11:12,030
+but it depends on whether if this logic actually makes sense to you.
+
+166
+00:11:12,840 --> 00:11:14,550
+So have a think about what happened here,
+
+167
+00:11:14,790 --> 00:11:18,840
+and if you didn't manage to complete the exercise, then try to give it another go.
+
+168
+00:11:18,840 --> 00:11:20,880
+Now in the next lesson,
+
+169
+00:11:21,150 --> 00:11:24,780
+we're going to tackle our final project of the day.
+
+170
+00:11:25,140 --> 00:11:28,680
+So once you're prepared and once you're happy that you have understood
+
+171
+00:11:28,680 --> 00:11:30,840
+everything that we've covered so far,
+
+172
+00:11:31,170 --> 00:11:34,920
+then head over to the next lesson where we're going to get started building our
+
+173
+00:11:34,920 --> 00:11:36,510
+rock-paper-scissors game.
+
+1
+00:00:00,120 --> 00:00:05,580
+All right, guys, so now that we've loaded up all the knowledge that we need into our brains, it's
+
+2
+00:00:05,580 --> 00:00:08,730
+time to tackle the final project of the day.
+
+3
+00:00:09,140 --> 00:00:14,460
+And as I showed you in the beginning of the day, it's a Rock Paper Scissors game that we can play
+
+4
+00:00:14,460 --> 00:00:15,380
+with the computer.
+
+5
+00:00:16,050 --> 00:00:22,170
+So the game starts out by asking you to type 0 for rock, 1 for paper, or 2 for scissors.
+
+6
+00:00:22,420 --> 00:00:29,820
+So let's go ahead and type two for scissors, and then it's going to show you a graphic of your choice scissors,
+
+7
+00:00:30,210 --> 00:00:35,730
+and then the choice the computer made, which is rock. And of course, rock beats scissors
+
+8
+00:00:35,730 --> 00:00:36,870
+so you lose.
+
+9
+00:00:37,380 --> 00:00:44,610
+What this game boils down to is some way of randomly making a choice between rock, paper, or scissors
+
+10
+00:00:45,030 --> 00:00:50,970
+and then comparing that choice that the computer randomly generated against your choice.
+
+11
+00:00:51,330 --> 00:00:57,450
+And then based on the rules of rock, paper, and scissors, determining whether if you won, you lost or
+
+12
+00:00:57,450 --> 00:00:59,790
+whether if you had a draw.
+
+13
+00:01:01,080 --> 00:01:06,570
+While I was looking around, I actually came across the world rock paper scissors association.
+
+14
+00:01:07,440 --> 00:01:12,630
+And they have the official rules of the state of Rock Paper Scissors.
+
+15
+00:01:13,200 --> 00:01:17,080
+If you're not familiar with this game, it might be worth checking out this website.
+
+16
+00:01:17,610 --> 00:01:20,100
+Here are the three shapes of rock, paper, scissors.
+
+17
+00:01:20,490 --> 00:01:27,330
+And then the rules are that rock wins against scissors, scissors wins against paper, and paper wins
+
+18
+00:01:27,330 --> 00:01:28,440
+against rock.
+
+19
+00:01:29,100 --> 00:01:36,420
+Having all of this in mind, head over to replit/@appbrewery/ rock-paper-scissors-start
+
+20
+00:01:36,780 --> 00:01:40,170
+and go ahead and just fork the starting project.
+
+21
+00:01:40,860 --> 00:01:47,700
+Now you'll notice that in the starting project, I've already got the ASCII art for rock, paper and scissors
+
+22
+00:01:47,700 --> 00:01:50,870
+in here and they're each saved to a variable.
+
+23
+00:01:51,390 --> 00:01:58,170
+So what that means is that you can start out by just having a go at printing out let's say a rock.
+
+24
+00:01:59,040 --> 00:02:01,110
+And remember that these are variable names.
+
+25
+00:02:01,110 --> 00:02:04,410
+They're not strings, so they don't need the double quotes around them.
+
+26
+00:02:04,860 --> 00:02:05,910
+So let's run that.
+
+27
+00:02:05,910 --> 00:02:12,450
+And you can see what we get printed is the particular ASCII art that I chose in my print statement.
+
+28
+00:02:13,380 --> 00:02:16,080
+So this is already yours.
+
+29
+00:02:16,080 --> 00:02:22,890
+But as you'll notice, there's no other logic that I've provided you and you are going to rely on what
+
+30
+00:02:22,890 --> 00:02:28,650
+you learned in the previous days and most importantly, what you've learned in today's lessons to be
+
+31
+00:02:28,650 --> 00:02:30,090
+able to complete this challenge.
+
+32
+00:02:30,420 --> 00:02:36,330
+And it's worth comparing the outcome against the game of Rock Paper Scissors that I'll link to.
+
+33
+00:02:37,200 --> 00:02:42,030
+There's a couple of things to think about, namely, how are you going to decide who won or who lost?
+
+34
+00:02:42,330 --> 00:02:49,170
+How are you going to get the computer to choose a random shape, rock, paper, scissors, and how you
+
+35
+00:02:49,170 --> 00:02:54,420
+actually get this game to work in the same way that is demoed in this final version?
+
+36
+00:02:55,320 --> 00:02:59,400
+I'm going to go quiet now and I'm going to let you pause the video.
+
+37
+00:02:59,790 --> 00:03:04,980
+And I want you to spend at least ten or fifteen minutes working on this.
+
+38
+00:03:05,250 --> 00:03:10,170
+And if you get stuck, just try some things out or maybe watch some of the previous videos in the day
+
+39
+00:03:10,470 --> 00:03:12,840
+and just try to give it your best
+
+40
+00:03:12,840 --> 00:03:15,120
+go, and do a lot of struggling.
+
+41
+00:03:15,510 --> 00:03:16,950
+Hopefully you're going to succeed.
+
+42
+00:03:16,950 --> 00:03:20,940
+And once you're done, head back over here and I'll go through the solution with you.
+
+43
+00:03:21,180 --> 00:03:22,320
+So pause the video now.
+
+44
+00:03:25,760 --> 00:03:30,860
+All right, so we know that we've got all of this ASCII art, but for the moment, I'm just going to
+
+45
+00:03:30,860 --> 00:03:35,150
+start off by putting down the basic logic of this game.
+
+46
+00:03:35,570 --> 00:03:41,840
+And it's really helpful for you as well if you start thinking about breaking down the larger problem,
+
+47
+00:03:41,840 --> 00:03:47,930
+which is making the Rock Paper Scissors game into smaller problems that you can solve, like generating
+
+48
+00:03:47,930 --> 00:03:50,110
+a random number between one and three.
+
+49
+00:03:50,420 --> 00:03:55,820
+So we have some sort of proxy for Rock Paper Scissors. And then maybe thinking about putting down
+
+50
+00:03:55,820 --> 00:04:02,360
+the logic, well, if the computer chose scissors and I chose paper, then I'm going to lose.
+
+51
+00:04:02,690 --> 00:04:07,150
+Or if the computer chose rock and I chose paper, then I'm going to win.
+
+52
+00:04:07,550 --> 00:04:14,270
+And putting that down on a flowchart using draw.io or something like that can make this challenge a lot
+
+53
+00:04:14,270 --> 00:04:15,350
+easier as well.
+
+54
+00:04:16,579 --> 00:04:22,100
+But without further ado, the first thing I need to do is to produce a user choice.
+
+55
+00:04:22,610 --> 00:04:28,120
+Now, this is going to be the one that the user chose when they typed in a value.
+
+56
+00:04:28,610 --> 00:04:32,900
+And in order to get the value from them, I'm going to need to use a input.
+
+57
+00:04:33,440 --> 00:04:40,610
+And inside the input, I'm going to put the following prompt asking the user, what do you choose?
+
+58
+00:04:40,610 --> 00:04:44,180
+Type 0 for rock, 1 for paper or 2 for scissors.
+
+59
+00:04:44,750 --> 00:04:51,140
+Now, once I get hold of this input, hopefully, if the user is following my instructions, they're going
+
+60
+00:04:51,140 --> 00:04:54,610
+to type some sort of number, either zero or one or two.
+
+61
+00:04:55,190 --> 00:05:01,130
+Now that I've gotten hold of what the user wants to choose, the next thing to do is figure out what
+
+62
+00:05:01,130 --> 00:05:02,690
+the computer is going to choose.
+
+63
+00:05:03,080 --> 00:05:09,050
+So I'm going to make another variable called computer_choice and I'm going to generate a random number.
+
+64
+00:05:09,410 --> 00:05:13,070
+So to do that, remember, we have to import the random module.
+
+65
+00:05:15,020 --> 00:05:22,250
+And then we can start using it to generate random whole numbers by using random.randint.
+
+66
+00:05:23,090 --> 00:05:30,170
+And then the range is going to be between zero and two, because this is what I asked the user to do.
+
+67
+00:05:30,170 --> 00:05:33,190
+Type 0 for rock, 1 for paper, 2 for scissors.
+
+68
+00:05:33,530 --> 00:05:37,850
+So the computer is also going to choose between 0, 1 or 2.
+
+69
+00:05:39,110 --> 00:05:44,870
+Now that I've got the computer_choice, I'm actually going to just print it out for now instead of printing
+
+70
+00:05:44,870 --> 00:05:48,860
+out the actual shape, I'm just going to print out the number.
+
+71
+00:05:48,890 --> 00:05:54,680
+So computer chose and then let's go ahead and add a fstring.
+
+72
+00:05:57,020 --> 00:06:00,300
+And of course, that requires the F in front of the string.
+
+73
+00:06:01,130 --> 00:06:07,130
+So now if we just play the game as it is, remember that testing up while you're developing it is really,
+
+74
+00:06:07,130 --> 00:06:08,150
+really good practice.
+
+75
+00:06:08,360 --> 00:06:14,120
+It picks up on the bugs that you make along the way instead of waiting until the end when you've done
+
+76
+00:06:14,120 --> 00:06:14,540
+everything
+
+77
+00:06:14,540 --> 00:06:18,500
+and then it doesn't work and you have to untangle all of the lines of code.
+
+78
+00:06:19,160 --> 00:06:24,200
+At this point, I've already realized that it's actually not so great getting the user to type on this
+
+79
+00:06:24,200 --> 00:06:24,670
+line.
+
+80
+00:06:25,460 --> 00:06:29,940
+What I would much rather is to start a new line for them to type their answer on.
+
+81
+00:06:30,560 --> 00:06:34,040
+So if I run the code again, then it should look a bit like this.
+
+82
+00:06:34,040 --> 00:06:37,970
+My prompt is now here. So I'm going to choose 0 for Rock.
+
+83
+00:06:38,510 --> 00:06:41,840
+And then it tells me that computer also chose zero.
+
+84
+00:06:42,290 --> 00:06:44,000
+So in this case, this would be a draw.
+
+85
+00:06:44,450 --> 00:06:49,730
+But if I played this game again, you can see that the computer is probably going to choose something
+
+86
+00:06:49,730 --> 00:06:50,260
+different.
+
+87
+00:06:50,450 --> 00:06:51,860
+So I chose rock again
+
+88
+00:06:51,860 --> 00:06:54,140
+the computer chose 1, which is paper.
+
+89
+00:06:54,950 --> 00:07:02,960
+So now we can start thinking about how do we compare these two choices and how can we define the logic
+
+90
+00:07:02,960 --> 00:07:04,610
+of Rock Paper Scissors?
+
+91
+00:07:05,240 --> 00:07:12,230
+So I know that paper beats rock, scissors beats paper and rock will beat scissors.
+
+92
+00:07:12,680 --> 00:07:21,280
+So if zero is rock, one is paper and two is scissors, then two beats one and one beats zero.
+
+93
+00:07:21,590 --> 00:07:28,010
+So that's very simple for us to check in terms of using if statements,
+
+94
+00:07:28,010 --> 00:07:28,280
+right?
+
+95
+00:07:28,280 --> 00:07:29,930
+We could simply just check
+
+96
+00:07:30,410 --> 00:07:40,550
+well, if the computer choice is greater than the user choice, well then this probably means that the
+
+97
+00:07:40,760 --> 00:07:42,350
+computer wins.
+
+98
+00:07:43,590 --> 00:07:51,810
+But this is not true in all cases, right? Because if the computer chose 2 for scissors and the user
+
+99
+00:07:51,810 --> 00:07:57,240
+chose 0 for rock, then the user should win rather than the computer winning.
+
+100
+00:07:57,450 --> 00:08:01,880
+So we actually have some exceptions to this rule.
+
+101
+00:08:02,790 --> 00:08:08,520
+How can we catch the exceptions before we go down to this level of generalization?
+
+102
+00:08:09,240 --> 00:08:16,830
+Well, we could instead of using this as an if, we use this as an elif and we create another if statement
+
+103
+00:08:16,830 --> 00:08:27,210
+which says, well, if the user_choice is equal to zero, so if the user chose rock and the computer_choice
+
+104
+00:08:27,660 --> 00:08:34,169
+was 2, well then this means that in this case, the user actually wins.
+
+105
+00:08:35,950 --> 00:08:41,140
+Now, if we're thinking from the perspective of the user when they're playing this game, then they
+
+106
+00:08:41,140 --> 00:08:47,430
+don't really care if the computer won or the user won. They want to know, did they win or did they lose?
+
+107
+00:08:47,890 --> 00:08:50,080
+So let's change this wording a little bit.
+
+108
+00:08:50,350 --> 00:08:54,930
+We'll say, instead of user wins, we'll say you win.
+
+109
+00:08:56,020 --> 00:09:00,730
+And if the computer wins, then we'll say you lose.
+
+110
+00:09:01,690 --> 00:09:10,510
+So now if we run our program and test it out, so let's say I'm going to type 0 for rock and the
+
+111
+00:09:10,510 --> 00:09:14,590
+computer chooses 2, but we actually get an error.
+
+112
+00:09:14,740 --> 00:09:22,770
+It tells us that the greater than comparison is not supported between instances of int and string.
+
+113
+00:09:23,200 --> 00:09:24,100
+What's going on here?
+
+114
+00:09:24,310 --> 00:09:32,830
+Well, remember that we get our inputs as a number, but the input is always going to be a string.
+
+115
+00:09:33,340 --> 00:09:34,900
+So if we want this to be a number,
+
+116
+00:09:34,900 --> 00:09:37,910
+then we're going to have to wrap it inside an int.
+
+117
+00:09:38,500 --> 00:09:41,020
+So now we turn it into a whole number.
+
+118
+00:09:42,070 --> 00:09:43,880
+Now, this might be a good point to address
+
+119
+00:09:43,900 --> 00:09:49,950
+well, what should happen if they typed something that wasn't 0, 1 or 2, whether they typed 34?
+
+120
+00:09:50,440 --> 00:09:52,780
+Well, then naturally they should probably lose,
+
+121
+00:09:52,780 --> 00:09:53,070
+right?
+
+122
+00:09:53,290 --> 00:10:01,060
+So we can add an else statement addressing this situation. So we could say else we just print
+
+123
+00:10:01,360 --> 00:10:04,310
+You typed an invalid number.
+
+124
+00:10:05,020 --> 00:10:07,480
+You lose. Cool.
+
+125
+00:10:07,540 --> 00:10:08,690
+So that sorts that out.
+
+126
+00:10:09,100 --> 00:10:13,060
+Now let's run our code again and see if it works.
+
+127
+00:10:13,270 --> 00:10:13,990
+What do you choose?
+
+128
+00:10:13,990 --> 00:10:15,130
+Type 0 for Rock.
+
+129
+00:10:15,160 --> 00:10:16,440
+I'm going to choose rock again.
+
+130
+00:10:16,960 --> 00:10:21,970
+Computer chose zero and it tells me that you typed an invalid number.
+
+131
+00:10:22,960 --> 00:10:26,000
+Well, actually, zero is not an invalid number.
+
+132
+00:10:26,020 --> 00:10:27,280
+So what's going on here?
+
+133
+00:10:27,820 --> 00:10:30,930
+Well, it's because it didn't fit this criteria.
+
+134
+00:10:31,630 --> 00:10:32,830
+So I had zero,
+
+135
+00:10:32,830 --> 00:10:39,530
+computer had zero, and it didn't fit this criterion because zero is not greater than zero.
+
+136
+00:10:40,000 --> 00:10:43,720
+So it basically defaulted to the final else statement.
+
+137
+00:10:44,440 --> 00:10:48,350
+But what's actually happening here is that that was a draw.
+
+138
+00:10:48,940 --> 00:10:50,050
+Computer chose rock,
+
+139
+00:10:50,050 --> 00:10:50,940
+I chose rock.
+
+140
+00:10:51,100 --> 00:10:55,840
+That's a draw in the official rules of Rock Paper Scissors.
+
+141
+00:10:56,620 --> 00:10:58,660
+So how do I catch that?
+
+142
+00:10:58,690 --> 00:11:05,650
+Well, I could create another elif statement which says, well, if the computer_choice is equal to
+
+143
+00:11:05,650 --> 00:11:08,610
+the user_choice, well, then we're going to print
+
+144
+00:11:09,520 --> 00:11:10,690
+it's a draw.
+
+145
+00:11:12,130 --> 00:11:17,680
+Now, let's test our app again and see if there are any other situations where our code is not behaving
+
+146
+00:11:17,680 --> 00:11:18,250
+properly.
+
+147
+00:11:19,030 --> 00:11:23,350
+I'm going to choose rock again, computer chose rock as well.
+
+148
+00:11:23,560 --> 00:11:26,150
+And I guess it's a draw, so that's pretty good.
+
+149
+00:11:27,850 --> 00:11:33,970
+Now, if I choose 0 and the computer chose 2, then this is going to be the statement that gets
+
+150
+00:11:33,970 --> 00:11:35,830
+triggered and I win.
+
+151
+00:11:35,980 --> 00:11:37,030
+So that's pretty good.
+
+152
+00:11:37,960 --> 00:11:44,030
+Now, what if I chose 2 for scissors and the computer chose 0?
+
+153
+00:11:44,980 --> 00:11:48,270
+Well, in this case, rock beats scissors
+
+154
+00:11:48,280 --> 00:11:50,770
+so it should actually say I lose.
+
+155
+00:11:51,310 --> 00:11:54,250
+But instead it says you typed an invalid number.
+
+156
+00:11:54,640 --> 00:12:02,260
+So it defaulted to the else statement again because this particular situation is not caught by any of
+
+157
+00:12:02,260 --> 00:12:03,070
+these statements.
+
+158
+00:12:03,940 --> 00:12:05,590
+So what do we have to do instead?
+
+159
+00:12:06,070 --> 00:12:15,250
+Well, we actually need another elif to say, well, if the computer_choice was equal to 0 and
+
+160
+00:12:15,250 --> 00:12:21,510
+the user_choice was equal to 2, well, this means that rock beats scissors
+
+161
+00:12:21,760 --> 00:12:25,480
+so I lose and the computer wins.
+
+162
+00:12:26,320 --> 00:12:30,040
+Now, the final one that we need to catch is this case.
+
+163
+00:12:30,640 --> 00:12:39,430
+If I type 1 for paper and computer chooses 0 for rock, it again defaults to the else statements
+
+164
+00:12:40,120 --> 00:12:43,870
+whereas in fact in this case it should tell me that I won.
+
+165
+00:12:44,500 --> 00:12:45,820
+So what's missing here?
+
+166
+00:12:46,090 --> 00:12:49,740
+Well, it's the partner to this particular statement.
+
+167
+00:12:50,350 --> 00:12:54,360
+If computer_choice is greater than user_choice then I lose.
+
+168
+00:12:54,700 --> 00:13:02,680
+But on the other hand, if the user_choice was greater than the computer_choice, then I actually should
+
+169
+00:13:02,680 --> 00:13:03,070
+win.
+
+170
+00:13:05,730 --> 00:13:15,480
+So now the final thing we might have to fix is this else statement now actually never gets called because
+
+171
+00:13:15,480 --> 00:13:16,980
+this is what happens.
+
+172
+00:13:17,430 --> 00:13:20,460
+So let's say that I choose 456.
+
+173
+00:13:20,910 --> 00:13:23,730
+It tells me that computer chose 2, I win.
+
+174
+00:13:24,060 --> 00:13:24,930
+What's happening here?
+
+175
+00:13:24,960 --> 00:13:29,970
+Well, it's actually this particular line that's being carried out.
+
+176
+00:13:29,970 --> 00:13:32,320
+user_choice is greater than computer_choice.
+
+177
+00:13:32,820 --> 00:13:34,080
+This is not what we want.
+
+178
+00:13:34,090 --> 00:13:35,910
+We want it to default to
+
+179
+00:13:36,210 --> 00:13:37,650
+You typed an invalid number.
+
+180
+00:13:37,650 --> 00:13:42,690
+You lose. So we can actually just use else in this situation.
+
+181
+00:13:43,260 --> 00:13:45,540
+We actually need to provide a condition.
+
+182
+00:13:46,380 --> 00:13:54,610
+We're going to use elif to check if the user_choice is greater or equal to three,
+
+183
+00:13:55,500 --> 00:13:59,910
+now, the computer will never choose anything other than 0, 1 and 2
+
+184
+00:13:59,910 --> 00:14:01,530
+so we don't have to check that one.
+
+185
+00:14:01,800 --> 00:14:06,230
+But the user could choose something above 3 or below 0.
+
+186
+00:14:06,450 --> 00:14:14,530
+So we can use an or statement to catch this. Or if the user_choice is less than zero,
+
+187
+00:14:15,180 --> 00:14:18,900
+well, in this case, you typed an invalid number, you lose.
+
+188
+00:14:19,740 --> 00:14:22,110
+But that's not all that we have to do.
+
+189
+00:14:22,410 --> 00:14:29,760
+If we hit run and we again type some extraordinarily large number, you'll see that it still says
+
+190
+00:14:29,760 --> 00:14:31,230
+computer chose 1.
+
+191
+00:14:31,230 --> 00:14:32,040
+You win.
+
+192
+00:14:32,520 --> 00:14:33,240
+What's going on?
+
+193
+00:14:33,240 --> 00:14:39,290
+We have this statement that should catch this situation, but it's right at the bottom.
+
+194
+00:14:39,510 --> 00:14:44,370
+So it's not going to be checked until one of the previous ones are checked.
+
+195
+00:14:44,880 --> 00:14:48,720
+Namely, it's one of these that's going to be the problem.
+
+196
+00:14:49,260 --> 00:14:57,240
+So what we have to do is we have to move this statement above all the lines so that we first check if
+
+197
+00:14:57,240 --> 00:15:02,390
+the user_choice is greater than three or less than zero.
+
+198
+00:15:03,060 --> 00:15:08,850
+And if that's not true, do we actually continue checking to see who won the game.
+
+199
+00:15:09,750 --> 00:15:16,830
+Now, finally, we can run our code type an invalid number and get you typed an invalid number. You lose.
+
+200
+00:15:18,120 --> 00:15:24,600
+So now that we've actually got our logic all sorted out, the next step is to include our images.
+
+201
+00:15:25,320 --> 00:15:29,340
+And to do that, we have to somehow match it up with these numbers we have,
+
+202
+00:15:29,340 --> 00:15:30,870
+right? 0, 1 and 2.
+
+203
+00:15:31,590 --> 00:15:36,870
+Now, there's many, many ways that you could do this and you could solve this project.
+
+204
+00:15:37,230 --> 00:15:45,540
+But the easiest way is probably putting the game images into a list where we have rock as the first
+
+205
+00:15:45,540 --> 00:15:50,170
+one, paper as the second one and scissors as the last one.
+
+206
+00:15:50,640 --> 00:15:58,410
+So we're using the fact that lists have a order that is always going to be followed. So we can now get
+
+207
+00:15:58,410 --> 00:16:02,060
+hold of the rock picture by getting game_images[0].
+
+208
+00:16:02,400 --> 00:16:09,570
+We can get scissors by doing game_images[2] and so on and so forth. And we can match those up to our
+
+209
+00:16:09,570 --> 00:16:12,210
+choices, the user_choice and the computer_choice.
+
+210
+00:16:12,810 --> 00:16:20,790
+So when the user chooses a number, then we're going to print from the game_images and we're going to
+
+211
+00:16:20,790 --> 00:16:26,340
+use our little square brackets to select the image we want from this list.
+
+212
+00:16:26,790 --> 00:16:31,140
+And the one that we want is going to be based on the user's choice, right?
+
+213
+00:16:31,320 --> 00:16:33,630
+0 for rock, 1 for paper, 2 for scissors.
+
+214
+00:16:33,960 --> 00:16:42,600
+So we're going to put user_choice as the index to pick out an image from game_images. Now down here for
+
+215
+00:16:42,600 --> 00:16:49,950
+the computer_choice, instead of printing the number that the computer chose, I'm going to delete that
+
+216
+00:16:49,950 --> 00:16:51,480
+and add a little colon.
+
+217
+00:16:52,680 --> 00:16:56,550
+So that way it's going to show computer chose
+
+218
+00:16:56,910 --> 00:17:02,130
+and then I'm going to print the image of the choice that the computer made.
+
+219
+00:17:02,520 --> 00:17:04,290
+So I'm going to add another print statement,
+
+220
+00:17:04,560 --> 00:17:10,890
+I'm going to tap into the game_images and then inside some square brackets, I'm going to use the computer
+
+221
+00:17:11,130 --> 00:17:17,819
+choice which is going to be between 0, 1 and 2 as the index to pick out the corresponding image
+
+222
+00:17:18,180 --> 00:17:20,339
+from my list game_images.
+
+223
+00:17:20,930 --> 00:17:28,170
+So now we're finally ready to run our code and I'm going to choose 0 for rock and the computer chose
+
+224
+00:17:28,170 --> 00:17:28,920
+paper.
+
+225
+00:17:29,220 --> 00:17:31,920
+So paper beats rock, I lose.
+
+226
+00:17:32,790 --> 00:17:33,840
+Let's try this again.
+
+227
+00:17:33,840 --> 00:17:37,860
+I'm going to choose scissors and computer chose scissors.
+
+228
+00:17:37,860 --> 00:17:42,090
+It's a draw. But we have also introduced a bug.
+
+229
+00:17:42,690 --> 00:17:47,730
+So if we test this using a number that's outside of this range, 0, 1 or 2,
+
+230
+00:17:47,730 --> 00:17:51,330
+so let's try 5. And we hit enter,
+
+231
+00:17:51,330 --> 00:17:52,020
+what do we get?
+
+232
+00:17:52,050 --> 00:17:53,970
+We get a index error.
+
+233
+00:17:54,480 --> 00:17:56,110
+So what has happened here?
+
+234
+00:17:56,250 --> 00:17:58,680
+Well, this is up to you to debug.
+
+235
+00:17:59,070 --> 00:18:02,970
+Well, this is a really good opportunity for you to practice your debugging.
+
+236
+00:18:03,300 --> 00:18:04,620
+So think about what has
+
+237
+00:18:04,730 --> 00:18:12,280
+changed since the last time we tested this and how you can fix the code so that it works as expected,
+
+238
+00:18:12,590 --> 00:18:18,290
+so telling us that you typed an invalid number, you lose whenever we type a number that's above or
+
+239
+00:18:18,290 --> 00:18:20,360
+equal to three or less than zero.
+
+240
+00:18:20,840 --> 00:18:25,880
+So I want you to pause the video and see if you can debug this challenge so that when you type in 5,
+
+241
+00:18:26,090 --> 00:18:29,330
+you get this printed. Pause video now.
+
+242
+00:18:32,680 --> 00:18:39,070
+All right, so what's going on here, because we tested this and it worked, but in between that time,
+
+243
+00:18:39,070 --> 00:18:46,480
+we also added this line because we wanted to get a hold of the game images based on the user's choice.
+
+244
+00:18:46,930 --> 00:18:51,490
+Now, at this point, the user's choice is unchecked by the if statement.
+
+245
+00:18:51,850 --> 00:18:56,110
+So it could still be equal to 4 or 5 or 10 or a million.
+
+246
+00:18:56,560 --> 00:19:04,300
+So if in that case, it tries to get hold of the fifth image from the game_images list, well, it doesn't
+
+247
+00:19:04,300 --> 00:19:04,690
+exist.
+
+248
+00:19:04,810 --> 00:19:06,850
+There's only 0, 1 and 2.
+
+249
+00:19:07,750 --> 00:19:14,500
+So to fix this, we need to move this if statement so that it gets checked before this line of code
+
+250
+00:19:14,500 --> 00:19:15,370
+gets carried out.
+
+251
+00:19:15,940 --> 00:19:22,330
+So let's go ahead and cut this line of code out and put it right above this print statement.
+
+252
+00:19:22,840 --> 00:19:30,340
+So in this case, if the user types in a choice that's above or equal to three or less than zero,
+
+253
+00:19:30,670 --> 00:19:32,020
+we're going to print this.
+
+254
+00:19:32,440 --> 00:19:38,670
+But else, if they typed in any other number, then we want the rest of the code to continue.
+
+255
+00:19:39,010 --> 00:19:44,070
+So let's select the rest of the code, hit tab and tab it over
+
+256
+00:19:44,080 --> 00:19:46,510
+so that is included under the else statement.
+
+257
+00:19:47,050 --> 00:19:54,010
+Now let's go ahead and change this from elif just to an if because we're no longer checking it as another
+
+258
+00:19:54,010 --> 00:19:54,430
+else-
+
+259
+00:19:54,430 --> 00:19:56,890
+if statement. It is just a straight up
+
+260
+00:19:56,890 --> 00:20:05,590
+if. So, in this case, if they typed a 5, then it will go into this basket and it will finish there.
+
+261
+00:20:05,890 --> 00:20:10,670
+But otherwise, it will go into this basket and it will continue checking later on.
+
+262
+00:20:11,260 --> 00:20:14,570
+So did you manage to debug your code and figure out the issue?
+
+263
+00:20:15,040 --> 00:20:17,320
+This is one of the most important skills
+
+264
+00:20:17,320 --> 00:20:21,760
+as a programmer. You have plenty of opportunities coming up to practice your debugging.
+
+265
+00:20:22,330 --> 00:20:27,790
+And if you ever want more practice, head over into the Q&A and see what other students have issues
+
+266
+00:20:27,790 --> 00:20:31,810
+with and see if you can help them out by practicing your debugging skills.
+
+267
+00:20:32,590 --> 00:20:40,570
+Now, we have completed the project by using everything from lists to randomization to variables to
+
+268
+00:20:40,570 --> 00:20:43,370
+if statements and a whole lot of logic.
+
+269
+00:20:43,630 --> 00:20:47,660
+So how did you get on with this project? If you struggle
+
+270
+00:20:47,680 --> 00:20:54,970
+this is the time again to go back to it and maybe map things out using a flow diagram or try to run
+
+271
+00:20:54,970 --> 00:20:59,080
+the code using Thonny to see how it does it step by step.
+
+272
+00:20:59,590 --> 00:21:04,180
+But the important thing is that you got to write your own code and you got to make it work.
+
+273
+00:21:04,420 --> 00:21:09,580
+And this is the only way that you'll understand what's going on so that you can continue on.
+
+274
+00:21:09,910 --> 00:21:15,670
+And as things get harder, you'll be able to learn more because you've already understood all of the
+
+275
+00:21:15,670 --> 00:21:16,570
+previous knowledge.
+
+276
+00:21:17,320 --> 00:21:19,150
+So I hope you had fun with me today
+
+277
+00:21:19,150 --> 00:21:24,550
+learning and building, and hopefully I will see you tomorrow bright and early.
+
+278
+00:21:24,880 --> 00:21:27,100
+So that's good night from me for today.
+

@@ -1,0 +1,244 @@
+1
+00:00:00,720 --> 00:00:01,350
+Hey guys,
+
+2
+00:00:01,350 --> 00:00:05,730
+welcome to Day 46 of 100 Days of Code. Today
+
+3
+00:00:05,730 --> 00:00:08,310
+we've got a pretty special project for you.
+
+4
+00:00:08,880 --> 00:00:13,380
+It's a musical time machine project. So what does that mean?
+
+5
+00:00:14,040 --> 00:00:14,520
+Well,
+
+6
+00:00:14,520 --> 00:00:19,520
+recently I received a mixed tape from a friend and the mix tape contained all of
+
+7
+00:00:21,750 --> 00:00:25,950
+the top songs from the period of time when we went to school together.
+
+8
+00:00:26,400 --> 00:00:28,230
+And it was a really, really beautiful gift
+
+9
+00:00:28,230 --> 00:00:33,000
+and it was a really nice way of jogging your memories for that particular time
+
+10
+00:00:33,000 --> 00:00:35,820
+point in your life. This got me thinking,
+
+11
+00:00:35,880 --> 00:00:40,880
+and I thought about how music can take you back into a particular time in your
+
+12
+00:00:41,580 --> 00:00:46,580
+life as if it just transported you. By listening to the same songs that were hits
+
+13
+00:00:48,300 --> 00:00:49,770
+during that period of time
+
+14
+00:00:50,100 --> 00:00:55,100
+it was like as if I was being transported back and could relive a moment in my
+
+15
+00:00:56,340 --> 00:00:59,910
+childhood. And you might have the same experience.
+
+16
+00:01:00,120 --> 00:01:04,470
+Maybe there's certain songs that were really popular in your childhood that
+
+17
+00:01:04,470 --> 00:01:08,880
+brings back memories, or maybe for a particular relationship,
+
+18
+00:01:08,940 --> 00:01:13,940
+or maybe a holiday that you went on. Trying to jog these memories by using music
+
+19
+00:01:15,810 --> 00:01:16,470
+is a really,
+
+20
+00:01:16,470 --> 00:01:21,470
+really fantastic way of reminiscing and savoring some of your favorite moments
+
+21
+00:01:21,540 --> 00:01:22,373
+in time.
+
+22
+00:01:22,740 --> 00:01:27,420
+So what we're going to be building today is a Python time machine,
+
+23
+00:01:28,050 --> 00:01:32,100
+not the sort of time machine that might take a human back in time,
+
+24
+00:01:32,340 --> 00:01:37,340
+but it will go back in time to find the music that was in the top 100 shots that
+
+25
+00:01:39,120 --> 00:01:44,120
+was being played all over the radio so that you can relive that period of time
+
+26
+00:01:44,550 --> 00:01:47,760
+once more through music. Billboard
+
+27
+00:01:47,790 --> 00:01:51,480
+compiles a list of the top 100 songs.
+
+28
+00:01:51,480 --> 00:01:55,650
+So these are the most played songs during a particular week.
+
+29
+00:01:56,160 --> 00:02:01,110
+And if you go to chart/hot-100, you'll see it for the current week,
+
+30
+00:02:01,560 --> 00:02:06,560
+but there's also a feature where you can change the date to any data in the past
+
+31
+00:02:06,960 --> 00:02:07,793
+20 years.
+
+32
+00:02:08,280 --> 00:02:12,180
+So if we select a random date in year 2000,
+
+33
+00:02:12,540 --> 00:02:17,280
+you can see that the songs that come up here, and it depends on your age
+
+34
+00:02:17,310 --> 00:02:18,360
+but some of these artists
+
+35
+00:02:18,360 --> 00:02:23,360
+you might have never heard of like N Sync or Destiny's child or Vertical
+
+36
+00:02:23,790 --> 00:02:28,020
+Horizon. But if you listen to these tracks in order,
+
+37
+00:02:28,260 --> 00:02:33,260
+then it will be almost like you've been transported back to year 2000,
+
+38
+00:02:33,420 --> 00:02:37,380
+August 12 and you're just listening to the things on the radio.
+
+39
+00:02:38,190 --> 00:02:42,020
+This is how we are going to approach this task. First,
+
+40
+00:02:42,050 --> 00:02:47,050
+we're going to use Beautiful Soup to scrape the top 100 songs from a particular
+
+41
+00:02:48,470 --> 00:02:49,640
+date of your choice.
+
+42
+00:02:50,360 --> 00:02:54,950
+And then we're going to extract all of the song titles from the list,
+
+43
+00:02:55,430 --> 00:03:00,430
+and then we're going to use the Spotify API to create a playlist for that
+
+44
+00:03:00,670 --> 00:03:01,503
+particular date.
+
+45
+00:03:02,310 --> 00:03:07,290
+And we're going to see right through Spotify for each of the songs and add
+
+46
+00:03:07,290 --> 00:03:12,150
+those songs to our new playlist. So that by the end of this whole process,
+
+47
+00:03:12,390 --> 00:03:17,390
+we end up with a playlist that has the top 100 songs for a particular date in
+
+48
+00:03:19,440 --> 00:03:20,273
+the past.
+
+49
+00:03:20,610 --> 00:03:24,510
+So if you've got an anniversary coming up or a birthday coming up,
+
+50
+00:03:24,720 --> 00:03:29,720
+this might just be the perfect present where you create a playlist of the
+
+51
+00:03:30,090 --> 00:03:35,090
+top of that 100 songs that was playing on the day that you met your wife or your
+
+52
+00:03:35,160 --> 00:03:40,020
+husband, or maybe when you started a friendship or started a new job,
+
+53
+00:03:40,440 --> 00:03:45,440
+and you can send them this playlist as your gift to jog their memories and
+
+54
+00:03:46,200 --> 00:03:48,660
+remind them of that day in the past.
+
+55
+00:03:49,710 --> 00:03:51,630
+So are you ready to build the time machine?
+
+56
+00:03:52,080 --> 00:03:55,860
+If you are, head over to the next lesson while you will find step by step
+
+57
+00:03:55,860 --> 00:03:58,800
+instructions and a lot of challenges
+
+58
+00:03:59,280 --> 00:04:03,630
+that's going to get you to use all the skills you learned about how do you use 
+
+59
+00:04:03,630 --> 00:04:04,463
+Beautiful Soup
+
+60
+00:04:04,740 --> 00:04:09,150
+as well as the Spotify API in order to complete this project.
+
+61
+00:04:09,510 --> 00:04:10,500
+So head over there now.
+

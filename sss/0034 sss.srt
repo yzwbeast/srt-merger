@@ -1,0 +1,3305 @@
+1
+00:00:00,300 --> 00:00:00,930
+Hey guys,
+
+2
+00:00:00,930 --> 00:00:05,930
+it's Angela here and welcome to Day 34 of 100 Days of Code. Today
+
+3
+00:00:07,410 --> 00:00:09,510
+we're going to be doing a little bit of review,
+
+4
+00:00:09,870 --> 00:00:14,870
+and we're going to be working with a trivia API to create a quiz app called
+
+5
+00:00:15,360 --> 00:00:16,193
+Quizzler.
+
+6
+00:00:16,590 --> 00:00:21,590
+Now we're going to be using a API that we've seen before a long time ago called
+
+7
+00:00:22,170 --> 00:00:23,790
+the open trivia database,
+
+8
+00:00:23,940 --> 00:00:27,840
+which contains over 3000 verified questions
+
+9
+00:00:28,170 --> 00:00:33,170
+which we can pick from randomly to fill into our quiz application.
+
+10
+00:00:34,320 --> 00:00:34,590
+Now,
+
+11
+00:00:34,590 --> 00:00:39,590
+the purpose of building this app is to review what we learned about using API
+
+12
+00:00:40,170 --> 00:00:45,170
+endpoints and sending requests to a particular end point to ask for some piece
+
+13
+00:00:46,410 --> 00:00:47,243
+of data.
+
+14
+00:00:47,550 --> 00:00:51,300
+And we're also going to be looking at what we learned about API parameters,
+
+15
+00:00:51,570 --> 00:00:56,340
+switching in and switching out different inputs in order to get different pieces
+
+16
+00:00:56,340 --> 00:01:00,390
+of data from the API. And with those things combined,
+
+17
+00:01:00,450 --> 00:01:03,330
+we're going to be able to build our Quizzler app
+
+18
+00:01:03,780 --> 00:01:06,450
+which is going to be built using tkinter.
+
+19
+00:01:06,990 --> 00:01:08,760
+So this is what it's going to look like,
+
+20
+00:01:08,820 --> 00:01:13,820
+and we're able to keep track of our score and see the true/false question 
+
+21
+00:01:14,220 --> 00:01:17,460
+show up in the middle and then we can select true or false.
+
+22
+00:01:18,060 --> 00:01:22,080
+So I have no idea what the answer to this is. So I'm just going to guess.
+
+23
+00:01:23,210 --> 00:01:28,040
+Oops! Maybe not. Um, the
+
+24
+00:01:28,130 --> 00:01:32,120
+vapor produced by e-cigarettes is actually water. I think so. Nope.
+
+25
+00:01:32,780 --> 00:01:37,250
+I am really bad at this quiz so I'm just going to guess from now on.
+
+26
+00:01:38,750 --> 00:01:41,750
+So there you go. I got one right and my score went up.
+
+27
+00:01:42,290 --> 00:01:45,020
+This is a computer related question, so I know that one.
+
+28
+00:01:46,190 --> 00:01:48,650
+But essentially this is what we're going to be building.
+
+29
+00:01:48,800 --> 00:01:53,240
+And the questions that we're answering here come from the open trivia database
+
+30
+00:01:53,480 --> 00:01:55,760
+which contains loads of questions.
+
+31
+00:01:55,760 --> 00:02:00,760
+So we don't have to make up the questions and we can even select which category
+
+32
+00:02:01,580 --> 00:02:05,930
+of questions we want and also how many questions we want
+
+33
+00:02:06,260 --> 00:02:10,280
+and we're going to use this API to populate the questions in our quiz
+
+34
+00:02:10,280 --> 00:02:12,890
+application. That's what we're going to be building.
+
+35
+00:02:13,040 --> 00:02:14,900
+So if you head over to the next lesson,
+
+36
+00:02:15,140 --> 00:02:17,780
+we'll get started by tapping into that API.
+
+
+37
+00:00:00,570 --> 00:00:05,570
+To begin, head over to the course resources as always and download the starting 
+
+38
+00:00:06,060 --> 00:00:10,200
+zip file for today's starting project. And once you've done that,
+
+39
+00:00:10,200 --> 00:00:14,910
+go ahead and unzip the file and open it up inside PyCharm. Now,
+
+40
+00:00:14,940 --> 00:00:17,790
+if we take a look inside the project folder,
+
+41
+00:00:17,910 --> 00:00:20,430
+you can see we've got a bunch of images
+
+42
+00:00:20,730 --> 00:00:23,550
+which is going to be used for the buttons,
+
+43
+00:00:24,060 --> 00:00:29,060
+and we've also got a lot of the code that we had created in our previous quiz
+
+44
+00:00:30,540 --> 00:00:34,650
+project. It may seem like it was a long time ago,
+
+45
+00:00:34,770 --> 00:00:36,720
+but back in day 17
+
+46
+00:00:36,990 --> 00:00:41,990
+we learned about creating classes and the project that we built to do that was a
+
+47
+00:00:42,570 --> 00:00:45,270
+text based quiz. And in fact,
+
+48
+00:00:45,300 --> 00:00:49,740
+once you've downloaded and opened up the starting file for today's project,
+
+49
+00:00:50,010 --> 00:00:52,080
+you can actually run this program.
+
+50
+00:00:52,470 --> 00:00:55,500
+So open up main.py and run it.
+
+51
+00:00:55,770 --> 00:01:00,770
+Then you can see the original format of the quiz application in action
+
+52
+00:01:01,590 --> 00:01:06,000
+inside the console. We can type true or false,
+
+53
+00:01:07,170 --> 00:01:10,530
+and it will give us some feedback, whether if we got it right
+
+54
+00:01:10,560 --> 00:01:13,950
+or whether if we got it wrong and also our current score.
+
+55
+00:01:16,020 --> 00:01:18,720
+Now this was great on day 17,
+
+56
+00:01:18,810 --> 00:01:23,490
+but now that we know all about creating graphical user interfaces using tkinter
+
+57
+00:01:23,970 --> 00:01:27,840
+as well as a whole bunch of things that we've learned about APIs just now, we're
+
+58
+00:01:27,840 --> 00:01:31,560
+going to upgrade this quiz app to the next level.
+
+59
+00:01:32,700 --> 00:01:35,610
+The first thing we want to upgrade is at the moment,
+
+60
+00:01:35,640 --> 00:01:37,920
+these questions are hard-coded.
+
+61
+00:01:38,220 --> 00:01:40,920
+So inside our data.py,
+
+62
+00:01:41,220 --> 00:01:46,220
+you can see all of these questions as a list of dictionary objects.
+
+63
+00:01:46,800 --> 00:01:48,660
+And at the time,
+
+64
+00:01:48,960 --> 00:01:52,590
+the place where we got all of these questions from was in fact,
+
+65
+00:01:52,620 --> 00:01:54,510
+the open trivia database.
+
+66
+00:01:54,900 --> 00:01:59,010
+But what we did here is we selected the number of questions we wanted,
+
+67
+00:01:59,340 --> 00:02:01,890
+we selected the category that we wanted,
+
+68
+00:02:02,220 --> 00:02:07,170
+and then we changed the type to true and false and we said, generate API URL.
+
+69
+00:02:07,590 --> 00:02:09,780
+And then once that URL is generated,
+
+70
+00:02:10,080 --> 00:02:15,080
+all we did was we put it into our  browser and we got this data and we put it
+
+71
+00:02:15,810 --> 00:02:18,960
+into our question data. Now,
+
+72
+00:02:18,990 --> 00:02:22,710
+this, being hard-coded, is obviously never going to change.
+
+73
+00:02:23,220 --> 00:02:28,220
+So what we want to do instead is we want to get 10 questions from the open
+
+74
+00:02:29,040 --> 00:02:30,090
+trivia database,
+
+75
+00:02:30,720 --> 00:02:35,720
+but this time we want to make a request to the API so that we always get
+
+76
+00:02:36,480 --> 00:02:39,360
+different questions and different answers.
+
+77
+00:02:40,710 --> 00:02:45,710
+The idea of this challenge is to modify the code in the data.py file to get 10
+
+78
+00:02:46,380 --> 00:02:51,210
+new questions using the open trivia database every time the program is run.
+
+79
+00:02:51,750 --> 00:02:55,140
+Here's what your code should do after you've successfully completed the
+
+80
+00:02:55,140 --> 00:02:59,860
+challenge. You'll still get a console based quiz, but this time,
+
+81
+00:02:59,890 --> 00:03:04,890
+the text and the correct answer came from the open trivia database via an API
+
+82
+00:03:05,470 --> 00:03:06,303
+call.
+
+83
+00:03:06,310 --> 00:03:10,120
+You'll see that any symbol like single double quotes will not be displayed
+
+84
+00:03:10,120 --> 00:03:11,230
+correctly just yet,
+
+85
+00:03:11,500 --> 00:03:15,520
+but getting the API call working is the first step and the goal of this
+
+86
+00:03:15,520 --> 00:03:16,353
+challenge.
+
+87
+00:03:17,050 --> 00:03:22,050
+So what I want you to do is to set the number of questions to 10 and leave the
+
+88
+00:03:22,330 --> 00:03:25,480
+category as blank, leave the difficulty is blank,
+
+89
+00:03:25,780 --> 00:03:30,780
+but make sure that the type is set to true-false and then generate this API URL.
+
+90
+00:03:32,830 --> 00:03:37,830
+Now remember what I said before that the API end point is everything before the
+
+91
+00:03:38,920 --> 00:03:43,360
+question mark. So this is the base URL that we're going to be working with.
+
+92
+00:03:43,810 --> 00:03:47,500
+And then after the question mark, we've got our different parameters.
+
+93
+00:03:47,890 --> 00:03:50,290
+So we've got a parameter called amount
+
+94
+00:03:50,350 --> 00:03:55,030
+which is set to 10, and we've got another parameter called type
+
+95
+00:03:55,270 --> 00:03:57,340
+which is set to the word boolean.
+
+96
+00:03:57,940 --> 00:04:01,270
+So you are going to have to think back to what you learned in yesterday's
+
+97
+00:04:01,270 --> 00:04:02,103
+lessons
+
+98
+00:04:02,320 --> 00:04:07,320
+and use the requests module to make a request to this API and passing in the
+
+99
+00:04:09,940 --> 00:04:11,740
+required parameters.
+
+100
+00:04:12,250 --> 00:04:16,240
+And then once you've generated the data from that API,
+
+101
+00:04:16,660 --> 00:04:21,660
+then I want you to make sure that you reach into the data that you get back and
+
+102
+00:04:21,760 --> 00:04:24,970
+grab the data that is in this format.
+
+103
+00:04:25,690 --> 00:04:30,310
+And we're going to replace this question_data with the actual questions that we
+
+104
+00:04:30,310 --> 00:04:33,520
+get from the open trivia database API.
+
+105
+00:04:34,060 --> 00:04:38,020
+When we make the request to the API in our browser,
+
+106
+00:04:38,410 --> 00:04:41,140
+we get back something that looks like this.
+
+107
+00:04:41,560 --> 00:04:45,610
+So we have a two item dictionary; one is the response code,
+
+108
+00:04:45,940 --> 00:04:47,590
+and one is the results.
+
+109
+00:04:47,920 --> 00:04:52,920
+Now the value for this key results is the list of dictionary objects that we
+
+110
+00:04:54,310 --> 00:04:58,540
+actually want and it looks very similar in structure to this.
+
+111
+00:04:58,930 --> 00:05:03,220
+So that is what we want. So everything inside here, basically.
+
+112
+00:05:03,970 --> 00:05:08,950
+Now we're going to still call it question_data because elsewhere in our main.py
+
+113
+00:05:08,950 --> 00:05:11,680
+we're tapping into this data here.
+
+114
+00:05:12,160 --> 00:05:13,990
+So make sure you name it the same.
+
+115
+00:05:14,170 --> 00:05:17,410
+And once you've done this successfully,
+
+116
+00:05:17,710 --> 00:05:21,370
+then you should be able to comment out all of this code here,
+
+117
+00:05:24,480 --> 00:05:25,050
+right?
+
+118
+00:05:25,050 --> 00:05:30,050
+And then simply run the program from main.py without any changes
+
+119
+00:05:30,840 --> 00:05:32,220
+and it should still work
+
+120
+00:05:32,430 --> 00:05:37,350
+but this time it should be using the questions and answers that you fetched from
+
+121
+00:05:37,350 --> 00:05:42,030
+the API. This is a challenge for you. So I want you to pause the video,
+
+122
+00:05:42,090 --> 00:05:46,080
+have a think about how you might do that and complete the challenge.
+
+
+123
+00:00:00,990 --> 00:00:01,350
+All right.
+
+124
+00:00:01,350 --> 00:00:06,350
+So the first thing we need to do that we learnt in order to work with APIs is to
+
+125
+00:00:06,510 --> 00:00:08,910
+import the requests module.
+
+126
+00:00:09,390 --> 00:00:11,520
+And once we've imported that,
+
+127
+00:00:11,640 --> 00:00:16,640
+we need to get a response from the URL that we saw over here.
+
+128
+00:00:18,270 --> 00:00:22,440
+As I mentioned, the end point is everything that's before the question mark.
+
+129
+00:00:22,890 --> 00:00:26,760
+So let's put that in as the URL for our get request.
+
+130
+00:00:27,270 --> 00:00:30,180
+And then in addition, we need to add some parameters.
+
+131
+00:00:30,690 --> 00:00:35,040
+So let's make our parameters a Python dictionary,
+
+132
+00:00:35,760 --> 00:00:40,110
+and the key must match the key that's shown here
+
+133
+00:00:40,500 --> 00:00:43,830
+and the value has to match the value that's given here as well.
+
+134
+00:00:44,250 --> 00:00:46,770
+So we've got two keys; amount and type.
+
+135
+00:00:47,220 --> 00:00:49,680
+So these are both going to be strings,
+
+136
+00:00:49,710 --> 00:00:53,340
+but the values can be numbers if it is appropriate.
+
+137
+00:00:53,850 --> 00:00:58,170
+So amount sets the number of questions we want back from the API,
+
+138
+00:00:58,770 --> 00:01:03,270
+and then the type sets the type of questions that we want. So in our case,
+
+139
+00:01:03,300 --> 00:01:08,220
+we want the boolean data type that matches this exact entry.
+
+140
+00:01:08,520 --> 00:01:11,160
+So that way we get back true-false questions.
+
+141
+00:01:11,940 --> 00:01:16,410
+Now that we've done that we can use this parameters dictionary as the
+
+142
+00:01:16,410 --> 00:01:17,243
+params,
+
+143
+00:01:17,700 --> 00:01:22,700
+and then we want our response to raise an exception if there were any errors.
+
+144
+00:01:23,460 --> 00:01:27,750
+And then we're going to get our response to give us the data using the JSON
+
+145
+00:01:27,750 --> 00:01:31,290
+method. If this is our data,
+
+146
+00:01:31,320 --> 00:01:34,650
+let's go ahead and print it and see what it looks like.
+
+147
+00:01:35,100 --> 00:01:40,100
+We can run this particular file, data.py, by right-clicking and just saying
+
+148
+00:01:40,170 --> 00:01:44,940
+run data. And once it's done, you can see we printed out the data
+
+149
+00:01:45,450 --> 00:01:50,450
+and the part that we're interested in is the value of this key results,
+
+150
+00:01:51,300 --> 00:01:55,050
+because it contains the list of questions.
+
+151
+00:01:55,590 --> 00:01:59,760
+That's the only part we're interested in. So in order to tap into that,
+
+152
+00:02:00,060 --> 00:02:03,750
+we have to add a set of square brackets and then pass in the key
+
+153
+00:02:04,260 --> 00:02:08,100
+which is called results. So let's put that as the key.
+
+154
+00:02:08,400 --> 00:02:13,400
+And now we're fetching all of the items that are the results from this data
+
+155
+00:02:14,430 --> 00:02:19,140
+object that we get back. So now, if I run this again, you can see
+
+156
+00:02:19,140 --> 00:02:22,560
+we now have a list of question objects
+
+157
+00:02:22,890 --> 00:02:25,080
+which each contains a dictionary
+
+158
+00:02:25,350 --> 00:02:29,520
+and it looks now pretty much identical to this structure that we had before.
+
+159
+00:02:30,300 --> 00:02:34,890
+Now, instead of printing this, we can save it as the question_data.
+
+160
+00:02:36,450 --> 00:02:40,200
+So now this question_data and has replaced this question_data,
+
+161
+00:02:40,620 --> 00:02:41,760
+and as I mentioned,
+
+162
+00:02:41,790 --> 00:02:46,790
+we can run our main.py and it should now work just as it did before.
+
+163
+00:02:49,200 --> 00:02:54,200
+But this time it's going to use questions that came from our API.
+
+164
+00:02:54,840 --> 00:02:58,890
+The cold war ended with Joseph Stalin's death, true or false.
+
+165
+00:02:59,170 --> 00:03:03,430
+I think that's actually false. But notice how
+
+166
+00:03:03,430 --> 00:03:05,830
+when we get the data back from the API,
+
+167
+00:03:06,160 --> 00:03:11,160
+it's formatted in such a way that we've got certain symbols that have been
+
+168
+00:03:11,290 --> 00:03:14,290
+encoded using this particular format
+
+169
+00:03:14,650 --> 00:03:19,650
+because all of this is meant to represent a single apostrophe. In the next
+
+170
+00:03:19,900 --> 00:03:20,350
+lesson,
+
+171
+00:03:20,350 --> 00:03:25,120
+I'm going to show you how we can format the text that we get back to turn this
+
+172
+00:03:25,120 --> 00:03:28,030
+encoding into the actual characters
+
+173
+00:03:28,180 --> 00:03:32,650
+that it should be. For all of that and more, I'll see you on the next lesson.
+
+
+174
+00:00:00,630 --> 00:00:01,740
+In the last lesson,
+
+175
+00:00:01,800 --> 00:00:06,800
+we managed to get our API to work and we got back some live data.
+
+176
+00:00:07,800 --> 00:00:08,910
+But when we ran it,
+
+177
+00:00:09,030 --> 00:00:13,500
+we saw that some of the texts that we were getting back was formatted really
+
+178
+00:00:13,500 --> 00:00:17,970
+strangely with these pound signs and ampersands,
+
+179
+00:00:18,090 --> 00:00:21,290
+and it's not the actual text that we see.
+
+180
+00:00:21,920 --> 00:00:24,290
+So what's happening here? Well,
+
+181
+00:00:24,380 --> 00:00:28,310
+what we're actually seeing here are called HTML entities,
+
+182
+00:00:28,880 --> 00:00:33,880
+and there are a way of replacing certain characters in HTML so that it doesn't
+
+183
+00:00:35,060 --> 00:00:38,990
+get confused with HTML code. So for example,
+
+184
+00:00:39,020 --> 00:00:44,020
+the less than symbol could be a part of HTML code.
+
+185
+00:00:44,600 --> 00:00:48,590
+And instead of using that, we have to use the
+
+186
+00:00:48,650 --> 00:00:51,890
+< and then semicolon.
+
+187
+00:00:52,850 --> 00:00:55,100
+So if we look down this table,
+
+188
+00:00:55,370 --> 00:01:00,370
+we can actually see this " actually stands for a double quotation mark.
+
+189
+00:01:01,940 --> 00:01:05,930
+And that would make sense cause it's saying "Mario Kart
+
+190
+00:01:05,930 --> 00:01:07,400
+64"
+
+191
+00:01:08,060 --> 00:01:11,570
+and this #039,
+
+192
+00:01:11,570 --> 00:01:16,570
+if we look up in this list, is actually a single quotation mark.
+
+193
+00:01:17,570 --> 00:01:20,960
+And that would make sense as well, cause it would be Stalin's death.
+
+194
+00:01:21,740 --> 00:01:26,270
+So how do we get hold of the actual human readable text? Well,
+
+195
+00:01:26,420 --> 00:01:30,740
+we can use this tool called the free formatter to
+
+196
+00:01:31,160 --> 00:01:36,050
+unescape the HTML results that we're getting back from our API.
+
+197
+00:01:36,890 --> 00:01:40,040
+I've copied and pasted this part we've got here.
+
+198
+00:01:41,540 --> 00:01:43,790
+And if I go ahead and click on unescape,
+
+199
+00:01:44,060 --> 00:01:49,060
+you can see that it formats it into the original human readable format
+
+200
+00:01:49,430 --> 00:01:53,480
+and now it says in "Mario Kart 64" Waluigi is a playable character.
+
+201
+00:01:54,110 --> 00:01:58,580
+And if I paste the cold war ended with Joseph Stalin, blah, blah, blah,
+
+202
+00:01:59,030 --> 00:02:02,120
+death and I click unescape, then you can see 
+
+203
+00:02:02,120 --> 00:02:06,500
+it says the Cold War ended with Joseph Stalin's death and it replaces that with
+
+204
+00:02:06,560 --> 00:02:08,449
+an apostrophe. Now,
+
+205
+00:02:08,449 --> 00:02:13,070
+essentially we know what to Google and that's kind of the first step towards
+
+206
+00:02:13,070 --> 00:02:14,240
+solving any problem.
+
+207
+00:02:14,720 --> 00:02:18,620
+So if you Google for escaping HTML entities in Python,
+
+208
+00:02:18,860 --> 00:02:22,940
+then the first result we get in Stack Overflow gives us the answer.
+
+209
+00:02:23,540 --> 00:02:28,340
+We have to import the HTML module and use one of the methods in that module
+
+210
+00:02:28,340 --> 00:02:33,110
+called unescape in order to unescape the text that we're getting back.
+
+211
+00:02:33,950 --> 00:02:37,790
+The part where we're interested in this is in our quiz brain,
+
+212
+00:02:38,270 --> 00:02:42,260
+because that's the part what we format it into our user answer.
+
+213
+00:02:43,130 --> 00:02:45,330
+Let's change the question
+
+214
+00:02:45,380 --> 00:02:50,380
+text to be equal to the self.current_question.text,
+
+215
+00:02:50,870 --> 00:02:52,640
+so this part that we have here
+
+216
+00:02:52,970 --> 00:02:57,970
+which is being put into our input and we can use this q_text instead.
+
+217
+00:02:59,800 --> 00:03:03,640
+But instead of using just the text that we get back from the API,
+
+218
+00:03:03,970 --> 00:03:06,550
+we're going to import the HTML module.
+
+219
+00:03:08,550 --> 00:03:08,970
+Yeah.
+
+220
+00:03:08,970 --> 00:03:13,970
+And we're going to use the method inside this HTML module called unescape
+
+221
+00:03:14,700 --> 00:03:18,150
+to unescape this string that we get from the API.
+
+222
+00:03:18,930 --> 00:03:23,700
+And now if I run this code again, you can see that this time,
+
+223
+00:03:23,730 --> 00:03:28,730
+no matter what is inside the string, say an apostrophe in this case or a double
+
+224
+00:03:31,860 --> 00:03:35,580
+quote in this case, they're all being formatted correctly.
+
+225
+00:03:36,780 --> 00:03:37,613
+There you have it.
+
+226
+00:03:38,070 --> 00:03:42,270
+We started off with some strange characters and after a bit of Googling around,
+
+227
+00:03:42,270 --> 00:03:47,190
+we found the solution to turn them into human readable text. Aas a programmer,
+
+228
+00:03:47,220 --> 00:03:49,500
+this is a skill that you have to really hone.
+
+229
+00:03:49,800 --> 00:03:53,040
+This is something that is going to take you to the next level
+
+230
+00:03:53,250 --> 00:03:55,680
+to this intermediate++ level.
+
+231
+00:03:56,010 --> 00:03:59,040
+You have to find out solutions to your own problems,
+
+232
+00:03:59,340 --> 00:04:01,020
+and Google is your best friend.
+
+
+233
+00:00:00,210 --> 00:00:04,710
+So now that our program works for text-based questions,
+
+234
+00:00:05,160 --> 00:00:10,160
+it's time to upgrade this program so that it actually has a graphical user
+
+235
+00:00:10,530 --> 00:00:13,830
+interface. You'll notice that in the project folder,
+
+236
+00:00:14,150 --> 00:00:16,790
+there is a file called ui.py,
+
+237
+00:00:17,420 --> 00:00:22,160
+and this is pretty much empty at the moment, other than a single constant
+
+238
+00:00:22,430 --> 00:00:24,950
+which sets the theme color. Now,
+
+239
+00:00:24,950 --> 00:00:28,310
+what we're trying to create is something that looks like this.
+
+240
+00:00:28,790 --> 00:00:31,850
+So we have some sort of a score board label,
+
+241
+00:00:32,060 --> 00:00:36,110
+we have a canvas with a white background,
+
+242
+00:00:36,440 --> 00:00:37,670
+and then on the canvas,
+
+243
+00:00:37,700 --> 00:00:42,020
+we've got some text in the middle and then we've got a true button and a false
+
+244
+00:00:42,020 --> 00:00:46,820
+button each using the true and false images from this folder.
+
+245
+00:00:47,480 --> 00:00:51,680
+Now we've seen how we can create graphical user interfaces using tkinter.
+
+246
+00:00:52,130 --> 00:00:55,190
+But in this case, we're going to do something a little bit different.
+
+247
+00:00:55,790 --> 00:00:59,060
+We're going to create our user interface in tkinter
+
+248
+00:00:59,330 --> 00:01:01,730
+but we're going to do it inside a class.
+
+249
+00:01:02,210 --> 00:01:05,870
+If you remember from day 17 where this project comes from,
+
+250
+00:01:06,260 --> 00:01:09,170
+that was when we learned about Object Oriented Programming,
+
+251
+00:01:09,530 --> 00:01:13,850
+and we learned about how to separate out our concerns like
+
+252
+00:01:13,910 --> 00:01:18,110
+the part that fetches the data or the part that model each of the questions
+
+253
+00:01:18,380 --> 00:01:22,070
+or the part that handles the actual quiz functionality,
+
+254
+00:01:22,430 --> 00:01:27,430
+and they are all separated in that own class. In order to create our user
+
+255
+00:01:27,530 --> 00:01:28,280
+interface
+
+256
+00:01:28,280 --> 00:01:33,280
+we're also going to create our very own class inside this ui.py.
+
+257
+00:01:34,370 --> 00:01:36,710
+So it's been a while since we've created classes.
+
+258
+00:01:36,770 --> 00:01:40,910
+So I want to do a quick reminder session on how to do that.
+
+259
+00:01:41,330 --> 00:01:45,740
+So we use the class keyword and then we provide the name of the class. Now,
+
+260
+00:01:45,770 --> 00:01:48,890
+in my case, I'm going to call this the QuizInterface.
+
+261
+00:01:49,550 --> 00:01:54,350
+And remember that the way that you name classes is what this is called. Pascal
+
+262
+00:01:54,380 --> 00:01:56,000
+case. So a capital letter,
+
+263
+00:01:56,240 --> 00:02:01,240
+and then each word is not separated by any underscores or any dashes.
+
+264
+00:02:01,880 --> 00:02:03,170
+So this is our class
+
+265
+00:02:03,260 --> 00:02:07,490
+and then we're going to create our init inside this class.
+
+266
+00:02:08,060 --> 00:02:10,550
+Now, if any of this is unfamiliar to you,
+
+267
+00:02:10,550 --> 00:02:14,660
+then make sure that you haven't skipped the lessons on Object Oriented
+
+268
+00:02:14,660 --> 00:02:18,410
+Programming and creating and using classes in Python.
+
+269
+00:02:18,740 --> 00:02:21,890
+We covered that in day 17. So if you skipped that,
+
+270
+00:02:22,040 --> 00:02:25,580
+be sure to head back before you proceed, because otherwise, the rest of this
+
+271
+00:02:25,880 --> 00:02:29,780
+is not going to make any sense at all. In our class init,
+
+272
+00:02:29,840 --> 00:02:32,930
+we're going to create our user interface.
+
+273
+00:02:33,140 --> 00:02:35,870
+So we're going to create all the buttons and all of the layouts.
+
+274
+00:02:36,200 --> 00:02:40,670
+And we start off by simply creating our window. Now this time though,
+
+275
+00:02:40,700 --> 00:02:45,380
+instead of creating our window as just a simple variable,
+
+276
+00:02:45,710 --> 00:02:48,500
+we're going to make it a property of this class.
+
+277
+00:02:48,530 --> 00:02:50,480
+So we're going to add self in front of it.
+
+278
+00:02:51,050 --> 00:02:54,710
+And then we're going to create it from the tkinter module.
+
+279
+00:02:54,770 --> 00:02:59,180
+So let's go ahead and import everything from the tkinter module,
+
+280
+00:03:01,450 --> 00:03:06,450
+and let's set our window as a new object from the tk class.
+
+281
+00:03:07,780 --> 00:03:11,920
+Next, I'm going to change some aspects of the window. So for example,
+
+282
+00:03:11,920 --> 00:03:16,090
+I'm going to change the title. So I'm going to set it to, um,
+
+283
+00:03:16,420 --> 00:03:19,090
+Quizzler which is going to be the name of this app.
+
+284
+00:03:19,960 --> 00:03:23,470
+We can continued like this inside the init function,
+
+285
+00:03:23,800 --> 00:03:28,510
+which remember, is going to be called whenever we create a new object from this
+
+286
+00:03:28,510 --> 00:03:29,343
+class.
+
+287
+00:03:29,590 --> 00:03:34,590
+This is where we're also going to have our self.window.mainloop
+
+288
+00:03:36,340 --> 00:03:41,080
+and that will set our program to run. In order to test this,
+
+289
+00:03:41,140 --> 00:03:43,180
+we're going to go back to our main.py
+
+290
+00:03:43,570 --> 00:03:46,000
+and we're going to import that class.
+
+291
+00:03:46,180 --> 00:03:49,870
+So from ui import the QuizInterface,
+
+292
+00:03:50,290 --> 00:03:53,650
+and then we're going to create that QuizInterface down here.
+
+293
+00:03:55,210 --> 00:03:57,010
+I'm going to call it the quiz_ui
+
+294
+00:03:57,550 --> 00:04:01,990
+and it's going to be initialized from our quiz interface. Now,
+
+295
+00:04:02,020 --> 00:04:04,360
+if you remember, when we first learned about 
+
+296
+00:04:04,360 --> 00:04:09,360
+tkinter I told you that tkinter works by having this endless loop
+
+297
+00:04:10,810 --> 00:04:13,090
+essentially that's called the main loop.
+
+298
+00:04:13,900 --> 00:04:16,630
+And this is a bit like a never ending while loop.
+
+299
+00:04:16,899 --> 00:04:21,130
+It's constantly checking to see if it needs to update something in the graphical
+
+300
+00:04:21,130 --> 00:04:25,810
+user interface, or if the user has interacted with it in some sort of way.
+
+301
+00:04:26,410 --> 00:04:31,270
+So it will get confused if you have another while loop somewhere near it.
+
+302
+00:04:31,840 --> 00:04:34,060
+So we actually have to comment out this while loop
+
+303
+00:04:34,420 --> 00:04:38,560
+if we want this user interface to work properly. Now,
+
+304
+00:04:38,590 --> 00:04:40,810
+whenever we want to test out our UI,
+
+305
+00:04:40,840 --> 00:04:44,200
+all we have to do is to run our main.py.
+
+306
+00:04:44,860 --> 00:04:46,570
+And once it hits this line,
+
+307
+00:04:46,600 --> 00:04:51,340
+it's going to create a new object from our QuizInterface over here.
+
+308
+00:04:51,850 --> 00:04:55,090
+And once it does that, it's going to hit the init method
+
+309
+00:04:55,420 --> 00:04:57,310
+and it's going to create our new GUI.
+
+310
+00:04:57,940 --> 00:05:01,540
+You can continue coding up your user interface inside this init
+
+311
+00:05:01,840 --> 00:05:03,880
+and it will work just as it did before
+
+312
+00:05:04,030 --> 00:05:08,680
+when you created just a very simple tkinter graphical user interface
+
+313
+00:05:08,710 --> 00:05:12,100
+application. Here comes the challenging part.
+
+314
+00:05:12,670 --> 00:05:15,790
+I want you to create this particular user interface,
+
+315
+00:05:16,300 --> 00:05:21,300
+and I've created a slide that shows you all of the padding, the sizing,
+
+316
+00:05:21,610 --> 00:05:23,980
+the fonts, the background color,
+
+317
+00:05:24,010 --> 00:05:26,440
+and all of the components that go onto this screen.
+
+318
+00:05:27,070 --> 00:05:31,840
+I want you to pause the video here and see if you can create this user interface
+
+319
+00:05:32,050 --> 00:05:35,380
+inside the init method of the quiz interface class.
+
+320
+00:05:36,070 --> 00:05:38,020
+Pause the video now and give that a go.
+
+321
+00:05:38,130 --> 00:05:38,963
+Okay.
+
+322
+00:05:42,780 --> 00:05:43,200
+All right.
+
+323
+00:05:43,200 --> 00:05:46,770
+So we're going to continue where we left off here inside the init method.
+
+324
+00:05:47,190 --> 00:05:50,160
+And we already started off our window property
+
+325
+00:05:50,190 --> 00:05:53,100
+so we're going to continue making that a little bit better.
+
+326
+00:05:53,490 --> 00:05:56,940
+So we're going to call the config method on this self.window,
+
+327
+00:05:57,350 --> 00:06:02,210
+and we're going to change the padx and the pady so that we add 20 pixels
+
+328
+00:06:02,210 --> 00:06:05,420
+of padding on all four sites. Now,
+
+329
+00:06:05,450 --> 00:06:08,180
+the next thing I want to configure is the background color.
+
+330
+00:06:08,540 --> 00:06:10,280
+And as I mentioned in this slide,
+
+331
+00:06:10,520 --> 00:06:13,610
+we're going to use this theme color that I've already provided here,
+
+332
+00:06:13,940 --> 00:06:16,070
+which is a nice sort of midnight blue.
+
+333
+00:06:16,580 --> 00:06:19,040
+So I'm going to tap into the background attribute
+
+334
+00:06:19,130 --> 00:06:22,700
+and I'm going to set it to this theme color. Now,
+
+335
+00:06:22,730 --> 00:06:25,130
+if we go ahead and run our main file,
+
+336
+00:06:25,490 --> 00:06:28,550
+then we can see our user interface show up.
+
+337
+00:06:30,830 --> 00:06:32,720
+And it's now got the background color
+
+338
+00:06:32,900 --> 00:06:34,940
+and it's a little bit bigger because of the padding.
+
+339
+00:06:35,870 --> 00:06:39,800
+The next step is to create this label up here,
+
+340
+00:06:39,860 --> 00:06:42,320
+which is just a very simple text label.
+
+341
+00:06:42,950 --> 00:06:46,730
+So let's go ahead and create it as a property of this class.
+
+342
+00:06:47,000 --> 00:06:48,890
+So I'm going to call it the score label,
+
+343
+00:06:49,400 --> 00:06:53,690
+and I'm going to create it from the label class of tkinter. I'm going to set
+
+344
+00:06:53,690 --> 00:06:56,300
+the text as just Score: 0.
+
+345
+00:06:57,020 --> 00:07:00,050
+And I'm going to change the color of this text,
+
+346
+00:07:00,080 --> 00:07:03,410
+which is the foreground, to white.
+
+347
+00:07:03,710 --> 00:07:07,580
+That way it will actually be able to show up on this dark background.
+
+348
+00:07:08,510 --> 00:07:10,790
+Now, in order for this label to show up, we,
+
+349
+00:07:10,790 --> 00:07:13,040
+of course, have to give it some sort of layout.
+
+350
+00:07:13,340 --> 00:07:18,020
+So we're going to use the grid and I'm going to set the row to zero
+
+351
+00:07:18,050 --> 00:07:21,980
+cause it's the very top, and then the column to one.
+
+352
+00:07:22,490 --> 00:07:26,720
+So this way it sticks to the right. At this point when we run it,
+
+353
+00:07:26,750 --> 00:07:28,460
+because there is no column zero,
+
+354
+00:07:28,760 --> 00:07:32,390
+it's still going to be just showing up on the screen on the left.
+
+355
+00:07:33,200 --> 00:07:38,200
+And it's also got a white background making it impossible to see the white text.
+
+356
+00:07:39,320 --> 00:07:44,030
+Let's go ahead and change the background of this label to the same theme color.
+
+357
+00:07:44,570 --> 00:07:48,890
+And that way, when we run it, we actually see our label with its white text.
+
+358
+00:07:49,880 --> 00:07:54,050
+That's the label done. And the next step is to create our canvas.
+
+359
+00:07:54,470 --> 00:07:59,470
+Remember that our canvas is really useful because it allows us to layer lots of
+
+360
+00:07:59,540 --> 00:08:00,470
+things on top of it.
+
+361
+00:08:01,220 --> 00:08:05,120
+And we can also set its background and size very easily.
+
+362
+00:08:05,630 --> 00:08:09,890
+So we're going to create this canvas from the canvas class and straight away,
+
+363
+00:08:09,890 --> 00:08:11,660
+I'm going to set the width and height.
+
+364
+00:08:12,020 --> 00:08:17,020
+So the width is going to be 300 and the height is going to be 250
+
+365
+00:08:19,490 --> 00:08:23,600
+as we specified in the slide here. In addition,
+
+366
+00:08:23,600 --> 00:08:28,600
+I'm going to change the background color to white so that it stands out almost
+
+367
+00:08:28,610 --> 00:08:33,610
+like a card on the background. After I've created my canvas,
+
+368
+00:08:33,740 --> 00:08:38,090
+I'm going to add some question_text onto the canvas.
+
+369
+00:08:38,299 --> 00:08:43,299
+So I'm going to create this as the self.canvas.create_text
+
+370
+00:08:44,750 --> 00:08:48,860
+and this is going to have a single attribute called text,
+
+371
+00:08:49,400 --> 00:08:54,400
+and I'm going to set the text to say Some Question Text.
+
+372
+00:08:55,110 --> 00:08:58,170
+So we don't actually have that at the moment. We'll just put in a placeholder.
+
+373
+00:08:59,040 --> 00:09:02,610
+And if you want to, you can actually change the fill color of this text
+
+374
+00:09:02,640 --> 00:09:06,090
+which is the color of the text to the theme color as well
+
+375
+00:09:06,210 --> 00:09:09,450
+just to make it all matchy matchy. Now, finally,
+
+376
+00:09:09,480 --> 00:09:13,290
+we're going to put our canvas onto the screen by giving it a grid.
+
+377
+00:09:13,890 --> 00:09:18,540
+And this time we're going to set the row to one, so below the score label,
+
+378
+00:09:18,990 --> 00:09:21,390
+and then the column I'm going to set it to zero.
+
+379
+00:09:21,810 --> 00:09:26,810
+But then I'm going to set the column span to two so that it starts at column
+
+380
+00:09:27,210 --> 00:09:31,200
+zero and spans two columns to column one.
+
+381
+00:09:31,620 --> 00:09:33,630
+So now when I run this code,
+
+382
+00:09:33,780 --> 00:09:37,710
+I actually get an error and the error is super obscure.
+
+383
+00:09:37,980 --> 00:09:41,520
+Tells me tuple index out of range. Now, if you remember
+
+384
+00:09:41,520 --> 00:09:43,050
+when we worked with tkinter,
+
+385
+00:09:43,080 --> 00:09:46,470
+whenever we add an image or we add something to the canvas,
+
+386
+00:09:46,800 --> 00:09:51,300
+we always have to provide a position as the first two arguments.
+
+387
+00:09:51,840 --> 00:09:56,700
+And that is the tuple that represents the X and Y position of the text.
+
+388
+00:09:57,000 --> 00:09:58,920
+We have to make sure that we don't forget that.
+
+389
+00:09:59,370 --> 00:10:01,500
+So the first value is going to be the X,
+
+390
+00:10:01,530 --> 00:10:05,160
+so that's going to be half of the width so that it's centered on the canvas.
+
+391
+00:10:05,490 --> 00:10:07,920
+So that's 150, half of 300.
+
+392
+00:10:08,280 --> 00:10:13,050
+And then the Y is going to be half of 250, which is going to be 125.
+
+393
+00:10:14,430 --> 00:10:15,900
+Now, if we run this again,
+
+394
+00:10:15,930 --> 00:10:20,930
+hopefully we won't encounter the same error and you can now see this card show
+
+395
+00:10:21,480 --> 00:10:24,330
+up and our label show up on the right,
+
+396
+00:10:24,360 --> 00:10:28,920
+because its in the second column and this is the first column and this canvas
+
+397
+00:10:28,950 --> 00:10:33,450
+spans both columns. Now this text is a little bit small,
+
+398
+00:10:33,450 --> 00:10:38,400
+so let's take a look at the slide and see what we need to change it to.
+
+399
+00:10:38,820 --> 00:10:42,810
+So we want it to be arial font, 20 point size and italic.
+
+400
+00:10:43,800 --> 00:10:48,800
+Let's go ahead and add that to our text. And because its getting a little bit
+
+401
+00:10:48,960 --> 00:10:49,680
+crammed in here,
+
+402
+00:10:49,680 --> 00:10:54,680
+I'm actually going to put this on two separate lines just so I can read it a
+
+403
+00:10:54,810 --> 00:10:56,790
+little bit easier like this.
+
+404
+00:10:58,530 --> 00:11:03,530
+Now we can add that font argument and we're going to set it to a tuple with the
+
+405
+00:11:03,570 --> 00:11:05,520
+first item being the name of the font
+
+406
+00:11:05,910 --> 00:11:07,770
+and then the second is the size of the font
+
+407
+00:11:07,950 --> 00:11:11,940
+and finally we'll also make the text italic as well.
+
+408
+00:11:12,450 --> 00:11:16,770
+So now lets run that again and you'll see the text is now much bigger and its been
+
+409
+00:11:16,770 --> 00:11:21,770
+formatted in the way that we wanted it to. The next thing we want to do is to
+
+410
+00:11:21,930 --> 00:11:25,950
+add a bit of padding between this canvas and the score.
+
+411
+00:11:26,400 --> 00:11:31,170
+So we want to add 50 points of padding here and probably 50 here as well
+
+412
+00:11:31,170 --> 00:11:36,030
+just to push everything a little bit further away from each other. To do that
+
+413
+00:11:36,390 --> 00:11:41,390
+all we have to do is the tap into the canvas grid and then add a single pady.
+
+414
+00:11:42,630 --> 00:11:45,330
+We don't want to add any more padding on the X axis.
+
+415
+00:11:45,390 --> 00:11:50,040
+The original 20 is enough from the window. But we want to add 50
+
+416
+00:11:50,250 --> 00:11:55,250
+so that this way the canvas has some padding on the top and the bottom like this. And it
+
+417
+00:11:56,380 --> 00:11:59,290
+now looks a little bit more spaced out and easier to read.
+
+418
+00:12:00,370 --> 00:12:01,990
+That's pretty much the canvas done.
+
+419
+00:12:02,230 --> 00:12:04,840
+The last thing we need to add are the two buttons.
+
+420
+00:12:05,170 --> 00:12:09,910
+So we'll add a true button and a false button,
+
+421
+00:12:09,970 --> 00:12:14,970
+both created from the button class and neither of them are going to have to any
+
+422
+00:12:15,580 --> 00:12:16,413
+text.
+
+423
+00:12:16,420 --> 00:12:21,420
+Instead we're going to create a true_image from the PhotoImage class,
+
+424
+00:12:22,420 --> 00:12:25,750
+tapping into the file that comes from this folder.
+
+425
+00:12:26,230 --> 00:12:30,460
+So it's images/true.png.
+
+426
+00:12:31,060 --> 00:12:34,990
+And that is the image that we're going to slot in to this button.
+
+427
+00:12:35,850 --> 00:12:36,683
+Right.
+
+428
+00:12:38,130 --> 00:12:39,090
+Now. In addition,
+
+429
+00:12:39,090 --> 00:12:43,680
+I'm going to set the highlightthickness to zero. This way
+
+430
+00:12:43,680 --> 00:12:46,620
+it doesn't have that weird, awkward border around the button.
+
+431
+00:12:47,430 --> 00:12:52,430
+And I'm also going to put this button onto the screen using the grid method.
+
+432
+00:12:53,220 --> 00:12:55,830
+So now we're onto a row two,
+
+433
+00:12:55,950 --> 00:12:59,580
+so below the canvas, and the column
+
+434
+00:12:59,610 --> 00:13:04,140
+we're going to set it to column zero. Now, depending on what you prefer,
+
+435
+00:13:04,140 --> 00:13:07,620
+you can have the true button on the left or the true button on the right.
+
+436
+00:13:07,890 --> 00:13:11,070
+It doesn't really matter cause it's so big and it's quite easy for the user to
+
+437
+00:13:11,070 --> 00:13:15,060
+see. I'm going to set it on the left, so column zero.
+
+438
+00:13:15,270 --> 00:13:20,220
+And when I run this code, you can see that show up. So using the same method,
+
+439
+00:13:20,250 --> 00:13:22,350
+I'm going to create the false button.
+
+440
+00:13:28,200 --> 00:13:28,950
+Right.
+
+441
+00:13:28,950 --> 00:13:33,870
+Now we have a true and a false button and we pretty much have our final user
+
+442
+00:13:33,870 --> 00:13:36,930
+interface completed. Now,
+
+443
+00:13:37,080 --> 00:13:41,250
+one of the things you see here is almost everything that I've created inside my
+
+444
+00:13:41,250 --> 00:13:42,030
+init,
+
+445
+00:13:42,030 --> 00:13:47,030
+I've given it the 'self.' And remember from our lessons on OOP, this turns
+
+446
+00:13:48,270 --> 00:13:52,590
+this into a property which can be accessed anywhere in the class.
+
+447
+00:13:53,130 --> 00:13:57,060
+Now, some other things like the true image and the false image,
+
+448
+00:13:57,360 --> 00:14:01,050
+I've not done that for because we're not going to use it anywhere else
+
+449
+00:14:01,290 --> 00:14:04,050
+other than to set up our button right here.
+
+450
+00:14:04,770 --> 00:14:09,180
+This, hopefully, will be a good review of what we learned about Object Oriented
+
+451
+00:14:09,180 --> 00:14:14,180
+Programming and classes and objects as well as tkinter and all of the new stuff
+
+452
+00:14:14,820 --> 00:14:18,660
+around APIs. But this completes the user interface
+
+453
+00:14:18,930 --> 00:14:21,210
+and we're now ready to head over to the next lesson
+
+454
+00:14:21,310 --> 00:14:24,840
+where we're going to fill some text into this question area.
+
+455
+00:14:25,140 --> 00:14:27,810
+So for all of that and more, I'll see you there.
+
+
+456
+00:00:00,300 --> 00:00:02,670
+Now that we've sorted out the user interface,
+
+457
+00:00:02,730 --> 00:00:07,730
+the next step is to populate this with some questions that we got from our API
+
+458
+00:00:09,510 --> 00:00:10,343
+call.
+
+459
+00:00:10,590 --> 00:00:15,590
+So everything in our program is linked and the place where we get hold of the
+
+460
+00:00:15,930 --> 00:00:20,250
+next question is inside our quiz_brain. At the moment,
+
+461
+00:00:20,250 --> 00:00:24,150
+the quiz_brain, when this method next_question is called,
+
+462
+00:00:24,450 --> 00:00:28,830
+will find the current question from the list of questions that it gets from
+
+463
+00:00:28,830 --> 00:00:33,600
+data.py, and then it will serve it up in a input.
+
+464
+00:00:34,110 --> 00:00:35,430
+This is what used to happen,
+
+465
+00:00:35,430 --> 00:00:38,970
+at least, when we were still making our text-based quiz app.
+
+466
+00:00:39,540 --> 00:00:40,440
+But in this case,
+
+467
+00:00:40,470 --> 00:00:45,470
+we actually want to be able to output that question text and then get hold of it
+
+468
+00:00:46,440 --> 00:00:48,510
+inside our ui.py.
+
+469
+00:00:49,770 --> 00:00:54,770
+So let's update our quiz_brain so that this question is returned as an output.
+
+470
+00:00:56,790 --> 00:01:01,440
+I'm gonna comment out this part of the code where we check the user answer
+
+471
+00:01:01,470 --> 00:01:05,640
+because we no longer get a user answer from the input. Instead,
+
+472
+00:01:05,700 --> 00:01:09,840
+we're going to take this question_text and the question_number
+
+473
+00:01:10,020 --> 00:01:12,480
+and we're going to serve it up as the output.
+
+474
+00:01:12,810 --> 00:01:16,080
+So let's go ahead and return this entire string.
+
+475
+00:01:19,170 --> 00:01:21,510
+And we can comment out this line of code.
+
+476
+00:01:22,440 --> 00:01:24,900
+Now inside our ui.py,
+
+477
+00:01:25,020 --> 00:01:30,000
+we can call that method and put it onto this piece of text in the canvas.
+
+478
+00:01:30,630 --> 00:01:34,830
+Let's create a method in here, which we'll call get_
+
+479
+00:01:35,010 --> 00:01:37,650
+_next_question.
+
+480
+00:01:38,430 --> 00:01:43,430
+And this method is going to tap into the quiz_brain and call this next_question.
+
+481
+00:01:45,960 --> 00:01:50,960
+So how do we get hold of the same quiz brain that we create in our main.py?
+
+482
+00:01:51,900 --> 00:01:52,140
+Well,
+
+483
+00:01:52,140 --> 00:01:57,140
+we could pass it in when we create our quiz UI as an input.
+
+484
+00:01:57,660 --> 00:01:59,100
+So this quiz,
+
+485
+00:01:59,130 --> 00:02:03,870
+which is creative from the quiz brain, can be passed into the quiz interface. And
+
+486
+00:02:03,870 --> 00:02:06,600
+to catch it, all we have to do is just to
+
+487
+00:02:06,600 --> 00:02:09,330
+add another parameter in our init
+
+488
+00:02:10,199 --> 00:02:11,700
+which we'll call the quiz brain.
+
+489
+00:02:12,300 --> 00:02:16,230
+And then we can create a property called the quiz
+
+490
+00:02:16,560 --> 00:02:20,610
+and we can set that equal to the quiz brain that we receive when we initialize
+
+491
+00:02:20,880 --> 00:02:22,590
+this new quiz interface.
+
+492
+00:02:24,570 --> 00:02:28,260
+So now when we have our get next question being called,
+
+493
+00:02:28,530 --> 00:02:31,020
+we're going to tap into the self.quiz,
+
+494
+00:02:31,410 --> 00:02:34,590
+and then we're going to call the method quiz_
+
+495
+00:02:34,710 --> 00:02:39,390
+_next_question. Now notice how as I'm typing,
+
+496
+00:02:39,420 --> 00:02:41,370
+you don't actually get anything showing up.
+
+497
+00:02:41,850 --> 00:02:46,350
+And the reason for this is because even though we're passing in that quiz brain
+
+498
+00:02:46,500 --> 00:02:49,560
+into here through the init, this file
+
+499
+00:02:49,560 --> 00:02:53,910
+doesn't actually know what is the datatype of this particular object that's
+
+500
+00:02:53,910 --> 00:02:54,840
+being passed in.
+
+501
+00:02:55,530 --> 00:03:00,430
+So one of the things that you can do is actually to add the datatype when you
+
+502
+00:03:00,430 --> 00:03:02,470
+create it as a parameter.
+
+503
+00:03:02,950 --> 00:03:07,090
+So we could say that this quiz brain thing that's going to be passed in must be
+
+504
+00:03:07,120 --> 00:03:11,020
+of data type quiz brain. And in order for that to work,
+
+505
+00:03:11,050 --> 00:03:13,270
+we need to import it. So from quiz
+
+506
+00:03:13,270 --> 00:03:17,380
+brain import the quiz brain class.
+
+507
+00:03:17,740 --> 00:03:21,790
+And now we can declare that when we initialize a new quiz interface,
+
+508
+00:03:22,060 --> 00:03:25,030
+we must pass in a quiz brain object
+
+509
+00:03:25,300 --> 00:03:29,740
+which is of the data type quiz brain. And once we've done that
+
+510
+00:03:29,800 --> 00:03:31,150
+and we've ensured this,
+
+511
+00:03:31,300 --> 00:03:35,020
+then when we try to initialize this and we try to pass on something else,
+
+512
+00:03:35,290 --> 00:03:38,440
+let's say I try to pass in the question bank
+
+513
+00:03:39,250 --> 00:03:43,960
+then this is going to give me a error and you can see it says expected type quiz
+
+514
+00:03:43,960 --> 00:03:46,060
+brain, but instead got a list.
+
+515
+00:03:46,990 --> 00:03:49,810
+So this also ensures that we don't make any mistakes
+
+516
+00:03:49,870 --> 00:03:51,910
+when we initialize the quiz interface.
+
+517
+00:03:52,600 --> 00:03:56,710
+Coming back to here and scrolling down, now, at this point
+
+518
+00:03:56,740 --> 00:03:59,050
+once we know the data type of quiz,
+
+519
+00:03:59,320 --> 00:04:02,620
+then we can start typing next question. And you can see,
+
+520
+00:04:02,830 --> 00:04:06,070
+it shows up all of the methods that are available to the quiz brain
+
+521
+00:04:06,070 --> 00:04:10,630
+object. We know that this is going to give us the output,
+
+522
+00:04:10,630 --> 00:04:15,310
+so this is the question text. And once we get that,
+
+523
+00:04:15,370 --> 00:04:17,560
+then we want to update our canvas.
+
+524
+00:04:17,589 --> 00:04:22,590
+So what's tap into our self.canvas and then call the item config method to
+
+525
+00:04:24,190 --> 00:04:28,210
+change the item, which is our self.question_text.
+
+526
+00:04:30,910 --> 00:04:33,460
+And the thing we want to change about it is the text
+
+527
+00:04:33,580 --> 00:04:37,300
+and we wanna set it to this q_text that we got from here.
+
+528
+00:04:39,100 --> 00:04:39,430
+Now,
+
+529
+00:04:39,430 --> 00:04:43,420
+all that's left to do is to actually call this method and we have to do it
+
+530
+00:04:43,720 --> 00:04:47,380
+in our init so that when we first initialize our user interface,
+
+531
+00:04:47,710 --> 00:04:51,250
+we don't end up seeing this Some Question Text. Instead,
+
+532
+00:04:51,250 --> 00:04:54,580
+we actually fetch the first question from our list of questions.
+
+533
+00:04:55,090 --> 00:04:58,720
+But remember that everything has to go before the main loop
+
+534
+00:04:59,050 --> 00:05:03,520
+because all the code you write after this line is not going to be executed until
+
+535
+00:05:03,520 --> 00:05:04,990
+that window gets destroyed.
+
+536
+00:05:05,710 --> 00:05:10,510
+So let's put it here and we can call self.get_next_question.
+
+537
+00:05:10,870 --> 00:05:12,670
+And now if we run our code,
+
+538
+00:05:14,440 --> 00:05:17,170
+you can see that instead of some dummy text,
+
+539
+00:05:17,200 --> 00:05:20,020
+we're actually getting a real question here.
+
+540
+00:05:20,500 --> 00:05:23,560
+The only problem is that it's not fully visible.
+
+541
+00:05:24,100 --> 00:05:28,270
+One of the tricks that we can use is to get the text in the canvas
+
+542
+00:05:28,330 --> 00:05:33,330
+to wrap by setting the text width property. Back up here
+
+543
+00:05:34,510 --> 00:05:38,050
+where we created our question_text, we can add 
+
+544
+00:05:38,050 --> 00:05:40,360
+another argument which is called width.
+
+545
+00:05:40,900 --> 00:05:45,900
+And if we set that width to some value that is maybe a little bit less than the
+
+546
+00:05:46,810 --> 00:05:47,980
+width of the canvas,
+
+547
+00:05:48,400 --> 00:05:52,960
+then this question_text is automatically going to go on two separate lines.
+
+548
+00:05:53,590 --> 00:05:57,800
+I'm going to set it to 280 so that it's a little bit less than 300.
+
+549
+00:05:58,220 --> 00:06:02,960
+So that way there's a little bit of padding, either side. And now if I hit run,
+
+550
+00:06:03,200 --> 00:06:08,200
+you can see the question now fits into the actual piece of card. There you have
+
+551
+00:06:09,470 --> 00:06:13,610
+it. We've now created our get next question method
+
+552
+00:06:13,880 --> 00:06:17,930
+which is able to fetch the question text from the quiz brain
+
+553
+00:06:18,230 --> 00:06:22,070
+by returning the question text that it got. Now,
+
+554
+00:06:22,100 --> 00:06:27,100
+we still have our principles of Object Oriented Programming maintained where
+
+555
+00:06:27,140 --> 00:06:30,170
+each module is responsible for its own thing.
+
+556
+00:06:30,470 --> 00:06:34,820
+So the quiz brain is responsible for managing the quiz, getting questions,
+
+557
+00:06:35,000 --> 00:06:38,660
+keeping track of score, and our user interface
+
+558
+00:06:38,660 --> 00:06:43,130
+or our quiz interface class is responsible for putting those things onto the
+
+559
+00:06:43,130 --> 00:06:46,310
+screen to be displayed. In the next lesson,
+
+560
+00:06:46,370 --> 00:06:49,430
+we're going to take a closer look at Python type hints.
+
+561
+00:06:49,700 --> 00:06:52,880
+And then afterwards, we'll figure out how to get our buttons working.
+
+562
+00:06:53,120 --> 00:06:55,940
+So for all of that and more, I'll see you on the next lesson.
+
+
+563
+00:00:00,090 --> 00:00:03,420
+A long time ago, we've talked about Python data types.
+
+564
+00:00:03,540 --> 00:00:08,370
+So the data types that we've been working with include things like integers,
+
+565
+00:00:08,610 --> 00:00:12,180
+strings, floating point numbers and booleans.
+
+566
+00:00:12,720 --> 00:00:16,980
+And we've seen how you can interchange between different data types by casting.
+
+567
+00:00:17,460 --> 00:00:21,780
+And we've also seen that in Python, the data types are flexible.
+
+568
+00:00:21,780 --> 00:00:25,800
+So you could create a variable and then change its data type later on.
+
+569
+00:00:26,220 --> 00:00:27,990
+This is known as dynamic typing.
+
+570
+00:00:28,890 --> 00:00:32,790
+Now I want to show you another thing that you can do with data types to make
+
+571
+00:00:32,790 --> 00:00:34,530
+your code less error prone.
+
+572
+00:00:35,160 --> 00:00:39,900
+Let's say that we were to create a variable, for example, a variable called age.
+
+573
+00:00:40,020 --> 00:00:42,720
+Now, normally we would set it with an equal sign.
+
+574
+00:00:43,140 --> 00:00:48,140
+But you can also simply declare its data type and then leave it as is.
+
+575
+00:00:48,750 --> 00:00:51,210
+So this means that later on, at some point,
+
+576
+00:00:51,240 --> 00:00:55,140
+once you've actually gotten the age of from the user or you've worked it out,
+
+577
+00:00:55,410 --> 00:01:00,390
+then at that point, you can set it. And this age now has to match
+
+578
+00:01:00,390 --> 00:01:02,850
+the data type over here. So for example,
+
+579
+00:01:02,850 --> 00:01:07,850
+if I was to change this to 12 using a string, then you can see that my 
+
+580
+00:01:08,430 --> 00:01:08,910
+PyCharm,
+
+581
+00:01:08,910 --> 00:01:13,910
+my IDE, is now being very helpful in telling me that this age thing ages ago
+
+582
+00:01:13,950 --> 00:01:18,060
+when you created it, you said it should be an integer. Instead, I got a string.
+
+583
+00:01:18,600 --> 00:01:23,010
+So this is quite helpful. You can do this with all of the basic data types.
+
+584
+00:01:23,010 --> 00:01:27,870
+So for example, age is an int, name is a string,
+
+585
+00:01:28,710 --> 00:01:33,710
+height is a float and is_human is a boolean.
+
+586
+00:01:34,800 --> 00:01:39,800
+Now we can also specify the data type inside a function.
+
+587
+00:01:40,290 --> 00:01:41,490
+So for example,
+
+588
+00:01:41,490 --> 00:01:46,490
+if I was to create a function here called a police_check and it took the age as
+
+589
+00:01:47,850 --> 00:01:52,800
+an input, and then inside the police_check function, I would check well,
+
+590
+00:01:52,800 --> 00:01:55,170
+if the age is over 18,
+
+591
+00:01:55,470 --> 00:02:00,060
+then maybe we would have some sort of variable called can_drive and we could set
+
+592
+00:02:00,060 --> 00:02:01,050
+that to true.
+
+593
+00:02:01,650 --> 00:02:05,070
+But otherwise, we can set that to false
+
+594
+00:02:05,630 --> 00:02:06,463
+right?
+
+595
+00:02:07,880 --> 00:02:10,669
+Now, we're going to return this as the output.
+
+596
+00:02:11,510 --> 00:02:15,860
+So now at some point we can call our police_check function,
+
+597
+00:02:15,920 --> 00:02:19,550
+pass in the age and if we print this out,
+
+598
+00:02:19,730 --> 00:02:24,260
+you can see that it's going to give me false for age 12.
+
+599
+00:02:24,710 --> 00:02:29,120
+And if I decide to say I'm 19, well, then we get true.
+
+600
+00:02:29,810 --> 00:02:34,810
+We can actually use the output from this function to create a print statement,
+
+601
+00:02:35,390 --> 00:02:36,223
+for example.
+
+602
+00:02:38,420 --> 00:02:42,980
+So if the police check passes, then the policeman tells you, you may pass.
+
+603
+00:02:43,370 --> 00:02:46,700
+Otherwise you might have to pay a fine or spend a night in jail.
+
+604
+00:02:47,150 --> 00:02:48,500
+So this is our function
+
+605
+00:02:49,100 --> 00:02:52,220
+and if we were to use this function
+
+606
+00:02:52,220 --> 00:02:54,140
+police_check at some point
+
+607
+00:02:54,380 --> 00:02:59,240
+way down the line where we've forgotten what we created for this function
+
+608
+00:02:59,530 --> 00:03:03,250
+and we can't look it up very easily without scrolling up hundreds of lines of
+
+609
+00:03:03,250 --> 00:03:08,020
+code, now, if at this point we've mistaken the input type
+
+610
+00:03:08,080 --> 00:03:11,920
+and we put in, for example, 12 as a string,
+
+611
+00:03:12,250 --> 00:03:16,810
+then this is actually going to give us a type error and it throws an exception
+
+612
+00:03:16,840 --> 00:03:17,470
+crashing our
+
+613
+00:03:17,470 --> 00:03:22,470
+app. One of the ways that we can make our lives a little bit easier is by
+
+614
+00:03:22,480 --> 00:03:27,310
+declaring a type for this input. So we do it in the same way as you see above.
+
+615
+00:03:27,370 --> 00:03:32,370
+We can add a colon and then we can specify the data type of this particular
+
+616
+00:03:32,440 --> 00:03:36,190
+input. So now when we actually write this line of code,
+
+617
+00:03:36,250 --> 00:03:39,610
+you can see immediately we get this part highlighted.
+
+618
+00:03:40,000 --> 00:03:44,680
+And if I hover over it, it tells me that this input expected a datatype
+
+619
+00:03:44,680 --> 00:03:48,130
+that's an integer and instead I gave it a string.
+
+620
+00:03:48,400 --> 00:03:53,290
+So this is a quick hint for us to fix our code before we even run it and get
+
+621
+00:03:53,290 --> 00:03:54,580
+into trouble and create
+
+622
+00:03:54,630 --> 00:03:56,850
+bugs. In addition,
+
+623
+00:03:56,880 --> 00:04:01,880
+you can also specify the data type of the output of a function,
+
+624
+00:04:02,850 --> 00:04:07,740
+and you do that by creating a little arrow with a hyphen and an angle bracket.
+
+625
+00:04:08,310 --> 00:04:13,310
+So now we can say that this particular function is expected to return a boolean
+
+626
+00:04:14,640 --> 00:04:15,473
+data type.
+
+627
+00:04:15,840 --> 00:04:20,839
+And my return statement does in fact comply with this because can_drive can only
+
+628
+00:04:21,240 --> 00:04:25,560
+be true or false. Now, if I forget that this is what I need
+
+629
+00:04:25,650 --> 00:04:29,460
+and at some point I return let's say a string,
+
+630
+00:04:30,570 --> 00:04:33,660
+then also I'm getting this warning highlight here.
+
+631
+00:04:33,720 --> 00:04:37,230
+And when I hover over it again, it's expecting a boolean
+
+632
+00:04:37,290 --> 00:04:39,150
+but instead I'm giving it a string.
+
+633
+00:04:39,840 --> 00:04:42,870
+This is known as a type hint in Python.
+
+634
+00:04:43,320 --> 00:04:46,680
+And it is a feature that we got relatively recently from Python
+
+635
+00:04:47,100 --> 00:04:52,080
+and it has a lot of benefits especially when you want your IDE, for example
+
+636
+00:04:52,080 --> 00:04:52,913
+PyCharm,
+
+637
+00:04:52,980 --> 00:04:57,980
+to help you spot potential bugs and keep your code safer and spend less time
+
+638
+00:04:58,500 --> 00:05:00,480
+debugging and more time writing code.
+
+639
+00:05:01,170 --> 00:05:05,580
+So we've seen how we can declare a data type for a variable like this
+
+640
+00:05:05,910 --> 00:05:10,830
+and we've also seen how we can declare data type for the return type like this.
+
+641
+00:05:11,430 --> 00:05:12,600
+That's all there is to it.
+
+
+642
+00:00:00,390 --> 00:00:01,380
+In the last lesson,
+
+643
+00:00:01,410 --> 00:00:06,330
+we got our quiz app to start displaying the questions that we were getting from
+
+644
+00:00:06,360 --> 00:00:10,560
+our API. This question I landed on is pretty interesting.
+
+645
+00:00:10,650 --> 00:00:13,200
+Nintendo started out as a playing card manufacturer?
+
+646
+00:00:13,560 --> 00:00:16,500
+And I would love to know if that's actually true or false.
+
+647
+00:00:17,070 --> 00:00:20,310
+So I'd really like these buttons to work basically.
+
+648
+00:00:20,700 --> 00:00:22,560
+If I click on one of these buttons,
+
+649
+00:00:22,620 --> 00:00:27,090
+I want to be able to check my answer against the real answer that we got back
+
+650
+00:00:27,090 --> 00:00:31,230
+from our API. So in this lesson, that's what we're going to get to work.
+
+651
+00:00:32,070 --> 00:00:34,020
+So I want this to be a bit of a challenge for you.
+
+652
+00:00:34,560 --> 00:00:39,560
+We know that we can add a command argument to our buttons so that it calls a
+
+653
+00:00:41,490 --> 00:00:46,170
+particular method when it gets pressed. Now, when that method gets pressed,
+
+654
+00:00:46,620 --> 00:00:51,620
+we want to go into our quiz brain and call this check answer.
+
+655
+00:00:52,530 --> 00:00:57,480
+Now this check answer method expects a answer to check against.
+
+656
+00:00:57,840 --> 00:01:02,700
+Have a think about how you might solve this and get this to work so that we can
+
+657
+00:01:02,700 --> 00:01:07,290
+start printing out whether if we got the question right or the question
+
+658
+00:01:07,290 --> 00:01:10,860
+wrong. Pause the video now, and try to complete this challenge.
+
+659
+00:01:10,910 --> 00:01:11,743
+Go. 
+
+660
+00:01:15,950 --> 00:01:17,360
+Okay. Here's the solution.
+
+661
+00:01:18,080 --> 00:01:23,080
+The first thing I'm going to do is create a new method called true_pressed
+
+662
+00:01:26,930 --> 00:01:30,050
+and also a method called a false_pressed.
+
+663
+00:01:31,430 --> 00:01:36,430
+This true_pressed is obviously going to be the one that will be the command for
+
+664
+00:01:37,100 --> 00:01:40,820
+this true button and it's going to be self.
+
+665
+00:01:40,820 --> 00:01:44,900
+true_pressed because we're inside a class and we have to make sure that there's
+
+666
+00:01:44,900 --> 00:01:49,280
+no parentheses at the end of it because we only want to trigger this method
+
+667
+00:01:49,580 --> 00:01:54,530
+when the button actually detects a click. In a similar way,
+
+668
+00:01:54,530 --> 00:01:58,250
+we're going to add a command to the false button and it's going to be
+
+669
+00:01:58,250 --> 00:02:02,360
+self.false_pressed. And again, deleting the parenthesis.
+
+670
+00:02:02,840 --> 00:02:05,210
+And now we can figure out what to do in here.
+
+671
+00:02:05,930 --> 00:02:10,190
+We already have access to our quiz brain object in here
+
+672
+00:02:10,520 --> 00:02:13,700
+which is saved under self.quiz.
+
+673
+00:02:14,210 --> 00:02:16,280
+When either of these gets pressed,
+
+674
+00:02:16,400 --> 00:02:21,400
+then we can simply tap into self.quiz and we can call the check_
+
+675
+00:02:22,190 --> 00:02:24,770
+answer method that exists over there.
+
+676
+00:02:25,310 --> 00:02:29,090
+And we can pass over true when true_pressed is called,
+
+677
+00:02:29,480 --> 00:02:31,880
+and then when false_pressed is called
+
+678
+00:02:31,880 --> 00:02:32,713
+...
+
+679
+00:02:34,760 --> 00:02:38,870
+we'll pass in false. Now it's going to go into this check_answer,
+
+680
+00:02:38,930 --> 00:02:43,040
+pass that answer in and it's going to print out whether if you got it right
+
+681
+00:02:43,220 --> 00:02:45,950
+or whether if you got it wrong. So let's test that out.
+
+682
+00:02:46,400 --> 00:02:51,400
+Let's run the code again and make sure that we don't make any silly typos like
+
+683
+00:02:52,400 --> 00:02:53,300
+comand.
+
+684
+00:02:53,630 --> 00:02:54,463
+Yeah.
+
+685
+00:02:56,330 --> 00:03:00,490
+So let's run our app and see if can answer some questions.
+
+686
+00:03:01,450 --> 00:03:04,570
+Gumbo is a stew that originated in Louisiana.
+
+687
+00:03:05,260 --> 00:03:06,760
+I think that might be true.
+
+688
+00:03:08,590 --> 00:03:10,540
+And when I click on the button,
+
+689
+00:03:10,570 --> 00:03:14,230
+you can see in the console it's printed whether
+
+690
+00:03:14,230 --> 00:03:16,720
+if I got it right or wrong. Now,
+
+691
+00:03:16,720 --> 00:03:21,720
+while our code works and we can see whether we got it right or wrong in the
+
+692
+00:03:22,060 --> 00:03:24,790
+console, that's not something the user will see.
+
+693
+00:03:24,790 --> 00:03:28,120
+This is only something that's available to us as developers.
+
+694
+00:03:28,630 --> 00:03:31,330
+So how can we give the user some feedback?
+
+695
+00:03:31,900 --> 00:03:33,970
+That's what we'll figure out in the next lesson.
+
+
+696
+00:00:00,240 --> 00:00:04,710
+We saw in the last lesson how we could see the feedback in the console.
+
+697
+00:00:05,010 --> 00:00:08,039
+But what if we wanna see the feedback on screen?
+
+698
+00:00:08,730 --> 00:00:12,960
+What I want to be able to happen is when the user taps on true or false
+
+699
+00:00:13,080 --> 00:00:15,990
+as an answer to the question, I want this card,
+
+700
+00:00:16,050 --> 00:00:18,540
+which is our canvas, to give us the feedback.
+
+701
+00:00:18,900 --> 00:00:22,320
+So if I click this and it turns green for a second,
+
+702
+00:00:22,350 --> 00:00:23,580
+then that means I got it right.
+
+703
+00:00:24,000 --> 00:00:26,940
+And then afterwards it goes straight to the next question.
+
+704
+00:00:27,360 --> 00:00:29,760
+And when I get the wrong answer, it should flash red.
+
+705
+00:00:30,990 --> 00:00:35,280
+Instead of getting check_answer in the quiz brain to print out
+
+706
+00:00:35,370 --> 00:00:39,480
+you got it right or you got it wrong, we want it to return true
+
+707
+00:00:39,510 --> 00:00:40,860
+if we actually got it right
+
+708
+00:00:41,100 --> 00:00:44,610
+and to return false when we get it wrong.
+
+709
+00:00:47,400 --> 00:00:51,270
+And we can delete these last two lines of code with the print statements.
+
+710
+00:00:51,990 --> 00:00:56,970
+So now we can catch that when we call each of these methods, check_answer,
+
+711
+00:00:57,270 --> 00:00:59,880
+and check_answer something like this.
+
+712
+00:01:01,320 --> 00:01:05,700
+What we want to happen is we want to check whether if the user got it right or
+
+713
+00:01:05,700 --> 00:01:08,910
+wrong, and depending on that, we'll give them different feedback.
+
+714
+00:01:09,390 --> 00:01:12,300
+So we'll create a new method called it give_feedback
+
+715
+00:01:13,740 --> 00:01:18,740
+and this is going to take input in the form of whether if they got it right or not.
+
+716
+00:01:20,940 --> 00:01:25,020
+Now, all we have to do is to call self.give_feedback
+
+717
+00:01:25,410 --> 00:01:30,150
+and then pass in the output to this method call, like this.
+
+718
+00:01:30,540 --> 00:01:33,750
+And we can delete this line. Alternatively,
+
+719
+00:01:33,750 --> 00:01:35,520
+you can use two lines of code for this
+
+720
+00:01:36,030 --> 00:01:37,980
+and you can pass in the value to this variable.
+
+721
+00:01:38,460 --> 00:01:40,560
+These two lines do exactly the same thing.
+
+722
+00:01:42,000 --> 00:01:45,090
+Once we get into this method, give_feedback, though,
+
+723
+00:01:45,300 --> 00:01:49,650
+we need to change the canvas background to red or green
+
+724
+00:01:49,710 --> 00:01:52,140
+depending on whether the user got it right or wrong.
+
+725
+00:01:52,770 --> 00:01:55,500
+And then after a delay of one second,
+
+726
+00:01:55,530 --> 00:02:00,530
+we need to change it back to white so that we can then go to the next question.
+
+727
+00:02:02,400 --> 00:02:06,120
+You might think that we can simply use something like time.sleep and then
+
+728
+00:02:06,120 --> 00:02:10,889
+sleep for one second. But if you remember from previous lessons on tkinter,
+
+729
+00:02:11,100 --> 00:02:15,750
+we mentioned that we can't mess with the time because we have this main loop
+
+730
+00:02:15,780 --> 00:02:20,490
+going on continuously. So we have to use a tkinter method
+
+731
+00:02:20,640 --> 00:02:24,720
+which is window.after.
+
+732
+00:02:25,680 --> 00:02:30,510
+And here we can set how many milliseconds we want to delay by, so 1000,
+
+733
+00:02:30,870 --> 00:02:33,030
+and then what function we want to call.
+
+734
+00:02:33,870 --> 00:02:38,670
+Have a think about how you might create this give_feedback so that it has
+
+735
+00:02:38,730 --> 00:02:43,710
+this particular functionality where the user gives their answer and if they got
+
+736
+00:02:43,710 --> 00:02:48,060
+it right then it's green and if they get it wrong, then it's red.
+
+737
+00:02:48,840 --> 00:02:51,300
+Pause the video and try to complete this challenge.
+
+738
+00:02:51,770 --> 00:02:52,603
+Go.
+
+739
+00:02:55,910 --> 00:02:56,390
+All right.
+
+740
+00:02:56,390 --> 00:03:01,390
+What we have to first check is whether if this variable that's being passed in, is_
+
+741
+00:03:01,990 --> 00:03:06,670
+right, is actually true or false. If the user got it right,
+
+742
+00:03:06,730 --> 00:03:08,020
+well then in that case,
+
+743
+00:03:08,290 --> 00:03:13,290
+we're going to change the canvas and call config on it
+
+744
+00:03:13,480 --> 00:03:17,560
+to change the background to green. However,
+
+745
+00:03:17,560 --> 00:03:20,170
+if this is false, if they got it wrong,
+
+746
+00:03:20,320 --> 00:03:25,320
+then we're going to change the canvas.config so that the background is red
+
+747
+00:03:26,530 --> 00:03:29,530
+instead. Now, once that's done,
+
+748
+00:03:29,590 --> 00:03:31,720
+then our canvas will be a different color.
+
+749
+00:03:32,080 --> 00:03:36,910
+And then this is where we set up our timer. So after 1000 milliseconds,
+
+750
+00:03:36,940 --> 00:03:40,810
+so one second, we want to go to the next question.
+
+751
+00:03:42,100 --> 00:03:45,880
+So let's go ahead and call self.get_next_question.
+
+752
+00:03:46,420 --> 00:03:50,320
+But in the same way that we can't have the parentheses
+
+753
+00:03:50,350 --> 00:03:54,940
+when we set the command method, when we use this as an input,
+
+754
+00:03:55,180 --> 00:03:59,020
+we also need to get rid of the parentheses. So now
+
+755
+00:03:59,020 --> 00:04:03,250
+if we run this code and I pick an answer,
+
+756
+00:04:03,850 --> 00:04:07,090
+then it goes red when it shows that I've got it wrong.
+
+757
+00:04:07,420 --> 00:04:11,410
+And then after once one second, it goes to the next question. Now,
+
+758
+00:04:11,440 --> 00:04:16,180
+once it goes to the next question, that's where we need to reset our canvas.
+
+759
+00:04:16,450 --> 00:04:21,100
+So if we can say self.canvas and then do the same thing to configure the
+
+760
+00:04:21,100 --> 00:04:26,080
+background back to white. And let's run this again.
+
+761
+00:04:26,440 --> 00:04:29,140
+I can see I got it wrong. And then after one second,
+
+762
+00:04:29,230 --> 00:04:32,260
+it goes back to white and it goes to the next question.
+
+763
+00:04:33,370 --> 00:04:35,020
+And that completes the challenge.
+
+764
+00:04:36,760 --> 00:04:41,470
+So the very last thing that we need to add is our score keeping capabilities.
+
+765
+00:04:42,130 --> 00:04:47,130
+And all we need to do that is to pick out the value of the score from the quiz
+
+766
+00:04:48,340 --> 00:04:52,570
+brain and populate it every time we get the next question.
+
+767
+00:04:53,350 --> 00:04:55,570
+In addition to configuring the canvas,
+
+768
+00:04:55,600 --> 00:05:00,600
+we're going to set the score label's config so that we change the text to
+
+769
+00:05:03,010 --> 00:05:06,940
+the new score. This is going to be a f-string
+
+770
+00:05:07,030 --> 00:05:09,040
+and we're going to say Score:
+
+771
+00:05:09,370 --> 00:05:12,280
+and then we're going to insert the self.quiz,
+
+772
+00:05:12,310 --> 00:05:16,510
+which is the quiz brain object, and we're going to get its current score.
+
+773
+00:05:17,230 --> 00:05:22,120
+Now you can see that every time we score a single point,
+
+774
+00:05:22,390 --> 00:05:24,310
+then that value gets updated,
+
+775
+00:05:26,700 --> 00:05:27,390
+right?
+
+776
+00:05:27,390 --> 00:05:31,350
+Whereas if we get it wrong, then that score doesn't change at all. Now,
+
+777
+00:05:31,350 --> 00:05:35,190
+the thing that we haven't seen yet is what happens when we get to the end of
+
+778
+00:05:35,190 --> 00:05:39,210
+the quiz, because we know that we only have 10 questions.
+
+779
+00:05:39,660 --> 00:05:41,730
+And once we get to the 10th question,
+
+780
+00:05:42,030 --> 00:05:47,030
+you'll see that we actually get an exception thrown: index out of range.
+
+781
+00:05:47,430 --> 00:05:50,550
+And that's because we've reached the end of our quiz,
+
+782
+00:05:50,880 --> 00:05:53,850
+but we're still trying to get hold of the next question.
+
+783
+00:05:55,080 --> 00:06:00,080
+So what we need to do is to check that we can actually get the next question. And
+
+784
+00:06:00,650 --> 00:06:05,540
+to do that, all we need is an if statement tapping into our self.quiz,
+
+785
+00:06:05,570 --> 00:06:07,910
+which is the quiz brain. And here,
+
+786
+00:06:07,940 --> 00:06:12,290
+remember we have a method called still_has_questions
+
+787
+00:06:12,590 --> 00:06:15,470
+which is either true or false. Now,
+
+788
+00:06:15,530 --> 00:06:17,840
+if we still have questions remaining,
+
+789
+00:06:17,990 --> 00:06:21,560
+then we're going to go to the next question. But otherwise,
+
+790
+00:06:21,560 --> 00:06:26,560
+what we're going to do is we're going to update the canvas text so that we
+
+791
+00:06:26,810 --> 00:06:31,810
+change the question text to actually tell the user that they've reached the end
+
+792
+00:06:32,870 --> 00:06:37,670
+of the quiz. Now there's just a few more bugs to iron out.
+
+793
+00:06:38,000 --> 00:06:41,900
+The first one is when we get to the end of our quiz,
+
+794
+00:06:42,350 --> 00:06:44,480
+you can see that it shows up this text
+
+795
+00:06:44,840 --> 00:06:49,310
+but we can still press on these buttons and it changes the background for no
+
+796
+00:06:49,310 --> 00:06:52,700
+reason. So we want to be able to disable these buttons
+
+797
+00:06:52,760 --> 00:06:54,530
+once we reached the end of the quiz
+
+798
+00:06:54,860 --> 00:06:58,610
+and we also want to make sure that the canvas background is actually white
+
+799
+00:06:58,700 --> 00:06:59,533
+again.
+
+800
+00:06:59,630 --> 00:07:04,630
+So let's move this line of code out of the if statement so that no matter what
+
+801
+00:07:05,060 --> 00:07:07,130
+happens when we go to the next question,
+
+802
+00:07:07,160 --> 00:07:11,990
+we always change the canvas background back to white. Now, in addition,
+
+803
+00:07:11,990 --> 00:07:16,220
+we want to disable our true and false buttons. To do that,
+
+804
+00:07:16,310 --> 00:07:20,810
+all we have to do is to tap into a keyword argument called state.
+
+805
+00:07:21,290 --> 00:07:24,950
+And if we change the state of the button to disabled,
+
+806
+00:07:25,280 --> 00:07:30,280
+then this will prevent the buttons from being pressed or activated.
+
+807
+00:07:30,910 --> 00:07:35,910
+[inaudible]
+
+808
+00:07:37,240 --> 00:07:38,380
+There, you have it. Here's
+
+809
+00:07:38,380 --> 00:07:43,380
+a upgraded quiz application that now has a graphical user interface
+
+810
+00:07:43,780 --> 00:07:46,000
+which we can interact with data
+
+811
+00:07:46,000 --> 00:07:51,000
+that's completely generated from random and fetched from the open trivia
+
+812
+00:07:51,370 --> 00:07:52,203
+database.
+
+813
+00:07:52,450 --> 00:07:57,450
+And we can even modify these parameters to change up this quiz to our liking.
+
+814
+00:07:58,420 --> 00:08:02,980
+So for example, if you want to change the category to say computers,
+
+815
+00:08:03,370 --> 00:08:06,040
+then once we generate our API URL,
+
+816
+00:08:06,220 --> 00:08:10,300
+you can see that it adds one other parameter called category,
+
+817
+00:08:10,540 --> 00:08:14,230
+and we can change that to 18. So let's try that.
+
+818
+00:08:16,270 --> 00:08:19,480
+Set the category to the number of 18
+
+819
+00:08:19,960 --> 00:08:21,610
+and now when we run our code,
+
+820
+00:08:21,820 --> 00:08:24,910
+all our questions will be computer science related.
+
+821
+00:08:25,900 --> 00:08:28,570
+So have fun playing with your quiz app
+
+822
+00:08:28,990 --> 00:08:33,429
+and if you've modified your quiz app to make it more interesting or added some
+
+823
+00:08:33,460 --> 00:08:34,293
+other features,
+
+824
+00:08:34,480 --> 00:08:37,720
+then be sure to share it with the rest of us in the Q/A section.
+
+

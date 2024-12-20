@@ -1,0 +1,782 @@
+1
+00:00:00,630 --> 00:00:01,280
+All right, guys.
+
+2
+00:00:01,320 --> 00:00:08,490
+So in this module, we're going to learn all about how to build your very own RESTful API.
+
+3
+00:00:09,180 --> 00:00:15,990
+Now, in previous modules, we've seen and used APIs that other people have created, and we've also
+
+4
+00:00:15,990 --> 00:00:21,170
+started to build up our server to allow get requests and post requests.
+
+5
+00:00:21,570 --> 00:00:27,240
+But in this module, we're going to do it from beginning to end and we're going to build our very own
+
+6
+00:00:27,240 --> 00:00:29,160
+complete RESTful API.
+
+7
+00:00:29,640 --> 00:00:35,430
+Now, the first question you might have is what exactly does REST mean and what does it mean to make
+
+8
+00:00:35,430 --> 00:00:37,100
+an API RESTful,
+
+9
+00:00:37,140 --> 00:00:37,470
+right?
+
+10
+00:00:37,920 --> 00:00:44,850
+Well, REST is not lazing on the couch and watching Netflix, but it actually stands for REpresentational
+
+11
+00:00:44,850 --> 00:00:48,630
+State Transfer, which is quite a mouthful.
+
+12
+00:00:48,630 --> 00:00:54,480
+But in order to understand it, we have to backtrace a little bit and we have to go back to that classic
+
+13
+00:00:54,480 --> 00:00:59,630
+architecture that we already looked at, which is the client and server architecture.
+
+14
+00:00:59,820 --> 00:01:03,840
+And this is the architecture that the entire Internet is pretty much built on.
+
+15
+00:01:04,379 --> 00:01:09,210
+So let's just review it quickly. So the client makes a request to the server.
+
+16
+00:01:09,450 --> 00:01:11,130
+So what exactly is the client?
+
+17
+00:01:11,160 --> 00:01:16,710
+Well, if we were in a restaurant, the client would be, well, the client who's paying for the meal,
+
+18
+00:01:16,710 --> 00:01:17,030
+right?
+
+19
+00:01:17,310 --> 00:01:20,830
+And the server would be the server staff at the restaurant.
+
+20
+00:01:21,390 --> 00:01:27,420
+So when our client makes a request, say, I'd like a pizza please, then the server has to check
+
+21
+00:01:27,420 --> 00:01:30,510
+to see if this is something that the restaurant can fulfill.
+
+22
+00:01:30,780 --> 00:01:35,330
+And if so, he will smile graciously at you and fulfill that request.
+
+23
+00:01:35,670 --> 00:01:41,310
+But if the client requested something that they didn't have, for example, a sausage, and it's not on
+
+24
+00:01:41,310 --> 00:01:48,420
+the menu, then the server would give you a error code, a classic one, of course, being 404, which
+
+25
+00:01:48,420 --> 00:01:50,640
+is resource doesn't exist.
+
+26
+00:01:50,670 --> 00:01:58,280
+We don't stock sausages. Now when the client makes that request to the server classically on the Internet,
+
+27
+00:01:58,290 --> 00:02:04,050
+this is done through a HTTP request, hypertext transfer protocol request.
+
+28
+00:02:04,680 --> 00:02:10,860
+And the analogy for this is it's kind of like the language that you're using to make the request, say
+
+29
+00:02:10,860 --> 00:02:13,110
+you're saying I want a pizza,
+
+30
+00:02:13,110 --> 00:02:13,410
+right?
+
+31
+00:02:13,590 --> 00:02:17,880
+And if you're in France, you would have to say that in French, although I'm not sure what you're doing
+
+32
+00:02:17,880 --> 00:02:22,890
+eating pizzas in France. But the server would be able to understand your request and give you back
+
+33
+00:02:22,890 --> 00:02:24,120
+the correct result.
+
+34
+00:02:24,630 --> 00:02:31,800
+Now, the thing you have to remember is that HTTP, this hypertext transfer protocol, is not the only
+
+35
+00:02:31,800 --> 00:02:34,230
+language that servers can speak,
+
+36
+00:02:34,230 --> 00:02:34,570
+right?
+
+37
+00:02:34,830 --> 00:02:40,830
+Another one that you might have heard of is, for example, the FTP request, which is the file transfer
+
+38
+00:02:40,830 --> 00:02:41,860
+protocol request.
+
+39
+00:02:42,360 --> 00:02:47,340
+So if you use the wrong language, you might not get back the result that you're looking for.
+
+40
+00:02:47,730 --> 00:02:54,810
+So, for example, if a server speaks French in France and you try to speak to him in Italian, that
+
+41
+00:02:54,810 --> 00:02:56,050
+probably won't work.
+
+42
+00:02:56,280 --> 00:03:01,410
+So we have to make sure we've got the right language for making our request.
+
+43
+00:03:01,800 --> 00:03:07,350
+Now, at this point, some students might say, well, what about that other thing that HTTPs
+
+44
+00:03:07,410 --> 00:03:08,550
+request?
+
+45
+00:03:08,820 --> 00:03:09,310
+What does that
+
+46
+00:03:09,310 --> 00:03:10,380
+s stand for,
+
+47
+00:03:10,410 --> 00:03:11,820
+and is it a different language?
+
+48
+00:03:12,210 --> 00:03:16,760
+Well, HTTPs stands for HTTP secure request.
+
+49
+00:03:17,010 --> 00:03:23,700
+So remember that all your requests and responses are going across the Internet and can be potentially
+
+50
+00:03:23,700 --> 00:03:25,670
+tapped in by lots of people.
+
+51
+00:03:25,980 --> 00:03:32,160
+So if you wanted to make it secure so you don't want to be on a website entering your card details and
+
+52
+00:03:32,160 --> 00:03:38,640
+it's just going through, you know, a bog-standard HTTP request because somebody might hijack that
+
+53
+00:03:38,640 --> 00:03:40,970
+along the way and that's not very secure.
+
+54
+00:03:41,130 --> 00:03:45,020
+So we can also use cryptography and encrypt our request
+
+55
+00:03:45,240 --> 00:03:49,980
+so if anybody does intercept the request, they won't be able to know what it says.
+
+56
+00:03:50,550 --> 00:03:54,510
+Now, this is kind of equivalent to having like a secret code language.
+
+57
+00:03:54,870 --> 00:04:01,290
+For example, if both you and your waiter speak Klingon, then you could communicate securely
+
+58
+00:04:01,590 --> 00:04:06,510
+and it doesn't matter if you're overheard in the restaurant because nobody else will be able to understand
+
+59
+00:04:06,690 --> 00:04:09,660
+what you're saying other than yourself and your waiter.
+
+60
+00:04:09,900 --> 00:04:15,690
+Now, let's say that the client has successfully made the request to the server and this is something
+
+61
+00:04:15,690 --> 00:04:18,089
+that the server can serve up,
+
+62
+00:04:18,300 --> 00:04:22,110
+so it sees it as a valid request instead of a 404,
+
+63
+00:04:22,470 --> 00:04:28,020
+then in this case the server should respond with the results of what it is that you requested.
+
+64
+00:04:28,590 --> 00:04:35,160
+So in the restaurant, that might be your pizza. But on the Internet, that might be the web page HTML
+
+65
+00:04:35,370 --> 00:04:39,300
+or resources such as images or data.
+
+66
+00:04:39,570 --> 00:04:44,610
+Now, in order to give us that result, the server might do one of two things.
+
+67
+00:04:44,610 --> 00:04:49,980
+It might do some computation, run some code to work out the result that you need
+
+68
+00:04:50,130 --> 00:04:57,780
+for example, if our server was a simple calculator web application, or the server might need to communicate
+
+69
+00:04:57,780 --> 00:04:59,970
+with our database in order to grab
+
+70
+00:05:00,030 --> 00:05:06,360
+the relevant pieces of data that the client requested. So depending on what kind of request that the
+
+71
+00:05:06,360 --> 00:05:13,320
+client made, what kind of resource they wanted, the server might do one or both of these things.
+
+72
+00:05:13,680 --> 00:05:21,330
+So we've seen that the client has to talk to the server using an HTTP request, a specific language that
+
+73
+00:05:21,330 --> 00:05:22,590
+the server can understand.
+
+74
+00:05:23,130 --> 00:05:28,230
+But also, there's only a certain amount of things that the server can do, right?
+
+75
+00:05:28,440 --> 00:05:34,320
+Say at a restaurant, you would have a menu of items that this particular restaurant would serve.
+
+76
+00:05:34,440 --> 00:05:36,830
+And it's exactly the same on the Internet.
+
+77
+00:05:37,380 --> 00:05:45,030
+The server will have a whole bunch of APIs which are services that it can expose for clients to be able
+
+78
+00:05:45,030 --> 00:05:45,900
+to tap into.
+
+79
+00:05:46,290 --> 00:05:48,300
+And so when we're building an API
+
+80
+00:05:48,300 --> 00:05:54,540
+we're kind of like building the menu of things that our server can respond to when a client makes a
+
+81
+00:05:54,540 --> 00:05:55,140
+request.
+
+82
+00:05:55,470 --> 00:06:02,330
+So now that we understand all three components, what does it mean to make our API RESTful?
+
+83
+00:06:02,970 --> 00:06:07,130
+Well, REST is essentially just an architectural style.
+
+84
+00:06:07,620 --> 00:06:13,830
+So just as you have different buildings that have different architectural styles, for example, the
+
+85
+00:06:13,830 --> 00:06:20,580
+Baroque architectural style with the nice arches or other buildings might be built in the Gothic architectural
+
+86
+00:06:20,580 --> 00:06:24,930
+style with flying buttresses and these imposing beams.
+
+87
+00:06:25,200 --> 00:06:32,100
+And my favorite, the Neoclassical, have these incredibly geometric shapes and columns that really
+
+88
+00:06:32,100 --> 00:06:34,690
+remind you of old Greek architecture.
+
+89
+00:06:35,610 --> 00:06:40,550
+So these are architectural styles for designing buildings.
+
+90
+00:06:40,890 --> 00:06:48,600
+Well, REST is an architectural style for designing APIs, and it's definitely not the only architectural
+
+91
+00:06:48,600 --> 00:06:48,960
+style.
+
+92
+00:06:49,380 --> 00:06:55,800
+So the other really, really popular one before REST became the dominant style was SOAP.
+
+93
+00:06:56,160 --> 00:07:02,280
+And there's also GraphQL or FALCOR and there's a lot of other architectural styles.
+
+94
+00:07:02,550 --> 00:07:06,240
+But the gold standard for Web APIs is REST.
+
+95
+00:07:06,420 --> 00:07:08,370
+So that's what we're going to be looking at.
+
+96
+00:07:08,610 --> 00:07:15,400
+And REST actually came about really quite recently as a part of this guy's Ph.D.
+
+97
+00:07:15,480 --> 00:07:20,580
+This is Roy Fielding and he did his PhD in the University of California.
+
+98
+00:07:20,820 --> 00:07:26,430
+And as a part of his doctorate, he researched and came up with this architectural style that we now
+
+99
+00:07:26,430 --> 00:07:27,240
+call REST.
+
+100
+00:07:27,570 --> 00:07:33,720
+And it proposes a set of rules that web developers could follow when they're building their APIs.
+
+101
+00:07:34,140 --> 00:07:41,430
+And he came up with this idea that all websites across the web would use the same structure for building
+
+102
+00:07:41,430 --> 00:07:42,260
+their APIs.
+
+103
+00:07:42,720 --> 00:07:48,240
+I mean, imagine if you had a whole street and all their buildings had the same layout.
+
+104
+00:07:48,540 --> 00:07:53,220
+For example, the toilets for men and women are always on the same floors, in the same position,
+
+105
+00:07:53,310 --> 00:07:57,750
+then you would never get into a situation where you're trying to find the toilet.
+
+106
+00:07:58,080 --> 00:08:04,200
+So my personal struggles aside, essentially in his Ph.D. he proposed that the Internet could do the
+
+107
+00:08:04,200 --> 00:08:04,740
+same.
+
+108
+00:08:05,010 --> 00:08:11,610
+If every Web API was built using the same common guiding principles, then it would be so easy for everybody
+
+109
+00:08:11,610 --> 00:08:16,890
+to work together and be able to use different APIs quickly, easily, and efficiently.
+
+110
+00:08:17,070 --> 00:08:19,310
+So pretty neat for a PhD project, right?
+
+111
+00:08:19,530 --> 00:08:21,180
+There's definitely some PhD projects
+
+112
+00:08:21,190 --> 00:08:26,370
+that are a lot worse like the guy who had to look into the propulsion parameters of penguin poop.
+
+113
+00:08:26,850 --> 00:08:29,040
+But maybe if you really like penguins, that's OK.
+
+114
+00:08:30,870 --> 00:08:34,500
+So how exactly do we make our API RESTful?
+
+115
+00:08:34,950 --> 00:08:40,890
+Well, there's a lot of rules that an API has to follow to be RESTful.
+
+116
+00:08:41,460 --> 00:08:47,160
+And just as you have rules that you might follow at your workplace or your school, you might have a
+
+117
+00:08:47,160 --> 00:08:51,390
+uniform, no shorts, no singlets, don't smoke in the building,
+
+118
+00:08:52,860 --> 00:08:57,180
+you also have a whole bunch of rules for making an API RESTful.
+
+119
+00:08:57,570 --> 00:09:03,510
+But the two most important ones are using the HTTP request verbs,
+
+120
+00:09:03,630 --> 00:09:14,340
+so using that HTTP request language, and also to use a specific pattern of routes and endpoint URLs.
+
+121
+00:09:15,120 --> 00:09:22,070
+And these two things are probably the most important parts of making your API restful.
+
+122
+00:09:22,080 --> 00:09:24,190
+And we're going to look at each of them in detail.
+
+123
+00:09:24,540 --> 00:09:28,450
+So first, what exactly are the HTTP verbs?
+
+124
+00:09:28,470 --> 00:09:30,160
+Well, you've already seen some of them.
+
+125
+00:09:30,630 --> 00:09:40,020
+First is GET, then is POST, PUT, and PATCH. PATCH came relatively recently in 2010 and it was added
+
+126
+00:09:40,020 --> 00:09:44,610
+to the HTTP request language essentially very recently.
+
+127
+00:09:44,640 --> 00:09:48,270
+But it's kind of a neat twist on how we update data
+
+128
+00:09:48,270 --> 00:09:50,160
+and we're going to look at that in a little bit as well.
+
+129
+00:09:50,580 --> 00:09:52,020
+And finally, you've got DELETE.
+
+130
+00:09:52,200 --> 00:09:59,010
+So these are the five HTTP verbs that you should be using in order to make your API RESTful.
+
+131
+00:09:59,310 --> 00:09:59,820
+And you
+
+132
+00:10:00,070 --> 00:10:07,650
+might realize that they have a lot of similarities to something that we covered previously in the database
+
+133
+00:10:07,650 --> 00:10:11,250
+module, which is when we looked into CRUD, right?
+
+134
+00:10:11,250 --> 00:10:13,620
+Create, read, update and delete.
+
+135
+00:10:14,370 --> 00:10:23,880
+So we're going to look at our REST HTTP request verbs alongside our database CRUD functions and we're
+
+136
+00:10:23,880 --> 00:10:27,870
+going to see how each of these verbs work in practice.
+
+137
+00:10:28,290 --> 00:10:35,640
+So now that we've looked at the HTTP request verbs and we can see how they're used, the next thing
+
+138
+00:10:35,640 --> 00:10:42,330
+to talk about is the specific pattern of routes and endpoints that you have to use in order to make
+
+139
+00:10:42,330 --> 00:10:43,720
+your API RESTful.
+
+140
+00:10:44,070 --> 00:10:49,830
+So just as when you go on a safari, there are different routes that you would use to reach say
+
+141
+00:10:49,830 --> 00:10:53,390
+the elephant area or the camels or the hippos, in our server
+
+142
+00:10:53,670 --> 00:11:00,150
+we can specify specific routes or URL's in order to access certain resources.
+
+143
+00:11:00,510 --> 00:11:07,470
+So you might have, you know, www.google.com/elephants, then that would bring up all
+
+144
+00:11:07,470 --> 00:11:12,020
+of the elephants and /camels would be for the camels and hippos.
+
+145
+00:11:12,240 --> 00:11:18,390
+So these are routes and we've already used routes before in our server code.
+
+146
+00:11:18,630 --> 00:11:25,260
+But in order for our API to be RESTful, we have to have a specific pattern of endpoints and routes.
+
+147
+00:11:25,440 --> 00:11:30,410
+So, for example, if our API was the Wikipedia API, right?
+
+148
+00:11:30,600 --> 00:11:34,440
+And in our database, we had a whole bunch of articles.
+
+149
+00:11:34,740 --> 00:11:40,780
+Now the route for /articles applies to all of the articles.
+
+150
+00:11:40,950 --> 00:11:48,570
+Now, if we created a route for articles, then when a client makes a get request to /articles,
+
+151
+00:11:48,780 --> 00:11:51,030
+it should fetch all of the articles.
+
+152
+00:11:51,570 --> 00:11:58,290
+And when they make a post request to the /articles route, then it should create a single
+
+153
+00:11:58,290 --> 00:11:59,490
+new article
+
+154
+00:12:01,030 --> 00:12:08,680
+and add it to our database of articles. And when we make a delete request to /articles, then it
+
+155
+00:12:08,680 --> 00:12:12,100
+would delete all the articles in our database.
+
+156
+00:12:12,340 --> 00:12:17,440
+But RESTful routing also has rules for individual resources.
+
+157
+00:12:17,650 --> 00:12:21,730
+So within all of the articles, we will have specific articles,
+
+158
+00:12:21,730 --> 00:12:21,980
+right?
+
+159
+00:12:22,180 --> 00:12:24,490
+Say we had an article on Jack Bauer,
+
+160
+00:12:24,730 --> 00:12:32,530
+then if the client was targeting /articles/Jack-Bauer, then if they made a get request,
+
+161
+00:12:32,620 --> 00:12:37,750
+that would fetch the specific article on Jack Bauer from our database.
+
+162
+00:12:38,080 --> 00:12:44,590
+And you can also use put and patch to update that specific article on Jack Bauer
+
+163
+00:12:44,800 --> 00:12:47,420
+and you can delete the specific article as well.
+
+164
+00:12:47,590 --> 00:12:53,440
+Now, a little bit later on, when we create all of these routes using the HTTP verbs, it's going to
+
+165
+00:12:53,440 --> 00:12:56,190
+be a lot more clear how each of these work.
+
+166
+00:12:56,380 --> 00:13:02,230
+But for now, I just want you to get an overview of what RESTful routing actually looks like before
+
+167
+00:13:02,230 --> 00:13:03,040
+we get started.
+
+168
+00:13:03,370 --> 00:13:11,980
+So now that we've seen how HTTP request verbs work and the pattern of routes that make your API RESTful,
+
+169
+00:13:12,370 --> 00:13:18,030
+the next step is to get started and actually build our very own API.
+
+170
+00:13:18,550 --> 00:13:22,030
+So for all of that and more, I'll see you on the next lesson.
+
+
+171
+00:00:00,210 --> 00:00:02,730
+So what is the difference between put and patch?
+
+172
+00:00:03,300 --> 00:00:04,870
+Well, here's a good analogy.
+
+173
+00:00:05,070 --> 00:00:10,410
+Recently I went onto Amazon and I found a really nice looking bicycle.
+
+174
+00:00:10,770 --> 00:00:17,070
+And because I really wanted to poison my lungs by exercising around London, I clicked on the Buy Now
+
+175
+00:00:17,070 --> 00:00:17,530
+button.
+
+176
+00:00:17,730 --> 00:00:23,040
+So there I was, super happy, super excited for my bicycle to arrive.
+
+177
+00:00:23,310 --> 00:00:29,880
+And then on the day of arrival, I opened up that box and my bicycle was really messed up.
+
+178
+00:00:29,880 --> 00:00:31,640
+The whole front wheel was broken.
+
+179
+00:00:31,950 --> 00:00:37,860
+So I'm not really sure what happened at the Amazon warehouse, but I got in touch with them and I wanted
+
+180
+00:00:37,860 --> 00:00:40,200
+to try and figure out how we can solve this problem.
+
+181
+00:00:40,410 --> 00:00:43,350
+So there were two ways that they could fix this problem.
+
+182
+00:00:43,560 --> 00:00:47,760
+Option one was they send me an entire new bike.
+
+183
+00:00:47,940 --> 00:00:55,860
+So this is the equivalent of put. You're updating your database by sending an entire entry to replace
+
+184
+00:00:55,860 --> 00:00:56,760
+the previous one.
+
+185
+00:00:57,570 --> 00:01:03,650
+Now, the other option Amazon offered was for them to simply send me a new tire.
+
+186
+00:01:03,840 --> 00:01:05,760
+That was the only thing that was broken,
+
+187
+00:01:06,030 --> 00:01:07,530
+the rest of the bike was fine.
+
+188
+00:01:07,770 --> 00:01:13,890
+And in order to save the world from carbon emissions, shipping a wheel is much better than shipping
+
+189
+00:01:13,890 --> 00:01:15,410
+an entire bicycle.
+
+190
+00:01:15,930 --> 00:01:18,120
+And this is the same as Patch.
+
+191
+00:01:18,360 --> 00:01:25,920
+So when you're sending a patch request to the server, you're only sending the piece of data that needs
+
+192
+00:01:25,920 --> 00:01:30,950
+to be updated. Instead of the entire entry that will be replaced,
+
+193
+00:01:31,170 --> 00:01:34,870
+you're simply just updating the thing that needs to be updated.
+
+194
+00:01:34,890 --> 00:01:41,530
+So when we see this in practice, I want you to think back to this bicycle analogy and maybe it'll help you try
+
+195
+00:01:41,530 --> 00:01:44,010
+and understand the difference between these two words.
+
+

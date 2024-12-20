@@ -1,0 +1,4630 @@
+1
+00:00:00,510 --> 00:00:05,490
+Hey guys, welcome to Day 27 of 100 Days of Code. Today
+
+2
+00:00:05,520 --> 00:00:10,520
+we're going to be diving into a Graphical User Interfaces using TKinter,
+
+3
+00:00:11,310 --> 00:00:15,090
+and we're also going to be learning more about function arguments.
+
+4
+00:00:15,840 --> 00:00:20,310
+So we've already seen a little bit of graphical user interfaces when we use our
+
+5
+00:00:20,310 --> 00:00:24,270
+turtle module, but I wanna go a little bit more in depth,
+
+6
+00:00:24,780 --> 00:00:29,010
+and I want to show you one of the most popular ways of creating a graphical user
+
+7
+00:00:29,010 --> 00:00:33,420
+interface. For example, a program like this in a separate window,
+
+8
+00:00:33,990 --> 00:00:37,620
+and we're going to be using the inbuilt TKinter module to do this.
+
+9
+00:00:37,980 --> 00:00:41,280
+So we're going to learn how to create labels, how to create buttons,
+
+10
+00:00:41,520 --> 00:00:46,520
+how to respond to those button clicks as well as things like text inputs and how
+
+11
+00:00:47,280 --> 00:00:50,580
+to lay out and design your programs.
+
+12
+00:00:51,120 --> 00:00:52,740
+And while we're doing all of this,
+
+13
+00:00:52,770 --> 00:00:56,760
+we're going to be looking at more advanced features of Python functions,
+
+14
+00:00:57,120 --> 00:01:02,040
+including things such as how to set default arguments and what these Args and
+
+15
+00:01:02,040 --> 00:01:03,000
+Kwargs are.
+
+16
+00:01:03,450 --> 00:01:08,450
+So a way of being able to pass an undefined amount of inputs into a function,
+
+17
+00:01:09,120 --> 00:01:14,120
+and we'll apply these advanced concepts to build a unit converter program using
+
+18
+00:01:15,120 --> 00:01:20,120
+TKinter. This program is going to help us convert miles to kilometers or liters
+
+19
+00:01:21,060 --> 00:01:25,860
+to gallons, or whatever little conversion that you might often use. For example,
+
+20
+00:01:25,860 --> 00:01:30,720
+let's say that I ran 10 miles and I want to know how many kilometers that is.
+
+21
+00:01:31,080 --> 00:01:32,700
+If I go ahead and click calculate,
+
+22
+00:01:32,880 --> 00:01:36,180
+you can see it generates the equivalent value in kilometers,
+
+23
+00:01:36,450 --> 00:01:39,960
+and you can see that our whole program is nicely laid out.
+
+24
+00:01:39,960 --> 00:01:42,840
+So it says 10 miles is equal to 16 in kilometers,
+
+25
+00:01:43,350 --> 00:01:46,560
+and it's fully responsive to our inputs.
+
+26
+00:01:47,190 --> 00:01:49,770
+This is what we're going to be making as our project,
+
+27
+00:01:49,860 --> 00:01:54,860
+a fully-fledged Python graphical user interface program that uses our Python
+
+28
+00:01:56,670 --> 00:02:01,380
+code. So once you are ready, head over to the next lesson and let's get started by
+
+29
+00:02:01,380 --> 00:02:03,390
+learning a bit more about TKinter.
+
+
+30
+00:00:00,510 --> 00:00:00,900
+All right.
+
+31
+00:00:00,900 --> 00:00:05,900
+So our main goal in today's lessons is to learn about the Tkinter module and see
+
+32
+00:00:08,280 --> 00:00:12,480
+how we can use it to create graphical user interfaces,
+
+33
+00:00:12,540 --> 00:00:17,450
+also known as a, a gui or a GUI. Now,
+
+34
+00:00:17,480 --> 00:00:22,480
+GUIs were a huge deal back in the nineties because previously,
+
+35
+00:00:23,060 --> 00:00:25,250
+in order to interact with a computer,
+
+36
+00:00:25,520 --> 00:00:30,170
+you had to use a command line operating system such as MS-DOS.
+
+37
+00:00:30,170 --> 00:00:34,250
+So this is kind of similar to our Python console,
+
+38
+00:00:34,550 --> 00:00:37,100
+where everything we wanted the computer to do
+
+39
+00:00:37,340 --> 00:00:40,760
+we had to tell it by writing a piece of text.
+
+40
+00:00:41,030 --> 00:00:44,570
+So if we wanted Python to print hello, we have to write out the text. 
+
+41
+00:00:45,350 --> 00:00:46,640
+But GUIs were different.
+
+42
+00:00:47,060 --> 00:00:50,990
+GUIs are graphical, and accompanied with a mouse,
+
+43
+00:00:51,260 --> 00:00:54,770
+they allow a user with very little training in computers
+
+44
+00:00:55,040 --> 00:00:58,400
+to be able to just point and click on the thing that they want to do on the
+
+45
+00:00:58,400 --> 00:00:59,233
+screen.
+
+46
+00:00:59,660 --> 00:01:03,770
+And one of the earliest computers that incorporated this type of
+
+47
+00:01:04,069 --> 00:01:07,340
+GUI operating system was the Mac Lisa.
+
+48
+00:01:08,060 --> 00:01:09,950
+It had these little windows
+
+49
+00:01:10,220 --> 00:01:13,790
+which you can click on and it launches programs,
+
+50
+00:01:13,820 --> 00:01:18,140
+which you can interact with by pointing and clicking. Now,
+
+51
+00:01:18,140 --> 00:01:21,890
+I mentioned that the Mac had these windows and in fact,
+
+52
+00:01:22,160 --> 00:01:26,870
+the Mac had programmed windows before Windows actually existed.
+
+53
+00:01:27,470 --> 00:01:32,470
+So Windows was Microsoft's version of the graphical user interface operating
+
+54
+00:01:33,470 --> 00:01:36,350
+system. And when it first came out,
+
+55
+00:01:36,530 --> 00:01:41,530
+it created quite a bit of controversy because it seemed like it might've stolen
+
+56
+00:01:42,500 --> 00:01:46,130
+this idea from Apple because after all, the Mac
+
+57
+00:01:46,130 --> 00:01:49,310
+Lisa came out way before even Windows one
+
+58
+00:01:49,340 --> 00:01:53,420
+let alone windows 95 or the later version that you might be familiar with.
+
+59
+00:01:54,170 --> 00:01:59,170
+And this even led Apple to Sue Microsoft for infringing on their intellectual
+
+60
+00:02:00,470 --> 00:02:05,470
+rights for using this graphical user interface to interact with the computer.
+
+61
+00:02:06,050 --> 00:02:09,050
+This is how big a deal GUIs were a back in the nineties.
+
+62
+00:02:09,620 --> 00:02:14,620
+There was such a big breakthrough in interacting with computers and that made it
+
+63
+00:02:14,630 --> 00:02:19,040
+so important to both Apple and Microsoft that they ended up battling in court.
+
+64
+00:02:20,030 --> 00:02:21,530
+Now, even to this day,
+
+65
+00:02:21,560 --> 00:02:26,560
+Bill Gates gets asked whether if he actually copied the graphical user interface
+
+66
+00:02:27,560 --> 00:02:31,880
+idea of an operating system from Steve jobs and Apple.
+
+67
+00:02:32,600 --> 00:02:37,370
+And I read on a recent Reddit AMA where somebody asked him this question,
+
+68
+00:02:37,370 --> 00:02:42,290
+he actually responded by saying that the copying wasn't really copying.
+
+69
+00:02:42,290 --> 00:02:46,880
+It was just that they hired some people from another company, Xerox
+
+70
+00:02:46,880 --> 00:02:50,690
+PARC, and it just happened that they were continuing on the work that they were
+
+71
+00:02:50,690 --> 00:02:51,980
+working on before.
+
+72
+00:02:52,970 --> 00:02:57,560
+But the more colorful piece of history actually comes from the biography of
+
+73
+00:02:57,560 --> 00:03:00,490
+Steve jobs by Walter Isaacson and in there,
+
+74
+00:03:00,490 --> 00:03:05,490
+there is this brilliant depiction of the scene where Steve Jobs, surrounded
+
+75
+00:03:07,090 --> 00:03:12,090
+by his employees, is basically just going off on bill Gates,
+
+76
+00:03:13,230 --> 00:03:16,170
+telling him that you're of ripping us off. I trusted you
+
+77
+00:03:16,170 --> 00:03:17,760
+and now you're stealing from us.
+
+78
+00:03:18,060 --> 00:03:21,000
+You saw the earlier versions of our operating system,
+
+79
+00:03:21,030 --> 00:03:24,090
+and you're now using it in your Microsoft software.
+
+80
+00:03:24,810 --> 00:03:29,810
+And to his credit, Bill Gates actually managed to come up with a pretty good 
+
+81
+00:03:30,690 --> 00:03:33,510
+response on the spot where he said, "Well, Steve,
+
+82
+00:03:33,600 --> 00:03:35,730
+I think there's more than one way of looking at it.
+
+83
+00:03:35,730 --> 00:03:40,680
+I think it's more like we both have this rich neighbor named Xerox and I broke
+
+84
+00:03:40,680 --> 00:03:44,520
+into his house to steal the TV set and found out that you had already stolen it.
+
+85
+00:03:44,520 --> 00:03:49,260
+That was a pretty good comeback from Bill Gates. And the Xerox that they are
+
+86
+00:03:49,260 --> 00:03:51,720
+referring to is Xerox parc.
+
+87
+00:03:52,020 --> 00:03:57,020
+It's the Palo Alto right search center that was creating loads of breakthroughs,
+
+88
+00:03:58,650 --> 00:04:02,460
+um, in terms of the computing industry. And in fact,
+
+89
+00:04:02,490 --> 00:04:07,490
+they created the first graphical user interface that was actually put into use
+
+90
+00:04:07,740 --> 00:04:12,000
+in a computer before Apple or Microsoft even thought about it.
+
+91
+00:04:12,360 --> 00:04:17,360
+They also created other things like the Ethernet or the first Object-Oriented
+
+92
+00:04:17,550 --> 00:04:20,100
+Programming language. And most importantly,
+
+93
+00:04:20,550 --> 00:04:24,630
+they also created the first graphical user interface that
+
+94
+00:04:24,660 --> 00:04:29,610
+allowed a user to interact with the computer by pointing and clicking.
+
+95
+00:04:29,970 --> 00:04:33,690
+And they even developed the first mouse to allow people to do this.
+
+96
+00:04:34,290 --> 00:04:37,710
+So this is a little bit of Silicon Valley history
+
+97
+00:04:37,710 --> 00:04:41,130
+that is particularly fascinating. If you're interested,
+
+98
+00:04:41,790 --> 00:04:46,790
+there is a movie called Pirates of Silicon Valley that goes into this story
+
+99
+00:04:46,890 --> 00:04:49,800
+in more detail and this is where I first found out about it.
+
+100
+00:04:50,340 --> 00:04:52,020
+But coming back to what we're doing,
+
+101
+00:04:52,110 --> 00:04:56,850
+I just wanted to show you just how important the graphical user interface was
+
+102
+00:04:56,880 --> 00:05:01,440
+when it first came about. So we're going to learn how to use Tkinter
+
+103
+00:05:01,500 --> 00:05:06,180
+to create our very own graphical interface programs so that we're no longer
+
+104
+00:05:06,180 --> 00:05:10,410
+reliant on these console based or text based programs,
+
+105
+00:05:10,740 --> 00:05:15,480
+and we're also not working within the playpen of the turtle module.
+
+106
+00:05:15,780 --> 00:05:19,950
+We're going to be building some big boy and big girl programs now.
+
+107
+00:05:20,280 --> 00:05:21,750
+So let's get started.
+
+
+108
+00:00:00,420 --> 00:00:05,420
+Let's get started by, as usual, importing the relevant library. Tkinter, like the
+
+109
+00:00:06,750 --> 00:00:11,250
+turtle module, is already pre-installed with every installation of Python.
+
+110
+00:00:11,760 --> 00:00:13,380
+As long as you've got Python running,
+
+111
+00:00:13,410 --> 00:00:17,760
+then you should be able to simply import Tkinter as the module
+
+112
+00:00:18,000 --> 00:00:22,410
+and then you'll be able to use all of the classes and properties and methods
+
+113
+00:00:22,440 --> 00:00:24,870
+inside. So for example,
+
+114
+00:00:24,870 --> 00:00:27,720
+we could start off by creating a new window,
+
+115
+00:00:28,380 --> 00:00:31,800
+and this is sort of equivalent to the screens that we've been working with
+
+116
+00:00:32,040 --> 00:00:34,710
+in turtle . So in order to do this,
+
+117
+00:00:34,740 --> 00:00:39,740
+we have to dig into the Tkinter module and then find a class called Tk.
+
+118
+00:00:40,260 --> 00:00:43,620
+And then once we initialize a new object from that class,
+
+119
+00:00:43,860 --> 00:00:48,300
+then we have ourselves a window. But if I run this as it is,
+
+120
+00:00:48,450 --> 00:00:51,330
+you'll see absolutely nothing happen
+
+121
+00:00:53,070 --> 00:00:56,550
+and it will just go straight away to exit code zero.
+
+122
+00:00:57,150 --> 00:01:02,070
+And the reason for this is because we need a way of keeping the window on the
+
+123
+00:01:02,070 --> 00:01:06,300
+screen. What Tkinter has done here is it's gone ahead,
+
+124
+00:01:06,390 --> 00:01:09,570
+created the window, sees that there's no more instructions
+
+125
+00:01:09,660 --> 00:01:12,360
+and then it basically ended the program. Now,
+
+126
+00:01:12,360 --> 00:01:16,890
+what we want instead is to sort of have a while loop that basically just keeps
+
+127
+00:01:16,890 --> 00:01:21,270
+on running, so something like a while true. And inside this while loop,
+
+128
+00:01:21,390 --> 00:01:26,390
+it holds onto this window and keeps on listening to see if there's anything else
+
+129
+00:01:26,790 --> 00:01:30,900
+that the user is going to do to interact with that window so that it can
+
+130
+00:01:30,900 --> 00:01:32,880
+respond when that happens.
+
+131
+00:01:33,300 --> 00:01:37,530
+So this loop is included inside Tkinter
+
+132
+00:01:37,740 --> 00:01:42,740
+and all you have to do is get your window to simply call the main loop.
+
+133
+00:01:44,190 --> 00:01:48,780
+This main loop is the thing that will keep the window on screen like this.
+
+134
+00:01:49,200 --> 00:01:54,090
+So now here is our window and here's the line of code that keeps it on the screen and
+
+135
+00:01:54,090 --> 00:01:57,990
+listens for what the user will do to interact with it. For example,
+
+136
+00:01:57,990 --> 00:02:00,090
+click on a button or type something.
+
+137
+00:02:00,810 --> 00:02:05,810
+Now this line of code always has to be at the very end of your program and all
+
+138
+00:02:06,360 --> 00:02:07,860
+the rest of the things that you're going to write
+
+139
+00:02:07,920 --> 00:02:11,850
+go in between creating the window and getting the window to run.
+
+140
+00:02:13,020 --> 00:02:17,730
+The next thing we can do is we can change the title of that program.
+
+141
+00:02:18,060 --> 00:02:20,160
+And we've done this before using turtle.
+
+142
+00:02:20,460 --> 00:02:24,540
+We just call the title method and we give a string as the input.
+
+143
+00:02:24,840 --> 00:02:27,360
+So 'My first GUI program',
+
+144
+00:02:27,810 --> 00:02:30,450
+and now if I rerun my code,
+
+145
+00:02:30,840 --> 00:02:35,610
+then you can see that this is what's showing up at the very top bar of my
+
+146
+00:02:35,610 --> 00:02:37,170
+program. Now,
+
+147
+00:02:37,200 --> 00:02:41,370
+other things that we might want to change with the window is the sizing of it.
+
+148
+00:02:41,460 --> 00:02:46,050
+So there is a default size and there's also a way of changing the size.
+
+149
+00:02:46,920 --> 00:02:50,930
+And we can do that by tapping into a method called a minimum size.
+
+150
+00:02:51,450 --> 00:02:55,560
+The window is going to scale to include all of the components that you put
+
+151
+00:02:55,560 --> 00:02:57,960
+inside. If you put a hundred buttons inside,
+
+152
+00:02:57,960 --> 00:02:59,590
+it's going to make the window massive.
+
+153
+00:02:59,950 --> 00:03:02,050
+But if you don't have a lot of things in the window,
+
+154
+00:03:02,380 --> 00:03:07,380
+then you might want to define a minimum size so that you can specify that, by
+
+155
+00:03:07,690 --> 00:03:11,290
+default, I want my width to be, let's say, I don't know,
+
+156
+00:03:11,320 --> 00:03:14,920
+500 and the height to be 300,
+
+157
+00:03:15,250 --> 00:03:17,740
+unless the user wants to resize the window,
+
+158
+00:03:18,160 --> 00:03:21,790
+or there's a lot of components that makes the window a lot bigger.
+
+159
+00:03:22,450 --> 00:03:23,530
+So when we run our code
+
+160
+00:03:23,530 --> 00:03:28,530
+now you can see this is a 500-pixel by 300-pixel window that we've just created
+
+161
+00:03:29,590 --> 00:03:31,240
+with our own custom title.
+
+162
+00:03:32,980 --> 00:03:35,260
+In addition to creating windows,
+
+163
+00:03:35,320 --> 00:03:39,760
+we can, of course, create some components to put inside the window.
+
+164
+00:03:40,150 --> 00:03:41,410
+So I want to show you firstly
+
+165
+00:03:41,410 --> 00:03:46,410
+how you would create a label. Just as our window was created from the tkinker
+
+166
+00:03:46,990 --> 00:03:50,740
+module and it's the Tk class that was used,
+
+167
+00:03:51,070 --> 00:03:54,340
+there's also a class inside Tkinter called
+
+168
+00:03:54,430 --> 00:03:58,210
+a label. So that we initialize a label class,
+
+169
+00:03:58,240 --> 00:04:00,370
+and we can save that to a variable called
+
+170
+00:04:00,430 --> 00:04:03,670
+my_label or anything else for that matter.
+
+171
+00:04:04,180 --> 00:04:08,050
+Now this label has quite a few things that we can change about it.
+
+172
+00:04:08,590 --> 00:04:13,590
+It might not be obvious from the documentation or from the prompt that PyCharm
+
+173
+00:04:15,220 --> 00:04:16,053
+gives us,
+
+174
+00:04:16,120 --> 00:04:21,120
+but we can, in fact, change a property called text so we can change what is
+
+175
+00:04:21,339 --> 00:04:26,290
+displayed inside the label. Let's just write some text called 'I am a label'
+
+176
+00:04:27,310 --> 00:04:31,150
+Unfortunately, that's actually not enough to get the label to display.
+
+177
+00:04:31,210 --> 00:04:35,830
+So when I run my program as it is, you don't actually see a label anywhere
+
+178
+00:04:35,830 --> 00:04:38,830
+on the screen. When we're working with Tkinter
+
+179
+00:04:38,830 --> 00:04:43,830
+what we have to do is we first have to create a component like a
+
+180
+00:04:44,020 --> 00:04:44,853
+label.
+
+181
+00:04:45,010 --> 00:04:49,750
+And then we have to specify how that component is going to be laid out on the
+
+182
+00:04:49,750 --> 00:04:51,940
+screen before it will show up.
+
+183
+00:04:52,330 --> 00:04:57,190
+And one of the easiest ways of laying out any component is just to get hold of
+
+184
+00:04:57,190 --> 00:05:00,640
+that component and then call the method called pack.
+
+185
+00:05:01,150 --> 00:05:05,800
+And this is going to place it into the screen and it's going to automatically
+
+186
+00:05:05,800 --> 00:05:08,530
+center it on the screen. So now
+
+187
+00:05:08,560 --> 00:05:11,170
+if I run the code with this modification,
+
+188
+00:05:11,410 --> 00:05:16,410
+you can see our label is now finally showing up and it's packed so that it's in
+
+189
+00:05:16,750 --> 00:05:18,520
+the center of the program.
+
+190
+00:05:20,020 --> 00:05:23,740
+Now there's other properties that we can modify about our label.
+
+191
+00:05:24,010 --> 00:05:27,430
+So we could initialize our label with a piece of text,
+
+192
+00:05:27,670 --> 00:05:31,810
+but we can also specify a font. The font is again,
+
+193
+00:05:31,810 --> 00:05:33,010
+going to be a tuple,
+
+194
+00:05:33,430 --> 00:05:36,670
+and that tuple is first going to take the name of the font,
+
+195
+00:05:36,700 --> 00:05:38,890
+so let's say I want to use Arial,
+
+196
+00:05:39,340 --> 00:05:42,310
+and then it's going to take the size of the font.
+
+197
+00:05:42,340 --> 00:05:47,290
+So let's make it a little bit bigger, maybe a 24 size font. And finally,
+
+198
+00:05:47,290 --> 00:05:51,820
+it's going to take whether, if it's bold or italic or, um,
+
+199
+00:05:51,850 --> 00:05:56,110
+let's just set it to bold. And now if I run my code again,
+
+200
+00:05:56,470 --> 00:06:00,350
+you can see I've now got a Arial font, size 24
+
+201
+00:06:00,620 --> 00:06:01,970
+and it's bold.
+
+202
+00:06:02,780 --> 00:06:07,780
+You can also change this to italic or you can simply just ignore it and leave
+
+203
+00:06:09,110 --> 00:06:12,590
+out that last item and it will just give you a regular piece of text.
+
+204
+00:06:13,130 --> 00:06:18,130
+But none of this would show up unless you have this line of code where you
+
+205
+00:06:18,260 --> 00:06:23,090
+actually use the packer to pack our label onto the screen. Now
+
+206
+00:06:23,090 --> 00:06:24,290
+in the course resources,
+
+207
+00:06:24,290 --> 00:06:29,290
+I've linked to the Tkinter documentation on the Python docs and they talk
+
+208
+00:06:29,990 --> 00:06:32,720
+about the packer in a lot more detail.
+
+209
+00:06:33,200 --> 00:06:36,020
+It's basically a geometry management system.
+
+210
+00:06:36,020 --> 00:06:40,130
+It's just a simple way to lay out the components that you're building.
+
+211
+00:06:40,820 --> 00:06:45,440
+And this packer has a number of options. So if we scroll down,
+
+212
+00:06:45,440 --> 00:06:50,440
+you can see that we can change the expand to a boolean, so true or false.
+
+213
+00:06:50,900 --> 00:06:55,340
+And that tells it whether if it should expand to take up the entire space or
+
+214
+00:06:55,340 --> 00:06:58,910
+stay as small as it can be. Alternatively,
+
+215
+00:06:58,910 --> 00:07:01,730
+you have things like side which changes
+
+216
+00:07:01,730 --> 00:07:05,750
+which side should it be packed to, on the left, right, top, or bottom?
+
+217
+00:07:06,710 --> 00:07:10,040
+So we know that currently our label is bang in the middle,
+
+218
+00:07:10,340 --> 00:07:15,340
+but if I change the side to equal left,
+
+219
+00:07:16,580 --> 00:07:18,080
+now when I run the code,
+
+220
+00:07:18,110 --> 00:07:21,590
+you can see it's now been packed to the left of the screen.
+
+221
+00:07:21,920 --> 00:07:24,800
+And if I say bottom,
+
+222
+00:07:26,000 --> 00:07:30,680
+then it's going to go to the bottom and right and top. All of those will work.
+
+223
+00:07:31,790 --> 00:07:34,370
+And if I change expand to true,
+
+224
+00:07:34,400 --> 00:07:38,330
+you can see it's now trying to take up the entire height and width of the
+
+225
+00:07:38,330 --> 00:07:41,240
+available screen size. Now,
+
+226
+00:07:41,240 --> 00:07:43,850
+when you're writing this pack function here,
+
+227
+00:07:44,510 --> 00:07:48,290
+as soon as I type pack and I open up my parentheses,
+
+228
+00:07:48,710 --> 00:07:53,570
+normally we're used to a whole bunch of properties being listed in here for us,
+
+229
+00:07:53,900 --> 00:07:57,800
+and we can specify each one and pick and choose basically.
+
+230
+00:07:58,400 --> 00:08:01,130
+But in this case, this is all that we see.
+
+231
+00:08:01,310 --> 00:08:06,310
+So what's going on here? Compare this to when we used our turtle module and I'm
+
+232
+00:08:07,460 --> 00:08:11,810
+going to build a turtle Tim turtle.turtle.
+
+233
+00:08:13,040 --> 00:08:16,340
+And then I say, tim.write. Look at how,
+
+234
+00:08:16,370 --> 00:08:19,910
+when I opened up the parentheses here, you can see there's the argument
+
+235
+00:08:19,910 --> 00:08:23,360
+which is the Object that's going to be written, and then whether
+
+236
+00:08:23,360 --> 00:08:26,960
+if the writing should be moved to the bottom corner,
+
+237
+00:08:27,350 --> 00:08:29,000
+which direction it should be aligned,
+
+238
+00:08:29,000 --> 00:08:34,000
+what's the font and all of the available inputs that we can give to this write
+
+239
+00:08:34,580 --> 00:08:39,140
+function. Now compare that to our pack function here.
+
+240
+00:08:39,830 --> 00:08:43,520
+This, you'll notice, is really different. Now,
+
+241
+00:08:43,549 --> 00:08:47,930
+if you actually look in the documentation for pack,
+
+242
+00:08:48,170 --> 00:08:51,980
+you can see it actually has a number of things that we can change; before,
+
+243
+00:08:51,980 --> 00:08:56,190
+expand, fill, in, side, and all of these things
+
+244
+00:08:56,460 --> 00:09:00,090
+which are modifiable and do various things.
+
+245
+00:09:00,480 --> 00:09:04,950
+But how is it that it doesn't seem to exist as one of the arguments that we can
+
+246
+00:09:04,950 --> 00:09:08,820
+use? The secret lies in this last part here,
+
+247
+00:09:08,880 --> 00:09:13,230
+the **kw. And in the next lesson,
+
+248
+00:09:13,530 --> 00:09:17,910
+we're going to talk about some more advanced features of Python arguments.
+
+249
+00:09:18,270 --> 00:09:22,020
+And we're going to look at how we can provide default argument values,
+
+250
+00:09:22,320 --> 00:09:27,320
+how we can define unlimited positional arguments and unlimited keyword arguments.
+
+251
+00:09:28,260 --> 00:09:30,990
+To understand this better, head over to the next lesson
+
+252
+00:09:31,260 --> 00:09:34,290
+and we'll do a deep dive on Python arguments.
+
+
+253
+00:00:00,210 --> 00:00:05,210
+In the last lesson, we saw how different it was when we tried to use the turtle's
+
+254
+00:00:05,400 --> 00:00:06,480
+write function
+
+255
+00:00:06,780 --> 00:00:11,780
+and we saw all of the arguments available listed, versus when we tried to use the
+
+256
+00:00:12,210 --> 00:00:14,940
+Tkinter label's pack method,
+
+257
+00:00:15,330 --> 00:00:20,100
+and notice how there's actually very few arguments that are listed.
+
+258
+00:00:20,520 --> 00:00:24,000
+And yet, somehow there's all of these parameters that we can change
+
+259
+00:00:24,240 --> 00:00:28,650
+when we look at the documentation, like expand or side.
+
+260
+00:00:29,010 --> 00:00:32,340
+So let's set that side to equal left,
+
+261
+00:00:32,700 --> 00:00:35,730
+and I'm going to delete the rest of the turtle code.
+
+262
+00:00:36,150 --> 00:00:41,150
+And now you can see our label is placed on the left side of our screen.
+
+263
+00:00:42,900 --> 00:00:45,030
+How is it that these parameters,
+
+264
+00:00:45,090 --> 00:00:48,090
+even though they're not listed in the list of properties,
+
+265
+00:00:48,330 --> 00:00:52,770
+how is it that we're able to use them just by typing them in? Well,
+
+266
+00:00:52,800 --> 00:00:57,510
+to understand this, we have to learn a bit more about advanced arguments.
+
+267
+00:00:57,900 --> 00:00:59,430
+Not how to argue better,
+
+268
+00:00:59,520 --> 00:01:04,519
+but how to use advanced Python arguments in order to specify a wider
+
+269
+00:01:06,330 --> 00:01:07,890
+range of inputs.
+
+270
+00:01:08,790 --> 00:01:12,870
+We've already seen how keyword arguments work. For example,
+
+271
+00:01:12,870 --> 00:01:17,430
+here I have a function and I have three keyword arguments,
+
+272
+00:01:17,490 --> 00:01:20,280
+a, b, and c. And when I call the function,
+
+273
+00:01:20,610 --> 00:01:25,320
+I can provide those inputs, a, b, and c in any order I want
+
+274
+00:01:25,650 --> 00:01:27,930
+as long as I've got the keyword in front.
+
+275
+00:01:27,990 --> 00:01:31,020
+So c = 3, a = 1, and b = 2.
+
+276
+00:01:31,980 --> 00:01:34,980
+Now what if when I use this function,
+
+277
+00:01:35,370 --> 00:01:40,370
+it's nine out of ten times, a is going to be equal to 1, b is 2 and c as 3.
+
+278
+00:01:41,460 --> 00:01:46,110
+Why is it that when I call the function, I always have to put in these values?
+
+279
+00:01:46,170 --> 00:01:48,510
+That seems a bit of a wasted effort, right?
+
+280
+00:01:49,020 --> 00:01:53,850
+Python has a very neat way of solving this by creating arguments that have
+
+281
+00:01:53,940 --> 00:01:55,320
+default values.
+
+282
+00:01:55,830 --> 00:01:59,160
+We can do this by simply changing the function declaration.
+
+283
+00:01:59,550 --> 00:02:01,470
+So when we create our function,
+
+284
+00:02:01,590 --> 00:02:05,970
+we can already give it some values to start off with. So we can say that a
+
+285
+00:02:05,970 --> 00:02:09,870
+should be equal to 1, b = 2 and c = 3, and these
+
+286
+00:02:09,940 --> 00:02:11,370
+are the default values.
+
+287
+00:02:11,790 --> 00:02:15,900
+So that means when I call this function and I want to use the default values,
+
+288
+00:02:16,290 --> 00:02:20,670
+I don't actually have to provide any inputs and it will just go along as it
+
+289
+00:02:20,670 --> 00:02:22,740
+would before. Now,
+
+290
+00:02:22,800 --> 00:02:26,400
+if, however, I wanted to modify one of those inputs,
+
+291
+00:02:26,430 --> 00:02:29,220
+let's say I wanted to give a custom value for b
+
+292
+00:02:29,520 --> 00:02:32,880
+rather than let it be equal to the default value of 2, well,
+
+293
+00:02:32,880 --> 00:02:37,880
+then I can just change the value of b, b = 5. And the rest,
+
+294
+00:02:38,640 --> 00:02:42,240
+so a and c, will still take on their default values.
+
+295
+00:02:42,990 --> 00:02:46,140
+Notice when I called tim.write,
+
+296
+00:02:46,590 --> 00:02:50,730
+this write method takes five inputs; self,
+
+297
+00:02:50,760 --> 00:02:54,240
+because it's a method and associated with the turtle class,
+
+298
+00:02:54,690 --> 00:02:57,750
+it takes an argument which is what it is going to write,
+
+299
+00:02:58,050 --> 00:03:00,910
+move, align and font. Now,
+
+300
+00:03:01,360 --> 00:03:04,690
+if I wanted to use tim.turtle to just write
+
+301
+00:03:04,690 --> 00:03:06,370
+some sort of text,
+
+302
+00:03:08,350 --> 00:03:12,820
+I can actually just put in this. And when I run this code,
+
+303
+00:03:13,720 --> 00:03:17,320
+you'll see that I've got some piece of text being written.
+
+304
+00:03:18,280 --> 00:03:22,300
+But how is it that I've got all of these other inputs
+
+305
+00:03:22,360 --> 00:03:26,620
+which I've just basically completely ignored? What about move?
+
+306
+00:03:26,650 --> 00:03:31,000
+What about align? What about fonts? Well, as you can see,
+
+307
+00:03:31,330 --> 00:03:34,330
+they have the =...,
+
+308
+00:03:34,660 --> 00:03:38,860
+which is trying to tell you that they've already got a default value.
+
+309
+00:03:39,370 --> 00:03:42,160
+And in fact, if I hover over this write function,
+
+310
+00:03:42,220 --> 00:03:45,940
+you can see that in the quick docs that pops up,
+
+311
+00:03:46,150 --> 00:03:47,860
+it tells me that the argument,
+
+312
+00:03:48,210 --> 00:03:50,100
+or the arg,
+
+313
+00:03:50,490 --> 00:03:54,450
+which is what it is to be written to the screen, move
+
+314
+00:03:54,510 --> 00:03:58,380
+which is optional which can be set as true or false, align
+
+315
+00:03:58,380 --> 00:04:01,140
+which is optional, font which is optional.
+
+316
+00:04:01,710 --> 00:04:06,420
+The reason why they're optional is because all of these actually have a default
+
+317
+00:04:06,420 --> 00:04:07,860
+value. For example,
+
+318
+00:04:07,860 --> 00:04:12,860
+move, by default, is false; align by default is centered,
+
+319
+00:04:14,070 --> 00:04:15,960
+and there's also a default font.
+
+320
+00:04:16,920 --> 00:04:21,920
+So that means that all we have to do is just to provide the required arguments.
+
+321
+00:04:23,340 --> 00:04:27,930
+If I don't add anything at all when I call this write method, you can see
+
+322
+00:04:27,930 --> 00:04:30,090
+I do in fact get an error here.
+
+323
+00:04:30,300 --> 00:04:34,650
+And it says write is missing one required positional argument,
+
+324
+00:04:34,890 --> 00:04:37,260
+which is that first arg
+
+325
+00:04:37,620 --> 00:04:41,130
+which is the thing that it's expecting to write. I mean,
+
+326
+00:04:41,130 --> 00:04:44,520
+if you're calling turtle to do some writing and you not telling it what to write,
+
+327
+00:04:44,790 --> 00:04:45,870
+that's a bit of a problem.
+
+328
+00:04:46,200 --> 00:04:51,200
+So this ARG is a required argument because it doesn't have that =... at
+
+329
+00:04:52,590 --> 00:04:56,910
+the end. So this you have to provide. But once you've done that,
+
+330
+00:04:56,940 --> 00:04:59,430
+then the rest of them all have default values.
+
+331
+00:04:59,430 --> 00:05:01,710
+They already know how to behave and what to do
+
+332
+00:05:02,010 --> 00:05:05,850
+even if you don't tell them anything extra. Now, however,
+
+333
+00:05:05,850 --> 00:05:08,640
+if you wanted to modify one of those arguments,
+
+334
+00:05:08,700 --> 00:05:12,990
+let's say I decide to change the font to something completely different
+
+335
+00:05:13,110 --> 00:05:18,110
+like Times New Roman, and make the font super large
+
+336
+00:05:18,870 --> 00:05:22,710
+80 size font and change it to bold,
+
+337
+00:05:23,220 --> 00:05:28,220
+then you can see that that optional setting gets implemented and it's now
+
+338
+00:05:28,650 --> 00:05:32,490
+changed the font and its changed the size and also made it bold.
+
+339
+00:05:33,120 --> 00:05:35,100
+But this was completely
+
+340
+00:05:35,160 --> 00:05:36,510
+optional.
+
+341
+00:05:37,470 --> 00:05:42,390
+And this is all down to creating the function with default values.
+
+
+342
+00:00:00,090 --> 00:00:01,080
+In the last lesson,
+
+343
+00:00:01,170 --> 00:00:05,010
+we looked at how to provide default values for optional arguments.
+
+344
+00:00:05,340 --> 00:00:08,100
+In this lesson, we'll discuss how to create functions
+
+345
+00:00:08,189 --> 00:00:10,290
+that can take any number of arguments.
+
+346
+00:00:10,800 --> 00:00:13,680
+Let's say that we had a function called add,
+
+347
+00:00:13,980 --> 00:00:18,660
+which adds n1 and n2 and it just returns the sum of those numbers.
+
+348
+00:00:19,020 --> 00:00:23,850
+That's very well and good, but what if I wanted to add more than two numbers?
+
+349
+00:00:23,940 --> 00:00:28,080
+Well, I would have to add n1, n2, n3, n4,
+
+350
+00:00:28,320 --> 00:00:31,020
+but then I would have to add four numbers every single time.
+
+351
+00:00:31,500 --> 00:00:36,500
+So what if I wanted to make this function more flexible and to allow any number
+
+352
+00:00:37,080 --> 00:00:40,740
+of arguments to be used as the input? Well,
+
+353
+00:00:40,830 --> 00:00:45,750
+what I can do is to simply change the code to use this asterix
+
+354
+00:00:45,900 --> 00:00:48,060
+and then the name of my parameter.
+
+355
+00:00:48,810 --> 00:00:52,110
+That name args is by convention
+
+356
+00:00:52,140 --> 00:00:57,120
+what most Python developers will use. And it simply stands for arguments.
+
+357
+00:00:57,420 --> 00:01:00,120
+But you don't have to stick with that naming if you don't want to.
+
+358
+00:01:01,230 --> 00:01:05,430
+But what you do need is that asterix. That's the really important part.
+
+359
+00:01:05,910 --> 00:01:10,910
+What that tells Python is this function add can accept any number of arguments.
+
+360
+00:01:13,110 --> 00:01:15,210
+And once inside the function,
+
+361
+00:01:15,240 --> 00:01:17,850
+you can actually loop through all of the arguments
+
+362
+00:01:18,090 --> 00:01:22,770
+which is going to be in the form of a tuple and you can do whatever it is you
+
+363
+00:01:22,770 --> 00:01:24,690
+want with each of those arguments.
+
+364
+00:01:25,140 --> 00:01:29,520
+Instead of now passing in only two arguments because that was fixed
+
+365
+00:01:29,520 --> 00:01:34,200
+when we created the function, we can now pass in any number of values
+
+366
+00:01:34,290 --> 00:01:36,660
+like four values or seven values,
+
+367
+00:01:36,960 --> 00:01:41,640
+and we can do whatever it is we want with them. Let's try this code out.
+
+368
+00:01:41,670 --> 00:01:44,940
+I'm going to delete the code related to Python turtle,
+
+369
+00:01:45,300 --> 00:01:49,980
+and I'm going to create a new file called playground.py.
+
+370
+00:01:50,640 --> 00:01:54,720
+And we're going to use this playground.py to test out what we've just learned.
+
+371
+00:01:55,560 --> 00:01:59,820
+I want you to have a think about what you just saw in the slides and see if you
+
+372
+00:01:59,820 --> 00:02:04,820
+can create a function called add where you can pass in as many numbers as you
+
+373
+00:02:05,610 --> 00:02:06,420
+want
+
+374
+00:02:06,420 --> 00:02:11,420
+and it will always add together all of the numbers that are being passed into
+
+375
+00:02:12,060 --> 00:02:16,080
+the function as the input, and then return the total
+
+376
+00:02:16,080 --> 00:02:19,470
+sum. Pause the video and see if you can give that a go.
+
+377
+00:02:21,210 --> 00:02:21,600
+All right.
+
+378
+00:02:21,600 --> 00:02:26,600
+So what we want to do is to be able to call this method add, for example
+
+379
+00:02:26,790 --> 00:02:30,270
+down here and pass in any number of values, right?
+
+380
+00:02:30,300 --> 00:02:32,550
+Let's just go with three to begin with.
+
+381
+00:02:33,090 --> 00:02:38,090
+And then we want to receive all of those values inside this function and then
+
+382
+00:02:38,400 --> 00:02:42,300
+add them all together. So we're going to use that asterix trick.
+
+383
+00:02:42,450 --> 00:02:47,130
+So one * and then we can give a name to the arguments that we receive,
+
+384
+00:02:47,490 --> 00:02:49,860
+which normally is just called args.
+
+385
+00:02:51,450 --> 00:02:53,280
+Now that we've got these args,
+
+386
+00:02:53,490 --> 00:02:58,490
+if I actually go ahead and print it out and we go to run and then run and change
+
+387
+00:03:01,750 --> 00:03:06,640
+this to our playground, you can see it's basically just printing out a tuple.
+
+388
+00:03:07,090 --> 00:03:11,410
+And that tuple represents all the inputs that were passed in when this function
+
+389
+00:03:11,410 --> 00:03:13,900
+was called. And in fact,
+
+390
+00:03:13,900 --> 00:03:18,840
+if I do a time check on this args, you can see it
+
+391
+00:03:18,840 --> 00:03:21,850
+is indeed a tuple. Now,
+
+392
+00:03:21,850 --> 00:03:26,140
+once we've got hold of this args tuple, we can actually loop through it.
+
+393
+00:03:26,320 --> 00:03:30,610
+So we can say for n in args, for
+
+394
+00:03:30,640 --> 00:03:35,260
+each of the numbers in that tuple, let's go ahead and print each of them.
+
+395
+00:03:36,280 --> 00:03:39,940
+You can see it's now separated them all out; three, five, and six.
+
+396
+00:03:40,270 --> 00:03:42,910
+So that makes it easy enough for us to create the sum.
+
+397
+00:03:43,240 --> 00:03:45,700
+So let's create a sum which is equal to zero.
+
+398
+00:03:46,060 --> 00:03:48,550
+And then instead of printing out each of the n,
+
+399
+00:03:48,580 --> 00:03:53,560
+we can just add the n to sum, and finally outside the loop
+
+400
+00:03:53,590 --> 00:03:55,600
+we'll return our sum.
+
+401
+00:03:56,350 --> 00:04:00,880
+So now when we print this final results by calling add three, five,
+
+402
+00:04:00,880 --> 00:04:04,750
+six, you can see it's now added three, five, and six,
+
+403
+00:04:05,020 --> 00:04:09,220
+and we can call this method in different ways. We can add more values to it,
+
+404
+00:04:09,460 --> 00:04:13,630
+two and one, and you can see it's now equal to 17.
+
+405
+00:04:13,990 --> 00:04:18,990
+And you can basically keep going because it can take any number of values.
+
+406
+00:04:19,779 --> 00:04:23,710
+This is all done by this asterix keyword.
+
+407
+00:04:24,280 --> 00:04:29,280
+And it basically packs all of these numbers that you've put in as the input into
+
+408
+00:04:30,070 --> 00:04:33,790
+a tuple called whatever it is you want it to be called.
+
+409
+00:04:34,120 --> 00:04:37,660
+So you can call it numbers if you want, or you can stick to the default,
+
+410
+00:04:37,690 --> 00:04:42,400
+which is just args. And then once we've got that args inside the function,
+
+411
+00:04:42,430 --> 00:04:47,080
+we loop through it and we can do whatever we want to each of the values. Now,
+
+412
+00:04:47,110 --> 00:04:48,640
+in addition to looping through it,
+
+413
+00:04:48,670 --> 00:04:53,200
+you can also access them by index because it's a tuple after all.
+
+414
+00:04:53,200 --> 00:04:57,250
+So we can say args at position zero like this.
+
+415
+00:04:57,280 --> 00:04:58,780
+And if I print that out,
+
+416
+00:04:59,260 --> 00:05:03,550
+you'll see that the value is three because the first one is three.
+
+417
+00:05:04,390 --> 00:05:08,260
+So that's why these unlimited arguments using this *
+
+418
+00:05:08,290 --> 00:05:12,340
+args is also known as unlimited positional arguments,
+
+419
+00:05:12,610 --> 00:05:17,320
+because the position of your arguments which you pass into the function
+
+420
+00:05:17,350 --> 00:05:22,350
+matters' a huge deal because if I fetched the one at position one,
+
+421
+00:05:22,630 --> 00:05:25,030
+it will no longer be three, and it'll now be five.
+
+422
+00:05:26,140 --> 00:05:31,140
+So this is a way for us to be able to define a function and specify a unlimited
+
+423
+00:05:34,300 --> 00:05:38,980
+or unspecified number of inputs. In other words,
+
+424
+00:05:39,070 --> 00:05:43,690
+the number of arguments for the function can vary because the asterix operator
+
+425
+00:05:43,930 --> 00:05:47,860
+collects all of the arguments into a tuple. However,
+
+426
+00:05:47,890 --> 00:05:52,720
+what if we wanted to refer to our arguments by name rather than by position?
+
+427
+00:05:53,230 --> 00:05:56,140
+Well, that is exactly what we'll talk about in the next lesson.
+
+428
+00:05:56,460 --> 00:05:57,010
+So I'll see you there.
+
+
+429
+00:00:00,480 --> 00:00:03,330
+In the last lesson we saw how the asterix operator
+
+430
+00:00:03,330 --> 00:00:07,320
+could be used to provide any number of positional arguments to a function
+
+431
+00:00:07,680 --> 00:00:11,370
+because it collected them into a tuple. In this lesson,
+
+432
+00:00:11,430 --> 00:00:14,130
+we'll take a look at the double asterix operator,
+
+433
+00:00:14,430 --> 00:00:18,750
+and this is going to allow us to work with an arbitrary number of keyword
+
+434
+00:00:18,750 --> 00:00:20,940
+arguments. Let's see this in action.
+
+435
+00:00:21,600 --> 00:00:24,360
+So let's say I create another function called calculate,
+
+436
+00:00:24,720 --> 00:00:29,160
+and this time I'm going to add two asteriks. And in this case,
+
+437
+00:00:29,220 --> 00:00:34,220
+I'm going to call my argument **kwargs or keyword arguments.
+
+438
+00:00:34,770 --> 00:00:39,770
+What we've done now is we've added two asterisks signs in front of this parameter
+
+439
+00:00:39,900 --> 00:00:40,733
+name,
+
+440
+00:00:41,160 --> 00:00:45,630
+and we've now created unlimited keyword arguments.
+
+441
+00:00:46,080 --> 00:00:51,080
+What this allows me to do is I could basically now call this calculate function,
+
+442
+00:00:52,380 --> 00:00:57,090
+I could pass in a keyword argument, for example,
+
+443
+00:00:57,210 --> 00:01:00,210
+add, and let's give it a value, maybe three,
+
+444
+00:01:00,510 --> 00:01:04,739
+and then let's add another keyword argument which I'll call multiply,
+
+445
+00:01:05,069 --> 00:01:08,910
+set that to equal five. And effectively
+
+446
+00:01:08,940 --> 00:01:13,140
+what this has been turned into is these **kwargs,
+
+447
+00:01:13,500 --> 00:01:18,210
+which is basically a dictionary. So if I print these **kwargs,
+
+448
+00:01:18,810 --> 00:01:23,040
+you can see what gets printed is basically a bog-standard dictionary.
+
+449
+00:01:23,490 --> 00:01:26,790
+And in fact, if we do that type check thing again, so type,
+
+450
+00:01:28,620 --> 00:01:30,900
+you can see it is in fact, a dictionary.
+
+451
+00:01:31,920 --> 00:01:36,810
+This dictionary basically represents each of the keyword arguments and their
+
+452
+00:01:36,810 --> 00:01:37,643
+values.
+
+453
+00:01:37,950 --> 00:01:42,570
+So add is now a key and three is now it's value, multiply's
+
+454
+00:01:42,570 --> 00:01:45,660
+the second key and five is its value.
+
+455
+00:01:46,140 --> 00:01:50,760
+What I can do here is I could do the standard way of looping through dictionary.
+
+456
+00:01:50,760 --> 00:01:55,760
+So I could say for key, value in **kwargs .items,
+
+457
+00:01:57,960 --> 00:02:02,160
+and then I can get access to each of the keys and their values as I loop through
+
+458
+00:02:02,160 --> 00:02:04,800
+the dictionary like this.
+
+459
+00:02:04,920 --> 00:02:08,910
+So add three multiplied by five. Alternatively,
+
+460
+00:02:08,970 --> 00:02:11,700
+I can simply use the names of the keys.
+
+461
+00:02:12,120 --> 00:02:17,120
+So I could just simply print my **kwargs and then use the square brackets and then
+
+462
+00:02:18,270 --> 00:02:22,200
+provide the name of the key, so add for example.
+
+463
+00:02:22,950 --> 00:02:27,060
+And that will give me the value which is three as you can see here.
+
+464
+00:02:27,930 --> 00:02:28,260
+Now,
+
+465
+00:02:28,260 --> 00:02:33,260
+what this allows me to do is it basically lets me look through all of the inputs
+
+466
+00:02:34,920 --> 00:02:39,060
+and find the ones that I want and use them to do something.
+
+467
+00:02:39,540 --> 00:02:44,100
+So for example, in this case, it's a calculate function, right?
+
+468
+00:02:44,490 --> 00:02:48,420
+So we could let's say start off with a normal positional argument,
+
+469
+00:02:48,450 --> 00:02:53,370
+so let's call it n and let's pass in that n at the very beginning.
+
+470
+00:02:53,670 --> 00:02:58,500
+So let's say we start out with the number 2, n is now equal to 2,
+
+471
+00:02:58,900 --> 00:03:03,700
+and then the **kwargs is a dictionary of the remainder arguments.
+
+472
+00:03:05,290 --> 00:03:08,020
+Let's say that I wanted to do some calculations.
+
+473
+00:03:08,050 --> 00:03:13,050
+I wanted to say n+= kwargs,
+
+474
+00:03:13,870 --> 00:03:18,340
+and I'm going to get hold of the value under add.
+
+475
+00:03:19,030 --> 00:03:22,960
+And then I'm going to say, n*= the kwargs,
+
+476
+00:03:23,380 --> 00:03:26,290
+and I'm going to get hold of value of multiply.
+
+477
+00:03:26,950 --> 00:03:30,250
+So now when I go ahead and print
+
+478
+00:03:30,310 --> 00:03:35,310
+my n, you can see that what happens is it takes the first value 2 as equal to n,
+
+479
+00:03:39,850 --> 00:03:44,380
+and then n, this 2, is going to be added to the number I wanted to add
+
+480
+00:03:44,410 --> 00:03:46,660
+which is 3. So 2 + 3 is 5,
+
+481
+00:03:47,140 --> 00:03:52,140
+and then it multiplied that 5 by whatever it is I had stored in multiply.
+
+482
+00:03:52,660 --> 00:03:55,120
+So 5 plus 5, and we get 25.
+
+483
+00:03:55,810 --> 00:04:00,460
+This gives us a more flexible way of working with these arguments.
+
+484
+00:04:00,910 --> 00:04:05,500
+And it gives us a way to name the values that we're passing in to this function.
+
+485
+00:04:06,880 --> 00:04:11,110
+Now, coming back to what they've done in the Tkinter module,
+
+486
+00:04:11,650 --> 00:04:16,649
+basically this Tkinter module is actually ported from another technology called
+
+487
+00:04:17,560 --> 00:04:18,392
+TK.
+
+488
+00:04:18,940 --> 00:04:23,320
+And TK actually has a very different syntax from Python.
+
+489
+00:04:23,950 --> 00:04:28,900
+In order for it to work, they basically took all of the Tk commands,
+
+490
+00:04:28,930 --> 00:04:32,470
+like creating a label or packing some sort of item,
+
+491
+00:04:32,920 --> 00:04:37,920
+and took all of the options and turn them into these **kwargs or optional keyword
+
+492
+00:04:40,180 --> 00:04:41,013
+arguments.
+
+493
+00:04:41,380 --> 00:04:46,000
+And that is why when we create a new label from the Tkinter module
+
+494
+00:04:46,030 --> 00:04:48,310
+or when we call the pack method,
+
+495
+00:04:48,520 --> 00:04:53,290
+you can see that it doesn't actually come up with any properties that we can
+
+496
+00:04:53,290 --> 00:04:57,850
+modify other than this **kw,
+
+497
+00:04:58,120 --> 00:05:00,580
+which is the same as our **kwargs.
+
+498
+00:05:01,390 --> 00:05:04,390
+So we could actually create a class like that as well,
+
+499
+00:05:04,660 --> 00:05:07,180
+because this is done at initialization, right?
+
+500
+00:05:07,180 --> 00:05:09,640
+This is done when they're creating that label class.
+
+501
+00:05:10,420 --> 00:05:13,810
+Let's say that we create a class like this which I'll car,
+
+502
+00:05:14,410 --> 00:05:16,270
+and in the init,
+
+503
+00:05:16,780 --> 00:05:21,430
+what I'll include in addition to self is **
+
+504
+00:05:21,670 --> 00:05:25,030
+kw, or **kwargs, or however you want to spell it.
+
+505
+00:05:25,840 --> 00:05:30,840
+This kw are going to be all of the optional arguments that I'll pass in
+
+506
+00:05:31,270 --> 00:05:35,950
+when I'm initializing a new object from this class. I can say,
+
+507
+00:05:35,950 --> 00:05:38,770
+for example, self.
+
+508
+00:05:38,830 --> 00:05:42,370
+make of the car equals kw.
+
+509
+00:05:43,270 --> 00:05:47,230
+And then from kw, I'm going to get the make.
+
+510
+00:05:48,010 --> 00:05:49,810
+And then I'm going to have self.model
+
+511
+00:05:49,810 --> 00:05:53,980
+which is going to be equal to kw and then model. And of course,
+
+512
+00:05:53,980 --> 00:05:57,830
+all of the spelling matters so make sure you don't make any typos.
+
+513
+00:05:58,280 --> 00:06:00,260
+And then I decide to create my car
+
+514
+00:06:00,290 --> 00:06:04,490
+which is going to be the object created from this class. Now notice how
+
+515
+00:06:04,490 --> 00:06:06,440
+when I open up the parentheses here,
+
+516
+00:06:06,740 --> 00:06:10,850
+you don't actually see any of the properties like make and model show up
+
+517
+00:06:10,880 --> 00:06:14,480
+when I'm initializing. All you see is **
+
+518
+00:06:14,510 --> 00:06:18,380
+kw, just in the same way as you see it here,
+
+519
+00:06:19,850 --> 00:06:21,680
+**kw.
+
+520
+00:06:22,640 --> 00:06:26,750
+And that of course refers to our optional keyword arguments.
+
+521
+00:06:27,320 --> 00:06:31,610
+Let's add some values. Let's set the make to a Nissan,
+
+522
+00:06:32,150 --> 00:06:37,150
+and lets set the model to a-- let's set it to a GT-R. And now I can use my object
+
+523
+00:06:40,820 --> 00:06:44,930
+just as I would any other object. I can say my_car.model.
+
+524
+00:06:45,290 --> 00:06:49,580
+And when I hit run, you can see I've got GT-R being printed here.
+
+525
+00:06:50,690 --> 00:06:54,740
+And if I decided to print make, you can see
+
+526
+00:06:54,740 --> 00:06:55,970
+it gets hold off the make.
+
+527
+00:06:56,480 --> 00:07:00,830
+Now, what if I didn't actually specify one of these arguments.
+
+528
+00:07:01,430 --> 00:07:05,390
+Notice how it's now actually going to crash.
+
+529
+00:07:06,020 --> 00:07:08,570
+It tells me that keyError model.
+
+530
+00:07:08,750 --> 00:07:13,750
+So when it was initializing this car object, it fell on this line. And it
+
+531
+00:07:15,800 --> 00:07:20,800
+couldn't get hold of a value called model from this kw argument dictionary.
+
+532
+00:07:23,060 --> 00:07:24,650
+In fact, with dictionaries,
+
+533
+00:07:25,040 --> 00:07:28,370
+we can get hold of the values through the square bracket method,
+
+534
+00:07:28,640 --> 00:07:33,640
+but we can also use a function called get. And we use get in a very similar way
+
+535
+00:07:35,030 --> 00:07:37,220
+to the way that we use the square brackets.
+
+536
+00:07:37,250 --> 00:07:41,540
+We just pass in the name of the key and we want to get hold of the value.
+
+537
+00:07:42,140 --> 00:07:47,140
+But the benefit of get is that if this key doesn't exist in the dictionary,
+
+538
+00:07:50,510 --> 00:07:54,650
+then it will just return none and it won't give us an error.
+
+539
+00:07:55,820 --> 00:08:00,080
+So now if I run this code again, you can see that everything works,
+
+540
+00:08:00,320 --> 00:08:03,890
+but my car.model is now equal to none.
+
+541
+00:08:04,580 --> 00:08:09,580
+So this is how we can actually create a class with lots of optional keyword
+
+542
+00:08:10,340 --> 00:08:11,173
+arguments.
+
+543
+00:08:12,110 --> 00:08:17,110
+So we could have a self.color or self.seats.
+
+544
+00:08:21,050 --> 00:08:25,580
+And depending on what it is we want to initialize this car object to,
+
+545
+00:08:25,910 --> 00:08:30,910
+then we can simply go ahead and add whatever it is we want to set as the make
+
+546
+00:08:31,820 --> 00:08:35,750
+and the model or the color and the seats. And in the same way
+
+547
+00:08:35,780 --> 00:08:38,059
+that way using this label class,
+
+548
+00:08:38,390 --> 00:08:41,150
+we can set the text or we can set the font.
+
+549
+00:08:41,270 --> 00:08:46,270
+We can set all of the options or we can leave them as the default values. That
+
+550
+00:08:48,230 --> 00:08:52,610
+should help you understand how this code works a little bit better.
+
+551
+00:08:53,180 --> 00:08:56,580
+And the reason why it works like this is, as I say,
+
+552
+00:08:56,580 --> 00:09:01,580
+mostly because this module was converted from another language and this just
+
+553
+00:09:01,950 --> 00:09:06,950
+happened to be the most efficient way for them to do this. Now with other more
+
+554
+00:09:07,380 --> 00:09:11,280
+Pythonic modules or things that have been created in Python
+
+555
+00:09:11,610 --> 00:09:16,260
+like the turtle module, then you'll see more bog-standard kind of code
+
+556
+00:09:16,320 --> 00:09:19,740
+like what we've been working with. So when we initialize a new turtle,
+
+557
+00:09:19,950 --> 00:09:22,530
+you can see that it has a default shape,
+
+558
+00:09:22,620 --> 00:09:25,230
+it has a visible boolean,
+
+559
+00:09:25,290 --> 00:09:29,190
+and we can set all of those properties that we can see in this prompt.
+
+560
+00:09:30,510 --> 00:09:31,860
+Now in the next lesson,
+
+561
+00:09:31,890 --> 00:09:36,210
+I want to dive deeper into the TKinter documentation
+
+562
+00:09:36,570 --> 00:09:40,230
+and I want to show you how we can create other components, not just the label,
+
+563
+00:09:40,470 --> 00:09:42,990
+but things like buttons and text inputs
+
+564
+00:09:43,280 --> 00:09:46,790
+and a whole range of things that will bring our GUI program to life.
+
+565
+00:09:47,210 --> 00:09:50,120
+So for all of that and more, I'll see you in the next lesson.
+
+
+566
+00:00:00,360 --> 00:00:05,360
+In the last lesson, we saw how we could set a lot of the properties for the
+
+567
+00:00:06,300 --> 00:00:09,000
+methods associated with Tkinter,
+
+568
+00:00:09,300 --> 00:00:13,440
+or for initializing the components like our labels.
+
+569
+00:00:14,160 --> 00:00:15,750
+Now in the documentation,
+
+570
+00:00:15,870 --> 00:00:19,770
+they tell us that there's a number of ways that we can set these options.
+
+571
+00:00:20,190 --> 00:00:25,190
+We can either do it when we initialize a new object or we can access the
+
+572
+00:00:25,860 --> 00:00:30,420
+properties like as if they are keys in a dictionary and then setting the value.
+
+573
+00:00:31,020 --> 00:00:31,650
+And finally,
+
+574
+00:00:31,650 --> 00:00:36,450
+we can set multiple properties by using the config method and passing in the
+
+575
+00:00:36,450 --> 00:00:38,970
+value for each of the things that we want to change,
+
+576
+00:00:39,690 --> 00:00:43,590
+I recommend taking a look at the Tcl tk documentation
+
+577
+00:00:43,950 --> 00:00:47,460
+which lists all of the options. Like for example, here,
+
+578
+00:00:47,460 --> 00:00:52,440
+I've got my label chosen and there are standard options like background color,
+
+579
+00:00:52,470 --> 00:00:56,400
+or text. And there are widget-specific options,
+
+580
+00:00:56,430 --> 00:01:01,050
+so specific to the label, you can change its height, you can change its width.
+
+581
+00:01:01,740 --> 00:01:04,680
+Coming back to my label in my main.py,
+
+582
+00:01:05,129 --> 00:01:08,760
+if I wanted to change my label's property, so for example,
+
+583
+00:01:08,760 --> 00:01:13,500
+if I want to change the text that's inside and I want to make it different from
+
+584
+00:01:13,500 --> 00:01:15,570
+the initial text that it displays,
+
+585
+00:01:15,840 --> 00:01:20,280
+then I can do simply this by changing it as if it were a dictionary.
+
+586
+00:01:20,880 --> 00:01:24,390
+And I can set that to the new value, so new text.
+
+587
+00:01:25,740 --> 00:01:30,740
+Now I could also do it by doing my_label.config and then passing in the
+
+588
+00:01:31,830 --> 00:01:36,830
+text as a keyword argument. Either way
+
+589
+00:01:37,230 --> 00:01:40,440
+when I run this main.py, remember previously,
+
+590
+00:01:40,440 --> 00:01:41,850
+we were running our playground.
+
+591
+00:01:41,850 --> 00:01:46,850
+So go back to run and then click this and then change it to our main.py.
+
+592
+00:01:48,720 --> 00:01:53,720
+And now you should see the new text show up instead of the original text,
+
+593
+00:01:53,760 --> 00:01:55,110
+which is I am a label.
+
+594
+00:01:55,800 --> 00:02:00,800
+So this is how we configure and change or update the properties of a particular
+
+595
+00:02:01,830 --> 00:02:03,360
+component that we've created.
+
+596
+00:02:04,860 --> 00:02:08,759
+In addition to labels, we can also create buttons.
+
+597
+00:02:09,180 --> 00:02:13,920
+Let's create a button, which again, is going to come from the Tkinter module
+
+598
+00:02:14,220 --> 00:02:17,610
+and it's going to be the button class from that module
+
+599
+00:02:17,670 --> 00:02:20,220
+as you can see right here. Now,
+
+600
+00:02:20,280 --> 00:02:22,380
+all of the components that we're going to be using
+
+601
+00:02:22,410 --> 00:02:25,290
+come from this class. Very often
+
+602
+00:02:25,320 --> 00:02:30,320
+you'll see people instead of importing Tkinter, they'll say from tkinter
+
+603
+00:02:30,780 --> 00:02:31,620
+import,
+
+604
+00:02:31,770 --> 00:02:36,270
+and then the asterisk to denote import every single class.
+
+605
+00:02:36,900 --> 00:02:40,590
+This means that we can basically get rid of all the module mentions
+
+606
+00:02:40,590 --> 00:02:43,170
+and we can just initialize a window as tk,
+
+607
+00:02:43,500 --> 00:02:48,500
+our label as a label and our button as simply button, like this. Saves a little
+
+608
+00:02:50,400 --> 00:02:54,330
+bit of typing, depends on how many of the classes you're gonna use.
+
+609
+00:02:54,330 --> 00:02:55,500
+If you're just going to use one,
+
+610
+00:02:55,800 --> 00:02:58,980
+I recommend keeping the module so that you know, where it comes from.
+
+611
+00:02:59,230 --> 00:03:00,940
+But if you're going to use loads of them
+
+612
+00:03:00,970 --> 00:03:04,750
+like we are here, then it does make it a lot quicker to type.
+
+613
+00:03:05,410 --> 00:03:07,660
+So let's create our button. And again,
+
+614
+00:03:07,660 --> 00:03:12,660
+it has a whole bunch of optional keyword arguments. And some of those are
+
+615
+00:03:12,910 --> 00:03:14,440
+standard. So for example,
+
+616
+00:03:14,440 --> 00:03:19,030
+we can change the button text in the same way that we changed the label text.
+
+617
+00:03:19,450 --> 00:03:24,450
+So let's make it to say click me. And remember that in order to make anything appear
+
+618
+00:03:25,240 --> 00:03:27,700
+on screen, it needs to have some sort of layout.
+
+619
+00:03:28,090 --> 00:03:31,540
+So let's call pack again to get it to be packed onto the screen.
+
+620
+00:03:32,260 --> 00:03:34,360
+So now if I run this code as it is,
+
+621
+00:03:34,690 --> 00:03:39,690
+you can see that my button has been placed in the middle of the screen and my
+
+622
+00:03:39,940 --> 00:03:41,650
+label is packed to the left.
+
+623
+00:03:43,120 --> 00:03:45,400
+Let's go ahead and get rid of that left
+
+624
+00:03:45,430 --> 00:03:49,780
+so that it actually goes in order so that the first thing gets created,
+
+625
+00:03:49,810 --> 00:03:53,830
+it gets put on screen first and then the next thing is the button
+
+626
+00:03:53,890 --> 00:03:56,740
+and then this is all centered by default.
+
+627
+00:03:58,150 --> 00:04:02,110
+The next obvious question is how can we get this button to actually work?
+
+628
+00:04:02,290 --> 00:04:07,240
+Because at the moment clicking on it does absolutely nothing. As you remember
+
+629
+00:04:07,270 --> 00:04:09,550
+when we used our turtle module,
+
+630
+00:04:09,760 --> 00:04:14,650
+we could have an event listener. So we can create some sort of a function,
+
+631
+00:04:14,830 --> 00:04:17,380
+let's call it say button_clicked.
+
+632
+00:04:18,730 --> 00:04:22,480
+And then this function could do something say, for example,
+
+633
+00:04:22,750 --> 00:04:24,430
+I got clicked.
+
+634
+00:04:25,300 --> 00:04:29,410
+And when this button detects an event,
+
+635
+00:04:29,470 --> 00:04:33,430
+say a click event, then it could call this function.
+
+636
+00:04:33,910 --> 00:04:38,470
+So in the tkinter world, there is a property called command,
+
+637
+00:04:38,890 --> 00:04:43,420
+which you can set to equal the name of a function. So remember,
+
+638
+00:04:43,720 --> 00:04:47,470
+it's the name of the function, not calling the function.
+
+639
+00:04:47,620 --> 00:04:50,920
+So we don't actually need the parentheses at the end.
+
+640
+00:04:51,670 --> 00:04:56,500
+Now when we run our code, when this button detects a command
+
+641
+00:04:56,500 --> 00:04:58,480
+which is basically a click event,
+
+642
+00:04:58,750 --> 00:05:03,010
+then it's going to trigger this method and it's going to print this hopefully
+
+643
+00:05:03,010 --> 00:05:07,450
+into the console. So let's hit run. Now,
+
+644
+00:05:07,450 --> 00:05:11,650
+I'm going to click on this button and you can see it says I got clicked and it
+
+645
+00:05:11,650 --> 00:05:13,210
+does that every time I click on it.
+
+646
+00:05:14,650 --> 00:05:16,840
+So here's a challenge for you.
+
+647
+00:05:17,530 --> 00:05:19,900
+How can you make the label,
+
+648
+00:05:19,930 --> 00:05:24,370
+my_label, instead of reading new text, for it to say
+
+649
+00:05:24,400 --> 00:05:27,910
+button got clicked when I click this button?
+
+650
+00:05:28,480 --> 00:05:32,620
+So this button click should now change the text. Pause the video,
+
+651
+00:05:32,950 --> 00:05:35,950
+give that a go. All right.
+
+652
+00:05:35,950 --> 00:05:40,950
+So we know that we can change our label's text by using either of these methods.
+
+653
+00:05:41,410 --> 00:05:45,100
+So you can basically pick one of these and add it to this function.
+
+654
+00:05:45,310 --> 00:05:46,540
+So I'm going to use the
+
+655
+00:05:46,570 --> 00:05:51,570
+my_label.config just because it kind of makes a little bit more sense when I
+
+656
+00:05:52,540 --> 00:05:53,650
+read that line of code.
+
+657
+00:05:53,830 --> 00:05:57,860
+So I'm going to configure the text property to read button
+
+658
+00:05:58,070 --> 00:05:59,180
+got clicked.
+
+659
+00:06:01,580 --> 00:06:03,410
+And now when I hit run,
+
+660
+00:06:04,040 --> 00:06:08,300
+what you'll see is when I click this button, it's going to change the text.
+
+661
+00:06:10,010 --> 00:06:13,010
+So we're now getting a little bit more interactivity.
+
+662
+00:06:13,670 --> 00:06:17,330
+The next thing I want to show you is even more interactivity.
+
+663
+00:06:17,750 --> 00:06:21,260
+I want to show you a component called the entry component,
+
+664
+00:06:21,440 --> 00:06:24,980
+and this is basically just a input effectively.
+
+665
+00:06:25,610 --> 00:06:28,460
+So let's create a new object which I'll call input,
+
+666
+00:06:28,820 --> 00:06:31,280
+and it's created from the entry class
+
+667
+00:06:31,310 --> 00:06:35,210
+which comes from our tkinter module. Now again,
+
+668
+00:06:35,270 --> 00:06:37,220
+if we want something to appear on screen,
+
+669
+00:06:37,490 --> 00:06:42,260
+we have to give it a layout and we can use the automatic pack to do that.
+
+670
+00:06:42,620 --> 00:06:47,510
+So now when I run this code, you can see I've now got a input field. Now,
+
+671
+00:06:47,510 --> 00:06:51,980
+if I want to look at the options for my entry,
+
+672
+00:06:52,220 --> 00:06:56,930
+I can simply go to this tk documentation, find my entry,
+
+673
+00:06:57,260 --> 00:06:58,010
+click on it,
+
+674
+00:06:58,010 --> 00:07:02,780
+and you can see I've got standard options and widget-specific options. Now,
+
+675
+00:07:02,810 --> 00:07:07,400
+one of the things I want to change is the width. For example,
+
+676
+00:07:07,430 --> 00:07:12,430
+I could change the width of this input by simply using the width keyword
+
+677
+00:07:13,940 --> 00:07:14,690
+argument.
+
+678
+00:07:14,690 --> 00:07:19,690
+And I can specify an integer to indicate the desired width of the entry window.
+
+679
+00:07:21,320 --> 00:07:25,640
+So at the moment, if I think it's a little bit too wide,
+
+680
+00:07:26,000 --> 00:07:30,980
+then let's try modifying our input so that has a slightly lower width.
+
+681
+00:07:31,310 --> 00:07:32,750
+Let's change it to maybe 10
+
+682
+00:07:33,830 --> 00:07:37,430
+and you can see it's now a lot smaller than before. Now
+
+683
+00:07:37,430 --> 00:07:41,900
+what if I want to get hold of the value that came from that entry?
+
+684
+00:07:42,890 --> 00:07:45,740
+Well, in that case, I have to use the get
+
+685
+00:07:46,130 --> 00:07:49,010
+which basically just returns the entry's string.
+
+686
+00:07:49,430 --> 00:07:52,430
+So I could say input.get
+
+687
+00:07:52,910 --> 00:07:57,910
+and then this method is going to return the input as a string.
+
+688
+00:07:58,940 --> 00:08:01,550
+So I could, for example, print it out.
+
+689
+00:08:02,210 --> 00:08:06,470
+But unfortunately, the point when this line of code is run,
+
+690
+00:08:06,800 --> 00:08:10,490
+there's actually no input inside this entry.
+
+691
+00:08:10,910 --> 00:08:13,700
+So we would actually print absolutely nothing.
+
+692
+00:08:15,500 --> 00:08:17,060
+Here's a challenge for you.
+
+693
+00:08:17,660 --> 00:08:21,350
+Can you figure out how to get whatever is written in here
+
+694
+00:08:22,880 --> 00:08:25,820
+to be the text in the label
+
+695
+00:08:26,210 --> 00:08:28,340
+the moment when I click on this button?
+
+696
+00:08:29,090 --> 00:08:32,690
+Given that I've typed something in here, when I click this button,
+
+697
+00:08:33,020 --> 00:08:37,250
+I want that something to be displayed in the label instead of 'button got
+
+698
+00:08:37,250 --> 00:08:40,880
+clicked.' Pause the video and see if you can complete this challenge.
+
+699
+00:08:43,280 --> 00:08:43,700
+All right.
+
+700
+00:08:43,700 --> 00:08:48,700
+So we know that the trigger for the button is the button_clicked function.
+
+701
+00:08:49,940 --> 00:08:54,770
+So it's here where we're actually configuring our label. If instead,
+
+702
+00:08:54,800 --> 00:08:58,560
+we're going to get hold of our input here and call input.
+
+703
+00:08:58,650 --> 00:09:01,830
+get to get the new_text, well,
+
+704
+00:09:01,830 --> 00:09:06,540
+then we can actually use this new text and populate the label.
+
+705
+00:09:06,990 --> 00:09:10,020
+So we can say text = new_text.
+
+706
+00:09:10,650 --> 00:09:12,300
+And now when I hit run,
+
+707
+00:09:12,480 --> 00:09:15,750
+you can see that I can type whatever it is I want in here.
+
+708
+00:09:15,870 --> 00:09:17,580
+And then when I click 'click me',
+
+709
+00:09:17,910 --> 00:09:21,780
+it gets the text inside the entry and puts it in the label.
+
+710
+00:09:23,250 --> 00:09:28,250
+This is how we would work with some of the most basic components of tkinter like
+
+711
+00:09:28,620 --> 00:09:30,750
+label, button, entry,
+
+712
+00:09:30,900 --> 00:09:34,620
+and we've also seen the pack method. Now, as you can see,
+
+713
+00:09:34,620 --> 00:09:37,890
+they're all other things that you can do with tkinter.
+
+714
+00:09:38,400 --> 00:09:39,630
+So in the next lesson,
+
+715
+00:09:39,660 --> 00:09:42,480
+we're going to be working on top of what we've done so far
+
+716
+00:09:42,780 --> 00:09:46,800
+and I want to show you some of the other widgets that you can work with and add
+
+717
+00:09:46,800 --> 00:09:48,120
+to your tkinter program.
+
+
+718
+00:00:00,480 --> 00:00:01,859
+Now in the last lesson,
+
+719
+00:00:01,920 --> 00:00:06,750
+we saw a couple of different ways of working with tkinter widgets.
+
+720
+00:00:07,290 --> 00:00:11,190
+We've already seen how we can create labels,
+
+721
+00:00:11,490 --> 00:00:16,490
+so something like this, and also buttons that can be clicked and do some sort of
+
+722
+00:00:20,340 --> 00:00:23,730
+action. Then we've also seen entries,
+
+723
+00:00:24,570 --> 00:00:26,940
+which is basically some sort of textbox.
+
+724
+00:00:27,420 --> 00:00:32,369
+And now I want to show you some of the other widgets that you can work with.
+
+725
+00:00:32,759 --> 00:00:35,220
+For example, the text entry box
+
+726
+00:00:35,250 --> 00:00:40,250
+which allows you to use multiple lines of text, or something like the spin box
+
+727
+00:00:41,340 --> 00:00:43,350
+which is basically a sort of counter
+
+728
+00:00:43,680 --> 00:00:47,430
+which lets you go up and down, and then a scale
+
+729
+00:00:47,430 --> 00:00:49,020
+which is a slider
+
+730
+00:00:49,020 --> 00:00:53,460
+basically that you can move along its axis and change its value.
+
+731
+00:00:54,090 --> 00:00:59,090
+Then there's a check box which can be on or off basically just a tick box,
+
+732
+00:00:59,520 --> 00:01:04,260
+radio buttons, and finally a list box of choices
+
+733
+00:01:04,260 --> 00:01:05,310
+which you can pick from.
+
+734
+00:01:06,840 --> 00:01:11,220
+So these are pretty much all the widgets that you can work with. To save you from
+
+735
+00:01:11,220 --> 00:01:13,050
+typing a lot of this example
+
+736
+00:01:13,050 --> 00:01:17,730
+code, I've created a tkinter widget demo Repl.it for you
+
+737
+00:01:18,030 --> 00:01:21,870
+which you can go to and you can see some of the existing code that we've already
+
+738
+00:01:21,870 --> 00:01:22,703
+created
+
+739
+00:01:22,770 --> 00:01:27,660
+like how to create a window or how to create a label and how to create a button.
+
+740
+00:01:28,140 --> 00:01:32,370
+But I want to show you some of the other features by just looking at the code.
+
+741
+00:01:32,850 --> 00:01:34,710
+For example, with the entry
+
+742
+00:01:34,740 --> 00:01:38,730
+we can actually insert some text for the entries to start off with.
+
+743
+00:01:39,060 --> 00:01:42,060
+So notice how here we can click on it to edit it,
+
+744
+00:01:42,360 --> 00:01:46,350
+but it's really got some starting text in there. So for example,
+
+745
+00:01:46,350 --> 00:01:48,690
+if you wanted to create an email box,
+
+746
+00:01:48,720 --> 00:01:52,740
+maybe you would write the word email to give the user a bit of a hint.
+
+747
+00:01:53,220 --> 00:01:56,280
+Now you've also got a text box
+
+748
+00:01:56,310 --> 00:02:00,420
+which is a large area where the user can edit.
+
+749
+00:02:01,650 --> 00:02:04,110
+And this is simply created with the text widget.
+
+750
+00:02:04,410 --> 00:02:09,410
+You can set the number of lines as height and the width as the width of the box.
+
+751
+00:02:11,250 --> 00:02:16,250
+And you can set the text to be focused so that the cursor starts out in that
+
+752
+00:02:16,740 --> 00:02:17,580
+textbox.
+
+753
+00:02:18,240 --> 00:02:23,240
+And then we can insert some piece of text to begin with and we can also get hold
+
+754
+00:02:24,570 --> 00:02:29,460
+of the text inside the text box using the get method. Now notice
+
+755
+00:02:29,460 --> 00:02:31,290
+there's something a little bit weird
+
+756
+00:02:31,320 --> 00:02:34,560
+like the end here and the end here.
+
+757
+00:02:34,890 --> 00:02:38,040
+This is just an index to allow tkinter
+
+758
+00:02:38,040 --> 00:02:42,660
+to figure out which particular item you're referring to and you don't have to
+
+759
+00:02:42,660 --> 00:02:45,420
+change it ever. This is just the code that you use.
+
+760
+00:02:45,840 --> 00:02:50,460
+You can keep the code exactly as it is here and just modify the test that you
+
+761
+00:02:50,460 --> 00:02:51,390
+want to insert.
+
+762
+00:02:52,020 --> 00:02:57,020
+And this 1.0 basically refers to getting hold of the text
+
+763
+00:02:57,090 --> 00:03:00,370
+starting from the first line at the character zero.
+
+764
+00:03:01,750 --> 00:03:06,750
+And then we've got a new widget that we've never really seen before, a spin box,
+
+765
+00:03:07,300 --> 00:03:10,480
+which looks something like this.
+
+766
+00:03:10,720 --> 00:03:15,720
+So you can click on the up and down to change its value and we can print out the
+
+767
+00:03:17,320 --> 00:03:22,320
+value that's being changed in there by simply getting the spin box to be tied to
+
+768
+00:03:24,340 --> 00:03:26,800
+a function which is called spinbox_used.
+
+769
+00:03:27,130 --> 00:03:29,170
+And then we just get the value each time.
+
+770
+00:03:30,940 --> 00:03:33,580
+Now a scale is also pretty self explanatory.
+
+771
+00:03:33,580 --> 00:03:37,750
+You can move it up and down, and we're getting hold of the value that would
+
+772
+00:03:37,750 --> 00:03:40,810
+the user is landing on by simply packing, again,
+
+773
+00:03:40,870 --> 00:03:44,890
+another command into that scale when we're creating it.
+
+774
+00:03:45,220 --> 00:03:47,110
+And then when that function is called,
+
+775
+00:03:47,110 --> 00:03:51,640
+it actually passes over the value that the scale is currently on and that is
+
+776
+00:03:51,640 --> 00:03:55,480
+what's getting printed. Next
+
+777
+00:03:55,510 --> 00:03:59,830
+we've got a checkbox and we can click it on or off.
+
+778
+00:03:59,920 --> 00:04:04,920
+And we can print one or zero by simply tying that checkbox to a variable.
+
+779
+00:04:07,240 --> 00:04:12,240
+And this variable is something that's defined by the tkinter module as a IntVar.
+
+780
+00:04:13,360 --> 00:04:15,070
+So this is actually a class.
+
+781
+00:04:15,550 --> 00:04:18,490
+And once we create that object from the class,
+
+782
+00:04:18,550 --> 00:04:22,029
+then we can add it to our check button when we create it,
+
+783
+00:04:22,480 --> 00:04:27,480
+and that variable will keep track of the value of that checkbox. 1 for on and
+
+784
+00:04:28,510 --> 00:04:31,930
+0 for off. And then we can print it out
+
+785
+00:04:31,990 --> 00:04:34,150
+when that check button is used.
+
+786
+00:04:36,490 --> 00:04:40,300
+Now radio buttons are useful to pick between different options.
+
+787
+00:04:40,540 --> 00:04:44,320
+So normally you'd have a number of options and only one of them can be selected
+
+788
+00:04:44,380 --> 00:04:48,460
+at any one time. So in this case what we do is, again,
+
+789
+00:04:48,460 --> 00:04:52,570
+we create a IntVar and we tie that var to 
+
+790
+00:04:52,600 --> 00:04:54,760
+each of the radio buttons that we create,
+
+791
+00:04:55,150 --> 00:04:58,990
+and then we give each of the radio button a value. So this one has value 1,
+
+792
+00:04:58,990 --> 00:05:03,910
+this one has value 2, and they're both tied to that radio state IntVar.
+
+793
+00:05:04,390 --> 00:05:07,570
+And then when that button gets changed,
+
+794
+00:05:07,840 --> 00:05:12,550
+then we can actually get hold of the radio state by calling radio_state.
+
+795
+00:05:12,580 --> 00:05:16,990
+get and when you get whichever value it is that's currently selected,
+
+796
+00:05:17,020 --> 00:05:20,740
+so option1 or option2. Now finally,
+
+797
+00:05:20,770 --> 00:05:22,720
+we've got a list box
+
+798
+00:05:22,750 --> 00:05:27,250
+which is just a list of options created from a Python list.
+
+799
+00:05:27,310 --> 00:05:29,020
+We'd loop through each of the items,
+
+800
+00:05:29,350 --> 00:05:34,350
+insert it to our listbox and then once the list box is used,
+
+801
+00:05:35,290 --> 00:05:40,290
+we use this bind function to call this particular call back. This way
+
+802
+00:05:41,620 --> 00:05:44,350
+whenever we select any of the items in here,
+
+803
+00:05:44,620 --> 00:05:49,510
+it will print out and get the current selection. Now,
+
+804
+00:05:49,570 --> 00:05:53,890
+a lot of this code is pretty much going to be used the same each time.
+
+805
+00:05:53,920 --> 00:05:58,220
+So it doesn't really matter if you don't understand fully exactly what some of
+
+806
+00:05:58,220 --> 00:05:59,930
+these weird components are.
+
+807
+00:06:00,230 --> 00:06:05,230
+It's just a factor of how this tkinter library has taken this tk module and
+
+808
+00:06:07,940 --> 00:06:12,590
+turned it into a Python format for us to be able to interact with it using
+
+809
+00:06:12,590 --> 00:06:13,100
+Python.
+
+810
+00:06:13,100 --> 00:06:17,750
+So there's a few weird bits like this listbox select or this,
+
+811
+00:06:17,840 --> 00:06:19,880
+um, end being used here,
+
+812
+00:06:20,390 --> 00:06:24,230
+but you can see that each line is commented and it tells you what it does.
+
+813
+00:06:24,560 --> 00:06:28,130
+So you'll be able to figure out what line of code you need to write
+
+814
+00:06:28,130 --> 00:06:33,130
+in order to add some text or to get some texts or how to bind a function to the
+
+815
+00:06:35,480 --> 00:06:40,480
+list box and how to get hold of the value that's currently being selected.
+
+816
+00:06:41,960 --> 00:06:46,960
+I recommend heading over to this link here and either downloading the code and
+
+817
+00:06:47,150 --> 00:06:49,490
+opening it in PyCharm if you prefer,
+
+818
+00:06:49,850 --> 00:06:54,560
+because then you can actually get a much larger version of the running program
+
+819
+00:06:54,860 --> 00:06:56,120
+or alternatively,
+
+820
+00:06:56,150 --> 00:07:00,080
+just have a play around with the code in here so that you understand how these
+
+821
+00:07:00,080 --> 00:07:04,010
+widgets work and how you can use it basically as a pallet
+
+822
+00:07:04,370 --> 00:07:06,860
+if you wanted a couple of checkboxes,
+
+823
+00:07:06,860 --> 00:07:09,800
+or if you wanted a couple of a spin boxes,
+
+824
+00:07:09,800 --> 00:07:13,670
+then you can just pick and choose them from this cookbook essentially
+
+825
+00:07:13,940 --> 00:07:17,990
+and then you can put them into your programs when and as needed.
+
+
+826
+00:00:00,570 --> 00:00:03,480
+Now coming back to our main.py
+
+827
+00:00:03,780 --> 00:00:07,170
+our previous program had a label,
+
+828
+00:00:07,200 --> 00:00:10,320
+a button and an entry, and it was relatively simple.
+
+829
+00:00:10,740 --> 00:00:13,560
+So I'm going to head back to this main.py file
+
+830
+00:00:13,830 --> 00:00:18,570
+where we've got only three widgets so that I can show you how we can define the
+
+831
+00:00:18,570 --> 00:00:22,350
+layout and positioning of each of our widgets.
+
+832
+00:00:23,460 --> 00:00:28,380
+Firstly, I've reconfigured the file a little bit. So I've moved the button
+
+833
+00:00:28,380 --> 00:00:30,060
+_clicked function to the top,
+
+834
+00:00:30,540 --> 00:00:35,540
+and I've made sure that each of the pack methods are at the very end of each
+
+835
+00:00:37,110 --> 00:00:41,760
+widget. That way we'll be able to work with it quite easily. Now,
+
+836
+00:00:41,760 --> 00:00:45,930
+as I mentioned before, tkinter has a whole bunch of different layout
+
+837
+00:00:45,930 --> 00:00:50,930
+managers that define how to position each of the widgets in your GUI program.
+
+838
+00:00:52,440 --> 00:00:56,340
+Now there's three that you should know about, pack, place and grid.
+
+839
+00:00:57,270 --> 00:00:58,080
+Now, firstly,
+
+840
+00:00:58,080 --> 00:01:03,080
+we've already seen pack and all that pack does is it basically packs each of the
+
+841
+00:01:04,319 --> 00:01:08,340
+widgets next to each other in a vaguely logical format.
+
+842
+00:01:08,970 --> 00:01:10,470
+And by default, pack
+
+843
+00:01:10,470 --> 00:01:15,470
+will always start from the top and then pack every other widget just below the
+
+844
+00:01:15,600 --> 00:01:18,360
+previous one. As I mentioned,
+
+845
+00:01:18,390 --> 00:01:23,390
+you can change this by adding a side parameter and you can change it to for
+
+846
+00:01:24,840 --> 00:01:27,360
+example, side = left.
+
+847
+00:01:27,900 --> 00:01:31,200
+And if you change this for all of the packs,
+
+848
+00:01:31,260 --> 00:01:36,090
+then it's going to pack everything starting from the left edge of the program
+
+849
+00:01:36,390 --> 00:01:40,890
+like this. And you can change that to bottom or right as well.
+
+850
+00:01:41,550 --> 00:01:46,550
+But the problem with pack is that it's actually quite difficult to specify a
+
+851
+00:01:46,800 --> 00:01:49,080
+precise position. So for example,
+
+852
+00:01:49,080 --> 00:01:53,370
+if you wanted this label to be a little bit up and then this button a little bit
+
+853
+00:01:53,370 --> 00:01:57,240
+down and this entry all the way to the right. It's very,
+
+854
+00:01:57,240 --> 00:01:59,910
+very complicated to do that using pack.
+
+855
+00:02:00,390 --> 00:02:03,360
+And that's why there's not just a single layout manager,
+
+856
+00:02:03,390 --> 00:02:06,870
+but there's lots of others. So let's take a look at the next one,
+
+857
+00:02:06,870 --> 00:02:11,760
+which is called place. Place is all about precise positioning.
+
+858
+00:02:12,300 --> 00:02:14,430
+So when you place something,
+
+859
+00:02:14,910 --> 00:02:18,870
+you can provide a X and Y value. So for example,
+
+860
+00:02:18,870 --> 00:02:22,890
+I can say my label.place, and then I can say, well,
+
+861
+00:02:22,890 --> 00:02:27,300
+the X value should equal 0 and the Y value should equal 0.
+
+862
+00:02:27,720 --> 00:02:31,500
+And this just places that label at the top left corner.
+
+863
+00:02:32,160 --> 00:02:36,270
+Now it's important to remember that if a widget gets created
+
+864
+00:02:36,570 --> 00:02:41,010
+but it doesn't have any layout specified it using pack, place or grid,
+
+865
+00:02:41,250 --> 00:02:43,920
+then it won't be shown as you can see here,
+
+866
+00:02:43,920 --> 00:02:48,920
+we've only got the label showing up. Now that we've placed our label to the top
+
+867
+00:02:49,200 --> 00:02:52,110
+left corner, we can try placing it in somewhere else.
+
+868
+00:02:52,380 --> 00:02:55,260
+So let's move it a little bit along the X axis.
+
+869
+00:02:55,290 --> 00:02:58,350
+So let's say place it on a (100, 0)
+
+870
+00:02:58,800 --> 00:03:02,320
+That moves it to the right a bit more, and if we want to move it down
+
+871
+00:03:02,320 --> 00:03:04,570
+we can change the Y position.
+
+872
+00:03:04,930 --> 00:03:09,310
+So now it's down at the bottom and then the X is 100. Now,
+
+873
+00:03:09,310 --> 00:03:13,750
+remember we've defined the width and height. So the width is 500 pixels,
+
+874
+00:03:13,750 --> 00:03:17,440
+the height is 300 pixels and anywhere along that screen,
+
+875
+00:03:17,710 --> 00:03:22,710
+you can define a X and Y value for a particular widget to place it at that
+
+876
+00:03:23,380 --> 00:03:24,760
+precise position.
+
+877
+00:03:25,630 --> 00:03:30,630
+The downside of place on the other hand is the fact that it is so specific and
+
+878
+00:03:31,540 --> 00:03:36,010
+we have to work out in our head the coordinate and where to put each widget.
+
+879
+00:03:36,400 --> 00:03:39,820
+It simple enough if you've only got three widgets like we have here,
+
+880
+00:03:40,120 --> 00:03:42,490
+but if you have a hundred or fifty,
+
+881
+00:03:42,490 --> 00:03:46,870
+then that becomes quickly a bit of a nightmare to manage the precise coordinates
+
+882
+00:03:46,930 --> 00:03:47,920
+of each widget.
+
+883
+00:03:48,910 --> 00:03:53,260
+So in addition to pack and place, there's also a final layout manager
+
+884
+00:03:53,350 --> 00:03:55,300
+which also happens to be my favorite one,
+
+885
+00:03:55,660 --> 00:04:00,160
+which is the grid. And the grid is a really simple concept.
+
+886
+00:04:00,490 --> 00:04:05,490
+It imagines that your entire program is a grid and you can divide it into any
+
+887
+00:04:06,640 --> 00:04:08,770
+number of columns and rows that you want to.
+
+888
+00:04:09,190 --> 00:04:13,660
+So just as a reminder, the rows are the ones that go along the horizontal and
+
+889
+00:04:13,660 --> 00:04:16,450
+the columns are the ones that go along the vertical.
+
+890
+00:04:17,529 --> 00:04:22,330
+If I remove my place and instead I use my grid,
+
+891
+00:04:22,630 --> 00:04:25,330
+I could say my_label.grid,
+
+892
+00:04:25,660 --> 00:04:29,680
+and then I can provide a column and a row number.
+
+893
+00:04:29,710 --> 00:04:34,120
+So let's say I'm going to put it at the first column and the first row.
+
+894
+00:04:34,150 --> 00:04:38,320
+So then starts from zero so that we could say column = 0, row =
+
+895
+00:04:38,320 --> 00:04:42,010
+0. And you can see that it gets placed in the top left corner.
+
+896
+00:04:42,760 --> 00:04:47,170
+Now the grid system is relative to other components.
+
+897
+00:04:47,410 --> 00:04:52,240
+So even if I change this column to, I dunno, five and the row to five,
+
+898
+00:04:52,600 --> 00:04:55,750
+you can see that it doesn't actually change the layout because there is no
+
+899
+00:04:55,750 --> 00:04:58,990
+widget in column four, three, two or one.
+
+900
+00:04:59,200 --> 00:05:01,900
+So it's still the first one in the grid.
+
+901
+00:05:03,340 --> 00:05:05,620
+So the easiest way of working with the grid
+
+902
+00:05:05,650 --> 00:05:08,830
+is starting with the things that you want it to be at the top left,
+
+903
+00:05:09,070 --> 00:05:12,010
+defining a starting column and rows, zero, zero,
+
+904
+00:05:12,370 --> 00:05:17,320
+and then for the next and subsequent widgets to just keep going through it and
+
+905
+00:05:17,350 --> 00:05:20,530
+define its position on the grid. For example,
+
+906
+00:05:20,530 --> 00:05:25,530
+if I wanted the button to be on column one and row one
+
+907
+00:05:27,970 --> 00:05:30,580
+and then I want my entry
+
+908
+00:05:30,610 --> 00:05:35,610
+which is called input to be on the grid in column two and row two,
+
+909
+00:05:39,580 --> 00:05:41,230
+now if you run this,
+
+910
+00:05:41,260 --> 00:05:45,100
+you can see it's now been laid out along our grid.
+
+911
+00:05:45,640 --> 00:05:48,040
+And this is effectively what it looks like.
+
+912
+00:05:48,400 --> 00:05:51,160
+Our label is in column zero row
+
+913
+00:05:51,160 --> 00:05:53,590
+zero, button in column one row
+
+914
+00:05:53,590 --> 00:05:56,860
+one and entry in column two row two.
+
+915
+00:05:58,130 --> 00:06:03,130
+This is one of the easiest ways of visualizing and creating the layout for your
+
+916
+00:06:03,920 --> 00:06:07,400
+tkinter programs. And it's really flexible
+
+917
+00:06:07,490 --> 00:06:10,850
+and it's really easy to imagine and understand.
+
+918
+00:06:11,120 --> 00:06:16,100
+So this is always my preferred way of working with the layout for 
+
+919
+00:06:16,130 --> 00:06:18,620
+tkinter. Just a word of warning though.
+
+920
+00:06:18,650 --> 00:06:23,650
+You can't mix up grid and pack in the same program.
+
+921
+00:06:23,990 --> 00:06:28,760
+So for example, if I wanted my label and my button to be defined by the grid
+
+922
+00:06:29,060 --> 00:06:34,060
+but then I decide to use the pack method for my final entry,
+
+923
+00:06:35,600 --> 00:06:40,580
+then you can see I actually get a error when I run my code. It says,
+
+924
+00:06:40,610 --> 00:06:43,070
+cannot use geometry manager pack
+
+925
+00:06:43,250 --> 00:06:45,980
+which already has slaves managed by grid.
+
+926
+00:06:46,370 --> 00:06:49,010
+So these two are incompatible with each other. 
+
+927
+00:06:49,010 --> 00:06:51,890
+You basically have to choose one or the other.
+
+928
+00:06:52,490 --> 00:06:57,050
+And often I will choose grid because it's just more flexible and more easy to
+
+929
+00:06:57,050 --> 00:07:00,980
+understand. So now here comes a challenge for you.
+
+930
+00:07:01,520 --> 00:07:06,380
+I want you to change the code that we've already written so that we end up with
+
+931
+00:07:06,380 --> 00:07:10,310
+this layout. So we've already got a label, a button and an entry.
+
+932
+00:07:10,670 --> 00:07:15,650
+I want you to add a new button and it should be positioned like this.
+
+933
+00:07:15,950 --> 00:07:19,940
+Have a think about how you might solve this challenge using the grid system that
+
+934
+00:07:19,940 --> 00:07:23,750
+you learned about just now. Pause the video and complete the challenge.
+
+935
+00:07:25,400 --> 00:07:29,510
+All right. So the first thing you notice is that the label is still at column
+
+936
+00:07:29,510 --> 00:07:33,590
+zero row zero, button is still at row one column one,
+
+937
+00:07:33,980 --> 00:07:38,690
+but this new button is now at row zero column two.
+
+938
+00:07:39,350 --> 00:07:41,060
+So let's go ahead and create it.
+
+939
+00:07:41,960 --> 00:07:46,370
+Now I'm just going to create a new button and I'm not going to worry about its
+
+940
+00:07:46,370 --> 00:07:47,720
+command or any of that.
+
+941
+00:07:48,050 --> 00:07:51,830
+I'll give it a piece of text just so that we can identify it and I'll call it
+
+942
+00:07:51,830 --> 00:07:52,700
+new button.
+
+943
+00:07:53,240 --> 00:07:57,530
+But then the most important thing is how we lay out this new button.
+
+944
+00:07:58,010 --> 00:08:02,990
+So I'm going to use the grid system and I'm going to give it a column of two
+
+945
+00:08:03,260 --> 00:08:05,990
+because it is zero, one, two,
+
+946
+00:08:06,170 --> 00:08:10,550
+the third column from the left and then row is going to be zero.
+
+947
+00:08:13,580 --> 00:08:17,090
+Now, when I run this code though, you'll notice something a little bit odd.
+
+948
+00:08:17,510 --> 00:08:21,980
+Why is the entry below the button? Because in our example,
+
+949
+00:08:22,040 --> 00:08:26,750
+the entry is actually over on the right of this new button in a new column.
+
+950
+00:08:27,500 --> 00:08:31,520
+By putting this new button in between the old button and the entry, we've
+
+951
+00:08:31,520 --> 00:08:34,940
+actually changed the positioning of that entry on the grid.
+
+952
+00:08:35,240 --> 00:08:39,350
+So we've actually had to move it along into the next column.
+
+953
+00:08:39,950 --> 00:08:41,000
+So to do that,
+
+954
+00:08:41,030 --> 00:08:46,030
+we have to change the grid of our entry instead of having column two,
+
+955
+00:08:46,520 --> 00:08:51,380
+to make it column three, just so that its on the right of this new button.
+
+956
+00:08:52,130 --> 00:08:55,890
+And now when I run it, this has the exact layout that we wanted
+
+957
+00:08:56,280 --> 00:09:01,080
+and we've now learned a little bit about how we can precisely position our
+
+958
+00:09:01,080 --> 00:09:06,080
+widgets in our program using the pack, place, and grid layout managers.
+
+959
+00:09:08,610 --> 00:09:13,610
+The very last thing I want to show you with relation to layout and design of our
+
+960
+00:09:14,730 --> 00:09:19,320
+GUI programs is how to add a little bit of padding around components.
+
+961
+00:09:19,920 --> 00:09:24,920
+The easiest way to add padding is actually to directly modify the widgets.
+
+962
+00:09:25,410 --> 00:09:26,310
+So for example,
+
+963
+00:09:26,310 --> 00:09:30,450
+if I wanted a bit of padding around all of the elements in my window,
+
+964
+00:09:30,450 --> 00:09:33,570
+so basically added around the edge of the window,
+
+965
+00:09:33,960 --> 00:09:38,960
+then I could simply say window.config and I can change the padding in the X
+
+966
+00:09:42,060 --> 00:09:45,900
+axis and the padding in the Y axis,
+
+967
+00:09:45,930 --> 00:09:48,360
+so padx and pady.
+
+968
+00:09:48,870 --> 00:09:51,990
+So now if I run this program as it is,
+
+969
+00:09:52,290 --> 00:09:57,290
+you can see that there's now more space being added around all four edges of our
+
+970
+00:09:58,320 --> 00:10:02,190
+program. Now I can make this a lot more extreme.
+
+971
+00:10:02,190 --> 00:10:07,190
+So let's say I add the padx to be 100 and the pady to be 200,
+
+972
+00:10:08,610 --> 00:10:11,340
+you can see just how much padding we've now added.
+
+973
+00:10:12,450 --> 00:10:16,170
+And this just means that you add more space around your program and it makes
+
+974
+00:10:16,170 --> 00:10:19,380
+things easier to see and looks a little bit nicer.
+
+975
+00:10:20,670 --> 00:10:25,080
+If you want to add padding around a specific widget not just the entire window,
+
+976
+00:10:25,350 --> 00:10:30,350
+then you can do the same with that widget. So we could get hold of my label and
+
+977
+00:10:30,480 --> 00:10:30,750
+again
+
+978
+00:10:30,750 --> 00:10:35,750
+using config to change the padx and the pady. So let's add, maybe I dunno,
+
+979
+00:10:36,720 --> 00:10:41,310
+50 pixels of padding in the X and in the Y.
+
+980
+00:10:43,320 --> 00:10:45,570
+Now you can see that around that label
+
+981
+00:10:45,600 --> 00:10:50,490
+there's a whole lot of space so that it pushes everything else away and actually
+
+982
+00:10:50,490 --> 00:10:53,010
+makes the entire program window a lot bigger.
+
+983
+00:10:53,640 --> 00:10:58,640
+So this is just a way for you to be able to add space around your widgets so
+
+984
+00:10:59,160 --> 00:11:00,840
+that they're not all crushed together
+
+985
+00:11:01,080 --> 00:11:03,480
+and it helps you with your layout and your design.
+
+
+986
+00:00:00,090 --> 00:00:00,780
+All right guys,
+
+987
+00:00:00,780 --> 00:00:04,980
+it's finally time to put everything you've learned so far today into practice
+
+988
+00:00:05,280 --> 00:00:08,370
+and build our miles to kilometer converter.
+
+989
+00:00:09,390 --> 00:00:12,120
+This is what the end outcome will look like.
+
+990
+00:00:12,150 --> 00:00:16,170
+This is our GUI  program where we've got a text entry,
+
+991
+00:00:16,200 --> 00:00:19,530
+we've got some labels and we've got a button.
+
+992
+00:00:19,950 --> 00:00:23,430
+So I should be able to type in some certain number of miles
+
+993
+00:00:23,760 --> 00:00:25,350
+and then when I hit calculate,
+
+994
+00:00:25,440 --> 00:00:30,030
+it should give me the equivalent number of kilometers. Now,
+
+995
+00:00:30,210 --> 00:00:32,549
+here, I've rounded it to the nearest whole number,
+
+996
+00:00:32,549 --> 00:00:36,660
+but feel free to decide however many decimal places you want.
+
+997
+00:00:37,020 --> 00:00:40,170
+But the important thing is for it to work, firstly,
+
+998
+00:00:40,500 --> 00:00:45,500
+but also for you to be able to use and put in all of these components and to
+
+999
+00:00:45,990 --> 00:00:49,770
+follow this layout. Just to break the layout down,
+
+1000
+00:00:49,800 --> 00:00:52,950
+you can see I've got a entry widget
+
+1001
+00:00:53,040 --> 00:00:56,190
+and then these are all label widgets. And finally,
+
+1002
+00:00:56,190 --> 00:01:01,110
+I've got a button widget and they're divided along a grid that looks more or
+
+1003
+00:01:01,110 --> 00:01:02,160
+less like this.
+
+1004
+00:01:02,850 --> 00:01:07,470
+Have a think about how you might create the layout and the design first
+
+1005
+00:01:07,860 --> 00:01:12,240
+and then go ahead and add the implementation and see if you can complete this
+
+1006
+00:01:12,240 --> 00:01:15,090
+project. So pause the video now and give it a go.
+
+1007
+00:01:18,810 --> 00:01:20,760
+Feel free to either create it inside
+
+1008
+00:01:20,760 --> 00:01:25,230
+your main.py by commenting everything else out or as in my case,
+
+1009
+00:01:25,260 --> 00:01:27,150
+I'm actually just going to create a new file,
+
+1010
+00:01:27,540 --> 00:01:32,540
+which I'll call the mile_to_kilo_converter.py. Inside this new file is where
+
+1011
+00:01:36,690 --> 00:01:39,690
+I'm going to create my project. And first of all,
+
+1012
+00:01:39,990 --> 00:01:44,910
+I'm going to go ahead and import everything from the tkinter module.
+
+1013
+00:01:46,410 --> 00:01:50,490
+So import *, and now I've got all of my classes.
+
+1014
+00:01:51,240 --> 00:01:55,200
+The next thing I'm going to do is to, of course, create our window.
+
+1015
+00:01:55,590 --> 00:02:00,590
+So that's going to be created from the tk class and my window is going to have a
+
+1016
+00:02:02,280 --> 00:02:03,113
+title,
+
+1017
+00:02:03,120 --> 00:02:08,120
+which I will call it miles to kilometer converter.
+
+1018
+00:02:10,350 --> 00:02:11,400
+And finally,
+
+1019
+00:02:11,430 --> 00:02:16,430
+we're going to get our window to be displayed and started off in the main loop.
+
+1020
+00:02:17,550 --> 00:02:21,690
+Right now if I run this file miles to kilo converter,
+
+1021
+00:02:21,990 --> 00:02:26,990
+you can see I've just got a blank window with the title miles to kilometer
+
+1022
+00:02:27,300 --> 00:02:29,670
+converter. Afterwards,
+
+1023
+00:02:29,670 --> 00:02:34,530
+the next thing to do is to create all of our widgets and lay it out on screen.
+
+1024
+00:02:35,010 --> 00:02:36,300
+If we look at this break down,
+
+1025
+00:02:36,300 --> 00:02:41,300
+you can see we've got one entry widget here and then four different label
+
+1026
+00:02:41,520 --> 00:02:44,880
+widgets at each of these positions and then finally
+
+1027
+00:02:44,880 --> 00:02:47,220
+I've got a calculate button down here.
+
+1028
+00:02:48,090 --> 00:02:51,840
+So I'm going to create each of these widgets and then I'm going to lay them out
+
+1029
+00:02:51,840 --> 00:02:54,420
+on screen. Firstly,
+
+1030
+00:02:54,420 --> 00:02:57,000
+I've got a miles_inputs widget
+
+1031
+00:02:57,060 --> 00:03:00,550
+which is going to be created from the entry class.
+
+1032
+00:03:01,930 --> 00:03:06,930
+And then I've got a label which is the miles label,
+
+1033
+00:03:08,530 --> 00:03:11,260
+and that's going to be created from a label class.
+
+1034
+00:03:11,890 --> 00:03:15,370
+And the label is going to contain some text.
+
+1035
+00:03:15,720 --> 00:03:20,720
+The text is just going to say Miles with a capital M, like this.
+
+1036
+00:03:22,000 --> 00:03:25,930
+Now the next one we're going to create is our is equal to label.
+
+1037
+00:03:25,960 --> 00:03:29,410
+So I'll just call it is_equal_label.
+
+1038
+00:03:30,940 --> 00:03:34,270
+And this one is going to have, again, just some texts.
+
+1039
+00:03:34,270 --> 00:03:36,520
+It's not really going to have much functionality.
+
+1040
+00:03:39,010 --> 00:03:41,290
+And then we've got our label
+
+1041
+00:03:41,290 --> 00:03:44,200
+which is actually going to be the kilometer value.
+
+1042
+00:03:44,530 --> 00:03:49,530
+So I'm going to create that as the kilometer_result_label.
+
+1043
+00:03:50,880 --> 00:03:51,713
+All right.
+
+1044
+00:03:54,330 --> 00:03:59,160
+And that's going to start off just with a big fat zero. And then finally,
+
+1045
+00:03:59,160 --> 00:04:01,320
+I've got the kilometer label.
+
+1046
+00:04:01,380 --> 00:04:02,213
+okay,
+
+1047
+00:04:05,580 --> 00:04:09,510
+ad , this is just going to say, uh, KM,
+
+1048
+00:04:09,960 --> 00:04:10,793
+right?
+
+1049
+00:04:12,120 --> 00:04:16,200
+And the final thing that I need to create is that calculate button
+
+1050
+00:04:16,260 --> 00:04:19,350
+and then we will be done with our widgets
+
+1051
+00:04:19,380 --> 00:04:20,213
+right?
+
+1052
+00:04:23,880 --> 00:04:27,390
+And this is just going to have the text of calculate.
+
+1053
+00:04:28,290 --> 00:04:30,570
+So now I've got all my widgets created.
+
+1054
+00:04:30,750 --> 00:04:34,740
+If I go and try to run this code, as it is, you'll see
+
+1055
+00:04:34,740 --> 00:04:39,060
+none of them get displayed because none of them have been laid out on the screen.
+
+1056
+00:04:39,840 --> 00:04:40,500
+At this point
+
+1057
+00:04:40,500 --> 00:04:45,500
+it's also good to mention that if you accidentally left out one of these keyword
+
+1058
+00:04:45,540 --> 00:04:46,560
+argument names,
+
+1059
+00:04:46,590 --> 00:04:51,590
+then you will actually get a error and the error will read something like this.
+
+1060
+00:04:51,870 --> 00:04:56,520
+String object has no attribute tk, which seems a little bit confusing.
+
+1061
+00:04:56,820 --> 00:05:00,780
+But basically if you see that, then just have a look,
+
+1062
+00:05:00,780 --> 00:05:05,780
+make sure that you've actually got that text = in there rather than just the
+
+1063
+00:05:05,850 --> 00:05:09,690
+actual string. That's a really common mistake that students make.
+
+1064
+00:05:10,710 --> 00:05:13,860
+So the next thing I want to do is to use my grid layout method
+
+1065
+00:05:13,890 --> 00:05:18,090
+to lay out all of these components in the correct positions.
+
+1066
+00:05:18,360 --> 00:05:22,020
+So I'm basically going to have a grid with three columns and three rows.
+
+1067
+00:05:22,080 --> 00:05:24,630
+So this will be column zero, one, two,
+
+1068
+00:05:24,960 --> 00:05:27,360
+and then this will be row zero, one two.
+
+1069
+00:05:28,470 --> 00:05:30,540
+So that should be relatively simple.
+
+1070
+00:05:30,570 --> 00:05:34,350
+And let's start with our miles_input.grid,
+
+1071
+00:05:35,100 --> 00:05:40,100
+and we're going to write a column number and a row number.
+
+1072
+00:05:41,760 --> 00:05:45,090
+Now I'm just going to copy this because I'm going to need to use it quite a few
+
+1073
+00:05:45,090 --> 00:05:45,923
+times.
+
+1074
+00:05:46,080 --> 00:05:50,820
+And then I'm going to refer to the end result and you can see our entry is here.
+
+1075
+00:05:50,820 --> 00:05:54,090
+So it's going to be on column one, row zero,
+
+1076
+00:05:55,590 --> 00:05:56,423
+right?
+
+1077
+00:05:58,250 --> 00:06:01,910
+And then let's define the miles label on the grid.
+
+1078
+00:06:03,320 --> 00:06:07,880
+And this one I think is going to be column two, row zero.
+
+1079
+00:06:10,580 --> 00:06:14,900
+And then I'm just going to go through all of these widgets and define them on
+
+1080
+00:06:14,900 --> 00:06:15,733
+the grid,
+
+1081
+00:06:20,770 --> 00:06:21,603
+right?
+
+1082
+00:06:21,850 --> 00:06:22,990
+So they're you have it.
+
+1083
+00:06:23,170 --> 00:06:27,940
+We've got all of the columns and rows that correspond to the positions of each
+
+1084
+00:06:27,940 --> 00:06:32,680
+of these widgets in our final layout. Now, if I run my code
+
+1085
+00:06:32,680 --> 00:06:36,010
+as it is, you should see this version show up.
+
+1086
+00:06:37,210 --> 00:06:39,910
+Now we've got to do some refinements.
+
+1087
+00:06:40,210 --> 00:06:45,210
+And the first thing you notice is that this entry is way too large.
+
+1088
+00:06:45,820 --> 00:06:48,490
+So let's go ahead and change it's width,
+
+1089
+00:06:48,910 --> 00:06:53,530
+and I'm going to change it to just five or seven,
+
+1090
+00:06:54,010 --> 00:06:58,420
+basically not a very wide. That way it will be a lot smaller like this.
+
+1091
+00:07:00,280 --> 00:07:03,790
+And then we're going to use the method that we learned previously to give our
+
+1092
+00:07:03,790 --> 00:07:07,570
+window a little bit of padding by changing its config
+
+1093
+00:07:07,750 --> 00:07:10,900
+to add a padx and a pady,
+
+1094
+00:07:10,960 --> 00:07:14,560
+and you can pad it however much you like. But in my case,
+
+1095
+00:07:14,590 --> 00:07:19,180
+I think 20 pixels should make it a little bit larger and a little bit easier
+
+1096
+00:07:19,180 --> 00:07:22,720
+to see. So now that we're pretty much done with the layout,
+
+1097
+00:07:23,080 --> 00:07:25,630
+let's go ahead and actually add the functionality.
+
+1098
+00:07:27,070 --> 00:07:29,080
+We're going to need some sort of function
+
+1099
+00:07:29,140 --> 00:07:33,940
+which converts miles to kilometers.
+
+1100
+00:07:34,660 --> 00:07:39,040
+The miles is going to be inputted in the miles input.
+
+1101
+00:07:39,520 --> 00:07:42,880
+We can get the miles by calling miles
+
+1102
+00:07:42,910 --> 00:07:45,160
+_input.get,
+
+1103
+00:07:46,120 --> 00:07:51,070
+and then we can convert that into km by using some sort of formula.
+
+1104
+00:07:51,820 --> 00:07:54,010
+If we search in Google for miles to km,
+
+1105
+00:07:54,040 --> 00:07:59,040
+you can see that the formula is pretty much multiplying the mile value by 1.609.
+
+1106
+00:08:02,050 --> 00:08:03,250
+That's simple enough,
+
+1107
+00:08:03,280 --> 00:08:07,930
+we'll say miles multiply by 1.609,
+
+1108
+00:08:08,620 --> 00:08:13,390
+and we get the value in kilometers. Then we have the set
+
+1109
+00:08:13,480 --> 00:08:17,920
+our kilometer_result_label to show this updated result.
+
+1110
+00:08:18,580 --> 00:08:21,190
+So we're going to get hold of the kilometer_result_label
+
+1111
+00:08:21,580 --> 00:08:26,580
+and I'm going to call config on it to change its text property
+
+1112
+00:08:27,070 --> 00:08:28,720
+to this new value
+
+1113
+00:08:28,870 --> 00:08:32,140
+which is going to be our value in kilometers.
+
+1114
+00:08:32,770 --> 00:08:35,350
+Now we have to be careful with the data types here,
+
+1115
+00:08:35,830 --> 00:08:39,340
+because when we get hold of the input from that miles input,
+
+1116
+00:08:39,370 --> 00:08:43,750
+this is still going to be a string. But we want to multiply it by a number
+
+1117
+00:08:44,020 --> 00:08:49,020
+so we have to change it to an actual number. Because people could type decimal
+
+1118
+00:08:49,180 --> 00:08:53,560
+place numbers, I'm going to change it to a floating-point number like this.
+
+1119
+00:08:54,160 --> 00:08:57,960
+Now I've got a floating-point number multiplied by a floating-point number
+
+1120
+00:08:58,290 --> 00:09:01,410
+so that's perfectly valid. Now next,
+
+1121
+00:09:01,440 --> 00:09:06,360
+when I actually want to put that number into a label I need it as a string.
+
+1122
+00:09:06,900 --> 00:09:09,570
+Instead of simply just adding this kilometer in,
+
+1123
+00:09:09,600 --> 00:09:14,600
+I'm actually going to use an f-string so that I wrap this kilometer variable
+
+1124
+00:09:15,690 --> 00:09:17,700
+inside my f-string
+
+1125
+00:09:17,760 --> 00:09:21,960
+and then I convert it into a string to put into this label.
+
+1126
+00:09:23,280 --> 00:09:23,700
+Now,
+
+1127
+00:09:23,700 --> 00:09:28,700
+all we have to do is to trigger this function miles_to_km when the user
+
+1128
+00:09:29,700 --> 00:09:31,440
+presses the calculate button.
+
+1129
+00:09:32,010 --> 00:09:36,780
+And if you remember, the way we do that is by tying it as a command.
+
+1130
+00:09:37,200 --> 00:09:39,810
+So command = miles_to_km 
+
+1131
+00:09:40,050 --> 00:09:42,930
+but without the final parentheses
+
+1132
+00:09:43,290 --> 00:09:46,860
+because we only want it to be called when it actually gets clicked.
+
+1133
+00:09:47,610 --> 00:09:50,070
+Let's check our code and see if it actually works.
+
+1134
+00:09:50,130 --> 00:09:54,510
+Let's check what 20 miles is in kilometers. So if I click calculate,
+
+1135
+00:09:54,570 --> 00:09:58,110
+you can see it gets calculated and that label there,
+
+1136
+00:09:58,230 --> 00:10:02,400
+that kilometer result label, gets changed. If you wanna leave it as this,
+
+1137
+00:10:02,400 --> 00:10:04,560
+that's perfectly fine. If you want to,
+
+1138
+00:10:04,560 --> 00:10:08,400
+you can also round this up so that it becomes a whole number
+
+1139
+00:10:09,600 --> 00:10:12,660
+and you end up with something that looks a little bit more sleek
+
+1140
+00:10:12,690 --> 00:10:14,610
+but maybe a little bit more imprecise.
+
+1141
+00:10:15,270 --> 00:10:19,470
+That's how you complete this project. Now, of course,
+
+1142
+00:10:19,470 --> 00:10:21,570
+the world really is your oyster.
+
+1143
+00:10:21,870 --> 00:10:24,960
+You've learned about way more widgets than we've used here.
+
+1144
+00:10:24,990 --> 00:10:27,870
+So you could incorporate anything else that you've seen,
+
+1145
+00:10:28,170 --> 00:10:30,870
+like maybe add a radio button or checkbox,
+
+1146
+00:10:30,930 --> 00:10:35,220
+and you can modify this to maybe not just do miles to kilos,
+
+1147
+00:10:35,520 --> 00:10:40,500
+and you can try playing around with the code and creating your own version of
+
+1148
+00:10:40,500 --> 00:10:42,840
+the program. If you create something fun,
+
+1149
+00:10:42,870 --> 00:10:47,400
+be sure to share it with us in the Q/A below the lesson so that we can all
+
+1150
+00:10:47,400 --> 00:10:50,730
+admire and congratulate you on your hard work.
+
+1151
+00:10:51,180 --> 00:10:56,180
+So I hope you've had fun building your first GUI programs using tkinter. In
+
+1152
+00:10:57,120 --> 00:11:01,010
+tomorrow's lesson, we're going to be diving deeper into tkinter and
+
+1153
+00:11:01,010 --> 00:11:03,930
+we're going to be looking at how to create some more complex,
+
+1154
+00:11:04,140 --> 00:11:08,340
+but more interesting programs as well. So for all of that and more,
+
+1155
+00:11:08,490 --> 00:11:09,090
+I'll see you there.
+
+

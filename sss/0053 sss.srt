@@ -1,0 +1,420 @@
+1
+00:00:00,330 --> 00:00:02,880
+Hey guys, welcome to day 53
+
+2
+00:00:02,940 --> 00:00:05,820
+of 100 Days of Code. Today
+
+3
+00:00:05,820 --> 00:00:08,640
+it's time for your capstone project.
+
+4
+00:00:09,030 --> 00:00:12,840
+And it's time when you review everything that we've learned over the last 10
+
+5
+00:00:12,840 --> 00:00:16,100
+days or so... everything to do with web scraping.
+
+6
+00:00:17,060 --> 00:00:21,110
+The project that we're going to be tackling is a data entry job.
+
+7
+00:00:21,320 --> 00:00:25,610
+Now there's a lot of data entry jobs out there where you're kind of just meant
+
+8
+00:00:25,610 --> 00:00:29,000
+to transfer data from one format to another.
+
+9
+00:00:29,000 --> 00:00:32,689
+So maybe you have it in a physical print copy,
+
+10
+00:00:32,689 --> 00:00:34,550
+or maybe it's on a website, maybe it's on
+
+11
+00:00:34,550 --> 00:00:37,580
+a PDF and you just have to transfer it somewhere else,
+
+12
+00:00:37,610 --> 00:00:40,130
+usually typing it into a spreadsheet.
+
+13
+00:00:40,790 --> 00:00:43,820
+The inspiration for this project came from, um,
+
+14
+00:00:43,850 --> 00:00:48,020
+when I was browsing Reddit actually on the /r/Python subreddit
+
+15
+00:00:48,050 --> 00:00:52,190
+which is a really good community for you to actually look at and see what other
+
+16
+00:00:52,190 --> 00:00:57,170
+people are doing with Python and seeing the latest and greatest things built or
+
+17
+00:00:57,200 --> 00:00:59,330
+news about Python. Now,
+
+18
+00:00:59,330 --> 00:01:03,740
+one of the posts I saw was asking whether if anyone has automated their job
+
+19
+00:01:03,770 --> 00:01:06,350
+completely, basically using Python.
+
+20
+00:01:06,830 --> 00:01:09,500
+Now we've seen how powerful Python can be
+
+21
+00:01:09,560 --> 00:01:13,940
+especially when we apply it to web scraping using Beautiful Soup and Selenium.
+
+22
+00:01:14,360 --> 00:01:16,880
+And looking through or the comments
+
+23
+00:01:17,000 --> 00:01:19,250
+there's actually a lot of people who have done this,
+
+24
+00:01:19,580 --> 00:01:24,580
+including this one guy who basically pretty much automated his entire job. And
+
+25
+00:01:27,860 --> 00:01:31,190
+the jobs that tend to be easily automated using Python
+
+26
+00:01:31,490 --> 00:01:35,600
+are data entry jobs, moving data from one format to another.
+
+27
+00:01:36,260 --> 00:01:39,650
+And if you think about it, if that job is in fact remote,
+
+28
+00:01:39,680 --> 00:01:44,390
+so if you search on indeed.com for a remote data entry job
+
+29
+00:01:44,750 --> 00:01:49,430
+and you get up and running with the company and you start doing it manually,
+
+30
+00:01:49,430 --> 00:01:53,960
+and then once you've understood what it is you have to do. For example, um,
+
+31
+00:01:53,990 --> 00:01:55,670
+gathering statistical data,
+
+32
+00:01:55,670 --> 00:01:58,280
+preparing reports and maintaining these spreadsheets.
+
+33
+00:01:58,820 --> 00:02:02,000
+If you realize that this is a large part of your job
+
+34
+00:02:02,180 --> 00:02:05,210
+and you can automate it pretty much with Python,
+
+35
+00:02:05,570 --> 00:02:08,810
+then you could probably get Python to do 70% of your job
+
+36
+00:02:08,930 --> 00:02:12,440
+and you spend the rest 30% of the day doing the rest of the job,
+
+37
+00:02:12,650 --> 00:02:16,460
+but still being paid as a full on worker with full benefits.
+
+38
+00:02:16,910 --> 00:02:20,180
+So this is something that a lot of people in the Python community has talked
+
+39
+00:02:20,180 --> 00:02:21,560
+about and explored,
+
+40
+00:02:21,980 --> 00:02:26,210
+and this is something that we're going to be trying out using both Beautiful
+
+41
+00:02:26,210 --> 00:02:30,050
+Soup and Selenium in this project. In our case,
+
+42
+00:02:30,080 --> 00:02:34,850
+we're going to be tackling a research data entry job where we're researching
+
+43
+00:02:34,940 --> 00:02:39,940
+house prices that fit a particular criteria for a client on the Zillow website.
+
+44
+00:02:41,600 --> 00:02:45,110
+And then we're going to be transferring that data into a form
+
+45
+00:02:45,290 --> 00:02:48,050
+which will create a spreadsheet in Google sheets
+
+46
+00:02:48,410 --> 00:02:52,280
+and that is usually how as a data entry person,
+
+47
+00:02:52,340 --> 00:02:55,430
+this is how we would make our money. Now,
+
+48
+00:02:55,460 --> 00:03:00,460
+because this is a capstone project, we're going to be using everything that we've learned in
+
+49
+00:03:00,760 --> 00:03:05,380
+this section. So that means Beautiful Soup as well as Selenium.
+
+50
+00:03:05,830 --> 00:03:08,860
+So you might have to revise up on some of the things you learned
+
+51
+00:03:08,920 --> 00:03:12,640
+especially the stuff on Beautiful Soup which we covered a few days ago.
+
+52
+00:03:13,000 --> 00:03:15,910
+And we're going to combine all the skills that you've done so far.
+
+53
+00:03:16,420 --> 00:03:19,870
+And this project really is going to test all of your web scraping skills that
+
+54
+00:03:19,870 --> 00:03:24,700
+you've acquired so far and see how far you can run with it. Because it's capstone
+
+55
+00:03:24,700 --> 00:03:27,040
+project there's not going to be a lot of guidance.
+
+56
+00:03:27,310 --> 00:03:30,640
+So you're going to have to persevere and try to see if you can solve your own
+
+57
+00:03:30,640 --> 00:03:33,610
+problems and see if you can get to the end outcome.
+
+58
+00:03:34,600 --> 00:03:37,570
+This is what we're aiming for. We're going to go to Zillow,
+
+59
+00:03:37,600 --> 00:03:42,600
+which is one of the largest real estate listing sites in the US, and we're going
+
+60
+00:03:42,610 --> 00:03:46,750
+to search to see if we can find a place to rent in San Francisco. Now,
+
+61
+00:03:46,780 --> 00:03:51,160
+San Francisco is notorious for really expensive housing,
+
+62
+00:03:51,490 --> 00:03:55,210
+and it was also really difficult often to actually find somewhere that you want
+
+63
+00:03:55,210 --> 00:03:55,990
+to live.
+
+64
+00:03:55,990 --> 00:04:00,990
+Let's say that you have a client who wants you to compile a list of all the
+
+65
+00:04:01,810 --> 00:04:06,810
+places that they can rent in San Francisco up to $3,000 per month
+
+66
+00:04:07,630 --> 00:04:11,530
+and it has to have at least one bedroom. On Zillow
+
+67
+00:04:11,530 --> 00:04:15,310
+you can already filter on these things. So for example, you could say
+
+68
+00:04:15,310 --> 00:04:19,180
+this is the area San Francisco California, that I want to rent.
+
+69
+00:04:19,420 --> 00:04:21,640
+And then of course changing it to for rent
+
+70
+00:04:21,640 --> 00:04:26,640
+rather than for sale switching the maximum price up to $3,000,
+
+71
+00:04:28,000 --> 00:04:32,890
+and then adding in the extra requirement that it must have at least one bedroom.
+
+72
+00:04:33,430 --> 00:04:37,900
+So once you've added all of those filters in, then all of those filters will go
+
+73
+00:04:37,900 --> 00:04:38,770
+into the URL
+
+74
+00:04:39,040 --> 00:04:43,360
+and this is the URL that you will be able to use to try and find properties that
+
+75
+00:04:43,360 --> 00:04:47,080
+match our client's criteria. Now,
+
+76
+00:04:47,140 --> 00:04:48,790
+in addition to using that URL,
+
+77
+00:04:49,030 --> 00:04:53,980
+you are also going to be using Beautiful Soup to scrape through all of this
+
+78
+00:04:53,980 --> 00:04:58,630
+data. And what we want is the price, the address,
+
+79
+00:04:59,050 --> 00:05:03,670
+and also the URL that this will link to. So, for example,
+
+80
+00:05:03,670 --> 00:05:08,260
+when I click on this, it will link it to the actual listing of the place.
+
+81
+00:05:08,770 --> 00:05:11,770
+And then once you've scraped all of that data using Beautiful Soup,
+
+82
+00:05:12,130 --> 00:05:17,130
+then you are going to be using Selenium to autofill in a Google form.
+
+83
+00:05:17,860 --> 00:05:19,960
+So we're going to be adding in the address of the property,
+
+84
+00:05:19,960 --> 00:05:22,810
+the price per month and the link to property. And of course,
+
+85
+00:05:22,810 --> 00:05:27,550
+we're going to fill out one of these forms per listing that we have on Zillow.
+
+86
+00:05:28,120 --> 00:05:30,550
+And once all of that form's been compiled,
+
+87
+00:05:30,820 --> 00:05:34,840
+then you will have the option to turn it into a spreadsheet.
+
+88
+00:05:35,590 --> 00:05:38,830
+Whenever you create a form in Google forms,
+
+89
+00:05:38,860 --> 00:05:41,170
+you can see that when you go to the responses tab,
+
+90
+00:05:41,380 --> 00:05:46,210
+you can click on this button in order to create a Google sheet from the
+
+91
+00:05:46,210 --> 00:05:47,920
+responses that have been submitted
+
+92
+00:05:48,250 --> 00:05:53,250
+and this is what you end up with: a spreadsheet with the address of the property,
+
+93
+00:05:53,410 --> 00:05:57,290
+the price per month, and a link to the property. So this way,
+
+94
+00:05:57,290 --> 00:05:58,880
+once you've done this research,
+
+95
+00:05:58,910 --> 00:06:02,270
+then you can send it to your client so that they are going to filter down on
+
+96
+00:06:02,300 --> 00:06:06,680
+each of the listings that match their criteria and decide which one they want to
+
+97
+00:06:06,680 --> 00:06:11,270
+go and make a viewing. So this of course makes their job a little bit easier,
+
+98
+00:06:11,660 --> 00:06:15,680
+and this is our research task that we're going to complete today.
+
+99
+00:06:16,460 --> 00:06:21,080
+So the first part of scraping the data for the relevant listings is going to be
+
+100
+00:06:21,080 --> 00:06:22,460
+done using Beautiful Soup,
+
+101
+00:06:22,820 --> 00:06:27,470
+and then the second part where we're going to be filling in this form is going
+
+102
+00:06:27,470 --> 00:06:31,580
+to be done using Selenium. So that is the project.
+
+103
+00:06:32,120 --> 00:06:33,440
+And once you're ready,
+
+104
+00:06:33,530 --> 00:06:37,220
+head over to the next lesson and take a look at the requirements of the
+
+105
+00:06:37,220 --> 00:06:41,150
+project and we can get started with the capstone project.
+

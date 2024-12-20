@@ -1,0 +1,1974 @@
+1
+00:00:00,030 --> 00:00:04,800
+Hey guys, welcome to Day 14 of 100 Days of Code. Today
+
+2
+00:00:04,800 --> 00:00:09,450
+you are going to spend building an exciting game called Higher or Lower.
+
+3
+00:00:10,020 --> 00:00:12,660
+And if you want to have a go at it, just go over to higher
+
+4
+00:00:12,660 --> 00:00:15,540
+lowergame.com and click on classic.
+
+5
+00:00:16,110 --> 00:00:20,910
+So the classic version of higher lower is you compare one search term,
+
+6
+00:00:20,940 --> 00:00:22,230
+The Grand Budapest hotel
+
+7
+00:00:22,230 --> 00:00:26,010
+which is a movie, against another search term AFL,
+
+8
+00:00:26,040 --> 00:00:27,690
+which is the American Football League.
+
+9
+00:00:28,260 --> 00:00:33,210
+And you have to say if the second one has higher or lower searches
+
+10
+00:00:33,480 --> 00:00:37,050
+than the Grand Budapest hotel. So I think this probably has higher.
+
+11
+00:00:37,740 --> 00:00:42,480
+And indeed I'm right. And then now it gives you a new term to compare.
+
+12
+00:00:42,990 --> 00:00:47,100
+So Six Nations Rugby versus AFL who has lower.
+
+13
+00:00:47,430 --> 00:00:50,250
+I think this probably has lower and I'm right.
+
+14
+00:00:50,610 --> 00:00:53,490
+And you keep going until you get it wrong.
+
+15
+00:00:53,670 --> 00:00:57,750
+And it's a weirdly addictive game for some reason. Okay.
+
+16
+00:00:57,750 --> 00:01:02,460
+So now I've gotten it wrong and it tells me how many I got right as my score
+
+17
+00:01:02,820 --> 00:01:07,230
+and I can play again if I wish to. Have a play around with that game
+
+18
+00:01:07,260 --> 00:01:10,740
+because the final version we have looks a lot simpler,
+
+19
+00:01:10,890 --> 00:01:13,050
+but it's still just as fun to play.
+
+20
+00:01:13,680 --> 00:01:17,520
+Instead of comparing average monthly searches on Google,
+
+21
+00:01:17,730 --> 00:01:21,300
+we're comparing who has more followers on Instagram.
+
+22
+00:01:21,750 --> 00:01:26,130
+So we're bringing this game up to date. In this case, it's comparing Neymar,
+
+23
+00:01:26,190 --> 00:01:30,210
+a footballer from Brazil against Chloe Kardashian, a reality TV
+
+24
+00:01:30,240 --> 00:01:34,530
+personality and businesswoman from the US who has more followers.
+
+25
+00:01:34,770 --> 00:01:39,300
+So I think it's 'B', I could be wrong and I'm wrong.
+
+26
+00:01:42,740 --> 00:01:43,880
+So here we're comparing
+
+27
+00:01:44,150 --> 00:01:49,070
+Rihanna a musician and businesswoman from Barbados against Shakira
+
+28
+00:01:49,100 --> 00:01:50,480
+a musician from Columbia.
+
+29
+00:01:50,810 --> 00:01:54,800
+So I'm going to guess probably Rihanna and I get it right,
+
+30
+00:01:54,800 --> 00:01:59,800
+so I get to score one point. And this game continues on and on until you get to
+
+31
+00:02:01,970 --> 00:02:05,600
+the point where you get it wrong, same as the one that you saw before.
+
+32
+00:02:06,980 --> 00:02:10,220
+And there we go. So I got three as my final score,
+
+33
+00:02:10,639 --> 00:02:12,830
+and that's the end of the game.
+
+34
+00:02:13,340 --> 00:02:18,260
+The aim of the game is to try and stay alive for as long as possible and score
+
+35
+00:02:18,290 --> 00:02:23,290
+as high as possible by thinking about who might be more popular than the other.
+
+36
+00:02:23,930 --> 00:02:25,670
+Now here comes the interesting part.
+
+37
+00:02:25,910 --> 00:02:29,690
+You are going to be coding up this game entirely by yourself.
+
+38
+00:02:30,320 --> 00:02:35,320
+You're going to apply everything you've learned so far to understand how this
+
+39
+00:02:35,510 --> 00:02:37,970
+game works by playing it quite a few times,
+
+40
+00:02:38,240 --> 00:02:42,770
+going to this URL and looking at all the specific nuances;
+
+41
+00:02:42,770 --> 00:02:45,920
+what happens if you get it wrong, what happens if you get it right,
+
+42
+00:02:46,490 --> 00:02:49,520
+and you're gonna write the code all yourself,
+
+43
+00:02:49,970 --> 00:02:54,320
+and you're probably going to need your skills of debugging to fix some problems
+
+44
+00:02:54,350 --> 00:02:55,730
+as you go along as well.
+
+45
+00:02:56,360 --> 00:03:01,270
+So the approach I want you to take is first think about the problem and then
+
+46
+00:03:01,330 --> 00:03:05,080
+break down a large problem into smaller problems.
+
+47
+00:03:05,560 --> 00:03:09,940
+This way you can tackle them one by one, and it won't be so intimidating.
+
+48
+00:03:10,480 --> 00:03:14,830
+Now, step 2 is to look at those problems and make a
+
+49
+00:03:14,830 --> 00:03:17,950
+to-do list. Given the items on the to-do list,
+
+50
+00:03:18,310 --> 00:03:22,240
+you're going to pick the one that you think is the easiest to begin.
+
+51
+00:03:22,930 --> 00:03:26,860
+Let's say that, uhm, maybe generating a random number.
+
+52
+00:03:26,890 --> 00:03:30,100
+That's pretty simple, right? Well, in this to-do list,
+
+53
+00:03:30,130 --> 00:03:33,190
+that's the first one we're going to tackle. So in this case,
+
+54
+00:03:33,190 --> 00:03:36,040
+we're building a very simple dice game, right?
+
+55
+00:03:36,160 --> 00:03:38,770
+The game that you were going to be building is a lot more complex,
+
+56
+00:03:38,770 --> 00:03:41,560
+it won't just have three to-dos. But the idea is the same.
+
+57
+00:03:41,770 --> 00:03:46,720
+Once you pick the task that you think is the easiest, generating a random number,
+
+58
+00:03:47,110 --> 00:03:48,880
+then you gotta take that problem
+
+59
+00:03:49,030 --> 00:03:52,450
+and you're going to break it down into comments in your code.
+
+60
+00:03:52,900 --> 00:03:56,740
+So just as you've seen me do it for our previous project,
+
+61
+00:03:57,010 --> 00:03:58,300
+you are going to do the same thing.
+
+62
+00:03:58,390 --> 00:04:02,320
+You're going to take that problem of generating a random number and then split
+
+63
+00:04:02,320 --> 00:04:04,660
+it into different pieces, right?
+
+64
+00:04:04,690 --> 00:04:08,440
+First, you probably have to import the random module and then you probably have
+
+65
+00:04:08,440 --> 00:04:11,260
+to use a function like randint to generate
+
+66
+00:04:11,290 --> 00:04:16,290
+a random integer. So now that you've taken a big problem and broken it apart into
+
+67
+00:04:16,870 --> 00:04:20,380
+smaller problems, taking the easier smaller problem
+
+68
+00:04:20,649 --> 00:04:23,110
+and break it down into comments in your code,
+
+69
+00:04:23,440 --> 00:04:25,690
+then you are ready to start writing some code.
+
+70
+00:04:26,500 --> 00:04:30,820
+So write code beneath the comments, run your code,
+
+71
+00:04:31,120 --> 00:04:35,110
+make sure that it does what you want it to do. And if it doesn't, then fix the code.
+
+72
+00:04:35,530 --> 00:04:37,930
+And once you've done that, then it's back to the beginning,
+
+73
+00:04:37,960 --> 00:04:41,140
+write more code under the comments, run more code,
+
+74
+00:04:41,170 --> 00:04:45,880
+fix more code until you've managed to cross out that task.
+
+75
+00:04:46,330 --> 00:04:50,140
+And then its a case of tackling the next one that you think you can attempt.
+
+76
+00:04:50,530 --> 00:04:54,700
+So this is the real skill of programmers; taking something that's immensely
+
+77
+00:04:54,700 --> 00:04:58,090
+complex and difficult, breaking it down into smaller problems,
+
+78
+00:04:58,390 --> 00:04:59,710
+breaking it down further,
+
+79
+00:04:59,740 --> 00:05:04,000
+and then tackling them from the easiest to the hardest and doing this one by
+
+80
+00:05:04,000 --> 00:05:08,170
+one. Eventually by the end, you end up with your final product.
+
+81
+00:05:08,650 --> 00:05:10,330
+This is what I want you to do.
+
+82
+00:05:10,900 --> 00:05:14,620
+So the first thing you have to do is the head over to the final version of the
+
+83
+00:05:14,620 --> 00:05:15,400
+game,
+
+84
+00:05:15,400 --> 00:05:20,400
+play it at least 10 times just so you understand exactly how it works and then
+
+85
+00:05:21,100 --> 00:05:25,960
+pull up the starting code for the day, which is the higher-lower-start,
+
+86
+00:05:26,560 --> 00:05:29,410
+and go ahead and fork your own copy of it.
+
+87
+00:05:30,280 --> 00:05:35,280
+Now you'll notice that there's three files in the starting code. One is the art
+
+88
+00:05:35,860 --> 00:05:40,860
+.py that contains the logo and the versus symbol that shows up when it asks you
+
+89
+00:05:41,950 --> 00:05:42,880
+to compare.
+
+90
+00:05:43,810 --> 00:05:48,040
+So compare A, Christiano Ronaldo versus B, Vin Diesel.
+
+91
+00:05:48,640 --> 00:05:51,640
+And these are the art that you're going to display. And finally,
+
+92
+00:05:51,910 --> 00:05:56,770
+and probably most importantly, there is a file called game data. Now game data
+
+93
+00:05:56,800 --> 00:05:59,180
+only a single variable.
+
+94
+00:05:59,600 --> 00:06:03,410
+It's a list of dictionary entries.
+
+95
+00:06:03,890 --> 00:06:08,720
+Each of these dictionaries have four keys and the keys are the same for
+
+96
+00:06:08,720 --> 00:06:12,920
+all of the entries. They've got a name, the name of the account,
+
+97
+00:06:13,190 --> 00:06:14,300
+the follower count,
+
+98
+00:06:14,300 --> 00:06:18,530
+so how many followers in millions does that account have.
+
+99
+00:06:18,710 --> 00:06:23,690
+So for example, Christiano Ronaldo has 215 million followers,
+
+100
+00:06:23,900 --> 00:06:28,490
+at least at the time when I compiled the data. And then it has a description,
+
+101
+00:06:28,580 --> 00:06:31,850
+he's a footballer or this is a social media platform,
+
+102
+00:06:32,120 --> 00:06:35,960
+she's a musician and actress. And finally the country that they're from.
+
+103
+00:06:36,230 --> 00:06:41,230
+You're going to use all of these pieces of information to construct a comparison
+
+104
+00:06:41,750 --> 00:06:44,610
+line like this, compare A: Cristiano Ronaldo
+
+105
+00:06:44,610 --> 00:06:46,850
+a football from Portugal. We have B.
+
+106
+00:06:47,360 --> 00:06:52,360
+And you're going to ask the user to guess who has more followers. And if they get
+
+107
+00:06:53,510 --> 00:06:58,280
+it right, they get to keep playing, where A now becomes the previous B,
+
+108
+00:06:58,760 --> 00:07:02,960
+so Vin Diesel who you used to be B now becomes A,
+
+109
+00:07:03,470 --> 00:07:08,470
+and then you get to compare against a new person and it keeps on going until they
+
+110
+00:07:09,710 --> 00:07:13,340
+get it wrong. That is the task ahead of you
+
+111
+00:07:13,670 --> 00:07:16,940
+and it's not going to be easy, but I think you can do it.
+
+112
+00:07:17,330 --> 00:07:21,530
+So give this project at least an hour. You'll need to write the code,
+
+113
+00:07:21,530 --> 00:07:23,840
+you will need to fix problems, you'll need to debug,
+
+114
+00:07:24,080 --> 00:07:27,560
+you will need to test it quite a few times. But by the end of it,
+
+115
+00:07:27,620 --> 00:07:30,110
+you will emerge a stronger programmer
+
+116
+00:07:30,140 --> 00:07:35,140
+I promise. So good luck and make sure you have lots of struggle and I'll see you
+
+117
+00:07:35,720 --> 00:07:36,560
+on the other side.
+
+
+118
+00:00:00,690 --> 00:00:07,080
+All right, so I really hope you've given this challenge a good go and you've spent at least an hour
+
+119
+00:00:07,080 --> 00:00:14,460
+toiling over it and struggling, and you should be wiping sweat off your brows before you come and look
+
+120
+00:00:14,460 --> 00:00:15,440
+at the solution.
+
+121
+00:00:16,110 --> 00:00:19,530
+The struggle is so important and I can't stress it enough.
+
+122
+00:00:20,130 --> 00:00:24,230
+But in this lesson, I want to run through how I would tackle this problem.
+
+123
+00:00:24,690 --> 00:00:27,430
+Now, it doesn't mean that you have to do the same thing.
+
+124
+00:00:27,450 --> 00:00:28,850
+There isn't one solution.
+
+125
+00:00:28,860 --> 00:00:32,549
+There's probably thousands of different solutions for a project like this.
+
+126
+00:00:32,700 --> 00:00:37,380
+And as long as your program runs exactly the same way, then you've succeeded.
+
+127
+00:00:37,710 --> 00:00:40,920
+It doesn't matter at this stage how you've done it necessarily.
+
+128
+00:00:41,160 --> 00:00:46,380
+As long as you manage to organize your thoughts, break down the problem and write the solution code
+
+129
+00:00:46,380 --> 00:00:49,450
+and get it to run, then you are victorious.
+
+130
+00:00:50,130 --> 00:00:57,750
+The real challenge in today's project was for you to break down a big problem into smaller, solvable
+
+131
+00:00:57,750 --> 00:00:58,180
+chunks.
+
+132
+00:00:58,500 --> 00:01:01,040
+It isn't even so much the code that matters.
+
+133
+00:01:01,500 --> 00:01:05,750
+It's this skill that you really need to develop to become a really good programmer.
+
+134
+00:01:06,420 --> 00:01:12,480
+And so far I've been breaking down the problem for you, showing you the steps that would take you to
+
+135
+00:01:12,480 --> 00:01:13,320
+the solution.
+
+136
+00:01:13,740 --> 00:01:18,120
+But now you're really wearing the big-programmer pants and you're doing it all by yourself.
+
+137
+00:01:18,900 --> 00:01:22,820
+So let's think about this problem and how we would break it down.
+
+138
+00:01:23,310 --> 00:01:25,270
+There's some easy problems here, right?
+
+139
+00:01:25,290 --> 00:01:26,960
+We need the art to display.
+
+140
+00:01:27,180 --> 00:01:30,200
+So let's add a comment for each problem we identify.
+
+141
+00:01:30,690 --> 00:01:35,480
+We've got the ASCII art showing up here and we've got the versus showing up here.
+
+142
+00:01:36,270 --> 00:01:43,260
+Now, the next one is we've got these randomly generated accounts right from the data.
+
+143
+00:01:43,260 --> 00:01:46,110
+So we've got Camila  Cabello and Emma Watson.
+
+144
+00:01:46,740 --> 00:01:49,240
+How do we get these random accounts to show up?
+
+145
+00:01:49,290 --> 00:01:50,930
+That's another problem, right?
+
+146
+00:01:51,450 --> 00:01:58,290
+So we know that we've got all of this game data here in the format of a dictionary that's nested inside
+
+147
+00:01:58,290 --> 00:01:58,800
+a list.
+
+148
+00:01:59,250 --> 00:02:04,140
+And we need to figure out a way of pulling out a random account from this list.
+
+149
+00:02:04,540 --> 00:02:06,910
+So that's another problem I've identified.
+
+150
+00:02:07,560 --> 00:02:13,470
+Now, the next thing you'll notice is that the data contains many key value pairs, the name of the
+
+151
+00:02:13,470 --> 00:02:20,490
+account, the description, etc. But when we display it, it's all nicely formatted; the name and then
+
+152
+00:02:20,490 --> 00:02:26,410
+what they do and then where they're from. We'll have to add that as probably another problem to solve.
+
+153
+00:02:26,430 --> 00:02:33,210
+How do we format the account data into a printable format?
+
+154
+00:02:33,660 --> 00:02:39,900
+OK, so let's say we solve that and we've got A and B, now we have to ask the user for a guess.
+
+155
+00:02:39,960 --> 00:02:41,510
+Guess who has more followers.
+
+156
+00:02:41,700 --> 00:02:43,730
+So that's another problem to solve.
+
+157
+00:02:44,730 --> 00:02:52,950
+And when they do type an answer, let's say we think maybe A has more followers, then it's going to
+
+158
+00:02:52,950 --> 00:02:56,960
+have to check that answer and see if it's correct or if it's wrong.
+
+159
+00:02:57,630 --> 00:02:59,640
+So that's going to be a big problem.
+
+160
+00:02:59,640 --> 00:03:05,160
+Check if user is correct, because that's going to require a couple of things,
+
+161
+00:03:05,160 --> 00:03:05,450
+right?
+
+162
+00:03:05,460 --> 00:03:11,650
+We're going to probably have to break down this problem into smaller problems if we want to solve it.
+
+163
+00:03:12,240 --> 00:03:19,230
+So, for example, we probably need to figure out the follower count of each account, and then we'll
+
+164
+00:03:19,230 --> 00:03:25,560
+probably need to use an if statement to check if user is correct.
+
+165
+00:03:26,490 --> 00:03:31,860
+Now, if we get it right or if we get it wrong, the game is always going to give us some feedback.
+
+166
+00:03:31,890 --> 00:03:35,290
+"Sorry, that's wrong" or "You're right."
+
+167
+00:03:36,390 --> 00:03:39,690
+So let's add to our problem list. Now, 
+
+168
+00:03:39,690 --> 00:03:44,430
+in addition to giving them feedback whether if they got it right or whether if they got it wrong, it
+
+169
+00:03:44,430 --> 00:03:46,590
+also has a way of tracking score,
+
+170
+00:03:46,590 --> 00:03:46,970
+right?
+
+171
+00:03:46,980 --> 00:03:50,220
+Every time they get the answer right, the score goes up by one.
+
+172
+00:03:50,880 --> 00:03:55,930
+In addition to all of that, the game repeats itself when the user gets it right.
+
+173
+00:03:56,490 --> 00:04:03,560
+So let's say in this case, I guess Dwayne Johnson, then you see how the game repeats itself, right?
+
+174
+00:04:03,570 --> 00:04:10,560
+It goes back and it takes Dwayne Johnson puts it in position A and generates a new account in position
+
+175
+00:04:10,560 --> 00:04:12,570
+B for me to go again.
+
+176
+00:04:12,960 --> 00:04:15,240
+So I get another round because I got it right.
+
+177
+00:04:16,050 --> 00:04:18,420
+So we'll need to address that in our code as well.
+
+178
+00:04:18,899 --> 00:04:23,850
+Have some sort of way of make the game repeatable.
+
+179
+00:04:25,830 --> 00:04:33,450
+And it's not just repeatable, actually, because we also have to move the previous B up to the A position
+
+180
+00:04:33,450 --> 00:04:35,640
+if they do get it right for the next round.
+
+181
+00:04:36,150 --> 00:04:40,920
+So I think Khloe Kardashian maybe has less.
+
+182
+00:04:42,320 --> 00:04:47,340
+Oh. So let's say, I guess Dwayne Johnson again in this case.
+
+183
+00:04:47,630 --> 00:04:54,110
+Now, if I get it right, Taylor Swift, who used to be at position B now gets moved to position A,
+
+184
+00:04:54,140 --> 00:04:55,310
+ready for the next round.
+
+185
+00:04:55,820 --> 00:04:58,540
+So this is another problem we have to tackle.
+
+186
+00:04:59,180 --> 00:05:06,980
+So not only does the game have to be repeatable, we also have to have some sort of way of making the
+
+187
+00:05:06,980 --> 00:05:13,580
+accounts at Position B become the next account at position A.
+
+188
+00:05:14,210 --> 00:05:21,350
+And finally, notice that in between the rounds, if I get it right or if I get it wrong, the whole
+
+189
+00:05:21,350 --> 00:05:27,560
+game actually clears the previous progress other than letting me know that I got it right and my current
+
+190
+00:05:27,560 --> 00:05:28,010
+score
+
+191
+00:05:28,520 --> 00:05:30,470
+and it displays everything afresh.
+
+192
+00:05:30,470 --> 00:05:33,690
+It doesn't clutter up the screen and I have to scroll down.
+
+193
+00:05:34,040 --> 00:05:37,100
+So that's probably the last problem we'll need to tackle.
+
+194
+00:05:37,100 --> 00:05:38,480
+So clear the screen.
+
+195
+00:05:39,810 --> 00:05:47,520
+That's it, I think for now. I've broken down this large problem, which is build this game, into a bunch
+
+196
+00:05:47,520 --> 00:05:52,950
+of smaller problems and as we code along, we're probably going to break them down even further.
+
+197
+00:05:53,640 --> 00:05:59,760
+This really was the key skill that I wanted to test you on, being able to take a big project, turn
+
+198
+00:05:59,760 --> 00:06:02,830
+it into smaller problems, and then tackle them one by one.
+
+199
+00:06:03,000 --> 00:06:07,740
+So if you manage to get this far and you've managed to identify all the problems that you need to solve,
+
+200
+00:06:07,920 --> 00:06:10,320
+you're ready should consider yourself successful.
+
+201
+00:06:10,950 --> 00:06:16,050
+Now, the next stage, we're going to try and tackle each of these one by one and be able to create
+
+202
+00:06:16,050 --> 00:06:17,370
+the final version of the game.
+
+203
+00:06:19,110 --> 00:06:24,390
+Let's get started. Now, the first thing is probably the easiest, so I'm going to start from there and
+
+204
+00:06:24,390 --> 00:06:29,580
+I'm actually going to go in the order that I've written the problems rather than picking them off from
+
+205
+00:06:29,580 --> 00:06:30,180
+the easiest.
+
+206
+00:06:30,360 --> 00:06:34,230
+I think this just makes it easier for you to understand what's going on when I'm writing the code.
+
+207
+00:06:34,620 --> 00:06:39,780
+But in your case, you can pick off the problems in whichever order you want as long as the final version
+
+208
+00:06:39,780 --> 00:06:45,930
+works as you expect it to. To display the art which is going to be the logo to begin with,
+
+209
+00:06:46,120 --> 00:06:52,730
+I'm going to have to import that art file. And I'm going to use the from art import logo.
+
+210
+00:06:53,100 --> 00:06:59,460
+This way, I don't have to write art.logo every time I want to use it. Now I can simply just write print
+
+211
+00:06:59,460 --> 00:07:00,110
+logo.
+
+212
+00:07:00,780 --> 00:07:02,820
+So that's the first one tackled.
+
+213
+00:07:03,030 --> 00:07:03,920
+That was pretty easy.
+
+214
+00:07:04,290 --> 00:07:05,940
+Some of them are going to be a lot harder than that.
+
+215
+00:07:06,720 --> 00:07:10,110
+The next one is to generate a random account from the game data.
+
+216
+00:07:10,110 --> 00:07:16,440
+And remember, the game data is here in a separate file and the data is held inside a variable called
+
+217
+00:07:16,470 --> 00:07:16,950
+data.
+
+218
+00:07:17,910 --> 00:07:26,100
+So let's go to the top and let's do the same thing. So from game_data import data. And now we can
+
+219
+00:07:26,100 --> 00:07:28,950
+use that data to generate a random account.
+
+220
+00:07:30,300 --> 00:07:36,180
+In order to generate a random item from that list, we have to use the random module,
+
+221
+00:07:36,180 --> 00:07:45,030
+so I'm going to import the random module. And I can use that random module to tap into the choice function
+
+222
+00:07:45,420 --> 00:07:48,250
+and pass in my data, which is a list.
+
+223
+00:07:48,630 --> 00:07:54,780
+So this function is going to take this list and then find a random entry in there which will give
+
+224
+00:07:54,780 --> 00:07:55,800
+me a random account.
+
+225
+00:07:56,340 --> 00:08:06,540
+Let's call this account maybe account A and set that equal to the output from this random choice function.
+
+226
+00:08:07,020 --> 00:08:13,770
+Now, I'm probably going to need more than one random account because I need to compare A against B.
+
+227
+00:08:14,550 --> 00:08:16,580
+By calling random choice on data
+
+228
+00:08:16,590 --> 00:08:20,490
+again, I make sure that I get a different random account.
+
+229
+00:08:21,510 --> 00:08:27,660
+So at this point, we've got account A and account B, which hopefully are different from each other.
+
+230
+00:08:27,990 --> 00:08:31,710
+But if you wanted to, you could in fact check and just make sure.
+
+231
+00:08:31,770 --> 00:08:38,940
+So if account A equals account B, then in this case you make sure that account B is regenerated.
+
+232
+00:08:40,860 --> 00:08:47,160
+Often, as you're coding along, tackling the problems, smaller problems arise and you start thinking
+
+233
+00:08:47,160 --> 00:08:51,210
+about what could happen and you start addressing that with code as well.
+
+234
+00:08:52,230 --> 00:08:57,900
+So I think we're now done with this second problem and we're ready to move on to the next one.
+
+235
+00:08:58,560 --> 00:09:02,370
+Let's format the account data so that we can print it out in this format.
+
+236
+00:09:02,550 --> 00:09:07,330
+So the account name and then A and then whatever it is that they do,
+
+237
+00:09:07,890 --> 00:09:09,930
+and finally from and where they're from.
+
+238
+00:09:10,950 --> 00:09:16,350
+So we know that the data of each of these accounts is basically a dictionary.
+
+239
+00:09:16,830 --> 00:09:23,340
+And we know that we access dictionaries using the key-value pair. So we could, for example, access
+
+240
+00:09:23,340 --> 00:09:24,450
+the account name
+
+241
+00:09:26,290 --> 00:09:33,580
+by tapping into the random account, let's say, account A, and then we use that square brackets and
+
+242
+00:09:33,580 --> 00:09:37,940
+then we put in the key in here, which let me just check, is the name.
+
+243
+00:09:38,470 --> 00:09:40,060
+So let's put that right here.
+
+244
+00:09:40,390 --> 00:09:47,230
+And this will go into that dictionary and pull out the value under the key name and save it to this
+
+245
+00:09:47,230 --> 00:09:47,740
+variable.
+
+246
+00:09:48,490 --> 00:09:51,820
+And we can do the same thing for the other two pieces of data we need.
+
+247
+00:09:52,480 --> 00:09:58,330
+And just make sure that you don't have any typos in your keys here, because remember, they need to
+
+248
+00:09:58,330 --> 00:10:02,560
+match these precisely in order for it to not error out.
+
+249
+00:10:04,230 --> 00:10:11,250
+Now that we've got all of these pieces of data, we can now print the final version. So we're probably
+
+250
+00:10:11,250 --> 00:10:16,380
+going to use an fstring to insert all of these pieces of information, and we'll probably start off
+
+251
+00:10:16,380 --> 00:10:27,480
+with the account_name and then a comma. We can write a and then put in the account_desc, and finally
+
+252
+00:10:27,480 --> 00:10:30,240
+put from and the account_country.
+
+253
+00:10:32,870 --> 00:10:34,110
+That's pretty much it.
+
+254
+00:10:34,670 --> 00:10:41,720
+But notice how I've done this just for account A and I actually have to do it for both Account A and
+
+255
+00:10:41,720 --> 00:10:48,050
+account B. So instead of repeating all of this code, it might be a lot easier if I actually pulled
+
+256
+00:10:48,050 --> 00:10:50,380
+this out into a separate function.
+
+257
+00:10:50,780 --> 00:10:52,180
+So let's create that here.
+
+258
+00:10:52,970 --> 00:10:54,890
+Let's create a function that does this.
+
+259
+00:10:55,640 --> 00:11:02,150
+I'm going to turn this into a docstring to explain the function, and I'm going to call the function
+
+260
+00:11:02,150 --> 00:11:06,380
+format_data and it's going to take an input which is the account.
+
+261
+00:11:07,540 --> 00:11:16,060
+And now using this account, we can make this more reusable by deleting the _a part of it.
+
+262
+00:11:19,930 --> 00:11:26,320
+And of course, we need to indent everything over so that it's actually within this function. And instead
+
+263
+00:11:26,320 --> 00:11:30,730
+of printing the final outcome, I'm going to return it as the output.
+
+264
+00:11:32,150 --> 00:11:40,550
+So now we can call that function down here and we can pass in each account in turn. For example, we
+
+265
+00:11:40,550 --> 00:11:46,640
+could say print "Compare A: " which is going to be first_account.
+
+266
+00:11:47,060 --> 00:11:52,970
+So we're going to use our fstring to insert the data that we get back from our function call.
+
+267
+00:11:53,360 --> 00:11:56,450
+And I'm going to call it within the print statement.
+
+268
+00:11:56,720 --> 00:11:59,690
+You can, of course, take it out and create a separate variable,
+
+269
+00:11:59,960 --> 00:12:02,940
+but I think this should be clear enough to see what's going on.
+
+270
+00:12:03,110 --> 00:12:09,770
+So we're going to call format_data and we're going to pass in the account A for this first line, and
+
+271
+00:12:09,770 --> 00:12:11,870
+then I'm going to do the same for B.
+
+272
+00:12:12,410 --> 00:12:17,930
+So in this case, I'm going to pass an account B and it's going to format the data and then print it
+
+273
+00:12:17,930 --> 00:12:18,150
+out.
+
+274
+00:12:18,710 --> 00:12:22,250
+So as I always say, it's a good idea to run your code frequently.
+
+275
+00:12:22,640 --> 00:12:28,010
+Probably any time you solve a problem, you should probably run it and see if it works the way you expect
+
+276
+00:12:28,010 --> 00:12:28,370
+it to.
+
+277
+00:12:28,910 --> 00:12:34,340
+So the first one, the logo gets printed. The second one, we've managed to get some random accounts
+
+278
+00:12:34,580 --> 00:12:37,890
+because every time I run it, the accounts should be different.
+
+279
+00:12:38,510 --> 00:12:46,280
+And finally, we format the account into this format with their name, their description and their country
+
+280
+00:12:46,550 --> 00:12:52,730
+all written out from the print statement using this lovely format_data function we've created.
+
+281
+00:12:54,020 --> 00:12:55,540
+We've already done really well
+
+282
+00:12:55,550 --> 00:12:58,010
+so let's keep going. Now,
+
+283
+00:12:58,010 --> 00:13:04,670
+at the moment it just says compare A, compare B. But instead, it'd be much nicer if we can put in that
+
+284
+00:13:04,670 --> 00:13:09,320
+art, the versus ASCII art in between the A and B.
+
+285
+00:13:10,610 --> 00:13:18,170
+Now you could write the line again from art import versus, but instead you could also just add a comma
+
+286
+00:13:18,170 --> 00:13:19,620
+here and write versus.
+
+287
+00:13:19,760 --> 00:13:26,120
+So now it's going to import both the logo and that versus art and we're going to put it right here.
+
+288
+00:13:26,120 --> 00:13:27,770
+So we're going to use a print statement.
+
+289
+00:13:28,160 --> 00:13:33,440
+And instead of using a string inside double quotes, we're just going to write the name of the variable
+
+290
+00:13:33,710 --> 00:13:34,940
+which is called versus.
+
+291
+00:13:35,450 --> 00:13:41,240
+And if we take a look at the final version, you can see it also says compare A against B, so we'll
+
+292
+00:13:41,240 --> 00:13:43,520
+change the second word to against.
+
+293
+00:13:44,480 --> 00:13:50,990
+And now when we run the code, it should look pretty much identical to the starting point of our final
+
+294
+00:13:50,990 --> 00:13:51,320
+game.
+
+295
+00:13:52,280 --> 00:14:00,080
+Let's tackle the next problem. We need to ask the user for a guess to see who has more followers, right?
+
+296
+00:14:00,620 --> 00:14:07,400
+So I'm actually just going to copy this string right here and I'm going to put that into an input.
+
+297
+00:14:08,910 --> 00:14:15,930
+So who has more followers, A or B, and this input is going to come back as a string and I'm going
+
+298
+00:14:15,930 --> 00:14:22,980
+to save it inside a new variable called guess. Now because it asks them for A or B, they might type
+
+299
+00:14:22,980 --> 00:14:25,670
+A like this 'a' or they might type A like this 'A.'
+
+300
+00:14:26,220 --> 00:14:29,550
+Ideally, we should make it so that it doesn't matter what they typed.
+
+301
+00:14:29,560 --> 00:14:37,520
+It'll still be valid as long as they typed an A. So we can turn this all into a lowercase format.
+
+302
+00:14:37,920 --> 00:14:43,200
+So if they typed it capital like this, it'll become lower. If they typed it lowercase then it's already
+
+303
+00:14:43,200 --> 00:14:45,180
+lower and it will be fine as well.
+
+304
+00:14:46,080 --> 00:14:48,010
+So that way it's more consistent.
+
+305
+00:14:48,930 --> 00:14:55,800
+So now our final product actually looks pretty much exactly identical, but it doesn't really have much
+
+306
+00:14:55,800 --> 00:14:57,470
+gaming functionality yet.
+
+307
+00:14:57,960 --> 00:15:04,800
+To do that, we have to move on to the next problem and check if the user got it right. In order to check
+
+308
+00:15:04,800 --> 00:15:05,640
+if they got it right,
+
+309
+00:15:05,640 --> 00:15:10,620
+the first thing we'll need is to know how many followers they each have,
+
+310
+00:15:10,620 --> 00:15:10,920
+right?
+
+311
+00:15:11,100 --> 00:15:16,350
+Each of the accounts, A and B. Let's get a a_follower_count
+
+312
+00:15:18,820 --> 00:15:25,710
+and that is going to be using the account_a and then pulling out the data under the key follower_
+
+313
+00:15:25,720 --> 00:15:31,090
+count. So I'm actually just going to copy it to make sure I definitely don't make a typo and I'm going
+
+314
+00:15:31,090 --> 00:15:38,650
+to tap into account_a and then pass in that key follower_count remember as a string because our
+
+315
+00:15:38,650 --> 00:15:39,640
+key is a string.
+
+316
+00:15:39,640 --> 00:15:42,970
+So when we use it also has to be a string inside double quotes.
+
+317
+00:15:43,570 --> 00:15:49,180
+And I'm going to do the same for the b_follower_count from account_b.
+
+318
+00:15:49,990 --> 00:15:53,200
+Now I've tackled that mini-step inside the problem.
+
+319
+00:15:53,500 --> 00:15:57,700
+The next step is use an if statement to check if the user is correct.
+
+320
+00:15:58,450 --> 00:16:04,100
+Now, again, I think this piece of functionality would be really nice if it was reusable.
+
+321
+00:16:04,540 --> 00:16:12,730
+So I'm actually going to pull out of this main sort of flow of the game and define a separate function
+
+322
+00:16:12,730 --> 00:16:13,480
+at the top.
+
+323
+00:16:14,020 --> 00:16:20,350
+And this function is going to be called check_answer and it's going to get the guess,
+
+324
+00:16:20,590 --> 00:16:22,660
+the a_followers
+
+325
+00:16:24,760 --> 00:16:27,160
+and the b_followers.
+
+326
+00:16:29,560 --> 00:16:31,840
+And I'm going to add some docstrings.
+
+327
+00:16:33,880 --> 00:16:40,240
+So the docstrings are really important, especially when your function returns something. For example,
+
+328
+00:16:40,240 --> 00:16:46,210
+in this case, it should actually say takes the account data and returns the printable format.
+
+329
+00:16:46,210 --> 00:16:50,580
+That makes it so much clearer what this function actually does,
+
+330
+00:16:50,980 --> 00:16:56,750
+what are its inputs and what are its outputs. In our check answer
+
+331
+00:16:57,010 --> 00:17:02,770
+then it's going to take the user's guess and the follower counts of A and B and then returns if they
+
+332
+00:17:02,770 --> 00:17:03,550
+got it right.
+
+333
+00:17:04,210 --> 00:17:06,220
+So how might we write this?
+
+334
+00:17:06,430 --> 00:17:09,589
+Because the logic is actually a little bit difficult.
+
+335
+00:17:10,300 --> 00:17:17,170
+We need to check which account has more followers and then we need to check if the user actually got
+
+336
+00:17:17,170 --> 00:17:17,500
+it right.
+
+337
+00:17:17,530 --> 00:17:19,510
+So it's almost a two step process.
+
+338
+00:17:20,560 --> 00:17:25,060
+And I think in these cases it's actually really worth sort of sketching it out.
+
+339
+00:17:25,540 --> 00:17:27,890
+You can use a pen and a piece of paper.
+
+340
+00:17:27,940 --> 00:17:31,360
+I'm just using Skitch right here so I can show it to you more easily.
+
+341
+00:17:32,020 --> 00:17:36,460
+So let's just construct a simple sort of two by two matrix.
+
+342
+00:17:37,750 --> 00:17:46,990
+And at the top, we've got the-- let's say the user guess is A and an alternative is they guess B.
+
+343
+00:17:48,070 --> 00:17:54,580
+Now, these are the user's guesses, but then it's going to be compared against the actual reality or
+
+344
+00:17:54,580 --> 00:18:02,380
+the answer, which is that A has more followers than B, and the alternative is that B has more followers
+
+345
+00:18:02,380 --> 00:18:10,150
+than A. If the user guessed A and A indeed has more followers than B, then they got it right.
+
+346
+00:18:10,840 --> 00:18:16,000
+And similarly, if they guess B and B did indeed have more followers than A, then they would have
+
+347
+00:18:16,000 --> 00:18:17,200
+also gotten it right.
+
+348
+00:18:18,100 --> 00:18:23,530
+But if it was the opposite case, as in they guessed A but actually B had more followers, then they would
+
+349
+00:18:23,530 --> 00:18:24,160
+be wrong.
+
+350
+00:18:24,430 --> 00:18:28,930
+And also if they guessed B and A has more followers, then they would be wrong as well.
+
+351
+00:18:29,560 --> 00:18:34,180
+Now, using this table, we can now construct our if statement.
+
+352
+00:18:35,560 --> 00:18:41,650
+There is a very, very long version of it, and there is a much shorter version of it. So the very
+
+353
+00:18:41,650 --> 00:18:50,260
+long version would check for something like if the a_followers is greater than the b_followers,
+
+354
+00:18:50,680 --> 00:18:56,860
+so A has more followers than B, and the guess is equal to A.
+
+355
+00:18:57,610 --> 00:19:04,090
+Now you can go through this kind of way and create four of these if and elif, else statements.
+
+356
+00:19:04,630 --> 00:19:07,750
+But it's very easy to get lost in some of the logic.
+
+357
+00:19:08,080 --> 00:19:13,930
+And also it means you have to type a lot of this out instead of using the else as the alternative.
+
+358
+00:19:14,530 --> 00:19:23,110
+So I think a much easier way would be to first check if A has more followers than B, and in this case
+
+359
+00:19:23,500 --> 00:19:24,850
+you can then check
+
+360
+00:19:24,850 --> 00:19:29,520
+well, if the guess is equal to A, well then that means they got it right
+
+361
+00:19:29,530 --> 00:19:30,490
+so I should return
+
+362
+00:19:30,490 --> 00:19:36,100
+true. But if this was not right, then I should return false.
+
+363
+00:19:36,830 --> 00:19:41,760
+An alternative and a much easier way of expressing this is to simply return
+
+364
+00:19:42,130 --> 00:19:51,430
+guess == a because when this is evaluated, is guess equal to a, then it's going to return
+
+365
+00:19:51,430 --> 00:19:57,620
+true. But if guess is not A, if it's B, then it's going to return false.
+
+366
+00:19:58,360 --> 00:20:00,130
+So that's a little bit mind bending,
+
+367
+00:20:00,130 --> 00:20:05,830
+but if you actually go through it enough times, especially using a debugger like Python Tutor to
+
+368
+00:20:05,830 --> 00:20:09,490
+just see how it works, then it should become pretty clear pretty quickly.
+
+369
+00:20:10,780 --> 00:20:19,510
+In my case, all I need to do to express my table of possibilities is to first check if A is greater
+
+370
+00:20:19,510 --> 00:20:27,820
+than B. Now else, namely, if the opposite was true, B was greater than A, then I'm going to return
+
+371
+00:20:27,820 --> 00:20:29,890
+if guess is equal to B.
+
+372
+00:20:30,640 --> 00:20:36,070
+So now basically the code says if A has more followers and they guessed A then return
+
+373
+00:20:36,070 --> 00:20:40,600
+true. If B has more followers and they guessed B then return true.
+
+374
+00:20:40,920 --> 00:20:43,870
+And if the opposite happens, then return false.
+
+375
+00:20:44,530 --> 00:20:49,870
+Basically, it's going to return whether if the user got the answer right.
+
+376
+00:20:51,390 --> 00:20:59,300
+Now, we can basically check that in here and we could create a new variable could is_correct
+
+377
+00:21:00,910 --> 00:21:05,390
+and set that to equal the output of our check_answer function.
+
+378
+00:21:05,980 --> 00:21:11,110
+So we're going to call it and pass in all the necessary things, the guess, the followers from A and
+
+379
+00:21:11,110 --> 00:21:17,710
+B. So guess and then the a_follower count and the b_follower count.
+
+380
+00:21:19,740 --> 00:21:26,250
+Now, once we know whether if they got it right or not, we can tackle the next step, which is give
+
+381
+00:21:26,250 --> 00:21:29,990
+user some feedback on their guesses. So we can check,
+
+382
+00:21:30,000 --> 00:21:31,980
+well, if is_correct--
+
+383
+00:21:32,430 --> 00:21:37,460
+well, in this case, we should probably print something like "You're right."
+
+384
+00:21:39,340 --> 00:21:46,270
+But if they didn't get it right, then we're going to print sorry, that's wrong.
+
+385
+00:21:47,450 --> 00:21:54,370
+Now, in addition to giving them feedback, we should probably also keep track of the score. So we can
+
+386
+00:21:54,370 --> 00:21:58,600
+start off our game with a score of zero.
+
+387
+00:21:59,140 --> 00:22:06,380
+But as they play on and if they get it correct, then the score should be incremented by one each time.
+
+388
+00:22:06,940 --> 00:22:09,250
+And in addition to printing out, "You're right,"
+
+389
+00:22:09,520 --> 00:22:12,870
+we should also give them some feedback on the current score.
+
+390
+00:22:15,010 --> 00:22:23,200
+And if sorry they got it wrong, then we should also give them the final score,
+
+391
+00:22:23,380 --> 00:22:27,640
+because at this point the game is going to end and they should know how well they did.
+
+392
+00:22:29,250 --> 00:22:33,780
+So now let's go ahead and play our game and see if it works.
+
+393
+00:22:34,530 --> 00:22:38,340
+So compare Cardi B against Kourtney Kardashian.
+
+394
+00:22:38,880 --> 00:22:46,980
+I think it's probably going to be B, and it tells me you're right and current score happens to be inside
+
+395
+00:22:46,980 --> 00:22:47,880
+curly braces.
+
+396
+00:22:48,390 --> 00:22:52,650
+So there's going to be a lot of debugging that you're going to need to do while you're writing this
+
+397
+00:22:52,650 --> 00:22:53,010
+code,
+
+398
+00:22:53,340 --> 00:22:55,710
+and you're probably going to make a lot of mistakes.
+
+399
+00:22:55,710 --> 00:22:58,260
+But everybody does them, including me.
+
+400
+00:22:59,180 --> 00:23:05,090
+If we get it right, we get the feedback, you're right and the current score. If we get it wrong,
+
+401
+00:23:05,300 --> 00:23:07,630
+then we get the answer
+
+402
+00:23:07,910 --> 00:23:09,320
+Sorry, that's wrong.
+
+403
+00:23:09,350 --> 00:23:10,810
+And the final score as well.
+
+404
+00:23:12,180 --> 00:23:13,990
+That's all working so far.
+
+405
+00:23:14,580 --> 00:23:20,940
+Now we have to figure out some sort of way of making the game repeatable. And, as you might remember,
+
+406
+00:23:20,940 --> 00:23:24,360
+that's usually going to require some sort of while loop.
+
+407
+00:23:24,930 --> 00:23:30,210
+But it's important to think about which parts of our game actually repeat themselves,
+
+408
+00:23:30,210 --> 00:23:34,170
+right? Because when we play the game, it looks like everything's kind of static.
+
+409
+00:23:34,560 --> 00:23:41,430
+But if we think about it, the score is set to zero probably can't be repeated, but the accounts
+
+410
+00:23:41,430 --> 00:23:46,110
+probably do need to be generated and they do need to be randomized again.
+
+411
+00:23:46,590 --> 00:23:53,070
+And then we need to ask the user again, compare A against B and then ask them for an input and then check
+
+412
+00:23:53,070 --> 00:23:53,690
+the answer.
+
+413
+00:23:53,910 --> 00:23:56,900
+So all the rest of this probably needs to be repeated.
+
+414
+00:23:57,270 --> 00:24:01,440
+So I would say everything from here probably should be within our while loop.
+
+415
+00:24:02,010 --> 00:24:04,860
+So what is our while loop going to check?
+
+416
+00:24:05,490 --> 00:24:14,420
+Well, maybe we could create a flag like game_should_continue and start out as true.
+
+417
+00:24:15,000 --> 00:24:20,700
+And then while that's still true, then we'll repeat all of this code below.
+
+418
+00:24:22,540 --> 00:24:28,660
+So let's indent that into the while loop. Now, at which point should this become false?
+
+419
+00:24:29,140 --> 00:24:32,940
+Well, they get to keep going as long as they get the answer right,
+
+420
+00:24:33,280 --> 00:24:36,530
+but the game ends as soon as they get it wrong.
+
+421
+00:24:37,060 --> 00:24:38,800
+This is the point where we're going to change
+
+422
+00:24:38,950 --> 00:24:42,850
+game_should_continue to false so that once it prints "Sorry,
+
+423
+00:24:42,850 --> 00:24:43,510
+that's wrong."
+
+424
+00:24:43,510 --> 00:24:45,250
+It's going to end the game.
+
+425
+00:24:46,390 --> 00:24:50,770
+Now let's try and run the game and see if we can get our loop to repeat itself.
+
+426
+00:24:51,550 --> 00:24:58,390
+I'm going to choose A, and you can see you're right, current score is one. And now it's telling me to compare
+
+427
+00:24:58,420 --> 00:25:04,420
+A which is a new random person against B, a new random person.
+
+428
+00:25:05,200 --> 00:25:12,340
+As long as I get it right, it will allow me to keep playing the game. But as soon as I get it wrong,
+
+429
+00:25:13,090 --> 00:25:18,720
+so I'm pretty sure that National Geographic sadly doesn't have as many followers as Kim Kardashian.
+
+430
+00:25:19,000 --> 00:25:21,900
+So I think this is going to get me to exit the game.
+
+431
+00:25:22,420 --> 00:25:23,370
+Sorry, that's wrong.
+
+432
+00:25:23,380 --> 00:25:28,060
+Your final score is three, and as you can see, my game has now ended.
+
+433
+00:25:28,900 --> 00:25:35,080
+But notice how in the final version of the game, the count at position B actually becomes the one at
+
+434
+00:25:35,080 --> 00:25:37,120
+position A in the next round.
+
+435
+00:25:37,510 --> 00:25:40,750
+So the game kind of continues like this.
+
+436
+00:25:41,080 --> 00:25:48,520
+And then once I guess this, Kim Kardashian is now going to become the one at position A and it keeps
+
+437
+00:25:48,520 --> 00:25:50,680
+on going as long as I got it right.
+
+438
+00:25:51,310 --> 00:25:55,780
+So we now need to code this functionality into our program.
+
+439
+00:25:56,410 --> 00:25:57,580
+At the very beginning,
+
+440
+00:25:57,580 --> 00:26:05,080
+we generate a random account A and a random account B. But instead, what we want to happen is we want
+
+441
+00:26:05,080 --> 00:26:10,670
+to make sure that the account at position B becomes the next account at position A.
+
+442
+00:26:11,050 --> 00:26:18,520
+So once this game has run its course and we're looping back to the beginning again, the account A
+
+443
+00:26:18,910 --> 00:26:26,710
+should become the previous version of account B. But this obviously will give us an error because there
+
+444
+00:26:26,710 --> 00:26:35,380
+is no previous account B. So what we could do is we could actually take this out of the loop and say
+
+445
+00:26:35,380 --> 00:26:45,400
+account B is equal to a random choice of data and account A becomes that account B. But then the actual
+
+446
+00:26:45,400 --> 00:26:50,240
+account B is going to be a new random account.
+
+447
+00:26:50,770 --> 00:26:53,640
+Let's play this through in our heads as a computer.
+
+448
+00:26:54,070 --> 00:27:00,160
+The first thing that happens when the game starts for the very first time is we generate a random account
+
+449
+00:27:00,160 --> 00:27:07,450
+B. Now that account becomes the account A and then account B becomes a new random account.
+
+450
+00:27:08,140 --> 00:27:12,400
+Now when the game loops back, it's not going to touch these parts of the code.
+
+451
+00:27:12,400 --> 00:27:14,140
+It's going to start from here.
+
+452
+00:27:14,620 --> 00:27:23,410
+So now the account A is going to be replaced by the previous account B, and this new account B is going
+
+453
+00:27:23,410 --> 00:27:25,260
+to be a new random account.
+
+454
+00:27:25,660 --> 00:27:28,580
+But what if the new random account is still the same account?
+
+455
+00:27:28,870 --> 00:27:32,740
+How can we get the code to continue checking until it has found a different account?
+
+456
+00:27:33,010 --> 00:27:37,840
+Well, we could replace the if statement with a while loop, then the code will keep checking until
+
+457
+00:27:37,840 --> 00:27:39,070
+they are no longer equal.
+
+458
+00:27:39,310 --> 00:27:45,130
+And this way, when we run our code, you can see that as long as I get the answer correct,
+
+459
+00:27:47,800 --> 00:27:55,360
+then the previous B becomes the new A and B now becomes a new random account.
+
+460
+00:27:57,620 --> 00:28:03,590
+That's pretty much all of the functionality sorted, right? But we've got a couple of things to tidy
+
+461
+00:28:03,590 --> 00:28:03,800
+up.
+
+462
+00:28:03,980 --> 00:28:10,850
+One is we need to clear the screen in between the rounds of our game so we know that we can import the
+
+463
+00:28:10,850 --> 00:28:14,870
+clear function from the replit module.
+
+464
+00:28:17,570 --> 00:28:24,350
+But here's a question, where do you call it? Because if you call it at the very beginning of the loop,
+
+465
+00:28:24,710 --> 00:28:31,810
+like here, then what's going to happen is that your logo is never going to be displayed.
+
+466
+00:28:32,300 --> 00:28:37,460
+And also, when you actually get the answer correct, like we will here,
+
+467
+00:28:39,320 --> 00:28:47,240
+the result isn't shown because the result is shown at the very end of this while loop. And once that's
+
+468
+00:28:47,240 --> 00:28:52,010
+done, it's going to loop right the way back here and it's going to clear everything in the console.
+
+469
+00:28:52,370 --> 00:28:55,350
+And that's all going to happen in a fraction of a second.
+
+470
+00:28:55,350 --> 00:28:57,060
+So the user won't actually see it.
+
+471
+00:28:57,620 --> 00:28:59,860
+So we need to move this clear function.
+
+472
+00:29:00,410 --> 00:29:08,570
+The ideal time, I think, to actually show it is just before they're about to see the outcome of their
+
+473
+00:29:08,570 --> 00:29:09,130
+action.
+
+474
+00:29:09,500 --> 00:29:11,000
+So somewhere here.
+
+475
+00:29:11,570 --> 00:29:18,020
+So now, once we've asked the user what we need to ask and we've got their answer, we clear the screen
+
+476
+00:29:18,290 --> 00:29:20,090
+and then we show them the outcome.
+
+477
+00:29:20,450 --> 00:29:21,890
+Now we get to see the logo,
+
+478
+00:29:21,890 --> 00:29:29,350
+we get to see all the versus and A and B, let's select B and we got it right.
+
+479
+00:29:29,510 --> 00:29:31,550
+So we get to see that feedback as well.
+
+480
+00:29:31,820 --> 00:29:34,910
+It clears the screen and we have a new comparison to make.
+
+481
+00:29:36,390 --> 00:29:42,240
+Now, the only thing you'll notice is that the logo disappears in each successive round.
+
+482
+00:29:42,840 --> 00:29:46,890
+It might be nice to see it even if we're going to the next round.
+
+483
+00:29:47,340 --> 00:29:54,210
+So to do that, we have to print the logo just after we clear the screen right here.
+
+484
+00:29:55,650 --> 00:30:02,370
+So now, even though we've cleared the screen, we still get to see the logo again as long as we get
+
+485
+00:30:02,370 --> 00:30:03,370
+the answer correct.
+
+486
+00:30:04,530 --> 00:30:05,920
+That's all there is to it.
+
+487
+00:30:06,060 --> 00:30:12,960
+We've now completed all of the functionality that's in the final version of the game, and it took quite
+
+488
+00:30:12,960 --> 00:30:14,160
+a bit of code at the end.
+
+489
+00:30:14,490 --> 00:30:20,400
+But as long as you broke it down into these smaller components, each of the components and each of
+
+490
+00:30:20,400 --> 00:30:23,400
+the problems are much, much easier to tackle.
+
+491
+00:30:23,640 --> 00:30:26,820
+I hope you enjoyed building this game and you have fun playing with it.
+
+492
+00:30:27,360 --> 00:30:29,250
+I hope you enjoyed building this game.
+
+493
+00:30:29,250 --> 00:30:31,110
+And I'll see you on the next lesson.
+
+
