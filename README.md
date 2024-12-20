@@ -4,6 +4,8 @@
 
 **SRT Merger** is a simple Python script designed for the sequential amalgamation of multiple `.srt` subtitle files. It automatically sorts the subtitle files based on the numeric sequence within their filenames, thereby ensuring they are merged in the correct order and the subtitle indices are appropriately updated.
 
+<img src="./img/merger.jpeg" alt="SRT Merger" width="400">
+
 ## Overview of Features
 
 - Automatically sorts subtitle files according to the numerical order in their filenames (e.g., `001`, `002`, `003`).
