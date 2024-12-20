@@ -1,5 +1,6 @@
-[English README available here](README.md)
 # srt-merger
+
+[English README available here](README.md)
 
 `SRT Merger` 是一个简单的 Python 脚本，用于按顺序合并多个 `.srt` 字幕文件。它根据文件名中的序号自动排序字幕文件，确保按正确的顺序合并并更新字幕的序号。
 
